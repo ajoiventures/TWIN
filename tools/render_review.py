@@ -18,7 +18,9 @@ async def capture():
         folder=ROOT/'data/renders'/stamp;folder.mkdir(parents=True)
         camera=os.environ.get('TWIN_REVIEW_CAMERA','MainStreetOverview')
         if not camera.replace('_','').isalnum():raise ValueError('Invalid camera name')
-        scene=ROOT/'scene/college_park_connected.usda'
+        scene_name=os.environ.get('TWIN_REVIEW_SCENE','college_park_connected.usda')
+        if Path(scene_name).name!=scene_name or not scene_name.endswith('.usda'):raise ValueError('Review scene must name one local USD layer')
+        scene=ROOT/'scene'/scene_name
         ctx=omni.usd.get_context();success,error=await ctx.open_stage_async(str(scene))
         if not success:raise RuntimeError(error)
         proposal=os.environ.get('TWIN_REVIEW_PROPOSAL','')
@@ -42,11 +44,13 @@ async def capture():
         # Kit builds differ in their callback return value. Verify the actual
         # completed PNG rather than treating a None callback as missing output.
         pixels=b''
-        for _ in range(30):
+        file_deadline=time.monotonic()+20
+        while time.monotonic()<file_deadline:
             if image.exists():
                 pixels=image.read_bytes()
                 if len(pixels)>32 and pixels[:8]==b'\x89PNG\r\n\x1a\n' and pixels[-8:-4]==b'IEND':break
             await app.next_update_async()
+            await asyncio.sleep(.1)
         if len(pixels)<32 or pixels[:8]!=b'\x89PNG\r\n\x1a\n' or pixels[-8:-4]!=b'IEND':raise RuntimeError('Render capture did not produce a complete PNG')
         if struct.unpack('>II',pixels[16:24])!=(1920,1080):raise RuntimeError('Unexpected render dimensions')
         if any(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()!=digest for relative,digest in layers.items()):raise RuntimeError('Scene source changed during capture; image is not an accepted comparison')

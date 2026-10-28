@@ -1,0 +1,23 @@
+{
+  "captured_utc": "2026-10-28T21:20:19.515498+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "camera": "/World/Cameras/OfficeFrontage",
+  "proposal_layer": null,
+  "requested_resolution": [
+    1920,
+    1080
+  ],
+  "scene": "scene\\office_frontage_review.usda",
+  "scene_sha256": "1eaa3faa90ad5091b1903ab6e84440b656c30c0103f89b47ef320b781e3d379d",
+  "layer_hashes": {
+    "scene/landmark_building_proposal.usda": "c81964557d188cb3920bebb1334ed34762532f1043f99a58e18d0456b3eea86b",
+    "scene/landmark_appearance_proposal.usda": "e4e8e38609d6de5a9981b14e4b57591fb8bb43cd64fbbb015f2e0ab006ac36f6",
+    "scene/office_frontage_review.usda": "1eaa3faa90ad5091b1903ab6e84440b656c30c0103f89b47ef320b781e3d379d",
+    "scene/office_frontage_proposal.usda": "d47af6ed0d3a476ec1ca5d62535ebabfc2cf14e2f4d3d9ebe686bf8521a29fa2"
+  },
+  "image": "data\\renders\\20261028T210528Z\\OfficeFrontage.png",
+  "image_sha256": "4f61d12a37000021613e8265f0e36dfe32259d2aed57dfa0bfe607eb2194a7d5",
+  "elapsed_seconds": 891.47,
+  "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+  "source_stage_saved": false
+}

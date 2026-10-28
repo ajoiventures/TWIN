@@ -20,7 +20,20 @@ def build():
         if row.get('action')=='hide_full' and UsdGeom.Imageable(stage.GetPrimAtPath(row['usd_path'])).ComputeVisibility()!='invisible':raise ValueError('Superseded source building is still visible')
     record={'id':evidence['project_id'],'parcel_id':evidence['official_parcel']['parcel_id'],'site_address':evidence['official_parcel']['site_address'],'usd_path':str(project.GetPath()),'quality':'historical_component_reconstruction_current_conditions_unverified','reported_project_maximum_storeys':evidence['reported_project_maximum_storeys'],'components':evidence['components'],'superseded_legacy_groups':sum(r.get('action')=='hide_full' for r in old),'partially_retained_legacy_groups':sum(r.get('action')=='retain_only_outside_property_remainder' for r in old),'raw_property_links_promoted':False,'limitations':evidence['limitations']}
     dependencies=[assembly,layer,manifest_path,ROOT/'scene/college_park.usda']
-    report={'source_snapshot':active['snapshot'],'registered_utc':now(),'dependencies':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in dependencies},'records':[record]}
+    records=[record];activation_path=ROOT/'data/heights/landmarks/activation.json'
+    if activation_path.exists():
+        packet=json.loads(activation_path.read_text());landmark_layer=ROOT/packet['layer']
+        if packet['source_snapshot']!=active['snapshot'] or landmark_layer.resolve() not in used or hashlib.sha256(landmark_layer.read_bytes()).hexdigest()!=packet['layer_sha256']:raise ValueError('Landmark activation is stale or not composed')
+        dependencies.extend([activation_path,landmark_layer])
+        for relative,digest in packet['dependencies'].items():
+            dependency=(ROOT/relative).resolve()
+            if not dependency.is_relative_to(ROOT.resolve()) or hashlib.sha256(dependency.read_bytes()).hexdigest()!=digest:raise ValueError('Landmark source dependency changed')
+            dependencies.append(dependency)
+        for site in packet['sites']:
+            prim=stage.GetPrimAtPath(site['prim_path'])
+            if not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Landmark reconstruction not visible')
+            records.append({'id':site['site_id'],'parcel_id':site['parcel_id'],'site_address':site['site_address'],'usd_path':site['prim_path'],'quality':'historical_component_reconstruction_current_conditions_unverified','components':site['components'],'main_roof_height_m':site['main_roof_height_m'],'maximum_rendered_height_m':site['maximum_rendered_height_m'],'main_roof_height_ground_reference_range_m':site['main_roof_height_ground_reference_range_m'],'superseded_legacy_groups':0,'raw_property_links_promoted':False,'limitations':packet['limitations']})
+    report={'source_snapshot':active['snapshot'],'registered_utc':now(),'dependencies':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in dependencies},'records':records}
     atomic_json(ROOT/'data/processed/reconstructions.json',report)
     print('Registered historical reconstruction:',record['id']);return report
 

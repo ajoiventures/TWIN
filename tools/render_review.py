@@ -30,6 +30,7 @@ async def capture():
             if not candidate.exists():raise ValueError('Proposal layer is missing')
             ctx.get_stage().GetSessionLayer().subLayerPaths=[str(candidate)]
         path='/World/Cameras/'+camera
+        if not ctx.get_stage().GetPrimAtPath(path) and ctx.get_stage().GetPrimAtPath('/World/'+camera):path='/World/'+camera
         if not ctx.get_stage().GetPrimAtPath(path):raise ValueError('Missing review camera: '+path)
         viewport=get_active_viewport();window=None
         if not viewport:

@@ -1,9 +1,10 @@
-"""Local, read-only snapshot API. No request handler calls an agency service."""
+"""Cached snapshot API with local ephemeral selection exchange. No agency calls per request."""
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from urllib.parse import urlparse,parse_qs
 from pathlib import Path
 import json,argparse,math,hashlib
 from property_search import search_parcels
+from selection_bridge import read_state as selection_state, publish as publish_selection, valid_origin, SelectionError, MAX_BODY
 ROOT=Path(__file__).resolve().parents[1]
 TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions'}
 class SnapshotMismatch(ValueError):pass
@@ -114,6 +115,7 @@ class Handler(BaseHTTPRequestHandler):
    if path=='/source-coverage':return self.send((ROOT/'data/processed/source_coverage.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/api/v1/health':
     _,snapshot=active_folder();return self.send({'status':'ready','snapshot':snapshot,'mode':'local-read-only-snapshots','agency_calls_per_request':0})
+   if path=='/api/v1/selection':return self.send(selection_state(ROOT))
    if path=='/api/v1/map':
     import sys
     sys.path.insert(0,str(ROOT/'.dependencies'))
@@ -143,13 +145,31 @@ class Handler(BaseHTTPRequestHandler):
    if path.startswith('/api/v1/'):
     name=path.removeprefix('/api/v1/');return self.send(page_table(name,parse_qs(url.query)))
    return self.send({'error':'Not found'},404)
+  except SelectionError as exc:return self.send({'error':str(exc)},exc.status)
   except FileNotFoundError:return self.send({'error':'Required local snapshot or derived artifact unavailable; build the requested data product'},503)
   except SnapshotMismatch as exc:return self.send({'error':str(exc)},409)
   except KeyError:return self.send({'error':'Unknown table'},404)
   except (ValueError,TypeError):return self.send({'error':'Invalid query'},400)
- def do_POST(self):self.send({'error':'Read-only API'},405)
+ def do_POST(self):
+  if urlparse(self.path).path!='/api/v1/selection':return self.send({'error':'Read-only API'},405)
+  if not valid_origin(self.headers.get('Origin'),self.headers.get('Host'),self.server.server_address[1],self.client_address[0]):return self.send({'error':'Selection requires same-origin loopback access'},403)
+  if self.headers.get('Transfer-Encoding') or self.headers.get('Content-Type','').split(';')[0].strip().lower()!='application/json':return self.send({'error':'Selection requires bounded JSON'},415)
+  try:
+   length=int(self.headers.get('Content-Length','0'))
+   if not 0<length<=MAX_BODY:return self.send({'error':'Selection body too large or missing'},413)
+   self.connection.settimeout(5)
+   raw=self.rfile.read(length)
+   if len(raw)!=length:raise ValueError('Incomplete body')
+   payload=json.loads(raw)
+   if not isinstance(payload,dict) or payload.get('sender')!='map':raise SelectionError('Browser endpoint accepts map selections only')
+   return self.send(publish_selection(payload,ROOT))
+  except SelectionError as exc:return self.send({'error':str(exc)},exc.status)
+  except FileNotFoundError:return self.send({'error':'Selection context is unavailable'},503)
+  except (ValueError,TypeError,TimeoutError):return self.send({'error':'Invalid selection JSON'},400)
  def do_PUT(self):self.send({'error':'Read-only API'},405)
  def do_DELETE(self):self.send({'error':'Read-only API'},405)
  def log_message(self,*args):pass
 if __name__=='__main__':
+ try:selection_state(ROOT,reset=True)
+ except (OSError,ValueError) as exc:print('Selection bridge pending local snapshot:',str(exc),flush=True)
  p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8768);a=p.parse_args();print('TWIN snapshot API: http://127.0.0.1:'+str(a.port),flush=True);ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever()

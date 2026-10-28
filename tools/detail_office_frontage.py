@@ -15,6 +15,10 @@ def build(root=ROOT):
     if sha(source_path)!=manifest['layer_sha256']:raise ValueError('Source proposal hash changed')
     office=next(s for s in manifest['sites'] if s['site_id']=='andersen_office_1615')
     source=Usd.Stage.Open(str(source_path));stage=Usd.Stage.CreateInMemory()
+    architecture=root/'scene/office_architectural_roof_proposal.usda'
+    if architecture.exists():
+        if Sdf.Layer.FindOrOpen(str(architecture)).customLayerData.get('geometryProposalSha256')!=manifest['layer_sha256']:raise ValueError('Stale architectural roof')
+        source=Usd.Stage.CreateInMemory();source.GetRootLayer().subLayerPaths=[str(architecture),str(source_path)]
     UsdGeom.SetStageUpAxis(stage,'Z');UsdGeom.SetStageMetersPerUnit(stage,1)
     world=UsdGeom.Xform.Define(stage,'/World');stage.SetDefaultPrim(world.GetPrim())
     base='/World/OfficeFrontageProposal'
@@ -100,6 +104,7 @@ def build(root=ROOT):
         'purpose':'Inactive public-front architectural proposal; photo-interpreted approximate dimensions and placement.',
         'photoDate':'Unknown; broker brochure exterior pages3/9 front, page4 rear used for contextual material review only.',
         'sourceSnapshot':manifest['source_snapshot'],'geometryProposalSha256':manifest['layer_sha256'],
+        'architecturalRoofSha256':sha(architecture) if architecture.exists() else '',
         'photoHashesJson':json.dumps(photos,sort_keys=True),
         'sourcePrim':office['components'][0]['prim_path'],
         'limitations':'No measured facade dimensions; window count/spacing/entrance alignment interpreted. No speculative rear details. Roof dormers/chimneys remain source roof proposal responsibility. No textures/logos/source pixels.',

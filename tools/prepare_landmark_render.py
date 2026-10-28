@@ -6,17 +6,20 @@ from pxr import Gf,Sdf,Usd,UsdGeom,UsdLux,UsdShade
 
 def build(root=ROOT):
     folder=root/'scene';layers=['office_frontage_proposal.usda','landmark_appearance_proposal.usda']
+    if (folder/'office_brick_material_proposal.usda').exists():layers.insert(0,'office_brick_material_proposal.usda')
     manifest=json.loads((root/'data/heights/landmarks/proposal_manifest.json').read_text())
     if hashlib.sha256((folder/'landmark_building_proposal.usda').read_bytes()).hexdigest()!=manifest['layer_sha256']:raise ValueError('Landmark geometry changed')
     extra=folder/'office_architectural_roof_proposal.usda'
-    if extra.exists():layers.insert(1,extra.name)
+    if extra.exists():layers.insert(layers.index('landmark_appearance_proposal.usda'),extra.name)
     for name in layers:
         if not (folder/name).exists():raise ValueError('Missing proposal '+name)
         evidence=Sdf.Layer.FindOrOpen(str(folder/name)).customLayerData
         if evidence.get('geometryProposalSha256')!=manifest['layer_sha256']:raise ValueError('Rebuild stale derived proposal '+name)
+        if name=='office_frontage_proposal.usda' and extra.exists() and evidence.get('architecturalRoofSha256')!=hashlib.sha256(extra.read_bytes()).hexdigest():raise ValueError('Rebuild frontage against architectural roof')
     stage=Usd.Stage.CreateInMemory();UsdGeom.SetStageUpAxis(stage,'Z');UsdGeom.SetStageMetersPerUnit(stage,1)
     stage.GetRootLayer().subLayerPaths=[str(folder/name) for name in layers]
     UsdGeom.Xform.Define(stage,'/World')
+    UsdGeom.Imageable(stage.OverridePrim('/World/Landmarks/CollegeParkPostOffice')).CreateVisibilityAttr('invisible')
     ground=UsdGeom.Cube.Define(stage,'/World/ReviewGround');ground.CreateSizeAttr(1)
     ground.AddTranslateOp().Set(Gf.Vec3d(-18,-624,-.11));ground.AddScaleOp().Set(Gf.Vec3f(180,180,.2))
     mat=UsdShade.Material.Define(stage,'/World/ReviewMaterial');shader=UsdShade.Shader.Define(stage,'/World/ReviewMaterial/Surface')

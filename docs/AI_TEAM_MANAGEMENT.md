@@ -28,6 +28,51 @@ PM reports progress; Director judges delivery readiness. Independent QA supplies
 
 ## Ticket ownership
 
+## Full-project delivery team — current operating model
+
+The owner requested coverage of the full project and faster execution through efficiency. This section supersedes the initial pilot staffing/dispatch notes below. Scope remains all College Park Main Street in detail, the wider neighborhood context, accurate buildings/roads/sidewalks/parking/parks, professional visuals, planning scenarios and validated live operations. Management positions are separate levels; the number of role names does not create extra concurrent workers.
+
+| Workstream / lead responsibility | Full-project deliverables | Existing tickets |
+|---|---|---|
+| GIS / property data lead | Authoritative sources, parcel/building identity, complete corridor inventory, safe API/schema previews, source dates and exception queues | #2–5, #12, #19, #20, #22 |
+| Planning / land analyst | Exact zoning/overlays/FLU/PD conditions, government ownership, vacancy and development constraints; distinguish entitlement from actual use | #3–5, #14, #21, #22, #25 |
+| Civil / transportation lead | Road edges/intersections, continuous sidewalks and ramps, crossings, parking/access/loading, transit and signed engineering evidence | #15–17, #21, #25 |
+| Architectural reconstruction lead | Missing commercial/civic/religious/multifamily buildings, roofs/wings/upper floors, recognizable façades and current/historical/construction distinctions | #3, #6, #8, #17, #20, #32 |
+| Environment / rendering lead | Tree-lined street views, realistic varied trees/cars, parks, physical-scale materials, lighting, cameras and actual render quality | #8–10, #17, #18 |
+| Terrain / environmental GIS lead | DEM/datum/anchoring, water, land cover and effective flood context with correct limitations | #6, #23, #24 |
+| Commercial reference analyst | Verified property/suite/business/listing relationships, dated broker/operator evidence, storefront reference and approved BOOMS linkage | #7, #8, #32 |
+| Simulation / mobility analyst | Existing/proposed comparisons, reproducible runs, parking/access/shade metrics and calibrated mobility when observations support it | #15, #21, #28 |
+| NVIDIA / platform engineer | Reproducible OpenUSD composition, semantic assets, grounded query/replay, suitable NuRec/VSS trials, authorized operations and measured orchestration needs | #1, #12, #26–30 |
+| Independent QA / release reviewer | Source/geometry exceptions, same-view rendered comparison, source freshness, fresh launch, conference performance and acceptance evidence | #11, #13; reviews all workstreams |
+
+Domain leads are accountable for their technical evidence; independent QA tests it. PM coordinates the integrated backlog; Director owns cross-stream decisions and delivery acceptance; VP reviews strategic value/resource issues at milestones. External spending, publication and other reserved decisions remain with the human owner.
+
+### Four-slot execution pattern
+
+1. **Integrator:** primary agent integrates source/scene/API changes, runs affected checks and maintains the concrete result. It performs bounded Director decisions when needed; that does not constitute independent QA of its own implementation.
+2. **Builder A:** one bounded architectural/geometry or data package, with an explicit file boundary and deliverable.
+3. **Builder B:** one independent civil/sidewalk/parking, asset, source or platform package selected from the ready queue. It must not write Builder A's files or trigger duplicate source acquisition.
+4. **Independent reviewer:** review the actual current artifact and targeted evidence; identify blocking defects early and review the final changed version. QA is a function distinct from the VP role, even if a legacy agent task name mentions VP.
+
+These are capacity slots, not permanently staffed people. Select the needed specialist capability for each batch. PM/Director/VP decisions are lightweight responsibilities exercised at defined points, not three mandatory always-running management agents or approval steps on every reversible change.
+
+### Efficiency rules
+
+- One canonical GitHub backlog (#14 coordinates), one documentation index, one versioned source/identity registry and shared cached evidence. Update an existing ticket/package instead of creating a duplicate plan or repeating discovery.
+- Ready work names the exact output, dependencies, files, reviewer and acceptance evidence. Begin implementation when enough evidence exists; keep unknowns visible rather than waiting for every source or every ticket to close.
+- Limit work in progress to the two builders. Parallelize independent tasks; keep composition, source activation and shared-file edits under the integrator. Do not run simultaneous scene mutations during a captured comparison.
+- Work by coherent block or feature package, then reuse accepted geometry/material/reference methods along the full corridor. A pilot proves a method; it never reduces the final scope.
+- Reuse original data/receipts and perform incremental rebuilds. Fetch new source bytes only for a demonstrated gap or freshness need. A material/camera change must not rebuild the district or reacquire parcels.
+- Run targeted checks as work changes; run the required broader integration/release checks at the appropriate gate. Repeat a render/test only for a changed input, failure, new finding or unverified deliverable. Tests passing never replace visual review.
+- PM updates status at batch boundaries and escalates only concrete conflicts. Director resolves integration/quality conflicts; VP handles milestone scope/value/resource issues. Routine reversible implementation continues within authorized scope.
+- Prefer a small finished, independently reviewed result over more planning documents. Planning additions requested by the owner remain tracked, but must feed a ready implementation queue.
+- Track actual cycle time, review turnaround, reopened defects, repeated downloads/rebuilds and accepted corridor coverage. Use observed throughput for estimates; no invented deadlines, utilization claims or speed guarantees.
+- Done requires the ticket's full acceptance evidence. Source packets, provisional reconstructions and accepted final visuals are different states. Faster delivery must preserve accuracy, independent review, source rights and rollback.
+
+### Current priority sequence
+
+Finish the post-office/1615 historical geometry revision and actual visual comparison; progress an independent accepted sidewalk/rear-hardscape or façade-reference package alongside it; integrate only after identified defects are resolved. Then repeat accepted work against the 35 commercial link exceptions/17 absent-footprint review records and the full block ledger. Terrain, park/public-land, planning and operations work retain their original requirements, with independent ready tasks scheduled around the geometry/visual critical path. Do not consume the active builders with optional stack deployment while visible core-scene defects are unresolved.
+
 | Issue | Responsible AI role | Accountable role | Reviewer | Required capabilities | Skill playbooks |
 |---|---|---|---|---|---|
 | [#1](https://github.com/ajoiventures/TWIN/issues/1) | Platform Engineer | Delivery Director | QA Engineer | portable setup, USD composition, dependency management | engineering:architecture; engineering:testing-strategy |
@@ -68,7 +113,7 @@ Skill names identify available playbooks to read when applicable, not skills alr
 - Escalation: routine reversible work proceeds. Human decisions are needed for spending, external outreach, publication of held data, irreversible actions, and material scope/budget/deadline commitments.
 - Use GitHub issue numbers as canonical IDs because legacy TWIN IDs differ.
 
-## First ready batch
+## Historical initial ready batch
 
 1. #19: Source Research Analyst produces catalog, actual coverage/access tests and acquisition-deduplication decisions. This discovery task need not wait for all of #3/#4 to close.
 2. #3: GIS Data Engineer audits parcel/building exceptions, floor conflicts, multi-building parcels, stable links and timestamp provenance; GIS Analyst reviews the evidence.
@@ -76,13 +121,13 @@ Skill names identify available playbooks to read when applicable, not skills alr
 
 Dispatch only within capacity; the three reviews in this management pass do not mean those implementation tasks have started. Freeze pilot endpoints/reference date under #5/#17 before property-by-property #20 review. Start bounded #6 source/unit assessment at P0, then terrain expansion after accepted geographic/vertical evidence. Finish #17 geometry before #18 placement sign-off.
 
-## First delivery
+## Historical initial delivery proposal
 
 One named continuous Edgewater block with dated parcel/building references, traceable heights, a bounded terrain tile, confidence visible in the inspector, a sidewalk/parking gap map, and fixed-camera/performance evidence. Missing widths and slopes stay unknown; source discovery alone does not establish surveyed accuracy.
 
 Defer #21 future design and #23/#24 optional overlays until existing conditions are accepted. Limit #22/#25 to pilot-critical sources. Existing features, historical measurements, estimates and proposed geometry remain distinct.
 
-## Initial review findings
+## Historical initial review findings
 
 - Current work is connected locally and partially implemented, not accepted complete. Ninety historical LiDAR heights and 3,000 estimates do not establish district-wide measured heights; ground is still flat.
 - Review 196 spatial-only and 37 ambiguous/unmatched building groups before applying parcel-level assumptions. Multi-building parcels require one-to-many reasoning.

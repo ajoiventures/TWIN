@@ -64,4 +64,6 @@ This sequence prioritizes the showcase without cancelling the wider ticket plan:
 
 ## Management and reporting
 
+Use the [full-project team and four-slot execution model](AI_TEAM_MANAGEMENT.md#full-project-delivery-team--current-operating-model): primary integrator, two independent builders and one independent reviewer. PM/Director/VP remain separate authority levels with decisions at batch/milestone boundaries, not mandatory per-change handoffs. Shared evidence, incremental rebuilds, exclusive file ownership and one backlog reduce duplicate effort. Track accepted coverage and observed cycle/rework time; preserve all original accuracy, visual and release gates.
+
 PM records each package's owner, readiness/dependency, current artifact, open findings and next action. Delivery Director resolves sequencing/integration; technical leads accept domain evidence; independent QA reviews actual results; VP/Sponsor handles major scope/resource recommendations. Human owner retains presentation/publication/spending decisions. Update the living index, ticket evidence and execution checkpoint at each batch boundary. Report implemented, integrated, visually reviewed and accepted as separate states. No unattended monitoring or perpetual agent staffing is claimed.

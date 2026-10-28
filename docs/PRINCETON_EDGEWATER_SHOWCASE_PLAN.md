@@ -1,5 +1,11 @@
 # Princeton–Edgewater showcase delivery plan
 
+## Project scope clarification
+
+The project is the **College Park digital twin**, with **all of College Park Main Street / the Edgewater Drive corridor** as the primary detailed area and the wider College Park neighborhood as context. **Princeton–Edgewater is one component and priority work area within that project.** It is not a replacement for the full project, and completing its showcase cannot complete the overall goal.
+
+All district-wide building, multifamily, street/sidewalk, landscape, lighting, source/API, scenario and release requirements remain in scope. A phased showcase is a way to validate a repeatable method; PM must retain corridor-wide work and coverage/acceptance tracking, including the parts not visible from Princeton–Edgewater.
+
 Created October 28, 2026. Parent roadmap: [#14](https://github.com/ajoiventures/TWIN/issues/14). Goal: finish a recognizable, evidence-backed Princeton–Edgewater scene that withstands close visual review and runs smoothly for a conference presentation, then expand the accepted approach along College Park Main Street.
 
 The [consolidated execution overview](DELIVERY_PLAN.md) records the current reuse audit, critical path and efficiency rules. This document remains the detailed WQ acceptance breakdown; it does not compete with or replace the full ticket scope.

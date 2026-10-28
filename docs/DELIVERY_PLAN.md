@@ -1,5 +1,11 @@
 # Consolidated delivery plan: accuracy, realism and efficient reuse
 
+## Project scope clarification
+
+The project is the **College Park digital twin**, with **all of College Park Main Street / the Edgewater Drive corridor** as the primary detailed area and the wider College Park neighborhood as context. **Princeton–Edgewater is one component and priority work area within that project.** It is not a replacement for the full project, and completing its showcase cannot complete the overall goal.
+
+All district-wide building, multifamily, street/sidewalk, landscape, lighting, source/API, scenario and release requirements remain in scope. A phased showcase is a way to validate a repeatable method; PM must retain corridor-wide work and coverage/acceptance tracking, including the parts not visible from Princeton–Edgewater.
+
 Reviewed October 28, 2026 against the working tree, active snapshot `20261028T160543372334Z`, composed layer list and local source/validation reports. Parent ticket: [#14](https://github.com/ajoiventures/TWIN/issues/14). This is the execution overview; [the detailed showcase packages](PRINCETON_EDGEWATER_SHOWCASE_PLAN.md) retain their acceptance requirements. Full original project scope remains in [TICKET_PLAN.md](../TICKET_PLAN.md).
 
 ## Outcome and production rule

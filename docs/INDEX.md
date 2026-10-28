@@ -1,6 +1,6 @@
 # Living project documentation
 
-Last reviewed: October 28, 2026. Focus: College Park Main Street, beginning with the Princeton–Edgewater showcase. This is the starting index; older checkpoints remain historical evidence and do not establish current completion.
+Last reviewed: October 28, 2026. Project scope: the full College Park digital twin, with all College Park Main Street as the detailed focus and neighborhood context. Princeton–Edgewater is one priority component. This is the starting index; older checkpoints remain historical evidence and do not establish current completion.
 
 | Document | Purpose |
 |---|---|

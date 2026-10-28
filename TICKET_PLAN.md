@@ -1,5 +1,11 @@
 # College Park digital twin — ticket plan
 
+## Project scope clarification
+
+The project is the **College Park digital twin**, with **all of College Park Main Street / the Edgewater Drive corridor** as the primary detailed area and the wider College Park neighborhood as context. **Princeton–Edgewater is one component and priority work area within that project.** It is not a replacement for the full project, and completing its showcase cannot complete the overall goal.
+
+All district-wide building, multifamily, street/sidewalk, landscape, lighting, source/API, scenario and release requirements remain in scope. A phased showcase is a way to validate a repeatable method; PM must retain corridor-wide work and coverage/acceptance tracking, including the parts not visible from Princeton–Edgewater.
+
 Created October 27, 2026 (America/New_York).
 
 Build an accurate, navigable digital twin of College Park, Orlando, beginning with Edgewater Drive. The current prototype has public footprint/street geometry and illustrative storefront, tree and vehicle detail. This roadmap replaces assumptions with traceable evidence and upgrades the visual assets.

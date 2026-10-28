@@ -298,3 +298,9 @@ No package is complete merely because this breakdown exists. Owners, dependencie
 ## Living documentation and source recency
 
 Use [docs/INDEX.md](docs/INDEX.md) as the starting point. Prefer the newest applicable official adopted/approved revision; track observation, document/revision, effective and retrieval/build dates separately. Preserve older sources as history and keep future designs separate from existing conditions. Update affected registers, tickets, provenance and checks after each implementation batch. MetroPlan FY27–31 amended September 9, 2026 now takes priority over the 2025 TIP for current program context; it is not an as-built geometry source.
+
+## Consolidated execution and reuse review
+
+Use [docs/DELIVERY_PLAN.md](docs/DELIVERY_PLAN.md) as the current execution overview, with the existing showcase work packages as its detailed subtasks. It audits reusable GIS, geometry, assets and tools; distinguishes integrated work from pending prototypes; defines the critical path and avoids duplicate tickets or unnecessary full rebuilds.
+
+Required outcomes remain: correct physical scene → recognizable façades/roofs → consistent materials/assets → finished lighting/cameras → actual rendered comparison and conference playback. Finish and judge Princeton–Edgewater before replicating the standard along Main Street. Wider original scope remains tracked; no completion or visual-readiness claim is made by this planning update.

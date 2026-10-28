@@ -2,6 +2,8 @@
 
 Created October 28, 2026. Parent roadmap: [#14](https://github.com/ajoiventures/TWIN/issues/14). Goal: finish a recognizable, evidence-backed Princeton–Edgewater scene that withstands close visual review and runs smoothly for a conference presentation, then expand the accepted approach along College Park Main Street.
 
+The [consolidated execution overview](DELIVERY_PLAN.md) records the current reuse audit, critical path and efficiency rules. This document remains the detailed WQ acceptance breakdown; it does not compete with or replace the full ticket scope.
+
 ## Starting condition and scope
 
 The current scene is a GIS prototype with illustrative details. Buildings include simplified masses, missing redevelopment forms and generic façades/roofs. Streets use approximate widths and sidewalks with incomplete intersection detail. Vegetation, parking and ground detail remain illustrative. Lighting and the tilt-shift camera have not passed a final rendered review. Source connections, authored settings and passing automated checks do not prove visual readiness.

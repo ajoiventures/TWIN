@@ -100,6 +100,7 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/aerial-alignment':return self.send((ROOT/'data/imagery/aerial_alignment_review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/road-review':return self.send((ROOT/'data/transport/road_reference_gallery.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path.startswith('/road-reference/'):
     files={'aerial2025':ROOT/'data/imagery/OCPA_Aerials2025_edgewater-princeton-smith-south-v1.jpg'}

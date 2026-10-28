@@ -4,9 +4,27 @@ October 28, 2026. Supersedes the delivery ambition of the source-only plan; pres
 
 ## Product outcome
 
-Deliver an evidence-backed Edgewater planning workbench: inspect current conditions, compare a proposed design, run repeatable mobility scenarios, and ask questions with source-linked answers. Prove it on one named continuous block, then extend corridor by corridor. The platform should help decide where sidewalk, parking, tree and access changes are feasible and identify what still requires measurement.
+Deliver an evidence-backed College Park platform for **both planning and live operations**, as confirmed by the project owner October 28, 2026. Cover the full College Park Main Street corridor, with Princeton–Edgewater as one priority showcase within that scope. Planning compares dated designs and repeatable mobility scenarios; operations connects authorized observations to the same mapped assets and supports reviewed alerts, search and replay. Both expose evidence, uncertainty and missing measurements.
 
-Current foundation: local snapshot API/map, OCPA/City links, 3,090 building groups, 90 historical LiDAR heights, 3,000 estimates, flat terrain and illustrative streetscape placement. These are partial capabilities, not a calibrated operational twin.
+Current foundation: local snapshot API/map, OCPA/City links and snapshot `20261028T160543372334Z` with 3,216 building groups, 3,916 parcel features and full official Main Street ground coverage. Historical LiDAR corrections, reviewed reconstruction layers, dated road references and material quality tiers extend that foundation. Terrain remains flat and streetscape placement remains partly illustrative. Counts and corrections are version-specific; these are partial capabilities, not a calibrated operational twin.
+
+## Confirmed dual-purpose delivery contract
+
+One canonical asset/evidence registry feeds two separately accepted products. A proposed design must never overwrite existing conditions; a simulated event must never appear as a live observation.
+
+| Work package / existing tickets | Accountable AI role | Concrete deliverable and acceptance |
+|---|---|---|
+| Shared city foundation — #3–6, #15–18, #26 | GIS lead and scene engineer; Director reviews | Stable parcel/building/road IDs, dated references, CRS/datum, quality labels and scene/API agreement. Finish roof, road and sidewalk discrepancies before claiming accurate scenario results. |
+| Planning — #21, #28 | Simulation analyst; PM coordinates | Baseline/proposed switch, explicit design changes, repeatable run IDs and seeds, comparable metrics and source-linked answers. Mobility claims require held-out count/travel-time validation. |
+| Operations contract and recorded replay — #28, #29 | Vision/platform engineer; independent analyst evaluates | One authorized recorded use case with camera-to-map calibration, event/ingestion timestamps, confidence, evidence clip IDs, duplicate/late-event handling and stale-feed indicators. Measure false alerts/hour, precision/recall and latency before live rollout. |
+| Bounded live operations pilot — #29, #13 | Platform engineer; Director accepts, VP reviews value | One authorized feed and defined area; verified host/profile, access controls, health/restart checks, retention, operator review and rollback. Set workload-specific latency and accuracy thresholds before testing. Alerts remain advisory; no automatic physical control is in scope. |
+| Optional reconstruction/generation — #27, #30 | Reconstruction/AI evaluation engineer | NuRec requires suitable authorized overlapping captures. Cosmos outputs stay synthetic and are judged on held-out real observations. Adopt OSMO only when measured job scale warrants it. |
+
+Reuse existing GIS acquisition, local API, semantic USD layers and ticket evidence. Do not start a second model or duplicate source ingestion for operations. The PM maintains dependencies and acceptance evidence; the Director owns integration/quality; the VP agent reviews scope and demonstrated benefit. Role assignment does not imply continuous background execution.
+
+Implementation order: shared visual/data foundation → planning comparisons plus recorded observation replay → calibrated analytics → bounded live feed → measured expansion. Planning and recorded-replay contracts can progress together once shared identities are stable. Missing camera access does not block roof/road/model work.
+
+NVIDIA documentation rechecked October 28, 2026: [VSS 3.3 introduction](https://docs.nvidia.com/vss/) describes modular real-time vision, downstream analytics and agent/offline processing. Select only the services needed by the pilot; pin their matched versions and deployment profile. The [June 2025 announcement](https://blogs.nvidia.com/blog/smart-city-ai-blueprint-europe/) supplies the create/test/deploy concept, while current product documentation governs implementation. Full-stack laptop compatibility remains unproven; see [runtime assessment](NVIDIA_RUNTIME_FEASIBILITY.md).
 
 ## Blueprint interpretation and technology decisions
 

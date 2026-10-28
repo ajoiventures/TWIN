@@ -61,6 +61,7 @@ async def open_workspace():
             if ctx.get_stage().GetPrimAtPath('/World/Cameras/MainStreetOverview'):ui.Button('College Park Main Street',height=34,clicked_fn=lambda:view('MainStreetOverview'))
             if ctx.get_stage().GetPrimAtPath('/World/Cameras/WellesleyReview'):ui.Button('Wellesley — seven-story evidence',height=34,clicked_fn=lambda:view('WellesleyReview'))
             if ctx.get_stage().GetPrimAtPath('/World/Cameras/WellesleyEvidence'):ui.Button('Wellesley — seven-story evidence',height=34,clicked_fn=lambda:view('WellesleyEvidence'))
+            if ctx.get_stage().GetPrimAtPath('/World/Cameras/PrincetonEvidence'):ui.Button('Princeton — historical roof components',height=34,clicked_fn=lambda:view('PrincetonEvidence'))
             ui.Button('District overview',height=34,clicked_fn=lambda:view('DistrictOverview'))
             ui.Button('Edgewater corridor',height=34,clicked_fn=lambda:view('EdgewaterCorridor'))
             ui.Button('Close aerial view',height=34,clicked_fn=lambda:view('StreetScale'))
@@ -110,7 +111,7 @@ async def open_workspace():
     print('COLLEGE_PARK_WORKSPACE_READY',counts)
     # Generated layers may be rebuilt outside Kit. Refresh clean generated
     # layers only; never reload the user's manual edit layer.
-    watched=['main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','map_extent_guard.usda','college_park_connected.usda']
+    watched=['road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
     stamps={name:(ROOT/'scene'/name).stat().st_mtime_ns for name in watched if (ROOT/'scene'/name).exists()}
     async def refresh_generated():
         while True:

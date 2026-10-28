@@ -25,8 +25,17 @@ def build():
     camera.CreateFStopAttr(.7)
     UsdGeom.Xformable(camera).AddTransformOp().Set(Gf.Matrix4d().SetLookAt(eye,target,Gf.Vec3d(0,0,1)).GetInverse())
     camera.GetPrim().SetCustomDataByKey('presentation','Main Street tilt-shift aerial; optical effect only, no geometry changes')
-    for path in ['/World/ParcelBoundaries','/World/StudyBoundaries']:
+    for path in ['/World/StudyBoundaries']:
         UsdGeom.Imageable(stage.OverridePrim(path)).CreateVisibilityAttr('invisible')
+    # Planning overlay requested by the user: faint lot lines, independent of
+    # the source parcel geometry and stronger district-boundary graphics.
+    UsdGeom.Imageable(stage.OverridePrim('/World/ParcelBoundaries')).CreateVisibilityAttr('inherited')
+    source=Usd.Stage.Open(str(ROOT/'scene/college_park_connected.usda'))
+    for prim in source.GetPrimAtPath('/World/ParcelBoundaries').GetChildren():
+        curve=UsdGeom.BasisCurves.Define(stage,prim.GetPath())
+        curve.CreateWidthsAttr([.04]);curve.SetWidthsInterpolation('constant')
+        curve.CreateDisplayColorAttr([Gf.Vec3f(.35,.39,.36)])
+        curve.CreateDisplayOpacityAttr([.18]);curve.SetDisplayOpacityInterpolation('constant')
     sun=UsdLux.DistantLight.Define(stage,'/World/Lighting/Sun')
     sun.CreateIntensityAttr(2200);sun.CreateColorAttr(Gf.Vec3f(1,.91,.77));sun.CreateAngleAttr(2)
     sun.AddRotateXYZOp().Set(Gf.Vec3f(35,-25,-35))

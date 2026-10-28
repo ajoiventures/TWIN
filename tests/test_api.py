@@ -44,6 +44,18 @@ class ApiContractTests(unittest.TestCase):
    (r/'data/heights/building_heights.json').write_text('[]')
    (r/'data/processed/multifamily_review.json').write_text(json.dumps({'source_snapshot':'s1','rows':[],'height_evidence_sha256':'old-height-content'}))
    with self.assertRaises(SnapshotMismatch):read_table('multifamily_review',r)
+ def test_reconstruction_dependency_hash_rejects_changed_composition(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);(r/'scene').mkdir();layer=r/'scene/project.usda';layer.write_text('reviewed layer')
+   report={'source_snapshot':'s1','dependencies':{'scene/project.usda':hashlib.sha256(layer.read_bytes()).hexdigest()},'records':[{'parcel_id':'001','quality':'historical'}]}
+   (r/'data/processed/reconstructions.json').write_text(json.dumps(report))
+   self.assertEqual(read_table('reconstructions',r)[0],report['records'])
+   layer.write_text('changed layer')
+   with self.assertRaises(SnapshotMismatch):read_table('reconstructions',r)
+ def test_reconstruction_dependency_cannot_escape_workspace(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);(r/'data/processed/reconstructions.json').write_text(json.dumps({'source_snapshot':'s1','dependencies':{'../outside.usda':'x'},'records':[]}))
+   with self.assertRaises(SnapshotMismatch):read_table('reconstructions',r)
  def test_parcel_filter_preserves_ids_and_limit(self):
   with tempfile.TemporaryDirectory() as d:
    r=self.setup_root(d);(r/'data/snapshots/s1/buildings.json').write_text(json.dumps([{'id':'b1','parcel_id':'001','height_m':4.2},{'id':'b2','parcel_id':'1','height_m':7.2}]))

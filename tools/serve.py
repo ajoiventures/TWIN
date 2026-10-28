@@ -4,7 +4,7 @@ from urllib.parse import urlparse,parse_qs
 from pathlib import Path
 import json,argparse,math,hashlib
 ROOT=Path(__file__).resolve().parents[1]
-TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality'}
+TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions'}
 class SnapshotMismatch(ValueError):pass
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
@@ -19,8 +19,15 @@ def current_report(path,snapshot):
 def read_table(name,root=ROOT):
  if name not in TABLES:raise KeyError(name)
  folder,snapshot=active_folder(root)
+ if name=='reconstructions':
+  report=current_report(root/'data/processed/reconstructions.json',snapshot)
+  for relative,digest in report['dependencies'].items():
+   path=(root/relative).resolve()
+   if not path.is_relative_to(root.resolve()) or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise SnapshotMismatch('Rebuild reconstruction register against current composition')
+  return report['records'],snapshot
  if name in ['multifamily_review','multifamily_quality']:
   report=current_report(root/'data/processed/multifamily_review.json',snapshot)
+  if report.get('identity_evidence_sha256') and report['identity_evidence_sha256']!=hashlib.sha256((root/'data/imagery/princeton_parcel_review/identity_evidence.json').read_bytes()).hexdigest():raise SnapshotMismatch('Rebuild housing review against current identity evidence')
   if report.get('height_evidence_sha256')!=hashlib.sha256((root/'data/heights/building_heights.json').read_bytes()).hexdigest():raise SnapshotMismatch('Rebuild housing review against current heights')
   return (report['rows'] if name=='multifamily_review' else {k:v for k,v in report.items() if k not in ['rows','source_requests']}),snapshot
  if name in ['commercial_evidence','commercial_listings','commercial_model_quality']:
@@ -77,12 +84,20 @@ def page_table(name,query,root=ROOT):
  return {'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
 class Handler(BaseHTTPRequestHandler):
  def send(self,body,status=200,kind='application/json; charset=utf-8'):
-  raw=body.encode() if isinstance(body,str) else json.dumps(body,ensure_ascii=False).encode()
+  raw=body if isinstance(body,bytes) else body.encode() if isinstance(body,str) else json.dumps(body,ensure_ascii=False).encode()
   self.send_response(status);self.send_header('Content-Type',kind);self.send_header('Content-Length',str(len(raw)));self.send_header('Cache-Control','no-store');self.send_header('X-Content-Type-Options','nosniff');self.end_headers();self.wfile.write(raw)
  def do_GET(self):
   url=urlparse(self.path);path=url.path
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/road-review':return self.send((ROOT/'data/transport/road_reference_gallery.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path.startswith('/road-reference/'):
+    files={'aerial2025':ROOT/'data/imagery/OCPA_Aerials2025_edgewater-princeton-smith-south-v1.jpg'}
+    for resolution in ['1k','2k','4k']:
+     files['asphalt-'+resolution]=ROOT/f'assets/generated/road_materials/{resolution}/asphalt_02_Diffuse_{resolution}.jpg'
+    requested=path.removeprefix('/road-reference/')
+    if requested not in files:return self.send({'error':'Unknown road reference'},404)
+    return self.send(files[requested].read_bytes(),kind='image/jpeg')
    if path=='/source-coverage':return self.send((ROOT/'data/processed/source_coverage.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/api/v1/health':
     _,snapshot=active_folder();return self.send({'status':'ready','snapshot':snapshot,'mode':'local-read-only-snapshots','agency_calls_per_request':0})

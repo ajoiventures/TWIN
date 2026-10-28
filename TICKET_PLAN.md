@@ -313,4 +313,3 @@ Required outcomes remain: correct physical scene → recognizable façades/roofs
 # Confirmed platform scope — October 28, 2026
 
 The owner confirmed **both planning and live operations**. The existing [smart-city platform plan](docs/SMART_CITY_PLATFORM_PLAN.md#confirmed-dual-purpose-delivery-contract) now defines deliverables, AI role ownership and acceptance for both. Reuse the shared GIS/evidence/semantic scene foundation; extend #28 for recorded event replay and #29 for a separately accepted bounded live-feed pilot. Proposed, simulated, synthetic and observed data remain explicitly distinct. This adds acceptance scope to existing tickets rather than creating duplicate ingestion tickets; no live feed or NVIDIA server deployment is claimed.
-

@@ -1,63 +1,53 @@
-# Wellesley historical upper-roof correction
+# Wellesley roof correction — revision 2 applied
 
-This scoped correction reconstructs the missing tall C-shaped Wellesley mass at 2305 Edgewater Drive. It does not extrude the 114-record tax envelope, promote ambiguous parcel matches or assign seven floors to surrounding podium/garage structures.
+Revision 2 was applied October 28, 2026 after independent evidence review and inspection of the actual Kit proposal render `data/renders/20261028T173244Z/MainStreetOverview.png`. The active correction fills the three false roof voids and preserves the observed courtyard. Main roof height remains 23.35 m and documentary storeys remain seven; the maximum rendered roof/equipment surface is 28.393 m and is explicitly not an occupied-storey height. Semantic registry, housing review, extent guard and reconstruction register were refreshed. Validation passed across 20 layers and 17,611 meshes. This is acceptance of the scoped historical roof correction, not current survey or conference visual acceptance.
 
-## Applied checkpoint
+The scoped correction reconstructs the missing tall Wellesley mass at 2305 Edgewater Drive. It never extrudes the 114-record tax envelope or promotes the original ambiguous parcel match. Current stable target is Building_2939 (original alias Building_2933), resolved by PID `292214147406110`, BLDG_NUM 1 and nine exact source OBJECTIDs. Snapshot: `20261028T160543372334Z`.
 
-Applied October 28, 2026 to refreshed snapshot **`20261028T160543372334Z`**. Stable source identity resolved the target as **`Building_2939`**, while its original extraction alias was `Building_2933`. The exact nine source OBJECTIDs and target base-mesh hash still matched, so no geometry guard was bypassed.
+## Applied baseline and diagnosed defect
 
-- Historical planar upper height: **23.35 m** (55.04 m NAVD88 roof support minus 31.69 m local ground).
-- Independently reported documentary count: **seven storeys**; nominal height **22.86 m**, 0.49 m below the derived roof-zone height.
-- Accepted upper C-shaped footprint after cleanup: **3,106.41 m²**, supported by **74,661** points.
-- Retained original lower mass outside the upper footprint: **820.99 m²** at its prior **4.3 m** height, still unresolved.
-- Property envelope: **6,146.46 m²**; it was not extruded. The broad courtyard opening remains absent from the upper mass.
-- Exactly one height row changed; **all 3,215 other rows** remained unchanged. An idempotent rerun reproduced the same height and geometry.
+The earlier applied layer used a 23.35 m roof height, derived from 55.04 m NAVD88 main roof minus 31.69 m local ground. This agrees within 0.49 m with the independent historical MetroPlan seven-storey/75 ft (22.86 m nominal) report. Its conservative 3,106.41 m² upper mask incorrectly left several equipment areas as full-depth voids. Revision 2 was first generated and rendered as a separate proposal before explicit application.
 
-Generated writes are finished. The parent handles final layer composition, semantic-registry refresh, actual editor reload and rendered review. This document does not claim those parent integration checks have already passed.
+The actual `20261028T171454Z/MainStreetOverview.png` render showed jagged walls and false full-depth holes. The local 2025 OCPA aerial was visually reviewed only; it shows a continuous broad roof, rooftop equipment and an elevated central courtyard. No aerial tracing, textures or imagery redistribution are used.
 
-## Source evidence and failure
+All three enclosed holes in the old roof have dense historical point observations:
 
-The [independently reviewed MetroPlan reference](WELLESLEY_REFERENCE.md) reports seven storeys and 75 feet (22.86 m nominal) in January 2016. OCPA safe unit records independently report FLOOR_NO positions through 7, while most unit STYS values are zero/unknown. The old source group uses parcel `292214147406110`, building number 1 and nine footprint subareas; its current parcel match remains ambiguous/unmatched.
+| Old hole area m² | Points | Z p10 / median / p90 NAVD88 m |
+| ---: | ---: | --- |
+| 87.1875 | 2,711 | 55.07 / 55.71 / 59.48 |
+| 81.5625 | 2,481 | 55.02 / 56.09 / 58.52 |
+| 29.8125 | 603 | 55.04 / 55.23 / 57.968 |
 
-The earlier height pipeline used only classified building points (class 6) and a one-floor source prior. Within the current property envelope, high surfaces are instead predominantly class 1 (unclassified), including a dense plane near 55.0 m NAVD88. Classified local ground is near 31.69 m. The old class-6-only candidate follows lower or unrelated components and cannot represent the whole tall building.
+The prior all-return median/spread gate rejected mixed roof/equipment returns. These observations support roof or raised equipment, not ground-reaching voids. Opening and a dominant-plane-only filter also fragmented edges and equipment notches.
 
-## Reproducible bounded method
+The actual courtyard is different: its frozen 300 m² core has 7,235 points, Z p05/median/p95 48.50/49.30/51.313 m, substantially below the 55.04 m upper roof. It is an elevated lower courtyard/deck, not an upper roof or an observed ground opening. The upper mass must exclude this core. Lower courtyard architecture is not reconstructed in this revision.
 
-`config/building_corrections.json` freezes the source parcel/building number, exact nine source OBJECTIDs, original source mesh hash, point-cloud checksum, documentary reference and extraction parameters. The generated `Building_####` name is a historical alias, not the target identity. The tool resolves the current group from the stable source identity and fails on changed membership/geometry/cloud or changed match status. A refreshed extraction/snapshot may change enumeration IDs without silently targeting another building.
+## Evidence-based revision 2
 
-`tools/correct_wellesley.py`:
+`tools/correct_wellesley.py` verifies the existing cloud checksum, accepted meter Z check, exact source subareas, base mesh checksum and unchanged unmatched source identity. Historical points are clipped to the union only as a search boundary, then projected to EPSG:32617 XY. Source NAVD88 Z remains meters. No network access is needed.
 
-1. Uses the current 2305 Edgewater property union only as a clipping/search mask, never as an extrusion outline.
-2. Reads existing historical EPT points, verifies the accepted meter-unit check, projects XY to metric UTM and uses class-2 local ground.
-3. Finds the dominant high class-1 elevation mode 15–30 m above local ground.
-4. Accepts 0.75 m cells with at least five points, median within 0.4 m of that plane and p85–p15 spread no greater than 0.3 m. Density and planarity reduce vegetation inclusion; class 1 alone is not a roof label.
-5. Applies one-cell opening/closing, drops components below 100 m², optionally fills enclosed gaps no larger than 25 m² and simplifies by 0.4 m. These processing assumptions remain explicit shape uncertainty. The large open courtyard must remain absent.
-6. Rejects a roof under 1,500 m², an outline filling more than 80% of the tax envelope, a loss of at least 400 m² of concavity/void space or a derived height differing from the nominal documentary height by more than 2 m. These are review gates, not accuracy standards.
-7. Authors only the supported upper footprint to its derived height. It retains the original lower source mass **only outside** that upper footprint at its prior unresolved low height.
+The dominant roof is still derived from dense class 1 observations. For geometry, each 0.75 m cell now counts returns within 0.4 m of the main plane separately from higher equipment returns, requiring at least three deck returns. A one-cell closing connects supported fragments; large connected components remain required. Enclosed gaps are filled only where they are at most 150 m², have at least 20 observations, and at least 80% of observed points are at or above the deck. Empty or lower-surface gaps remain unresolved. The manifest documents every gap and its decision.
 
-Early read-only extraction produced a clear roughly 3,379 m² C-shaped planar roof with a large eastern courtyard opening, near 23.35 m above local ground. The final conservative grid/planarity cleanup yields 3,106.41 m²; the manifest retains counts and processing assumptions. Internal roof-equipment/terrace gaps larger than the small-gap infill threshold remain unresolved holes rather than being silently filled. Neither outline is asserted as a current survey.
+Dense raised patches require at least five elevated returns per cell, p85–p15 spread at most 0.4 m, connected area at least 2.25 m² and half-meter elevation grouping. They are clipped to the supported main roof and authored from the main deck upward, never from the ground. Their semantic use remains uncertain roof/equipment; class 1 is unclassified and is not a certified roof label.
 
-## Layers, height data and guards
+The outer roof is simplified within 1.0 m of the source-supported raster geometry, with a containment check. It reduces boundary vertices from 817 to 123; no perfect orthogonal outline is invented. The shape remains historically derived and is not claimed as surveyed edge accuracy. The explicit courtyard upper-void guard is EPSG:32617 bounds `[461960,3160660,461990,3160670]`; both source geometry and exported roof faces must exclude it.
 
-The generated additive `scene/landmark_corrections.usda` replaces the resolved building mesh/roof with independent upper and retained-lower components. It resets mesh topology, outward winding, normals and UV arrays rather than inheriting arrays sized for the old footprint. Nested height-inspector metadata is overridden consistently with the new mass. It adds `/World/Cameras/WellesleyEvidence` for repeatable review. Source base geometry and original source IDs are untouched.
+Current proposal output:
 
-The tool updates exactly one current height row, retaining its raw source floor fields and ambiguous parcel identity. It sets documentary storeys to seven and labels the derived height/shape historical with uncertainty. All other height rows are checked unchanged. The aggregate quality report is recalculated from the current rows. The previous one-floor record is backed up locally; reruns are idempotent for the same correction identity.
+- Main roof area: **4,337.98 m²** within a **6,146.46 m²** property envelope.
+- Main roof height: **23.35 m**, with **62** supported raised patches; maximum patch height **28.393 m** above local ground.
+- All three old enclosed equipment holes are covered by supported deck geometry, with no courtyard-core overlap.
+- Original unresolved lower mass is retained only outside the reconstructed roof, **575.34 m²** at its original **4.3 m** height.
+- No other building, parcel link, source base, active root or global height row is changed by proposal generation.
 
-The parent composition must place the correction layer stronger than generated height/semantic layers, then rebuild provenance and inspect the actual running viewport. The tool does not edit the connected assembly, shared generators or API. Running the generic height generator later requires reapplying this correction before final composition/provenance.
+## Proposal, application and verification
 
-## Run and evidence
+Default command `python tools/correct_wellesley.py` writes only the new `scene/wellesley_roof_proposal.usda` and review artifacts under `data/heights/wellesley_roof_proposal/`. The active `scene/landmark_corrections.usda`, global heights and quality report remain unchanged. The manifest records `global_height_writes_applied=false`, geometry revision 2 and action `await_parent_review_before_apply`.
 
-After the parent confirms regenerated base/snapshot readiness:
+After parent coordination, `python tools/correct_wellesley.py --apply` writes the active scoped layer and updates exactly the Wellesley height row plus aggregate quality report. Main-roof height stays separate from the taller equipment patches. Parent must refresh semantic provenance, composition, running viewport and rendered review. The tool never edits root assembly or global generators.
 
-```
-python tools/correct_wellesley.py
-python -m unittest discover -s tests -p test_wellesley.py -v
-```
+`python -m unittest discover -s tests -p test_wellesley.py -v`: **12 tests pass**. Coverage includes actual cached point evidence for all three holes, an actual roof-face courtyard regression, mixed equipment surfaces, preservation of empty unobserved holes, unchanged source identity safeguards, topology/UV/normals and one-row-only height changes. The actual-data test explicitly skips if ignored source artifacts are unavailable; synthetic guards remain mandatory.
 
-Generated review evidence remains ignored under `data/heights/wellesley_correction/`: `manifest.json`, `upper_roof.geojson` and `roof_support_mask.png`. The manifest records exact source/configuration identity, derived upper area/height, retained lower area, documentary reference, prior/current target row and target-ID crosswalk.
+## Limits and provenance
 
-Nine tests cover courtyard preservation, rejection of a full-envelope rectangle, classification scope, nonplanar isolated points, one-row-only updates, duplicate target protection, hole-preserving triangulation, valid topology/normals/UV arrays and stable identity resolution across a generated-ID change.
-
-## Limits
-
-The source cloud and documentary report are historical; neither establishes current roof details. Roof-equipment gaps, balconies, parapets, exact stepped heights and vegetation separation remain approximate. Small gap infill and smoothing are disclosed. The retained low source components remain unresolved rather than being misrepresented as seven storeys. Ground stays at the current flat model datum until terrain integration separately establishes vertical rebasing. No facade/window layout or precise architectural reconstruction is claimed.
+[MetroPlan reference](WELLESLEY_REFERENCE.md) supplies the historical seven-storey/75 ft cross-check; it is not a current survey. The existing 2018–2019 cloud remains the geometry source. Roof equipment, sloped caps, parapets, facade details and low podium geometry remain approximate. Aerial access is local qualitative review only. Ground remains the current scene datum; terrain rebasing is a separate coordinated task. Original ambiguous parcel matching evidence remains intact.

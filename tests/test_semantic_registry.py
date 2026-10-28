@@ -15,6 +15,13 @@ class SemanticContractTests(unittest.TestCase):
   errors=validate_records([self.row(),self.row()]);self.assertEqual({e['code'] for e in errors},{'duplicate_or_missing_identity','duplicate_usd_path'})
  def test_nonfinite_height_and_missing_source_fail(self):
   r=self.row();r.update(height_m=float('nan'),source_snapshot=None);self.assertEqual({e['code'] for e in validate_records([r])},{'invalid_height','missing_evidence'})
+ def test_roof_deck_and_raised_equipment_keep_distinct_height_scope(self):
+  r=self.row();r.update(height_m=23.35,maximum_rendered_height_m=28.393,maximum_rendered_height_scope='historical_roof_or_equipment_surface_not_occupied_storeys')
+  self.assertEqual(validate_records([r]),[])
+  del r['maximum_rendered_height_scope'];self.assertIn('missing_maximum_height_scope',{e['code'] for e in validate_records([r])})
+ def test_maximum_render_height_must_not_be_below_main_mass(self):
+  r=self.row();r.update(maximum_rendered_height_m=3)
+  self.assertIn('invalid_maximum_rendered_height',{e['code'] for e in validate_records([r])})
  def test_legacy_cache_does_not_invent_retrieval_time(self):
   with tempfile.TemporaryDirectory() as folder:
    url='https://example.invalid/data';Path(folder,hashlib.sha256(url.encode()).hexdigest()+'.json').write_text('{}')

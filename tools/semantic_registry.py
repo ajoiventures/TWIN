@@ -32,6 +32,11 @@ def validate_records(records):
         if row.get('schema')!=SCHEMA:errors.append({'entity_id':key,'code':'invalid_schema'})
         height=row.get('height_m')
         if isinstance(height,bool) or not isinstance(height,(float,int)) or not math.isfinite(height) or height<=0:errors.append({'entity_id':key,'code':'invalid_height'})
+        if 'maximum_rendered_height_m' in row:
+            maximum=row['maximum_rendered_height_m']
+            valid_height=isinstance(height,(float,int)) and not isinstance(height,bool) and math.isfinite(height)
+            if isinstance(maximum,bool) or not isinstance(maximum,(float,int)) or not math.isfinite(maximum) or (valid_height and maximum<height):errors.append({'entity_id':key,'code':'invalid_maximum_rendered_height'})
+            elif valid_height and maximum>height and not row.get('maximum_rendered_height_scope'):errors.append({'entity_id':key,'code':'missing_maximum_height_scope'})
         if not row.get('source_snapshot') or not row.get('source_feature_ids'):errors.append({'entity_id':key,'code':'missing_evidence'})
         source_ids=row.get('source_feature_ids')
         if not isinstance(source_ids,list) or not source_ids or any(not isinstance(i,str) or not i.strip() for i in source_ids):errors.append({'entity_id':key,'code':'invalid_source_ids'})
@@ -57,6 +62,7 @@ def build(root=ROOT):
             'source_feature_ids':ids,'source_snapshot':active['snapshot'],'source_geometry_file_sha256':base_hash,'usd_path':b['usd_path'],
             'parcel_id':b.get('parcel_id'),'parcel_feature_id':b.get('parcel_feature_id'),'parcel_link_accepted':b['match_method']=='id_and_geometry',
             'parcel_match_method':b['match_method'],'height_m':h['height_m'],'height_method':h['method'],
+            'maximum_rendered_height_m':h.get('maximum_rendered_height_m',h['height_m']),'maximum_rendered_height_scope':h.get('maximum_rendered_height_scope','main_mass_height'),
             'observation_kind':'historical_lidar_derived' if h['quality']=='historical_lidar_derived' else 'estimated',
             'valid_time':{'start':None,'end':None,'quality':'current_validity_not_verified'},
             'acquisition_interval':{'start':'2018-12-04','end':'2019-04-12'} if h['quality']=='historical_lidar_derived' else None,

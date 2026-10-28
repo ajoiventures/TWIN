@@ -50,7 +50,24 @@
     "minimum_total_upper_area_m2": 1500,
     "maximum_tax_envelope_area_fraction": 0.8,
     "minimum_concavity_void_area_m2": 400,
-    "maximum_reported_height_difference_m": 2
+    "maximum_reported_height_difference_m": 2,
+    "surface_aware": true,
+    "minimum_deck_cell_points": 3,
+    "maximum_supported_equipment_gap_m2": 150,
+    "minimum_raised_patch_m2": 2.25,
+    "surface_simplification_m": 1.0,
+    "protected_upper_voids_utm": [
+      {
+        "id": "observed_lower_courtyard_deck_core",
+        "bounds": [
+          461960,
+          3160660,
+          461990,
+          3160670
+        ],
+        "evidence": "Actual historical point returns p05/p50/p95 48.50/49.30/51.313 NAVD88 m; not upper roof or ground void."
+      }
+    ]
   },
   "origin_wgs84": [
     -81.389,

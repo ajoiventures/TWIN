@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import numpy as np
 from shapely.geometry import box, Point, Polygon
 from pxr import Usd, UsdGeom
-from correct_wellesley import corrected_height_rows, digest, mesh_geometry, mesh_payload, planar_roof, resolve_target, validate_guard, write_mesh
+from correct_wellesley import corrected_height_rows, digest, mesh_geometry, mesh_payload, planar_roof, resolve_target, validate_guard, write_mesh, supported_multilevel_roof, read, polygon_parts
 
 
 def parameters():
@@ -109,6 +109,47 @@ class WellesleyTests(unittest.TestCase):
             mesh.CreatePointsAttr([(0, 0, 0)])
             with self.assertRaisesRegex(ValueError, 'source mesh changed'):
                 validate_guard(config, {'snapshot': 'refreshed'}, record, prim, cloud)
+
+    def test_equipment_returns_do_not_cut_full_depth_roof_holes(self):
+        points = synthetic_points()
+        equipment = np.asarray([[4+x/8, 15+y/8, 57.0, 1] for x in range(40) for y in range(40)])
+        config = parameters(); config.update({'minimum_deck_cell_points':3,'maximum_supported_equipment_gap_m2':150,
+            'minimum_raised_patch_m2':2.25,'surface_simplification_m':.5,'protected_upper_voids_utm':[]})
+        roof,evidence,_,_,patches = supported_multilevel_roof(np.vstack([points,equipment]),config)
+        self.assertTrue(roof.covers(Point(6,17)))
+        self.assertFalse(roof.covers(Point(25,20)))
+        self.assertTrue(any(p['roof_z_m']>56 for p in patches))
+        # Raised components begin at the main deck, never at ground.
+        self.assertGreater(evidence['accepted_planar_support_points'],1000)
+
+    def test_empty_unobserved_roof_hole_remains_unknown(self):
+        points=synthetic_points()
+        points=points[~((points[:,0]>2)&(points[:,0]<10)&(points[:,1]>14)&(points[:,1]<24))]
+        config=parameters();config.update({'minimum_deck_cell_points':3,'maximum_supported_equipment_gap_m2':150,
+            'minimum_raised_patch_m2':2.25,'surface_simplification_m':.5,'protected_upper_voids_utm':[]})
+        roof,evidence,_,_,_=supported_multilevel_roof(points,config)
+        self.assertFalse(roof.covers(Point(6,19)))
+        self.assertTrue(any(g['action']=='preserve_unresolved_void' for g in evidence['gap_diagnostics']))
+
+    def test_actual_equipment_gaps_filled_and_observed_courtyard_preserved(self):
+        path=ROOT/'data/heights/wellesley_correction/local_points.npz'
+        if not path.exists(): self.skipTest('Ignored historical point evidence unavailable')
+        config=read(ROOT/'config/building_corrections.json')['roof_extraction']
+        roof,evidence,_,_,patches=supported_multilevel_roof(np.load(path)['points'],config)
+        self.assertEqual(len(evidence['prior_enclosed_holes']),3)
+        for hole in evidence['prior_enclosed_holes']:
+            self.assertAlmostEqual(hole['new_supported_deck_overlap_m2'],hole['area_m2'],places=5)
+            self.assertGreater(hole['z_p10_p50_p90_m'][0],54.5)
+        for guard in config['protected_upper_voids_utm']:
+            self.assertAlmostEqual(roof.intersection(box(*guard['bounds'])).area,0)
+        self.assertLess(evidence['simplified_boundary_vertices'],evidence['raw_boundary_vertices']/2)
+        self.assertTrue(patches)
+        components=[(roof,.1,23.45)]+[(p['geometry'],23.45,.1+p['height_m']) for p in patches]
+        vertices,counts,indices=mesh_geometry(components,roofs_only=True)
+        offset=0;void=box(*config['protected_upper_voids_utm'][0]['bounds'])
+        for count in counts:
+            face=Polygon([vertices[i][:2] for i in indices[offset:offset+count]]);offset+=count
+            self.assertLess(face.intersection(void).area,1e-7)
 
 
 if __name__ == '__main__':

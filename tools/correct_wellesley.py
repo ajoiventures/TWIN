@@ -142,6 +142,88 @@ def planar_roof(points, parameters):
     return roof, result, raw_accepted, accepted
 
 
+def supported_multilevel_roof(points, parameters):
+    """Separate dominant deck returns from equipment; never turn equipment into ground voids."""
+    legacy_parameters = {k: v for k, v in parameters.items() if k != 'surface_aware'}
+    old_roof, old_evidence, _, _ = planar_roof(points, legacy_parameters)
+    ground = old_evidence['local_ground_median_m']; plane = old_evidence['dominant_plane_mode_m']
+    source = points[np.isin(points[:, 3], [1, 6]) & (points[:, 2] > ground + 15) & (points[:, 2] < ground + 32)]
+    size = parameters['cell_size_m']; left, bottom = old_evidence['grid_origin_utm_m']
+    ix = np.floor((source[:, 0]-left)/size).astype(int); iy = np.floor((source[:, 1]-bottom)/size).astype(int)
+    width, height = int(ix.max()+1), int(iy.max()+1)
+    valid = (ix >= 0) & (iy >= 0); source = source[valid]; ix=ix[valid]; iy=iy[valid]
+    codes = iy*width+ix; order=np.argsort(codes); ids,starts,counts=np.unique(codes[order],return_index=True,return_counts=True)
+    base = np.zeros((height,width),bool); elevated=np.full((height,width),np.nan)
+    for code,start,count in zip(ids,starts,counts):
+        z = source[order[start:start+count],2]
+        near=z[np.abs(z-plane)<=parameters['maximum_cell_plane_deviation_m']]
+        if len(near)>=parameters.get('minimum_deck_cell_points',3):
+            base.flat[code]=True
+        high=z[z>plane+.5]
+        if len(high)>=5 and np.percentile(high,85)-np.percentile(high,15)<=.4:
+            elevated.flat[code]=np.median(high)
+    raw=base.copy()
+    base=ndimage.binary_closing(base,iterations=1)
+    labels,_=ndimage.label(base); counts=np.bincount(labels.ravel())
+    base=np.isin(labels,[i for i,n in enumerate(counts) if i and n*size*size>=100])
+    # Interior holes may be equipment shadows: demand observed high returns and surrounding deck.
+    holes=ndimage.binary_fill_holes(base)&~base; labels,n=ndimage.label(holes)
+    gap_evidence=[]
+    for label in range(1,n+1):
+        cells=labels==label; yy,xx=np.where(cells)
+        geometry=unary_union([box(left+x*size,bottom+y*size,left+(x+1)*size,bottom+(y+1)*size) for y,x in zip(yy,xx)])
+        q=points[shapely.contains_xy(geometry,points[:,0],points[:,1])]
+        high_fraction=float(np.mean(q[:,2]>=plane-.4)) if len(q) else 0
+        supported=(geometry.area<=parameters['maximum_supported_equipment_gap_m2'] and len(q)>=20 and high_fraction>=.8)
+        if supported: base|=cells
+        gap_evidence.append({'area_m2':geometry.area,'point_count':len(q),'fraction_at_or_above_deck':high_fraction,
+                            'action':'infill_at_observed_surrounding_deck_equipment_occlusion' if supported else 'preserve_unresolved_void',
+                            'z_p10_p50_p90_m':np.percentile(q[:,2],[10,50,90]).tolist() if len(q) else None})
+    yy,xx=np.where(base)
+    raw_geometry=unary_union([box(left+x*size,bottom+y*size,left+(x+1)*size,bottom+(y+1)*size) for y,x in zip(yy,xx)])
+    roof=raw_geometry.simplify(parameters['surface_simplification_m'],preserve_topology=True)
+    if not raw_geometry.buffer(parameters['surface_simplification_m']+1e-6).covers(roof):
+        raise ValueError('Simplified edge exceeds source-supported displacement bound')
+    for guard in parameters['protected_upper_voids_utm']:
+        if roof.intersection(box(*guard['bounds'])).area>1e-7:
+            raise ValueError('True courtyard upper void filled')
+    patches=[]
+    for band in np.unique(np.floor(elevated[np.isfinite(elevated)]/.5)):
+        cells=np.isfinite(elevated)&(np.floor(elevated/.5)==band)
+        labels,n=ndimage.label(cells)
+        for label in range(1,n+1):
+            yy,xx=np.where(labels==label)
+            if len(xx)*size*size<parameters['minimum_raised_patch_m2']: continue
+            geometry=unary_union([box(left+x*size,bottom+y*size,left+(x+1)*size,bottom+(y+1)*size) for y,x in zip(yy,xx)]).intersection(roof)
+            if geometry.area<parameters['minimum_raised_patch_m2']: continue
+            z=float(np.median(elevated[labels==label]))
+            patches.append({'geometry':geometry,'roof_z_m':z,'height_m':round(z-ground,3),'area_m2':geometry.area,
+                            'quality':'historical_dense_planar_raised_roof_or_equipment_uncertain_use'})
+    old_holes=[]
+    for poly in polygon_parts(old_roof):
+        for ring in poly.interiors:
+            geometry=Polygon(ring); q=points[shapely.contains_xy(geometry,points[:,0],points[:,1])]
+            old_holes.append({'area_m2':geometry.area,'points':len(q),'z_p10_p50_p90_m':np.percentile(q[:,2],[10,50,90]).tolist() if len(q) else None,
+                              'new_supported_deck_overlap_m2':geometry.intersection(roof).area, 'centroid_utm_m':[geometry.centroid.x,geometry.centroid.y],
+                              'diagnosis':'mixed roof/equipment returns rejected by prior all-return spread/median; not evidence of ground void'})
+    support = source[(raw & base).ravel()[codes] & (np.abs(source[:,2]-plane)<=parameters['maximum_cell_plane_deviation_m'])]
+    class_values,class_counts=np.unique(support[:,3].astype(int),return_counts=True)
+    courtyard_checks=[]
+    for guard in parameters['protected_upper_voids_utm']:
+        q=points[shapely.contains_xy(box(*guard['bounds']),points[:,0],points[:,1])]
+        courtyard_checks.append({**guard,'point_count':len(q),'z_p05_p50_p95_m':np.percentile(q[:,2],[5,50,95]).tolist() if len(q) else None,'upper_roof_overlap_m2':roof.intersection(box(*guard['bounds'])).area})
+    evidence={**old_evidence, 'accepted_planar_support_points':len(support), 'accepted_cells_before_cleanup':int(raw.sum()), 'accepted_cells_after_cleanup':int(base.sum()),
+              'dominant_deck_support_by_class':{str(k):int(v) for k,v in zip(class_values,class_counts)}, 'courtyard_checks':courtyard_checks,'method':'deck-return-window plus supported equipment occlusions and raised planar patches',
+              'upper_footprint_area_m2':roof.area,'prior_upper_area_m2':old_roof.area,'prior_enclosed_holes':old_holes,
+              'gap_diagnostics':gap_evidence,'raised_patches':[{k:v for k,v in p.items() if k!='geometry'} for p in patches],
+              'surface_edge_tolerance_m':parameters['surface_simplification_m'],
+              'raw_boundary_vertices':sum(len(p.exterior.coords) for p in polygon_parts(raw_geometry)),
+              'simplified_boundary_vertices':sum(len(p.exterior.coords) for p in polygon_parts(roof)),
+              'protected_upper_voids_utm':parameters['protected_upper_voids_utm'],
+              'classification_caveat':'Class1 unclassified; planar roof/deck/equipment attribution is historical inference, not certified segmentation.'}
+    return roof,evidence,raw,base,patches
+
+
 def source_footprint(mesh):
     payload = mesh_payload(mesh)
     polygons, offset = [], 0
@@ -157,7 +239,9 @@ def source_footprint(mesh):
 def polygon_parts(geometry):
     if geometry.is_empty:
         return []
-    return list(geometry.geoms) if geometry.geom_type == 'MultiPolygon' else [geometry]
+    if geometry.geom_type == 'Polygon':
+        return [geometry]
+    return [p for child in getattr(geometry, 'geoms', []) for p in polygon_parts(child)]
 
 
 def mesh_geometry(components, roofs_only=False):
@@ -222,7 +306,7 @@ def corrected_height_rows(rows, identifier, values):
     return result
 
 
-def correct(root=ROOT):
+def correct(root=ROOT, apply=False):
     config_path = root / 'config/building_corrections.json'
     config = read(config_path)
     active = read(root / 'data/processed/active.json')
@@ -249,7 +333,7 @@ def correct(root=ROOT):
     points = points[shapely.contains_xy(mask_ept, points[:, 0], points[:, 1])]
     to_utm = Transformer.from_crs(3857, 32617, always_xy=True)
     points[:, 0], points[:, 1] = to_utm.transform(points[:, 0], points[:, 1])
-    roof_utm, evidence, raw_mask, cleaned_mask = planar_roof(points, config['roof_extraction'])
+    roof_utm, evidence, raw_mask, cleaned_mask, raised_patches = supported_multilevel_roof(points, config['roof_extraction'])
     to_utm_wgs = Transformer.from_crs(4326, 32617, always_xy=True)
     mask_utm = shapely.transform(mask_wgs, to_utm_wgs.transform, interleaved=False)
     evidence['upper_area_before_property_clip_m2'] = roof_utm.area
@@ -272,29 +356,38 @@ def correct(root=ROOT):
     if previous.get('correction_id') != config['correction_id'] and abs(previous['height_m'] - config['expected_previous_height_m']) > .01:
         raise ValueError('Wellesley prior height changed; do not overwrite an unreviewed correction')
     backup_path = root / 'data/heights/wellesley_prior_height_record.json'
-    if not backup_path.exists():
+    if not backup_path.exists() and apply:
         atomic_json(backup_path, previous)
-    prior = read(backup_path)
+    prior = read(backup_path) if backup_path.exists() else previous
+    if abs(prior['height_m']-config['expected_previous_height_m'])>.01:
+        raise ValueError('Original low-mass height backup required; do not reuse corrected tall height')
     if prior['building_id'] not in [identifier, config['original_building_id']]:
         raise ValueError('Prior-height backup does not belong to this correction lineage')
     components = [(roof_local, .1, .1 + evidence['height_m'])]
+    for patch in raised_patches:
+        geometry=shapely.transform(patch['geometry'].intersection(mask_utm),lambda x,y:(x-origin[0],y-origin[1]),interleaved=False)
+        components.append((geometry,.1+evidence['height_m'],.1+patch['height_m']))
     if not lower_footprint.is_empty:
         components.append((lower_footprint, .1, .1 + prior['height_m']))
-    layer_path = root / 'scene/landmark_corrections.usda'
+    layer_path = root / ('scene/landmark_corrections.usda' if apply else 'scene/wellesley_roof_proposal.usda')
     layer = Usd.Stage.CreateNew(str(layer_path))
     UsdGeom.SetStageMetersPerUnit(layer, 1)
     UsdGeom.SetStageUpAxis(layer, 'Z')
     building = write_mesh(layer, record['usd_path'], components)
     write_mesh(layer, '/World/Roofs/Roof_' + identifier.split('_')[-1], [(g, base, top + .02) for g, base, top in components], roofs_only=True)
     # Height/shape metadata is stronger; official parcel-link data is deliberately untouched.
+    maximum_rendered = max([p['height_m'] for p in raised_patches], default=evidence['height_m'])
+    maximum_scope = 'historical_roof_or_equipment_surface_not_occupied_storeys'
+    building.GetPrim().SetCustomDataByKey('maximumRenderedHeightMeters', maximum_rendered)
+    building.GetPrim().SetCustomDataByKey('maximumRenderedHeightScope', maximum_scope)
     building.GetPrim().SetCustomDataByKey('heightMeters', evidence['height_m'])
     building.GetPrim().SetCustomDataByKey('heightQuality', 'historical_lidar_derived')
     building.GetPrim().SetCustomDataByKey('height', {'height_m': evidence['height_m'], 'floors_used': config['reported_stories'],
-        'method': 'historical_planar_class1_roof_minus_local_ground_with_documentary_storeys', 'quality': 'historical_lidar_derived',
+        'method': 'historical_multilevel_roof_deck_and_supported_equipment_with_documentary_storeys', 'quality': 'historical_lidar_derived',
         'source_snapshot': active['snapshot'], 'source_building_floor': int(previous.get('source_building_floor') or 0),
         'source_parcel_stories': int(previous.get('source_parcel_stories') or 0), 'lidar_roof_points': evidence['accepted_planar_support_points'],
         'roof_elevation_m': evidence['roof_support_median_z_m'], 'nearby_ground_elevation_m': evidence['local_ground_median_m'],
-        'review_notes': 'Historical planar upper-roof zone; original unmatched parcel lineage retained; lower components remain unresolved.'})
+        'review_notes': 'Historical supported dominant roof deck plus raised planar patches; courtyard preserved; original unmatched parcel lineage retained.'})
     building.GetPrim().SetCustomDataByKey('landmarkCorrection', {'id': config['correction_id'], 'name': 'The Wellesley at College Park',
         'reportedStories': config['reported_stories'], 'reportedNominalHeightMeters': config['reported_height_m'],
         'roofHeightMeters': evidence['height_m'], 'roofAreaMeters2': roof_local.area,
@@ -311,15 +404,17 @@ def correct(root=ROOT):
         'method': 'Dense planar unclassified high surfaces plus classified local ground; source mass retained only outside upper footprint',
         'lowerComponents': 'Original low masses unresolved; not assigned seven storeys'}
     layer.GetRootLayer().Save()
-    values = {'height_m': evidence['height_m'], 'floors_used': config['reported_stories'], 'source_snapshot': active['snapshot'], 'method': 'historical_planar_class1_roof_minus_local_ground_with_documentary_storeys',
+    values = {'height_m': evidence['height_m'], 'floors_used': config['reported_stories'], 'source_snapshot': active['snapshot'], 'method': 'historical_multilevel_roof_deck_and_supported_equipment_with_documentary_storeys',
               'quality': 'historical_lidar_derived', 'correction_id': config['correction_id'],
+              'maximum_rendered_height_m': maximum_rendered, 'maximum_rendered_height_scope': maximum_scope,
               'reported_documentary_height_m': config['reported_height_m'], 'documentary_stories': config['reported_stories'],
               'roof_elevation_m': evidence['roof_support_median_z_m'], 'nearby_ground_elevation_m': evidence['local_ground_median_m'],
               'lidar_roof_points': evidence['accepted_planar_support_points'],
-              'review_notes': 'Historical class1 planar upper-roof zone, documentary seven-storey/75ft cross-check; shape and lower components need current review. Original parcel link remains ambiguous/unmatched; not a current roof survey.',
-              'shape_quality': 'historical_planar_upper_zone_with_unresolved_lower_components'}
+              'review_notes': 'Historical deck-return extraction with equipment-gap diagnostics and raised planar patches; documentary seven-storey/75ft cross-check; lower components need current review. Original parcel link remains ambiguous/unmatched; not a current roof survey.',
+              'shape_quality': 'historical_multilevel_roof_with_observed_courtyard_and_uncertain_equipment'}
     updated = corrected_height_rows(rows, identifier, values)
-    atomic_json(heights_path, updated)
+    if apply:
+        atomic_json(heights_path, updated)
     quality_path = root / 'data/heights/height_quality.json'
     quality = read(quality_path)
     quality.update({'source_snapshot':active['snapshot'], 'created_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'height_quality': dict(collections.Counter(r['quality'] for r in updated)),
@@ -327,8 +422,9 @@ def correct(root=ROOT):
                     'height_range_m': [min(r['height_m'] for r in updated), max(r['height_m'] for r in updated)]})
     quality['landmark_corrections'] = [r for r in quality.get('landmark_corrections', []) if r.get('building_id') != identifier] + [
         {'building_id': identifier, 'correction_id': config['correction_id'], 'quality': values['shape_quality']}]
-    atomic_json(quality_path, quality)
-    out = root / 'data/heights/wellesley_correction'
+    if apply:
+        atomic_json(quality_path, quality)
+    out = root / ('data/heights/wellesley_correction' if apply else 'data/heights/wellesley_roof_proposal')
     out.mkdir(parents=True, exist_ok=True)
     image = np.full((*raw_mask.shape, 3), 255, dtype=np.uint8)
     image[raw_mask] = [166, 194, 214]
@@ -344,8 +440,13 @@ def correct(root=ROOT):
                 'retained_lower_footprint_area_m2': lower_footprint.area, 'tax_envelope_area_m2': mask_utm.area,
                 'resolved_building_id': identifier, 'original_building_id': config['original_building_id'],
                 'upper_footprint_local_m': mapping(roof_local), 'prior_height_record': prior, 'updated_height_record': next(r for r in updated if r['building_id'] == identifier),
+                'proposal_action':'await_parent_review_before_apply' if not apply else 'applied_scoped_correction',
+                'raised_patch_count':len(raised_patches), 'main_roof_height_m':evidence['height_m'],
+                'maximum_raised_height_m':max([p['height_m'] for p in raised_patches],default=evidence['height_m']),
                 'unrelated_height_rows_unchanged': True, 'original_base_mesh_unchanged': True, 'original_unmatched_parcel_status_preserved': True,
                 'layer': str(layer_path), 'camera': '/World/Cameras/WellesleyEvidence',
+                'global_height_writes_applied': apply,
+                'geometry_revision': 2,
                 'composition_status': 'Parent must compose landmark layer stronger than building_heights/semantic source layers; this tool does not edit connected assembly.'}
     atomic_json(out / 'manifest.json', manifest)
     print(json.dumps({'building_id': identifier, 'height_m': evidence['height_m'], 'reported_stories': config['reported_stories'],
@@ -355,4 +456,6 @@ def correct(root=ROOT):
 
 
 if __name__ == '__main__':
-    correct()
+    import argparse
+    parser=argparse.ArgumentParser(); parser.add_argument('--apply',action='store_true'); args=parser.parse_args()
+    correct(apply=args.apply)

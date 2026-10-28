@@ -39,7 +39,7 @@ def validate(root=ROOT,verbose=True):
         if prim.GetCustomDataByKey('twin:entityId')!=r['entity_id']:errors.append({'entity_id':r['entity_id'],'code':'semantic_identity_mismatch'})
         if prim.GetCustomDataByKey('twin:validationProfile')!=PROFILE:errors.append({'entity_id':r['entity_id'],'code':'semantic_profile_mismatch'})
         mesh=UsdGeom.Mesh(prim);pts=mesh.GetPointsAttr().Get() or []
-        if not pts or abs(max(p[2] for p in pts)-(.1+r['height_m']))>.02:errors.append({'entity_id':r['entity_id'],'code':'height_geometry_mismatch'})
+        if not pts or abs(max(p[2] for p in pts)-(.1+r.get('maximum_rendered_height_m',r['height_m'])))>.02:errors.append({'entity_id':r['entity_id'],'code':'height_geometry_mismatch'})
     layers,assets,unresolved=UsdUtils.ComputeAllDependencies(str(path))
     for name in unresolved:errors.append({'path':str(name),'code':'unresolved_asset'})
     warnings.extend(['Ground remains flat; terrain/ground anchoring is not survey-validated.','Collision, pedestrian clearances and sensor material response are not validated by this visualization profile.','Historical LiDAR and estimated heights do not prove current conditions.'])

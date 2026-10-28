@@ -1,3 +1,5 @@
+Documentation starts at [the living project index](docs/INDEX.md), which links the latest applicable plans, evidence and source-revision rules.
+
 # TWIN — College Park, Orlando
 
 An Omniverse/OpenUSD prototype and a source-traceable GIS ingestion project for College Park and Edgewater Drive.

@@ -2,6 +2,10 @@
 
 Checked October 28, 2026. Priority area: Princeton Street / Edgewater Drive, then College Park Main Street. Owners: Transportation GIS Analyst (source review), Civil/3D Geometry Engineer (reconstruction), independent QA Analyst (acceptance), PM Agent (dependencies).
 
+## Latest applicable revision check — October 28, 2026
+
+The [official MetroPlan TIP page](https://metroplanorlando.gov/plans/transportation-improvement-program/) now links [FY27–31, adopted July 2026 and amended September 2026](https://metroplanorlando.gov/wp-content/uploads/TIP_FY27-31_Adopted-July-2026_Amended-September-2026.pdf). The publisher states approval July 8 and amendment September 9, 2026. Use this version for applicable current program records; the November 2025 PDF below remains historical. Review changed Edgewater project entries before updating any program claim; neither edition supplies accepted roadway geometry. Follow [the living documentation rules](INDEX.md).
+
 ## Verified official references
 
 | Document | Verified location | Application and limit |
@@ -46,3 +50,5 @@ Priority: P1; Princeton–Edgewater first, then the Main Street corridor. Respon
 - [ ] Review Princeton intersection and sidewalk approach plus Main Street tilt-shift views. Check glare, tree occlusion, spill toward residences and performance at conference resolution. A rendered lighting review does not certify photometric compliance.
 
 Official references: [OUC Development Services Guide](https://www.ouc.com/wp-content/uploads/2024/12/Development_Services_dev_guide.pdf), lighting discussion p.28; [OUC outdoor lighting](https://www.ouc.com/solutions-programs/business/outdoor-lighting/); [Orlando Engineering Standards Manual](https://www.orlando.gov/files/sharedassets/public/documents/engineering/platting/engineeringstandardsmanual.pdf); [Edgewater project](https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project). These establish records/coordination leads, not verified existing fixture locations or a selected Main Street fixture. Downtown-only fixture guidance and unincorporated County rules must not be applied to College Park automatically. No utility request, purchase or installation is authorized or performed by this plan.
+
+The September 2026 TIP PDF was downloaded and inspected locally on October 28; Edgewater project references occur on physical PDF pages 434–435, with additional index references at 742–743. Original bytes and retrieval/checksum receipt are preserved in ignored `data/transport/references/metroplan_tip_2026_09.pdf` and its source receipt. This verifies availability and reference locations, not an engineering geometry acceptance.

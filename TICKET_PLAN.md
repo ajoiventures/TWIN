@@ -294,3 +294,7 @@ The scene remains a GIS prototype; final visual readiness is unproven. Use [the 
 8. **WQ-08 / #13/#14:** verify fresh launch, conference-resolution performance and human presentation sign-off; then replicate the accepted quality along Main Street.
 
 No package is complete merely because this breakdown exists. Owners, dependencies, deliverables, review gates and four-agent capacity limits are specified in the linked plan. Existing, historical and proposed geometry remain separate.
+
+## Living documentation and source recency
+
+Use [docs/INDEX.md](docs/INDEX.md) as the starting point. Prefer the newest applicable official adopted/approved revision; track observation, document/revision, effective and retrieval/build dates separately. Preserve older sources as history and keep future designs separate from existing conditions. Update affected registers, tickets, provenance and checks after each implementation batch. MetroPlan FY27–31 amended September 9, 2026 now takes priority over the 2025 TIP for current program context; it is not an as-built geometry source.

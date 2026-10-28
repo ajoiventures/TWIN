@@ -1,0 +1,34 @@
+# Living project documentation
+
+Last reviewed: October 28, 2026. Focus: College Park Main Street, beginning with the Princeton–Edgewater showcase. This is the starting index; older checkpoints remain historical evidence and do not establish current completion.
+
+| Document | Purpose |
+|---|---|
+| [Ticket plan](../TICKET_PLAN.md) | Full scope, priorities, ownership and acceptance requirements |
+| [Showcase delivery plan](PRINCETON_EDGEWATER_SHOWCASE_PLAN.md) | Sequenced building, street, landscape, lighting and visual review work |
+| [Transportation documents](TRANSPORTATION_DOCUMENT_PLAN.md) | Official records, revisions, missing engineering sheets and source-use limits |
+| [Road review](PRINCETON_EDGEWATER_REVIEW.md) | Alignment findings and unresolved intersection geometry |
+| [Multifamily review](MULTIFAMILY_REVIEW.md) | Property candidates, source-link/height exceptions and current reconstruction needs |
+| [Study scope](STUDY_SCOPE.md) | Official district boundaries and actual extraction coverage |
+| [Execution checkpoints](EXECUTION_STATUS.md) | Dated implementation evidence; read the latest applicable checkpoint and verify against current artifacts |
+| [Government data plan](GOVERNMENT_DATA_PLAN.md) | Source acquisition and remaining government-data work |
+
+## Newest applicable official evidence first
+
+1. Check the original publisher's current document page and amendments before relying on search rankings or previously saved files. Prefer the newest applicable adopted/approved revision for the same scope and status; preserve superseded versions and the reason for changing the active reference.
+2. Keep publication/revision date, field observation/acquisition date, effective/adoption date, retrieval/check date and local build date separate. Unknown dates stay unknown. A recent download, web-page edit or search crawl does not make old geometry current.
+3. Existing/as-built conditions, historical observations and proposed design are separate evidence tracks. A newer proposed plan does not replace existing conditions; a newer draft is not automatically preferable to an adopted document. A current marketing page does not certify roof geometry or occupancy.
+4. For every adopted model reference record issuer, stable ID/URL, revision/sheet/page, geographic coverage, status, dates, CRS/units/datum where relevant, access/reuse conditions, checksum and supersedes/superseded-by links. Record conflicts and explicit acceptance decisions.
+5. At each implementation batch update the affected source register, ticket, model provenance and checkpoint together. Rebuild dependent reports when source or geometry content changes. Before conference sign-off, recheck project status and material references and attach actual rendered evidence.
+
+## Current transportation revision correction
+
+On October 28, the [official MetroPlan TIP page](https://metroplanorlando.gov/plans/transportation-improvement-program/) identifies FY27–31 as approved July 8, 2026 and amended September 9, 2026. Its [linked adopted/amended PDF](https://metroplanorlando.gov/wp-content/uploads/TIP_FY27-31_Adopted-July-2026_Amended-September-2026.pdf) takes priority for applicable current program records over the previously downloaded FY26–30 November 2025 edition. The older PDF remains a historical comparison, not a latest-edition claim. Neither TIP is an existing-condition engineering drawing.
+
+The City project page lists December 2025 final-plan submission, but the actual applicable signed sheets still need acquisition/revision review. The 2009 support plan and 2018 concept history remain historical context. Do not infer that they document current lane or sidewalk dimensions.
+
+## Updating this documentation
+
+PM maintains this index and ticket links; source analysts maintain dates and revision comparisons; technical leads maintain scene/data dependencies; independent QA checks that completion claims match evidence. This policy creates no unattended monitoring or claim that every source has a newer version. Each source must show its actual last-check date and unresolved freshness limits.
+
+The September 2026 TIP PDF was downloaded and inspected locally on October 28; Edgewater project references occur on physical PDF pages 434–435, with additional index references at 742–743. Original bytes and retrieval/checksum receipt are preserved in ignored `data/transport/references/metroplan_tip_2026_09.pdf` and its source receipt. This verifies availability and reference locations, not an engineering geometry acceptance.

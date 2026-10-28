@@ -144,19 +144,22 @@ def revised_tree(kind,seed):
     palmleaf=material(stage,'PalmLeaf',(.12,.25,.065),.78)
     # Narrow physical leaflets require no cluster alpha; each has a tapered folded ridge.
     pts=[];faces=[]
-    for j in range(23):
-     angle=j*2.399963+seed*.01;length=3.1+rng.random()*1.0;tilt=rng.uniform(-.6,.6)
+    for j in range(27):
+     angle=j*2.399963+seed*.01;length=(2.0 if j<6 else 3.1)+rng.random()*1.0;tilt=rng.uniform(-.4,.4)
+     # New upright central fronds and mature arching outer fronds form a crown.
+     lift=2.2 if j<6 else 1.3;droop=.45 if j<6 else 2.0
      line=[]
      for k in range(13):
-      t=k/12;line.append((.33+math.cos(angle)*length*t,.12+math.sin(angle)*length*t,8.25+1.3*math.sin(t*math.pi)+tilt*t-2*t*t))
+      t=k/12;line.append((.33+math.cos(angle)*length*t,.12+math.sin(angle)*length*t,8.25+lift*math.sin(t*math.pi*.8)+tilt*t-droop*t*t))
      tube(stage,'/Asset/Geometry/Frond_'+str(j),line,[max(.004,.032*(1-k/13)) for k in range(13)],bark,5)
-     for k in range(1,12):
+     for k in range(1,24):
       for side in [-1,1]:
-       c=Gf.Vec3d(*line[k]);across=Gf.Vec3d(-math.sin(angle),math.cos(angle),0)*side
+       t=k/24;segment=t*12;index=int(segment)
+       c=Gf.Vec3d(*line[index])*(1-(segment-index))+Gf.Vec3d(*line[index+1])*(segment-index);across=Gf.Vec3d(-math.sin(angle),math.cos(angle),0)*side
        direction=Gf.Vec3d(math.cos(angle),math.sin(angle),0)
-       reach=(.8*math.sin(k/13*math.pi)+.12)*rng.uniform(.88,1.1)
+       reach=(.8*math.sin(t*math.pi)+.12)*rng.uniform(.88,1.1)*(length/3.6)
        tip=c+across*reach+direction*.19+Gf.Vec3d(0,0,-.2*reach)
-       half=direction*.028;mid=(c+tip)*.5+Gf.Vec3d(0,0,.045)
+       half=direction*.045;mid=(c+tip)*.5+Gf.Vec3d(0,0,.045)
        base=len(pts);pts.extend([tuple(c-half),tuple(c+half),tuple(mid+half*.65),tuple(tip),tuple(mid-half*.65)])
        faces.extend([[base,base+1,base+2],[base,base+2,base+4],[base+2,base+3,base+4]])
     mesh(stage,'/Asset/Geometry/Foliage',pts,faces,palmleaf,smooth=False)

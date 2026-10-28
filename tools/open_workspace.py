@@ -10,13 +10,14 @@ from pxr import Gf
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index
+from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
 
 async def open_workspace():
-    global project_window, selection_subscription
+    global project_window, selection_subscription, confidence_controller
+    if 'confidence_controller' in globals():confidence_controller.reset()
     if project_window is None:
         project_window=ui.Window('College Park | Project',width=360,height=700)
     window=project_window
@@ -69,11 +70,41 @@ async def open_workspace():
         detail_counts=json.loads((ROOT/'data'/'detail_manifest.json').read_text(encoding='utf-8')).get('counts',{}) if detailed else {}
     except (OSError,ValueError):detail_counts={}
     try:
-        project_refresh=json.loads((ROOT/'data/processed/active.json').read_text()).get('activated_utc')
-    except (OSError,ValueError):project_refresh=None
+        active_packet=json.loads((ROOT/'data/processed/active.json').read_text())
+        project_refresh=active_packet.get('activated_utc');active_snapshot=active_packet.get('snapshot')
+    except (OSError,ValueError):project_refresh=active_snapshot=None
     try:
         evidence_registry=registry_index(json.loads((ROOT/'data/processed/asset_registry.json').read_text(encoding='utf-8')))
     except (OSError,ValueError,TypeError):evidence_registry={}
+    confidence_controller=SessionConfidenceFilter(ctx.get_stage(),active_snapshot if project_stage else None)
+    confidence_counts=confidence_controller.counts()
+    registry_stamp=None
+    confidence_enabled={key for key,label in CONFIDENCE_CATEGORIES};confidence_mode={'enabled':False}
+    def refresh_confidence():
+        nonlocal project_refresh,active_snapshot,evidence_registry,registry_stamp
+        try:
+            packet=json.loads((ROOT/'data/processed/active.json').read_text())
+            project_refresh=packet.get('activated_utc');active_snapshot=packet.get('snapshot')
+        except (OSError,ValueError):project_refresh=active_snapshot=None
+        confidence_controller.active_snapshot=active_snapshot if project_stage else None
+        try:
+            registry_path=ROOT/'data/processed/asset_registry.json';stamp=registry_path.stat().st_mtime_ns
+            if stamp!=registry_stamp:
+                evidence_registry=registry_index(json.loads(registry_path.read_text(encoding='utf-8')));registry_stamp=stamp
+        except (OSError,ValueError,TypeError):evidence_registry={};registry_stamp=None
+    def filter_confidence(key=None,enabled=None):
+        try:
+            if ctx.get_stage()!=confidence_controller.stage:raise ValueError('The open stage changed. Retry project startup to attach display controls.')
+            refresh_confidence()
+            if key:
+                if enabled:confidence_enabled.add(key)
+                else:confidence_enabled.discard(key)
+            result=confidence_controller.apply(confidence_enabled) if confidence_mode['enabled'] else confidence_controller.reset()
+            confidence_summary.text='Evidence display groups (paired roofs counted separately):\n'+'\n'.join(f'{label}: {result["counts"][key]}' for key,label in CONFIDENCE_CATEGORIES)
+            status.text=f'Evidence filter: {result["hidden_groups"]} groups hidden temporarily. Source accuracy is not certified.'
+        except Exception as error:status.text='Evidence display change failed: '+str(error)
+    def confidence_master(model):
+        confidence_mode['enabled']=model.as_bool;filter_confidence()
     def view(name):
         viewport=get_active_viewport()
         stage=ctx.get_stage()
@@ -119,6 +150,17 @@ async def open_workspace():
                     model.add_value_changed_fn(lambda m,p=path:toggle(p,m.as_bool))
             ui.Button('Save manual edits',height=34,clicked_fn=save)
             ui.Label('Display switches are temporary; source layers are preserved.',height=38,word_wrap=True)
+            ui.Label('Source confidence',height=23,style={'font_size':18})
+            ui.Label('Labels describe evidence, not certified accuracy. Historical heights do not establish current conditions.',height=48,word_wrap=True)
+            with ui.HStack(height=24):
+                model=ui.SimpleBoolModel(False);ui.CheckBox(model=model,width=24);ui.Label('Filter scene by evidence category')
+                model.add_value_changed_fn(confidence_master)
+            for key,label in CONFIDENCE_CATEGORIES:
+                with ui.HStack(height=23):
+                    model=ui.SimpleBoolModel(True);ui.CheckBox(model=model,width=24);ui.Label(label)
+                    model.add_value_changed_fn(lambda m,k=key:filter_confidence(k,m.as_bool))
+            confidence_summary=ui.Label('Evidence display groups (paired roofs counted separately):\n'+'\n'.join(f'{label}: {confidence_counts[key]}' for key,label in CONFIDENCE_CATEGORIES),height=170,word_wrap=True)
+            ui.Button('Refresh evidence labels',height=30,clicked_fn=filter_confidence)
             status=ui.Label('Ready. Select any building part to inspect its evidence.',height=340,word_wrap=True)
             ui.Label('Heights: historical LiDAR or floor estimates. Ground is flat.\nNo live traffic or sensor feeds.',height=48,word_wrap=True,style={'color':0xffa9b8cf})
             if detailed:ui.Label('Trees and storefront designs are illustrative.\nShop signs show generic categories.',height=48,word_wrap=True)
@@ -131,7 +173,8 @@ async def open_workspace():
         if not stage:return
         paths=ctx.get_selection().get_selected_prim_paths()
         prim=stage.GetPrimAtPath(paths[0]) if paths else None
-        status.text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None)
+        refresh_confidence()
+        status.text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
         if not project_stage or not is_project_stage(stage,[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):return
         if tuple(paths)==bridge_runtime['remote_paths']:return
         bridge_runtime['remote_paths']=None

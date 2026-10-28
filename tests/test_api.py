@@ -4,6 +4,29 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from serve import read_table,page_table,SnapshotMismatch,active_folder
 
 class ApiContractTests(unittest.TestCase):
+ def test_corridor_review_exact_feature_filters_and_same_pin_records(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);source=r/'data/processed/dependency.json';source.write_text('original')
+   report={'source_snapshot':'s1','dependencies':{'data/processed/dependency.json':hashlib.sha256(source.read_bytes()).hexdigest()},'rows':[
+    {'parcel_feature_id':'ocpa:1','parcel_id':'same-pin','site_address':'1615 EDGEWATER DR','scopes':['main_street','neighborhood'],'state':'unresolved_building_evidence'},
+    {'parcel_feature_id':'ocpa:2','parcel_id':'same-pin','site_address':'Unit record','scopes':['neighborhood'],'state':'condo_or_shared_building_record'}]}
+   (r/'data/processed/corridor_building_review.json').write_text(json.dumps(report))
+   self.assertEqual(page_table('corridor_building_review',{},r)['total'],2)
+   packet=page_table('corridor_building_review',{'parcel_feature_id':['ocpa:2'],'limit':['1']},r)
+   self.assertEqual(packet['rows'][0]['parcel_feature_id'],'ocpa:2');self.assertEqual(packet['snapshot'],'s1')
+   self.assertEqual(page_table('corridor_building_review',{'scope':['main_street']},r)['total'],1)
+   self.assertEqual(page_table('corridor_building_review',{'q':['EDGEWATER'],'state':['unresolved_building_evidence']},r)['total'],1)
+   summary=read_table('corridor_building_quality',r)[0]
+   self.assertEqual(summary['report_sha256'],packet['report_sha256']);self.assertNotIn('rows',summary)
+ def test_corridor_review_rejects_stale_missing_changed_and_escaping_dependencies(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);path=r/'data/processed/corridor_building_review.json';source=r/'data/processed/source.json';source.write_text('original')
+   digest=hashlib.sha256(source.read_bytes()).hexdigest()
+   for snapshot,deps in [('old',{'data/processed/source.json':digest}),('s1',{}),('s1',{'../escape':digest}),('s1',{'data/missing.json':digest}),('s1',{'data/processed/source.json':'0'*64})]:
+    path.write_text(json.dumps({'source_snapshot':snapshot,'dependencies':deps,'rows':[]}))
+    with self.assertRaises(SnapshotMismatch):read_table('corridor_building_review',r)
+   path.write_text(json.dumps({'source_snapshot':'s1','dependencies':{'data/processed/source.json':digest},'rows':[]}));source.write_text('changed')
+   with self.assertRaises(SnapshotMismatch):read_table('corridor_building_quality',r)
  def test_parcel_search_precedes_pagination_and_keeps_snapshot_identity(self):
   with tempfile.TemporaryDirectory() as d:
    r=self.setup_root(d);rows=[{'id':'p1','properties':{'site_address':'1615 EDGEWATER DR','parcel_id':'292223016600090'}},{'id':'p2','properties':{'site_address':'644 W PRINCETON ST','parcel_id':'292214147800150'}}]

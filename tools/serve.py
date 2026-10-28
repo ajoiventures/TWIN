@@ -6,8 +6,9 @@ import json,argparse,math,hashlib
 from property_search import search_parcels
 from selection_bridge import read_state as selection_state, publish as publish_selection, valid_origin, SelectionError, MAX_BODY
 ROOT=Path(__file__).resolve().parents[1]
-TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions'}
+TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions','corridor_building_review','corridor_building_quality'}
 class SnapshotMismatch(ValueError):pass
+class VerifiedReviewRows(list):pass
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -30,6 +31,20 @@ def read_table(name,root=ROOT):
   return report,snapshot
  if name not in TABLES:raise KeyError(name)
  folder,snapshot=active_folder(root)
+ if name in ('corridor_building_review','corridor_building_quality'):
+  raw=(root/'data/processed/corridor_building_review.json').read_bytes();report=json.loads(raw)
+  if report.get('source_snapshot')!=snapshot:raise SnapshotMismatch('Rebuild building review against active snapshot')
+  report_digest=hashlib.sha256(raw).hexdigest()
+  dependencies=report.get('dependencies')
+  if not isinstance(dependencies,dict) or not dependencies:raise SnapshotMismatch('Building review requires source dependency hashes; rebuild it')
+  for relative,digest in dependencies.items():
+   if not isinstance(relative,str) or not isinstance(digest,str) or len(digest)!=64:raise SnapshotMismatch('Invalid building review dependency')
+   path=(root/relative).resolve()
+   if not path.is_relative_to(root.resolve()) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise SnapshotMismatch('Building review is stale for current source files; rebuild it')
+  if active_folder(root)[1]!=snapshot:raise SnapshotMismatch('Active snapshot changed while checking building review')
+  if name=='corridor_building_review':
+   rows=VerifiedReviewRows(report['rows']);rows.report_sha256=report_digest;return rows,snapshot
+  return {**{k:v for k,v in report.items() if k not in ('rows','dependencies','original_35_queue','original_17_queue','upper_floor_review','official_subarea_floor_underuse')},'snapshot':snapshot,'report_sha256':report_digest},snapshot
  if name=='reconstructions':
   report=current_report(root/'data/processed/reconstructions.json',snapshot)
   for relative,digest in report['dependencies'].items():
@@ -86,14 +101,25 @@ def read_table(name,root=ROOT):
  return data,snapshot
 def page_table(name,query,root=ROOT):
  data,snapshot=read_table(name,root)
+ report_digest=getattr(data,'report_sha256',None)
  if isinstance(data,dict) and data.get('type')!='FeatureCollection':return data
  rows=data['features'] if isinstance(data,dict) else data
+ if name=='corridor_building_review':
+  for field in ('parcel_feature_id','state'):
+   value=query.get(field,[''])[0]
+   if value:rows=[r for r in rows if r.get(field)==value]
+  scope=query.get('scope',[''])[0]
+  if scope:rows=[r for r in rows if scope in r.get('scopes',[])]
+  term=query.get('q',[''])[0].strip().casefold()
+  if term:rows=[r for r in rows if any(term in str(r.get(k) or '').casefold() for k in ('site_address','parcel_feature_id','parcel_id','property_use_code'))]
  if name=='parcels' and 'q' in query:rows=search_parcels(rows,query['q'][0])
  field=query.get('parcel_id',[''])[0]
  if field:
   rows=[r for r in rows if (r.get('properties',r)).get('parcel_id')==field]
  limit=min(1000,max(1,int(query.get('limit',[100])[0])));offset=max(0,int(query.get('offset',[0])[0]))
- return {'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
+ packet={'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
+ if report_digest:packet['report_sha256']=report_digest
+ return packet
 class Handler(BaseHTTPRequestHandler):
  def send(self,body,status=200,kind='application/json; charset=utf-8'):
   raw=body if isinstance(body,bytes) else body.encode() if isinstance(body,str) else json.dumps(body,ensure_ascii=False).encode()
@@ -103,6 +129,7 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/building-review':return self.send((ROOT/'web/building-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/aerial-alignment':return self.send((ROOT/'data/imagery/aerial_alignment_review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/road-review':return self.send((ROOT/'data/transport/road_reference_gallery.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path.startswith('/road-reference/'):

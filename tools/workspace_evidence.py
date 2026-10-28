@@ -45,7 +45,7 @@ def registry_index(document):
             if row.get(field):buckets.setdefault(row[field],[]).append(row)
     return {key:rows[0] for key,rows in buckets.items() if len(rows)==1}
 
-def inspector_text(prim,project_refresh=None,registry=None):
+def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None):
     evidence=inherited_evidence(prim);d=evidence['data']
     official=d.get('official',{});height=d.get('height',{});twin=d.get('twin',{})
     def pick(*values):return next((str(x) for x in values if x not in (None,'')),UNKNOWN)
@@ -59,7 +59,10 @@ def inspector_text(prim,project_refresh=None,registry=None):
     acquisition=pick(d.get('sourceDate'),d.get('acquisition_date'),official.get('source_date'),height.get('acquisition_date'))
     if acquisition==UNKNOWN and (interval.get('start') or interval.get('end')):
         acquisition=f"{interval.get('start') or UNKNOWN} to {interval.get('end') or UNKNOWN}"
+    category=evidence_category(prim,active_snapshot)
     rows=[('Selected',evidence['selected_path']),
+          ('Evidence category',dict(CONFIDENCE_CATEGORIES).get(category,UNKNOWN)),
+          ('Snapshot freshness','Stale: differs from active dataset' if category=='stale' else 'Matches active dataset' if active_snapshot and snapshot==active_snapshot else UNKNOWN),
           ('Address',pick(official.get('site_address'))),
           ('Entity',pick(twin.get('entityId'),official.get('id'),d.get('id'))),
           ('Parcel',pick(official.get('parcel_id'),d.get('parcelId'))),
@@ -79,6 +82,88 @@ def inspector_text(prim,project_refresh=None,registry=None):
     if evidence['origins']:rows.append(('Evidence inherited from',', '.join(sorted(set(evidence['origins'].values())))))
     if d.get('commercialEvidence'):rows.append(('Market status','Unknown; broker context is not verified current availability'))
     return '\n'.join(f'{label}: {value}' for label,value in rows)
+
+
+CONFIDENCE_CATEGORIES=(('historical_lidar','Historical LiDAR-derived heights'),
+    ('observed','Observed (explicit source declaration)'),('estimated','Estimated'),
+    ('illustrative','Illustrative'),('proposed','Proposed / future scenario'),
+    ('unknown','Unknown evidence'),('stale','Stale source snapshot'))
+
+
+def evidence_category(prim,active_snapshot=None):
+    """Evidence labels describe provenance; they are not measured accuracy scores."""
+    if not prim:return 'unknown'
+    path=str(prim.GetPath())
+    if path.startswith('/World/Roofs/Roof_'):
+        counterpart=prim.GetStage().GetPrimAtPath('/World/Buildings/Building_'+prim.GetName()[5:])
+        if counterpart:return evidence_category(counterpart,active_snapshot)
+    d=inherited_evidence(prim)['data'];height=d.get('height',{});twin=d.get('twin',{});official=d.get('official',{})
+    snapshot=twin.get('sourceSnapshot') or height.get('source_snapshot') or official.get('snapshot') or d.get('sourceSnapshot')
+    if active_snapshot and snapshot and snapshot!=active_snapshot:return 'stale'
+    if path.startswith(('/World/Scenario/','/World/Scenarios/')) or path in ('/World/Scenario','/World/Scenarios') or d.get('status') in ('proposed','proposal','future_scenario'):return 'proposed'
+    quality=str(height.get('quality') or twin.get('quality') or d.get('quality') or '').lower()
+    if quality=='historical_lidar_derived' or height.get('method') in ('usgs_lidar','usgs_lidar_roof_percentile','lidar_roof_percentile'):return 'historical_lidar'
+    if d.get('observationKind')=='observed':return 'observed'
+    if quality in ('estimated','floor_count_estimate') or str(height.get('method','')).startswith(('appraiser_','floor_')):return 'estimated'
+    if any(path==root or path.startswith(root+'/') for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples')) or 'illustrative' in quality:return 'illustrative'
+    return 'unknown'
+
+
+def confidence_targets(stage):
+    """Whole semantic groups only; never traverse/edit instance proxies."""
+    if not stage:return []
+    targets=[]
+    for root in ('/World/Buildings','/World/Roofs','/World/Landmarks'):
+        parent=stage.GetPrimAtPath(root)
+        if parent:targets.extend(p for p in parent.GetChildren() if not p.IsInstanceProxy())
+    for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples','/World/Scenario','/World/Scenarios'):
+        prim=stage.GetPrimAtPath(root)
+        if prim:targets.append(prim)
+    return targets
+
+
+class SessionConfidenceFilter:
+    """Own only transient visibility properties; restore exact earlier session opinions.
+
+    Root/manual/source layers and the user's current edit target are untouched.
+    Visibility switches on ancestor groups continue to operate independently.
+    """
+    def __init__(self,stage,active_snapshot=None):
+        from pxr import Sdf
+        self.stage=stage;self.active_snapshot=active_snapshot;self.saved={};self.backup=Sdf.Layer.CreateAnonymous()
+
+    def counts(self):
+        result={key:0 for key,label in CONFIDENCE_CATEGORIES}
+        for prim in confidence_targets(self.stage):result[evidence_category(prim,self.active_snapshot)]+=1
+        return result
+
+    def apply(self,enabled):
+        from pxr import Sdf,Usd,UsdGeom
+        allowed={key for key,label in CONFIDENCE_CATEGORIES}
+        if not set(enabled)<=allowed:raise ValueError('Unknown evidence category')
+        stage=self.stage;session=stage.GetSessionLayer();hidden=0;skipped=0
+        for prim in confidence_targets(stage):
+            if prim.IsInstanceProxy():skipped+=1;continue
+            path=prim.GetPath().AppendProperty('visibility');key=str(path)
+            hide=evidence_category(prim,self.active_snapshot) not in enabled
+            if hide:
+                if key not in self.saved:
+                    old=session.GetPropertyAtPath(path);self.saved[key]=bool(old)
+                    if old:
+                        Sdf.CreatePrimInLayer(self.backup,prim.GetPath());Sdf.CopySpec(session,path,self.backup,path)
+                with Usd.EditContext(stage,session):
+                    # Every target is a typed imageable; do not retype source groups.
+                    if not UsdGeom.Imageable(prim):skipped+=1;continue
+                    UsdGeom.Imageable(prim).CreateVisibilityAttr().Set('invisible')
+                hidden+=1
+            elif key in self.saved:
+                spec=session.GetPrimAtPath(prim.GetPath());prop=session.GetPropertyAtPath(path)
+                if prop:spec.RemoveProperty(prop)
+                if self.saved.pop(key):Sdf.CopySpec(self.backup,path,session,path)
+        return {'hidden_groups':hidden,'skipped_groups':skipped,'counts':self.counts()}
+
+    def reset(self):
+        return self.apply({key for key,label in CONFIDENCE_CATEGORIES})
 
 def set_session_visibility(stage,path,visible):
     from pxr import Sdf,Usd,UsdGeom

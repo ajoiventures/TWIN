@@ -5,7 +5,7 @@ for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):os.envir
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
-from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index
+from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES
 
 class WorkspaceEvidenceTests(unittest.TestCase):
     def default_stage(self):
@@ -92,5 +92,46 @@ class WorkspaceEvidenceTests(unittest.TestCase):
             self.assertEqual((root/'base.usda').read_bytes(),before);self.assertTrue(b.GetRootLayer().dirty)
             self.assertIn('manual edit',(root/'manual.usda').read_text());self.assertFalse(manual.dirty)
             with self.assertRaises(ValueError):save_manual_only(s,root/'missing.usda')
+
+    def test_confidence_labels_never_promote_unknown_to_observed(self):
+        stage=Usd.Stage.CreateInMemory();p=UsdGeom.Cube.Define(stage,'/World/Buildings/B').GetPrim()
+        self.assertEqual(evidence_category(p),'unknown')
+        p.SetCustomDataByKey('height',{'quality':'floor_count_estimate','source_snapshot':'s1'})
+        self.assertEqual(evidence_category(p,'s1'),'estimated')
+        p.SetCustomDataByKey('height',{'quality':'historical_lidar_derived','source_snapshot':'s1'})
+        self.assertEqual(evidence_category(p,'s1'),'historical_lidar')
+        self.assertEqual(evidence_category(p,'s2'),'stale')
+        self.assertIn('Snapshot freshness: Stale',inspector_text(p,active_snapshot='s2'))
+        self.assertEqual(evidence_category(UsdGeom.Cube.Define(stage,'/World/Scenario/B').GetPrim()),'proposed')
+
+    def test_confidence_filter_restores_session_and_keeps_layers_and_edit_target(self):
+        stage=Usd.Stage.CreateInMemory();p=UsdGeom.Cube.Define(stage,'/World/Buildings/Building_1').GetPrim()
+        p.SetCustomDataByKey('height',{'quality':'floor_count_estimate'})
+        roof=UsdGeom.Cube.Define(stage,'/World/Roofs/Roof_1').GetPrim()
+        base=stage.GetRootLayer().ExportToString();target=stage.GetEditTarget().GetLayer()
+        self.assertEqual(evidence_category(roof),'estimated')
+        controller=SessionConfidenceFilter(stage);allowed={key for key,label in CONFIDENCE_CATEGORIES}-{'estimated'}
+        self.assertEqual(controller.apply(allowed)['hidden_groups'],2)
+        self.assertFalse(visible_for_test(stage,p))
+        controller.reset()
+        self.assertTrue(visible_for_test(stage,p));self.assertTrue(visible_for_test(stage,roof))
+        self.assertEqual(stage.GetRootLayer().ExportToString(),base);self.assertEqual(stage.GetEditTarget().GetLayer(),target)
+        # Pre-existing session hides survive disabling/resetting the filter.
+        set_session_visibility(stage,str(p.GetPath()),False)
+        before=stage.GetSessionLayer().GetPropertyAtPath(p.GetPath().AppendProperty('visibility')).default
+        controller.apply(allowed);controller.reset()
+        self.assertEqual(stage.GetSessionLayer().GetPropertyAtPath(p.GetPath().AppendProperty('visibility')).default,before)
+        self.assertFalse(visible_for_test(stage,p))
+
+    def test_layer_switch_and_confidence_filter_are_independent(self):
+        stage=Usd.Stage.CreateInMemory();p=UsdGeom.Cube.Define(stage,'/World/Buildings/B').GetPrim()
+        p.SetCustomDataByKey('height',{'quality':'floor_count_estimate'})
+        controller=SessionConfidenceFilter(stage)
+        controller.apply({'unknown'});set_session_visibility(stage,'/World/Buildings',False);controller.reset()
+        self.assertFalse(visible_for_test(stage,p))
+
+
+def visible_for_test(stage,prim):
+    return UsdGeom.Imageable(prim).ComputeVisibility()!='invisible'
 
 if __name__=='__main__':unittest.main()

@@ -1,18 +1,19 @@
 """Offline, source-guarded historical landmark roof proposals; never activate geometry."""
 from pathlib import Path
-import collections, datetime, hashlib, json, sys
+import collections, datetime, hashlib, json, sys, os
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/'.dependencies'),str(ROOT/'tools')]
 import numpy as np
 import shapely
 from shapely.geometry import box,shape,mapping
-from shapely.ops import unary_union
+from shapely.ops import unary_union,polygonize
 from scipy import ndimage
 from scipy.spatial import cKDTree
 from pyproj import Transformer
 from pxr import Usd,UsdGeom,Gf
 from princeton_evidence import write_surface
 from correct_wellesley import polygon_parts
+from mesh_topology import closed_shell_report
 
 SITES=[{'id':'college_park_post_office','pin':'292223149200010','prim':'CollegeParkPostOffice',
         'cloud_sha256':'f50af7f58cf139a43555aa4f424f733b1fca9ca305053c1a1dfee7c8d11d8799',
@@ -178,6 +179,83 @@ def connected_point_roof_regions(points,component):
     return regions,evidence
 
 
+def connected_cell_roof_regions(component,fitted,evidence,labels):
+    """Retain existing post-office plane support in continuous closed regions."""
+    valid=component['mask']&np.isfinite(fitted)
+    nearest=ndimage.distance_transform_edt(~valid,return_distances=False,return_indices=True)
+    labels=np.where(valid,labels,labels[tuple(nearest)])
+    reassigned=0
+    for _ in range(3):
+        for plane_index in range(len(evidence['planes'])):
+            islands,n=ndimage.label((labels==plane_index)&component['mask']);sizes=np.bincount(islands.ravel())
+            for island in [i for i,count in enumerate(sizes) if i and count<12]:
+                patch=islands==island;ring=ndimage.binary_dilation(patch)&~patch&component['mask'];neighbors=labels[ring]
+                if not len(neighbors):continue
+                replacement=int(np.bincount(neighbors,minlength=len(evidence['planes'])).argmax())
+                if replacement!=plane_index:labels[patch]=replacement;reassigned+=int(patch.sum())
+    info=component['grid_info'];cell=info['cell_m'];left=info['left_utm_m'];bottom=info['bottom_utm_m']
+    regions=[];occupied=shapely.GeometryCollection()
+    candidates=[]
+    for plane_index,p in enumerate(evidence['planes']):
+        islands,n=ndimage.label((labels==plane_index)&component['mask'])
+        for island in range(1,n+1):
+            yy,xx=np.where(islands==island)
+            if not len(xx):continue
+            geometry=unary_union([box(left+x*cell,bottom+y*cell,left+(x+1)*cell,bottom+(y+1)*cell) for y,x in zip(yy,xx)]).intersection(component['geometry'])
+            if geometry.is_empty:continue
+            coef=list(p['coefficients_cell_xy']);coef[2]-=.5*(coef[0]+coef[1])
+            candidates.append({'geometry':geometry,'coefficients_cell_xy':coef,'plane_index':plane_index})
+    for r in sorted(candidates,key=lambda r:-r['geometry'].area):
+        geometry=r['geometry'].simplify(1.,preserve_topology=True).intersection(component['geometry']).difference(occupied)
+        if geometry.is_empty:continue
+        regions.append({**r,'geometry':geometry});occupied=occupied.union(geometry)
+    for leftover in polygon_parts(component['geometry'].difference(occupied)):
+        if leftover.area<1e-8:continue
+        r=min(regions,key=lambda r:r['geometry'].distance(leftover.representative_point()));r['geometry']=r['geometry'].union(leftover)
+    cell_residuals=[]
+    yy,xx=np.where(np.isfinite(component['grid'])&component['mask']);centers_x=left+(xx+.5)*cell;centers_y=bottom+(yy+.5)*cell
+    assigned=np.zeros(len(xx),bool)
+    for region in regions:
+        inside=shapely.contains_xy(region['geometry'],centers_x,centers_y)&~assigned;assigned|=inside
+        a,b,c=region['coefficients_cell_xy']
+        cell_residuals.extend(np.abs(a*(xx[inside]+.5)+b*(yy[inside]+.5)+c-component['grid'][yy[inside],xx[inside]]).tolist())
+    evidence['final_region_source_cell_residual_p50_p90_p95_max_m']=np.percentile(cell_residuals,[50,90,95,100]).tolist()
+    evidence['final_region_source_cells_evaluated']=len(cell_residuals)
+    evidence['final_region_source_cells_within75cm']=int((np.asarray(cell_residuals)<=.75).sum())
+    evidence['source_cell_centers_on_boundaries_not_scored']=int((~assigned).sum())
+    evidence['continuous_region_partition']={'regions':len(regions),'small_island_reassigned_cells':reassigned,
+        'source':'same existing class6 cell-consensus planes; no new source or parcel footprint assumption',
+        'cell_center_intercept_conversion_applied':True,'boundary_simplification_m':1.}
+    return regions
+
+
+def resolve_supported_roof_holes(points,component,regions):
+    """Only tiny observed roof/equipment gaps may receive a documented lower cap."""
+    info=component['grid_info'];reports=[]
+    for polygon in polygon_parts(component['geometry']):
+        for ring in polygon.interiors:
+            hole=shapely.Polygon(ring);q=points[shapely.contains_xy(hole,points[:,0],points[:,1])]
+            roof=q[np.isin(q[:,3],[1,6])];center=hole.centroid
+            adjacent=[r for r in regions if r['geometry'].distance(center)<=np.sqrt(hole.area)+.1]
+            def elevation(r):
+                c=r['coefficients_cell_xy'];return c[0]*(center.x-info['left_utm_m'])/info['cell_m']+c[1]*(center.y-info['bottom_utm_m'])/info['cell_m']+c[2]
+            candidate=min(adjacent,key=elevation) if adjacent else None
+            z=elevation(candidate) if candidate else None
+            nearby_support=int((np.abs(roof[:,2]-z)<=.25).sum()) if z is not None else 0
+            high_fraction=float(np.mean(roof[:,2]>=z-.15)) if len(roof) and z is not None else 0
+            supported=hole.area<=4 and len(roof)>=5 and nearby_support>=2 and high_fraction>=.9 and not np.any(q[:,3]==2)
+            if supported:
+                candidate['geometry']=candidate['geometry'].union(hole)
+                component['geometry']=component['geometry'].union(hole)
+            reports.append({'area_m2':hole.area,'centroid_utm_m':[center.x,center.y],'observed_points':len(q),
+                'source_classes':{str(k):int(n) for k,n in zip(*np.unique(q[:,3].astype(int),return_counts=True))},
+                'observed_z_p05_p50_p95_m':np.percentile(q[:,2],[5,50,95]).tolist() if len(q) else None,
+                'lower_cap_plane_navd88_m':z,'points_within25cm_of_lower_plane':nearby_support,'fraction_at_or_above_lower_plane':high_fraction,
+                'action':'supported_uncertain_lower_roof_cap_beneath_upper_returns' if supported else 'preserve_unresolved_void',
+                'interpretation':'Classification gap with roof-level returns; no ground-reaching courtyard claim' if supported else 'Insufficient lower-roof evidence; no blanket courtyard fill'})
+    return reports
+
+
 def positive_step_intervals(a,b,difference):
     """Split an affine plane-height difference at equality; never bow-tie a wall."""
     da,db=difference(a),difference(b);cuts=[0.,1.]
@@ -227,35 +305,176 @@ def quantized_valid_geometry(geometry,minimum_roof_xy_area_m2=.001):
         'self_crossing_step_quads':0}
 
 
-def planar_region_geometry(regions,info,origin,ground):
-    """Whole-region triangulation, exact planes, exterior and explicit step walls."""
-    points=[];counts=[];indices=[];roof_residual=[]
-    left=info['left_utm_m'];bottom=info['bottom_utm_m'];step=info['cell_m']
-    def z(region,a,b):
-        c=region['coefficients_cell_xy'];return c[0]*(a-left)/step+c[1]*(b-bottom)/step+c[2]-ground+.1
-    def top(region,a,b):return(a-origin[0],b-origin[1],z(region,a,b))
-    def face(coords):
-        start=len(points);points.extend(coords);counts.append(len(coords));indices.extend(range(start,len(points)))
+def mesh_topology_metrics(geometry):
+    vertices,counts,indices=geometry;edges=collections.Counter();directions=collections.Counter();offset=0;volume=0
+    for count in counts:
+        q=[tuple(vertices[i]) for i in indices[offset:offset+count]];offset+=count
+        for a,b in zip(q,q[1:]+q[:1]):
+            key=tuple(sorted((a,b)));edges[key]+=1;directions[key]+=1 if (a,b)==key else -1
+        for j in range(1,len(q)-1):volume+=np.dot(q[0],np.cross(q[j],q[j+1]))/6
+    return {'unique_vertices':len(set(tuple(p) for p in vertices)),'unique_edges':len(edges),'faces':len(counts),
+        'boundary_edges':sum(n==1 for n in edges.values()),'nonmanifold_edges':sum(n>2 for n in edges.values()),
+        'nonmanifold_edge_examples':[(e,n) for e,n in edges.items() if n>2][:3],
+        'orientation_conflicts':sum(n==2 and directions[e]!=0 for e,n in edges.items()),
+        'signed_volume_m3':float(volume),'euler_characteristic':len(set(tuple(p) for p in vertices))-len(edges)+len(counts)}
+
+
+def planar_region_geometry(regions,info,origin,ground,_regularization_pass=0):
+    """Closed common planar arrangement with every 2D/vertical T-junction noded."""
+    step=info['cell_m'];left=info['left_utm_m'];bottom=info['bottom_utm_m']
+    def height(region,p):
+        c=region['coefficients_cell_xy'];return c[0]*(p[0]+origin[0]-left)/step+c[1]*(p[1]+origin[1]-bottom)/step+c[2]-ground+.1
+    local=[]
     for region in regions:
-        for polygon in polygon_parts(shapely.orient_polygons(region['geometry'],exterior_cw=False)):
-            for triangle in shapely.constrained_delaunay_triangles(polygon).geoms:
-                xy=list(triangle.exterior.coords)[:-1]
-                if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(xy,xy[1:]+xy[:1]))<0:xy.reverse()
-                coords=[top(region,*p) for p in xy];face(coords);face([(a-origin[0],b-origin[1],.1) for a,b in reversed(xy)])
-                roof_residual.extend([abs(point[2]-z(region,*p)) for point,p in zip(coords,xy)])
-            for ring in [polygon.exterior,*polygon.interiors]:
-                coords=list(ring.coords)
-                for a,b in zip(coords,coords[1:]):
-                    mid=shapely.Point((a[0]+b[0])/2,(a[1]+b[1])/2)
-                    neighbor=next((r for r in regions if r is not region and r['geometry'].distance(mid)<1e-6),None)
-                    if neighbor is None:
-                        face([(a[0]-origin[0],a[1]-origin[1],.1),(b[0]-origin[0],b[1]-origin[1],.1),top(region,*b),top(region,*a)])
-                    else:
-                        difference=lambda p:z(region,*p)-z(neighbor,*p)
-                        for c,d in positive_step_intervals(a,b,difference):
-                            face([top(neighbor,*c),top(neighbor,*d),top(region,*d),top(region,*c)])
-    return (points,counts,indices),{'roof_triangle_plane_residual_max_m':max(roof_residual,default=0),'roof_regions':len(regions),
-        'mesh_face_count':len(counts),'roof_construction':'whole connected region constrained triangulation; exact plane normals, explicit step walls, no mixed-cell averaging'}
+        geometry=shapely.transform(region['geometry'],lambda x,y:(x-origin[0],y-origin[1]),interleaved=False)
+        local.append(shapely.set_precision(geometry,.001))
+    footprint=unary_union(local)
+    lines=unary_union([g.boundary for g in local]+[footprint.boundary])
+    cells=[]
+    for polygon in polygonize(lines):
+        point=polygon.representative_point()
+        if not footprint.covers(point):continue
+        choices=[i for i,g in enumerate(local) if g.covers(point)]
+        if not choices:
+            nearest=min(range(len(local)),key=lambda i:local[i].distance(point))
+            if local[nearest].distance(point)>.002:raise ValueError('Unassigned common roof arrangement cell')
+            choices=[nearest]
+        cells.append({'geometry':shapely.orient_polygons(polygon,exterior_cw=False),'region':choices[0]})
+    # The arrangement has common atomic edges even at existing region T-junctions.
+    edge_cells=collections.defaultdict(list)
+    for i,cell in enumerate(cells):
+        polygon=cell['geometry']
+        for ring in [polygon.exterior,*polygon.interiors]:
+            coords=list(ring.coords)
+            for a,b in zip(coords,coords[1:]):edge_cells[tuple(sorted((a,b)))].append((i,a,b))
+    if any(len(v)>2 for v in edge_cells.values()):raise ValueError('Nonmanifold planar arrangement')
+    cuts={}
+    for edge,neighbors in edge_cells.items():
+        a,b=edge;points=[a,b]
+        if len(neighbors)==2:
+            ra=regions[cells[neighbors[0][0]]['region']];rb=regions[cells[neighbors[1][0]]['region']]
+            da=height(ra,a)-height(rb,a);db=height(ra,b)-height(rb,b)
+            if da*db<0:
+                t=da/(da-db);point=(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t)
+                if min(np.linalg.norm(np.asarray(point)-a),np.linalg.norm(np.asarray(point)-b))>.001:points.insert(1,point)
+        cuts[edge]=points
+    # All roof/bottom triangles use actual authored float32 XY vertices from here.
+    def xy32(p):return tuple(np.asarray(p,dtype=np.float32).astype(float))
+    rings=[];xy_regions=collections.defaultdict(set)
+    for i,cell in enumerate(cells):
+        output=[]
+        for ring in [cell['geometry'].exterior,*cell['geometry'].interiors]:
+            coords=list(ring.coords);expanded=[]
+            for a,b in zip(coords,coords[1:]):
+                pts=cuts[tuple(sorted((a,b)))];pts=pts if pts[0]==a else list(reversed(pts))
+                expanded.extend(xy32(p) for p in pts[:-1])
+            output.append(expanded)
+            for p in expanded:xy_regions[p].add(cell['region'])
+        rings.append(output)
+    levels={};canonical_height={};maximum_weld=0.
+    for xy,region_ids in xy_regions.items():
+        observations=[(.1,None)]+[(height(regions[i],xy),i) for i in region_ids]
+        groups=[]
+        for z,i in sorted(observations):
+            if groups and z-groups[-1][-1][0]<=.002:groups[-1].append((z,i))
+            else:groups.append([(z,i)])
+        ls=[]
+        for group in groups:
+            average=float(np.float32(np.mean([z for z,_ in group])));ls.append(average)
+            for z,i in group:canonical_height[(xy,i)]=average;maximum_weld=max(maximum_weld,abs(z-average))
+        levels[xy]=ls
+    vertices=[];counts=[];indices=[];vertex_ids={};roof_maxres=0.
+    def vertex(xy,z):
+        key=(*xy,float(np.float32(z)))
+        if key not in vertex_ids:vertex_ids[key]=len(vertices);vertices.append(key)
+        return vertex_ids[key]
+    def triangle(ids):
+        q=np.asarray([vertices[i] for i in ids]);normal=np.cross(q[1]-q[0],q[2]-q[0])
+        if np.linalg.norm(normal)<1e-8:raise ValueError('Degenerate common-arrangement triangle')
+        indices.extend(ids);counts.append(3)
+    # Rebuild each cell with all added equality nodes before constrained triangulation.
+    for i,cell in enumerate(cells):
+        region_id=cell['region'];r=regions[region_id];polygon=shapely.Polygon(rings[i][0],rings[i][1:])
+        for tri in shapely.constrained_delaunay_triangles(polygon).geoms:
+            xy=list(tri.exterior.coords)[:-1]
+            if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(xy,xy[1:]+xy[:1]))<0:xy.reverse()
+            upper=[];lower=[]
+            for point in xy:
+                z=canonical_height[(point,region_id)];upper.append(vertex(point,z));lower.append(vertex(point,canonical_height[(point,None)]))
+                roof_maxres=max(roof_maxres,abs(z-height(r,point)))
+            triangle(upper);triangle(list(reversed(lower)))
+    # Each atomic boundary is emitted once. Vertical endpoint levels include ALL
+    # incident roof planes, preventing 3D T-junctions between adjacent step walls.
+    for edge,neighbors in edge_cells.items():
+        pieces=cuts[edge]
+        for a0,b0 in zip(pieces,pieces[1:]):
+            a,b=xy32(a0),xy32(b0)
+            if len(neighbors)==1:
+                cell_id,start,end=neighbors[0];region_id=cells[cell_id]['region']
+                if start!=edge[0]:a,b=b,a
+                high_id=region_id;low_id=None
+            else:
+                ia,ib=neighbors[0][0],neighbors[1][0];ra=cells[ia]['region'];rb=cells[ib]['region']
+                za=(canonical_height[(a,ra)]+canonical_height[(b,ra)])/2;zb=(canonical_height[(a,rb)]+canonical_height[(b,rb)])/2
+                if abs(za-zb)<1e-7:continue
+                high_id,low_id=(ra,rb) if za>zb else (rb,ra)
+                high_neighbor=next(n for n in neighbors if cells[n[0]]['region']==high_id)
+                if high_neighbor[1]!=edge[0]:a,b=b,a
+            lo_a=canonical_height[(a,low_id)];lo_b=canonical_height[(b,low_id)]
+            hi_a=canonical_height[(a,high_id)];hi_b=canonical_height[(b,high_id)]
+            if min(hi_a-lo_a,hi_b-lo_b)<-1e-6:raise ValueError('Unsplit plane crossing in common arrangement')
+            length=float(np.linalg.norm(np.asarray(b)-a))
+            profile=[(0.,lo_a),(length,lo_b)]
+            profile.extend((length,z) for z in levels[b] if lo_b<z<=hi_b)
+            profile.append((0.,hi_a));profile.extend((0.,z) for z in reversed(levels[a]) if lo_a<z<hi_a)
+            clean=[]
+            for p in profile:
+                if not clean or p!=clean[-1]:clean.append(p)
+            if clean[0]==clean[-1]:clean.pop()
+            if len(clean)<3:continue
+            wall=shapely.Polygon(clean)
+            if wall.area<1e-9:continue
+            for tri in shapely.constrained_delaunay_triangles(wall).geoms:
+                uz=list(tri.exterior.coords)[:-1]
+                if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(uz,uz[1:]+uz[:1]))<0:uz.reverse()
+                ids=[]
+                for u,z in uz:
+                    xy=a if abs(u)<1e-8 else b
+                    ids.append(vertex(xy,z))
+                triangle(ids)
+    result=(vertices,counts,indices);topology=mesh_topology_metrics(result)
+    roof_polygons=[];offset=0
+    for count in counts:
+        q=np.asarray([vertices[i] for i in indices[offset:offset+count]]);offset+=count
+        normal=np.cross(q[1]-q[0],q[2]-q[0])
+        if normal[2]>1e-10:roof_polygons.append(shapely.Polygon(q[:,:2]))
+    roof_union=unary_union(roof_polygons)
+    float_footprint=unary_union([shapely.Polygon(r[0],r[1:]) for r in rings])
+    coverage={'expected_projected_area_m2':float_footprint.area,'actual_projected_area_m2':roof_union.area,
+              'missing_projected_area_m2':float_footprint.difference(roof_union).area,
+              'overlapping_projected_area_m2':sum(p.area for p in roof_polygons)-roof_union.area}
+    if coverage['missing_projected_area_m2']>1e-6 or coverage['overlapping_projected_area_m2']>1e-6:raise ValueError('Roof partition coverage is incomplete')
+    if topology['nonmanifold_edges'] and not topology['boundary_edges'] and _regularization_pass<3:
+        # A four-sector high/low checkerboard at one exact XY point is a
+        # nonmanifold contact. Resolve only its5mm neighborhood with an existing
+        # upper plane; never enlarge the footprint or alter broad roof forms.
+        revised=[dict(r) for r in regions];repairs=[]
+        for edge,incidence in topology['nonmanifold_edge_examples']:
+            xy=edge[0][:2];absolute=shapely.Point(xy[0]+origin[0],xy[1]+origin[1])
+            patch=absolute.buffer(.005,quad_segs=1).intersection(unary_union([r['geometry'] for r in revised]))
+            candidates=[i for i,r in enumerate(revised) if r['geometry'].distance(absolute)<.01]
+            selected=max(candidates,key=lambda i:height(revised[i],xy))
+            for i,r in enumerate(revised):r['geometry']=r['geometry'].difference(patch) if i!=selected else r['geometry'].union(patch)
+            repairs.append({'xy_local_m':xy,'area_m2':patch.area,'radius_m':.005,'reason':'ambiguous four-sector roof contact made manifold with existing upper plane'})
+        result,report=planar_region_geometry(revised,info,origin,ground,_regularization_pass+1)
+        report.setdefault('topology_junction_regularization',[]).extend(repairs)
+        return result,report
+    if topology['boundary_edges'] or topology['nonmanifold_edges'] or topology['orientation_conflicts']:raise ValueError('Roof shell is not closed: '+str(topology))
+    return result,{'roof_triangle_plane_residual_max_m':roof_maxres,'roof_regions':len(regions),'mesh_face_count':len(counts),
+        'roof_construction':'common noded planar arrangement; exact region planes; all equality and vertical T-junction nodes shared',
+        'topology':topology,'roof_coverage':coverage,'topology_xy_snap_m':.001,'maximum_height_weld_m':maximum_weld,
+        'arrangement_cells':len(cells),'preserved_footprint_holes':sum(len(p.interiors) for p in polygon_parts(footprint)),
+        'arrangement_footprint_area_m2':footprint.area}
 
 
 def roof_normal_metrics(geometry):
@@ -439,7 +658,7 @@ def build(root=ROOT):
     if not snapshot.is_relative_to((root/'data/snapshots').resolve()):raise ValueError('Invalid snapshot path')
     parcels=read(snapshot/'parcels.json')['features'];t=Transformer.from_crs(4326,32617,always_xy=True)
     origin=t.transform(-81.389,28.572)
-    layer_path=root/'scene/landmark_building_proposal.usda';stage=Usd.Stage.CreateNew(str(layer_path))
+    layer_path=root/'scene/landmark_building_proposal.usda';stage=Usd.Stage.CreateInMemory()
     UsdGeom.SetStageMetersPerUnit(stage,1);UsdGeom.SetStageUpAxis(stage,'Z');reports=[]
     for site in SITES:
         points,evidence,evidence_sha=verify_source(root,site,active)
@@ -458,8 +677,11 @@ def build(root=ROOT):
             rendered_occupied=rendered_occupied.union(component['geometry'])
             if site['id']=='andersen_office_1615':
                 regions,fit_evidence=connected_point_roof_regions(points,component)
+                fit_evidence['source_hole_review']=resolve_supported_roof_holes(points,component,regions)
+                rendered_occupied=rendered_occupied.union(component['geometry'])
                 geometry,mesh_evidence=planar_region_geometry(regions,component['grid_info'],origin,component['ground_m'])
-                geometry,float_evidence=quantized_valid_geometry(geometry)
+                geometry,float_evidence=quantized_valid_geometry(geometry,minimum_roof_xy_area_m2=0.)
+                if float_evidence['input_faces']!=float_evidence['output_faces']:raise ValueError('Closed roof lost a face during float validation')
                 fit_evidence.update(mesh_evidence)
                 fit_evidence['float_serialization_validation']=float_evidence
                 prior_fit,_=fit_roof_planes(component['grid'],component['mask'])
@@ -470,8 +692,16 @@ def build(root=ROOT):
                     'qualitative_corroboration':'Two-storey brick office, dark pitched roof, dormers, chimneys, central colonnaded clock pediment; point-supported side slopes about26degrees.',
                     'image_tracing_or_texture_reuse':False}
             else:
-                fitted,fit_evidence=fit_roof_planes(component['grid'],component['mask'])
-                geometry=surface_geometry(component['mask'],fitted,component['grid_info'],origin,component['ground_m'],component['geometry'])
+                fitted,fit_evidence,labels=fit_roof_planes(component['grid'],component['mask'],return_labels=True)
+                regions=connected_cell_roof_regions(component,fitted,fit_evidence,labels)
+                geometry,mesh_evidence=planar_region_geometry(regions,component['grid_info'],origin,component['ground_m'])
+                geometry,float_evidence=quantized_valid_geometry(geometry,minimum_roof_xy_area_m2=0.)
+                if float_evidence['input_faces']!=float_evidence['output_faces']:raise ValueError('Closed post-office roof lost a face')
+                fit_evidence.update(mesh_evidence);fit_evidence['float_serialization_validation']=float_evidence
+                fit_evidence['roughness_comparison']={'prior_mixed_cell_roof':roof_normal_metrics(surface_geometry(component['mask'],fitted,component['grid_info'],origin,component['ground_m'],component['geometry'])),
+                    'continuous_region_roof':roof_normal_metrics(geometry)}
+            fit_evidence['closed_shell_export_gate']=closed_shell_report(*geometry)
+            if not fit_evidence['closed_shell_export_gate']['passed_closed_shell']:raise ValueError('Reconstructed component failed closed-shell gate')
             fit_evidence['original_outline_area_m2']=original_outline.area
             fit_evidence['simplified_outline_area_m2']=component['geometry'].area
             component['area_m2']=component['geometry'].area
@@ -502,7 +732,7 @@ def build(root=ROOT):
             'source_snapshot':active['snapshot'],'prim_path':root_path,'status':'provisional_historical_source_derived','accepted_current_geometry':False,
             'main_roof_height_m':max(records,key=lambda c:c['area_m2'])['main_roof_height_m'],
             'maximum_rendered_height_m':max(c['maximum_rendered_height_m'] for c in records),
-            'roof_interpretation_revision':3 if site['id']=='andersen_office_1615' else 2,
+            'roof_interpretation_revision':4 if site['id']=='andersen_office_1615' else 3,
             'main_roof_height_ground_reference_range_m':max(records,key=lambda c:c['area_m2'])['main_roof_height_ground_reference_range_m'],
             'height_uncertainty_note':records[0]['height_uncertainty_note'],
             'roof_support_area_m2':sum(c['roof_support_area_m2'] for c in records),'roof_source_classes':dict(collections.Counter({k:sum(c['roof_source_classes'].get(k,0) for c in records) for k in set().union(*(c['roof_source_classes'] for c in records))})),
@@ -511,7 +741,8 @@ def build(root=ROOT):
             'official_property_context':feature['properties'],'diagnostics':diagnostics,'components':records,
             'camera':str(camera.GetPath()),'legacy_geometry_hidden':False,'original_parcel_links_modified':False})
     stage.GetRootLayer().customLayerData={'activation':'proposal_only_not_composed','quality':'historical classified roof candidates; current shape and facade unverified','sourceSnapshot':active['snapshot']}
-    stage.GetRootLayer().Save()
+    temporary_layer=layer_path.with_name(layer_path.stem+'.tmp.usda')
+    stage.GetRootLayer().Export(str(temporary_layer));os.replace(temporary_layer,layer_path)
     manifest={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],
         'tool_sha256':sha(Path(__file__)),'layer':str(layer_path),'layer_sha256':sha(layer_path),'sites':reports,
         'action':'await_parent_identity_geometry_review_before_composition','network_requests':0,
@@ -520,7 +751,8 @@ def build(root=ROOT):
             'No facade, signs, canopy use, entrances, window layout, occupation or public/service area inferred.',
             'Parcel clips/searches only; no cadastral envelope extrusion. No existing source groups hidden without identity review.',
             'Scene uses relative local ground datum; NAVD88 metadata is not terrain rebasing. Grid edges and roof pitch approximate.']}
-    out=root/'data/heights/landmarks/proposal_manifest.json';out.write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+    out=root/'data/heights/landmarks/proposal_manifest.json';temporary=out.with_suffix('.json.tmp')
+    temporary.write_text(json.dumps(manifest,indent=2),encoding='utf-8');os.replace(temporary,out)
     print(json.dumps([{'site':r['site_id'],'components':len(r['components']),**r['diagnostics']} for r in reports],indent=2))
     return manifest
 

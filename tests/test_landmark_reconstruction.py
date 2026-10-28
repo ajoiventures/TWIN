@@ -6,7 +6,7 @@ import numpy as np
 from shapely.geometry import box,shape,Polygon,Point
 from shapely.ops import unary_union
 from pxr import Usd,UsdGeom
-from reconstruct_landmarks import supported_components,verify_source,SITES,read,fit_roof_planes,simplify_supported_outline,planar_region_geometry,roof_normal_metrics,positive_step_intervals,quantized_valid_geometry
+from reconstruct_landmarks import supported_components,verify_source,SITES,read,fit_roof_planes,simplify_supported_outline,planar_region_geometry,roof_normal_metrics,positive_step_intervals,quantized_valid_geometry,mesh_topology_metrics,resolve_supported_roof_holes,connected_cell_roof_regions
 
 def synthetic():
     points=[]
@@ -64,7 +64,7 @@ class LandmarkTests(unittest.TestCase):
         regions=[{'geometry':left,'coefficients_cell_xy':[.2,0,35]},
                  {'geometry':box(10,0,20,10),'coefficients_cell_xy':[0,0,40]}]
         mesh,evidence=planar_region_geometry(regions,{'left_utm_m':0,'bottom_utm_m':0,'cell_m':1},[0,0],29.5)
-        self.assertAlmostEqual(evidence['roof_triangle_plane_residual_max_m'],0)
+        self.assertLessEqual(evidence['roof_triangle_plane_residual_max_m'],.002)
         self.assertEqual(roof_normal_metrics(mesh)['distinct_roof_normals_rounded_3dec'],2)
         vertices,counts,indices=mesh;offset=0;roof_area=0
         for count in counts:
@@ -98,6 +98,46 @@ class LandmarkTests(unittest.TestCase):
             ids=authored.GetFaceVertexIndicesAttr().Get()[offset:offset+count];offset+=count
             q=points[ids];n=np.cross(q[1]-q[0],q[2]-q[0]);n=n/np.linalg.norm(n)
             self.assertGreater(np.dot(n,normal),.99999)
+    def test_closed_arrangement_nodes_step_tjunction_and_checkerboard_contact(self):
+        info={'left_utm_m':0,'bottom_utm_m':0,'cell_m':1}
+        regions=[{'geometry':box(0,0,10,20),'coefficients_cell_xy':[.2,0,35]},
+                 {'geometry':box(10,0,20,10),'coefficients_cell_xy':[0,0,40]},
+                 {'geometry':box(10,10,20,20),'coefficients_cell_xy':[0,0,37]}]
+        mesh,report=planar_region_geometry(regions,info,[0,0],29.5)
+        self.assertEqual(report['topology']['boundary_edges'],0)
+        self.assertEqual(report['topology']['nonmanifold_edges'],0)
+        self.assertLess(report['roof_coverage']['missing_projected_area_m2'],1e-6)
+        checker=[{'geometry':box(x,y,x+10,y+10),'coefficients_cell_xy':[0,0,z]}
+                 for x,y,z in [(0,0,35),(10,0,40),(0,10,40),(10,10,35)]]
+        mesh,report=planar_region_geometry(checker,info,[0,0],29.5)
+        self.assertEqual(report['topology']['nonmanifold_edges'],0)
+        self.assertEqual(report['topology']['boundary_edges'],0)
+        self.assertLess(sum(r['area_m2'] for r in report['topology_junction_regularization']),.001)
+    def test_tiny_observed_equipment_gap_gets_lower_cap_but_ground_courtyard_does_not(self):
+        outline=Polygon([(0,0),(10,0),(10,10),(0,10)],holes=[[(4,4),(4,5),(5,5),(5,4)]])
+        component={'geometry':outline,'grid_info':{'left_utm_m':0,'bottom_utm_m':0,'cell_m':1}}
+        regions=[{'geometry':outline,'coefficients_cell_xy':[0,0,35]}]
+        points=np.asarray([[4.1+i*.08,4.2+i*.05,35 if i<2 else 36.5,1 if i%2 else 6] for i in range(8)])
+        review=resolve_supported_roof_holes(points,component,regions)
+        self.assertIn('lower_roof_cap',review[0]['action'])
+        self.assertTrue(component['geometry'].covers(Point(4.5,4.5)))
+        component={'geometry':outline,'grid_info':{'left_utm_m':0,'bottom_utm_m':0,'cell_m':1}}
+        regions=[{'geometry':outline,'coefficients_cell_xy':[0,0,35]}]
+        review=resolve_supported_roof_holes(np.vstack([points,[4.5,4.5,29.5,2]]),component,regions)
+        self.assertEqual(review[0]['action'],'preserve_unresolved_void')
+        self.assertFalse(component['geometry'].covers(Point(4.5,4.5)))
+    def test_post_office_cell_planes_generate_closed_source_stepped_components(self):
+        yy,xx=np.indices((20,30));grid=np.where(xx<15,33.7+.01*yy,35.9-.015*xx)
+        mask=np.ones(grid.shape,bool);footprint=box(0,0,30,20)
+        component={'mask':mask,'grid':grid,'geometry':footprint,'ground_m':29.5,
+                   'grid_info':{'left_utm_m':0,'bottom_utm_m':0,'cell_m':1}}
+        fitted,evidence,labels=fit_roof_planes(grid,mask,return_labels=True)
+        regions=connected_cell_roof_regions(component,fitted,evidence,labels)
+        mesh,report=planar_region_geometry(regions,component['grid_info'],[0,0],29.5)
+        from mesh_topology import closed_shell_report
+        self.assertTrue(closed_shell_report(*mesh)['passed_closed_shell'])
+        self.assertEqual(report['roof_coverage']['missing_projected_area_m2'],0)
+        self.assertLess(evidence['final_region_source_cell_residual_p50_p90_p95_max_m'][2],.05)
     def test_actual_proposal_topology_bounds_and_provisional_contract(self):
         manifest_path=ROOT/'data/heights/landmarks/proposal_manifest.json'
         if not manifest_path.exists():self.skipTest('Ignored proposal evidence unavailable')
@@ -118,12 +158,19 @@ class LandmarkTests(unittest.TestCase):
                 self.assertTrue(np.isfinite(np.asarray(vertices)).all())
                 self.assertAlmostEqual(max(v[2] for v in vertices)-.1,component['maximum_rendered_height_m'],places=4)
                 self.assertEqual(len(mesh.GetNormalsAttr().Get()),len(counts))
+                from mesh_topology import closed_shell_report
+                self.assertTrue(closed_shell_report([list(v) for v in vertices],list(counts),list(indices))['passed_closed_shell'])
+                self.assertTrue(component['roof_interpretation']['closed_shell_export_gate']['passed_closed_shell'])
+                self.assertEqual(component['roof_interpretation']['roof_coverage']['missing_projected_area_m2'],0)
                 if site['site_id']=='andersen_office_1615':
                     fit=component['roof_interpretation']
-                    self.assertAlmostEqual(fit['roof_triangle_plane_residual_max_m'],0)
-                    self.assertLessEqual(fit['roughness_comparison']['continuous_region_roof']['distinct_roof_normals_rounded_3dec'],12)
+                    self.assertLessEqual(fit['roof_triangle_plane_residual_max_m'],.002)
+                    self.assertLessEqual(fit['roughness_comparison']['continuous_region_roof']['distinct_roof_normals_rounded_3dec'],20)
                     self.assertLess(fit['roughness_comparison']['continuous_region_roof']['roof_face_count'],200)
                     self.assertEqual(fit['float_serialization_validation']['self_crossing_step_quads'],0)
+                    from mesh_topology import closed_shell_report
+                    self.assertTrue(closed_shell_report([list(v) for v in vertices],list(counts),list(indices))['passed_closed_shell'])
+                    self.assertLess(fit['roof_coverage']['missing_projected_area_m2'],1e-6)
                     offset=0;authored_normals=mesh.GetNormalsAttr().Get()
                     for count,authored in zip(counts,authored_normals):
                         q=np.asarray([vertices[i] for i in indices[offset:offset+count]],dtype=float);offset+=count

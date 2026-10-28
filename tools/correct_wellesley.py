@@ -384,6 +384,8 @@ def correct(root=ROOT, apply=False):
     building.GetPrim().SetCustomDataByKey('heightQuality', 'historical_lidar_derived')
     building.GetPrim().SetCustomDataByKey('height', {'height_m': evidence['height_m'], 'floors_used': config['reported_stories'],
         'method': 'historical_multilevel_roof_deck_and_supported_equipment_with_documentary_storeys', 'quality': 'historical_lidar_derived',
+        'maximum_rendered_height_m': maximum_rendered,
+        'height_scope': 'height_m is main roof; maximum_rendered_height_m includes roof/equipment, not extra occupied storeys',
         'source_snapshot': active['snapshot'], 'source_building_floor': int(previous.get('source_building_floor') or 0),
         'source_parcel_stories': int(previous.get('source_parcel_stories') or 0), 'lidar_roof_points': evidence['accepted_planar_support_points'],
         'roof_elevation_m': evidence['roof_support_median_z_m'], 'nearby_ground_elevation_m': evidence['local_ground_median_m'],
@@ -404,7 +406,8 @@ def correct(root=ROOT, apply=False):
         'method': 'Dense planar unclassified high surfaces plus classified local ground; source mass retained only outside upper footprint',
         'lowerComponents': 'Original low masses unresolved; not assigned seven storeys'}
     layer.GetRootLayer().Save()
-    values = {'height_m': evidence['height_m'], 'floors_used': config['reported_stories'], 'source_snapshot': active['snapshot'], 'method': 'historical_multilevel_roof_deck_and_supported_equipment_with_documentary_storeys',
+    values = {'height_scope':'main roof plus separately supported roof/equipment maximum; no extra occupied floors inferred',
+              'height_m': evidence['height_m'], 'floors_used': config['reported_stories'], 'source_snapshot': active['snapshot'], 'method': 'historical_multilevel_roof_deck_and_supported_equipment_with_documentary_storeys',
               'quality': 'historical_lidar_derived', 'correction_id': config['correction_id'],
               'maximum_rendered_height_m': maximum_rendered, 'maximum_rendered_height_scope': maximum_scope,
               'reported_documentary_height_m': config['reported_height_m'], 'documentary_stories': config['reported_stories'],

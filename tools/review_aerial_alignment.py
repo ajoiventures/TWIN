@@ -30,6 +30,11 @@ def build(root=ROOT):
             if not any(-100<x<width+100 and -100<y<height+100 for x,y in pixels):continue
             lines.append('<polyline points="'+ ' '.join(f'{x:.2f},{y:.2f}' for x,y in pixels)+'"/>')
     controls=[];marks=[]
+    samples_path=root/'config/rear_parking_samples.json'
+    if samples_path.exists():
+        for sample in read(samples_path)['samples']:
+            points=' '.join(f'{float(x):.2f},{float(y):.2f}' for x,y in sample['pixels'])
+            marks.append(f'<polygon points="{points}" fill="#ffbd24" fill-opacity=".18" stroke="#ffbd24" stroke-width="2"><title>{html.escape(sample["id"])}: interpreted asphalt interior, not full lot boundary</title></polygon>')
     for p in pilot['endpoints']:
         x,y=pixel(*project.transform(*p['coordinates']),extent,width,height)
         controls.append({'name':p['street'],'source':'City centerline intersection; comparison feature, not independent survey control','pixel_x':x,'pixel_y':y})

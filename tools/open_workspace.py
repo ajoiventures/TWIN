@@ -111,7 +111,7 @@ async def open_workspace():
     print('COLLEGE_PARK_WORKSPACE_READY',counts)
     # Generated layers may be rebuilt outside Kit. Refresh clean generated
     # layers only; never reload the user's manual edit layer.
-    watched=['road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
+    watched=['rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
     stamps={name:(ROOT/'scene'/name).stat().st_mtime_ns for name in watched if (ROOT/'scene'/name).exists()}
     async def refresh_generated():
         while True:

@@ -4,7 +4,7 @@ Writes an original render and provenance under ignored data/renders; never saves
 or modifies the source stage or a running user's editor session.
 """
 from pathlib import Path
-import asyncio,datetime,hashlib,json,os,time,traceback
+import asyncio,datetime,hashlib,json,os,time,traceback,struct
 import omni.kit.app
 import omni.usd
 from omni.kit.viewport.utility import get_active_viewport,create_viewport_window,capture_viewport_to_file,next_viewport_frame_async
@@ -39,7 +39,16 @@ async def capture():
         await next_viewport_frame_async(viewport)
         image=folder/(camera+'.png')
         result=await asyncio.wait_for(capture_viewport_to_file(viewport,file_path=str(image)).wait_for_result(completion_frames=60),timeout=90)
-        if not result or not image.exists():raise RuntimeError('Render capture did not produce a file')
+        # Kit builds differ in their callback return value. Verify the actual
+        # completed PNG rather than treating a None callback as missing output.
+        pixels=b''
+        for _ in range(30):
+            if image.exists():
+                pixels=image.read_bytes()
+                if len(pixels)>32 and pixels[:8]==b'\x89PNG\r\n\x1a\n' and pixels[-8:-4]==b'IEND':break
+            await app.next_update_async()
+        if len(pixels)<32 or pixels[:8]!=b'\x89PNG\r\n\x1a\n' or pixels[-8:-4]!=b'IEND':raise RuntimeError('Render capture did not produce a complete PNG')
+        if struct.unpack('>II',pixels[16:24])!=(1920,1080):raise RuntimeError('Unexpected render dimensions')
         if any(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()!=digest for relative,digest in layers.items()):raise RuntimeError('Scene source changed during capture; image is not an accepted comparison')
         active=json.loads((ROOT/'data/processed/active.json').read_text(encoding='utf-8'))
         report={'captured_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],'camera':path,'proposal_layer':proposal or None,'requested_resolution':[1920,1080],'scene':str(scene.relative_to(ROOT)),'scene_sha256':hashlib.sha256(scene.read_bytes()).hexdigest(),'layer_hashes':layers,'image':str(image.relative_to(ROOT)),'image_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'elapsed_seconds':round(time.monotonic()-started,2),'quality':'Actual Kit render for visual inspection; not visual sign-off or a performance benchmark','source_stage_saved':False}

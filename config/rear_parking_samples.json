@@ -1,0 +1,9 @@
+{
+  "image_service": "OCPA/Aerials2025",
+  "interpretation": "Conservative visible asphalt interiors, January 2025 aerial; not complete parking lots, survey edges or verified public access",
+  "samples": [
+    {"id":"west_north_interior","pixels":[[20,322],[126,322],[126,467],[20,467]]},
+    {"id":"west_south_interior","pixels":[[48,614],[142,614],[142,738],[48,738]]},
+    {"id":"east_rear_interior","pixels":[[615,430],[690,430],[690,710],[615,710]]}
+  ]
+}

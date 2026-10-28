@@ -4,7 +4,10 @@ import sys,json,collections
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.dependencies'))
 from pxr import Usd,UsdGeom,Gf
 from pyproj import Transformer
+from activate_environment_assets import validated_environment_layer
+from build_wellesley_architecture import validate_active_wellesley
 def connect():
+ wellesley_active=validate_active_wellesley(ROOT)
  active=json.loads((ROOT/'data/processed/active.json').read_text(encoding='utf-8'));folder=ROOT/active['relative_path'];scene=ROOT/'scene'
  buildings=json.loads((folder/'buildings.json').read_text(encoding='utf-8'));permits=json.loads((folder/'permits.json').read_text(encoding='utf-8'));parcels=json.loads((folder/'parcels.json').read_text(encoding='utf-8'));counts=collections.Counter(p['parcel_id'] for p in permits)
  stage=Usd.Stage.CreateNew(str(scene/'official_context.usda'))
@@ -26,8 +29,11 @@ def connect():
  manual=scene/'manual_edits.usda'
  if not manual.exists():
   manual_stage=Usd.Stage.CreateNew(str(manual));manual_stage.GetRootLayer().Save()
- assembly=Usd.Stage.CreateNew(str(scene/'college_park_connected.usda'));layers=['map_extent_guard.usda'] if (scene/'map_extent_guard.usda').exists() else []
+ assembly=Usd.Stage.Open(str(scene/'college_park_connected.usda')) if (scene/'college_park_connected.usda').exists() else Usd.Stage.CreateNew(str(scene/'college_park_connected.usda'));layers=['map_extent_guard.usda'] if (scene/'map_extent_guard.usda').exists() else []
  layers+=['manual_edits.usda']
+ activated_environment=validated_environment_layer(ROOT)
+ if activated_environment:layers.append(activated_environment)
+ if wellesley_active:layers.append('wellesley_architecture.usda')
  if (scene/'main_street_presentation.usda').exists():layers.append('main_street_presentation.usda')
  layers+=['official_context.usda']
  for name in ['landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','semantic_assets.usda','building_heights.usda','asset_upgrade.usda','edgewater_details.usdc','college_park.usda']:

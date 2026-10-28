@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import tomllib,ast
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'))
@@ -72,6 +73,17 @@ class SampleBuildTests(unittest.TestCase):
             UsdGeom.Imageable(stage.GetPrimAtPath('/World/Cars')).MakeVisible()
             self.assertEqual(UsdGeom.Imageable(stage.GetPrimAtPath('/World/Cars')).ComputeVisibility(),'inherited')
             self.assertNotIn('visibility', (root/'base.usda').read_text())
+
+    def test_generated_experience_uses_renderer_and_self_contained_edit_controls(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);build(root)
+            experience=tomllib.loads((root/'sample.kit').read_text())
+            self.assertEqual(set(experience['dependencies']),{'omni.kit.uiapp','omni.hydra.rtx','omni.usd','omni.kit.viewport.window','omni.kit.viewport.utility'})
+            bootstrap=(root/'open_sample.py').read_text();ast.parse(bootstrap)
+            self.assertIn('sample_startup_task=',bootstrap)
+            self.assertIn("layers['manual']",bootstrap)
+            self.assertIn('Only manual/scenario edits may be saved',bootstrap)
+            self.assertNotIn('stage.Save(',bootstrap)
 
 
 if __name__=='__main__':unittest.main()

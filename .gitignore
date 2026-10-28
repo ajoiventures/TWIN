@@ -27,4 +27,7 @@ data/commercial/
 assets/generated/
 tools/kit_bootstrap.py
 data/renders/
+data/backups/
+data/sample_runtime/
+data/diagnostics/
 data/land/

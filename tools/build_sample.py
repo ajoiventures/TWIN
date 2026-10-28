@@ -121,8 +121,6 @@ version="1.0.0"
 "omni.usd"={}
 "omni.kit.viewport.window"={}
 "omni.kit.viewport.utility"={}
-"omni.kit.menu.file"={}
-"omni.kit.window.stage"={}
 [settings.app]
 name="twin_offline_sample"
 [settings.app.window]
@@ -138,9 +136,11 @@ renderer.multiGpu.enabled=false
 from pathlib import Path
 import omni.kit.app
 import omni.usd
+import omni.ui as ui
 from omni.kit.viewport.utility import get_active_viewport
 from pxr import Sdf, Usd
 async def open_sample():
+    global sample_window
     root=Path(__file__).resolve().parent
     context=omni.usd.get_context()
     success,error=await context.open_stage_async(str(root/'sample.usda'))
@@ -150,8 +150,31 @@ async def open_sample():
     if viewport:
         viewport.camera_path='/World/Cameras/Overview'
         viewport.resolution=(1280,720)
-    context.get_stage().SetEditTarget(Usd.EditTarget(Sdf.Layer.FindOrOpen(str(root/'manual.usda'))))
-asyncio.ensure_future(open_sample())
+    stage=context.get_stage()
+    layers={name:Sdf.Layer.FindOrOpen(str(root/(name+'.usda'))) for name in ('manual','scenario')}
+    stage.SetEditTarget(Usd.EditTarget(layers['manual']))
+    sample_window=ui.Window('Offline sample edits',width=330,height=290)
+    with sample_window.frame,ui.VStack(spacing=8):
+        ui.Label('Fictional offline demonstration',height=24)
+        status=ui.Label('Editing manual.usda; base is preserved.',height=45,word_wrap=True)
+        def target(name):
+            stage.SetEditTarget(Usd.EditTarget(layers[name]));status.text='Editing '+name+'.usda; base is preserved.'
+        def cars(shown):
+            from pxr import UsdGeom
+            image=UsdGeom.Imageable(stage.GetPrimAtPath('/World/Cars'))
+            if shown:image.MakeVisible()
+            else:image.MakeInvisible()
+            status.text='Car visibility changed in '+stage.GetEditTarget().GetLayer().GetDisplayName()+'. Manual overrides scenario.'
+        def save():
+            layer=stage.GetEditTarget().GetLayer()
+            if layer not in layers.values():raise RuntimeError('Only manual/scenario edits may be saved')
+            layer.Save();status.text='Saved '+layer.GetDisplayName()+' only.'
+        ui.Button('Edit manual layer',clicked_fn=lambda:target('manual'))
+        ui.Button('Edit scenario layer',clicked_fn=lambda:target('scenario'))
+        ui.Button('Hide cars in selected edit layer',clicked_fn=lambda:cars(False))
+        ui.Button('Show cars in selected edit layer',clicked_fn=lambda:cars(True))
+        ui.Button('Save selected edits',clicked_fn=save)
+sample_startup_task=asyncio.ensure_future(open_sample())
 ''',encoding='utf-8')
     layers, assets, unresolved = UsdUtils.ComputeAllDependencies(str(output/'sample.usda'))
     if unresolved or assets or any(not Path(layer.realPath).is_relative_to(output) for layer in layers):

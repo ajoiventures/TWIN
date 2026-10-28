@@ -146,7 +146,7 @@ wet=unary_union(water);street_union=unary_union(streets)
 proj=Transformer.from_crs(4326,32617,always_xy=True);ox,oy=proj.transform(-81.389,28.572)
 def project(lon,lat):
     x,y=proj.transform(lon,lat);return x-ox,y-oy
-osm=json.loads((ROOT/'data'/'openstreetmap.json').read_text())
+osm=json.loads((ROOT/'data'/'openstreetmap.json').read_text(encoding='utf-8'))
 edge_lines=[];other_lines=[]
 for way in osm['elements']:
     tags=way.get('tags',{});geo=way.get('geometry',[])

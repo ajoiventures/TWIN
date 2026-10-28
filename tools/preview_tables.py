@@ -34,7 +34,7 @@ def safe(job):
  except Exception as e:return {'error':str(e)}
 if __name__=='__main__':
  with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool:tables=list(pool.map(safe,jobs))
- buildings=json.loads((ROOT/'data'/'buildings.geojson').read_text())['features']
+ buildings=json.loads((ROOT/'data'/'buildings.geojson').read_text(encoding='utf-8'))['features']
  fields=['OBJECTID','PID','BLDG_NUM','FLOOR_NUM','SUBTYPE','SUB_DESC']
  tables.append({'name':'OCPA building footprint subareas','source':'https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/28','source_fields':list(buildings[0]['properties']),'preview_fields':fields,'rows':[{k:f['properties'].get(k) for k in fields} for f in sorted(buildings,key=lambda f:f['properties']['OBJECTID'])[:5]],'order':'OBJECTID ascending; cached study-area snapshot. These are subareas, not five distinct buildings.'})
  local=Path('C:/Projects/BTR/Economic-Development/College_Park_ED_Vault/Data/Operations/booms_completion_tracker.csv')

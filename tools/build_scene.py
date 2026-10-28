@@ -12,6 +12,8 @@ from pxr import Usd, UsdGeom, UsdLux, UsdShade, Sdf, Gf
 BBOX = [-81.398, 28.5605, -81.379, 28.5845]
 ORIGIN = [-81.389, 28.572]
 DATA = ROOT / 'data'
+DATA.mkdir(parents=True,exist_ok=True)
+(ROOT/'scene').mkdir(parents=True,exist_ok=True)
 SERVICE = 'https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/28'
 
 def get_json(url, params=None):
@@ -30,7 +32,7 @@ def download():
         print('Fetching',len(ids),'building subareas',flush=True)
         for i in range(0,len(ids),50):
             cache=DATA/f'county_batch_{i:05d}.json'
-            if cache.exists():page=json.loads(cache.read_text())
+            if cache.exists():page=json.loads(cache.read_text(encoding='utf-8'))
             else:
                 page = get_json(SERVICE+'/query', dict(f='geojson',objectIds=','.join(map(str,ids[i:i+50])),outFields='OBJECTID,SUBTYPE,TYPE_CODE,PID,BLDG_NUM,FLOOR_NUM,SUB_DESC,BLDG_TYPE',outSR=4326,returnGeometry='true'))
                 cache.write_text(json.dumps(page))

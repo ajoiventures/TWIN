@@ -16,19 +16,22 @@ async def open_workspace():
     while not (ROOT/'data'/'manifest.json').exists():
         await asyncio.sleep(1)
     ctx=omni.usd.get_context()
-    detailed=(ROOT/'scene'/'college_park_realistic.usda').exists()
-    scene_name='college_park_realistic.usda' if detailed else 'college_park.usda'
+    detailed=(ROOT/'scene'/'edgewater_details.usdc').exists()
+    scene_name='college_park_connected.usda' if (ROOT/'scene'/'college_park_connected.usda').exists() else 'college_park_realistic.usda' if (ROOT/'scene'/'college_park_realistic.usda').exists() else 'college_park.usda'
     success,error=await ctx.open_stage_async(str(ROOT/'scene'/scene_name))
     if not success:raise RuntimeError(error)
+    from pxr import Sdf,Usd
+    manual=ROOT/'scene'/'manual_edits.usda'
+    if manual.exists():ctx.get_stage().SetEditTarget(Usd.EditTarget(Sdf.Layer.FindOrOpen(str(manual))))
     ctx.get_selection().set_selected_prim_paths([],False)
     for _ in range(10):await app.next_update_async()
     viewport=get_active_viewport()
     if viewport:
         viewport.camera_path='/World/Cameras/TreeLinedEdgewater' if detailed else '/World/Cameras/EdgewaterCorridor'
         carb.settings.get_settings().set_bool(f'/persistent/app/viewport/{viewport.id}/guide/grid/visible',False)
-    manifest=json.loads((ROOT/'data'/'manifest.json').read_text())
+    manifest=json.loads((ROOT/'data'/'manifest.json').read_text(encoding='utf-8'))
     counts=manifest['counts']
-    detail_counts=json.loads((ROOT/'data'/'detail_manifest.json').read_text())['counts'] if detailed else {}
+    detail_counts=json.loads((ROOT/'data'/'detail_manifest.json').read_text(encoding='utf-8'))['counts'] if detailed else {}
     def view(name):
         viewport=get_active_viewport()
         if viewport:viewport.camera_path='/World/Cameras/'+name
@@ -37,7 +40,7 @@ async def open_workspace():
         prim=ctx.get_stage().GetPrimAtPath(path)
         if prim:UsdGeom.Imageable(prim).GetVisibilityAttr().Set('inherited' if visible else 'invisible')
     def save():
-        ctx.get_stage().GetRootLayer().Save()
+        ctx.get_stage().Save()
         status.text='Scene saved.'
     window=ui.Window('College Park | Project',width=330,height=620)
     # Retain references for the lifetime of this Kit session.
@@ -60,16 +63,18 @@ async def open_workspace():
                 ui.Button('Storefront walk',height=34,clicked_fn=lambda:view('StorefrontWalk'))
             ui.Label('Layers',height=22,style={'font_size':18})
             layers=[('Buildings','/World/Buildings'),('Roofs','/World/Roofs'),('Streets','/World/Streets'),('Parks','/World/Parks'),('Water','/World/Water')]
+            if ctx.get_stage().GetPrimAtPath('/World/ParcelBoundaries'):layers.append(('Official parcel outlines','/World/ParcelBoundaries'))
             if detailed:layers += [('Trees','/World/Trees'),('Storefronts','/World/Storefronts'),('Street furniture','/World/StreetFurniture'),('Parked vehicles','/World/ParkedVehicles')]
             for label,path in layers:
                 with ui.HStack(height=23):
-                    model=ui.SimpleBoolModel(True)
+                    from pxr import UsdGeom
+                    model=ui.SimpleBoolModel(UsdGeom.Imageable(ctx.get_stage().GetPrimAtPath(path)).ComputeVisibility()!='invisible')
                     ui.CheckBox(model=model,width=24)
                     ui.Label(label)
                     model.add_value_changed_fn(lambda m,p=path:toggle(p,m.as_bool))
             ui.Button('Save scene',height=34,clicked_fn=save)
-            status=ui.Label('Ready. Select a building to inspect it.',height=42,word_wrap=True)
-            ui.Label('Heights are estimates. Ground is flat.\nNo live traffic or sensor feeds.',height=48,word_wrap=True,style={'color':0xffa9b8cf})
+            status=ui.Label('Ready. Select a building to inspect it.',height=90,word_wrap=True)
+            ui.Label('Heights: historical LiDAR or floor estimates. Ground is flat.\nNo live traffic or sensor feeds.',height=48,word_wrap=True,style={'color':0xffa9b8cf})
             if detailed:ui.Label('Trees and storefront designs are illustrative.\nShop signs show generic categories.',height=48,word_wrap=True)
             ui.Label('Buildings: Orange County Property Appraiser\nMap: OpenStreetMap contributors (ODbL)',height=48,word_wrap=True)
             ui.Spacer(height=0)
@@ -80,6 +85,11 @@ async def open_workspace():
         prim=ctx.get_stage().GetPrimAtPath(paths[0])
         if not prim:return
         data=prim.GetCustomData()
+        official=data.get('official',{})
+        if official:
+            h=data.get('height',{})
+            status.text=f"{official.get('site_address','Unknown address')}\nParcel: {official.get('parcel_id','unmatched')} | {official.get('match_method','source outline')}\nHeight: {h.get('height_m','unknown')} m | {h.get('quality','not verified')}\nRecent permits: {official.get('recent_permit_count','unknown')}"
+            return
         if data.get('parcelId'):
             status.text=f"{data.get('classification','Building')} | parcel {data['parcelId']}\nEstimated height: {data['heightMeters']} m"
         elif data.get('roadName'):status.text=data['roadName']

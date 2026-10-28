@@ -6,6 +6,8 @@ Build an accurate, navigable digital twin of College Park, Orlando, beginning wi
 
 ## Delivery sequence
 
+Expanded source-by-source work packages and delivery gates are in [Government Data Improvement Plan](docs/GOVERNMENT_DATA_PLAN.md), including USGS, Florida GIO, OCPA, City GIS/ADA, FDOT, NOAA, LYNX, County GIS and optional environmental context.
+
 ### 1. Establish clean data foundations
 
 - [ ] https://github.com/ajoiventures/TWIN/issues/1 — Create a portable, versioned Omniverse project baseline

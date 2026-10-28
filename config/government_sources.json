@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "study_bbox_wgs84": [
+    -81.398,
+    28.5605,
+    -81.379,
+    28.5845
+  ],
+  "scope_note": "Extraction rectangle, not an official district boundary",
+  "sources": [
+    {
+      "id": "florida_gio",
+      "publisher": "Florida Geographic Information Office",
+      "kind": "portal",
+      "url": "https://geodata.floridagio.gov/",
+      "reuse_status": "unknown; inspect selected dataset terms"
+    },
+    {
+      "id": "noaa_digital_coast",
+      "publisher": "NOAA Office for Coastal Management",
+      "kind": "portal",
+      "url": "https://www.coast.noaa.gov/digitalcoast/tools/dav.html",
+      "reuse_status": "unknown; inspect selected dataset terms"
+    },
+    {
+      "id": "usgs_catalog",
+      "publisher": "USGS",
+      "kind": "tnm_catalog",
+      "url": "https://tnmaccess.nationalmap.gov/api/v1/products",
+      "reuse_status": "inspect product metadata"
+    },
+    {
+      "id": "usgs_orange_ept",
+      "publisher": "USGS",
+      "kind": "ept",
+      "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/FL_Peninsular_FDEM_Orange_2018/ept.json",
+      "acquisition_id": "FL_Peninsular_FDEM_Orange_2018",
+      "acquisition_evidence": "https://www.fisheries.noaa.gov/inport/item/69496",
+      "acquisition_interval": [
+        "2018-12-04",
+        "2019-04-12"
+      ],
+      "horizontal_crs": "EPSG:3857",
+      "horizontal_unit": "meter",
+      "vertical_datum": "NAVD88 (project metadata)",
+      "vertical_unit": "meter (NOAA InPort processing step 5 states converted EPT; local ground sanity check agrees)",
+      "local_ept_sample": "data/heights/pilot_points_metadata.json",
+      "reuse_status": "inspect original product terms"
+    },
+    {
+      "id": "noaa_orange_metadata",
+      "publisher": "NOAA",
+      "kind": "metadata",
+      "url": "https://www.fisheries.noaa.gov/inport/item/69496",
+      "acquisition_id": "FL_Peninsular_FDEM_Orange_2018",
+      "acquisition_evidence": "https://www.fisheries.noaa.gov/inport/item/69496",
+      "acquisition_interval": [
+        "2018-12-04",
+        "2019-04-12"
+      ],
+      "reuse_status": "metadata mirror; inspect original product terms"
+    },
+    {
+      "id": "ocpa_parcels",
+      "publisher": "Orange County Property Appraiser",
+      "kind": "arcgis",
+      "url": "https://vgispublic.ocpafl.org/server/rest/services/DynamicForJs/PARCEL/MapServer/4",
+      "snapshot_table": "parcels",
+      "snapshot_source_id": "parcels",
+      "safe_fields": [
+        "id",
+        "parcel_id",
+        "source_object_id",
+        "site_address",
+        "stories",
+        "year_built",
+        "area_acres"
+      ],
+      "reuse_status": "reference/appraisal data; not a survey; inspect redistribution terms"
+    },
+    {
+      "id": "ocpa_footprints",
+      "publisher": "Orange County Property Appraiser",
+      "kind": "arcgis",
+      "url": "https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/28",
+      "reuse_status": "reference/appraisal data; inspect redistribution terms"
+    },
+    {
+      "id": "city_streets",
+      "publisher": "City of Orlando",
+      "kind": "arcgis",
+      "url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/Street_Centerline/FeatureServer/0",
+      "snapshot_table": "streets",
+      "snapshot_source_id": "streets",
+      "safe_fields": [
+        "OBJECTID",
+        "GlobalID",
+        "FullStreetName",
+        "CenterlineID",
+        "RoadClass",
+        "Speed",
+        "PaveType"
+      ],
+      "reuse_status": "inspect City dataset terms"
+    },
+    {
+      "id": "city_permits",
+      "publisher": "City of Orlando",
+      "kind": "socrata_metadata",
+      "url": "https://data.cityoforlando.net/api/views/ryhf-m453.json",
+      "snapshot_table": "permits",
+      "snapshot_source_id": "permits",
+      "safe_fields": [
+        "permit_number",
+        "parcel_number",
+        "permit_address",
+        "application_type",
+        "application_status",
+        "processed_date"
+      ],
+      "reuse_status": "inspect City dataset terms"
+    },
+    {
+      "id": "fdot_gis",
+      "publisher": "Florida Department of Transportation",
+      "kind": "portal",
+      "url": "https://www.fdot.gov/statistics/gis/default.shtm",
+      "reuse_status": "FDOT GIS disclaimer; selected layer terms require review"
+    },
+    {
+      "id": "lynx_downloads",
+      "publisher": "Central Florida Regional Transportation Authority (LYNX)",
+      "kind": "portal",
+      "url": "https://www.golynx.com/maps-schedules/data-download.stml",
+      "reuse_status": "inspect feed/download terms; reachability does not establish service-calendar validity"
+    },
+    {
+      "id": "florida_lidar_tile_index",
+      "publisher": "Florida Geographic Information Office",
+      "kind": "arcgis_index",
+      "url": "https://services9.arcgis.com/Gh9awoU677aKree0/ArcGIS/rest/services/Florida_Peninsular_Lidar_LAS_Index/FeatureServer/0",
+      "item_id": "b7fb9a247dce4c97b360b364419e8f86",
+      "item_metadata_url": "https://www.arcgis.com/sharing/rest/content/items/b7fb9a247dce4c97b360b364419e8f86?f=json",
+      "safe_fields": [
+        "OBJECTID",
+        "LidarName",
+        "DEMName",
+        "WU_Name",
+        "DownloadLAS",
+        "DownloadDEM",
+        "Set_Name",
+        "Start_Date",
+        "End_Date",
+        "LAS_Metadata",
+        "DEM_Metadata"
+      ],
+      "reuse_status": "Florida index licenseInfo empty; original USGS linked metadata has access/use constraints"
+    },
+    {
+      "id": "noaa_florida_east1_dem",
+      "publisher": "NOAA Office for Coastal Management",
+      "kind": "iso_xml",
+      "url": "https://data.noaa.gov/waf/NOAA/nos/ocm/iso/xml/70061.xml",
+      "download_url": "https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/dem/SLR_viewer_DEM_6230/FL/FL_East_1_GCS_3m_NAVDm.tif",
+      "metadata_url": "https://www.fisheries.noaa.gov/inport/item/70061",
+      "acquisition_interval": [
+        "2017-01-01",
+        "2019-12-31"
+      ],
+      "acquisition_interval_note": "Regional composite source years; Orange component uses existing 2018-2019 acquisition",
+      "horizontal_crs": "NAD83 geographic",
+      "horizontal_unit": "degree",
+      "vertical_datum": "NAVD88",
+      "vertical_unit": "meter",
+      "resolution_m": 3,
+      "reuse_status": "NOAA metadata: access constraints none; cite source, suitability/temporal-change limitations apply; data.gov lists CC0 but non-public accessLevel conflicts with working public binary"
+    },
+    {
+      "id": "florida_noaa_canopy_2020_2021",
+      "publisher": "Florida GIO / Florida DEP, NOAA-derived",
+      "kind": "image_service",
+      "url": "https://ca.dep.state.fl.us/image/rest/services/MISC/NOAA_Land_Cover_Canopy_Cover_2020_2021/ImageServer",
+      "item_id": "5288fc04c2ed4c3ba86bb2469b3d1acf",
+      "item_metadata_url": "https://www.arcgis.com/sharing/rest/content/items/5288fc04c2ed4c3ba86bb2469b3d1acf?f=json",
+      "acquisition_interval": [
+        "2020-01-01",
+        "2021-12-31"
+      ],
+      "acquisition_interval_note": "Title years; exact local acquisition pending",
+      "reuse_status": "Explicit Ecopia five-year-from-product-creation restriction on ML creation/training/improvement/modification/validation/testing/evaluation absent written consent; creation and expiry unknown; excluded from AI candidate use"
+    },
+    {
+      "id": "fdot_sidewalk_width_download",
+      "publisher": "Florida Department of Transportation",
+      "kind": "download_probe",
+      "url": "https://ftp.fdot.gov/public/file/p0waamicg0ebhsyx9j5rdw/sidewalk_width_sep.zip",
+      "discovery_evidence": "https://www.fdot.gov/statistics/gis/default.shtm",
+      "reuse_status": "FDOT disclaimer applies; field units and corridor coverage unresolved; validation in #15"
+    },
+    {
+      "id": "fdot_aadt_download",
+      "publisher": "Florida Department of Transportation",
+      "kind": "download_probe",
+      "url": "https://ftp.fdot.gov/public/file/83nno5eage6zae57e4utrw/aadt.zip",
+      "discovery_evidence": "https://www.fdot.gov/statistics/gis/default.shtm",
+      "reuse_status": "FDOT disclaimer applies; historical aggregate, not live traffic; coverage/years validated in #15"
+    },
+    {
+      "id": "florida_maxar_ian_2022_footprint",
+      "publisher": "Florida Geographic Information Office",
+      "kind": "arcgis",
+      "url": "https://services9.arcgis.com/Gh9awoU677aKree0/arcgis/rest/services/Maxar_Footprint_Hx_Ian_2022/FeatureServer/0",
+      "item_id": "275cd82000f846d7aa7a117766ed380c",
+      "item_metadata_url": "https://www.arcgis.com/sharing/rest/content/items/275cd82000f846d7aa7a117766ed380c?f=json",
+      "reuse_status": "Historic storm imagery footprint candidate; actual imagery pixel access/acquisition/reuse must be checked in #20; not selected for activation"
+    }
+  ],
+  "discovery_queries": [
+    {
+      "id": "florida_gio_imagery_search",
+      "domain": "imagery",
+      "query": "orgid:Gh9awoU677aKree0 AND (imagery OR orthophoto)",
+      "limit": 30
+    },
+    {
+      "id": "florida_gio_transport_search",
+      "domain": "transportation",
+      "query": "orgid:Gh9awoU677aKree0 AND (transportation OR roadway OR sidewalk)",
+      "limit": 30
+    },
+    {
+      "id": "fdot_named_owner_transport_search",
+      "domain": "transportation",
+      "query": "owner:FDOT_OpenData AND (sidewalk OR lanes OR AADT)",
+      "limit": 30
+    }
+  ]
+}

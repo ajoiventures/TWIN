@@ -20,3 +20,7 @@ data/processed/
 college_park_workspace.kit
 Open College Park.bat
 config/local.json
+data/transport/
+data/heights/
+assets/generated/
+tools/kit_bootstrap.py

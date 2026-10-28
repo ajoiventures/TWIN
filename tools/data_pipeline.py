@@ -42,18 +42,24 @@ def valid_polygon(geo):
 
 class Client:
  def __init__(self,cache,offline=False,refresh=False,opener=None,sleeper=time.sleep):
-  self.cache=Path(cache);self.cache.mkdir(exist_ok=True,parents=True);self.offline=offline;self.refresh=refresh;self.opener=opener or urllib.request.urlopen;self.sleeper=sleeper
+  self.cache=Path(cache);self.cache.mkdir(exist_ok=True,parents=True);self.offline=offline;self.refresh=refresh;self.opener=opener or urllib.request.urlopen;self.sleeper=sleeper;self.accesses=[]
  def get(self,url,params=None):
   target=url+('?' + urllib.parse.urlencode(params) if params else '')
   path=self.cache/(hashlib.sha256(target.encode()).hexdigest()+'.json')
-  if path.exists() and (self.offline or not self.refresh):return json.loads(path.read_text(encoding='utf-8'))
+  provenance=path.with_suffix('.provenance.json')
+  if path.exists() and (self.offline or not self.refresh):
+   meta=json.loads(provenance.read_text(encoding='utf-8')) if provenance.exists() else {'retrieved_utc':None,'retrieval_quality':'legacy_cache_original_retrieval_unknown'}
+   digest=hashlib.sha256(path.read_bytes()).hexdigest()
+   if meta.get('sha256') and meta['sha256']!=digest:
+    meta={'retrieved_utc':None,'retrieval_quality':'cache_provenance_hash_mismatch','sha256':digest}
+   self.accesses.append({'url':target,'cache_hit':True,'read_utc':now(),**meta});return json.loads(path.read_text(encoding='utf-8'))
   if self.offline:raise RuntimeError('Offline cache miss: '+url)
   req=urllib.request.Request(target,headers={'User-Agent':'TWIN/0.3 official-data-snapshot','Accept':'application/json'})
   for attempt in range(3):
    try:
     with self.opener(req,timeout=60) as response:data=json.load(response)
     if isinstance(data,dict) and data.get('error'):raise ValueError(str(data['error']))
-    atomic_json(path,data);return data
+    atomic_json(path,data);meta={'retrieved_utc':now(),'retrieval_quality':'network_response','sha256':hashlib.sha256(path.read_bytes()).hexdigest()};atomic_json(provenance,meta);self.accesses.append({'url':target,'cache_hit':False,'read_utc':now(),**meta});return data
    except urllib.error.HTTPError as exc:
     if exc.code not in [429,500,502,503,504] or attempt==2:raise
    except (TimeoutError,urllib.error.URLError):
@@ -166,6 +172,14 @@ def refresh(offline=False,force=False):
    count=len(data.get('features',[])) if isinstance(data,dict) else len(data)
    manifest.append({'id':name,'publisher':source['publisher'],'api_url':source['url'],'metadata_url':SODA+'/api/views/'+source['dataset']+'.json' if 'dataset' in source else source['url']+'?f=json','retrieved_utc':now(),'source_updated':meta.get('rowsUpdatedAt') or meta.get('editingInfo',{}).get('lastEditDate'),'rows':count,'fields_requested':source['fields'],'license_note':'Agency source terms apply; metadata is not a redistribution license.','geometry_crs':'EPSG:4326' if name not in ['permits','businesses'] else 'optional source WGS84 point','scope':BBOX,'since':SINCE if name=='permits' else None})
    atomic_json(folder/(name+'_metadata.json'),meta)
+ # A snapshot build/read time is not the original retrieval time of cached agency data.
+ for entry in manifest:
+  accesses=[a for a in client.accesses if a['url'].split('?')[0] in [entry['api_url'],entry['api_url']+'/query',entry['metadata_url'].split('?')[0]]]
+  known=[a['retrieved_utc'] for a in accesses if a.get('retrieved_utc')]
+  entry['snapshot_built_utc']=entry.pop('retrieved_utc');entry['retrieved_utc']=max(known) if known and all(a.get('retrieved_utc') for a in accesses) else None
+  entry['request_retrieval_range_utc']=[min(known),max(known)] if known else None
+  entry['retrieval_quality']='all_request_times_known' if accesses and all(a.get('retrieved_utc') for a in accesses) else 'some_or_all_cached_request_times_unknown'
+  entry['requests']=accesses
  issues=[r for r in buildings if r['match_method']!='id_and_geometry']
  report={'snapshot':stamp,'created_utc':now(),'bbox_wgs84':BBOX,'counts':{n:len(d['features']) if isinstance(d,dict) else len(d) for n,d in collections_out.items()},'parcel_rejects':rejects,'building_match_methods':dict(collections.Counter(b['match_method'] for b in buildings)),'unmatched_or_review_buildings':len(issues),'permit_scope':'last two years, queried by parcel ID; includes ungeocoded records','business_scope':'source College Park neighborhood/district OR bounding box; includes historical licenses, not verified current tenants','private_booms_imported':False,'limitations':['Parcel attributes do not establish surveyed building heights.','Spatial-only and ambiguous building links require review.','A business license is not verification of a current storefront.']}
  atomic_json(folder/'sources.json',manifest);atomic_json(folder/'quality.json',report);atomic_json(folder/'building_review.json',issues)

@@ -91,7 +91,7 @@ Deliverables: Reviewed visual pilot block, licensed/original asset manifest, cle
 
 The first live-source snapshot contains 3,783 parcel features (3,782 unique parcel IDs), 464 city street segments, 4 intersecting neighborhoods, 91 zoning features, 8 parks, 3,228 recent permit rows, and 3,587 business-license rows. Business rows include historical licenses and multiple categories; they are not a verified tenant list.
 
-2,857 of 3,090 prototype building groups match by parcel ID plus footprint geometry; 196 spatial-only matches and 37 ambiguous/unmatched groups require review. No private BOOMS values were imported. The snapshot is local and does not yet constitute a fully connected scene/API.
+2,857 of 3,090 prototype building groups match by parcel ID plus footprint geometry; 196 spatial-only matches and 37 ambiguous/unmatched groups require review. No private BOOMS values were imported. The local snapshot API/map and USD metadata are connected. This is partial implementation, not acceptance of geographic accuracy or pedestrian geometry. Public draft crosswalk access findings and unresolved status/units are recorded in [PEDESTRIAN_ACCESS_REPORT.md](PEDESTRIAN_ACCESS_REPORT.md).
 
 See [the master roadmap](https://github.com/ajoiventures/TWIN/issues/14).
 

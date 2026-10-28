@@ -14,6 +14,10 @@ Reviewed October 28, 2026. Scope: College Park, Orlando, Florida, with the full 
 
 Search results for College Park in Maryland, Georgia and Canada are excluded. No current district-wide deficit, surplus, garage need or financial return is established by these sources. Publication/crawl dates must not substitute for the study's actual observation date.
 
+Follow-up search on October 28 did not locate a downloadable final district report or raw counts. The [unsent records-request brief](PARKING_RECORDS_REQUEST_DRAFT.md) now identifies the existing deliverables needed and intake checks; no outreach occurred. This completes preparation of the fallback brief, not acquisition of the study.
+
+The City's [Bike and Micromobility Parking Study](https://www.orlando.gov/Building-Development/City-Projects/Bike-and-Micromobility-Parking-Study) lists downtown, Ivanhoe Village, Parramore/Creative Village and major venues/mobility hubs as phase focus areas. It lists summer 2026 for final report/GIS deliverables, but the page's timeline alone does not prove delivery or College Park coverage. Add bike racks, scooter corrals and secure/cargo-bike parking to the local inventory where actually evidenced; check whether relevant GIS deliverables include the study area before import. Do not assign its proposed sites or capacity to College Park without spatial and status checks.
+
 ## Ticket additions and acceptance
 
 Reuse #15/#16/#17/#21/#25/#28/#29; PM tracks the subtasks below without duplicating the road or parcel pipeline.

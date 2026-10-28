@@ -4,6 +4,19 @@ Updated October 28, 2026. AI roles are task responsibilities, not human corporat
 
 ## Leadership
 
+## Distinct management levels and reporting line
+
+Human owner → VP/Sponsor Agent → Delivery Director Agent → Project Manager Agent → delivery workstreams. These are separate responsibilities and authority levels. A tool agent previously named `pm_director` is a legacy combined task name; it does not establish a combined management position. Future management assignments must explicitly name which role is acting.
+
+| Level | Decisions and accountability | Escalation |
+|---|---|---|
+| VP / Sponsor | Project value, major scope/resource recommendations and executive risk review; presents decisions to the human owner | Spending, publication, commitments and major scope decisions remain with the human owner |
+| Delivery Director | Oversees the PM and technical delivery; resolves cross-workstream priorities, assigns integration capacity and accepts/rejects delivery gates using lead/independent QA evidence | Escalates strategic scope/resource conflicts to VP; returns incomplete work to PM with concrete criteria |
+| Project Manager | Reports to Director; maintains ticket scope, sequencing, dependencies, responsible roles, ready queue, blockers, evidence and accurate status | Escalates unresolved delivery conflicts and readiness decisions to Director; cannot waive quality gates or self-approve completion |
+| Technical leads / workstreams | Execute and review domain work; provide source, geometry, test and render evidence | Bring domain conflicts to PM for coordination and Director for decisions when needed |
+
+PM reports progress; Director judges delivery readiness. Independent QA supplies an independent assessment, and neither management level may substitute a status report for actual acceptance evidence. Role separation applies even when limited agent capacity means one bounded execution agent performs tasks at different times; it must state which role it is performing and cannot manufacture an independent review of its own work.
+
 | Role | Responsibility |
 |---|---|
 | Project Manager Agent | Own roadmap #14, ready queue, dependencies, blocker log, evidence links and status accuracy. |
@@ -80,4 +93,4 @@ Defer #21 future design and #23/#24 optional overlays until existing conditions 
 
 ## Review participants
 
-Initial bounded reviews completed by PM/Delivery Director agent, GIS/Data Analyst agent and VP/Sponsor review agent. Their recommendations are incorporated here; no claim that they are permanently active.
+Initial bounded reviews included a legacy combined PM/Delivery Director task, GIS/Data Analyst and VP/Sponsor review tasks. The owner clarified that PM and Director are distinct levels. The legacy task name is not the current reporting structure; subsequent role assignments and acceptance follow the separate authority levels above. No claim that roles are permanently active.

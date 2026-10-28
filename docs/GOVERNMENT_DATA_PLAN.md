@@ -120,3 +120,7 @@ Existing tickets were reused for OCPA, City GIS, boundaries, heights/terrain, tr
 - Wrong parcel links or multi-part building groups: preserve match confidence and component limitations; manually review pilot conflicts.
 - Public imagery hides facade details: use dated, authorized street-level references for signs/materials; generic storefronts remain illustrative.
 - Large scenes: tile data, instance assets and benchmark at a stated resolution before expansion.
+
+## Transportation engineering document work package
+
+Prioritize #25 acquisition, then #15/#16 evidence extraction and #17 Princeton–Edgewater geometry. Verified official PDFs, exact page references, outstanding plan sets and acceptance gates are in [Transportation document plan](TRANSPORTATION_DOCUMENT_PLAN.md). The April 2009 support plan explicitly describes the Princeton–Smith bike-lane exception; verify against dated existing conditions rather than repeating a generic corridor section. Proposed improvements remain separate under #21; final presentation review stays in #18/#13.

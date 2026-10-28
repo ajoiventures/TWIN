@@ -249,3 +249,7 @@ Prioritize #15/#16/#17/#18/#13 on the Princeton–Edgewater intersection. The so
 ### Multifamily accuracy workstream
 
 Prioritize Princeton at College Park redevelopment geometry, then 624/520 W Princeton parcel/footprint mismatches and other apartment candidates. A bounded 557-record OCPA review separates apartments, small multifamily, condo unit records and mixed-use review; no unit-record count is presented as building or dwelling-unit count. Evidence: `docs/MULTIFAMILY_REVIEW.md`. #3/#6/#17 remain open pending physical geometry acceptance.
+
+## Transportation engineering document work package
+
+Prioritize #25 acquisition, then #15/#16 evidence extraction and #17 Princeton–Edgewater geometry. Verified official PDFs, exact page references, outstanding plan sets and acceptance gates are in [Transportation document plan](docs/TRANSPORTATION_DOCUMENT_PLAN.md). The April 2009 support plan explicitly describes the Princeton–Smith bike-lane exception; verify against dated existing conditions rather than repeating a generic corridor section. Proposed improvements remain separate under #21; final presentation review stays in #18/#13.

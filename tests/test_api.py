@@ -4,6 +4,14 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from serve import read_table,page_table,SnapshotMismatch,active_folder
 
 class ApiContractTests(unittest.TestCase):
+ def test_parcel_search_precedes_pagination_and_keeps_snapshot_identity(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);rows=[{'id':'p1','properties':{'site_address':'1615 EDGEWATER DR','parcel_id':'292223016600090'}},{'id':'p2','properties':{'site_address':'644 W PRINCETON ST','parcel_id':'292214147800150'}}]
+   (r/'data/snapshots/s1/parcels.json').write_text(json.dumps({'type':'FeatureCollection','features':rows}))
+   packet=page_table('parcels',{'q':['1615 Edgewater Drive'],'limit':['1']},r)
+   self.assertEqual(packet['snapshot'],'s1');self.assertEqual(packet['total'],1);self.assertEqual(packet['rows'][0]['id'],'p1')
+   self.assertEqual(page_table('parcels',{'q':['14-22-29-1478-00-150']},r)['rows'][0]['id'],'p2')
+   self.assertEqual(page_table('parcels',{'q':['no such address']},r)['total'],0)
  def test_land_report_rejects_changed_sources_and_missing_hashes(self):
   with tempfile.TemporaryDirectory() as d:
    r=self.setup_root(d);(r/'data/land').mkdir();source=r/'data/land/source.json';source.write_text('original')

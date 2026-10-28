@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Property search delivery — October 28, 2026
+
+The local map now searches the current parcel snapshot by address or parcel number, ranks matches before pagination and selects the exact mapped parcel. The inspector includes an OCPA zoning reference and explicitly unsurveyed parcel reference coordinates. Browser checks verified address and formatted PIN searches, selection, no results and reset; [usage and captured evidence](PROPERTY_SEARCH.md). The integration suite passed 200 tests at this checkpoint. This feature does not close its broader property-data or scene-quality tickets. GitHub status remains 30 open issues and one completed issue (#19), pending the next acceptance review.
+
 ## Latest Main Street extraction — October 28, 2026, 16:15 UTC
 
 Expanded the shared extraction to fully contain the official City College Park Main Street polygon. Active snapshot `20261028T160543372334Z`: 13,999 OCPA footprint subareas, 3,216 building groups, 3,916 parcel features and 1,310 OSM road segments. Actual 3D ground covers 100% of Main Street (0 m² uncovered); wider neighborhood context remains partial at 60.77%. Full district coverage does not imply current, individually verified building geometry.

@@ -6,6 +6,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 |---|---|
 | [Consolidated delivery plan](DELIVERY_PLAN.md) | Current execution overview, reuse audit, critical path and efficiency rules |
 | [Ticket plan](../TICKET_PLAN.md) | Full scope, priorities, ownership and acceptance requirements |
+| [Property search](PROPERTY_SEARCH.md) | Search addresses and parcel numbers, select mapped parcels and inspect evidence |
 | [Showcase delivery plan](PRINCETON_EDGEWATER_SHOWCASE_PLAN.md) | Sequenced building, street, landscape, lighting and visual review work |
 | [Transportation documents](TRANSPORTATION_DOCUMENT_PLAN.md) | Official records, revisions, missing engineering sheets and source-use limits |
 | [Parking feasibility review](PARKING_FEASIBILITY_REVIEW.md) | Located studies, missing counts, usable parking/access, demand, shared parking and capital/operations gates |

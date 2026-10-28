@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from urllib.parse import urlparse,parse_qs
 from pathlib import Path
 import json,argparse,math,hashlib
+from property_search import search_parcels
 ROOT=Path(__file__).resolve().parents[1]
 TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions'}
 class SnapshotMismatch(ValueError):pass
@@ -86,6 +87,7 @@ def page_table(name,query,root=ROOT):
  data,snapshot=read_table(name,root)
  if isinstance(data,dict) and data.get('type')!='FeatureCollection':return data
  rows=data['features'] if isinstance(data,dict) else data
+ if name=='parcels' and 'q' in query:rows=search_parcels(rows,query['q'][0])
  field=query.get('parcel_id',[''])[0]
  if field:
   rows=[r for r in rows if (r.get('properties',r)).get('parcel_id')==field]
@@ -122,7 +124,11 @@ class Handler(BaseHTTPRequestHandler):
     projection=Transformer.from_crs(4326,32617,always_xy=True)
     def xy(x,y,z=None):return projection.transform(x,y)
     for name in ['parcels','streets','neighborhoods','parks']:
-     for f in data[name]['features']:f['geometry']=mapping(transform(xy,shape(f['geometry'])))
+     for f in data[name]['features']:
+      geometry=shape(f['geometry'])
+      if name=='parcels':
+       point=geometry.representative_point();f['properties']['reference_point_wgs84']=[point.x,point.y]
+      f['geometry']=mapping(transform(xy,geometry))
     extent=json.loads((folder/'quality.json').read_text(encoding='utf-8'))['bbox_wgs84'];extraction=transform(xy,box(*extent));data['extraction_geometry']=mapping(extraction)
     if (ROOT/'data/processed/study_boundaries.geojson').exists():
      boundaries=read_table('study_boundaries')[0]

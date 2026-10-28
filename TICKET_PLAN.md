@@ -1,0 +1,235 @@
+# College Park digital twin — ticket plan
+
+Created October 27, 2026 (America/New_York).
+
+Build an accurate, navigable digital twin of College Park, Orlando, beginning with Edgewater Drive. The current prototype has public footprint/street geometry and illustrative storefront, tree and vehicle detail. This roadmap replaces assumptions with traceable evidence and upgrades the visual assets.
+
+## Delivery sequence
+
+### 1. Establish clean data foundations
+
+- [ ] https://github.com/ajoiventures/TWIN/issues/1 — Create a portable, versioned Omniverse project baseline
+- [ ] https://github.com/ajoiventures/TWIN/issues/2 — Audit local BOOMS, parcel and map sources before integration
+- [ ] https://github.com/ajoiventures/TWIN/issues/3 — Add cached OCPA parcel API ingestion and stable parcel-building links
+- [ ] https://github.com/ajoiventures/TWIN/issues/4 — Build clean, documented City of Orlando Open Data and GIS adapters
+- [ ] https://github.com/ajoiventures/TWIN/issues/5 — Align official district boundaries and a linked 2D parcel map with the 3D twin
+
+### 2. Improve accuracy and visual assets
+
+- [ ] https://github.com/ajoiventures/TWIN/issues/6 — Replace uniform heights and flat ground with evidence-based geometry
+- [ ] https://github.com/ajoiventures/TWIN/issues/7 — Connect approved BOOMS property, vacancy and business context to scene objects
+- [ ] https://github.com/ajoiventures/TWIN/issues/8 — Build a verified Edgewater storefront reference and asset register
+- [ ] https://github.com/ajoiventures/TWIN/issues/9 — Replace simplified trees with detailed oak and palm assets
+- [ ] https://github.com/ajoiventures/TWIN/issues/10 — Replace box vehicles with realistic parked car models and valid parking
+
+### 3. Deliver and verify a realistic pilot block
+
+- [ ] https://github.com/ajoiventures/TWIN/issues/11 — Model a verified pilot block of storefronts and pedestrian streetscape
+- [ ] https://github.com/ajoiventures/TWIN/issues/12 — Add provenance, accuracy filters and dependable scene refresh controls
+- [ ] https://github.com/ajoiventures/TWIN/issues/13 — Verify geographic accuracy, visual realism and laptop performance before release
+
+## Definition of done
+
+- Official Orlando Open Data, city GIS and OCPA integrations have documented schemas, stable identifiers, dated local snapshots and quality checks.
+- Approved BOOMS context links to the correct parcels/buildings; unknown, stale, estimated and illustrative content remains distinguishable.
+- One reviewed Edgewater pilot block has referenced storefronts, detailed vegetation and vehicles, plausible parking and pedestrian space.
+- Source/asset rights and data-release status are recorded; manual edits survive refresh.
+- Geographic, visual and performance acceptance evidence is attached to the verification ticket.
+
+## Primary references
+
+- [City of Orlando Open Data](https://data.cityoforlando.net/en/)
+- [Orlando GIS downloads](https://www.orlando.gov/Our-Government/Records-and-Documents/Map-Library/GIS-Data-Download)
+- [Orlando Permit Applications dataset](https://data.cityoforlando.net/Permitting/Permit-Applications/ryhf-m453/data)
+- [Official OCPA parcel service](https://vgispublic.ocpafl.org/server/rest/services/DynamicForJs/PARCEL/MapServer/4)
+- [BOOMS overview from Main Street America](https://mainstreet.org/resources/knowledge-hub/topics/real-estate-and-property-development)
+
+This is a sequenced ticket plan. Open tickets do not imply those improvements are implemented or verified.
+
+## Ticket specifications
+
+The transportation and sidewalk workstream is detailed in [TRANSPORTATION_PLAN.md](docs/TRANSPORTATION_PLAN.md): [transportation sources #15](https://github.com/ajoiventures/TWIN/issues/15), [pedestrian GIS #16](https://github.com/ajoiventures/TWIN/issues/16), [accurate block geometry #17](https://github.com/ajoiventures/TWIN/issues/17), and [street visuals and placement #18](https://github.com/ajoiventures/TWIN/issues/18). Final tree/vehicle placement and pilot-block sign-off now depend on these geometry checks.
+
+### [TWIN-01: Create a portable, versioned Omniverse project baseline](https://github.com/ajoiventures/TWIN/issues/1)
+
+Priority: P0. Dependencies: None.
+
+Bring the existing College Park prototype and its generators into this repository with portable paths and reproducible setup.
+
+- [ ] Separate source code, generated scenes, licensed assets, and private/local data. Do not commit machine runtimes, logs, secrets, or raw BOOMS/BTR exports.
+- [ ] Replace hard-coded workstation paths with configuration or project-relative paths; document supported Kit and Python dependencies.
+- [ ] Preserve the original base scene and keep source geometry, illustrative details, manual edits, and scenarios in separate USD layers.
+- [ ] A clean checkout can run a documented small sample build and open it in the supported Kit installation; record baseline startup time, frame rate, RAM and VRAM.
+
+Deliverables: Project structure, setup guide, dependency manifest, configuration, .gitignore, small redistributable sample.
+
+### [TWIN-02: Audit local BOOMS, parcel and map sources before integration](https://github.com/ajoiventures/TWIN/issues/2)
+
+Priority: P0. Dependencies: TWIN-01.
+
+Inventory the existing local BOOMS program export, completion tracker, parcel spine, polygon snapshots and map outputs. Reuse existing refresh logic after review. Include the City of Orlando Open Data portal and city GIS catalog as first-class authoritative source candidates.
+
+- [ ] Record schema, coverage, source URL, retrieval date, CRS, license/redistribution terms and release tier for each source.
+- [ ] Reconcile differing raw export, normalized parcel and polygon counts, duplicate parcel IDs and invalid geometry; deliver an exception report.
+- [ ] Document the BOOMS-to-parcel field mapping, including parcel_pin, cp_uid, num_floors, vacancy/use, last_edit_date and completion/release fields.
+- [ ] Keep the source BTR project read-only. Preserve its held-2026-data and public-release gates; no raw private records or owner/contact notes enter this public repository.
+- [ ] Distinguish the BOOMS inventory from its completion tracker and from live appraiser snapshots; do not assume a BOOMS API is available.
+
+Deliverables: Source register, schema map, freshness report, reconciliation queue and publication field allowlist.
+
+### [TWIN-03: Add cached OCPA parcel API ingestion and stable parcel-building links](https://github.com/ajoiventures/TWIN/issues/3)
+
+Priority: P0. Dependencies: TWIN-02.
+
+Use the official OCPA parcel service and existing building footprint geometry to build stable, traceable parcel/building relationships.
+
+- [ ] Inspect the official parcel service schema and use bounded, paginated or object-ID-batched queries with retry, timeout and local cache behavior.
+- [ ] Normalize parcel IDs as strings without dropping leading zeros; preserve source identifiers and retrieval timestamps.
+- [ ] Model parcel-to-building relationships explicitly, including multiple buildings per parcel and condo/overlapping parcel cases; do not equate a parcel with a storefront.
+- [ ] Produce matched, ambiguous and unmatched queues. Use address/spatial fallback only with recorded match method and confidence.
+- [ ] Build and refresh from snapshots; the interactive/static map must not query public agency APIs on every render. Test missing fields, source outages and geometry updates.
+- [ ] Document the OCPA adapter's interface so it can share identifiers, CRS, cache manifests and quality reports with the Orlando portal/GIS adapters.
+
+Deliverables: OCPA adapter, snapshot manifest, normalized parcel/building tables and join QA report.
+
+### [TWIN-13: Build clean, documented City of Orlando Open Data and GIS adapters](https://github.com/ajoiventures/TWIN/issues/4)
+
+Priority: P0. Dependencies: TWIN-02.
+
+Create a consistent ingestion interface for the official City of Orlando data portal and GIS catalog, aligned with the OCPA parcel adapter.
+
+- [ ] Inventory relevant official portal/GIS datasets for addresses, parcels/buildings, boundaries, zoning, permits, business records, streets, tree inventory and elevation; verify actual availability rather than assuming every dataset exists.
+- [ ] For each selected dataset record publisher, stable dataset/service ID, API URL, metadata URL, pagination, auth/rate limits, update frequency, CRS, units, license and retrieval date.
+- [ ] Normalize source IDs and preserve original IDs, source dates and geometry quality. Keep distinct address, parcel, building, business and permit entities.
+- [ ] Provide a documented read-only ingestion API/adapter contract with bounded queries, pagination, retries/backoff, timeouts, schema checks, cached snapshots and incremental refresh where supported.
+- [ ] Add offline fixtures and tests for schema changes, missing fields, duplicate features, swapped coordinates, invalid geometry, empty responses and service failure; produce a quality report rather than silently replacing good data.
+- [ ] Expose only approved normalized fields to map/scene clients. Public/static views use snapshots, not agency calls per render; no keys or internal exports enter the public repo.
+
+Deliverables: Official dataset catalog, Orlando portal and ArcGIS adapters, common data contract, fixture tests, cache manifests and API documentation.
+
+### [TWIN-04: Align official district boundaries and a linked 2D parcel map with the 3D twin](https://github.com/ajoiventures/TWIN/issues/5)
+
+Priority: P0. Dependencies: TWIN-03, TWIN-13.
+
+Replace the rectangular study-area assumption with named, traceable boundary layers and a 2D/3D inspection map.
+
+- [ ] Represent the College Park neighborhood, Main Street program boundary and Edgewater focus corridor as distinct geometries, each with source/date/status.
+- [ ] Verify the local UTM origin, axis direction, horizontal CRS and units against at least ten distributed reference points; report residuals and the source-supported tolerance.
+- [ ] Show parcel outlines, building footprints, streets and an appropriately licensed dated reference basemap; preserve attribution.
+- [ ] Selecting a parcel or building highlights its counterpart in 2D and 3D, with stable IDs and a visible unmatched state.
+- [ ] Keep proposed redesign geometry separate from existing-condition mapping; mark digitized/unapproved boundaries accordingly.
+
+Deliverables: Boundary registry, reference-point alignment report and linked parcel map.
+
+### [TWIN-05: Replace uniform heights and flat ground with evidence-based geometry](https://github.com/ajoiventures/TWIN/issues/6)
+
+Priority: P1. Dependencies: TWIN-03, TWIN-04, TWIN-13.
+
+Assess public elevation/LiDAR coverage and verified floor data, then improve building and terrain geometry without inventing precision.
+
+- [ ] Inventory available elevation/LiDAR/height products, acquisition dates, resolution, licenses, coverage and vertical datums before selecting a source.
+- [ ] Use bare-earth terrain for the ground and separate roof/building measurements; screen vegetation and outliers from roof height estimates.
+- [ ] Assess OCPA STYS and BOOMS num_floors definitions and completeness before using them. A floor-derived height remains an estimate, not a measured elevation.
+- [ ] Every height records its value, units, method, date, source and confidence; missing/conflicting records retain labeled fallbacks.
+- [ ] Verify representative small shops, larger buildings and residential structures against reference evidence; document error and remaining gaps.
+
+Deliverables: Elevation-source assessment, terrain/height pipeline, per-building confidence attributes and validation sample.
+
+### [TWIN-06: Connect approved BOOMS property, vacancy and business context to scene objects](https://github.com/ajoiventures/TWIN/issues/7)
+
+Priority: P1. Dependencies: TWIN-02, TWIN-03, TWIN-04.
+
+Expose appropriate inventory context when users select a parcel or building, without treating parcel-level records as verified tenants or facades.
+
+- [ ] Join through stable parcel/program identifiers and retain one-to-many buildings, businesses and spaces rather than copying one tenant onto every building.
+- [ ] Show observation date, source, completion state, match confidence and unknown/stale states for occupancy and business information.
+- [ ] Use a field allowlist; suppress owner/contact details, free-text notes and held records from public exports until existing source release gates are satisfied.
+- [ ] Differentiate actual business identities, generic visual signs and historical records; conflicting tenants enter review.
+- [ ] Provide tests for duplicate IDs, address/suite ambiguity, null vacancy fields and expired observations using synthetic/redacted fixtures.
+
+Deliverables: BOOMS import mapping, object inspector, approved export schema and reconciliation report.
+
+### [TWIN-07: Build a verified Edgewater storefront reference and asset register](https://github.com/ajoiventures/TWIN/issues/8)
+
+Priority: P1. Dependencies: TWIN-04, TWIN-06.
+
+Create a building-by-building reference set to replace generic facades with defensible current storefront details.
+
+- [ ] Start with one continuous pilot block identified by parcel/building IDs; expand only after the reference workflow is reviewed.
+- [ ] Record dated, permitted-to-use references for heights, rooflines, doors, glazing, awnings, signs, colors and entrances.
+- [ ] Track capture/usage rights and attribution for photographs and textures; do not download or reuse restricted street imagery by assumption.
+- [ ] Verify business identity and date separately from architectural appearance; preserve unknowns and avoid invented tenants.
+- [ ] Record approximate dimensions and evidence confidence, and list missing reference work per property.
+
+Deliverables: Pilot-block reference register, asset rights manifest, facade measurement sheets and review queue.
+
+### [TWIN-08: Replace simplified trees with detailed oak and palm assets](https://github.com/ajoiventures/TWIN/issues/9)
+
+Priority: P1. Dependencies: TWIN-01, TWIN-04.
+
+Improve vegetation appearance with detailed trunks, branches and leaf canopies while keeping placement evidence and rendering cost explicit.
+
+- [ ] Evaluate redistributable or user-licensed vegetation assets; record source, license, scale, species label and texture requirements before importing.
+- [ ] Use detailed bark, branching, leaf materials, varied silhouettes, healthy scale variation and correct normals; remove visibly spherical/faceted prototype crowns.
+- [ ] Use available tree inventory or dated references where feasible. Mark procedural tree positions as illustrative rather than surveyed.
+- [ ] Check trunks against buildings, carriageways, water, entrances and accessible routes; allow overhead canopy only where appropriate.
+- [ ] Provide instancing and at least three distance-detail levels. Verify close-up, sidewalk and aerial views for texture, transparency and shadow defects.
+
+Deliverables: Vegetation asset library, placement rules, placement confidence layer and visual comparison captures.
+
+### [TWIN-09: Replace box vehicles with realistic parked car models and valid parking](https://github.com/ajoiventures/TWIN/issues/10)
+
+Priority: P1. Dependencies: TWIN-01, TWIN-04.
+
+Add realistic static vehicles at plausible mapped parking locations, independent of any future traffic simulation.
+
+- [ ] Select licensed passenger-car/SUV/van assets with believable bodywork, wheels, glass, lights and materials; record provenance and redistribution rights.
+- [ ] Use real dimensions, ground contact, varied orientation/color and sufficient wheel/body detail at the closest camera.
+- [ ] Derive allowed placement from verified curb spaces or parking areas; exclude travel lanes, intersections, crosswalks, entrances, sidewalks and buildings.
+- [ ] Provide collision and clearance QA plus manual review of the pilot block; schematic current placements are not assumed valid.
+- [ ] Use instancing or asset variants and distance-detail levels; label vehicles as static illustration, with no live-traffic claim.
+
+Deliverables: Vehicle asset library, parking-placement layer, collision report and before/after street-level captures.
+
+### [TWIN-10: Model a verified pilot block of storefronts and pedestrian streetscape](https://github.com/ajoiventures/TWIN/issues/11)
+
+Priority: P1. Dependencies: TWIN-05, TWIN-07, TWIN-08, TWIN-09.
+
+Deliver a coherent, recognizable pilot block along Edgewater before spreading facade generation across the district.
+
+- [ ] Implement referenced rooflines, facade proportions, entrances, recessed glazing, awnings and signage with correct text orientation and physical scale.
+- [ ] Model sidewalks, curbs, tree wells, crossings, lighting and furniture from evidence; keep accessibility and entrance clearances visible.
+- [ ] Use physically plausible materials, texture scales, UVs, normals and contact shadows; verify grass, asphalt and concrete masks do not bleed into one another.
+- [ ] Separate existing conditions from planned street-project scenarios. No future plan is silently presented as built.
+- [ ] Review five fixed close/wide camera views against dated references and record accepted discrepancies; unresolved properties retain generic labels.
+
+Deliverables: Pilot-block USD layer, material library, existing/planned scenario distinction and visual review checklist.
+
+### [TWIN-11: Add provenance, accuracy filters and dependable scene refresh controls](https://github.com/ajoiventures/TWIN/issues/12)
+
+Priority: P1. Dependencies: TWIN-04, TWIN-05, TWIN-06.
+
+Help users distinguish observed, estimated, illustrative and proposed content while preserving manual edits across refreshes.
+
+- [ ] Object inspection shows source, date, identifier, evidence quality and last refresh, with clear unknown/stale states.
+- [ ] Add independent switches for parcel boundaries, data confidence, detailed storefronts, vegetation, vehicles and future scenarios.
+- [ ] Refresh uses staged snapshots and layer replacement with a change report; manual edits and previous versions remain recoverable.
+- [ ] Handle unavailable assets, interrupted downloads and missing datasets without silently producing a blank screen.
+- [ ] Open with a visible useful camera, readable daylight and sensible clipping; prevent unintended selection outlines and camera changes from polluting source layers.
+
+Deliverables: Provenance UI, layer controls, safe refresh workflow and recovery checks.
+
+### [TWIN-12: Verify geographic accuracy, visual realism and laptop performance before release](https://github.com/ajoiventures/TWIN/issues/13)
+
+Priority: P1. Dependencies: TWIN-08, TWIN-09, TWIN-10, TWIN-11.
+
+Define a repeatable acceptance pass for the accurate, visually improved College Park twin.
+
+- [ ] Report parcel/building/BOOMS match coverage, unresolved exceptions, reference-point residuals and height-quality coverage; no unexplained denominator changes.
+- [ ] Check USD composition, missing assets, mesh topology, UVs, normals, mirrored signs, material boundaries, tree/vehicle collision and dated business labels.
+- [ ] Capture the same street-level, sidewalk and aerial views for baseline and updated scenes; obtain a pilot-block review before broad rollout.
+- [ ] Measure a declared 1080p camera route on the RTX 5070 Ti laptop with 12 GB VRAM. Initial target: 30 FPS median with adequate RAM/VRAM headroom; report measured results and tune detail levels if missed.
+- [ ] Verify fresh launch, reopen, layer toggles, 2D/3D selection and data refresh. Document source limitations and license/redistribution status before a shareable build.
+
+Deliverables: Acceptance report, comparison captures, performance measurements and release-ready manifest.
+

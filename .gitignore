@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.venv/
+.dependencies/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+data/raw/
+data/private/
+data/cache/
+assets/restricted/
+scene/backups/
+scene/
+data/*.json
+data/*.geojson
+data/snapshots/
+data/processed/
+college_park_workspace.kit
+Open College Park.bat
+config/local.json

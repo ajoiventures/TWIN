@@ -9,6 +9,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 | [Showcase delivery plan](PRINCETON_EDGEWATER_SHOWCASE_PLAN.md) | Sequenced building, street, landscape, lighting and visual review work |
 | [Transportation documents](TRANSPORTATION_DOCUMENT_PLAN.md) | Official records, revisions, missing engineering sheets and source-use limits |
 | [Parking feasibility review](PARKING_FEASIBILITY_REVIEW.md) | Located studies, missing counts, usable parking/access, demand, shared parking and capital/operations gates |
+| [Parks, public land and zoning](PARKS_PUBLIC_LAND_ZONING.md) | City sources, measured extract findings and L-01–L-07 ownership/vacancy/zoning work |
 | [Event replay](EVENT_REPLAY.md) | Implemented offline event contract, deterministic replay, mode separation and remaining operations work |
 | [Road review](PRINCETON_EDGEWATER_REVIEW.md) | Alignment findings and unresolved intersection geometry |
 | [Multifamily review](MULTIFAMILY_REVIEW.md) | Property candidates, source-link/height exceptions and current reconstruction needs |

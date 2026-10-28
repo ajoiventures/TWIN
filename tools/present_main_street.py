@@ -54,7 +54,13 @@ def build():
     ground.GetInput('diffuseColor').Set(Gf.Vec3f(.20,.29,.13))
     for i in range(7):
         leaf=UsdShade.Shader.Define(stage,f'/World/Trees/Detailed/Tree_{i}/Materials/Leaves/Texture')
-        leaf.CreateInput('scale',Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(2.1,2.0,1.7,1))
+        leaf.CreateInput('scale',Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(1.3,1.5,1.1,1))
+        # Lift the original dark leaf color while leaving alpha unchanged.
+        # This is an artistic material adjustment, not measured vegetation.
+        leaf.CreateInput('bias',Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(.045,.11,.018,0))
+        surface=UsdShade.Shader.Define(stage,f'/World/Trees/Detailed/Tree_{i}/Materials/Leaves/Surface')
+        surface.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(.65)
+        surface.CreateInput('specularColor',Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(.18,.18,.18))
     stage.GetRootLayer().customLayerData={'purpose':'Main Street tilt-shift presentation','geographic_changes':False,'source_snapshot':pilot['source_snapshot'],'focusDistanceMeters':float((eye-target).GetLength())}
     stage.GetRootLayer().Export(str(ROOT/'scene/main_street_presentation.usda'))
     print('Main Street tilt-shift camera',tuple(eye),'focus distance',round((eye-target).GetLength(),2),'m')

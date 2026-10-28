@@ -10,7 +10,7 @@ from pxr import Gf
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES
+from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
@@ -26,6 +26,9 @@ async def open_workspace():
         startup_status=ui.Label('Loading project status…',height=150,word_wrap=True)
         ui.Button('Retry project startup',height=34,clicked_fn=retry_startup)
     app=omni.kit.app.get_app()
+    # Kit's viewport save callback otherwise authors implicit camera metadata
+    # directly on the root layer, independently of the selected edit target.
+    carb.settings.get_settings().set_bool('/app/omni.usd/storeCameraSettingsToUsdStage',False)
     await app.next_update_async()
     try:
         manifest_path=ROOT/'data'/'manifest.json'
@@ -44,7 +47,7 @@ async def open_workspace():
         opened_new=False
         # Retain an already open editor stage, including unsaved user work.
         if should_open_project(current):
-            success,error=await ctx.open_stage_async(str(ROOT/'scene'/scene_name))
+            success,error=await ctx.attach_stage_async(create_workspace_stage(ROOT/'scene'/scene_name))
             if not success:raise RuntimeError(error)
             opened_new=True
         if ctx.get_stage() is None:raise RuntimeError('No editable stage is available')
@@ -63,7 +66,7 @@ async def open_workspace():
     if viewport and opened_new:
         for candidate in ['MainStreetOverview','WellesleyEvidence','WellesleyReview','TreeLinedEdgewater','EdgewaterCorridor']:
             if ctx.get_stage().GetPrimAtPath('/World/Cameras/'+candidate):
-                viewport.camera_path='/World/Cameras/'+candidate
+                set_session_camera(ctx.get_stage(),viewport,'/World/Cameras/'+candidate)
                 break
         carb.settings.get_settings().set_bool(f'/persistent/app/viewport/{viewport.id}/guide/grid/visible',False)
     try:
@@ -108,7 +111,7 @@ async def open_workspace():
     def view(name):
         viewport=get_active_viewport()
         stage=ctx.get_stage()
-        if viewport and stage and stage.GetPrimAtPath('/World/Cameras/'+name):viewport.camera_path='/World/Cameras/'+name
+        if viewport and stage:set_session_camera(stage,viewport,'/World/Cameras/'+name)
     def toggle(path,shown):
         try:
             if not set_session_visibility(ctx.get_stage(),path,shown):status.text='Display group is unavailable: '+path
@@ -161,7 +164,8 @@ async def open_workspace():
                     model.add_value_changed_fn(lambda m,k=key:filter_confidence(k,m.as_bool))
             confidence_summary=ui.Label('Evidence display groups (paired roofs counted separately):\n'+'\n'.join(f'{label}: {confidence_counts[key]}' for key,label in CONFIDENCE_CATEGORIES),height=170,word_wrap=True)
             ui.Button('Refresh evidence labels',height=30,clicked_fn=filter_confidence)
-            status=ui.Label('Ready. Select any building part to inspect its evidence.',height=340,word_wrap=True)
+            status=ui.Label('Ready. Select any building part to inspect its evidence.',height=80,word_wrap=True)
+            inspector=ui.Label('Select a building part to inspect source, dates and evidence quality.',height=660,word_wrap=True)
             ui.Label('Heights: historical LiDAR or floor estimates. Ground is flat.\nNo live traffic or sensor feeds.',height=48,word_wrap=True,style={'color':0xffa9b8cf})
             if detailed:ui.Label('Trees and storefront designs are illustrative.\nShop signs show generic categories.',height=48,word_wrap=True)
             ui.Label('Buildings: Orange County Property Appraiser\nMap: OpenStreetMap contributors (ODbL)',height=48,word_wrap=True)
@@ -174,7 +178,7 @@ async def open_workspace():
         paths=ctx.get_selection().get_selected_prim_paths()
         prim=stage.GetPrimAtPath(paths[0]) if paths else None
         refresh_confidence()
-        status.text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
+        inspector.text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
         if not project_stage or not is_project_stage(stage,[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):return
         if tuple(paths)==bridge_runtime['remote_paths']:return
         bridge_runtime['remote_paths']=None
@@ -208,6 +212,8 @@ async def open_workspace():
                 else:
                     notice=selection['reason']
                     acknowledge(packet,'selected-in-editor' if paths else 'unmatched-editor',notice,ROOT)
+                refresh_confidence()
+                inspector.text=inspector_text(ctx.get_stage().GetPrimAtPath(paths[0]) if paths else None,project_refresh,evidence_registry,active_snapshot)
                 status.text='Map selection: '+notice+'\nCamera preserved.'
             except (OSError,ValueError) as error:status.text='Selection link: '+str(error)
     global selection_sync_task
@@ -219,7 +225,7 @@ async def open_workspace():
     print('COLLEGE_PARK_WORKSPACE_READY',counts)
     # Generated layers may be rebuilt outside Kit. Refresh clean generated
     # layers only; never reload the user's manual edit layer.
-    watched=['retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
+    watched=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
     stamps={name:(ROOT/'scene'/name).stat().st_mtime_ns for name in watched if (ROOT/'scene'/name).exists()}
     async def refresh_generated():
         while True:

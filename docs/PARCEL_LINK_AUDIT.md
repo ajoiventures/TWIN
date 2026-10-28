@@ -1,5 +1,11 @@
 # OCPA parcel and building link audit
 
+## Current full-extraction checkpoint — October 28, 2026
+
+The latest generated audit targets snapshot `20261028T160543372334Z`: 3,916 parcel features / 3,915 PINs, 3,216 building groups, 2,976 exact links, 202 spatial-review links, 3 ambiguous and 35 unmatched groups. It independently recomputed 3,178 assigned overlaps with zero integrity/schema/source-identity errors. There are 103 accepted one-to-many parcels (224 building groups) and 561 floor disagreements (555 one-floor, six larger). No link decisions changed. The 240 unaccepted links and expanded full-project property/sketch/frontage verification remain open. The cache-only candidate adapter additionally quarantines ten source-returned polygons outside the actual study extent; this does not alter the active snapshot. See [adapter contract and current construction evidence](SOURCE_ADAPTER_CONTRACT.md).
+
+## Historical narrower-extraction evidence
+
 Audit run October 28, 2026 against active local snapshot `20261028T145054204280Z`. The audit reads existing public snapshots, the base scene, public footprint subareas and current height evidence. It makes no network requests and does not rewrite links or promote spatial matches.
 
 ## Results

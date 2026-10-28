@@ -5,7 +5,7 @@ for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):os.envir
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
-from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES
+from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera
 
 class WorkspaceEvidenceTests(unittest.TestCase):
     def default_stage(self):
@@ -129,6 +129,25 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         controller=SessionConfidenceFilter(stage)
         controller.apply({'unknown'});set_session_visibility(stage,'/World/Buildings',False);controller.reset()
         self.assertFalse(visible_for_test(stage,p))
+
+    def test_transient_workspace_absorbs_renderer_root_edits(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'project.usda';source=Usd.Stage.CreateNew(str(path))
+            UsdGeom.Xform.Define(source,'/World');UsdGeom.Camera.Define(source,'/World/A');UsdGeom.Camera.Define(source,'/World/B')
+            source.DefinePrim('/Render/Product','RenderProduct').CreateRelationship('camera').SetTargets(['/World/A'])
+            source.GetRootLayer().Save();before=source.GetRootLayer().ExportToString()
+            stage=create_workspace_stage(path)
+            self.assertTrue(is_project_stage(stage,[path]));self.assertFalse(should_open_project(stage))
+            class Viewport:
+                render_product_path='/Render/Product'
+                @property
+                def camera_path(self):return None
+                @camera_path.setter
+                def camera_path(self,path):
+                    with Usd.EditContext(stage,stage.GetRootLayer()):stage.GetPrimAtPath('/Render/Product').GetRelationship('camera').SetTargets([path])
+            set_session_camera(stage,Viewport(),'/World/B')
+            self.assertEqual(stage.GetPrimAtPath('/Render/Product').GetRelationship('camera').GetTargets(),[Sdf.Path('/World/B')])
+            self.assertEqual(source.GetRootLayer().ExportToString(),before);self.assertFalse(source.GetRootLayer().dirty)
 
 
 def visible_for_test(stage,prim):

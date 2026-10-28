@@ -3,6 +3,45 @@ from pathlib import Path
 
 UNKNOWN='Unknown'
 
+
+def create_workspace_stage(source_path):
+    """Transient root absorbs Kit render/camera edits above the saved assembly."""
+    from pxr import Sdf,Usd,UsdGeom
+    source=Path(source_path).resolve();layer=Sdf.Layer.FindOrOpen(str(source))
+    if not layer:raise ValueError('Project scene is unavailable')
+    root=Sdf.Layer.CreateAnonymous('twin_workspace.usda');root.subLayerPaths=[str(source)]
+    root.customLayerData={'twinWorkspaceSource':str(source),'purpose':'Transient editor camera/render state; save manual edits separately'}
+    stage=Usd.Stage.Open(root)
+    for name in ('metersPerUnit','upAxis'):
+        value=layer.pseudoRoot.GetInfo(name)
+        if value is not None:stage.SetMetadata(name,value)
+    world=stage.GetPrimAtPath('/World')
+    if world:stage.SetDefaultPrim(world)
+    return stage
+
+
+def set_session_camera(stage,viewport,camera_path):
+    """Mirror the viewport binding in session; transient project root absorbs Kit writes."""
+    from pxr import Sdf,Usd,UsdGeom
+    if not stage or not viewport:return False
+    camera=stage.GetPrimAtPath(camera_path)
+    if not camera or not camera.IsA(UsdGeom.Camera):return False
+    product_path=viewport.render_product_path
+    if product_path:
+        product=stage.GetPrimAtPath(product_path);session=stage.GetSessionLayer()
+        if product:
+            Sdf.CreatePrimInLayer(session,product.GetPath())
+            for name in ('camera','resolution'):
+                prop=product.GetProperty(name)
+                if prop and not session.GetPropertyAtPath(prop.GetPath()):
+                    stack=prop.GetPropertyStack()
+                    if stack:Sdf.CopySpec(stack[0].layer,prop.GetPath(),session,prop.GetPath())
+    with Usd.EditContext(stage,stage.GetSessionLayer()):
+        if product_path and stage.GetPrimAtPath(product_path):
+            stage.GetPrimAtPath(product_path).CreateRelationship('camera').SetTargets([camera_path])
+        viewport.camera_path=camera_path
+    return True
+
 def should_open_project(stage):
     """Replace only a clean anonymous default scene, never saved/user content."""
     if stage is None:return True
@@ -20,7 +59,10 @@ def should_open_project(stage):
 def is_project_stage(stage,scene_paths):
     if not stage:return False
     root=stage.GetRootLayer()
-    return bool(root.realPath) and Path(root.realPath).resolve() in {Path(p).resolve() for p in scene_paths}
+    allowed={Path(p).resolve() for p in scene_paths}
+    if root.realPath:return Path(root.realPath).resolve() in allowed
+    source=root.customLayerData.get('twinWorkspaceSource')
+    return bool(root.anonymous and source and Path(source).resolve() in allowed and any(layer.realPath and Path(layer.realPath).resolve()==Path(source).resolve() for layer in stage.GetLayerStack()))
 
 def inherited_evidence(prim):
     """Nearest authored values win; missing nested fields fall back to ancestors."""

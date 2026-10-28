@@ -47,6 +47,22 @@ def build():
         if retail_layer.resolve() not in used or not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Retail historical draft is not visibly composed')
         records.append(retail_registration_record(packet));dependencies.extend([retail_path,retail_layer])
         dependencies.extend(ROOT/relative for relative in packet['dependencies'])
+    roof_activation_path=ROOT/'data/heights/final_omissions/activation.json'
+    if roof_activation_path.exists():
+        from activate_final_omission_roofs import validate_active
+        packet=validate_active(ROOT,active['snapshot']);roof_layer=ROOT/packet['layer']
+        if roof_layer.resolve() not in used:raise ValueError('Reviewed historical roofs are not composed')
+        dependencies.extend([roof_activation_path,roof_layer]);dependencies.extend(ROOT/relative for relative in packet['dependencies'])
+        addresses={'rugby_720':'720 RUGBY ST','rugby_738':'738 RUGBY ST'}
+        for site in packet['sites']:
+            prim=stage.GetPrimAtPath(site['prim_path'])
+            if not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Reviewed historical roof is not visible')
+            records.append({'id':site['site_id'],'parcel_id':site['parcel_id'],'parcel_ids':[site['parcel_id']],'site_address':addresses[site['site_id']],
+                'usd_path':site['prim_path'],'quality':site['quality'],'components':site['components'],'maximum_rendered_height_m':site['maximum_rendered_height_m'],
+                'roof_support_outline_m2':site['roof_support_outline_m2'],'source_fit_status':site['source_fit_status'],
+                'assigned_source_abs_residual_p50_p95_max_m':site['assigned_source_abs_residual_p50_p95_max_m'],
+                'physical_building_count':1,'rendered_entity_count':1,'parcel_link_scope':'historical_roof_context_not_accepted_tax_footprint_link',
+                'superseded_legacy_groups':0,'raw_property_links_promoted':False,'limitations':packet['limitations']})
     report={'source_snapshot':active['snapshot'],'registered_utc':now(),'dependencies':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in dependencies},'records':records}
     atomic_json(ROOT/'data/processed/reconstructions.json',report)
     print('Registered historical reconstruction:',record['id']);return report

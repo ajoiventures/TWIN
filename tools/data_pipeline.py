@@ -3,7 +3,7 @@
 No private BOOMS values or owner/contact columns are imported by this pipeline.
 """
 from pathlib import Path
-import sys,os,json,hashlib,time,datetime,urllib.request,urllib.parse,urllib.error,re,concurrent.futures,argparse,collections
+import sys,os,json,hashlib,time,datetime,urllib.request,urllib.parse,urllib.error,re,concurrent.futures,argparse,collections,math
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'))
 from shapely.geometry import shape,mapping,box
@@ -36,7 +36,8 @@ def clean_address(value):
  return re.sub(r'\s+',' ',re.sub('[^A-Z0-9 ]',' ',text)).strip()
 def valid_polygon(geo):
  if not geo:return None
- g=shape(geo)
+ try:g=shape(geo)
+ except (ValueError,TypeError,KeyError,IndexError):return None
  if g.is_empty or not g.is_valid or g.geom_type not in ['Polygon','MultiPolygon']:return None
  return g
 
@@ -51,7 +52,7 @@ class Client:
    meta=json.loads(provenance.read_text(encoding='utf-8')) if provenance.exists() else {'retrieved_utc':None,'retrieval_quality':'legacy_cache_original_retrieval_unknown'}
    digest=hashlib.sha256(path.read_bytes()).hexdigest()
    if meta.get('sha256') and meta['sha256']!=digest:
-    meta={'retrieved_utc':None,'retrieval_quality':'cache_provenance_hash_mismatch','sha256':digest}
+    raise ValueError('Cached response checksum mismatch; quarantine and explicitly refresh this request')
    self.accesses.append({'url':target,'cache_hit':True,'read_utc':now(),**meta});return json.loads(path.read_text(encoding='utf-8'))
   if self.offline:raise RuntimeError('Offline cache miss: '+url)
   req=urllib.request.Request(target,headers={'User-Agent':'TWIN/0.3 official-data-snapshot','Accept':'application/json'})
@@ -74,6 +75,7 @@ def arcgis(client,source,bbox=BBOX):
  params={'f':'json','where':'1=1','geometry':','.join(map(str,bbox)),'geometryType':'esriGeometryEnvelope','inSR':4326,'spatialRel':'esriSpatialRelIntersects','returnIdsOnly':'true'}
  result=client.get(source['url']+'/query',params)
  ids=sorted(set(result.get('objectIds') or []));features=[]
+ if len(ids)>source.get('max_features',100000):raise ValueError('ArcGIS bounded-query feature cap exceeded')
  for i in range(0,len(ids),50):
   data=client.get(source['url']+'/query',{'f':'geojson','objectIds':','.join(map(str,ids[i:i+50])),'outFields':','.join(source['fields']),'outSR':4326,'returnGeometry':'true'})
   if data.get('exceededTransferLimit'):raise ValueError('Truncated ArcGIS ID batch')
@@ -101,14 +103,22 @@ def socrata(client,source,where):
 def normalize_parcels(collection):
  features=[];rejects=[]
  for f in collection['features']:
-  p=f['properties'];g=valid_polygon(f.get('geometry'));pin=clean_pin(p.get('PARCEL'))
-  if not g or not pin:
-   rejects.append({'source_object_id':p.get('OBJECTID'),'reason':'invalid geometry or blank parcel ID'});continue
-  raw_stories=p.get('STYS');stories=float(raw_stories) if raw_stories is not None else None
+  p=f.get('properties') or {};g=valid_polygon(f.get('geometry'));pin=clean_pin(p.get('PARCEL'))
+  reason='invalid_geometry' if not g else 'blank_parcel_id' if not pin else 'missing_source_object_id' if p.get('OBJECTID') is None else 'outside_study_extent' if not g.intersects(box(*BBOX)) else None
+  if reason:
+   rejects.append({'source_object_id':p.get('OBJECTID'),'reason':reason});continue
+  flags=[]
+  def number(value,field):
+   if value in (None,''):return None
+   try:result=float(value)
+   except (ValueError,TypeError):flags.append(field+'_unusable');return None
+   if isinstance(value,bool) or not math.isfinite(result):flags.append(field+'_unusable');return None
+   return result
+  raw_stories=p.get('STYS');stories=number(raw_stories,'stories')
   # Source zero values mean unknown, not a verified zero-story structure.
   if stories is not None and not 0<stories<=100:stories=None
-  year=p.get('AYB');year=int(year) if year and 1700<=int(year)<=datetime.date.today().year+1 else None
-  props={'id':'ocpa:'+str(p['OBJECTID']),'parcel_id':pin,'source_parcel_id':p['PARCEL'],'source_object_id':p['OBJECTID'],'site_address':p.get('SITUS'),'property_use_code':p.get('DOR_CODE'),'zoning_code':p.get('ZONING_CODE'),'stories':stories,'stories_quality':'appraiser attribute; not measured height' if stories else 'unknown','year_built':year,'area_acres':p.get('ACREAGE'),'source':'parcels'}
+  raw_year=number(p.get('AYB'),'year_built');year=int(raw_year) if raw_year and raw_year.is_integer() and 1700<=raw_year<=datetime.date.today().year+1 else None
+  props={'id':'ocpa:'+str(p['OBJECTID']),'parcel_id':pin,'source_parcel_id':str(p['PARCEL']),'source_object_id':p['OBJECTID'],'site_address':p.get('SITUS'),'property_use_code':p.get('DOR_CODE'),'zoning_code':p.get('ZONING_CODE'),'stories':stories,'stories_quality':'appraiser attribute; not measured height' if stories else 'unknown','year_built':year,'area_acres':number(p.get('ACREAGE'),'area_acres'),'source':'parcels','attribute_quality_flags':flags}
   features.append({'type':'Feature','id':props['id'],'geometry':mapping(g),'properties':props})
  return {'type':'FeatureCollection','features':features},rejects
 
@@ -135,9 +145,12 @@ def building_joins(parcels,base_path):
    if ratio>=.5:candidates.append((idx,ratio))
   exact=[(i,r) for i,r in candidates if features[i]['properties']['parcel_id']==source_pin and r>=.8]
   best=exact or sorted(candidates,key=lambda p:p[1],reverse=True)
-  chosen=best[0] if best and (exact or len(best)==1 or best[0][1]-best[1][1]>.15) else None
+  # Repeated PINs/condo polygons are distinct feature rows. Multiple exact
+  # candidates are ambiguous, never an arbitrary first-feature acceptance.
+  chosen=best[0] if best and (len(exact)==1 or not exact and (len(best)==1 or best[0][1]-best[1][1]>.15)) else None
   p=features[chosen[0]]['properties'] if chosen else {}
   buildings.append({'id':prim.GetName(),'usd_path':str(prim.GetPath()),'source_parcel_id':source_pin,'parcel_id':p.get('parcel_id'),'parcel_feature_id':p.get('id'),'site_address':p.get('site_address'),'match_method':'id_and_geometry' if chosen and exact else 'spatial_review' if chosen else 'ambiguous_or_unmatched','overlap_ratio':round(chosen[1],4) if chosen else None,'candidate_parcels':sorted(set(features[i]['properties']['parcel_id'] for i,_ in candidates)),'geometry_quality':'public footprint, estimated height','height_m':raw.get('heightMeters'),'stories':p.get('stories')})
+  buildings[-1].update({'source_building_number':str(raw.get('buildingNumber','')),'source_object_ids':str(raw.get('sourceObjectIds','')).split(',') if raw.get('sourceObjectIds') else [],'source_building_key':'ocpa-building:'+source_pin+':'+str(raw.get('buildingNumber','')),'candidate_parcel_features':[{'parcel_feature_id':features[i]['properties']['id'],'parcel_id':features[i]['properties']['parcel_id'],'overlap_ratio':round(ratio,4),'source_pin_matches':features[i]['properties']['parcel_id']==source_pin} for i,ratio in sorted(candidates,key=lambda item:(-item[1],features[item[0]]['properties']['id']))],'match_confidence_basis':'overlap fraction, not statistical probability','join_state':'accepted' if chosen and exact else 'spatial_review' if chosen else 'ambiguous' if candidates else 'unmatched'})
  return buildings
 
 def refresh(offline=False,force=False):

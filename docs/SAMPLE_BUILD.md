@@ -45,7 +45,7 @@ Run `python -m unittest discover -s C:/Projects/TWIN/tests -p test_sample_build.
 python C:/Projects/TWIN/tools/probe_sample_runtime.py --kit-root C:/Omniverse/kit-app-template/_build/windows-x86_64/release --frames 120 --warmup 30 --timeout 180
 ```
 
-An earlier launch exposed unavailable optional `omni.kit.menu.file`/stage-window dependencies. The builder now omits those optional packages and provides its own edit panel using the available `omni.kit.uiapp` interface. The original failed receipt (`data/sample_runtime/20261028T222814Z`) and intermediate minimal-renderer receipt (`20261028T222907Z`) remain historical diagnostics. **The successful current result uses no alternate experience:** [report](../data/sample_runtime/20261028T223215Z/report.json), [rendered frame](../data/sample_runtime/20261028T223215Z/sample.png), and [Kit log](../data/sample_runtime/20261028T223215Z/kit.log).
+An earlier launch exposed unavailable optional `omni.kit.menu.file`/stage-window dependencies. The builder now omits those optional packages and provides its own edit panel using the available `omni.kit.uiapp` interface. The original failed receipt (`data/sample_runtime/20261028T222814Z`) and intermediate minimal-renderer receipt (`20261028T222907Z`) remain historical diagnostics. **The successful current result uses no alternate experience:** [report](evidence/portable-sample-runtime-report.json), [rendered frame](evidence/portable-sample-runtime.png), and local-only Kit log under data/sample_runtime/20261028T223215Z.
 
 | Measurement | Observed value |
 | --- | --- |
@@ -75,7 +75,7 @@ Actual Windows Computer Use in an isolated Kit window exercised these committed 
 2. Select manual edits, show cars, then save. The UI confirmed `Saved manual.usda only`; the saved layer contains `visibility = inherited`.
 3. Close that owned Kit window and launch the saved sample again using relative `sample.kit` and `open_sample.py` from its directory. Kit reopened normally with the manual edit target. A separate USD reopen confirmed that the stronger manual visibility overrides the scenario hide.
 
-The original generated `base.usda` and `sample.usda` hashes remained unchanged. Evidence: [clean checkout and UI receipt](../data/sample_runtime/checkout_20261028T224340Z/report.json), [actual save confirmation](../data/sample_runtime/checkout_20261028T224340Z/ui_manual_saved.jpg), and the associated launch logs. Only owned sample PIDs 27780, 44516 and 49316 were opened/closed; the protected project PID was not controlled.
+The original generated `base.usda` and `sample.usda` hashes remained unchanged. Evidence: [clean checkout and UI receipt](evidence/portable-sample-clean-checkout-report.json), [actual save confirmation](evidence/portable-sample-manual-saved.jpg), and the associated launch logs. Only owned sample PIDs 27780, 44516 and 49316 were opened/closed; the protected project PID was not controlled.
 
 This pass exposed Kit's `--exec` path-with-spaces parsing issue. The documented relative-bootstrap launch and the probe's explicit inner quoting address it. The current bootstrap also hides the sample application's distracting guide grid; the archived commit used for the recorded UI test still displayed it. Those final path/grid changes remain subject to the next consolidated review.
 

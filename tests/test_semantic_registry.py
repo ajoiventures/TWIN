@@ -29,11 +29,13 @@ class SemanticContractTests(unittest.TestCase):
  def test_bad_paths_height_types_and_source_identity_fail(self):
   r=self.row();r.update(usd_path=None,height_m='four',entity_id='wrong')
   self.assertEqual({e['code'] for e in validate_records([r])},{'invalid_usd_path','invalid_height','source_identity_mismatch'})
- def test_mutated_cache_downgrades_timestamp(self):
+ def test_mutated_cache_cannot_supply_registry_evidence(self):
   with tempfile.TemporaryDirectory() as folder:
    url='https://example.invalid/data';c=Client(folder,opener=lambda *a,**k:io.StringIO('{}'));c.get(url)
    Path(folder,hashlib.sha256(url.encode()).hexdigest()+'.json').write_text('{"changed":true}')
-   d=Client(folder,offline=True);self.assertTrue(d.get(url)['changed']);self.assertIsNone(d.accesses[0]['retrieved_utc']);self.assertEqual(d.accesses[0]['retrieval_quality'],'cache_provenance_hash_mismatch')
+   d=Client(folder,offline=True)
+   with self.assertRaisesRegex(ValueError,'checksum mismatch'):d.get(url)
+   self.assertEqual(d.accesses,[])
  def test_network_retrieval_time_survives_cache_read(self):
   with tempfile.TemporaryDirectory() as folder:
    c=Client(folder,opener=lambda *a,**k:io.StringIO('{}'));c.get('https://example.invalid/data');t=c.accesses[0]['retrieved_utc']

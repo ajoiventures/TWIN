@@ -134,6 +134,11 @@ class Handler(BaseHTTPRequestHandler):
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/building-review':return self.send((ROOT/'web/building-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/transit':return self.send((ROOT/'web/transit.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/api/v1/transit':
+    _,snapshot=active_folder()
+    report=current_report(ROOT/'data/transport/lynx_transit.json',snapshot)
+    return self.send(report)
    if path=='/aerial-alignment':return self.send((ROOT/'data/imagery/aerial_alignment_review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/road-review':return self.send((ROOT/'data/transport/road_reference_gallery.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path.startswith('/road-reference/'):

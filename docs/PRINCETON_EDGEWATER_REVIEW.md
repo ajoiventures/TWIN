@@ -23,7 +23,7 @@ Reproduce: `python tools/review_roads.py`. Detailed source-way IDs, fallback wid
 
 ## Existing versus proposed
 
-The [City project page](https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project), checked October 28, describes the existing road diet with one travel lane each direction, on-street parking and bicycle lanes. Proposed design removes on-street bicycle lanes and expands sidewalks from as little as 5 ft to 9–12 ft. These corridor statements do not assign a single width to every block or intersection. The Lakeview roundabout timeline currently indicates construction beginning early 2027; it must remain a future scenario, not be shown as an existing Princeton treatment.
+The [City project page](https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project), checked October 28, describes the existing road diet with one travel lane each direction, on-street parking and bicycle lanes. Proposed design removes on-street bicycle lanes and expands sidewalks from as little as 5 ft to 9â€“12 ft. These corridor statements do not assign a single width to every block or intersection. The Lakeview roundabout timeline currently indicates construction beginning early 2027; it must remain a future scenario, not be shown as an existing Princeton treatment.
 
 ## Required correction and conference acceptance
 

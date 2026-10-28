@@ -12,7 +12,7 @@ Sources:
 
 October 28 checks: Main Street approximately 390,204 m² (96.42 acres), neighborhood 8,374,758 m² (2,069.45 acres). About 12,910 m² of Main Street lies outside the neighborhood polygon; preserve separate memberships and use the union for combined focus rather than intersecting away valid Main Street sections.
 
-The expanded extraction and actual 3D ground now cover **100% of the official Main Street area**, with **0 m� uncovered**, and **60.77% of the wider neighborhood**. The extraction spans [-81.398, 28.5602, -81.379, 28.5858] and contains 13,999 source footprint subareas grouped into 3,216 modeled buildings. These are spatial coverage checks, not verified building/sidewalk completeness. Snapshot: `20261028T160543372334Z`. The browser map defaults to Main Street, offers a whole-neighborhood view, displays both City boundaries and labels current 3D coverage. Alignment uses common real-world coordinates; no surveyed accuracy or completed aerial-control-point registration is claimed.
+The expanded extraction and actual 3D ground now cover **100% of the official Main Street area**, with **0 m² uncovered**, and **60.77% of the wider neighborhood**. The extraction spans [-81.398, 28.5602, -81.379, 28.5858] and contains 13,999 source footprint subareas grouped into 3,216 modeled buildings. These are spatial coverage checks, not verified building/sidewalk completeness. Snapshot: `20261028T160543372334Z`. The browser map defaults to Main Street, offers a whole-neighborhood view, displays both City boundaries and labels current 3D coverage. Alignment uses common real-world coordinates; no surveyed accuracy or completed aerial-control-point registration is claimed.
 
 ## Out-of-map placements
 

@@ -240,8 +240,12 @@ Deliverables: Acceptance report, comparison captures, performance measurements a
 
 ### Full Main Street extraction checkpoint (October 28, 2026)
 
-Shared scope configuration now fully contains the official City College Park Main Street polygon. The rebuilt 3D ground has 100% area coverage and 0 m² uncovered; 3,216 building groups are composed. Wider neighborhood coverage is partial (60.77%). See `docs/STUDY_SCOPE.md` and `docs/EXECUTION_STATUS.md`. Remaining #5/#6/#17 acceptance includes current building completeness, missing redevelopment geometry, heights and accurate pedestrian infrastructure; spatial coverage alone does not close those tickets.
+Shared scope configuration now fully contains the official City College Park Main Street polygon. The rebuilt 3D ground has 100% area coverage and 0 mÂ² uncovered; 3,216 building groups are composed. Wider neighborhood coverage is partial (60.77%). See `docs/STUDY_SCOPE.md` and `docs/EXECUTION_STATUS.md`. Remaining #5/#6/#17 acceptance includes current building completeness, missing redevelopment geometry, heights and accurate pedestrian infrastructure; spatial coverage alone does not close those tickets.
 
 ### Princeton / Edgewater conference focus
 
-Prioritize #15/#16/#17/#18/#13 on the Princeton–Edgewater intersection. The source review finds close centerline agreement but generic widths and unverified sidewalk buffers; it does not accept the intersection geometry. Required correction and presentation gates: `docs/PRINCETON_EDGEWATER_REVIEW.md`.
+Prioritize #15/#16/#17/#18/#13 on the Princetonâ€“Edgewater intersection. The source review finds close centerline agreement but generic widths and unverified sidewalk buffers; it does not accept the intersection geometry. Required correction and presentation gates: `docs/PRINCETON_EDGEWATER_REVIEW.md`.
+
+### Multifamily accuracy workstream
+
+Prioritize Princeton at College Park redevelopment geometry, then 624/520 W Princeton parcel/footprint mismatches and other apartment candidates. A bounded 557-record OCPA review separates apartments, small multifamily, condo unit records and mixed-use review; no unit-record count is presented as building or dwelling-unit count. Evidence: `docs/MULTIFAMILY_REVIEW.md`. #3/#6/#17 remain open pending physical geometry acceptance.

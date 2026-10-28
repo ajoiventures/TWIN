@@ -4,7 +4,7 @@ from urllib.parse import urlparse,parse_qs
 from pathlib import Path
 import json,argparse,math,hashlib
 ROOT=Path(__file__).resolve().parents[1]
-TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality'}
+TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality'}
 class SnapshotMismatch(ValueError):pass
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
@@ -19,6 +19,10 @@ def current_report(path,snapshot):
 def read_table(name,root=ROOT):
  if name not in TABLES:raise KeyError(name)
  folder,snapshot=active_folder(root)
+ if name in ['multifamily_review','multifamily_quality']:
+  report=current_report(root/'data/processed/multifamily_review.json',snapshot)
+  if report.get('height_evidence_sha256')!=hashlib.sha256((root/'data/heights/building_heights.json').read_bytes()).hexdigest():raise SnapshotMismatch('Rebuild housing review against current heights')
+  return (report['rows'] if name=='multifamily_review' else {k:v for k,v in report.items() if k not in ['rows','source_requests']}),snapshot
  if name in ['commercial_evidence','commercial_listings','commercial_model_quality']:
   report=json.loads((root/'data/commercial/commercial_evidence.json').read_text(encoding='utf-8'))
   if report['source_snapshot']!=snapshot:raise SnapshotMismatch('Rebuild commercial evidence against active snapshot')

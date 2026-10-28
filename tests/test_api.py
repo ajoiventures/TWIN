@@ -4,6 +4,22 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from serve import read_table,page_table,SnapshotMismatch,active_folder
 
 class ApiContractTests(unittest.TestCase):
+ def test_land_report_rejects_changed_sources_and_missing_hashes(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);(r/'data/land').mkdir();source=r/'data/land/source.json';source.write_text('original')
+   path=r/'data/land/land_review.json';report={'source_snapshot':'s1','dependencies':{'data/land/source.json':hashlib.sha256(source.read_bytes()).hexdigest()},'scopes':{}}
+   path.write_text(json.dumps(report));self.assertEqual(read_table('land_review',r)[0],report)
+   source.write_text('changed')
+   with self.assertRaises(SnapshotMismatch):read_table('land_review',r)
+   report['dependencies']={};path.write_text(json.dumps(report))
+   with self.assertRaises(SnapshotMismatch):read_table('land_review',r)
+ def test_land_report_rejects_stale_snapshot_and_escaping_dependency(self):
+  with tempfile.TemporaryDirectory() as d:
+   r=self.setup_root(d);(r/'data/land').mkdir();path=r/'data/land/land_review.json'
+   path.write_text(json.dumps({'source_snapshot':'old','dependencies':{'../../outside':'x'}}))
+   with self.assertRaises(SnapshotMismatch):read_table('land_review',r)
+   path.write_text(json.dumps({'source_snapshot':'s1','dependencies':{'../../outside':'x'}}))
+   with self.assertRaises(SnapshotMismatch):read_table('land_review',r)
  def setup_root(self,folder):
   r=Path(folder);(r/'data/processed').mkdir(parents=True);(r/'data/snapshots/s1').mkdir(parents=True);(r/'data/heights').mkdir()
   (r/'data/processed/active.json').write_text(json.dumps({'snapshot':'s1','relative_path':'data/snapshots/s1'}));return r

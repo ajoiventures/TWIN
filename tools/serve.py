@@ -17,6 +17,15 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name=='land_review':
+  _,snapshot=active_folder(root)
+  report=current_report(root/'data/land/land_review.json',snapshot)
+  if not report.get('dependencies'):raise SnapshotMismatch('Rebuild land review with source hashes')
+  for relative,digest in report['dependencies'].items():
+   path=(root/relative).resolve()
+   if not path.is_relative_to(root.resolve()):raise SnapshotMismatch('Invalid land review dependency')
+   if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise SnapshotMismatch('Rebuild land review against current source files')
+  return report,snapshot
  if name not in TABLES:raise KeyError(name)
  folder,snapshot=active_folder(root)
  if name=='reconstructions':
@@ -90,6 +99,7 @@ class Handler(BaseHTTPRequestHandler):
   url=urlparse(self.path);path=url.path
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/road-review':return self.send((ROOT/'data/transport/road_reference_gallery.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path.startswith('/road-reference/'):
     files={'aerial2025':ROOT/'data/imagery/OCPA_Aerials2025_edgewater-princeton-smith-south-v1.jpg'}

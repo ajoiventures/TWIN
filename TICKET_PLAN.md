@@ -279,3 +279,18 @@ Focus: Princeton–Edgewater first, then all College Park Main Street. The final
 - [ ] **Conference readiness (#13):** test fresh launch/reload, useful opening view, legible presentation controls and actual presentation-resolution frame rate/memory. Record hardware, resolution and camera route; do not claim world-class or presentation-ready until accuracy and visual gates both pass.
 
 Responsible: Environment Artist and Civil/3D Geometry Engineer; accountable: 3D Technical Lead; independent reviewer: QA Analyst; delivery coordinator: PM Agent. Work remains open until evidence and rendered captures satisfy these gates.
+
+## Princeton–Edgewater showcase: sequenced delivery breakdown
+
+The scene remains a GIS prototype; final visual readiness is unproven. Use [the showcase delivery plan](docs/PRINCETON_EDGEWATER_SHOWCASE_PLAN.md) as the detailed execution sequence for #14.
+
+1. **WQ-01 / #5/#8/#20/#25:** freeze the exact showcase boundary, dated references, camera baseline and defect list.
+2. **WQ-02 / #3/#6:** correct building/redevelopment forms, heights, roofs, garages and courtyards.
+3. **WQ-03 / #15/#16/#17:** reconstruct Princeton–Edgewater roads, corners, sidewalks, crossings, parking and signals from accepted evidence.
+4. **WQ-04 / #8/#18:** finish recognizable property-specific façades, shopfronts and roof details.
+5. **WQ-05 / #9/#10/#18:** finish landscape, palms, cars, materials and clear placements.
+6. **WQ-06 / #18:** finish and inspect daylight/evening lighting and the actual tilt-shift camera; retain sharp accuracy views.
+7. **WQ-07 / #13:** independent same-camera visual review; resolve blockers and major visible defects.
+8. **WQ-08 / #13/#14:** verify fresh launch, conference-resolution performance and human presentation sign-off; then replicate the accepted quality along Main Street.
+
+No package is complete merely because this breakdown exists. Owners, dependencies, deliverables, review gates and four-agent capacity limits are specified in the linked plan. Existing, historical and proposed geometry remain separate.

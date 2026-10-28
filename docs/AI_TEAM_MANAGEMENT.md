@@ -2,6 +2,12 @@
 
 Updated October 28, 2026. AI roles are task responsibilities, not human corporate appointments or continuously running employees. Actual GitHub assignees are unchanged. Three bounded management/technical review agents have completed their initial reviews; execution agents are instantiated when a work batch starts. No recurring automation is configured.
 
+## Current owner instructions — October 28, 2026
+
+Keep the highest quality and gain speed through parallel ticket execution. During a build batch, the integrator can coordinate three independent builders within the four available slots. Consolidate independent review after every five completed tickets; assign a reviewer who did not implement the work under review. Necessary local construction checks continue. Full tickets, partial features, and building candidates are counted separately. This cadence supersedes older per-change review sequencing below.
+
+Apply the [all-building exception process](EDGEWATER_PROPERTY_AUDIT.md#repeatable-missing-building-process--full-project) across the full Main Street and neighborhood coverage ledger, including all uses and missing upper floors. One showcase property must not hold corridor-wide building, sidewalk, road, parking or asset delivery.
+
 ## Leadership
 
 ## Distinct management levels and reporting line
@@ -71,7 +77,7 @@ These are capacity slots, not permanently staffed people. Select the needed spec
 
 ### Current priority sequence
 
-Finish the post-office/1615 historical geometry revision and actual visual comparison; progress an independent accepted sidewalk/rear-hardscape or façade-reference package alongside it; integrate only after identified defects are resolved. Then repeat accepted work against the 35 commercial link exceptions/17 absent-footprint review records and the full block ledger. Terrain, park/public-land, planning and operations work retain their original requirements, with independent ready tasks scheduled around the geometry/visual critical path. Do not consume the active builders with optional stack deployment while visible core-scene defects are unresolved.
+Run the full-corridor building/upper-floor exception process, continuous sidewalk/road/rear-parking corrections, and district-wide tree/car asset improvements in parallel. Reuse the finished office draft and earlier Princeton/Wellesley methods without concentrating the team on one property. Expand the inventory beyond commercial screening and beyond the current extraction where neighborhood context is not covered. Terrain, parks/public land, planning and operations retain their requirements. Consolidate independent review after five completed tickets; retain explicit evidence gaps while other ready blocks continue.
 
 | Issue | Responsible AI role | Accountable role | Reviewer | Required capabilities | Skill playbooks |
 |---|---|---|---|---|---|

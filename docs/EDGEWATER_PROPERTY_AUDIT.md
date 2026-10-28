@@ -40,6 +40,19 @@ All sources checked October 28, 2026; observation/document dates remain distinct
 
 Responsible: GIS/property analyst (inventory and identity), planning analyst (zoning/PD/FLU), reference analyst (independent corroboration), reconstruction/environment leads (geometry/detail). GIS lead and 3D lead accept their domains; PM coordinates; independent QA checks completeness; Director accepts integration. Physical/visual verification remains open.
 
+## Repeatable missing-building process — full project
+
+This extends EW-01–EW-06 across **all building types in the full official Main Street area and wider College Park neighborhood context**: shops, offices, multifamily, homes, churches, government buildings, garages and ancillary wings. Commercial screening is one input, not the complete building census. The 456-record corridor audit is the current starting extract, not a completed neighborhood inventory.
+
+1. **Inventory the boundary, not just the model.** Reconcile official parcels, footprint/subarea records and source-based building IDs against both City boundaries. Track areas outside the extraction separately; acquire those areas before claiming full-neighborhood completeness. Ground coverage is not building completeness.
+2. **Compare all model representations.** Check legacy geometry, corrected layers and registered historical reconstructions before flagging omissions. Screen absent/displaced outlines, incomplete wings, missing upper floors and conflicting heights. Preserve parcel → site → physical building → subarea/suite relationships; condos and shared retail parcels are not automatically additional buildings.
+3. **Classify every exception.** States include potential physical omission; identity/link failure; displaced source; missing wing/upper floor; already reconstructed; parking/vacant land; condo/shared building; demolition/construction; outside extraction; and unresolved evidence. The 35 unaccepted links and 17 no-legacy-footprint records are not confirmed missing-building counts.
+4. **Verify, then correct.** Use OCPA building/subarea/sketch records, dated aerials, classified LiDAR and relevant permits/operator/broker evidence. Record actual observation/acquisition dates and conflicts. Where OCPA has no footprint, supported LiDAR/aerial interpretation can provide a separately labeled historical form; never extrude the parcel as the building. Storeys, equipment/roof maxima and occupied floors remain separate.
+5. **Build reusable corrections by block.** Author supported footprints, wings, upper floors and roofs in additive layers, with stable IDs, source hashes, uncertainty and supersession. Add recognizable façade detail after the form is coherent. Queue a difficult property's evidence gap while other ready properties continue; one office must not gate corridor-wide progress.
+6. **Check locally and review in batches.** Run necessary source/geometry checks during construction. After each five completed tickets, consolidate identity, coverage and fixed-view visual review. Count full existing tickets, not five edits or five candidates. Keep unresolved findings open and drafts distinguishable from accepted current geometry.
+
+The per-building/exception register retains scope/block, source IDs, parcel/site/building relationships, expected versus modeled components/storeys, classification, evidence dates, correction layer/commit, uncertainty, owner and review state. Report verified physical buildings, reviewed exceptions and unexamined/out-of-extraction areas separately. GIS handles coverage/identity, reconstruction handles forms, PM dispatches ready blocks, and independent QA reviews the five-ticket batch. Use existing #3/#4/#5/#6/#8/#13/#14/#17/#20/#32; no duplicate backlog is needed.
+
 ## Appropriate implementation ledger
 
 | Work already performed | Actual status and limit |

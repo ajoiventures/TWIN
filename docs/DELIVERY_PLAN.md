@@ -10,7 +10,7 @@ Reviewed October 28, 2026 against the working tree, active snapshot `20261028T16
 
 ## Outcome and production rule
 
-Finish Princeton–Edgewater as a coherent, recognizable showcase before replicating finished detail along College Park Main Street. Accurate forms, building-specific detail, credible materials/assets and finished lighting must work together. Palms, additional generic decoration or tilt-shift blur cannot compensate for missing geometry. The existing district remains visible context; a finished showcase does not mean the wider twin is complete.
+Run district-wide building completeness and block correction in parallel with the Princeton–Edgewater showcase. Use it to establish finished-detail standards without making one building a prerequisite for correcting the rest of Main Street. Accurate forms, building-specific detail, credible materials/assets and finished lighting must work together. A finished showcase does not mean the wider twin is complete. The [repeatable missing-building process](EDGEWATER_PROPERTY_AUDIT.md#repeatable-missing-building-process--full-project) covers all building types, missing upper floors and areas outside the extraction.
 
 Five required outcomes map directly to the existing work packages: physical accuracy (WQ-01–03), recognizable buildings (WQ-04), materials/assets (WQ-05), presentation (WQ-06), actual rendered review and conference playback (WQ-07–08). All still require gate evidence; planning does not complete them.
 
@@ -44,7 +44,7 @@ Five required outcomes map directly to the existing work packages: physical accu
 ## Efficiency rules that preserve quality
 
 - Use existing tickets as the work ledger; WQ/batch IDs are subtasks, not duplicate GitHub issues. One PM overview links specialist evidence. Do not append competing master plans or call a checklist a completed delivery.
-- Limit work in progress to primary integration, two bounded implementation streams and one independent reviewer. After Batch A, buildings and transportation can progress in parallel; finish a reference building/surface sample before repeating asset work. Reviewer capacity is reserved, not assumed free.
+- Current owner instruction: prioritize completion through parallel ticket work, then consolidate review after each five completed tickets. Use four slots for integration and bounded builders during construction; assign a separate reviewer at the batch boundary. A builder cannot independently approve its own output. Necessary local source/geometry checks continue. Partial features do not count as completed tickets, and one reference building must not delay corridor-wide correction.
 - Separate data refresh, geometry correction, material/asset changes and camera changes. Camera/material work should not reacquire government data or regenerate every building. Change only affected layers and dependent reports; rebuild the broader chain only when dependencies actually change.
 - Reuse cached public data with checksums and known fetch dates. Use the newest applicable official approved/adopted revision after checking publisher amendments. Preserve older measurements as historical; newer proposed designs never overwrite existing conditions. Current TIP context is the September 2026 amendment; TIP pages are not roadway geometry.
 - Keep source-based identities stable even when generated Building_N aliases change. Source corrections require explicit lineage and supersession; do not silently promote spatial links, move sketches or copy parcel story counts to every component.
@@ -56,7 +56,7 @@ Five required outcomes map directly to the existing work packages: physical accu
 
 A → B → C/D → E → F → G. Source acquisition #25 is a prerequisite for accepting road dimensions; it does not prevent independent building evidence work or baseline capture. If a source is unavailable, retain the specific gap and continue an independent ready package. Do not mark the whole project blocked while useful work is available.
 
-Next actions: (1) freeze and capture the showcase baseline; (2) complete the existing Princeton correction review/integration and expose honest reconstruction status; (3) obtain the latest applicable Princeton–Edgewater engineering/as-built sheets and address the 624/520 identity/geometry exceptions; (4) finish one recognizable façade/material sample; (5) render the fixed views and use the resulting defect list to drive the next iteration. No calendar delivery promise until source access, a finished sample and actual throughput establish credible estimates.
+Current dispatch: run the all-building exception process across Main Street and the neighborhood coverage ledger; correct ready building forms by block; progress continuous sidewalks, roads/rear paving and district asset quality in parallel. Retain Princeton, Wellesley and 1615 office work as reusable methods and historical corrections. Obtain applicable engineering/as-built evidence without holding unrelated ready work. Consolidate independent review after five completed tickets; unresolved properties retain specific evidence gaps and do not stop the corridor. Use observed throughput for delivery estimates.
 
 ## Remaining original scope
 

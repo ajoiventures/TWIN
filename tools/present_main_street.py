@@ -20,9 +20,10 @@ def build():
     camera.CreateVerticalApertureAttr(20.25)
     camera.CreateClippingRangeAttr(Gf.Vec2f(.5,10000))
     camera.CreateFocusDistanceAttr((eye-target).GetLength())
-    # Strong miniature-style focus, adjustable in the editor; USD uses tenths
+    # Restrained miniature-style focus preserves legible streets and roofs.
+    # USD uses tenths
     # of scene units for focal length/aperture, scene units for focus distance.
-    camera.CreateFStopAttr(.7)
+    camera.CreateFStopAttr(4)
     UsdGeom.Xformable(camera).AddTransformOp().Set(Gf.Matrix4d().SetLookAt(eye,target,Gf.Vec3d(0,0,1)).GetInverse())
     camera.GetPrim().SetCustomDataByKey('presentation','Main Street tilt-shift aerial; optical effect only, no geometry changes')
     for path in ['/World/StudyBoundaries']:
@@ -35,7 +36,8 @@ def build():
         curve=UsdGeom.BasisCurves.Define(stage,prim.GetPath())
         curve.CreateWidthsAttr([.04]);curve.SetWidthsInterpolation('constant')
         curve.CreateDisplayColorAttr([Gf.Vec3f(.35,.39,.36)])
-        curve.CreateDisplayOpacityAttr([.18]);curve.SetDisplayOpacityInterpolation('constant')
+        curve.CreateDisplayOpacityAttr([.18])
+        curve.GetDisplayOpacityPrimvar().SetInterpolation('constant')
     sun=UsdLux.DistantLight.Define(stage,'/World/Lighting/Sun')
     sun.CreateIntensityAttr(2200);sun.CreateColorAttr(Gf.Vec3f(1,.91,.77));sun.CreateAngleAttr(2)
     sun.AddRotateXYZOp().Set(Gf.Vec3f(35,-25,-35))

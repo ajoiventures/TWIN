@@ -47,3 +47,10 @@ Integrate accepted original DEM data with explicit US-survey-foot to meter conve
 ## Main Street presentation work in progress
 
 Added a reversible close oblique camera, optical depth of field, warm sun/sky, greener landscape and brighter leaf texture scaling. Official boundary graphics are hidden for presentation. All 137 tests and the 17-layer scene profile pass. Final rendered acceptance is still pending; UI interaction was interrupted by active user input/minimization. These settings do not establish photorealism or fix unresolved source geometry.
+
+
+## October 28 integration checkpoint — snapshot 20261028T160543372334Z
+
+Supersedes numeric baselines above: 3,216 building entities; 20 composed layers; 17,611 meshes and 3,480 instance-proxy meshes; 19 external assets; zero local-profile validation errors. All 166 tests passed. Reviewed Princeton historical reconstruction is composed and registered. Wellesley roof revision 2 is applied: false equipment voids filled, courtyard preserved, 23.35 m main roof and separate 28.393 m maximum roof/equipment surface. Full Main Street ground coverage is retained.
+
+Road material quality tiers and the local aerial/texture gallery are implemented; HTTP checks returned 200 for all four allowlisted images and 404 for unknown names. Actual 1080p render inspection still shows generic façades and approximate road/sidewalk geometry. These remain open, along with terrain integration, corridor-wide detail, scenario/operations acceptance and conference playback validation. The heavy-blur presentation setting is being revised; no finished visual quality claim is made.

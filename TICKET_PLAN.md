@@ -313,3 +313,7 @@ Required outcomes remain: correct physical scene → recognizable façades/roofs
 # Confirmed platform scope — October 28, 2026
 
 The owner confirmed **both planning and live operations**. The existing [smart-city platform plan](docs/SMART_CITY_PLATFORM_PLAN.md#confirmed-dual-purpose-delivery-contract) now defines deliverables, AI role ownership and acceptance for both. Reuse the shared GIS/evidence/semantic scene foundation; extend #28 for recorded event replay and #29 for a separately accepted bounded live-feed pilot. Proposed, simulated, synthetic and observed data remain explicitly distinct. This adds acceptance scope to existing tickets rather than creating duplicate ingestion tickets; no live feed or NVIDIA server deployment is claimed.
+
+## Parking feasibility gaps — October 28, 2026
+
+The [parking evidence review and eight work packages](docs/PARKING_FEASIBILITY_REVIEW.md) add missing deliverables to #14/#15/#16/#17/#21/#25/#28/#29/#13: recover the final Orlando Main Street study and original counts; create a dated space-level inventory; verify public/shared garage access and accessible walking routes; measure demand/turnover and event peaks; compare construction and future-design impacts; assess shared-parking and capital alternatives with current costs; validate any occupancy feed; and independently reconcile findings. Existing illustrative cars are not measured occupancy. No parking deficit, garage feasibility or current capacity is established yet. AI role ownership, dependencies and acceptance are specified in the linked review.

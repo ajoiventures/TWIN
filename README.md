@@ -36,7 +36,7 @@ Run checks with `python -m unittest discover -s tests -v`.
 
 Run these steps in order after the base scene and official snapshot exist:
 
-1. `python tools/detail_edgewater.py`, then `python tools/build_detailed_assets.py` generate original illustrative details/assets. The asset-upgrade generator requires the detail layer. Review generator outputs before replacing an edited layer.
+1. `python tools/detail_edgewater.py`, then `python tools/build_detailed_assets.py` generate original illustrative details and an inactive environment revision proposal. The asset-upgrade generator requires the detail layer and existing district composition. Compare actual renders before using `python tools/activate_environment_assets.py --apply`; activation checks captured asset hashes and preserves placements, manual layers and a rollback backup. This district upgrade workflow is separate from the clean-checkout [portable sample](docs/SAMPLE_BUILD.md).
 2. For historical LiDAR evidence: `python tools/sample_lidar.py`, `python tools/validate_vertical_units.py`, then `python tools/build_heights.py`. The first two download/cache public pilot data; floor estimates remain outside accepted LiDAR coverage.
 3. Reapply reviewed landmark corrections with `python tools/correct_wellesley.py` after rebuilding height evidence; see [required local inputs and guards](docs/WELLESLEY_CORRECTION.md). Then run `python tools/semantic_registry.py` and `python tools/connect_scene.py`. Fetch full official boundaries with `python tools/study_boundaries.py`, add their scene overlay with `python tools/compose_scope.py`, recompose with `python tools/connect_scene.py`, apply `python tools/constrain_scene.py`, and run `python tools/validate_scene.py`. This verifies the actual ground coverage and guards against visible spillovers.
 4. `python tools/configure_editor.py --kit-root <Kit SDK release folder>` creates an independent editor configuration and `Open College Park.bat`. It does not modify the SDK. `tools/prepare_workspace.py` forwards to this portable setup.
@@ -49,6 +49,8 @@ Source discovery: `python tools/source_catalog.py` and `python tools/pedestrian_
 Cached requests preserve known network-fetch dates; legacy caches have unknown original retrieval times. Snapshot-build time is distinct from source acquisition and download time. No live agency request is made by the interactive map/API.
 
 ## Prototype history
+
+For source field lists and five-row previews, run `python tools/preview_tables.py`. It uses the configured study extent and writes to ignored `data/private/previews` by default. An optional local tracker must be explicitly selected with `--booms-tracker PATH`; no workstation-specific source path is assumed and the source CSV is read-only. Use `--output PATH` to choose another local preview directory. This utility performs bounded source requests; the interactive map continues to read cached snapshots.
 
 See [prototype notes](docs/PROTOTYPE_HISTORY.md). The original prototype remains separate. Migrated generators and working local connections alone do not establish full ticket acceptance; source coverage and release evidence are tracked on the roadmap.
 

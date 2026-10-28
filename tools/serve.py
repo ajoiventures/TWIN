@@ -99,6 +99,10 @@ def read_table(name,root=ROOT):
     asset=index.get(row['id'])
     if asset:row.update({'entity_id':asset['entity_id'],'evidence_refs':asset['evidence_refs'],'parcel_link_accepted':asset['parcel_link_accepted'],'current_condition_verified':False})
  return data,snapshot
+def matches_parcel_id(row, parcel_id):
+ props=row.get('properties',row)
+ return props.get('parcel_id')==parcel_id or parcel_id in props.get('parcel_ids',[])
+
 def page_table(name,query,root=ROOT):
  data,snapshot=read_table(name,root)
  report_digest=getattr(data,'report_sha256',None)
@@ -115,7 +119,7 @@ def page_table(name,query,root=ROOT):
  if name=='parcels' and 'q' in query:rows=search_parcels(rows,query['q'][0])
  field=query.get('parcel_id',[''])[0]
  if field:
-  rows=[r for r in rows if (r.get('properties',r)).get('parcel_id')==field]
+  rows=[r for r in rows if matches_parcel_id(r,field)]
  limit=min(1000,max(1,int(query.get('limit',[100])[0])));offset=max(0,int(query.get('offset',[0])[0]))
  packet={'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
  if report_digest:packet['report_sha256']=report_digest

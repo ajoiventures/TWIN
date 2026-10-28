@@ -36,7 +36,7 @@ def connect():
  if wellesley_active:layers.append('wellesley_architecture.usda')
  if (scene/'main_street_presentation.usda').exists():layers.append('main_street_presentation.usda')
  layers+=['official_context.usda']
- for name in ['landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','semantic_assets.usda','building_heights.usda','asset_upgrade.usda','edgewater_details.usdc','college_park.usda']:
+ for name in ['retail_block.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','semantic_assets.usda','building_heights.usda','asset_upgrade.usda','edgewater_details.usdc','college_park.usda']:
   if (scene/name).exists():layers.append(name)
  assembly.GetRootLayer().subLayerPaths=layers;UsdGeom.SetStageMetersPerUnit(assembly,1);UsdGeom.SetStageUpAxis(assembly,'Z');assembly.SetDefaultPrim(assembly.GetPrimAtPath('/World'));assembly.GetRootLayer().Save()
  print('Connected',len(buildings),'building records and',len(parcels['features']),'parcel outlines; snapshot',active['snapshot'])

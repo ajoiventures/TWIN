@@ -30,6 +30,14 @@ def record_state(p,context):
     if context['building_attributes']:return 'potential_physical_omission_unverified'
     return 'unresolved_building_evidence'
 
+def reconstruction_context_index(records):
+    index={}
+    for record in records:
+        for pid in set([record['parcel_id']]+record.get('parcel_ids',[])):
+            if pid in index and index[pid]['id']!=record['id']:raise ValueError('Ambiguous reconstruction parcel context: '+pid)
+            index[pid]=record
+    return index
+
 def build(root=ROOT):
     active=read(root/'data/processed/active.json');folder=(root/active['relative_path']).resolve()
     if not folder.is_relative_to((root/'data/snapshots').resolve()):raise ValueError('Invalid snapshot path')
@@ -50,7 +58,7 @@ def build(root=ROOT):
     if audit['source_snapshot']!=active['snapshot']:raise ValueError('Stale corridor audit')
     aby={r['parcel_feature_id']:r for r in audit['rows']};old35={r['parcel_feature_id'] for r in audit['rows'] if r['commercial_tax_family_review'] and not r['accepted_model_links']}
     old17={r['parcel_feature_id'] for r in audit['rows'] if r['commercial_tax_family_review'] and not r['spatial_footprint_candidates_not_accepted_identity']}
-    registered=read(root/'data/processed/reconstructions.json');recon={r['parcel_id']:r for r in registered['records']}
+    registered=read(root/'data/processed/reconstructions.json');recon_records=registered['records'];recon=reconstruction_context_index(recon_records)
     proposal_path=root/'data/heights/landmarks/proposal_manifest.json';proposal=read(proposal_path) if proposal_path.exists() else {'sites':[]}
     pending={r['parcel_id']:r for r in proposal['sites'] if r['parcel_id'] not in recon}
     stage=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'))
@@ -70,7 +78,7 @@ def build(root=ROOT):
         model.append({'id':b['id'],'usd_path':b['usd_path'],'representation':'visible_legacy_or_corrected_mesh','source_parcel_id':b.get('source_parcel_id'),
             'floors_used':height.get('floors_used'),'source_maximum_floor_num':source_floor,'height_m':height['height_m'],'quality':height['quality']})
         model_shapes.append(g)
-    for record in recon.values():
+    for record in recon_records:
         prim=stage.GetPrimAtPath(record['usd_path']);pieces=[]
         if prim:
             for child in Usd.PrimRange(prim):
@@ -142,7 +150,7 @@ def build(root=ROOT):
     report={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],
         'scope':'ALL building uses in official MainStreet and CollegePark neighborhood boundaries, plus prior Edgewater-address context; current cached extraction is partial',
         'coverage':coverage,'extracted_parcel_features':len(parcels),'classified_parcel_features':len(rows),'extracted_features_outside_both_official_boundaries_and_prior_corridor_context':len(parcels)-len(rows),'classified_unique_parcel_ids':len({r['parcel_id'] for r in rows}),
-        'visible_model_entities_checked':len(model),'registered_reconstructions_checked':list(recon),'ready_uncomposed_historical_sites_checked':list(pending),
+        'visible_model_entities_checked':len(model),'registered_reconstructions_checked':[r['id'] for r in recon_records],'ready_uncomposed_historical_sites_checked':list(pending),
         'state_counts':dict(collections.Counter(r['state'] for r in rows)),'rows':rows,'upper_floor_review':upper,
         'official_subarea_floor_underuse':underused_source_floors,'raw_official_subareas_checked':len(raw),
         'original_35_queue_state_counts':dict(collections.Counter(r['state'] for r in queue35)),

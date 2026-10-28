@@ -84,6 +84,7 @@ class SampleBuildTests(unittest.TestCase):
             self.assertIn("layers['manual']",bootstrap)
             self.assertIn('Only manual/scenario edits may be saved',bootstrap)
             self.assertNotIn('stage.Save(',bootstrap)
+            self.assertIn("guide/grid/visible',False",bootstrap)
 
 
 if __name__=='__main__':unittest.main()

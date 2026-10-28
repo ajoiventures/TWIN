@@ -194,5 +194,114 @@ def reconstruct(live=False):
         'source_roof_points':len(q),'roof_area_m2':outline.area,'main_height_m':report['height_main_roof_m'],'fit_residuals':report['roof_fit_residual_p50_p90_p95_max_m'],
         'closed_shell':gate,'per_parcel':per_parcel},indent=2));return report
 
+
+DEFAULT_RENDER='data/renders/20261028T223635Z/manifest.json'
+DEFAULT_RENDER_SHA='15823da1155766906292714af350232375ae71e4a21205716deca2098fbb33d2'
+RETAIL_SITE_ID='edgewater_retail_1305_1319'
+RETAIL_PRIM='/World/Landmarks/EdgewaterRetail1305_1319'
+
+
+def inside(root,relative):
+    path=(Path(root)/str(relative).replace('\\','/')).resolve()
+    if not path.is_relative_to(Path(root).resolve()):raise ValueError('Retail evidence path escapes workspace')
+    return path
+
+
+def prepare_activation(root=ROOT,render_manifest=DEFAULT_RENDER,expected_render_sha256=DEFAULT_RENDER_SHA):
+    """Validate a reviewed historical draft without writing an active file."""
+    from pxr import Usd,UsdGeom
+    from mesh_topology import closed_shell_report
+    from PIL import Image
+    root=Path(root).resolve();active=read(root/'data/processed/active.json')
+    report_path=root/'data/heights/retail_edgewater/verification.json';report=read(report_path)
+    proposal=inside(root,report['layer'])
+    if proposal!=(root/'scene/retail_block_reconstruction_proposal.usda').resolve():raise ValueError('Unexpected retail proposal layer')
+    if report['source_snapshot']!=active['snapshot']:raise ValueError('Retail proposal snapshot stale')
+    if report.get('parcel_ids')!=PINS:raise ValueError('Retail six-parcel identity changed')
+    if sha(proposal)!=report['layer_sha256']:raise ValueError('Retail proposal bytes changed')
+    dependencies=report.get('dependencies')
+    if not dependencies:raise ValueError('Retail source dependency hashes required')
+    source_dependencies={};context_dependencies={}
+    for relative,digest in dependencies.items():
+        path=inside(root,relative)
+        if not path.is_file() or sha(path)!=digest:raise ValueError('Retail verification dependency changed: '+relative)
+        if relative.replace('\\','/').startswith(('scene/','assets/')):context_dependencies[relative]=digest
+        else:source_dependencies[relative]=digest
+    render_path=inside(root,render_manifest)
+    if len(expected_render_sha256)!=64 or sha(render_path)!=expected_render_sha256:raise ValueError('Reviewed retail render manifest changed')
+    render=read(render_path);relative_proposal=str(proposal.relative_to(root)).replace('\\','/')
+    if render.get('source_snapshot')!=active['snapshot'] or render.get('proposal_layer')!=proposal.name:raise ValueError('Retail render snapshot/proposal mismatch')
+    if render.get('camera')!=report['camera'] or render.get('layer_hashes',{}).get(relative_proposal)!=report['layer_sha256']:raise ValueError('Retail render is for different geometry')
+    for relative,digest in render['layer_hashes'].items():
+        path=inside(root,relative)
+        if not path.is_file() or sha(path)!=digest:raise ValueError('Retail reviewed render context changed: '+relative)
+    image=inside(root,render['image'])
+    if not image.is_file() or sha(image)!=render['image_sha256']:raise ValueError('Retail render image changed/incomplete')
+    with Image.open(image) as pixels:
+        if list(pixels.size)!=render['requested_resolution']:raise ValueError('Retail image resolution does not match render proof')
+        pixels.verify()
+    stage=Usd.Stage.Open(str(proposal));prim=stage.GetPrimAtPath(RETAIL_PRIM);mesh=UsdGeom.Mesh(stage.GetPrimAtPath(RETAIL_PRIM+'/RoofDerivedBlock'))
+    if not prim or not mesh or prim.GetCustomData().get('parcelIds')!=','.join(PINS):raise ValueError('Retail proposal identity/root missing')
+    if stage.GetRootLayer().customLayerData.get('sourceSnapshot')!=active['snapshot']:raise ValueError('Retail layer snapshot stale')
+    gate=closed_shell_report(mesh.GetPointsAttr().Get(),mesh.GetFaceVertexCountsAttr().Get(),mesh.GetFaceVertexIndicesAttr().Get())
+    if not gate['passed_closed_shell']:raise ValueError('Retail proposal has an open shell')
+    for path in [report_path,proposal,render_path,image]:source_dependencies[str(path.relative_to(root)).replace('\\','/')]=sha(path)
+    return {'source_snapshot':active['snapshot'],'site_id':RETAIL_SITE_ID,'parcel_id':PINS[0],'parcel_ids':PINS.copy(),
+        'site_address':'1305–1319 EDGEWATER DR','prim_path':RETAIL_PRIM,'proposal_layer':relative_proposal,'proposal_layer_sha256':report['layer_sha256'],
+        'verification_report_sha256':sha(report_path),'render_manifest':str(render_path.relative_to(root)).replace('\\','/'),
+        'render_manifest_sha256':expected_render_sha256,'render_image_sha256':render['image_sha256'],
+        'layer':'scene/retail_block.usda','dependencies':source_dependencies,'reviewed_context_dependencies':context_dependencies,
+        'main_roof_height_m':report['height_main_roof_m'],'maximum_rendered_height_m':report['maximum_rendered_height_m'],
+        'roof_footprint_area_m2':report['roof_footprint_area_m2'],'per_parcel_coverage':report['per_parcel_coverage'],
+        'physical_building_count':None,'rendered_entity_count':1,'raw_property_links_promoted':False,'accepted_current_geometry':False,
+        'source_acquisition':report['original_acquisition'],'source_points_sha256':report['source_points_sha256'],
+        'quality':'historical_roof_derived_draft_groundwalls_facades_unverified','closed_shell':gate,
+        'limitations':report['limits']+['Rendered and inspected as a historical mass draft; current-condition, ground-wall and facade acceptance remain incomplete.'],
+        'prepared_only':True,'root_or_manual_opinions_modified':False}
+
+
+def validate_active_retail(root=ROOT,snapshot=None):
+    root=Path(root).resolve();packet=read(root/'data/heights/retail_edgewater/activation.json')
+    if snapshot is None:snapshot=read(root/'data/processed/active.json')['snapshot']
+    if packet['source_snapshot']!=snapshot or packet.get('prepared_only') is not False:raise ValueError('Retail activation snapshot/state stale')
+    layer=inside(root,packet['layer'])
+    if not layer.is_file() or sha(layer)!=packet['layer_sha256']:raise ValueError('Retail active layer changed; preserve manual edits')
+    for relative,digest in packet['dependencies'].items():
+        path=inside(root,relative)
+        if not path.is_file() or sha(path)!=digest:raise ValueError('Retail activation source changed: '+relative)
+    if packet['parcel_ids']!=PINS or packet.get('raw_property_links_promoted') is not False:raise ValueError('Retail context identity/link policy changed')
+    return packet
+
+
+def activate(root=ROOT,render_manifest=DEFAULT_RENDER,expected_render_sha256=DEFAULT_RENDER_SHA):
+    """Explicit opt-in: write own historical draft layer/report, never the root."""
+    from pxr import Usd,UsdGeom
+    from mesh_topology import closed_shell_report
+    root=Path(root).resolve();packet=prepare_activation(root,render_manifest,expected_render_sha256)
+    destination=root/'scene/retail_block.usda';activation_path=root/'data/heights/retail_edgewater/activation.json'
+    if destination.exists():
+        if not activation_path.exists():raise ValueError('Untracked retail layer exists; preserve it for review')
+        previous=read(activation_path)
+        if sha(destination)!=previous.get('layer_sha256'):raise ValueError('Retail active layer has manual changes; will not overwrite')
+    proposal=Usd.Stage.Open(str(root/packet['proposal_layer']));layer=proposal.Flatten();stage=Usd.Stage.Open(layer);prim=stage.GetPrimAtPath(RETAIL_PRIM)
+    prim.SetCustomDataByKey('quality',packet['quality']);prim.SetCustomDataByKey('classification','Historical retail roof-derived draft')
+    prim.SetCustomDataByKey('heightMeters',packet['main_roof_height_m']);prim.SetCustomDataByKey('maximumRenderedHeightMeters',packet['maximum_rendered_height_m'])
+    prim.SetCustomDataByKey('sourceSnapshot',packet['source_snapshot']);prim.SetCustomDataByKey('rawPropertyLinksPromoted',False)
+    layer.customLayerData={**layer.customLayerData,'activation':'historical_draft_not_current_facade_acceptance','sourceSnapshot':packet['source_snapshot'],
+        'renderManifestSha256':packet['render_manifest_sha256'],'renderedEntityCount':1,'taxParcelContextCount':6}
+    mesh=UsdGeom.Mesh(stage.GetPrimAtPath(RETAIL_PRIM+'/RoofDerivedBlock'))
+    if not closed_shell_report(mesh.GetPointsAttr().Get(),mesh.GetFaceVertexCountsAttr().Get(),mesh.GetFaceVertexIndicesAttr().Get())['passed_closed_shell']:raise ValueError('Flattened retail shell is open')
+    if read(root/'data/processed/active.json')['snapshot']!=packet['source_snapshot']:raise ValueError('Snapshot changed during retail preparation')
+    temporary=destination.with_name(destination.stem+'.tmp.usda');layer.Export(str(temporary));os.replace(temporary,destination)
+    packet.update({'prepared_only':False,'activated_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'layer_sha256':sha(destination)})
+    save(activation_path,packet);print('Activated one historical retail draft entity with six parcel contexts; root composition is unchanged')
+    return packet
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--live',action='store_true');args=parser.parse_args();reconstruct(args.live)
+    parser=argparse.ArgumentParser();parser.add_argument('--live',action='store_true')
+    action=parser.add_mutually_exclusive_group();action.add_argument('--prepare-activation',action='store_true');action.add_argument('--activate',action='store_true')
+    parser.add_argument('--render-manifest',default=DEFAULT_RENDER);parser.add_argument('--render-manifest-sha256',default=DEFAULT_RENDER_SHA);args=parser.parse_args()
+    if args.prepare_activation:print(json.dumps(prepare_activation(ROOT,args.render_manifest,args.render_manifest_sha256),indent=2))
+    elif args.activate:activate(ROOT,args.render_manifest,args.render_manifest_sha256)
+    else:reconstruct(args.live)

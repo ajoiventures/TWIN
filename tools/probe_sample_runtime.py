@@ -98,7 +98,10 @@ def kit_processes():
 
 def run(kit_root=None,frames=120,warmup=30,timeout=180,minimal=False):
     if not 10<=frames<=600 or not 1<=warmup<=120 or not 30<=timeout<=300:raise ValueError('Probe bounds exceeded')
-    kit_root=Path(kit_root or json.loads((ROOT/'config/local.json').read_text())['kit_root']).resolve()
+    configured=kit_root or os.environ.get('OMNIVERSE_KIT_ROOT')
+    if not configured and (ROOT/'config/local.json').is_file():configured=json.loads((ROOT/'config/local.json').read_text()).get('kit_root')
+    if not configured:raise ValueError('Pass --kit-root <SDK release directory> or set OMNIVERSE_KIT_ROOT; a clean checkout has no local SDK configuration.')
+    kit_root=Path(configured).resolve()
     exe=kit_root/'kit/kit.exe'
     if not exe.is_file():raise ValueError('Configured local Kit runtime unavailable')
     sys.path.insert(0,str(ROOT/'tools'));from build_sample import build
@@ -113,7 +116,7 @@ def run(kit_root=None,frames=120,warmup=30,timeout=180,minimal=False):
     before=kit_processes();nvml=DeviceMemory();baseline=nvml.sample()
     config={'sample':str(sample),'evidence':str(folder),'frames':frames,'warmup_frames':warmup,'launch_monotonic':time.monotonic()}
     config_path=folder/'probe_config.json';config_path.write_text(json.dumps(config,indent=2))
-    command=[str(exe),str(experience),'--ext-folder',str(kit_root/'exts'),'--ext-folder',str(kit_root/'extscache'),'--no-window','--/app/renderer/skipWhileMinimized=false','--/app/window/hideUi=true','--/renderer/multiGpu/enabled=false','--/app/extensions/registryEnabled=false','--exec',str(Path(__file__).resolve())]
+    command=[str(exe),str(experience),'--ext-folder',str(kit_root/'exts'),'--ext-folder',str(kit_root/'extscache'),'--no-window','--/app/renderer/skipWhileMinimized=false','--/app/window/hideUi=true','--/renderer/multiGpu/enabled=false','--/app/extensions/registryEnabled=false','--exec','"'+str(Path(__file__).resolve())+'"']
     env=os.environ.copy();env['TWIN_SAMPLE_PROBE_CONFIG']=str(config_path);samples=[];timed_out=False
     with (folder/'kit.log').open('w',encoding='utf-8') as log:
         process=subprocess.Popen(command,env=env,stdout=log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))

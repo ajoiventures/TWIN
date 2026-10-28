@@ -137,6 +137,7 @@ from pathlib import Path
 import omni.kit.app
 import omni.usd
 import omni.ui as ui
+import carb.settings
 from omni.kit.viewport.utility import get_active_viewport
 from pxr import Sdf, Usd
 async def open_sample():
@@ -150,6 +151,7 @@ async def open_sample():
     if viewport:
         viewport.camera_path='/World/Cameras/Overview'
         viewport.resolution=(1280,720)
+        carb.settings.get_settings().set_bool(f'/persistent/app/viewport/{viewport.id}/guide/grid/visible',False)
     stage=context.get_stage()
     layers={name:Sdf.Layer.FindOrOpen(str(root/(name+'.usda'))) for name in ('manual','scenario')}
     stage.SetEditTarget(Usd.EditTarget(layers['manual']))

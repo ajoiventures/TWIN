@@ -5,6 +5,12 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.dependenci
 from pxr import Usd,UsdGeom
 from data_pipeline import atomic_json,now
 
+def retail_registration_record(packet):
+    return {**{key:packet[key] for key in ['site_address','parcel_id','parcel_ids','quality','main_roof_height_m','maximum_rendered_height_m','roof_footprint_area_m2','limitations']},
+        'id':packet['site_id'],'usd_path':packet['prim_path'],'components':[{'id':'RoofDerivedBlock','prim_path':packet['prim_path']+'/RoofDerivedBlock','roof_footprint_area_m2':packet['roof_footprint_area_m2']}],
+        'physical_building_count':None,'rendered_entity_count':1,'raw_property_links_promoted':False,
+        'parcel_link_scope':'multi_parcel_context_not_accepted_footprint_identity','superseded_legacy_groups':0}
+
 def build():
     active=json.loads((ROOT/'data/processed/active.json').read_text())
     assembly=ROOT/'scene/college_park_connected.usda';stage=Usd.Stage.Open(str(assembly))
@@ -33,6 +39,14 @@ def build():
             prim=stage.GetPrimAtPath(site['prim_path'])
             if not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Landmark reconstruction not visible')
             records.append({'id':site['site_id'],'parcel_id':site['parcel_id'],'site_address':site['site_address'],'usd_path':site['prim_path'],'quality':'historical_component_reconstruction_current_conditions_unverified','components':site['components'],'main_roof_height_m':site['main_roof_height_m'],'maximum_rendered_height_m':site['maximum_rendered_height_m'],'main_roof_height_ground_reference_range_m':site['main_roof_height_ground_reference_range_m'],'superseded_legacy_groups':0,'raw_property_links_promoted':False,'limitations':packet['limitations']})
+    retail_path=ROOT/'data/heights/retail_edgewater/activation.json'
+    if retail_path.exists():
+        from verify_retail_block import validate_active_retail
+        packet=validate_active_retail(ROOT,active['snapshot']);retail_layer=ROOT/packet['layer']
+        prim=stage.GetPrimAtPath(packet['prim_path'])
+        if retail_layer.resolve() not in used or not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Retail historical draft is not visibly composed')
+        records.append(retail_registration_record(packet));dependencies.extend([retail_path,retail_layer])
+        dependencies.extend(ROOT/relative for relative in packet['dependencies'])
     report={'source_snapshot':active['snapshot'],'registered_utc':now(),'dependencies':{str(p.relative_to(ROOT)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in dependencies},'records':records}
     atomic_json(ROOT/'data/processed/reconstructions.json',report)
     print('Registered historical reconstruction:',record['id']);return report

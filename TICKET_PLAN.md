@@ -253,3 +253,16 @@ Prioritize Princeton at College Park redevelopment geometry, then 624/520 W Prin
 ## Transportation engineering document work package
 
 Prioritize #25 acquisition, then #15/#16 evidence extraction and #17 Princeton–Edgewater geometry. Verified official PDFs, exact page references, outstanding plan sets and acceptance gates are in [Transportation document plan](docs/TRANSPORTATION_DOCUMENT_PLAN.md). The April 2009 support plan explicitly describes the Princeton–Smith bike-lane exception; verify against dated existing conditions rather than repeating a generic corridor section. Proposed improvements remain separate under #21; final presentation review stays in #18/#13.
+
+## Main Street street-lighting work package
+
+Priority: P1; Princeton–Edgewater first, then the Main Street corridor. Responsible: Lighting/Environment Artist; accountable: 3D Technical Lead; source verification: Transportation GIS Analyst; independent review: QA Analyst. Dependencies: #25 engineering records, #16/#17 pedestrian geometry; implementation #18, proposed scenario #21, presentation acceptance #13.
+
+- [ ] Inventory existing pole positions, fixture family, mounting/arm height, orientation and source/date from City/OUC plans or dated authorized references. Existing illustrative lamps are not an inventory.
+- [ ] Obtain applicable lighting and photometric sheets, fixture schedules and manufacturer IES distributions where available; record lumens, color temperature, optics and uncertainty. Do not choose real-world specifications solely for appearance.
+- [ ] Model correctly scaled poles, arms and fixtures; check placement against ramps, crossings, trees, parking and storefront entrances.
+- [ ] Build daylight, dusk and night presets with controlled exposure, believable light falloff/contact shadows and restrained bloom. Label artistic settings separately from measured lighting data.
+- [ ] Keep existing lighting and proposed Complete Street decorative lighting in separate switchable layers.
+- [ ] Review Princeton intersection and sidewalk approach plus Main Street tilt-shift views. Check glare, tree occlusion, spill toward residences and performance at conference resolution. A rendered lighting review does not certify photometric compliance.
+
+Official references: [OUC Development Services Guide](https://www.ouc.com/wp-content/uploads/2024/12/Development_Services_dev_guide.pdf), lighting discussion p.28; [OUC outdoor lighting](https://www.ouc.com/solutions-programs/business/outdoor-lighting/); [Orlando Engineering Standards Manual](https://www.orlando.gov/files/sharedassets/public/documents/engineering/platting/engineeringstandardsmanual.pdf); [Edgewater project](https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project). These establish records/coordination leads, not verified existing fixture locations or a selected Main Street fixture. Downtown-only fixture guidance and unincorporated County rules must not be applied to College Park automatically. No utility request, purchase or installation is authorized or performed by this plan.

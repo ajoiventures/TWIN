@@ -107,7 +107,7 @@ Converted to GitHub issues on October 28, 2026: seven new tickets (#19–#25), n
 | G14 tree evidence | [#9](https://github.com/ajoiventures/TWIN/issues/9), [#18](https://github.com/ajoiventures/TWIN/issues/18) |
 | G15 engineering references | [#25](https://github.com/ajoiventures/TWIN/issues/25) |
 
-All tickets remain open pending implementation and acceptance evidence.
+Execution update: #19 passed independent source-catalog/discovery acceptance and is closed. Other tickets remain open pending their implementation and acceptance evidence. See [Execution Status](EXECUTION_STATUS.md).
 
 Existing tickets were reused for OCPA, City GIS, boundaries, heights/terrain, trees, transportation, pedestrian geometry, provenance and release QA. G01–G15 remain work-package IDs; the table above maps them to actual GitHub issue numbers.
 

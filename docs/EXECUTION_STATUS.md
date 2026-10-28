@@ -4,6 +4,8 @@ The full ticket plan remains active. This checkpoint reports implemented and rev
 
 ## Accepted delivery
 
+GitHub #19 is closed as completed after independent review. The implementation is published for review in [draft PR #31](https://github.com/ajoiventures/TWIN/pull/31). Remaining implementation tickets stay open; the overall goal is active.
+
 **#19 government-source catalog/discovery:** 17 source records, three bounded searches, six original elevation-tile candidates, acquisition deduplication, ranked decisions, safe previews and geographic metadata-coverage diagram. Actual API/coverage routes and checkbox controls were verified; 20 focused tests and independent review passed. Restricted canopy data is excluded from AI use. Dataset activation/terrain QA, exact imagery eligibility and transportation semantics remain downstream tasks.
 
 ## Implemented and still in progress

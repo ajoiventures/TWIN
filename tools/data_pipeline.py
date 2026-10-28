@@ -11,7 +11,7 @@ from shapely.ops import transform,unary_union
 from shapely.strtree import STRtree
 from pyproj import Transformer
 
-BBOX=[-81.398,28.5605,-81.379,28.5845]
+BBOX=json.loads((ROOT/'config/study_area.json').read_text(encoding='utf-8'))['acquisition_bbox_wgs84'] if (ROOT/'config/study_area.json').exists() else [-81.398,28.5605,-81.379,28.5845]
 SINCE='2024-10-27T00:00:00'
 GIS='https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/'
 SODA='https://data.cityoforlando.net'
@@ -157,7 +157,7 @@ def refresh(offline=False,force=False):
   rows,meta=socrata(client,SOURCES['permits'],where);permit_rows.extend(rows)
   if i%350==0:print('Permit parcels queried',min(i+35,len(pins)),'/',len(pins),flush=True)
  collections_out['permits']=permit_rows;metadata['permits']=meta
- where="upper(neighborhood_name) = 'COLLEGE PARK' OR upper(main_street_district_name) like '%COLLEGE PARK%' OR within_box(geocoded_column,28.5845,-81.398,28.5605,-81.379)"
+ where="upper(neighborhood_name) = 'COLLEGE PARK' OR upper(main_street_district_name) like '%COLLEGE PARK%' OR within_box(geocoded_column,"+','.join(map(str,[BBOX[3],BBOX[0],BBOX[1],BBOX[2]]))+")"
  businesses,meta=socrata(client,SOURCES['businesses'],where);collections_out['businesses']=businesses;metadata['businesses']=meta
  buildings=building_joins(clean,ROOT/'scene'/'college_park.usda');collections_out['buildings']=buildings
  parcel_index=collections.defaultdict(list)

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "source_catalog_sha256": "512cf2003d3bc8d2960f275767a725e44d86dfd68f78d520821444b4f52fbccd",
+  "study_bbox_wgs84": [
+    -81.398,
+    28.5602,
+    -81.379,
+    28.5858
+  ],
+  "source_acquisition_id": "FL_Peninsular_FDEM_Orange_2018",
+  "source_evidence": "https://www.fisheries.noaa.gov/inport/item/69496/full-list",
+  "expected_horizontal_crs": "NAD83(2011) / Florida East (ftUS)",
+  "expected_horizontal_unit": "US survey foot",
+  "expected_vertical_datum": "North American Vertical Datum 1988",
+  "expected_vertical_unit": "US survey foot",
+  "expected_pixel_scale_ft": 2.5,
+  "expected_acquisition_interval": [
+    "20181204",
+    "20190412"
+  ],
+  "maximum_tile_count": 6,
+  "maximum_tile_bytes": 33554432,
+  "maximum_metadata_bytes": 1048576,
+  "seam_review_thresholds_m": {
+    "absolute_median_residual": 0.2,
+    "p95_absolute_residual": 0.5
+  },
+  "tiles": [
+    {
+      "id": "DEM257172",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257172.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257172.xml",
+      "index_object_id": 7027,
+      "index_bbox_wgs84": [
+        -81.4087552514857,
+        28.5833035584672,
+        -81.3931229898885,
+        28.5971010195701
+      ]
+    },
+    {
+      "id": "DEM257173",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257173.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257173.xml",
+      "index_object_id": 7028,
+      "index_bbox_wgs84": [
+        -81.3931741498422,
+        28.5833495954116,
+        -81.3775438807083,
+        28.5971452931893
+      ]
+    },
+    {
+      "id": "DEM257472",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257472.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257472.xml",
+      "index_object_id": 7607,
+      "index_bbox_wgs84": [
+        -81.4087020640344,
+        28.5695521333391,
+        -81.3930718649691,
+        28.5833495954116
+      ]
+    },
+    {
+      "id": "DEM257473",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257473.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257473.xml",
+      "index_object_id": 7608,
+      "index_bbox_wgs84": [
+        -81.3931229898885,
+        28.5695981439559,
+        -81.3774947823882,
+        28.583393843269
+      ]
+    },
+    {
+      "id": "DEM257772",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257772.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257772.xml",
+      "index_object_id": 7701,
+      "index_bbox_wgs84": [
+        -81.4086489134141,
+        28.5558006790205,
+        -81.3930207768807,
+        28.5695981439559
+      ]
+    },
+    {
+      "id": "DEM257773",
+      "download_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/TIFF/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257773.tif",
+      "metadata_url": "https://rockyweb.usgs.gov/vdelivery/Datasets/Staged/Elevation/OPR/Projects/FL_Peninsular_FDEM_2018_D19_DRRA/FL_Peninsular_FDEM_Orange_2018/metadata/USGS_OPR_FL_Peninsular_FDEM_2018_D19_DRRA_DEM257773.xml",
+      "index_object_id": 7702,
+      "index_bbox_wgs84": [
+        -81.3930718649691,
+        28.5558466632986,
+        -81.3774457182041,
+        28.5696423668298
+      ]
+    }
+  ]
+}

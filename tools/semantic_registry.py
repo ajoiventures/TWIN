@@ -73,7 +73,7 @@ def build(root=ROOT):
     layer.GetRootLayer().customLayerData={'profile':PROFILE,'certification':'local evidence/visualization checks only; no NVIDIA certification claim'};layer.GetRootLayer().Save()
     report={'schema':'twin.registry/1.0','profile':PROFILE,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],'base_geometry_sha256':base_hash,'height_evidence_sha256':sha(root/'data/heights/building_heights.json'),'records':records}
     atomic_json(root/'data/processed/asset_registry.json',report)
-    quality={'records':len(records),'unique_entities':len({r['entity_id'] for r in records}),'quality':dict(collections.Counter(r['observation_kind'] for r in records)),'unaccepted_parcel_links':sum(not r['parcel_link_accepted'] for r in records),'errors':errors,'profile':PROFILE}
+    quality={'source_snapshot':active['snapshot'],'records':len(records),'unique_entities':len({r['entity_id'] for r in records}),'quality':dict(collections.Counter(r['observation_kind'] for r in records)),'unaccepted_parcel_links':sum(not r['parcel_link_accepted'] for r in records),'errors':errors,'profile':PROFILE}
     atomic_json(root/'data/processed/asset_registry_quality.json',quality);print(json.dumps(quality,indent=2));return quality
 
 if __name__=='__main__':build()

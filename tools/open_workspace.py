@@ -27,7 +27,10 @@ async def open_workspace():
     for _ in range(10):await app.next_update_async()
     viewport=get_active_viewport()
     if viewport:
-        viewport.camera_path='/World/Cameras/TreeLinedEdgewater' if detailed else '/World/Cameras/EdgewaterCorridor'
+        for candidate in ['MainStreetOverview','WellesleyEvidence','WellesleyReview','TreeLinedEdgewater','EdgewaterCorridor']:
+            if ctx.get_stage().GetPrimAtPath('/World/Cameras/'+candidate):
+                viewport.camera_path='/World/Cameras/'+candidate
+                break
         carb.settings.get_settings().set_bool(f'/persistent/app/viewport/{viewport.id}/guide/grid/visible',False)
     manifest=json.loads((ROOT/'data'/'manifest.json').read_text(encoding='utf-8'))
     counts=manifest['counts']
@@ -55,6 +58,9 @@ async def open_workspace():
             ui.Label(f"{counts['buildingMeshes']:,} buildings | {counts['roadSegments']:,} street segments",height=24)
             if detailed:ui.Label(f"{detail_counts['trees']} trees | {detail_counts['storefrontBuildings']} detailed storefront buildings",height=24)
             ui.Label('Saved views',height=23,style={'font_size':18})
+            if ctx.get_stage().GetPrimAtPath('/World/Cameras/MainStreetOverview'):ui.Button('College Park Main Street',height=34,clicked_fn=lambda:view('MainStreetOverview'))
+            if ctx.get_stage().GetPrimAtPath('/World/Cameras/WellesleyReview'):ui.Button('Wellesley — seven-story evidence',height=34,clicked_fn=lambda:view('WellesleyReview'))
+            if ctx.get_stage().GetPrimAtPath('/World/Cameras/WellesleyEvidence'):ui.Button('Wellesley — seven-story evidence',height=34,clicked_fn=lambda:view('WellesleyEvidence'))
             ui.Button('District overview',height=34,clicked_fn=lambda:view('DistrictOverview'))
             ui.Button('Edgewater corridor',height=34,clicked_fn=lambda:view('EdgewaterCorridor'))
             ui.Button('Close aerial view',height=34,clicked_fn=lambda:view('StreetScale'))
@@ -64,6 +70,8 @@ async def open_workspace():
             ui.Label('Layers',height=22,style={'font_size':18})
             layers=[('Buildings','/World/Buildings'),('Roofs','/World/Roofs'),('Streets','/World/Streets'),('Parks','/World/Parks'),('Water','/World/Water')]
             if ctx.get_stage().GetPrimAtPath('/World/ParcelBoundaries'):layers.append(('Official parcel outlines','/World/ParcelBoundaries'))
+            if ctx.get_stage().GetPrimAtPath('/World/StudyBoundaries/MainStreet'):layers.append(('City Main Street boundary','/World/StudyBoundaries/MainStreet'))
+            if ctx.get_stage().GetPrimAtPath('/World/StudyBoundaries/Neighborhood'):layers.append(('City neighborhood boundary','/World/StudyBoundaries/Neighborhood'))
             if detailed:layers += [('Trees','/World/Trees'),('Storefronts','/World/Storefronts'),('Street furniture','/World/StreetFurniture'),('Parked vehicles','/World/ParkedVehicles')]
             for label,path in layers:
                 with ui.HStack(height=23):
@@ -89,6 +97,7 @@ async def open_workspace():
         if official:
             h=data.get('height',{})
             status.text=f"{official.get('site_address','Unknown address')}\nParcel: {official.get('parcel_id','unmatched')} | {official.get('match_method','source outline')}\nHeight: {h.get('height_m','unknown')} m | {h.get('quality','not verified')}\nRecent permits: {official.get('recent_permit_count','unknown')}"
+            if data.get('commercialEvidence'):status.text+='\nBroker context linked; current market status: unknown.'
             return
         if data.get('parcelId'):
             status.text=f"{data.get('classification','Building')} | parcel {data['parcelId']}\nEstimated height: {data['heightMeters']} m"
@@ -99,5 +108,26 @@ async def open_workspace():
     stage_window=ui.Workspace.get_window('Stage')
     if stage_window:window.dock_in(stage_window,ui.DockPosition.SAME)
     print('COLLEGE_PARK_WORKSPACE_READY',counts)
+    # Generated layers may be rebuilt outside Kit. Refresh clean generated
+    # layers only; never reload the user's manual edit layer.
+    watched=['main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','map_extent_guard.usda','college_park_connected.usda']
+    stamps={name:(ROOT/'scene'/name).stat().st_mtime_ns for name in watched if (ROOT/'scene'/name).exists()}
+    async def refresh_generated():
+        while True:
+            await asyncio.sleep(2)
+            for name in watched:
+                path=ROOT/'scene'/name
+                if not path.exists():continue
+                stamp=path.stat().st_mtime_ns
+                if stamps.get(name)==stamp:continue
+                layer=Sdf.Layer.Find(str(path).replace('\\','/'))
+                if layer and layer.dirty:
+                    status.text='Generated layer has unsaved edits; refresh deferred: '+name
+                    continue
+                if layer:layer.Reload()
+                stamps[name]=stamp
+                status.text='Updated model evidence loaded; manual edits preserved.'
+    global refresh_task
+    refresh_task=asyncio.ensure_future(refresh_generated())
 
 asyncio.ensure_future(open_workspace())

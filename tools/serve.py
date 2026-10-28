@@ -2,18 +2,34 @@
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from urllib.parse import urlparse,parse_qs
 from pathlib import Path
-import json,argparse,math
+import json,argparse,math,hashlib
 ROOT=Path(__file__).resolve().parents[1]
-TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates'}
+TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality'}
 class SnapshotMismatch(ValueError):pass
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
  if not folder.is_relative_to((root/'data/snapshots').resolve()):raise ValueError('Invalid snapshot pointer')
  return folder,p['snapshot']
+def current_report(path,snapshot):
+ data=json.loads(path.read_text(encoding='utf-8'))
+ if data.get('source_snapshot')!=snapshot:raise SnapshotMismatch('Rebuild '+path.name+' against active snapshot')
+ return data
+
 def read_table(name,root=ROOT):
  if name not in TABLES:raise KeyError(name)
  folder,snapshot=active_folder(root)
+ if name in ['commercial_evidence','commercial_listings','commercial_model_quality']:
+  report=json.loads((root/'data/commercial/commercial_evidence.json').read_text(encoding='utf-8'))
+  if report['source_snapshot']!=snapshot:raise SnapshotMismatch('Rebuild commercial evidence against active snapshot')
+  if name=='commercial_listings':return report['listings'],snapshot
+  if name=='commercial_model_quality':return current_report(root/'data/commercial/model_context_quality.json',snapshot),snapshot
+  return report,snapshot
+ if name in ['study_boundaries','study_scope_quality','map_extent_quality']:
+  path=root/'data/processed'/('study_boundaries.geojson' if name=='study_boundaries' else name+'.json');data=json.loads(path.read_text(encoding='utf-8'))
+  if name!='study_boundaries' and data.get('source_snapshot')!=snapshot:raise SnapshotMismatch('Rebuild scope/extent quality against active snapshot')
+  if name=='map_extent_quality' and data.get('base_geometry_sha256')!=hashlib.sha256((root/'scene/college_park.usda').read_bytes()).hexdigest():raise SnapshotMismatch('Map extent evidence is stale for current geometry')
+  return data,snapshot
  if name in ['source_catalog','pedestrian_access','crosswalk_candidates']:
   path=root/({'source_catalog':'data/processed/source_catalog.json','pedestrian_access':'data/transport/pedestrian_access_report.json','crosswalk_candidates':'data/transport/crosswalk_candidates.geojson'}[name])
   return json.loads(path.read_text(encoding='utf-8')),snapshot
@@ -26,12 +42,12 @@ def read_table(name,root=ROOT):
   if registry['source_snapshot']!=snapshot:raise SnapshotMismatch('Rebuild semantic registry against active snapshot')
   if name=='assets':return registry['records'],snapshot
   path=root/'data/processed'/('asset_registry_quality.json' if name=='asset_quality' else 'scene_validation.json')
-  return json.loads(path.read_text(encoding='utf-8')),snapshot
+  return current_report(path,snapshot),snapshot
  if name in ['heights','height_quality']:
   rows=json.loads((root/'data/heights/building_heights.json').read_text(encoding='utf-8'))
   if any(h['source_snapshot']!=snapshot for h in rows):raise SnapshotMismatch('Rebuild heights against active snapshot')
   if name=='heights':return rows,snapshot
-  return json.loads((root/'data/heights/height_quality.json').read_text(encoding='utf-8')),snapshot
+  return current_report(root/'data/heights/height_quality.json',snapshot),snapshot
  data=json.loads((folder/(name+'.json')).read_text(encoding='utf-8'))
  if name=='buildings' and (root/'data/heights/building_heights.json').exists():
   index={h['building_id']:h for h in json.loads((root/'data/heights/building_heights.json').read_text(encoding='utf-8')) if h['source_snapshot']==snapshot}
@@ -70,15 +86,24 @@ class Handler(BaseHTTPRequestHandler):
     import sys
     sys.path.insert(0,str(ROOT/'.dependencies'))
     from pyproj import Transformer
-    from shapely.geometry import shape,mapping
+    from shapely.geometry import shape,mapping,box
     from shapely.ops import transform
     folder,snapshot=active_folder();data={k:read_table(k)[0] for k in ['parcels','streets','neighborhoods','parks','buildings']}
     projection=Transformer.from_crs(4326,32617,always_xy=True)
     def xy(x,y,z=None):return projection.transform(x,y)
     for name in ['parcels','streets','neighborhoods','parks']:
      for f in data[name]['features']:f['geometry']=mapping(transform(xy,shape(f['geometry'])))
-    low=projection.transform(-81.398,28.5605);high=projection.transform(-81.379,28.5845)
-    return self.send({'snapshot':snapshot,'map_crs':'EPSG:32617','bounds':[low[0],low[1],high[0],high[1]],**data})
+    extent=json.loads((folder/'quality.json').read_text(encoding='utf-8'))['bbox_wgs84'];extraction=transform(xy,box(*extent));data['extraction_geometry']=mapping(extraction)
+    if (ROOT/'data/processed/study_boundaries.geojson').exists():
+     boundaries=read_table('study_boundaries')[0]
+     for f in boundaries['features']:f['geometry']=mapping(transform(xy,shape(f['geometry'])))
+     data['study_boundaries']=boundaries
+     try:data['study_scope_quality']=read_table('study_scope_quality')[0]
+     except (SnapshotMismatch,FileNotFoundError):data['study_scope_quality']=None
+    if (ROOT/'data/commercial/commercial_evidence.json').exists():
+     try:data['commercial_evidence']=read_table('commercial_evidence')[0]
+     except SnapshotMismatch:data['commercial_evidence']=None
+    return self.send({'snapshot':snapshot,'map_crs':'EPSG:32617','bounds':list(extraction.bounds),**data})
    if path.startswith('/api/v1/'):
     name=path.removeprefix('/api/v1/');return self.send(page_table(name,parse_qs(url.query)))
    return self.send({'error':'Not found'},404)

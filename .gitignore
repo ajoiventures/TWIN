@@ -22,5 +22,7 @@ Open College Park.bat
 config/local.json
 data/transport/
 data/heights/
+data/imagery/
+data/commercial/
 assets/generated/
 tools/kit_bootstrap.py

@@ -1,0 +1,10 @@
+{
+  "catalog_url": "https://vgispublic.ocpafl.org/server/rest/services",
+  "public_folder": "OCPA",
+  "selected_service_names": ["OCPA/Aerials2025", "OCPA/Aerials2024", "OCPA/Aerials2022"],
+  "preview_size": [768, 1152],
+  "preview_format": "jpg",
+  "preview_crs": 2236,
+  "scope": "Frozen pilot context only; bounded historical reference exports, no bulk imagery harvesting.",
+  "reuse_policy": "Local reference review only. Empty source license is not redistribution or AI-use permission. No imagery committed or promoted into public products without terms review."
+}

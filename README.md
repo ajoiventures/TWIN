@@ -22,7 +22,7 @@ Outputs are local, ignored by Git:
 - `data/snapshots/<UTC timestamp>/`: source metadata, normalized parcels, building links, GIS collections, permit/license rows, quality report and review queue.
 - `data/processed/active.json`: atomic pointer to the last fully successful snapshot. A failed refresh leaves the prior pointer intact.
 
-The public-data base scene must be at `scene/college_park.usda` for footprint-to-parcel matching. Build it with `tools/build_scene.py` after reviewing source terms. The local snapshot API and composed scene are connected; geographic acceptance, terrain and pedestrian accuracy remain open.
+The public-data base scene must be at `scene/college_park.usda` for footprint-to-parcel matching. After reviewing source terms, run `python tools/acquire_footprints.py`, then `python tools/build_scene.py`, then `python tools/data_pipeline.py`. The shared `config/study_area.json` extent fully contains the official Main Street district; acquisition checks the full source-ID set before replacing cached footprints. Generated Building_N aliases may change when scope expands; source identities remain the linkage authority. The local snapshot API and composed scene are connected; geographic acceptance, terrain and pedestrian accuracy remain open.
 
 Permit retrieval uses parcel IDs rather than relying only on potentially incomplete point geocoding. Permits are currently limited to processed dates from October 27, 2024 onward. An attached permit is parcel context, not a verified exact-subject-address match. Business license case numbers may occur in multiple source rows; rows are retained by source row ID and must not be treated as a unique list of current storefront tenants.
 
@@ -36,7 +36,7 @@ Run these steps in order after the base scene and official snapshot exist:
 
 1. `python tools/detail_edgewater.py`, then `python tools/build_detailed_assets.py` generate original illustrative details/assets. The asset-upgrade generator requires the detail layer. Review generator outputs before replacing an edited layer.
 2. For historical LiDAR evidence: `python tools/sample_lidar.py`, `python tools/validate_vertical_units.py`, then `python tools/build_heights.py`. The first two download/cache public pilot data; floor estimates remain outside accepted LiDAR coverage.
-3. `python tools/semantic_registry.py`, `python tools/connect_scene.py`, then `python tools/validate_scene.py` build stable source-based identities and inspect the composed local visualization profile.
+3. Reapply reviewed landmark corrections with `python tools/correct_wellesley.py` after rebuilding height evidence; see [required local inputs and guards](docs/WELLESLEY_CORRECTION.md). Then run `python tools/semantic_registry.py` and `python tools/connect_scene.py`. Fetch full official boundaries with `python tools/study_boundaries.py`, add their scene overlay with `python tools/compose_scope.py`, recompose with `python tools/connect_scene.py`, apply `python tools/constrain_scene.py`, and run `python tools/validate_scene.py`. This verifies the actual ground coverage and guards against visible spillovers.
 4. `python tools/configure_editor.py --kit-root <Kit SDK release folder>` creates an independent editor configuration and `Open College Park.bat`. It does not modify the SDK. `tools/prepare_workspace.py` forwards to this portable setup.
 5. `python tools/serve.py` starts the read-only map/API at `http://127.0.0.1:8768/`.
 
@@ -49,3 +49,5 @@ Cached requests preserve known network-fetch dates; legacy caches have unknown o
 ## Prototype history
 
 See [prototype notes](docs/PROTOTYPE_HISTORY.md). The original prototype remains separate. Migrated generators and working local connections alone do not establish full ticket acceptance; source coverage and release evidence are tracked on the roadmap.
+
+Main Street presentation: after defining the pilot, run `python tools/present_main_street.py` and recompose with `python tools/connect_scene.py`. The College Park Main Street saved view uses a closer 55 mm oblique camera, shallow depth of field and warmer light. Official outlines are hidden in this reversible presentation layer; geographic data remains available in the map and layer controls. This is a presentation improvement, not photogrammetric reconstruction.

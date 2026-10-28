@@ -2,6 +2,14 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Latest Main Street extraction — October 28, 2026, 16:15 UTC
+
+Expanded the shared extraction to fully contain the official City College Park Main Street polygon. Active snapshot `20261028T160543372334Z`: 13,999 OCPA footprint subareas, 3,216 building groups, 3,916 parcel features and 1,310 OSM road segments. Actual 3D ground covers 100% of Main Street (0 m² uncovered); wider neighborhood context remains partial at 60.77%. Full district coverage does not imply current, individually verified building geometry.
+
+Recomposed the scene, preserved the seven-storey Wellesley correction (23.35 m historical LiDAR height), and regenerated the map guard: zero visible object/tree spillovers. Validation checked 17,608 meshes, including 3,480 instance proxies, across 16 layers with zero errors. All 137 tests pass, including rejection of stale quality reports when their parent data is current. The refreshed 0.4 editor reported WORKSPACE_READY with 3,216 building meshes. Live map/API now serves the expanded snapshot. See [scope evidence](STUDY_SCOPE.md).
+
+Broker evidence and accepted property context are available through the map/scene; current market statuses remain unknown where freshness cannot be established. Ticket #32 tracks remaining verification. Older checkpoints below retain their original counts and are superseded by this extraction for current coverage.
+
 ## Accepted delivery
 
 GitHub #19 is closed as completed after independent review. The implementation is published for review in [draft PR #31](https://github.com/ajoiventures/TWIN/pull/31). Remaining implementation tickets stay open; the overall goal is active.
@@ -35,3 +43,7 @@ Parcel evidence: 3,783 features / 3,782 PINs; 2,857 exact ID+geometry links, 196
 ## Next delivery
 
 Integrate accepted original DEM data with explicit US-survey-foot to meter conversion and terrain anchoring, review pilot parcel/floor conflicts, then reconcile current aerial/pedestrian evidence before constructing accepted streetscape geometry. #20/#25 supply the remaining reference evidence. #27 reconstruction and #28 planning/replay build on that baseline; #21 remains a separate proposed-design layer. No global blocker or completion claim is made.
+
+## Main Street presentation work in progress
+
+Added a reversible close oblique camera, optical depth of field, warm sun/sky, greener landscape and brighter leaf texture scaling. Official boundary graphics are hidden for presentation. All 137 tests and the 17-layer scene profile pass. Final rendered acceptance is still pending; UI interaction was interrupted by active user input/minimization. These settings do not establish photorealism or fix unresolved source geometry.

@@ -26,8 +26,11 @@ def connect():
  manual=scene/'manual_edits.usda'
  if not manual.exists():
   manual_stage=Usd.Stage.CreateNew(str(manual));manual_stage.GetRootLayer().Save()
- assembly=Usd.Stage.CreateNew(str(scene/'college_park_connected.usda'));layers=['manual_edits.usda','official_context.usda']
- for name in ['semantic_assets.usda','building_heights.usda','asset_upgrade.usda','edgewater_details.usdc','college_park.usda']:
+ assembly=Usd.Stage.CreateNew(str(scene/'college_park_connected.usda'));layers=['map_extent_guard.usda'] if (scene/'map_extent_guard.usda').exists() else []
+ layers+=['manual_edits.usda']
+ if (scene/'main_street_presentation.usda').exists():layers.append('main_street_presentation.usda')
+ layers+=['official_context.usda']
+ for name in ['study_scope.usda','commercial_context.usda','landmark_corrections.usda','semantic_assets.usda','building_heights.usda','asset_upgrade.usda','edgewater_details.usdc','college_park.usda']:
   if (scene/name).exists():layers.append(name)
  assembly.GetRootLayer().subLayerPaths=layers;UsdGeom.SetStageMetersPerUnit(assembly,1);UsdGeom.SetStageUpAxis(assembly,'Z');assembly.SetDefaultPrim(assembly.GetPrimAtPath('/World'));assembly.GetRootLayer().Save()
  print('Connected',len(buildings),'building records and',len(parcels['features']),'parcel outlines; snapshot',active['snapshot'])

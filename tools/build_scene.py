@@ -9,7 +9,7 @@ from shapely.geometry import shape, Polygon, LineString, box
 from shapely.ops import transform, unary_union, triangulate
 from pxr import Usd, UsdGeom, UsdLux, UsdShade, Sdf, Gf
 
-BBOX = [-81.398, 28.5605, -81.379, 28.5845]
+BBOX = json.loads((ROOT/'config/study_area.json').read_text(encoding='utf-8'))['acquisition_bbox_wgs84'] if (ROOT/'config/study_area.json').exists() else [-81.398, 28.5605, -81.379, 28.5845]
 ORIGIN = [-81.389, 28.572]
 DATA = ROOT / 'data'
 DATA.mkdir(parents=True,exist_ok=True)
@@ -25,6 +25,9 @@ def get_json(url, params=None):
 
 def download():
     path = DATA / 'buildings.geojson'
+    coverage=DATA/'footprint_manifest.json'
+    if path.exists() and (not coverage.exists() or json.loads(coverage.read_text(encoding='utf-8'))['bbox_wgs84']!=BBOX):
+        raise RuntimeError('Run tools/acquire_footprints.py to verify footprint coverage for the configured extent before building.')
     if not path.exists():
         params = dict(f='json', where='1=1', geometry=','.join(map(str,BBOX)), geometryType='esriGeometryEnvelope', inSR=4326, spatialRel='esriSpatialRelIntersects', returnIdsOnly='true')
         ids = get_json(SERVICE+'/query', params)['objectIds']
@@ -41,7 +44,16 @@ def download():
         path.write_text(json.dumps(dict(type='FeatureCollection',features=features)),encoding='utf-8')
         print('Downloaded',len(features),'county building polygons',flush=True)
     path = DATA / 'openstreetmap.json'
-    if not path.exists():
+    osm_extent=DATA/'osm_extent.json'
+    if path.exists() and (not osm_extent.exists() or json.loads(osm_extent.read_text(encoding='utf-8')).get('bbox_wgs84')!=BBOX):
+        backup=DATA/'cache'/'osm';backup.mkdir(parents=True,exist_ok=True)
+        import hashlib
+        target=backup/(hashlib.sha256(path.read_bytes()).hexdigest()+'.json')
+        if not target.exists():target.write_bytes(path.read_bytes())
+        path=None
+    else:path=DATA/'openstreetmap.json'
+    if path is None or not path.exists():
+        path=DATA/'openstreetmap.json'
         w,s,e,n = BBOX
         query = f'[out:json][timeout:120];(way[highway]({s},{w},{n},{e});way[natural=water]({s},{w},{n},{e});way[waterway]({s},{w},{n},{e});way[leisure=park]({s},{w},{n},{e}););out geom;'
         failures=[]
@@ -52,6 +64,7 @@ def download():
                 path.write_text(json.dumps(osm),encoding='utf-8'); break
             except Exception as exc: failures.append(str(exc))
         else: raise RuntimeError(f'OSM download failed: {failures}')
+        osm_extent.write_text(json.dumps({'bbox_wgs84':BBOX,'retrieved_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}),encoding='utf-8')
         print('Downloaded',len(osm['elements']),'OSM ways',flush=True)
 
 download()

@@ -32,6 +32,8 @@ Expanded source-by-source work packages and delivery gates are in [Government Da
 
 ## Definition of done
 
+Commercial verification now includes [#32 â€” broker/listing evidence and affected model status](https://github.com/ajoiventures/TWIN/issues/32). Start with the Wellesley missing-story case and other multi-story/mixed-use Main Street properties. Record source/date and sale/lease scope separately from occupancy; never apply a retail-component listing to an entire condo tower. See [official focus-area evidence](docs/STUDY_SCOPE.md) and [Wellesley reference](docs/WELLESLEY_REFERENCE.md).
+
 - Official Orlando Open Data, city GIS and OCPA integrations have documented schemas, stable identifiers, dated local snapshots and quality checks.
 - Approved BOOMS context links to the correct parcels/buildings; unknown, stale, estimated and illustrative content remains distinguishable.
 - One reviewed Edgewater pilot block has referenced storefronts, detailed vegetation and vehicles, plausible parking and pedestrian space.
@@ -235,3 +237,7 @@ Define a repeatable acceptance pass for the accurate, visually improved College 
 
 Deliverables: Acceptance report, comparison captures, performance measurements and release-ready manifest.
 
+
+### Full Main Street extraction checkpoint (October 28, 2026)
+
+Shared scope configuration now fully contains the official City College Park Main Street polygon. The rebuilt 3D ground has 100% area coverage and 0 m² uncovered; 3,216 building groups are composed. Wider neighborhood coverage is partial (60.77%). See `docs/STUDY_SCOPE.md` and `docs/EXECUTION_STATUS.md`. Remaining #5/#6/#17 acceptance includes current building completeness, missing redevelopment geometry, heights and accurate pedestrian infrastructure; spatial coverage alone does not close those tickets.

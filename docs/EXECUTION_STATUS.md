@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Property inspector government references — October 29, 2026 UTC
+
+Connected the accepted government-reference register to selected parcels using exact active feature and parcel identities. Actual browser review verified federal classification, a retained County/municipal conflict, unknown ownership for an unclassified office parcel, and clearing. Added readable inspector styling and preserved map-only review. [Usage and evidence](PROPERTY_SEARCH.md). Wider property/scene requirements remain open.
+
 ## Government property reference integration — October 29, 2026 UTC
 
 Screened 5,732 OCPA parcel features against exact published use-code definitions and official inventories across the full neighborhood. Identified 93 government-related references, including five City vacant-lot inventory matches and one conflicting County/municipal reference. Independent source/geometry review passed; actual API/browser fields, first five rows and coverage are available on local port8773. All legal title/public-access/current-vacancy fields remain unverified. [Delivery and remaining scope](PUBLIC_OWNERSHIP.md). This does not close the broader land/planning tickets or expand the active 3D ground.

@@ -11,3 +11,11 @@ Search covers the loaded snapshot, not all Orange County properties. An absent r
 API: `GET /api/v1/parcels?q=1615%20Edgewater%20Drive&limit=10`. Filtering and ranking occur before pagination. Search reads the cached snapshot without calling an agency service per request.
 
 The local selection bridge maps exact parcel features to accepted 3D entity IDs without a parcel-number/address fallback. It shows matched, unmatched and editor-pending states. Browser and Kit exchange only ephemeral selection state; source tables remain read-only. The updated workspace script must be loaded for editor acknowledgment. A current browser check of 1420 Edgewater resolved one accepted building and correctly displayed pending editor acknowledgment; bidirectional live Kit verification remains outstanding.
+
+## Government reference inspector
+
+Selecting a property now also loads its government assessment/inventory evidence through the validated local register. Exact current feature identity and parcel ID are required; matching parcel numbers alone cannot promote changed geometry. The expandable panel shows source use codes, reported inventory membership, agency conflicts and explicit unknown title/access/vacancy. A property with no government reference remains ownership unknown. Snapshot mismatch, unavailable data, changed selection and Clear cannot leave the previous property's evidence presented as current.
+
+Actual browser review on port8773 covered 1705 Edgewater (federal use), 2406 Elizabeth (County/municipal conflict), 1615 Edgewater (no government reference) and clearing. [Screenshot](evidence/property-government-inspector.png). This does not complete the physical-building census or legal-title verification.
+
+Independent GIS-agent review found no blocking identity, stale-response, clearing or labeling defects in this addition. The parcel summary now labels its counts as source building links; those counts do not include separately registered historical reconstructions.

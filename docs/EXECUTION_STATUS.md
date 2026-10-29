@@ -2,6 +2,14 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Latest implementation — October 28, 2026 local time (October 29 UTC)
+
+Added immutable source lineage for all 3,216 building groups, reusing existing entity IDs and preserving every frozen building field and all 3,916 parcel features. Actual replay leaves snapshot, connected scene and manual bytes unchanged. The API and expandable property inspector expose original subarea IDs and distinct parcel-feature candidates; browser review at 2204 Edgewater confirms two separate source building groups. [Lineage contract](BUILDING_LINEAGE.md) and [integration evidence](evidence/building-lineage-acceptance.json).
+
+The raw-membership review explicitly retains 73 unrepresented subareas across 46 source groups (35 partially represented and 11 wholly unrepresented). These are review candidates, not confirmed missing physical buildings. #3 remains open for full property/sketch/coverage work. Total remains **6 closed / 25 open**.
+
+The updated review app is available on local port8770. Port8768's API was preserved after automatic review blocked its restart; no denial reason beyond policy was supplied. Map inspection can be unlinked from 3D selection, and a preserving restart option retains valid selection state. [Native editor evidence](evidence/workspace-native-controls.json) records remaining #12 controls and preservation of the user's unsaved camera work. Rhino was also left untouched.
+
 ## Latest accepted ticket — October 28, 2026 local time (October 29 UTC)
 
 **6 closed / 25 open.** #20 is now accepted after independent PM/Director source/image/census review and actual integrated API/browser/scene-provenance verification. Its 22 dated building reviews and eight frontage sectors are available from the map's dated aerial review link; the optional 3D review layer is composed off by default. Root opinions, prior layer order and manual edits were independently confirmed unchanged. [Acceptance and limits](PILOT_AERIAL_REVIEW.md). This is the first closure after the five-ticket consolidated review below; the next consolidated review is due at ten completed tickets.

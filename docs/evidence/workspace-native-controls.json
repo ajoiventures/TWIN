@@ -1,0 +1,32 @@
+{
+  "schema": "twin.workspace-native-controls/1.0",
+  "review_date_utc": "2026-10-29",
+  "ticket": 12,
+  "acceptance_status": "incomplete; native controls remain open",
+  "verified": [
+    "Fresh isolated editor loaded the composed College Park scene with visible daylight and MainStreetOverview camera.",
+    "Native viewport picking selected a separate roof prim; this exposed missing roof-to-building provenance and identity fallback, which was fixed with current/stale snapshot regression coverage.",
+    "Native picking exposed an omni.ui dynamic Label.height TypeError; inspector and refresh summary assignments now use ui.Pixel.",
+    "A subsequent native street selection completed without that TypeError; only anonymous root/session layers were dirty at that point.",
+    "Fifteen focused workspace checks and seven selection checks passed, including generated-layer apply/undo/restart recovery and preservation of unsaved manual/scenario opinions. These function checks are not native button-click proof."
+  ],
+  "native_checks_remaining": [
+    "Inspect source identity and quality after native roof picking with the fixed implementation.",
+    "Round-trip independent visibility and confidence checkboxes and verify restoration.",
+    "Exercise native review/apply/undo/recovery buttons and unavailable-input states.",
+    "Inspect the optional dated aerial context within the native source inspector."
+  ],
+  "last_observed_state": {
+    "window": "TWIN 0.4.0",
+    "process_id": 57516,
+    "responsive": true,
+    "camera": "/World/Cameras/StreetScale",
+    "selected_path": "/World/Streets/Shoulders_73974956",
+    "edit_target": "scene/manual_edits.usda",
+    "fema_visibility": "invisible",
+    "water_context_visibility": "invisible",
+    "manual_layer_has_unsaved_camera_opinions": true
+  },
+  "preservation": "The reviewer window became the user's active window. Foreground automation, toggles, restart and saving were stopped; camera, selection and unsaved manual opinions were preserved. The older user process was absent on the final inventory and was not stopped by this reviewer.",
+  "limits": "No claim of completed native acceptance, certified accuracy, full-scene performance, terrain delivery, future-scenario delivery or private BOOMS integration. Source-level provenance checks do not substitute for the remaining native interactions."
+}

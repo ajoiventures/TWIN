@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permits','businesses','sources','quality','building_review','heights','height_quality','assets','asset_quality','scene_validation','pilot','source_catalog','pedestrian_access','crosswalk_candidates','study_boundaries','study_scope_quality','map_extent_quality','commercial_evidence','commercial_listings','commercial_model_quality','multifamily_review','multifamily_quality','reconstructions','corridor_building_review','corridor_building_quality'}
 class SnapshotMismatch(ValueError):pass
 class VerifiedReviewRows(list):pass
+TABLES.update({'building_lineage','building_lineage_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -20,6 +21,11 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name in ('building_lineage','building_lineage_quality'):
+  from build_building_lineage import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('Building source lineage unavailable; rebuild required') from exc
+  return (report['records'] if name=='building_lineage' else {k:v for k,v in report.items() if k!='records'}),report['source_snapshot']
  if name=='land_review':
   _,snapshot=active_folder(root)
   report=current_report(root/'data/land/land_review.json',snapshot)
@@ -86,6 +92,17 @@ def read_table(name,root=ROOT):
   if name=='heights':return rows,snapshot
   return current_report(root/'data/heights/height_quality.json',snapshot),snapshot
  data=json.loads((folder/(name+'.json')).read_text(encoding='utf-8'))
+ if name=='buildings':
+  from build_building_lineage import validate,FIELDS
+  try:
+   lineage=validate(root);index={r['id']:r for r in lineage['records']}
+   if lineage['source_snapshot']!=snapshot or set(index)!={r['id'] for r in data}:raise ValueError('Lineage census mismatch')
+   for row in data:
+    source=index[row['id']]
+    row.update({key:source[key] for key in FIELDS if key not in row})
+    row['source_lineage_status']='verified_against_frozen_snapshot'
+  except (OSError,ValueError):
+   for row in data:row['source_lineage_status']='unavailable_or_stale; original snapshot remains usable'
  if name=='buildings' and (root/'data/heights/building_heights.json').exists():
   index={h['building_id']:h for h in json.loads((root/'data/heights/building_heights.json').read_text(encoding='utf-8')) if h['source_snapshot']==snapshot}
   for row in data:
@@ -234,6 +251,7 @@ class Handler(BaseHTTPRequestHandler):
  def do_DELETE(self):self.send({'error':'Read-only API'},405)
  def log_message(self,*args):pass
 if __name__=='__main__':
- try:selection_state(ROOT,reset=True)
+ p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8768);p.add_argument('--preserve-selection',action='store_true');a=p.parse_args()
+ try:selection_state(ROOT,reset=not a.preserve_selection)
  except (OSError,ValueError) as exc:print('Selection bridge pending local snapshot:',str(exc),flush=True)
- p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8768);a=p.parse_args();print('TWIN snapshot API: http://127.0.0.1:'+str(a.port),flush=True);ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever()
+ print('TWIN snapshot API: http://127.0.0.1:'+str(a.port),flush=True);ThreadingHTTPServer(('127.0.0.1',a.port),Handler).serve_forever()

@@ -1,0 +1,45 @@
+{
+  "schema": "twin.visual-review/1.0",
+  "reviewed_utc_date": "2026-10-29",
+  "reviewer": "Independent QA agent; no geometry implementation in this proposal",
+  "result": "failed visual acceptance; do not activate this proposal",
+  "baseline": {
+    "image": "data/renders/20261029T010149Z/PrincetonCoherentRoofEvidence.png",
+    "sha256": "cb19dea5a17f8d6333b0878f2567c3e9e68cff8aafa6dcde18966eaf0e1598a5"
+  },
+  "proposal": {
+    "image": "data/renders/20261029T010301Z/PrincetonCoherentRoofEvidence.png",
+    "sha256": "849afcb626825275175487c344d446eecbb52601926619bba3808a209d381c82",
+    "layer_sha256_from_capture_manifest": "65eb74f6ffcaee3d79272569e2ea06f06b98a30f26f00adc411cb5960ef64a47"
+  },
+  "observations": [
+    "The proposal adds obvious triangular pits, fins and closely spaced microterraces across the long foreground/eastern roof instead of producing coherent architectural surfaces.",
+    "The right-hand curved wing has a serrated outer silhouette and a dark zigzag inner roof transition; these remain conspicuous at this district-context camera.",
+    "The baseline is also visibly rough: scalloped vertical walls, narrow roof voids and faceted curved edges. Preserving or slightly improving this baseline is not sufficient for the requested architectural quality.",
+    "The large courtyard remains visually open in this view, but this image alone does not prove the full protected courtyard geometry or source currentness."
+  ],
+  "fix_priorities": [
+    "Replace cell-by-cell roof heights with a small number of connected, source-supported roof regions. Robustly fit planes or a continuous low-complexity surface within each genuine roof zone; retain isolated residuals as uncertainty rather than raising individual triangles.",
+    "Resolve shared boundaries analytically: one shared ridge/valley line for adjacent planes and explicit walls only at supported architectural level changes. Remove short alternating step boundaries and triangle tips introduced by partitioning.",
+    "Regularize exterior and courtyard outlines within declared evidence tolerances. Preserve supported courtyards and genuine roof openings; do not fill a dark gap merely to improve appearance.",
+    "After coherent geometry is established, inspect normals/material partitions. Flat roof regions must not show triangulation seams, and walls should not appear corrugated unless the source establishes that form."
+  ],
+  "acceptance_gate": [
+    "Keep existing source fit, topology, protected-space and source-preservation checks; report residual distributions and excluded observations honestly.",
+    "Inspect the same camera and lighting plus at least one close oblique view: continuous roof regions, deliberate ridges/steps, clean perimeter and no unresolved triangle spikes/pits or microterrace bands.",
+    "Compare against dated roof references and distinguish inferred simplification from observed architecture. A numerical threshold alone cannot establish architectural plausibility."
+  ],
+  "numerical_review_limit": "The parent reports source/topology checks passed. This review inspected the actual PNGs and capture metadata only; it did not independently rerun those checks or establish new numerical accuracy thresholds.",
+  "actions": "Read-only image/metadata review; this evidence record only. No model, active composition, UI or GPU changes.",
+  "committed_original_renders": {
+    "baseline": {
+      "path": "docs/evidence/princeton-roof-baseline.png",
+      "sha256": "cb19dea5a17f8d6333b0878f2567c3e9e68cff8aafa6dcde18966eaf0e1598a5"
+    },
+    "rejected-proposal": {
+      "path": "docs/evidence/princeton-roof-rejected-proposal.png",
+      "sha256": "849afcb626825275175487c344d446eecbb52601926619bba3808a209d381c82"
+    }
+  },
+  "integrator_material_check": "Composed original roof and both proposed semantic surfaces resolve to the same PrincetonMatchedReviewNeutral material; material bindings independently inspected."
+}

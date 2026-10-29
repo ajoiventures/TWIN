@@ -30,3 +30,11 @@ Curated by the root integrator from linked implementation and acceptance records
 | L-007 | Delivery Integrator | `tools/register_reconstructions.py`, `tools/review_corridor_buildings.py`, source guards in `tools/serve.py` |
 
 All seven seed records use the date above, have no superseding record, and share the independent protocol review by the VP review agent on October 29, 2026 UTC. That review checked the lessons' scope, references and adoption clarity; technical findings and their original reviewers remain in each linked evidence record. Future records use the full template rather than relying on this shared seed metadata.
+
+## L-008: Source-fit and mesh closure do not establish architectural quality
+
+Date: October 29, 2026 UTC. Status: verified observation; replacement method remains candidate. Owner: 3D Reconstruction Lead. Independent reviewer: VP review agent acting as visual QA. Supersession: none.
+
+Actual matched renders of Princeton showed new triangular pits, fins and microterraces despite passing support, plane-fit and shell checks. [Images and findings](PRINCETON_ROOF_REVIEW.md) preserve the rejected layer and rendering conditions. The builder attributes the artifacts to nearest-support grid assignment and artificial height-order switches; the replacement region method still needs its own evidence and render.
+
+Decision: reject activation, preserve the current source scene, and inspect source-supported connected regions/shared boundaries before another full render. This applies to roof reconstruction with discontinuous regional fits; it is not permission to fabricate missing architectural detail. Adoption location: `docs/PRINCETON_ROOF_REVIEW.md` correction gate. No claim that the pending replacement is verified.

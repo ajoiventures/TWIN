@@ -19,6 +19,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 | [Landmark reconstruction](LANDMARK_RECONSTRUCTION.md) | Named churches, post office and offices, source/date conflicts and LM-01–LM-07 visual requirements |
 | [Event replay](EVENT_REPLAY.md) | Implemented offline event contract, deterministic replay, mode separation and remaining operations work |
 | [Road review](PRINCETON_EDGEWATER_REVIEW.md) | Alignment findings and unresolved intersection geometry |
+| [Princeton roof visual review](PRINCETON_ROOF_REVIEW.md) | Actual matched images, rejected candidate and required geometry corrections |
 | [Multifamily review](MULTIFAMILY_REVIEW.md) | Property candidates, source-link/height exceptions and current reconstruction needs |
 | [Study scope](STUDY_SCOPE.md) | Official district boundaries and actual extraction coverage |
 | [Execution checkpoints](EXECUTION_STATUS.md) | Dated implementation evidence; read the latest applicable checkpoint and verify against current artifacts |

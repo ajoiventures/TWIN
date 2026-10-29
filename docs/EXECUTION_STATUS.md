@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Princeton matched-render decision — October 29, 2026 UTC
+
+Rendered baseline and proposed roofs at 1920×1080 with matched camera, lighting and material. Independent geometry checks passed, but both integrator and separate visual reviewer rejected activation: the candidate adds triangular pits/fins and fragmented roof steps. Saved original renders and an explicit failed visual gate in [Princeton roof review](PRINCETON_ROOF_REVIEW.md). The existing scene and user sessions were not changed. A connected-region/analytical-boundary revision is in progress; full ticket totals remain **6 closed / 25 open**.
+
 ## Boundary exception disposition — October 29, 2026 UTC
 
 Independently replayed the actual generator boundary exclusion for all 73 raw subareas absent from modeled membership. All 73 are outside the extraction: empty intersection and zero inside area. This resolves their exclusion reason without inventing missing buildings or changing source IDs, snapshots or geometry. The wider neighborhood coverage gap remains open. [Bounded evidence](evidence/orphan-boundary-review.json) and [lineage follow-up](BUILDING_LINEAGE.md#follow-up-orphan-boundary-disposition). Ticket totals remain **6 closed / 25 open**. Princeton roof proposal refinement is still under independent review; no roof activation is claimed.

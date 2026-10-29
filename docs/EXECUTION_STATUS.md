@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## County reference integration — October 29, 2026 UTC
+
+Connected 137 County address references, seven roads and two drainage basins for the existing Edgewater pilot context. Independent review reconciled all 146 features against cached originals and verified safe IDs/fields. Fixed transitive City freshness and source-item URL findings before integration. Actual API/browser checks show fields, sample rows, sources, gaps and coverage on port8772. Address-location differences remain flagged, not snapped; inaccessible ROW remains unknown and empty County pipe/structure queries do not establish no City drainage. [Delivery and remaining #22 scope](COUNTY_CONTEXT.md). Active scene and dataset are unchanged; **6 closed / 25 open**.
+
 ## Native roof inspector and review isolation — October 29, 2026 UTC
 
 Verified roof picking and actual property/source evidence in a separate native editor; checked no-change refresh and unavailable Undo. Added session-targeted review mode with map bridge/project Save disabled and fixed the misleading applied message on no-op refresh. The owned review process closed normally; connected scene, manual edits, active pointer and selection state hashes are unchanged. Checkbox round trips and changed-layer native recovery remain unaccepted. [Evidence and limits](NATIVE_CONTROL_REVIEW.md). #12 stays open; totals remain **6 closed / 25 open**.

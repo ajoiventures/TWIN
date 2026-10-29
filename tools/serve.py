@@ -11,6 +11,7 @@ class SnapshotMismatch(ValueError):pass
 class VerifiedReviewRows(list):pass
 TABLES.update({'building_lineage','building_lineage_quality'})
 TABLES.update({'city_addresses','city_future_land_use','city_adapter_quality','full_neighborhood_parks','full_neighborhood_parks_quality'})
+TABLES.update({'county_addresses','county_roads','county_drainage_basins','county_context_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -22,6 +23,12 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name in ('county_addresses','county_roads','county_drainage_basins','county_context_quality'):
+  from county_context import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('County context or its City comparison is unavailable or stale') from exc
+  value=({k:v for k,v in report.items() if k!='layers'} if name=='county_context_quality' else report['layers'][name.removeprefix('county_')]['features'])
+  return value,report['source_snapshot']
  if name in ('city_addresses','city_future_land_use','city_adapter_quality'):
   from city_adapter_contract import validate
   try:report=validate(root)
@@ -162,6 +169,11 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/county-context/coverage':
+    from county_context import validate,OUT
+    try:validate(ROOT)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('County coverage or its City comparison is stale') from exc
+    return self.send((ROOT/OUT/'coverage.svg').read_bytes(),kind='image/svg+xml')
    if path=='/parks-inventory/coverage':
     from inventory_neighborhood_parks import validate,OUT
     try:validate(ROOT)

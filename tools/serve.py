@@ -10,6 +10,7 @@ TABLES={'parcels','buildings','streets','neighborhoods','zoning','parks','permit
 class SnapshotMismatch(ValueError):pass
 class VerifiedReviewRows(list):pass
 TABLES.update({'building_lineage','building_lineage_quality'})
+TABLES.update({'city_addresses','city_future_land_use','city_adapter_quality','full_neighborhood_parks','full_neighborhood_parks_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -21,6 +22,17 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name in ('city_addresses','city_future_land_use','city_adapter_quality'):
+  from city_adapter_contract import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('City source packet unavailable or stale') from exc
+  value=({k:v for k,v in report.items() if k!='tables'} if name=='city_adapter_quality' else report['tables']['addresses' if name=='city_addresses' else 'future_land_use'])
+  return value,report['source_snapshot']
+ if name in ('full_neighborhood_parks','full_neighborhood_parks_quality'):
+  from inventory_neighborhood_parks import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('Full-neighborhood park inventory unavailable or stale') from exc
+  return (report['rows'] if name=='full_neighborhood_parks' else {k:v for k,v in report.items() if k!='rows'}),report['comparison_snapshot']
  if name in ('building_lineage','building_lineage_quality'):
   from build_building_lineage import validate
   try:report=validate(root)
@@ -149,6 +161,12 @@ class Handler(BaseHTTPRequestHandler):
   url=urlparse(self.path);path=url.path
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/parks-inventory/coverage':
+    from inventory_neighborhood_parks import validate,OUT
+    try:validate(ROOT)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('Park coverage is stale') from exc
+    return self.send((ROOT/OUT/'coverage.svg').read_bytes(),kind='image/svg+xml')
    if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/building-review':return self.send((ROOT/'web/building-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/transit':return self.send((ROOT/'web/transit.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')

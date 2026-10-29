@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## City sources and full-neighborhood parks — October 29, 2026 UTC
+
+Integrated supplemental City address points (4,621) and future-land-use polygons (46), plus 11 park reference footprints across the full official neighborhood. Mathews, Overbrook and Don Dudley parks supplement the prior eight. Independent park review reconciled all 14 source candidates and clipped memberships; the three outside candidates are excluded. The local source browser on port8771 exposes fields, first five rows, source dates, quality and coverage. Existing snapshot, 3D ground and user sessions remain unchanged. See [City contract](CITY_ADAPTER_CONTRACT.md) and [park inventory](FULL_NEIGHBORHOOD_PARKS.md). Ownership, vacancy, governing planning conditions and park-site acceptance remain open; totals remain **6 closed / 25 open**.
+
 ## Princeton matched-render decision — October 29, 2026 UTC
 
 Rendered baseline and proposed roofs at 1920×1080 with matched camera, lighting and material. Independent geometry checks passed, but both integrator and separate visual reviewer rejected activation: the candidate adds triangular pits/fins and fragmented roof steps. Saved original renders and an explicit failed visual gate in [Princeton roof review](PRINCETON_ROOF_REVIEW.md). The existing scene and user sessions were not changed. A connected-region/analytical-boundary revision is in progress; full ticket totals remain **6 closed / 25 open**.

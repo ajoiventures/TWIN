@@ -38,3 +38,13 @@ Date: October 29, 2026 UTC. Status: verified observation; replacement method rem
 Actual matched renders of Princeton showed new triangular pits, fins and microterraces despite passing support, plane-fit and shell checks. [Images and findings](PRINCETON_ROOF_REVIEW.md) preserve the rejected layer and rendering conditions. The builder attributes the artifacts to nearest-support grid assignment and artificial height-order switches; the replacement region method still needs its own evidence and render.
 
 Decision: reject activation, preserve the current source scene, and inspect source-supported connected regions/shared boundaries before another full render. This applies to roof reconstruction with discontinuous regional fits; it is not permission to fabricate missing architectural detail. Adoption location: `docs/PRINCETON_ROOF_REVIEW.md` correction gate. No claim that the pending replacement is verified.
+
+## L-009: Government use codes and inventory membership are separate evidence
+
+Date: October 29, 2026 UTC. Status: adopted. Owner: GIS Data Lead. Reviewer: independent VP technical QA agent, [population and geometry review](evidence/public-ownership-review.json). Supersession: none.
+
+Trigger: the full-neighborhood City vacant-lot inventory matched five parcels, including one whose OCPA use code is `0001`; the prior partial extraction missed all five. A County building inventory also disagrees with one parcel's municipal assessment class. The GIS exemption namespace could not be established as the public numeric exemption dictionary.
+
+Decision: reconcile exact publisher parcel IDs against the full required boundary, retain assessment classification and official inventory membership as distinct observations, and expose conflicting agency references. Never translate an unestablished code namespace or classify unlabelled parcels as privately owned. Legal title, current vacancy and public access remain separate unverified questions.
+
+Verification and adoption: independent replay reconciled 5,732 source features and 93 combined references; `tools/public_ownership.py` preserves unknowns, exact code definitions and conflict records. The method applies to reference screening, not a comprehensive deed/title register. [Contract and limitations](PUBLIC_OWNERSHIP.md).

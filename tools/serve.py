@@ -12,6 +12,7 @@ class VerifiedReviewRows(list):pass
 TABLES.update({'building_lineage','building_lineage_quality'})
 TABLES.update({'city_addresses','city_future_land_use','city_adapter_quality','full_neighborhood_parks','full_neighborhood_parks_quality'})
 TABLES.update({'county_addresses','county_roads','county_drainage_basins','county_context_quality'})
+TABLES.update({'public_property_references','government_property_references','public_property_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -23,6 +24,14 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name in ('public_property_references','government_property_references','public_property_quality'):
+  from public_ownership import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('Government property references unavailable or stale') from exc
+  if name=='public_property_quality':value={k:v for k,v in report.items() if k not in ('rows','excluded','first_five_safe_rows','first_five_government_reference_rows')}
+  elif name=='government_property_references':value=[r for r in report['rows'] if r['government_reference_present']]
+  else:value=report['rows']
+  return value,report['source_snapshot']
  if name in ('county_addresses','county_roads','county_drainage_basins','county_context_quality'):
   from county_context import validate
   try:report=validate(root)
@@ -169,6 +178,11 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/public-property/coverage':
+    from public_ownership import validate,OUT
+    try:validate(ROOT)
+    except (ValueError,OSError):return self.send({'error':'Government property references unavailable or stale'},409)
+    return self.send((ROOT/OUT/'coverage.svg').read_text(encoding='utf-8'),kind='image/svg+xml')
    if path=='/county-context/coverage':
     from county_context import validate,OUT
     try:validate(ROOT)

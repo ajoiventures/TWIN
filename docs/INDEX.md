@@ -4,6 +4,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Government property references](PUBLIC_OWNERSHIP.md) | Full-neighborhood assessment and City/County inventory references, unknown title and conflicts |
 | [Coordinate alignment review](ALIGNMENT_REVIEW.md) | Distributed map/scene and native DEM checks, distinguished from survey accuracy |
 | [Princeton completed-roof references](PRINCETON_ROOF_REFERENCES.md) | Inspected contractor oblique, architectural component constraints and unresolved dimensions |
 | [Princeton roof reconstruction diagnostics](PRINCETON_ROOF_PLANES.md) | Rejected proposal, connected-region method and unresolved measured seam conflicts |

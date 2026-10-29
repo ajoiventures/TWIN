@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Government property reference integration — October 29, 2026 UTC
+
+Screened 5,732 OCPA parcel features against exact published use-code definitions and official inventories across the full neighborhood. Identified 93 government-related references, including five City vacant-lot inventory matches and one conflicting County/municipal reference. Independent source/geometry review passed; actual API/browser fields, first five rows and coverage are available on local port8773. All legal title/public-access/current-vacancy fields remain unverified. [Delivery and remaining scope](PUBLIC_OWNERSHIP.md). This does not close the broader land/planning tickets or expand the active 3D ground.
+
 ## Native control round trips — October 29, 2026 UTC
 
 Added broad clickable labels and verified independent tree, car and storefront hide/restore in the actual editor. Illustrative filtering removes those details and master-off restores them; corrected no-change refresh wording is now verified natively. Review session closed normally and all four protected file hashes remained unchanged. Remaining switches, filter responsiveness and changed-layer native recovery keep #12 open. [Evidence](NATIVE_CONTROL_REVIEW.md).

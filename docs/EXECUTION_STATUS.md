@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Native control round trips — October 29, 2026 UTC
+
+Added broad clickable labels and verified independent tree, car and storefront hide/restore in the actual editor. Illustrative filtering removes those details and master-off restores them; corrected no-change refresh wording is now verified natively. Review session closed normally and all four protected file hashes remained unchanged. Remaining switches, filter responsiveness and changed-layer native recovery keep #12 open. [Evidence](NATIVE_CONTROL_REVIEW.md).
+
 ## Distributed coordinate checks â€” October 29, 2026 UTC
 
 Ten City Main Street references spanning 2.8 km agree numerically with the composed scene's boundary; ten independent native DEM grid ties agree with the inactive terrain proposal. Origin, east/north axes, metre scale and Z-up are consistent. The reviewer identified a potential whole-pixel-shift blind spot; source-derived vertex ordering and world-transform checks now address it. These checks do not establish field/survey accuracy, which has no accepted control network or tolerance yet. [Report and remaining #5 gates](ALIGNMENT_REVIEW.md). No geometry activation or ticket closure.

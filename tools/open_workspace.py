@@ -15,6 +15,11 @@ from workspace_evidence import inspector_text, inherited_evidence, set_session_v
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
+
+def checkbox_label(text,model):
+    """Let the readable label toggle the same model as its small checkbox."""
+    return ui.Button(text,clicked_fn=lambda: model.set_value(not model.as_bool),
+                     style={'background_color':0x00000000,'border_width':0})
 REFRESH_LAYERS=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda','fema_effective_hazards.usda','water_landcover_context.usda','pilot_aerial_review.usda']
 
 async def open_workspace():
@@ -183,7 +188,7 @@ async def open_workspace():
                     from pxr import UsdGeom
                     model=ui.SimpleBoolModel(visible(ctx.get_stage(),path))
                     ui.CheckBox(model=model,width=24)
-                    ui.Label(label)
+                    checkbox_label(label,model)
                     model.add_value_changed_fn(lambda m,p=path:toggle(p,m.as_bool))
             if not any(path in ('/World/Scenario','/World/Scenarios') for label,path in layers):
                 ui.Label('Future scenarios: unavailable in this scene. Existing conditions remain visible.',height=44,word_wrap=True)
@@ -193,11 +198,11 @@ async def open_workspace():
             ui.Label('Source confidence',height=23,style={'font_size':18})
             ui.Label('Labels describe evidence, not certified accuracy. Historical heights do not establish current conditions.',height=48,word_wrap=True)
             with ui.HStack(height=24):
-                model=ui.SimpleBoolModel(False);ui.CheckBox(model=model,width=24);ui.Label('Filter scene by evidence category')
+                model=ui.SimpleBoolModel(False);ui.CheckBox(model=model,width=24);checkbox_label('Filter scene by evidence category',model)
                 model.add_value_changed_fn(confidence_master)
             for key,label in CONFIDENCE_CATEGORIES:
                 with ui.HStack(height=23):
-                    model=ui.SimpleBoolModel(True);ui.CheckBox(model=model,width=24);ui.Label(label)
+                    model=ui.SimpleBoolModel(True);ui.CheckBox(model=model,width=24);checkbox_label(label,model)
                     model.add_value_changed_fn(lambda m,k=key:filter_confidence(k,m.as_bool))
             confidence_summary=ui.Label('Evidence display groups (paired roofs counted separately):\n'+'\n'.join(f'{label}: {confidence_counts[key]}' for key,label in CONFIDENCE_CATEGORIES),height=170,word_wrap=True)
             ui.Button('Refresh evidence labels',height=30,clicked_fn=filter_confidence)

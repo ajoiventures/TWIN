@@ -11,10 +11,10 @@
     "Fifteen focused workspace checks and seven selection checks passed, including generated-layer apply/undo/restart recovery and preservation of unsaved manual/scenario opinions. These function checks are not native button-click proof."
   ],
   "native_checks_remaining": [
-    "Inspect source identity and quality after native roof picking with the fixed implementation.",
-    "Round-trip independent visibility and confidence checkboxes and verify restoration.",
-    "Exercise native review/apply/undo/recovery buttons and unavailable-input states.",
-    "Inspect the optional dated aerial context within the native source inspector."
+    "Round-trip remaining visibility/confidence controls, including restoration of intentionally hidden independent layers.",
+    "Exercise native changed-layer review/apply/undo/recovery and unavailable-input states.",
+    "Inspect optional dated aerial context within native source inspector.",
+    "Improve confidence callback responsiveness."
   ],
   "last_observed_state": {
     "window": "TWIN 0.4.0",
@@ -28,5 +28,56 @@
     "manual_layer_has_unsaved_camera_opinions": true
   },
   "preservation": "The reviewer window became the user's active window. Foreground automation, toggles, restart and saving were stopped; camera, selection and unsaved manual opinions were preserved. The older user process was absent on the final inventory and was not stopped by this reviewer.",
-  "limits": "No claim of completed native acceptance, certified accuracy, full-scene performance, terrain delivery, future-scenario delivery or private BOOMS integration. Source-level provenance checks do not substitute for the remaining native interactions."
+  "limits": "No claim of completed native acceptance, certified accuracy, full-scene performance, terrain delivery, future-scenario delivery or private BOOMS integration. Source-level provenance checks do not substitute for the remaining native interactions.",
+  "followup_review2": {
+    "date_utc": "2026-10-29",
+    "window": "TWIN_CONTROLS_REVIEW2",
+    "process_id": 21448,
+    "terminated_normally": true,
+    "implementation": "Clickable labels share the existing checkbox model.",
+    "verified": [
+      "Trees hide and restore independently of cars/buildings.",
+      "Parked vehicles hide and restore independently of trees/buildings.",
+      "Storefronts hide and restore independently of trees/cars/buildings.",
+      "Evidence master on, Illustrative off removes trees/cars/storefronts; master off restores visible details.",
+      "Future scenarios explicitly unavailable.",
+      "Review then Apply returns no_local_changes and displays: No local scene changes to apply. Current view is unchanged."
+    ],
+    "limitations": [
+      "Confidence callback temporarily stalls native observation for several seconds; responsiveness improvement remains.",
+      "No changed-layer native apply/undo/recovery acceptance.",
+      "No all-category or parcel-outline round-trip acceptance."
+    ],
+    "preservation": [
+      {
+        "path": "scene/manual_edits.usda",
+        "before": "7176205FC5FD5CC274967798E09D41C1A0D12C704E8AD712FD0D0ED683FD20DC",
+        "after": "7176205FC5FD5CC274967798E09D41C1A0D12C704E8AD712FD0D0ED683FD20DC",
+        "unchanged": true
+      },
+      {
+        "path": "data/processed/active.json",
+        "before": "35B54F88166C9B77CBD62EEB012321C5428245667B83C3D961DC5CEDBEA2F167",
+        "after": "35B54F88166C9B77CBD62EEB012321C5428245667B83C3D961DC5CEDBEA2F167",
+        "unchanged": true
+      },
+      {
+        "path": "scene/college_park_connected.usda",
+        "before": "77892FB3F009447D489F80C8D6768289B7EA234F56935B1B25ADCC96DB7C13A7",
+        "after": "77892FB3F009447D489F80C8D6768289B7EA234F56935B1B25ADCC96DB7C13A7",
+        "unchanged": true
+      },
+      {
+        "path": "data/processed/selection_bridge.json",
+        "before": "C962E3D8AADC9A36D371E592AD7464FFEF093CE75891D2D9121060A3E671353C",
+        "after": "C962E3D8AADC9A36D371E592AD7464FFEF093CE75891D2D9121060A3E671353C",
+        "unchanged": true
+      }
+    ],
+    "screenshots": {
+      "docs/evidence/native-controls-restored.jpg": "4e9c4983569ed34b72085877f2c7f15df1185a87381b9a2bacd9f251d27306d9",
+      "data/ui_runtime/controls_illustrative_off.jpg": "bfab23ba3002bcc6b95d2c533b8f77d7306b64e24d994d718554f72b16f8fa60",
+      "data/ui_runtime/controls_no_change.jpg": "e08e6d694c44f5258659742e2104aec3fb31f5fced99824c0b06799a35f9435b"
+    }
+  }
 }

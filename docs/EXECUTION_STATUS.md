@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Learning and script protocol adopted — October 29, 2026 UTC
+
+Delivered the owner-requested reusable protocol plus College Park profile, script-contract and lesson-record templates, and seven evidence-backed seed lessons. Repository `AGENTS.md`, the project index and team operating plan link the workflow so future project work can retrieve it. Independent VP protocol review passed; owner/adoption details and batch-review wording were clarified from its findings. This is repository documentation and reusable templates, not model retraining, global installation or a scheduled automation. Existing ticket scope and count remain unchanged: **6 closed / 25 open**. [Start here](protocols/LEARNING_AND_SCRIPT_CREATION.md).
+
 ## Latest implementation — October 28, 2026 local time (October 29 UTC)
 
 Added immutable source lineage for all 3,216 building groups, reusing existing entity IDs and preserving every frozen building field and all 3,916 parcel features. Actual replay leaves snapshot, connected scene and manual bytes unchanged. The API and expandable property inspector expose original subarea IDs and distinct parcel-feature candidates; browser review at 2204 Edgewater confirms two separate source building groups. [Lineage contract](BUILDING_LINEAGE.md) and [integration evidence](evidence/building-lineage-acceptance.json).

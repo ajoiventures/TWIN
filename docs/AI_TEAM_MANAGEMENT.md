@@ -8,6 +8,10 @@ Keep the highest quality and gain speed through parallel ticket execution. Durin
 
 Apply the [all-building exception process](EDGEWATER_PROPERTY_AUDIT.md#repeatable-missing-building-process--full-project) across the full Main Street and neighborhood coverage ledger, including all uses and missing upper floors. One showcase property must not hold corridor-wide building, sidewalk, road, parking or asset delivery.
 
+## Learning and reusable scripts
+
+Apply the [learning and script creation protocol](protocols/LEARNING_AND_SCRIPT_CREATION.md) with the [College Park profile](COLLEGE_PARK_PROTOCOL_PROFILE.md). Builders search existing helpers before creating scripts; analysts record source semantics; independent reviewers check the actual result; PM links reusable lessons to tickets; Director resolves acceptance conflicts. VP reviews strategic tradeoffs, not every script. Use proportional records and existing evidence to avoid slowing execution. Repository `AGENTS.md` points future agents to this workflow.
+
 ## Leadership
 
 ## Distinct management levels and reporting line

@@ -4,6 +4,9 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Learning and script creation protocol](protocols/LEARNING_AND_SCRIPT_CREATION.md) | Reusable workflow, script contracts, verification and persistent lessons across projects |
+| [College Park protocol profile](COLLEGE_PARK_PROTOCOL_PROFILE.md) | Project-specific source, scene, privacy and delivery rules |
+| [Lessons learned](LESSONS_LEARNED.md) | Evidence-backed decisions to reuse and supersede as knowledge changes |
 | [Consolidated delivery plan](DELIVERY_PLAN.md) | Current execution overview, reuse audit, critical path and efficiency rules |
 | [Ticket plan](../TICKET_PLAN.md) | Full scope, priorities, ownership and acceptance requirements |
 | [Property search](PROPERTY_SEARCH.md) | Search addresses and parcel numbers, select mapped parcels and inspect evidence |

@@ -7,6 +7,7 @@ from pyproj import Transformer
 from activate_environment_assets import validated_environment_layer
 from activate_flood_context import validate_active_flood
 from activate_water_context import validate_active_water
+from activate_pilot_aerial_review import validate_active_aerial
 from build_wellesley_architecture import validate_active_wellesley
 def connect():
  wellesley_active=validate_active_wellesley(ROOT)
@@ -37,6 +38,8 @@ def connect():
  if activated_environment:layers.append(activated_environment)
  activated_flood=validate_active_flood(ROOT)
  if activated_flood:layers.append(activated_flood)
+ activated_aerial=validate_active_aerial(ROOT)
+ if activated_aerial:layers.append(activated_aerial)
  activated_water=validate_active_water(ROOT)
  if activated_water:layers.append(activated_water)
  if wellesley_active:layers.append('wellesley_architecture.usda')

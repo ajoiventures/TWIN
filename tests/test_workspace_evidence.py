@@ -178,6 +178,14 @@ class WorkspaceEvidenceTests(unittest.TestCase):
             self.assertEqual((scene/'base.usda').read_text(),text)
             self.assertEqual({l.identifier:l.ExportToString() for l in (manual,scenario)},user_before)
             self.assertTrue(visible_for_test(stage,stage.GetPrimAtPath('/World/Cube')))
+            # A restarted editor can recover the previous generated view from disk,
+            # without replacing unsaved manual/scenario opinions or saved sources.
+            base.GetRootLayer().Reload(True)
+            recovered=SceneRefresh(stage,root,['base.usda'])
+            self.assertEqual(recovered.recover_latest()['status'],'previous_view_recovered_in_memory')
+            self.assertEqual(UsdGeom.Cube(stage.GetPrimAtPath('/World/Cube')).GetSizeAttr().Get(),1)
+            self.assertEqual((scene/'base.usda').read_text(),text)
+            self.assertEqual({l.identifier:l.ExportToString() for l in (manual,scenario)},user_before)
             # Missing replacement must preserve the current usable view.
             (scene/'base.usda').unlink()
             with self.assertRaisesRegex(ValueError,'missing'):manager.review()
@@ -192,6 +200,15 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         self.assertIn('Source: FEMA',text);self.assertIn('Source effective date: 2009-09-25',text);self.assertIn('Original retrieval time: 2026-',text)
         self.assertIn('Acquisition interval: unknown to unknown',text);self.assertFalse(visible_for_test(stage,child))
         self.assertIn(('Effective FEMA flood context',str(parent.GetPath())),available_display_groups(stage))
+        aerial=UsdGeom.Xform.Define(stage,'/World/Information/PilotAerialReview')
+        aerial.CreateVisibilityAttr('invisible')
+        curve=UsdGeom.BasisCurves.Define(stage,aerial.GetPath().AppendChild('Review')).GetPrim()
+        curve.SetCustomDataByKey('sourceContext',{'sourceBuildingKey':'roof:17','sourceParcelId':'P17','assignedParcelId':'P18','sourceObjectIds':'17,18','reviewId':'R17','reviewObservationJSON':'{"status":"out_of_frame"}'})
+        text=inspector_text(curve)
+        self.assertIn('Source building key: roof:17',text);self.assertIn('Parcel: P17',text)
+        self.assertIn('Source object IDs: 17,18',text);self.assertIn('Assigned parcel reference: P18',text)
+        self.assertIn('out_of_frame',text)
+        self.assertIn(('Dated aerial review',str(aerial.GetPath())),available_display_groups(stage))
 
 
 def visible_for_test(stage,prim):

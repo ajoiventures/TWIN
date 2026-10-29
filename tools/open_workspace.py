@@ -14,7 +14,7 @@ from workspace_evidence import inspector_text, inherited_evidence, set_session_v
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
-REFRESH_LAYERS=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda','fema_effective_hazards.usda','water_landcover_context.usda']
+REFRESH_LAYERS=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda','fema_effective_hazards.usda','water_landcover_context.usda','pilot_aerial_review.usda']
 
 async def open_workspace():
     global project_window, selection_subscription, confidence_controller, scene_refresh_controller
@@ -132,7 +132,7 @@ async def open_workspace():
             lines=[report.get('status',action),str(report.get('before_snapshot',''))+' → '+str(report.get('candidate_snapshot',''))]
             lines.extend(Path(row['path']).name+' · '+str(row['bytes'])+' bytes' for row in report.get('layers',[]))
             if report.get('recovery_receipt'):lines.append('Recovery: '+report['recovery_receipt'])
-            refresh_summary.text='\n'.join(lines);refresh_summary.height=max(100,22*len(lines))
+            refresh_summary.text='\n'.join(lines);refresh_summary.height=ui.Pixel(max(100,22*len(lines)))
             refresh_confidence()
             status.text={'review':'Local changes reviewed. Apply replaces generated layers in memory; manual/scenario edits are retained.','apply':'Scene update applied. Rebuild layer controls to show newly added optional switches.','undo':'Previous scene view restored in memory; saved sources and API snapshot remain unchanged.','recover_latest':'Previous saved scene view recovered in memory; sources and API snapshot remain unchanged.'}[action]
         except Exception as error:status.text='Scene update not applied: '+str(error)
@@ -179,6 +179,8 @@ async def open_workspace():
                     ui.CheckBox(model=model,width=24)
                     ui.Label(label)
                     model.add_value_changed_fn(lambda m,p=path:toggle(p,m.as_bool))
+            if not any(path in ('/World/Scenario','/World/Scenarios') for label,path in layers):
+                ui.Label('Future scenarios: unavailable in this scene. Existing conditions remain visible.',height=44,word_wrap=True)
             ui.Button('Save manual edits',height=34,clicked_fn=save)
             ui.Label('Display switches are temporary; source layers are preserved.',height=38,word_wrap=True)
             ui.Label('Source confidence',height=23,style={'font_size':18})
@@ -209,7 +211,7 @@ async def open_workspace():
     bridge_runtime={'remote_paths':None,'last_seen':None}
     def update_inspector(prim):
         text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
-        inspector.text=text;inspector.height=20*sum(max(1,(len(line)+39)//40) for line in text.splitlines())+30
+        inspector.text=text;inspector.height=ui.Pixel(20*sum(max(1,(len(line)+39)//40) for line in text.splitlines())+30)
     def selection_changed(event):
         if event.type!=int(omni.usd.StageEventType.SELECTION_CHANGED):return
         stage=ctx.get_stage()

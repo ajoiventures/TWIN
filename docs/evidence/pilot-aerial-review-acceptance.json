@@ -1,0 +1,45 @@
+{
+  "reviewed_utc": "2026-10-29T00:34:00.130021+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "60c37aa134a2f5b9aa83e6645c5b520833789354d412401a55cb4f141decbca3",
+  "optional_layer_sha256": "9ec44bd73826db15f882947a8d45cd422e6ce4fedfb5f015597fac747030ff6e",
+  "activation_backup": "data/imagery/pilot_complete/activation_backups/20261029T003259536743Z",
+  "activation_status": "activated",
+  "independently_recomputed_root_opinions_except_sublayers_preserved": true,
+  "independently_recomputed_original_sublayer_order_preserved": true,
+  "manual_sha256_preserved": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+  "aerial_fema_water_composed_invisible": true,
+  "independent_observation_census_review": {
+    "reviewer": "PM/Director separate agent; reported to integrator and author",
+    "result": "passed actual3images,17source-contextgroups,22unique sourcekeys,framefractions,eightfrontage sectors,defaultinvisible"
+  },
+  "actual_browser_review": {
+    "reviewer": "root integrator",
+    "result": "normalimg displays original2025and2024photos; cyan sourcefootprints andorangefrontage locators align;Wellesleyselection anddate switch work",
+    "image_pixels_committed": false
+  },
+  "native_provenance_review": "Interactive native controls remain in open ticket #12; composed source metadata and formatter verified independently by root.",
+  "acceptance_scope": "Dated local qualitative observation/discrepancy review and optional review-locator integration only; no imagery geometry/survey accuracy/facade/height promotion",
+  "unresolved_production_gates_preserved": {
+    "A-01": "returned frame/CRS/hash arithmetic and current source overlay checked; independent ground controls/residuals and task-specific modeling tolerance unresolved",
+    "A-02": "rear hardscape sample remains separately governed; no geometry promoted from this review",
+    "A-03": "source building IDs linked; roof/ground and spatial-only identity conflicts retained",
+    "A-04": "parking/driveway observations recorded; no hidden curb/stall/accessible-route inference",
+    "A-05": "canopy occlusion recorded; no trunk or tree-height inventory inferred",
+    "A-06": "facades/tenants require street references; overhead evidence not accepted for them",
+    "A-07": "dated review sheets and separate review layer delivered; matched model visual-production acceptance remains separate",
+    "A-08": "pilot review only; fullMainStreet replication remains source/coverage ledger work"
+  },
+  "composed_inspector_verification": {
+    "reviewer": "root integrator",
+    "prim": "/World/Information/PilotAerialReview/Review21",
+    "method": "inspector_text on actual composed USD stage",
+    "verified": [
+      "source building key 292214147406110:1",
+      "exact original footprint object IDs",
+      "2022-01,2024-01,2025-01 acquisitions",
+      "unknown assigned parcel kept distinct",
+      "historical quality and observations"
+    ]
+  }
+}

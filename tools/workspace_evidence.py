@@ -86,6 +86,7 @@ def is_project_stage(stage,scene_paths):
 def inherited_evidence(prim):
     """Nearest authored values win; missing nested fields fall back to ancestors."""
     result={}; origins={}; selected=str(prim.GetPath()) if prim else UNKNOWN
+    original=prim
     while prim and not prim.IsPseudoRoot():
         for key,value in prim.GetCustomData().items():
             if isinstance(value,dict):
@@ -97,6 +98,19 @@ def inherited_evidence(prim):
             elif value not in (None,'') and key not in result:
                 result[key]=value;origins[key]=str(prim.GetPath())
         prim=prim.GetParent()
+    if original and selected.startswith('/World/Roofs/Roof_'):
+        building=original.GetStage().GetPrimAtPath('/World/Buildings/Building_'+selected.split('/')[3][5:])
+        if building:
+            paired=inherited_evidence(building)
+            for key,value in paired['data'].items():
+                if isinstance(value,dict):
+                    target=result.setdefault(key,{})
+                    if isinstance(target,dict):
+                        for nested,item in value.items():
+                            if nested not in target:
+                                target[nested]=item;origins[key+'.'+nested]=paired['origins'].get(key+'.'+nested,str(building.GetPath()))
+                elif key not in result:
+                    result[key]=value;origins[key]=paired['origins'].get(key,str(building.GetPath()))
     return {'selected_path':selected,'data':result,'origins':origins}
 
 def registry_index(document):
@@ -126,9 +140,15 @@ def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None)
           ('Snapshot freshness','Stale: differs from active dataset' if category=='stale' else 'Matches active dataset' if active_snapshot and snapshot==active_snapshot else UNKNOWN),
           ('Address',pick(official.get('site_address'))),
           ('Entity',pick(twin.get('entityId'),official.get('id'),d.get('id'))),
-          ('Parcel',pick(official.get('parcel_id'),d.get('parcelId'))),
+          ('Parcel',pick(official.get('parcel_id'),d.get('parcelId'),context.get('sourceParcelId'))),
           ('Source',pick(official.get('source'),d.get('source'),context.get('publisher'))),
-          ('Source object IDs',pick(d.get('sourceObjectIds'),official.get('source_object_id'))),
+          ('Source object IDs',pick(d.get('sourceObjectIds'),official.get('source_object_id'),context.get('sourceObjectIds'))),
+          ('Source building key',pick(context.get('sourceBuildingKey'))),
+          ('Assigned parcel reference',pick(context.get('assignedParcelId'))),
+          ('Local building alias',pick(context.get('localBuildingAlias'))),
+          ('Review ID',pick(context.get('reviewId'))),
+          ('Dated reference acquisitions',pick(context.get('acquisitionDates'))),
+          ('Review observations',pick(context.get('reviewObservationJSON'))),
           ('Reference feature ID',pick(d.get('sourceZoneId'),d.get('sourceId'))),
           ('Source zone code',pick(d.get('zoneCode'))),
           ('Effective/source status',pick(d.get('sourceStatus'),d.get('productStatus'))),
@@ -274,6 +294,7 @@ def available_display_groups(stage):
         ('Parcel outlines','/World/ParcelBoundaries'),('Main Street boundary','/World/StudyBoundaries/MainStreet'),
         ('Neighborhood boundary','/World/StudyBoundaries/Neighborhood'),
         ('Rear parking samples','/World/RearParkingSamples'),('Effective FEMA flood context','/World/Information/FemaEffectiveFloodHazards'),
+        ('Dated aerial review','/World/Information/PilotAerialReview'),
         ('Historical water / land-cover context','/World/WaterLandcoverContext'),('Scenario','/World/Scenario'),('Scenarios','/World/Scenarios')]
     return [(label,path) for label,path in candidates if stage and stage.GetPrimAtPath(path)]
 
@@ -322,6 +343,9 @@ class SceneRefresh:
             if path.name=='water_landcover_context.usda':
                 from build_water_context import validate_water_context
                 validate_water_context(self.root)
+            if path.name=='pilot_aerial_review.usda':
+                from complete_pilot_aerial_review import validate_review
+                validate_review(self.root)
             def resolve(asset):
                 if not asset:return asset
                 target=Path(asset)

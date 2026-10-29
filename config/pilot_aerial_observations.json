@@ -1,0 +1,357 @@
+{
+  "pilot_id": "edgewater-princeton-smith-south-v1",
+  "review_method": "AI analyst visual inspection of original cached January2022/January2024/January2025 images; qualitative source comparisons, not surveyed measurements",
+  "building_observations": [
+    {
+      "building_id": "Building_1653",
+      "source_parcel_id": "292214146002300",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "892364",
+        "892496",
+        "892363",
+        "892365",
+        "1172117",
+        "1169079",
+        "1173398",
+        "1186882"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Only the eastern roof portion is in the frame; broad white roof remains visible at all three dates. Western outline/additions cannot be checked.",
+      "parking_driveway_observation": "Western parking/driveway continuity extends beyond frame; visible asphalt is only partial.",
+      "occlusion_identity_observation": "Image edge and western canopy prevent full curb/roof review."
+    },
+    {
+      "building_id": "Building_1966",
+      "source_parcel_id": "292214147800250",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895645",
+        "895646",
+        "896211",
+        "896212",
+        "897471",
+        "897473",
+        "897474",
+        "897472"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "The source footprint is wholly east of all three exports. No roof/change conclusion is available.",
+      "parking_driveway_observation": "Outside frame; no parking or driveway conclusion.",
+      "occlusion_identity_observation": "Current assigned parcel is a spatial-review candidate, not accepted source identity."
+    },
+    {
+      "building_id": "Building_2874",
+      "source_parcel_id": "292214147407140",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1157378",
+        "1169142",
+        "1187012",
+        "1176072"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Long eastern roof complex remains across2022/2024/2025. Middle roof section is darker in2022 and lighter in2024/2025; this supports roof-surface appearance change, not an added footprint or measured height.",
+      "parking_driveway_observation": "East-side striped parking, aisles and north/south access are visible across dates. Parked vehicles differ; no capacity/legal-access assertion.",
+      "occlusion_identity_observation": "Trees/shadows obscure northern corner and parts of eastern parking edge; canopy crown is not trunk/curb geometry."
+    },
+    {
+      "building_id": "Building_2878",
+      "source_parcel_id": "292214146002242",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1158163",
+        "1166738",
+        "1169498"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Compact west-side roof south of Smith remains in all three dates; no unambiguous new wing visible.",
+      "parking_driveway_observation": "Rear west asphalt and adjacent narrow building constrain interpretation; no new driveway promoted.",
+      "occlusion_identity_observation": "Road-side roof/sidewalk shadows obscure wall-versus-roof offset."
+    },
+    {
+      "building_id": "Building_2898",
+      "source_parcel_id": "292214146001280",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1161455",
+        "1172884",
+        "1164334",
+        "1166627"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Northwest Smith-corner roof remains; a lighter rectangular surface patch is visible in2025 compared with older weathered roof. No clear plan expansion established.",
+      "parking_driveway_observation": "West rear access and intersection crossings visible; parking occupancy changes are not layout changes.",
+      "occlusion_identity_observation": "Corner trees/roof displacement prevent surveyed curb/wall alignment."
+    },
+    {
+      "building_id": "Building_2903",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1162357",
+        "1163396",
+        "1164358",
+        "1184916",
+        "1179819",
+        "1173197"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Only western portion of this source group enters the right edge of the frame. Complete roof outline and additions are unresolved.",
+      "parking_driveway_observation": "Parking/driveway review outside export remains unresolved.",
+      "occlusion_identity_observation": "Multiple source groups overlap this assigned parcel; do not assume each group is a separate observed building."
+    },
+    {
+      "building_id": "Building_2904",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "7",
+      "source_object_ids": [
+        "1162358",
+        "1162885",
+        "1165674",
+        "1179766"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source geometry lies outside the southeast image frame at all dates; no visual roof conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Linked context group is not evidence of a new missing building in the visible pilot."
+    },
+    {
+      "building_id": "Building_2915",
+      "source_parcel_id": "292214146001262",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1164412",
+        "1182400"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Northern roof is cut by the top export edge; visible dark surface persists. No complete addition conclusion.",
+      "parking_driveway_observation": "Northern rear parking beyond frame is unresolved.",
+      "occlusion_identity_observation": "Image-edge truncation is not a natural building boundary."
+    },
+    {
+      "building_id": "Building_2920",
+      "source_parcel_id": "292214146003230",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1165051",
+        "1183265"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Narrow western south-of-Princeton roof remains light in all dates; no clear footprint addition visible.",
+      "parking_driveway_observation": "Flanking parking and access are visible, with changing vehicles; stripe counts/access status unverified.",
+      "occlusion_identity_observation": "Nearby trees obscure western circulation edges."
+    },
+    {
+      "building_id": "Building_2927",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "4",
+      "source_object_ids": [
+        "1166887",
+        "1182497",
+        "1187328",
+        "1176015",
+        "1159822",
+        "1162246",
+        "1163532",
+        "1167578",
+        "1187382",
+        "1181753",
+        "1183142",
+        "1185063"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Eastern source group is only partly within export; visible edge is insufficient to verify the complete structure or source-group identity.",
+      "parking_driveway_observation": "Right-edge rear area incomplete.",
+      "occlusion_identity_observation": "Overlapping source groups on assigned parcel require identity reconciliation; no aerial promotion."
+    },
+    {
+      "building_id": "Building_2936",
+      "source_parcel_id": "292214146003240",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1167723",
+        "1182012"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southwest Princeton roof is weathered/dark in2022 and substantially brighter in2024/2025. Broad perimeter appears persistent; roof maintenance/material change is a candidate, not confirmed construction.",
+      "parking_driveway_observation": "West/south striped asphalt and vehicle locations are visible; exact stalls/driveway widths not measured.",
+      "occlusion_identity_observation": "Tree/shadow on western frontage remains an occlusion."
+    },
+    {
+      "building_id": "Building_2945",
+      "source_parcel_id": "292214146002260",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "1169695"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Small west/rear pitched-roof component remains; roof/trees overlap, so exact eave and any small addition stay unresolved.",
+      "parking_driveway_observation": "Rear parking contains marked bays and planted/roofed edges. No hidden curb or pedestrian path inferred.",
+      "occlusion_identity_observation": "Canopy and pitched-roof displacement obscure ground footprint."
+    },
+    {
+      "building_id": "Building_2955",
+      "source_parcel_id": "292214146002241",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1171952",
+        "1167193"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "West-side middle roof appears darker in2022 and bright in2024/2025; no definite lateral footprint increase visible.",
+      "parking_driveway_observation": "Rear parking asphalt and drive aisle remain visible; no measured parking count.",
+      "occlusion_identity_observation": "Continuous sidewalk/frontage under roof shadow cannot establish ground-wall position."
+    },
+    {
+      "building_id": "Building_2974",
+      "source_parcel_id": "292214146003260",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1179123",
+        "1169540",
+        "1180964"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southern west-side white roof remains across three dates; some south/west vegetation obscures roof edge.",
+      "parking_driveway_observation": "Parking at west edge remains visible but shadowed; full rear continuity not verified.",
+      "occlusion_identity_observation": "Low south-frame margin and tree cover constrain edge review."
+    },
+    {
+      "building_id": "Building_2978",
+      "source_parcel_id": "292214146002260",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1179724",
+        "1164541"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Several connected west-side roof sections remain. Large surfaces brighten from2022 to2024/2025; no unambiguous new building extension established.",
+      "parking_driveway_observation": "Rear western lot shows bays and aisle continuity; occupied cars/shadows vary. No legal-access or stall-count assertion.",
+      "occlusion_identity_observation": "Tree wells/canopy near north/south corners obscure portions of curb and rear surfaces."
+    },
+    {
+      "building_id": "Building_2979",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "1179889",
+        "1174121",
+        "1177013",
+        "1165945",
+        "1168401",
+        "1182253"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southeast pitched-roof source component is visible but partly beneath tree shadows. Broad roof remains; small changes unresolved.",
+      "parking_driveway_observation": "Adjacent open paved/green areas are visible; cannot infer a public route or driveway under canopy.",
+      "occlusion_identity_observation": "Assigned parcel/source identity and overlap with neighboring source group remain separate questions."
+    },
+    {
+      "building_id": "Building_2985",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "3",
+      "source_object_ids": [
+        "1182846",
+        "1173575",
+        "1175606",
+        "1183205",
+        "1172465",
+        "1182573"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Southeast connected pitched-roof form reaches the lower export edge; broad form visible, full southern boundary unresolved.",
+      "parking_driveway_observation": "Courtyard/open areas and drive access partly occluded; no hidden connection inferred.",
+      "occlusion_identity_observation": "Canopy/shadow and lower-frame clipping limit ground-footprint interpretation."
+    },
+    {
+      "building_id": "Building_3042",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "5",
+      "source_object_ids": [
+        "1174118",
+        "1159177",
+        "1179967",
+        "1182623"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source footprint wholly east of export; no dated roof/addition conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Assigned parcel has multiple source groups; unresolved source location is not invented geometry."
+    },
+    {
+      "building_id": "Building_3047",
+      "source_parcel_id": "292214146002243",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1175581"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Narrow west-side Smith building has light roof at all dates; no unambiguous addition visible.",
+      "parking_driveway_observation": "Rear striped lot and nearby aisle visible; no inferred exact curb geometry.",
+      "occlusion_identity_observation": "Roof lean/shadow and adjoining building separation require ground-reference evidence."
+    },
+    {
+      "building_id": "Building_3068",
+      "source_parcel_id": "292214146001290",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1158425",
+        "1171965",
+        "1178780"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Northwest rear rectangular roof is mottled/dark in2022 and bright in2024/2025. Broad footprint appears stable; resurfacing is a candidate, not a dated permit fact.",
+      "parking_driveway_observation": "Rear parking rows north/east visible, but beyond pilot endpoints is context only.",
+      "occlusion_identity_observation": "Western canopy and image boundary reduce confidence at rear edge."
+    },
+    {
+      "building_id": "Building_3091",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "6",
+      "source_object_ids": [
+        "1173799",
+        "1175839",
+        "1179432",
+        "1181369"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source footprint wholly east of exports; no visual conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Keep this linked source group as an unresolved identity/frame exception."
+    },
+    {
+      "building_id": "Building_2939",
+      "source_parcel_id": "292214147406110",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1168624",
+        "1181917",
+        "1184630",
+        "1161794",
+        "1182436",
+        "1187964",
+        "1163955",
+        "1173129",
+        "1186049"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Supplemental Wellesley context group omitted by parcel-linked pilot queue. Large roof/courtyard complex remains visible north/east of Smith in2022/2024/2025; north/east frame truncation and equipment/roof lean prevent complete outline/change conclusions. Courtyard is visible, not a ground-level hole inferred from a roof shadow.",
+      "parking_driveway_observation": "Northern/side access and planted court are partly visible; fullparking/driveway pattern extends outside frame. No ground-level access or stalls inferred from elevatedcourtyard.",
+      "occlusion_identity_observation": "Whole Wellesley condo building is not one condo unit. Existing historical roof correction must remain distinct from raw OCPA footprint and imagery; no overhead story/height inference."
+    }
+  ],
+  "frontage_observations": {
+    "west_1": "Smith-south west corner crossing and bulb-out are visible across dates. Corner vegetation, parked vehicles and roof shadows obscure exact curb returns/grade; no ADA/ramp acceptance.",
+    "west_2": "West continuous frontage/sidewalk and parallel curbside vehicles are visible; building shadows obscure portions of curb. No confirmed new driveway or sidewalk-width change.",
+    "west_3": "West middle storefront frontage remains continuous; parked vehicles interrupt curb visibility. Tree wells/canopy do not establish trunk coordinates or clear route width.",
+    "west_4": "West Princeton approach/crosswalk and corner landscaping are visible. Crosswalk markings are historical observations; exact curb/ramp alignment beneath shadow remains unresolved.",
+    "east_1": "Smith staggered east junction and planted corner are visible. Canopy and shadow obscure parts of sidewalk/curb; cross-street alignment must not be collapsed into a single junction.",
+    "east_2": "Long eastern building frontage is visible along Edgewater; roof overhang/shadow prevents exact ground-wall/curb separation. No facade or doorway inferred.",
+    "east_3": "Eastern frontage remains broadly continuous; vehicles and roof shadow obscure curb segments. Rear parking is east of building, not inferred to connect through it.",
+    "east_4": "Princeton northeast corner/crosswalk and planted edge visible. Tree shadow/vehicles obscure exact curb-return and ramp dimensions; no clear dated curb reconstruction established."
+  },
+  "supplemental_context_buildings": [
+    "Building_2939"
+  ]
+}

@@ -148,6 +148,11 @@ def counterpart_paths(stage,packet,context):
 
 def selection_identity(prim,context):
     """Only registry entity identity or exact official parcel feature, never PIN."""
+    if prim and str(prim.GetPath()).startswith('/World/Roofs/Roof_'):
+        roof=str(prim.GetPath()).split('/')[3]
+        paired=prim.GetStage().GetPrimAtPath('/World/Buildings/Building_'+roof[5:])
+        if paired and paired.GetCustomData().get('twin',{}).get('sourceSnapshot')==context['snapshot']:
+            prim=paired
     while prim and not prim.IsPseudoRoot():
         data=prim.GetCustomData();entity=data.get('twin',{}).get('entityId')
         if entity:return {'entity_id':entity}

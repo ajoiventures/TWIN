@@ -2,9 +2,29 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Latest accepted ticket — October 28, 2026 local time (October 29 UTC)
+
+**6 closed / 25 open.** #20 is now accepted after independent PM/Director source/image/census review and actual integrated API/browser/scene-provenance verification. Its 22 dated building reviews and eight frontage sectors are available from the map's dated aerial review link; the optional 3D review layer is composed off by default. Root opinions, prior layer order and manual edits were independently confirmed unchanged. [Acceptance and limits](PILOT_AERIAL_REVIEW.md). This is the first closure after the five-ticket consolidated review below; the next consolidated review is due at ten completed tickets.
+
+Refreshed reconstruction and corridor ledgers against the new composition. Fixed native inspector sizing and roof-to-building identity, added aerial source details and explicit unavailable-scenario text; focused recovery/selection checks pass. #12 remains open for actual roof/checkbox/refresh control acceptance. Foreground testing stopped on user activity; the older unresponsive user session was preserved. A-01 surveyed alignment and A-02–A-08 detailed geometry/visual production remain open.
+
+## Current consolidated acceptance — October 28, 2026 local time
+
+**Qualified five-ticket pass: #1, #2, #19, #23 and #24 are closed; 5 closed / 26 open.** This supersedes the historical issue counts and awaiting-review statements below. Five actual existing tickets passed their relevant independent acceptance gates; it is not a full-district visual, survey, performance or live-operations sign-off.
+
+| Closed ticket | Accepted delivery and evidence | Practical limit |
+|---|---|---|
+| #1 | Portable original sample; clean committed archive build, actual Kit capture and manual/scenario save/reopen; separate final GIS acceptance. [Sample evidence](SAMPLE_BUILD.md) | Fictional offline baseline; district geometry/currentness and district performance remain open. |
+| #2 | Six-source read-only audit, schema/freshness/reconciliation exceptions and publication allowlist; independent root privacy/source-contract review; delivery commit `e44ca09`. [Audit contract](SOURCE_ADAPTER_CONTRACT.md) | Private records remain held; missing original receipts/terms are recorded unknowns and authorize no release. |
+| #19 | Official-source search, ranked/deduplicated decisions, schema/sample/coverage outputs and working local API/UI; independent review. [Catalog evidence](SOURCE_CATALOG.md) | Candidate catalog acceptance does not activate every dataset or accept terrain/transport semantics. |
+| #23 | Historical water/landcover packet, safeguards and independent geometry review; actual Lake Adair render accepted; optional composition off by default. [Water evidence](WATER_LANDCOVER_CONTEXT.md) | Historical contextual polygons, unknown current shoreline/water elevation; clipped study boundary retained. |
+| #24 | Effective FEMA source/coverage review and actual enabled-view visual acceptance; source-preserving optional composition off by default. [Hazard evidence](FLOOD_HAZARDS.md) | Mapped effective hazard information, not live flooding, modeled depth or insurance determination. |
+
+#3 remains open despite its working adapter/search/selection: the current snapshot's review queues, component/sketch conflicts and full-project completeness still need disposition. The latest source audit verifies 3,916 parcel features / 3,915 PINs and 3,216 source building groups, with 2,976 exact links, 202 spatial-review, 3 ambiguous and 35 unmatched; 561 floor disagreements include six larger conflicts. Main Street extent is covered, while neighborhood extraction remains 60.768%; neither metric certifies physical-building completeness. #12 native controls and #20 dated pilot observations are undergoing their own delivery/acceptance work. Their state is not inferred from the five closed tickets.
+
 ## Property search delivery — October 28, 2026
 
-The local map now searches the current parcel snapshot by address or parcel number, ranks matches before pagination and selects the exact mapped parcel. The inspector includes an OCPA zoning reference and explicitly unsurveyed parcel reference coordinates. Browser checks verified address and formatted PIN searches, selection, no results and reset; [usage and captured evidence](PROPERTY_SEARCH.md). The integration suite passed 200 tests at this checkpoint. This feature does not close its broader property-data or scene-quality tickets. GitHub status remains 30 open issues and one completed issue (#19), pending the next acceptance review.
+The local map now searches the current parcel snapshot by address or parcel number, ranks matches before pagination and selects the exact mapped parcel. The inspector includes an OCPA zoning reference and explicitly unsurveyed parcel reference coordinates. Browser checks verified address and formatted PIN searches, selection, no results and reset; [usage and captured evidence](PROPERTY_SEARCH.md). The integration suite passed 200 tests at this checkpoint. This feature does not close its broader property-data or scene-quality tickets. At this historical checkpoint there were 30 open issues and one completed issue (#19); the current five-ticket acceptance above supersedes that count.
 
 ## Latest Main Street extraction — October 28, 2026, 16:15 UTC
 

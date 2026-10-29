@@ -137,6 +137,20 @@ class Handler(BaseHTTPRequestHandler):
    if path=='/transit':return self.send((ROOT/'web/transit.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/flood':return self.send((ROOT/'web/flood.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/water-context':return self.send((ROOT/'web/water-context.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/aerial-review':return self.send((ROOT/'web/aerial-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path in ('/api/v1/pilot_aerial_review','/aerial-review/coverage') or path.startswith('/aerial-review/reference/'):
+    if path.startswith('/aerial-review/reference/') and path not in tuple('/aerial-review/reference/'+year for year in ('2022','2024','2025')):return self.send({'error':'Unknown dated reference'},404)
+    from complete_pilot_aerial_review import validate_review
+    try:report=validate_review(ROOT)
+    except ValueError as exc:raise SnapshotMismatch(str(exc)) from exc
+    if path=='/aerial-review/coverage':return self.send((ROOT/'data/imagery/pilot_complete/coverage.html').read_bytes(),kind='text/html; charset=utf-8')
+    if path.startswith('/aerial-review/reference/'):
+     year=path.rsplit('/',1)[-1]
+     reference=next(r for r in report['references'] if r['acquisition']['month']==year+'-01')
+     image=(ROOT/reference['image_path']).resolve()
+     if not image.is_relative_to((ROOT/'data/imagery').resolve()) or image.suffix.lower() not in ('.jpg','.jpeg'):raise SnapshotMismatch('Invalid local aerial reference path')
+     return self.send(image.read_bytes(),kind='image/jpeg')
+    return self.send(report)
    if path in ('/api/v1/water_context','/water-reference/lake-adair-2025'):
     from build_water_context import validate_water_context
     try:report=validate_water_context(ROOT)

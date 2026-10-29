@@ -1,5 +1,7 @@
 # Frozen-pilot OCPA aerial reference discovery
 
+Current observation-ledger delivery: [Frozen-pilot dated aerial review](PILOT_AERIAL_REVIEW.md). The discovery checkpoint below is preserved as historical evidence; the newer review does not promote unknown positional accuracy or source-image reuse rights.
+
 Bounded #20 progress, October 28, 2026. The frozen pilot is `edgewater-princeton-smith-south-v1`, Edgewater Drive from W Princeton Street to the southern W Smith Street junction, 85.44 m of centerline. The 60 m context buffer is an extraction/review context, not surveyed right-of-way. Source snapshot: `20261028T145054204280Z`.
 
 ## Official source discovery

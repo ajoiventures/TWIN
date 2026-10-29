@@ -5,6 +5,8 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.dependenci
 from pxr import Usd,UsdGeom,Gf
 from pyproj import Transformer
 from activate_environment_assets import validated_environment_layer
+from activate_flood_context import validate_active_flood
+from activate_water_context import validate_active_water
 from build_wellesley_architecture import validate_active_wellesley
 def connect():
  wellesley_active=validate_active_wellesley(ROOT)
@@ -33,6 +35,10 @@ def connect():
  layers+=['manual_edits.usda']
  activated_environment=validated_environment_layer(ROOT)
  if activated_environment:layers.append(activated_environment)
+ activated_flood=validate_active_flood(ROOT)
+ if activated_flood:layers.append(activated_flood)
+ activated_water=validate_active_water(ROOT)
+ if activated_water:layers.append(activated_water)
  if wellesley_active:layers.append('wellesley_architecture.usda')
  if (scene/'main_street_presentation.usda').exists():layers.append('main_street_presentation.usda')
  layers+=['official_context.usda']

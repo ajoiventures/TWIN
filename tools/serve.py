@@ -135,6 +135,20 @@ class Handler(BaseHTTPRequestHandler):
    if path=='/land-review':return self.send((ROOT/'web/land-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/building-review':return self.send((ROOT/'web/building-review.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/transit':return self.send((ROOT/'web/transit.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/flood':return self.send((ROOT/'web/flood.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/water-context':return self.send((ROOT/'web/water-context.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path in ('/api/v1/water_context','/water-reference/lake-adair-2025'):
+    from build_water_context import validate_water_context
+    try:report=validate_water_context(ROOT)
+    except ValueError as exc:raise SnapshotMismatch(str(exc)) from exc
+    if path=='/water-reference/lake-adair-2025':return self.send((ROOT/'data/cache/water_context/lake_adair_2025.jpg').read_bytes(),kind='image/jpeg')
+    return self.send(report)
+   if path in ('/api/v1/flood','/flood/coverage'):
+    from build_flood_overlay import validate_packet
+    try:report=validate_packet(ROOT)
+    except ValueError as exc:raise SnapshotMismatch(str(exc)) from exc
+    if path=='/flood/coverage':return self.send((ROOT/'data/flood/coverage.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+    return self.send(report)
    if path=='/api/v1/transit':
     _,snapshot=active_folder()
     report=current_report(ROOT/'data/transport/lynx_transit.json',snapshot)

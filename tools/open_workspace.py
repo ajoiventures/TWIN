@@ -10,13 +10,14 @@ from pxr import Gf
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage
+from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage, SceneRefresh, government_preview
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
+REFRESH_LAYERS=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda','fema_effective_hazards.usda','water_landcover_context.usda']
 
 async def open_workspace():
-    global project_window, selection_subscription, confidence_controller
+    global project_window, selection_subscription, confidence_controller, scene_refresh_controller
     if 'confidence_controller' in globals():confidence_controller.reset()
     if project_window is None:
         project_window=ui.Window('College Park | Project',width=360,height=700)
@@ -80,6 +81,9 @@ async def open_workspace():
         evidence_registry=registry_index(json.loads((ROOT/'data/processed/asset_registry.json').read_text(encoding='utf-8')))
     except (OSError,ValueError,TypeError):evidence_registry={}
     confidence_controller=SessionConfidenceFilter(ctx.get_stage(),active_snapshot if project_stage else None)
+    previous_refresh=globals().get('scene_refresh_controller')
+    scene_refresh=previous_refresh if previous_refresh and previous_refresh.stage==ctx.get_stage() else SceneRefresh(ctx.get_stage(),ROOT,REFRESH_LAYERS) if project_stage else None
+    scene_refresh_controller=scene_refresh
     confidence_counts=confidence_controller.counts()
     registry_stamp=None
     confidence_enabled={key for key,label in CONFIDENCE_CATEGORIES};confidence_mode={'enabled':False}
@@ -121,6 +125,29 @@ async def open_workspace():
             save_manual_only(ctx.get_stage(),manual)
             status.text='Manual edits saved. Display switches remain temporary.'
         except Exception as error:status.text='Manual edits were not saved: '+str(error)
+    def refresh_scene(action):
+        try:
+            if not scene_refresh or ctx.get_stage()!=scene_refresh.stage:raise ValueError('Attach these controls to the current project using Retry startup')
+            report=getattr(scene_refresh,action)()
+            lines=[report.get('status',action),str(report.get('before_snapshot',''))+' → '+str(report.get('candidate_snapshot',''))]
+            lines.extend(Path(row['path']).name+' · '+str(row['bytes'])+' bytes' for row in report.get('layers',[]))
+            if report.get('recovery_receipt'):lines.append('Recovery: '+report['recovery_receipt'])
+            refresh_summary.text='\n'.join(lines);refresh_summary.height=max(100,22*len(lines))
+            refresh_confidence()
+            status.text={'review':'Local changes reviewed. Apply replaces generated layers in memory; manual/scenario edits are retained.','apply':'Scene update applied. Rebuild layer controls to show newly added optional switches.','undo':'Previous scene view restored in memory; saved sources and API snapshot remain unchanged.','recover_latest':'Previous saved scene view recovered in memory; sources and API snapshot remain unchanged.'}[action]
+        except Exception as error:status.text='Scene update not applied: '+str(error)
+    def preview_government():
+        global government_window
+        refresh_confidence();government_window=ui.Window('Government source evidence',width=740,height=700)
+        requested_window=government_window;requested_snapshot=active_snapshot
+        with government_window.frame,ui.VStack():ui.Label('Checking adapter receipts and source dependencies…',word_wrap=True)
+        async def populate():
+            text=await asyncio.to_thread(government_preview,ROOT,requested_snapshot)
+            refresh_confidence()
+            if active_snapshot!=requested_snapshot:text='Snapshot changed while checking sources. Reopen this evidence preview.'
+            height=20*sum(max(1,(len(line)+69)//70) for line in text.splitlines())+40
+            with requested_window.frame,ui.ScrollingFrame(),ui.VStack(height=0):ui.Label(text,word_wrap=True,height=height)
+        asyncio.ensure_future(populate())
     with window.frame, ui.ScrollingFrame(horizontal_scrollbar_policy=ui.ScrollBarPolicy.SCROLLBAR_ALWAYS_OFF):
         with ui.VStack(spacing=8,height=0):
             ui.Label('COLLEGE PARK',height=30,style={'font_size':25,'color':0xffe2d1a1})
@@ -143,6 +170,7 @@ async def open_workspace():
                 ui.Button('Tree-lined Edgewater',height=34,clicked_fn=lambda:view('TreeLinedEdgewater'))
                 ui.Button('Storefront walk',height=34,clicked_fn=lambda:view('StorefrontWalk'))
             ui.Label('Layers',height=22,style={'font_size':18})
+            ui.Button('Rebuild layer controls',height=28,clicked_fn=retry_startup)
             layers=available_display_groups(ctx.get_stage())
             for label,path in layers:
                 with ui.HStack(height=23):
@@ -164,6 +192,14 @@ async def open_workspace():
                     model.add_value_changed_fn(lambda m,k=key:filter_confidence(k,m.as_bool))
             confidence_summary=ui.Label('Evidence display groups (paired roofs counted separately):\n'+'\n'.join(f'{label}: {confidence_counts[key]}' for key,label in CONFIDENCE_CATEGORIES),height=170,word_wrap=True)
             ui.Button('Refresh evidence labels',height=30,clicked_fn=filter_confidence)
+            ui.Button('Government schemas / first five safe rows',height=32,clicked_fn=preview_government)
+            ui.Label('Local scene updates',height=23,style={'font_size':18})
+            ui.Label('The data pipeline stages source snapshots. These controls adopt completed local layers without downloading or saving source geometry.',height=58,word_wrap=True)
+            ui.Button('Review local scene updates',height=30,clicked_fn=lambda:refresh_scene('review'))
+            ui.Button('Apply reviewed scene update',height=30,clicked_fn=lambda:refresh_scene('apply'))
+            ui.Button('Undo last scene refresh',height=30,clicked_fn=lambda:refresh_scene('undo'))
+            ui.Button('Recover previous saved scene view',height=30,clicked_fn=lambda:refresh_scene('recover_latest'))
+            refresh_summary=ui.Label('No scene refresh reviewed. Manual and scenario layers are excluded.',height=140,word_wrap=True)
             status=ui.Label('Ready. Select any building part to inspect its evidence.',height=80,word_wrap=True)
             inspector=ui.Label('Select a building part to inspect source, dates and evidence quality.',height=660,word_wrap=True)
             ui.Label('Heights: historical LiDAR or floor estimates. Ground is flat.\nNo live traffic or sensor feeds.',height=48,word_wrap=True,style={'color':0xffa9b8cf})
@@ -171,6 +207,9 @@ async def open_workspace():
             ui.Label('Buildings: Orange County Property Appraiser\nMap: OpenStreetMap contributors (ODbL)',height=48,word_wrap=True)
             ui.Spacer(height=0)
     bridge_runtime={'remote_paths':None,'last_seen':None}
+    def update_inspector(prim):
+        text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
+        inspector.text=text;inspector.height=20*sum(max(1,(len(line)+39)//40) for line in text.splitlines())+30
     def selection_changed(event):
         if event.type!=int(omni.usd.StageEventType.SELECTION_CHANGED):return
         stage=ctx.get_stage()
@@ -178,7 +217,7 @@ async def open_workspace():
         paths=ctx.get_selection().get_selected_prim_paths()
         prim=stage.GetPrimAtPath(paths[0]) if paths else None
         refresh_confidence()
-        inspector.text=inspector_text(prim,project_refresh if project_stage else None,evidence_registry if project_stage else None,active_snapshot if project_stage else None)
+        update_inspector(prim)
         if not project_stage or not is_project_stage(stage,[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):return
         if tuple(paths)==bridge_runtime['remote_paths']:return
         bridge_runtime['remote_paths']=None
@@ -213,7 +252,7 @@ async def open_workspace():
                     notice=selection['reason']
                     acknowledge(packet,'selected-in-editor' if paths else 'unmatched-editor',notice,ROOT)
                 refresh_confidence()
-                inspector.text=inspector_text(ctx.get_stage().GetPrimAtPath(paths[0]) if paths else None,project_refresh,evidence_registry,active_snapshot)
+                update_inspector(ctx.get_stage().GetPrimAtPath(paths[0]) if paths else None)
                 status.text='Map selection: '+notice+'\nCamera preserved.'
             except (OSError,ValueError) as error:status.text='Selection link: '+str(error)
     global selection_sync_task
@@ -225,7 +264,7 @@ async def open_workspace():
     print('COLLEGE_PARK_WORKSPACE_READY',counts)
     # Generated layers may be rebuilt outside Kit. Refresh clean generated
     # layers only; never reload the user's manual edit layer.
-    watched=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda']
+    watched=REFRESH_LAYERS
     stamps={name:(ROOT/'scene'/name).stat().st_mtime_ns for name in watched if (ROOT/'scene'/name).exists()}
     async def refresh_generated():
         while True:
@@ -235,13 +274,8 @@ async def open_workspace():
                 if not path.exists():continue
                 stamp=path.stat().st_mtime_ns
                 if stamps.get(name)==stamp:continue
-                layer=Sdf.Layer.Find(str(path).replace('\\','/'))
-                if layer and layer.dirty:
-                    status.text='Generated layer has unsaved edits; refresh deferred: '+name
-                    continue
-                if layer:layer.Reload()
                 stamps[name]=stamp
-                status.text='Updated model evidence loaded; manual edits preserved.'
+                status.text='Completed local scene files changed. Review local scene updates before applying; current view and manual edits are preserved.'
     global refresh_task
     if 'refresh_task' in globals() and not refresh_task.done():refresh_task.cancel()
     refresh_task=asyncio.ensure_future(refresh_generated())

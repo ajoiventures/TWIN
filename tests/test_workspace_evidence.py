@@ -5,7 +5,8 @@ for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):os.envir
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
-from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera
+from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera,SceneRefresh,government_preview
+import json
 
 class WorkspaceEvidenceTests(unittest.TestCase):
     def default_stage(self):
@@ -32,6 +33,14 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         session.dirty=False;root.dirty=True;self.assertFalse(should_open_project(wrapped))
         root.dirty=False;root.anonymous=False;self.assertFalse(should_open_project(wrapped))
         self.assertTrue(should_open_project(None))
+
+    def test_fresh_sdk_camera_render_dirt_does_not_block_project_startup(self):
+        stage=Usd.Stage.CreateInMemory();stage.GetRootLayer().customLayerData={'cameraSettings':{'boundCamera':'/OmniverseKit_Persp'},'renderSettings':{}}
+        UsdGeom.Camera.Define(stage,'/OmniverseKit_Persp');stage.DefinePrim('/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0','RenderProduct')
+        self.assertTrue(should_open_project(stage))
+        UsdGeom.Cube.Define(stage,'/World/UserCube');self.assertFalse(should_open_project(stage))
+        stage.RemovePrim('/World/UserCube');stage.GetRootLayer().customLayerData={'cameraSettings':{},'user':'keep this'}
+        self.assertFalse(should_open_project(stage))
 
     def test_unrelated_stage_not_labeled_project(self):
         with tempfile.TemporaryDirectory() as d:
@@ -148,6 +157,41 @@ class WorkspaceEvidenceTests(unittest.TestCase):
             set_session_camera(stage,Viewport(),'/World/B')
             self.assertEqual(stage.GetPrimAtPath('/Render/Product').GetRelationship('camera').GetTargets(),[Sdf.Path('/World/B')])
             self.assertEqual(source.GetRootLayer().ExportToString(),before);self.assertFalse(source.GetRootLayer().dirty)
+
+    def test_staged_refresh_undo_preserves_manual_scenario_and_saved_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);scene=root/'scene';scene.mkdir();(root/'data/processed').mkdir(parents=True);(root/'data/snapshots/s1').mkdir(parents=True)
+            (root/'data/processed/active.json').write_text(json.dumps({'snapshot':'s1','relative_path':'data/snapshots/s1'}))
+            base=Usd.Stage.CreateNew(str(scene/'base.usda'));UsdGeom.Cube.Define(base,'/World/Cube').CreateSizeAttr(1);base.GetRootLayer().Save()
+            for name in ('manual','scenario'):Sdf.Layer.CreateNew(str(scene/(name+'.usda'))).Save()
+            assembly=Sdf.Layer.CreateNew(str(scene/'assembly.usda'));assembly.subLayerPaths=['manual.usda','scenario.usda','base.usda'];assembly.Save()
+            stage=create_workspace_stage(scene/'assembly.usda');manual=Sdf.Layer.FindOrOpen(str(scene/'manual.usda'));scenario=Sdf.Layer.FindOrOpen(str(scene/'scenario.usda'))
+            with Usd.EditContext(stage,scenario):UsdGeom.Imageable(stage.GetPrimAtPath('/World/Cube')).MakeInvisible()
+            with Usd.EditContext(stage,manual):UsdGeom.Imageable(stage.GetPrimAtPath('/World/Cube')).MakeVisible()
+            user_before={l.identifier:l.ExportToString() for l in (manual,scenario)}
+            manager=SceneRefresh(stage,root,['base.usda']);text=base.GetRootLayer().ExportToString().replace('double size = 1','double size = 2');(scene/'base.usda').write_text(text)
+            self.assertEqual(UsdGeom.Cube(stage.GetPrimAtPath('/World/Cube')).GetSizeAttr().Get(),1)
+            self.assertEqual(len(manager.review()['layers']),1);report=manager.apply()
+            self.assertEqual(UsdGeom.Cube(stage.GetPrimAtPath('/World/Cube')).GetSizeAttr().Get(),2)
+            self.assertTrue(Path(report['recovery_receipt']).exists());manager.undo()
+            self.assertEqual(UsdGeom.Cube(stage.GetPrimAtPath('/World/Cube')).GetSizeAttr().Get(),1)
+            self.assertEqual((scene/'base.usda').read_text(),text)
+            self.assertEqual({l.identifier:l.ExportToString() for l in (manual,scenario)},user_before)
+            self.assertTrue(visible_for_test(stage,stage.GetPrimAtPath('/World/Cube')))
+            # Missing replacement must preserve the current usable view.
+            (scene/'base.usda').unlink()
+            with self.assertRaisesRegex(ValueError,'missing'):manager.review()
+            self.assertEqual(UsdGeom.Cube(stage.GetPrimAtPath('/World/Cube')).GetSizeAttr().Get(),1)
+            with self.assertRaisesRegex(ValueError,'User/scenario'):SceneRefresh(stage,root,['scenario.usda'])
+
+    def test_government_dates_and_default_off_layers_are_explicit(self):
+        stage=Usd.Stage.CreateInMemory();parent=UsdGeom.Xform.Define(stage,'/World/Information/FemaEffectiveFloodHazards')
+        parent.CreateVisibilityAttr('invisible');parent.GetPrim().SetCustomDataByKey('sourceContext',{'publisher':'FEMA','sourceSnapshot':'s1','acquisitionStart':'unknown','acquisitionEnd':'unknown','effectiveDate':'2009-09-25','retrievedUTC':'2026-10-28T00:00:00Z','quality':'effective reference context'})
+        child=UsdGeom.Cube.Define(stage,parent.GetPath().AppendChild('Zone')).GetPrim()
+        text=inspector_text(child,active_snapshot='s1')
+        self.assertIn('Source: FEMA',text);self.assertIn('Source effective date: 2009-09-25',text);self.assertIn('Original retrieval time: 2026-',text)
+        self.assertIn('Acquisition interval: unknown to unknown',text);self.assertFalse(visible_for_test(stage,child))
+        self.assertIn(('Effective FEMA flood context',str(parent.GetPath())),available_display_groups(stage))
 
 
 def visible_for_test(stage,prim):

@@ -13,6 +13,8 @@ TABLES.update({'building_lineage','building_lineage_quality'})
 TABLES.update({'city_addresses','city_future_land_use','city_adapter_quality','full_neighborhood_parks','full_neighborhood_parks_quality'})
 TABLES.update({'county_addresses','county_roads','county_drainage_basins','county_context_quality'})
 TABLES.update({'public_property_references','government_property_references','public_property_quality'})
+FDOT_TABLES={'road_names','rci_top30','aadt','portable_sites','telemetered_sites','lanes','speed','sidewalk_width_sep','sidewalk_gaps','city_streets','surface_width'}
+TABLES.update({'fdot_'+name for name in FDOT_TABLES}|{'fdot_context_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -24,6 +26,15 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name=='fdot_context_quality' or name in {'fdot_'+key for key in FDOT_TABLES}:
+  from fdot_context import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('FDOT reference evidence unavailable or stale') from exc
+  if name=='fdot_context_quality':
+   value={k:v for k,v in report.items() if k not in ('tables','dependencies')}
+   value['tables']={key:{k:v for k,v in table.items() if k!='rows'} for key,table in report['tables'].items()}
+  else:value=report['tables'][name.removeprefix('fdot_')]['rows']
+  return value,report['source_snapshot']
  if name in ('public_property_references','government_property_references','public_property_quality'):
   from public_ownership import validate
   try:report=validate(root)
@@ -178,6 +189,11 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/fdot-context':
+    from fdot_context import validate
+    try:validate(ROOT)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('FDOT coverage evidence unavailable or stale') from exc
+    return self.send((ROOT/'data/processed/fdot_context/coverage.html').read_bytes(),kind='text/html; charset=utf-8')
    if path=='/public-property/coverage':
     from public_ownership import validate,OUT
     try:validate(ROOT)

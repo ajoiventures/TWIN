@@ -214,3 +214,8 @@ Water context has also been composed off by default with a recoverable root back
 ## Water delivery accepted — October 29, 2026, 00:05 UTC
 
 Ticket #23 passed independent source/geometry/safeguard review and actual Kit visual review. Both water and FEMA activation preserved root opinions and manual-file hashes; both layers remain invisible by default. The actual Lake Adair capture shows historical water/land-cover context on the clipped ground, without floating sheets; its straight lake termination remains an explicitly documented study cut. Render, provenance and acceptance records are committed under `docs/evidence/water-context-*`. #24 was closed after delivery commit `5ed1a1a`; #23 is ready for closure with this evidence. Native editor interaction acceptance remains in #12, and the full project goal remains active.
+
+
+## FDOT reference integration - October 29, 2026 UTC
+
+Independent review passed all 11 source tables, 767 City coverage comparisons and 16 exact traffic-site joins. The validated packet now serves /fdot-context and eleven paginated API tables; government source records expose field dictionaries and first-five samples. Actual API/browser checks confirmed sidewalk records and selected the Princeton-Edgewater annual traffic site. Source/native IDs, unknown dates and inventory-gap limitations remain visible. See FDOT_CONTEXT.md and evidence/fdot-context-review.json. No road/sidewalk geometry was promoted, and full transportation ticket 15 remains open.

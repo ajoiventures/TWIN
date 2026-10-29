@@ -1,5 +1,13 @@
 # Transportation documents and correction plan
 
+## New acquired engineering reference — October 29, 2026 UTC
+
+Downloaded and visually inspected the City's [HDR Amendment I attachment, 45 pages](https://orlando.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=123372&ItemID=62745). Its scope is dated March 20, 2023 and identifies RQS21-0148 / 441275-1-38-01. Physical PDF pages 9–10 list three existing mast arms at both Princeton and Smith, intended to remain in that design scope. This provides a dated signal-reference constraint, not surveyed positions or present-day installation confirmation. No geometry was traced or activated.
+
+Local original: `data/transport/references/edgewater_hdr_amendment_2023.pdf`; SHA-256 `a8dde17c3b3dc408a4919bec8ace4e6e12d837e83217c1b10fc039c73d162ad6`. The separate source receipt records retrieval time and byte count. Page 9 was rendered locally and its table visually checked. The attachment is an agreement/scope, not an acquired signed/sealed roadway plan set; the earlier blocked attachment remains a separate unresolved record.
+
+The [engineering records-request draft](ENGINEERING_RECORDS_REQUEST_DRAFT.md) now names the corridor/Segment A IDs and exact Princeton–Smith sheet, survey, signal, curb, ADA, parking and native-file targets. It remains unsent. Latest construction/as-built drawings, usable survey control and georeferencing residuals remain outstanding under #25; no standards or scope document substitutes for them.
+
 Checked October 28, 2026. Priority area: Princeton Street / Edgewater Drive, then College Park Main Street. Owners: Transportation GIS Analyst (source review), Civil/3D Geometry Engineer (reconstruction), independent QA Analyst (acceptance), PM Agent (dependencies).
 
 ## Latest applicable revision check — October 28, 2026

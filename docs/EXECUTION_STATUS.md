@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Boundary exception disposition — October 29, 2026 UTC
+
+Independently replayed the actual generator boundary exclusion for all 73 raw subareas absent from modeled membership. All 73 are outside the extraction: empty intersection and zero inside area. This resolves their exclusion reason without inventing missing buildings or changing source IDs, snapshots or geometry. The wider neighborhood coverage gap remains open. [Bounded evidence](evidence/orphan-boundary-review.json) and [lineage follow-up](BUILDING_LINEAGE.md#follow-up-orphan-boundary-disposition). Ticket totals remain **6 closed / 25 open**. Princeton roof proposal refinement is still under independent review; no roof activation is claimed.
+
 ## Learning and script protocol adopted — October 29, 2026 UTC
 
 Delivered the owner-requested reusable protocol plus College Park profile, script-contract and lesson-record templates, and seven evidence-backed seed lessons. Repository `AGENTS.md`, the project index and team operating plan link the workflow so future project work can retrieve it. Independent VP protocol review passed; owner/adoption details and batch-review wording were clarified from its findings. This is repository documentation and reusable templates, not model retraining, global installation or a scheduled automation. Existing ticket scope and count remain unchanged: **6 closed / 25 open**. [Start here](protocols/LEARNING_AND_SCRIPT_CREATION.md).

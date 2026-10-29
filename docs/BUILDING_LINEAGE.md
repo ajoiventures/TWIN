@@ -15,3 +15,9 @@ Current relationship counts remain 2,976 accepted source-ID/geometry links, 202 
 ## Integrated inspection
 
 The local API exposes `/api/v1/building_lineage` (paginated records) and `/api/v1/building_lineage_quality` (fields, counts, dependencies and orphan queue). Building responses add verified lineage without replacing existing fields; missing or stale lineage leaves the original snapshot usable and labels the lineage unavailable. The property inspector expands Building source evidence for both assigned and candidate exact parcel features. Disable Link property selection with 3D for map-only review. Actual inspection verified the two source groups at 2204 Edgewater. [Integration evidence](evidence/building-lineage-acceptance.json).
+
+## Follow-up: orphan boundary disposition
+
+A read-only replay of the actual `tools/build_scene.py` exclusion operation (EPSG:32617 projection, `buffer(0)`, intersection with the configured extraction rectangle) found all 73 orphan subareas have an empty clipped geometry and zero area inside that rectangle. This explains their omission from this extraction; it is not evidence of missing buildings within it. The 35 partially represented groups extend beyond the extraction, while 11 groups have no modeled members. The wider neighborhood remains partially covered.
+
+[Boundary evidence](evidence/orphan-boundary-review.json) binds the exact raw data, generator, configuration, base and lineage manifest. The independently measured actual-ground/configuration symmetric difference is 0.117647 m² from serialized mesh coordinates; the disposition replays the exact generator boundary. Per-row results remain in ignored `data/processed/orphan_boundary_review.json`. The immutable lineage packet retains the original raw-membership queue; this later evidence supplies a disposition without changing IDs, geometry or snapshot membership.

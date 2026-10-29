@@ -224,6 +224,16 @@ class Handler(BaseHTTPRequestHandler):
     except ValueError as exc:raise SnapshotMismatch(str(exc)) from exc
     if path=='/flood/coverage':return self.send((ROOT/'data/flood/coverage.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
     return self.send(report)
+   if path=='/api/v1/transit_schedule':
+    from lynx_gtfs_reference import validate
+    import datetime
+    requested_date=parse_qs(url.query).get('service_date',[None])[0]
+    if requested_date:
+     try:datetime.date.fromisoformat(requested_date)
+     except ValueError:return self.send({'error':'Use a valid service date: YYYY-MM-DD'},400)
+    try:report=validate(ROOT,service_date=requested_date)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('LYNX schedule references unavailable or stale') from exc
+    return self.send({k:v for k,v in report.items() if k not in ('tables','dependencies')})
    if path=='/api/v1/transit':
     _,snapshot=active_folder()
     report=current_report(ROOT/'data/transport/lynx_transit.json',snapshot)

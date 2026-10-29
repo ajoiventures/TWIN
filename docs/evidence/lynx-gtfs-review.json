@@ -1,0 +1,150 @@
+{
+  "schema": "twin.lynx-gtfs-independent-review/1",
+  "reviewed_utc": "2026-10-29T02:59:46.769822+00:00",
+  "reviewer": "Independent transportation data QA agent; not adapter implementer",
+  "result": "Pass bounded official static GTFS source, normalization and calendar delivery; full ticket #15 remains open.",
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "92813f68531da733acfe55f4bb601ad8e3bbfa5b08e3042f96fab3ea9584ff24",
+  "artifact_sha256": {
+    "packet.json": "92813f68531da733acfe55f4bb601ad8e3bbfa5b08e3042f96fab3ea9584ff24",
+    "stops.geojson": "f354aef5d243030c16e0e89138dda914f61bfcece2b87d206fecf0875428363e",
+    "shapes.geojson": "b73658e4c3a1a070c6746c4d9bf8e505149625bad900a3f017d334b9f5d8c212"
+  },
+  "source_zip": {
+    "url": "http://gtfsrt.golynx.com/gtfsrt/google_transit.zip",
+    "sha256": "e9697ad9292eb87c17a35d729f0a4b299ae7c13a95fa8b811b8a30a7d331b90b",
+    "bytes": 2358835,
+    "archive_members": 11,
+    "expanded_bytes": 18158966,
+    "official_page_index_zip_association_offline_verified": true,
+    "duplicate_archive_member_names": 0,
+    "raw_archive_committed": false
+  },
+  "feed_validity": {
+    "start": "2026-10-02",
+    "end": "2026-12-12",
+    "evaluation_service_date": "2026-10-28",
+    "status": "within_published_feed_period",
+    "agency_timezone": "America/New_York",
+    "current_service_verified": false
+  },
+  "source_table_rows": {
+    "agency.txt": 1,
+    "feed_info.txt": 1,
+    "calendar.txt": 8,
+    "calendar_dates.txt": 15,
+    "stops.txt": 3687,
+    "routes.txt": 62,
+    "trips.txt": 7674,
+    "shapes.txt": 110627,
+    "stop_times.txt": 359274
+  },
+  "independent_spatial_identity_review": {
+    "ROI_stops": 15,
+    "ROI_shape_variants": 4,
+    "route_short_names": [
+      "106",
+      "125"
+    ],
+    "source_trip_ids_serving_ROI_stops": 205,
+    "selected_trips_serving_stops_or_intersecting_shapes": 374,
+    "all_source_stop_and_selected_trip_ID_sets_match": true,
+    "all4shape_exports_equal_original_ordered_shape_intersection_with_ROI": true,
+    "all110627shape_coordinates_finite_and_in_range": true,
+    "canonical_numeric_sequence_duplicates_in_original_feed": 0,
+    "original_padded_stop_IDs_and_raw_fields_preserved": true,
+    "maximum_source_service_hour": 26
+  },
+  "calendar_recalculation": [
+    {
+      "date": "2026-10-01",
+      "feed_status": "not_yet_effective",
+      "independent_scheduled_stop_serving_trips": 0,
+      "reported_count_matches": true,
+      "actual_operations_verified": false
+    },
+    {
+      "date": "2026-10-28",
+      "feed_status": "within_published_feed_period",
+      "independent_scheduled_stop_serving_trips": 100,
+      "reported_count_matches": true,
+      "actual_operations_verified": false
+    },
+    {
+      "date": "2026-11-01",
+      "feed_status": "within_published_feed_period",
+      "independent_scheduled_stop_serving_trips": 35,
+      "reported_count_matches": true,
+      "actual_operations_verified": false
+    },
+    {
+      "date": "2026-11-26",
+      "feed_status": "within_published_feed_period",
+      "independent_scheduled_stop_serving_trips": 35,
+      "reported_count_matches": true,
+      "actual_operations_verified": false
+    },
+    {
+      "date": "2026-12-13",
+      "feed_status": "expired",
+      "independent_scheduled_stop_serving_trips": 0,
+      "reported_count_matches": true,
+      "actual_operations_verified": false
+    }
+  ],
+  "GIS_reconciliation": {
+    "GIS_route89_not_in_current_intersecting_shapes": [
+      "89"
+    ],
+    "meaning": "Vintages/coverage differ; no cancellation or automatic source replacement inferred.",
+    "stop_candidate_count": 15,
+    "identity_promotions": 0
+  },
+  "resolved_findings": [
+    {
+      "finding": "Shapes lacked stop-equivalent finite/range validation",
+      "resolution": "Shared checked_coordinates guard is called for every stop and shape point; invalid fixtures independently rejected.",
+      "status": "resolved"
+    },
+    {
+      "finding": "Raw string sequence keys could miss numeric duplicates such as 01 and 1.",
+      "resolution": "Internal canonical nonnegative integer sequence keys reject duplicates for both shapes and trip stop sequences; published raw strings remain unchanged.",
+      "status": "resolved"
+    }
+  ],
+  "targeted_guard_checks": {
+    "invalid_coordinate_nan_0_refused": true,
+    "invalid_coordinate_0_inf_refused": true,
+    "invalid_coordinate_91_0_refused": true,
+    "invalid_coordinate_0_-181_refused": true,
+    "canonical_sequence_duplicate_refused": true,
+    "sequence_'-1'_refused": true,
+    "sequence_'1.5'_refused": true,
+    "sequence_''_refused": true,
+    "changed_packet_refused": true
+  },
+  "safe_fields": "Agency phone and fare values filtered; current feed_info and stops schemas contain no contact fields. Public schedules, stops and route IDs only; no owner, BOOMS or real-time endpoint access.",
+  "source_semantics": "Static GTFS WGS84 coordinates; EPSG:32617 comparison meters; America/New_York service date; hour 26 retained as next-day service time, not UTC or an actual arrival.",
+  "review_limitations": [
+    "Independent review recalculated original ZIP identities, spatial clips, calendar counts and read-time expiry; no API, browser or GPU acceptance performed by this reviewer.",
+    "The official LYNX page supplies the observed HTTP download link. Original URLs, bytes and receipts are retained; broader redistribution rights are not inferred.",
+    "Stop placement, accessibility, pedestrian connections and side of street remain unverified; scheduled trip counts are not observed operations.",
+    "FDOT RCI and traffic coverage, City/OSM network namespaces, parking capacity/demand and full ticket #15 acceptance remain separate."
+  ],
+  "tickets_closed": false,
+  "new_source_acquisitions_by_reviewer": false,
+  "shape_point_preview_followup": {
+    "rows": 5,
+    "all_exact_original_source_rows_for_selected_shape_IDs": true,
+    "schema": [
+      "shape_id",
+      "shape_pt_lat",
+      "shape_pt_lon",
+      "shape_pt_sequence"
+    ],
+    "scope": "First five original shape-point rows whose original shape_id is one of the four study-intersecting variants; preview only, full source table not duplicated",
+    "full_table_duplicated": false,
+    "stops_geojson_unchanged": true,
+    "shapes_geojson_unchanged": true
+  }
+}

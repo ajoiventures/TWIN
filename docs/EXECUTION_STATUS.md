@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## LYNX published schedule integration — October 29, 2026 UTC
+
+Connected the actual official static GTFS feed, including service calendars and exceptions, 15 study stops and routes 106/125. The transit page now checks a selected date, labels expired/not-yet-effective periods and exposes source fields/sample records. Actual API/browser checks distinguish 100 scheduled local-stop trips on October 28 from unknown availability outside the feed period. Older GIS route 89 stays separate. [Contract and actual UI](LYNX_GTFS_REFERENCE.md). Live positions, FDOT/civil geometry and expanded transportation requirements remain open.
+
 ## Interpreted Princeton roof visual review — October 29, 2026 UTC
 
 Built and rendered a second separate roof proposal using broad architectural caps and terraces. It removes many pits but still has implausible compound joins; integrator and independent reviewer reject architectural acceptance and activation. Composed normals and face planarity were checked, so the next correction must address component geometry rather than a shading workaround. [Actual matched images and evidence](PRINCETON_ROOF_REFERENCES.md). No active geometry changed.

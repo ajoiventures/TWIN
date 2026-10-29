@@ -4,6 +4,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Native control review](NATIVE_CONTROL_REVIEW.md) | Actual roof inspection, no-change refresh behavior and remaining editor checks |
 | [City adapter contract](CITY_ADAPTER_CONTRACT.md) | Supplemental address/FLU records, source dictionaries and quality limits |
 | [Full-neighborhood park inventory](FULL_NEIGHBORHOOD_PARKS.md) | Eleven City park footprints, three added records and independent coverage review |
 | [Learning and script creation protocol](protocols/LEARNING_AND_SCRIPT_CREATION.md) | Reusable workflow, script contracts, verification and persistent lessons across projects |

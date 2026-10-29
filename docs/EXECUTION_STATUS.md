@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Native roof inspector and review isolation — October 29, 2026 UTC
+
+Verified roof picking and actual property/source evidence in a separate native editor; checked no-change refresh and unavailable Undo. Added session-targeted review mode with map bridge/project Save disabled and fixed the misleading applied message on no-op refresh. The owned review process closed normally; connected scene, manual edits, active pointer and selection state hashes are unchanged. Checkbox round trips and changed-layer native recovery remain unaccepted. [Evidence and limits](NATIVE_CONTROL_REVIEW.md). #12 stays open; totals remain **6 closed / 25 open**.
+
 ## NVIDIA isolated asset pilot — October 29, 2026 UTC
 
 Pinned NVIDIA SimReady validation 2026.8.0 in a separate environment. One copied registered building passes Core, Semantic Labels and Cityscapes profile checks. The exact candidate was rendered at 1920×1080; independent integrator inspection accepts the fully framed plain source mass only. Source assets, registry and user editor remain unchanged. [Actual image, validator evidence and remaining gates](SEMANTIC_VALIDATION.md) distinguish this interoperability pilot from district simulation, architectural realism and NVIDIA certification. #26 remains open for broader scope, metadata/resource gates and dependencies; ticket totals remain **6 closed / 25 open**.

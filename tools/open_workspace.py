@@ -1,5 +1,5 @@
 """Runs inside Omniverse Kit, leaving all scene geometry editable."""
-import asyncio, json, sys
+import asyncio, json, sys, os
 from pathlib import Path
 import omni.kit.app
 import omni.usd
@@ -9,6 +9,7 @@ from omni.kit.viewport.utility import get_active_viewport, get_active_viewport_w
 from pxr import Gf
 
 ROOT=Path(__file__).resolve().parents[1]
+REVIEW_ONLY=os.environ.get('TWIN_REVIEW_ONLY')=='1'
 sys.path.insert(0,str(ROOT/'tools'))
 from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage, SceneRefresh, government_preview
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
@@ -20,7 +21,7 @@ async def open_workspace():
     global project_window, selection_subscription, confidence_controller, scene_refresh_controller
     if 'confidence_controller' in globals():confidence_controller.reset()
     if project_window is None:
-        project_window=ui.Window('College Park | Project',width=360,height=700)
+        project_window=ui.Window('College Park | Review' if REVIEW_ONLY else 'College Park | Project',width=360,height=700)
     window=project_window
     with window.frame, ui.VStack(spacing=10):
         ui.Label('COLLEGE PARK',height=30,style={'font_size':25})
@@ -58,7 +59,9 @@ async def open_workspace():
         return
     from pxr import Sdf,Usd
     manual=ROOT/'scene'/'manual_edits.usda'
-    if opened_new and manual.exists():
+    if REVIEW_ONLY:
+        ctx.get_stage().SetEditTarget(Usd.EditTarget(ctx.get_stage().GetSessionLayer()))
+    elif opened_new and manual.exists():
         manual_layer=next((layer for layer in ctx.get_stage().GetLayerStack() if layer.realPath and Path(layer.realPath).resolve()==manual.resolve()),None)
         if manual_layer:ctx.get_stage().SetEditTarget(Usd.EditTarget(manual_layer))
     if opened_new:ctx.get_selection().set_selected_prim_paths([],False)
@@ -121,6 +124,9 @@ async def open_workspace():
             if not set_session_visibility(ctx.get_stage(),path,shown):status.text='Display group is unavailable: '+path
         except Exception as error:status.text='Display change failed: '+str(error)
     def save():
+        if REVIEW_ONLY:
+            status.text='Review window: project Save is disabled. Source and manual layers are preserved.'
+            return
         try:
             save_manual_only(ctx.get_stage(),manual)
             status.text='Manual edits saved. Display switches remain temporary.'
@@ -134,7 +140,7 @@ async def open_workspace():
             if report.get('recovery_receipt'):lines.append('Recovery: '+report['recovery_receipt'])
             refresh_summary.text='\n'.join(lines);refresh_summary.height=ui.Pixel(max(100,22*len(lines)))
             refresh_confidence()
-            status.text={'review':'Local changes reviewed. Apply replaces generated layers in memory; manual/scenario edits are retained.','apply':'Scene update applied. Rebuild layer controls to show newly added optional switches.','undo':'Previous scene view restored in memory; saved sources and API snapshot remain unchanged.','recover_latest':'Previous saved scene view recovered in memory; sources and API snapshot remain unchanged.'}[action]
+            status.text=('No local scene changes to apply. Current view is unchanged.' if report.get('status')=='no_local_changes' else {'review':'Local changes reviewed. Apply replaces generated layers in memory; manual/scenario edits are retained.','apply':'Scene update applied. Rebuild layer controls to show newly added optional switches.','undo':'Previous scene view restored in memory; saved sources and API snapshot remain unchanged.','recover_latest':'Previous saved scene view recovered in memory; sources and API snapshot remain unchanged.'}[action])
         except Exception as error:status.text='Scene update not applied: '+str(error)
     def preview_government():
         global government_window
@@ -181,7 +187,8 @@ async def open_workspace():
                     model.add_value_changed_fn(lambda m,p=path:toggle(p,m.as_bool))
             if not any(path in ('/World/Scenario','/World/Scenarios') for label,path in layers):
                 ui.Label('Future scenarios: unavailable in this scene. Existing conditions remain visible.',height=44,word_wrap=True)
-            ui.Button('Save manual edits',height=34,clicked_fn=save)
+            ui.Button('Save manual edits',height=34,clicked_fn=save,enabled=not REVIEW_ONLY)
+            if REVIEW_ONLY:ui.Label('Review window: session edit target; map link and project Save are disabled.',height=50,word_wrap=True)
             ui.Label('Display switches are temporary; source layers are preserved.',height=38,word_wrap=True)
             ui.Label('Source confidence',height=23,style={'font_size':18})
             ui.Label('Labels describe evidence, not certified accuracy. Historical heights do not establish current conditions.',height=48,word_wrap=True)
@@ -220,7 +227,7 @@ async def open_workspace():
         prim=stage.GetPrimAtPath(paths[0]) if paths else None
         refresh_confidence()
         update_inspector(prim)
-        if not project_stage or not is_project_stage(stage,[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):return
+        if REVIEW_ONLY or not project_stage or not is_project_stage(stage,[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):return
         if tuple(paths)==bridge_runtime['remote_paths']:return
         bridge_runtime['remote_paths']=None
         try:
@@ -237,7 +244,7 @@ async def open_workspace():
     async def sync_map_selection():
         while True:
             await asyncio.sleep(1)
-            if not project_stage or not is_project_stage(ctx.get_stage(),[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):continue
+            if REVIEW_ONLY or not project_stage or not is_project_stage(ctx.get_stage(),[ROOT/'scene'/name for name in ('college_park_connected.usda','college_park_realistic.usda','college_park.usda')]):continue
             try:
                 packet=bridge_state(ROOT);key=(packet['epoch'],packet['revision'])
                 if key==bridge_runtime['last_seen']:continue

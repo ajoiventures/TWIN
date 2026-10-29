@@ -229,3 +229,13 @@ Fixed hidden-parent boundary controls and roughly halved full-scene confidence-h
 ## Native startup recovery - October 29, 2026 UTC
 
 Startup preflight now rejects missing dependencies and empty geometry before attachment. Actual native missing-asset and missing-manifest messages plus restored-input Retry passed. The isolated review closed normally without saving; all 62 protected physical files remain unchanged and the original editor remains running. Eighteen focused checks passed; complete ticket 12 independent acceptance is pending its final matrix.
+
+
+## Ticket 12 closed - October 29, 2026 UTC
+
+Pushed 4ac7210 and closed ticket 12 after the independent eight-criterion acceptance matrix passed. Fresh GitHub state: 7 closed / 24 open; next consolidated review at 10 completed existing tickets. The full project remains active.
+
+
+## Parking/mobility integration and pedestrian evidence - October 29, 2026
+
+Integrated four attributed local parking/charger references, 24 published study count cells and 70 proposed unlocated recommendations. Complete field dictionaries, first-five previews and readable facility cards passed independent source/HTTP review and actual browser inspection. Missing legal capacity, access, entrances and demand remain explicit. New pedestrian acquisition found 67 MetroPlan references (18 synthetic nonphysical duplicates) plus 263 draft recommendations, retained separately. Independent review passed bounded source/geometry findings; actual sidewalk/ramp layers and engineering/as-built geometry remain missing. Tickets 15/16/25 remain open.

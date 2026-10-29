@@ -15,6 +15,8 @@ TABLES.update({'county_addresses','county_roads','county_drainage_basins','count
 TABLES.update({'public_property_references','government_property_references','public_property_quality'})
 FDOT_TABLES={'road_names','rci_top30','aadt','portable_sites','telemetered_sites','lanes','speed','sidewalk_width_sep','sidewalk_gaps','city_streets','surface_width'}
 TABLES.update({'fdot_'+name for name in FDOT_TABLES}|{'fdot_context_quality'})
+MOBILITY_TABLES={'local_facility_references','published_study_existing_facility_counts','study_proposed_recommendations'}
+TABLES.update({'mobility_'+name for name in MOBILITY_TABLES}|{'mobility_inventory_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -26,6 +28,18 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name=='mobility_inventory_quality' or name in {'mobility_'+key for key in MOBILITY_TABLES}:
+  from mobility_inventory import validate
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('Parking and mobility reference evidence unavailable or stale') from exc
+  digest=hashlib.sha256((root/'data/processed/mobility_inventory/packet.json').read_bytes()).hexdigest()
+  if name=='mobility_inventory_quality':
+   value={k:v for k,v in report.items() if k not in ('tables','dependencies')}
+   value['table_counts']={key:len(rows) for key,rows in report['tables'].items()};value['report_sha256']=digest
+  else:
+   key=name.removeprefix('mobility_');value=VerifiedReviewRows(report['tables'][key]);value.report_sha256=digest
+   value.field_dictionary=report['table_field_dictionaries'][key];value.first_five_safe_rows=report['first_five_safe_rows'][key]
+  return value,report['source_snapshot']
  if name=='fdot_context_quality' or name in {'fdot_'+key for key in FDOT_TABLES}:
   from fdot_context import validate
   try:report=validate(root)
@@ -179,6 +193,8 @@ def page_table(name,query,root=ROOT):
  limit=min(1000,max(1,int(query.get('limit',[100])[0])));offset=max(0,int(query.get('offset',[0])[0]))
  packet={'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
  if report_digest:packet['report_sha256']=report_digest
+ if name in {'mobility_'+key for key in MOBILITY_TABLES}:
+  packet['field_dictionary']=data.field_dictionary;packet['first_five_safe_rows']=data.first_five_safe_rows
  return packet
 class Handler(BaseHTTPRequestHandler):
  def send(self,body,status=200,kind='application/json; charset=utf-8'):
@@ -189,6 +205,11 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/mobility-inventory':
+    from mobility_inventory import validate
+    try:validate(ROOT)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('Parking and mobility coverage evidence unavailable or stale') from exc
+    return self.send((ROOT/'data/processed/mobility_inventory/coverage.html').read_bytes(),kind='text/html; charset=utf-8')
    if path=='/fdot-context':
     from fdot_context import validate
     try:validate(ROOT)

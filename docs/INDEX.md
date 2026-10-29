@@ -4,6 +4,8 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Pedestrian source evidence](PEDESTRIAN_SOURCE_EVIDENCE.md) | Verified local crossing candidates, excluded synthetic duplicates, proposed recommendations and missing ADA/as-built inputs |
+| [Parking and mobility references](MOBILITY_INVENTORY.md) | Local attributed parking/charger references, City study tables and explicit capacity/demand gaps |
 | [FDOT road and sidewalk references](FDOT_CONTEXT.md) | Full-neighborhood inventory coverage, traffic counts, original fields and independent review |
 | [LYNX published schedules](LYNX_GTFS_REFERENCE.md) | Official GTFS calendars, dates, study stop/route coverage and actual service-date UI |
 | [Government property references](PUBLIC_OWNERSHIP.md) | Full-neighborhood assessment and City/County inventory references, unknown title and conflicts |
@@ -11,7 +13,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 | [Princeton completed-roof references](PRINCETON_ROOF_REFERENCES.md) | Inspected contractor oblique, architectural component constraints and unresolved dimensions |
 | [Princeton roof reconstruction diagnostics](PRINCETON_ROOF_PLANES.md) | Rejected proposal, connected-region method and unresolved measured seam conflicts |
 | [County pilot context](COUNTY_CONTEXT.md) | Verified County address, road and drainage references with City comparisons and explicit gaps |
-| [Native control review](NATIVE_CONTROL_REVIEW.md) | Actual roof inspection, no-change refresh behavior and remaining editor checks |
+| [Native control review](NATIVE_CONTROL_REVIEW.md) | Accepted native inspection, independent switches, durable refresh recovery and startup failure handling |
 | [City adapter contract](CITY_ADAPTER_CONTRACT.md) | Supplemental address/FLU records, source dictionaries and quality limits |
 | [Full-neighborhood park inventory](FULL_NEIGHBORHOOD_PARKS.md) | Eleven City park footprints, three added records and independent coverage review |
 | [Learning and script creation protocol](protocols/LEARNING_AND_SCRIPT_CREATION.md) | Reusable workflow, script contracts, verification and persistent lessons across projects |

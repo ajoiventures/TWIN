@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Roof interface findings — October 29, 2026 UTC
+
+The revised connected-region analysis improved source fit but exposed unresolved interfaces with the retained roof: 4,421 sampled boundaries, 0.715 m p95 and 3.230 m maximum height disagreement. Nearby historical returns support different interpretations at different locations. A fresh look at the dated aerial distinguishes roof forms without resolving historical elevations. Saved reproducible diagnostics and conflict evidence; no forced seam walls, replacement roof or active geometry change. [Roof method and remaining work](PRINCETON_ROOF_PLANES.md). #6/#8 remain open.
+
 ## County reference integration — October 29, 2026 UTC
 
 Connected 137 County address references, seven roads and two drainage basins for the existing Edgewater pilot context. Independent review reconciled all 146 features against cached originals and verified safe IDs/fields. Fixed transitive City freshness and source-item URL findings before integration. Actual API/browser checks show fields, sample rows, sources, gaps and coverage on port8772. Address-location differences remain flagged, not snapped; inaccessible ROW remains unknown and empty County pipe/structure queries do not establish no City drainage. [Delivery and remaining #22 scope](COUNTY_CONTEXT.md). Active scene and dataset are unchanged; **6 closed / 25 open**.

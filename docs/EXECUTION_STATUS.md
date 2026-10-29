@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Interpreted Princeton roof visual review — October 29, 2026 UTC
+
+Built and rendered a second separate roof proposal using broad architectural caps and terraces. It removes many pits but still has implausible compound joins; integrator and independent reviewer reject architectural acceptance and activation. Composed normals and face planarity were checked, so the next correction must address component geometry rather than a shading workaround. [Actual matched images and evidence](PRINCETON_ROOF_REFERENCES.md). No active geometry changed.
+
 ## Property inspector government references — October 29, 2026 UTC
 
 Connected the accepted government-reference register to selected parcels using exact active feature and parcel identities. Actual browser review verified federal classification, a retained County/municipal conflict, unknown ownership for an unclassified office parcel, and clearing. Added readable inspector styling and preserved map-only review. [Usage and evidence](PROPERTY_SEARCH.md). Wider property/scene requirements remain open.

@@ -6,6 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
 from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera,SceneRefresh,government_preview
+from workspace_evidence import normalize_boundary_switches,preflight_workspace_stage
 import json
 
 class WorkspaceEvidenceTests(unittest.TestCase):
@@ -131,6 +132,22 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         controller.apply(allowed);controller.reset()
         self.assertEqual(stage.GetSessionLayer().GetPropertyAtPath(p.GetPath().AppendProperty('visibility')).default,before)
         self.assertFalse(visible_for_test(stage,p))
+        # A constant filter must hide animated session visibility too, then
+        # restore the exact previous property, including samples and metadata.
+        with Usd.EditContext(stage,stage.GetSessionLayer()):
+            attr=UsdGeom.Imageable(p).CreateVisibilityAttr()
+            attr.Set('inherited',Usd.TimeCode(1));attr.Set('invisible',Usd.TimeCode(2))
+            attr.SetDocumentation('User visibility animation');attr.SetCustomData({'keep':'original'})
+        path=p.GetPath().AppendProperty('visibility');old=stage.GetSessionLayer().GetPropertyAtPath(path)
+        saved={key:old.GetInfo(key) for key in old.ListInfoKeys()}
+        controller.apply(allowed)
+        self.assertEqual(UsdGeom.Imageable(p).ComputeVisibility(Usd.TimeCode(1)),'invisible')
+        self.assertEqual(stage.GetSessionLayer().ListTimeSamplesForPath(path),[])
+        controller.reset();restored=stage.GetSessionLayer().GetPropertyAtPath(path)
+        self.assertEqual({key:restored.GetInfo(key) for key in restored.ListInfoKeys()},saved)
+        self.assertEqual(UsdGeom.Imageable(p).ComputeVisibility(Usd.TimeCode(1)),'inherited')
+        self.assertEqual(stage.GetRootLayer().ExportToString(),base)
+        self.assertEqual(stage.GetEditTarget().GetLayer(),target)
 
     def test_layer_switch_and_confidence_filter_are_independent(self):
         stage=Usd.Stage.CreateInMemory();p=UsdGeom.Cube.Define(stage,'/World/Buildings/B').GetPrim()
@@ -139,10 +156,30 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         controller.apply({'unknown'});set_session_visibility(stage,'/World/Buildings',False);controller.reset()
         self.assertFalse(visible_for_test(stage,p))
 
+    def test_boundary_switch_normalization_preserves_appearance_and_global_hides(self):
+        stage=Usd.Stage.CreateInMemory();parent=UsdGeom.Xform.Define(stage,'/World/StudyBoundaries')
+        main=UsdGeom.Xform.Define(stage,'/World/StudyBoundaries/MainStreet').GetPrim()
+        neighborhood=UsdGeom.Xform.Define(stage,'/World/StudyBoundaries/Neighborhood').GetPrim()
+        parent.CreateVisibilityAttr('invisible')
+        source=stage.GetRootLayer().ExportToString();target=stage.GetEditTarget().GetLayer()
+        self.assertTrue(normalize_boundary_switches(stage))
+        self.assertFalse(visible_for_test(stage,main));self.assertFalse(visible_for_test(stage,neighborhood))
+        set_session_visibility(stage,str(main.GetPath()),True)
+        self.assertTrue(visible_for_test(stage,main));self.assertFalse(visible_for_test(stage,neighborhood))
+        session=stage.GetSessionLayer().ExportToString()
+        self.assertFalse(normalize_boundary_switches(stage));self.assertEqual(stage.GetSessionLayer().ExportToString(),session)
+        self.assertEqual(stage.GetRootLayer().ExportToString(),source);self.assertEqual(stage.GetEditTarget().GetLayer(),target)
+        # An ancestor hide alone must not trigger normalization or be lifted.
+        other=Usd.Stage.CreateInMemory();UsdGeom.Xform.Define(other,'/World').CreateVisibilityAttr('invisible')
+        UsdGeom.Xform.Define(other,'/World/StudyBoundaries');child=UsdGeom.Xform.Define(other,'/World/StudyBoundaries/MainStreet').GetPrim()
+        before=other.GetSessionLayer().ExportToString();self.assertFalse(normalize_boundary_switches(other))
+        self.assertEqual(other.GetSessionLayer().ExportToString(),before);self.assertFalse(visible_for_test(other,child))
+
     def test_transient_workspace_absorbs_renderer_root_edits(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'project.usda';source=Usd.Stage.CreateNew(str(path))
             UsdGeom.Xform.Define(source,'/World');UsdGeom.Camera.Define(source,'/World/A');UsdGeom.Camera.Define(source,'/World/B')
+            UsdGeom.Cube.Define(source,'/World/VisibleGeometry')
             source.DefinePrim('/Render/Product','RenderProduct').CreateRelationship('camera').SetTargets(['/World/A'])
             source.GetRootLayer().Save();before=source.GetRootLayer().ExportToString()
             stage=create_workspace_stage(path)
@@ -209,6 +246,36 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         self.assertIn('Source object IDs: 17,18',text);self.assertIn('Assigned parcel reference: P18',text)
         self.assertIn('out_of_frame',text)
         self.assertIn(('Dated aerial review',str(aerial.GetPath())),available_display_groups(stage))
+
+    def test_startup_preflight_rejects_partial_and_empty_scene_without_user_mutation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);user=Usd.Stage.CreateInMemory();UsdGeom.Cube.Define(user,'/UserWork')
+            user_before=user.GetRootLayer().ExportToString()
+            with self.assertRaisesRegex(ValueError,'missing'):create_workspace_stage(root/'missing.usda')
+            source=Usd.Stage.CreateNew(str(root/'source.usda'));UsdGeom.Cube.Define(source,'/World/Cube');source.GetRootLayer().Save()
+            self.assertTrue(preflight_workspace_stage(create_workspace_stage(root/'source.usda')))
+            broken=Sdf.Layer.CreateNew(str(root/'broken.usda'));broken.subLayerPaths=['source.usda','missing_child.usda'];broken.Save()
+            with self.assertRaisesRegex(ValueError,'incomplete|dependency missing'):create_workspace_stage(root/'broken.usda')
+            source.DefinePrim('/World/Material/Texture','Shader').CreateAttribute('inputs:file',Sdf.ValueTypeNames.Asset).Set(Sdf.AssetPath('missing_texture.png'));source.GetRootLayer().Save()
+            with self.assertRaisesRegex(ValueError,'dependency missing'):create_workspace_stage(root/'source.usda')
+            empty=Usd.Stage.CreateNew(str(root/'empty.usda'));UsdGeom.Xform.Define(empty,'/World');UsdGeom.Camera.Define(empty,'/World/Camera');empty.GetRootLayer().Save()
+            with self.assertRaisesRegex(ValueError,'no useful visible geometry'):create_workspace_stage(root/'empty.usda')
+            hidden=UsdGeom.Cube.Define(empty,'/World/HiddenCube');hidden.CreateVisibilityAttr('invisible');empty.GetRootLayer().Save()
+            with self.assertRaisesRegex(ValueError,'no useful visible geometry'):create_workspace_stage(root/'empty.usda')
+            empty.RemovePrim('/World/HiddenCube');UsdGeom.Mesh.Define(empty,'/World/EmptyMesh');empty.GetRootLayer().Save()
+            with self.assertRaisesRegex(ValueError,'no useful visible geometry'):create_workspace_stage(root/'empty.usda')
+            self.assertEqual(user.GetRootLayer().ExportToString(),user_before)
+
+    def test_startup_preflight_ignores_unloaded_optional_payload_and_dormant_variant(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'optional.usda';layer=Sdf.Layer.CreateNew(str(path));world=Sdf.CreatePrimInLayer(layer,'/World');world.specifier=Sdf.SpecifierDef;world.typeName='Xform'
+            child=Sdf.CreatePrimInLayer(layer,'/World/Optional');child.specifier=Sdf.SpecifierDef;child.typeName='Xform';child.payloadList.prependedItems=[Sdf.Payload('unloaded_optional.usda')];layer.Save()
+            stage=Usd.Stage.Open(layer,load=Usd.Stage.LoadNone);UsdGeom.Cube.Define(stage,'/World/VisibleGeometry')
+            variant=stage.GetPrimAtPath('/World').GetVariantSets().AddVariantSet('detail');variant.AddVariant('off');variant.AddVariant('optional')
+            variant.SetVariantSelection('optional')
+            with variant.GetVariantEditContext():stage.DefinePrim('/World/DormantTexture','Shader').CreateAttribute('inputs:file',Sdf.ValueTypeNames.Asset).Set(Sdf.AssetPath('dormant_missing.png'))
+            variant.SetVariantSelection('off')
+            self.assertFalse(stage.GetPrimAtPath('/World/Optional').IsLoaded());self.assertTrue(preflight_workspace_stage(stage))
 
 
 def visible_for_test(stage,prim):

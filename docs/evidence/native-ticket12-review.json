@@ -1,0 +1,149 @@
+{
+  "schema": "twin.ticket12-independent-acceptance/1",
+  "reviewed_utc": "2026-10-29T03:51:26.191380+00:00",
+  "issue": "https://github.com/ajoiventures/TWIN/issues/12",
+  "issue_body_freshly_retrieved": true,
+  "reviewer": "AI PM/Delivery Director independent review of root/VP native fixes and actual evidence",
+  "decision": "APPROVE CLOSE ticket 12 against stated workspace-control acceptance criteria",
+  "matrix": [
+    {
+      "criterion": "AC1",
+      "required": "Object inspection shows source, date, identifier, evidence quality and last refresh, with clear unknown/stale states.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:inherited_evidence/registry_index/inspector_text",
+        "docs/evidence/native-roof-inspector.jpg",
+        "tests/test_workspace_evidence.py"
+      ],
+      "finding": "Actual roof pick resolves building/source identity through ancestors and paired roof; snapshot-matched registry provides acquisition/effective/retrieval/activation labels separately; unknown and stale states remain explicit."
+    },
+    {
+      "criterion": "AC2",
+      "required": "Independent switches for parcel boundaries, data confidence, detailed storefronts, vegetation, vehicles and future scenarios.",
+      "status": "PASS",
+      "evidence": [
+        "tools/open_workspace.py",
+        "tools/workspace_evidence.py:available_display_groups/SessionConfidenceFilter/normalize_boundary_switches",
+        "docs/evidence/native-refresh-recovery.json",
+        "docs/evidence/native-filter-independent-restore.jpg",
+        "docs/evidence/native-controls-restored.jpg"
+      ],
+      "finding": "Actual parcel, boundary, trees, cars and storefront toggles plus populated illustrative/estimated/historical/unknown category cases verified. Master-off restores previous session visibility while independently hidden trees stay hidden. Scenario groups receive switches when present; current absent scenarios explicitly unavailable, not fabricated. Empty observed/proposed/stale categories are implemented/helper-covered, not visually populated."
+    },
+    {
+      "criterion": "AC3",
+      "required": "Refresh uses staged snapshots and layer replacement with a change report; manual edits and previous versions remain recoverable.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:SceneRefresh",
+        "tools/data_pipeline.py:refresh",
+        "tests/test_workspace_evidence.py:test_staged_refresh_undo_preserves_manual_scenario_and_saved_sources",
+        "docs/evidence/native-refresh-applied.jpg",
+        "docs/evidence/native-refresh-undone.jpg",
+        "docs/evidence/native-refresh-recovered.jpg",
+        "docs/evidence/native-refresh-recovery.json"
+      ],
+      "finding": "Actual same-snapshot generated-layer review/apply/undo and fresh-process durable recovery completed on isolated real-scene copy; receipt lists only copied study_scope. Candidate bytes remain unchanged after undo/recovery. Snapshot mismatch/change and unsaved generated edits refuse replacement. Manual/scenario opinions excluded and helper fixture preserves unsaved opinions; 62 production files unchanged."
+    },
+    {
+      "criterion": "AC4",
+      "required": "Handle unavailable assets, interrupted downloads and missing datasets without silently producing a blank screen.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:preflight_workspace_stage/create_workspace_stage",
+        "tools/open_workspace.py:open_workspace/startup_guard",
+        "tests/test_data_pipeline.py:test_source_outage_preserves_active_snapshot",
+        "docs/evidence/native-startup-missing-asset.jpg",
+        "docs/evidence/native-startup-missing-dataset.jpg",
+        "docs/evidence/native-startup-restored.jpg"
+      ],
+      "finding": "Native missing required sublayer and missing manifest show explicit errors/Retry before scene adoption. Restored inputs/fixture pointer and Retry load actual useful scene. Preflight rejects loaded unresolved assets and no useful visible geometry. Independent existing outage regression passed: failed network acquisition preserves active pointer bytes. No actual agency interruption or ingestion into fixture claimed."
+    },
+    {
+      "criterion": "AC5",
+      "required": "Useful camera, readable daylight and clipping; prevent selection outlines/camera changes polluting source layers.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:create_workspace_stage/set_session_camera",
+        "tools/open_workspace.py",
+        "docs/evidence/native-startup-restored.jpg",
+        "docs/evidence/native-refresh-recovery.json"
+      ],
+      "finding": "Actual MainStreetOverview daylight geometry visible with sensible clipping. Transient root/session absorbs camera/render/display edits; implicit camera saving disabled; opening clears selection, unsolicited linked selection preserves camera. Only anonymous and intentionally restored copied generated layer dirty during review; production root/manual unchanged."
+    },
+    {
+      "criterion": "G1",
+      "required": "Preserve acquisition/effective dates separately from retrieval and identify acquisitions mirrored across portals.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:inspector_text/government_preview",
+        "docs/SOURCE_CATALOG.md",
+        "docs/evidence/pilot-aerial-review-acceptance.json",
+        "docs/evidence/water-context-acceptance.json"
+      ],
+      "finding": "Inspector separates known source dates and original retrieval from snapshot activation. Catalog groups USGS EPT/NOAA metadata and matching 2018-2019 tile acquisition as one shared acquisition, publication is separate; unknown acquisition remains unknown. Water metadata update is not effective/acquisition date."
+    },
+    {
+      "criterion": "G2",
+      "required": "Schema/first-five-safe-row previews, source coverage and unresolved reports for new adapters.",
+      "status": "PASS",
+      "evidence": [
+        "tools/workspace_evidence.py:government_preview",
+        "tools/serve.py",
+        "web/source-browser.html",
+        "docs/SOURCE_CATALOG.md",
+        "docs/evidence/county-context-review.json",
+        "docs/evidence/public-ownership-review.json",
+        "docs/evidence/fdot-context-review.json",
+        "docs/evidence/lynx-gtfs-review.json"
+      ],
+      "finding": "Public-safe government packet APIs/source browser expose validated dictionaries, first-five rows, coverage and unresolveds, with existing City, County, property, FDOT and LYNX independent review evidence. Native government preview supplies FEMA/water safe summaries. Unavailable source candidates remain explicit unresolveds, not silently accepted data."
+    },
+    {
+      "criterion": "G3",
+      "required": "Test rollback/manual-edit preservation and scenario isolation with government delivery #19-25.",
+      "status": "PASS",
+      "evidence": [
+        "tests/test_workspace_evidence.py:test_staged_refresh_undo_preserves_manual_scenario_and_saved_sources",
+        "docs/evidence/pilot-aerial-review-acceptance.json",
+        "docs/evidence/water-context-acceptance.json",
+        "docs/evidence/fema-effective-source-report.json",
+        "docs/evidence/native-refresh-recovery.json"
+      ],
+      "finding": "Generic refresh fixture preserves unsaved manual/scenario opinions through apply/undo/recovery. Aerial/water/FEMA accepted optional-context activation reviews preserve existing root opinions, sublayer order and manual hashes, default-off. Undelivered candidate sources and future engineering/design geometry remain inactive; their ticket closure/production acquisition is not required to establish this workspace control contract."
+    }
+  ],
+  "protected_physical_files_rehashed_independently": 62,
+  "changed_protected_files": [],
+  "independent_execution": "Existing test_source_outage_preserves_active_snapshot passed independently; no added test scaffolding. Native screenshots independently viewed; no reviewer UI/GPU input.",
+  "evidence_sha256": {
+    "tools/open_workspace.py": "708346ee8ebdeb44e53807a56b29289a3557c66a18b83d08ea066951f4504cc3",
+    "tools/workspace_evidence.py": "50ffa8a6690d086b605c7d8c323fd1a4fcb3aee1fd648eebea6673ade35e0840",
+    "tests/test_workspace_evidence.py": "6c3c2c75a96e519507c6a054436dd66a073565cb278cdebaf86390566381d70e",
+    "tests/test_data_pipeline.py": "92b792dc44b27f967f560be788ab858f054a37c5c6fa8dfeca8d782f15b917f6",
+    "docs/evidence/native-refresh-recovery.json": "9dcb873c797dcb804adfc11a058297e954b9cc18f334b27591aea9c44e8643c0",
+    "docs/evidence/native-roof-inspector.jpg": "22497cb839665bed731a88480f0d32ca54db346a642fd85d149daafd38e7c09b",
+    "docs/evidence/native-controls-restored.jpg": "4e9c4983569ed34b72085877f2c7f15df1185a87381b9a2bacd9f251d27306d9",
+    "docs/evidence/native-filter-independent-restore.jpg": "aef93603f04a7f1d6e6f3187ed541cf45c95579e63258d0a84f331d0e178989a",
+    "docs/evidence/native-refresh-applied.jpg": "3a1becc4c1b8731028a5f19e639034750f83941ecde91e3f5b9388b179831640",
+    "docs/evidence/native-refresh-undone.jpg": "203062af5e013149f30ac380315c961f03379698898eedd00ae3772068c85bb4",
+    "docs/evidence/native-refresh-recovered.jpg": "f7014124ce09f1b6f0c887ddb3c4b4dc4eeefa15322aafe242a913268d0bb437",
+    "docs/evidence/native-startup-missing-asset.jpg": "863676a01ae2af239bee39dfaa5be1536eea849e218ed0d457e453ff8ce664d7",
+    "docs/evidence/native-startup-missing-dataset.jpg": "dd7b0d6e83d901728bed4306327a12f71768696649243cf0d2d00c3d39ef4e0a",
+    "docs/evidence/native-startup-restored.jpg": "dc235c70e2d0a25c05154de7c33f0a88877785234e7cef9908141d436a00429b"
+  },
+  "resolved_blockers": [
+    "Missing startup composed-asset/useful-geometry guard implemented and proved natively with explicit errors and successful Retry.",
+    "Parent-hidden boundary switch fixed with session-only normalization.",
+    "Confidence filter no longer queries changing USD state inside Sdf.ChangeBlock; complete earlier session visibility specs restored.",
+    "Actual changed-layer apply/undo and fresh-process recovery now demonstrated."
+  ],
+  "remaining_required_acceptance_gaps": [],
+  "nonblocking_limits": [
+    "No certification of building/terrain/curb accuracy, full-project production geometry, future scenario delivery, private BOOMS integration or live source ingestion.",
+    "Optional dated-aerial native inspector enhancement is separate from already demonstrated required source/date inspector behavior.",
+    "Empty observed/proposed/stale groups have no native visual population acceptance; controls and unknown/unavailable messaging exist.",
+    "Review-only flag disables project Save/map bridge but is not a security boundary for general File menu; review windows were closed without saving.",
+    "Earlier evidence records retain historical incomplete status; this criterion matrix supersedes their remaining lists for ticket 12 only."
+  ]
+}

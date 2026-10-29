@@ -5,10 +5,79 @@ import hashlib,json,datetime
 UNKNOWN='Unknown'
 
 
+def preflight_workspace_stage(stage):
+    """Reject an incomplete startup before attaching it to the user's context.
+
+    Inspect only composed/loaded content, not dormant variants or unloaded
+    payloads. Resolve local assets through USD; do not fetch remote URLs.
+    """
+    from pxr import Ar,Sdf,Usd,UsdGeom,UsdShade
+    import math
+    if not stage:raise ValueError('Project scene could not be opened; existing stage preserved')
+    errors=stage.GetCompositionErrors()
+    if errors:raise ValueError('Project composition is incomplete; existing stage preserved: '+str(errors[0]))
+    resolver=Ar.GetResolver();checked=set()
+    def require(asset,layer=None,resolved_path=''):
+        if not asset:return
+        key=(layer.identifier if layer else '',asset)
+        if key in checked:return
+        checked.add(key)
+        if '://' in asset and not asset.startswith('file://'):
+            if resolved_path and '://' not in resolved_path and Path(resolved_path).is_file():return
+            raise ValueError('Project asset is not locally available; no network fetch attempted: '+asset)
+        if asset.startswith('file://'):
+            from urllib.request import url2pathname
+            from urllib.parse import urlparse
+            asset=url2pathname(urlparse(asset).path)
+        if '<UDIM>' in asset and layer and UsdShade.UdimUtils.ResolveUdimTilePaths(asset,layer):return
+        anchored=Sdf.ComputeAssetPathRelativeToLayer(layer,asset) if layer else asset
+        resolved=resolver.Resolve(anchored)
+        if resolved:
+            text=str(resolved)
+            outer=text.split('[',1)[0] if Ar.IsPackageRelativePath(text) else text
+            if Path(outer).is_file() and (not Ar.IsPackageRelativePath(text) or resolver.OpenAsset(resolved)):return
+        raise ValueError('Project dependency missing; existing stage preserved: '+asset)
+    for layer in stage.GetUsedLayers():
+        if layer.realPath:require(layer.realPath)
+        for asset in layer.subLayerPaths:require(asset,layer)
+    useful=False;time=Usd.TimeCode(stage.GetStartTimeCode())
+    bounds=UsdGeom.BBoxCache(time,['default','render','proxy'])
+    for prim in Usd.PrimRange.Stage(stage,Usd.TraverseInstanceProxies()):
+        # Attribute stacks here are composed: inactive variants and unloaded
+        # payload contents are deliberately absent, not missing dependencies.
+        for attr in prim.GetAttributes():
+            if attr.GetTypeName() not in (Sdf.ValueTypeNames.Asset,Sdf.ValueTypeNames.AssetArray):continue
+            values=[attr.Get()]
+            if attr.GetTimeSamples():values.append(attr.Get(time))
+            stack=attr.GetPropertyStack();layer=next((spec.layer for spec in stack if spec.HasInfo('default') or spec.HasInfo('timeSamples')),None)
+            for value in values:
+                for asset in (value or []) if attr.GetTypeName()==Sdf.ValueTypeNames.AssetArray else [value]:
+                    if isinstance(asset,Sdf.AssetPath):require(asset.path,layer,asset.resolvedPath)
+        if useful or not prim.IsLoaded() or not prim.IsA(UsdGeom.Imageable):continue
+        imageable=UsdGeom.Imageable(prim)
+        if imageable.ComputeVisibility(time)=='invisible' or imageable.ComputePurpose() not in ('default','render','proxy'):continue
+        if not (prim.IsA(UsdGeom.Gprim) or prim.IsA(UsdGeom.PointInstancer)):continue
+        point_attr=prim.GetAttribute('points')
+        if point_attr and not point_attr.Get(time):continue
+        if prim.IsA(UsdGeom.Mesh):
+            mesh=UsdGeom.Mesh(prim)
+            if not mesh.GetFaceVertexIndicesAttr().Get(time) or not mesh.GetFaceVertexCountsAttr().Get(time):continue
+        if prim.IsA(UsdGeom.PointInstancer):
+            instance=UsdGeom.PointInstancer(prim)
+            if not instance.GetPositionsAttr().Get(time) or not any(stage.GetPrimAtPath(p) for p in instance.GetPrototypesRel().GetTargets()):continue
+        box=bounds.ComputeWorldBound(prim).ComputeAlignedRange()
+        if not box.IsEmpty() and all(math.isfinite(float(v)) for p in (box.GetMin(),box.GetMax()) for v in p) and max(box.GetSize())>0:useful=True
+    if not useful:raise ValueError('Project scene has no useful visible geometry; existing stage preserved')
+    return True
+
+
 def create_workspace_stage(source_path):
     """Transient root absorbs Kit render/camera edits above the saved assembly."""
     from pxr import Sdf,Usd,UsdGeom
-    source=Path(source_path).resolve();layer=Sdf.Layer.FindOrOpen(str(source))
+    source=Path(source_path).resolve()
+    if not source.is_file():raise ValueError('Project scene is missing; existing stage preserved')
+    try:layer=Sdf.Layer.FindOrOpen(str(source))
+    except Exception as error:raise ValueError('Project scene is unreadable; existing stage preserved') from error
     if not layer:raise ValueError('Project scene is unavailable')
     root=Sdf.Layer.CreateAnonymous('twin_workspace.usda');root.subLayerPaths=[str(source)]
     root.customLayerData={'twinWorkspaceSource':str(source),'purpose':'Transient editor camera/render state; save manual edits separately'}
@@ -18,6 +87,7 @@ def create_workspace_stage(source_path):
         if value is not None:stage.SetMetadata(name,value)
     world=stage.GetPrimAtPath('/World')
     if world:stage.SetDefaultPrim(world)
+    preflight_workspace_stage(stage)
     return stage
 
 
@@ -228,32 +298,66 @@ class SessionConfidenceFilter:
         return result
 
     def apply(self,enabled):
-        from pxr import Sdf,Usd,UsdGeom
+        from pxr import Sdf,UsdGeom
         allowed={key for key,label in CONFIDENCE_CATEGORIES}
-        if not set(enabled)<=allowed:raise ValueError('Unknown evidence category')
+        enabled=set(enabled)
+        if not enabled<=allowed:raise ValueError('Unknown evidence category')
         stage=self.stage;session=stage.GetSessionLayer();hidden=0;skipped=0
+        counts={key:0 for key,label in CONFIDENCE_CATEGORIES};operations=[]
+        # Resolve the composed stage once, before batching. Only Sdf layer edits
+        # occur inside ChangeBlock: querying USD there can observe stale state.
         for prim in confidence_targets(stage):
+            category=evidence_category(prim,self.active_snapshot);counts[category]+=1
             if prim.IsInstanceProxy():skipped+=1;continue
             path=prim.GetPath().AppendProperty('visibility');key=str(path)
-            hide=evidence_category(prim,self.active_snapshot) not in enabled
+            hide=category not in enabled
             if hide:
-                if key not in self.saved:
-                    old=session.GetPropertyAtPath(path);self.saved[key]=bool(old)
-                    if old:
-                        Sdf.CreatePrimInLayer(self.backup,prim.GetPath());Sdf.CopySpec(session,path,self.backup,path)
-                with Usd.EditContext(stage,session):
-                    # Every target is a typed imageable; do not retype source groups.
-                    if not UsdGeom.Imageable(prim):skipped+=1;continue
-                    UsdGeom.Imageable(prim).CreateVisibilityAttr().Set('invisible')
+                if not UsdGeom.Imageable(prim):skipped+=1;continue
+                operations.append(('hide',prim.GetPath(),path,key))
                 hidden+=1
             elif key in self.saved:
-                spec=session.GetPrimAtPath(prim.GetPath());prop=session.GetPropertyAtPath(path)
-                if prop:spec.RemoveProperty(prop)
-                if self.saved.pop(key):Sdf.CopySpec(self.backup,path,session,path)
-        return {'hidden_groups':hidden,'skipped_groups':skipped,'counts':self.counts()}
+                operations.append(('restore',prim.GetPath(),path,key))
+        with Sdf.ChangeBlock():
+            for action,prim_path,path,key in operations:
+                old=session.GetPropertyAtPath(path)
+                if action=='hide':
+                    if key not in self.saved:
+                        self.saved[key]=bool(old)
+                        if old:
+                            Sdf.CreatePrimInLayer(self.backup,prim_path);Sdf.CopySpec(session,path,self.backup,path)
+                    if old and old.default=='invisible' and not session.ListTimeSamplesForPath(path):continue
+                    spec=Sdf.CreatePrimInLayer(session,prim_path)
+                    if old:spec.RemoveProperty(old)
+                    # A constant override hides at every time; the complete old
+                    # property (time samples and metadata included) is restored.
+                    Sdf.AttributeSpec(spec,'visibility',Sdf.ValueTypeNames.Token,Sdf.VariabilityVarying,False).default='invisible'
+                else:
+                    if old:session.GetPrimAtPath(prim_path).RemoveProperty(old)
+                    if self.saved.pop(key):Sdf.CopySpec(self.backup,path,session,path)
+                    backup=self.backup.GetPropertyAtPath(path)
+                    if backup:self.backup.GetPrimAtPath(prim_path).RemoveProperty(backup)
+        return {'hidden_groups':hidden,'skipped_groups':skipped,'counts':counts}
 
     def reset(self):
         return self.apply({key for key,label in CONFIDENCE_CATEGORIES})
+
+def normalize_boundary_switches(stage):
+    """Expose independent boundary switches without changing initial appearance.
+
+    Only this parent's own invisible value is transferred to its children.
+    Global/other ancestor visibility is never lifted. Subsequent calls preserve
+    the user's independent switches because the parent is already inherited.
+    """
+    from pxr import UsdGeom
+    if not stage:return False
+    path='/World/StudyBoundaries';parent=stage.GetPrimAtPath(path)
+    if not parent or not UsdGeom.Imageable(parent):return False
+    if UsdGeom.Imageable(parent).GetVisibilityAttr().Get()!='invisible':return False
+    children=[str(child.GetPath()) for child in parent.GetAllChildren()]
+    for child in children:set_session_visibility(stage,child,False)
+    set_session_visibility(stage,path,True)
+    return True
+
 
 def set_session_visibility(stage,path,visible):
     from pxr import Sdf,Usd,UsdGeom

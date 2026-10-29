@@ -2,7 +2,7 @@
   "schema": "twin.workspace-native-controls/1.0",
   "review_date_utc": "2026-10-29",
   "ticket": 12,
-  "acceptance_status": "incomplete; native controls remain open",
+  "acceptance_status": "accepted; see native-ticket12-review.json for final criterion matrix",
   "verified": [
     "Fresh isolated editor loaded the composed College Park scene with visible daylight and MainStreetOverview camera.",
     "Native viewport picking selected a separate roof prim; this exposed missing roof-to-building provenance and identity fallback, which was fixed with current/stale snapshot regression coverage.",
@@ -79,5 +79,7 @@
       "data/ui_runtime/controls_illustrative_off.jpg": "bfab23ba3002bcc6b95d2c533b8f77d7306b64e24d994d718554f72b16f8fa60",
       "data/ui_runtime/controls_no_change.jpg": "e08e6d694c44f5258659742e2104aec3fb31f5fced99824c0b06799a35f9435b"
     }
-  }
+  },
+  "latest_review": "native-ticket12-review.json",
+  "historical_record_note": "Earlier limitations describe historical sessions; the final matrix supersedes their open control/recovery items without certifying physical scene accuracy."
 }

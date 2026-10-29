@@ -11,7 +11,7 @@ from pxr import Gf
 ROOT=Path(__file__).resolve().parents[1]
 REVIEW_ONLY=os.environ.get('TWIN_REVIEW_ONLY')=='1'
 sys.path.insert(0,str(ROOT/'tools'))
-from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage, SceneRefresh, government_preview
+from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage, SceneRefresh, government_preview, normalize_boundary_switches
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
@@ -182,6 +182,7 @@ async def open_workspace():
                 ui.Button('Storefront walk',height=34,clicked_fn=lambda:view('StorefrontWalk'))
             ui.Label('Layers',height=22,style={'font_size':18})
             ui.Button('Rebuild layer controls',height=28,clicked_fn=retry_startup)
+            normalize_boundary_switches(ctx.get_stage())
             layers=available_display_groups(ctx.get_stage())
             for label,path in layers:
                 with ui.HStack(height=23):

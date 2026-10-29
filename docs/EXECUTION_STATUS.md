@@ -219,3 +219,13 @@ Ticket #23 passed independent source/geometry/safeguard review and actual Kit vi
 ## FDOT reference integration - October 29, 2026 UTC
 
 Independent review passed all 11 source tables, 767 City coverage comparisons and 16 exact traffic-site joins. The validated packet now serves /fdot-context and eleven paginated API tables; government source records expose field dictionaries and first-five samples. Actual API/browser checks confirmed sidewalk records and selected the Princeton-Edgewater annual traffic site. Source/native IDs, unknown dates and inventory-gap limitations remain visible. See FDOT_CONTEXT.md and evidence/fdot-context-review.json. No road/sidewalk geometry was promoted, and full transportation ticket 15 remains open.
+
+
+## Native boundary and durable recovery review - October 29, 2026 UTC
+
+Fixed hidden-parent boundary controls and roughly halved full-scene confidence-helper time. Actual isolated native Apply/Undo and fresh-process Recover passed with a visibly changed copied boundary. Native filtering preserved independently hidden vegetation. All 62 protected physical files unchanged (duplicate path spellings removed); owned reviewers closed normally, owner editor preserved. Independent PM review found startup missing-asset preflight still needed for full ticket12 acceptance. See NATIVE_CONTROL_REVIEW.md and native-refresh-recovery.json.
+
+
+## Native startup recovery - October 29, 2026 UTC
+
+Startup preflight now rejects missing dependencies and empty geometry before attachment. Actual native missing-asset and missing-manifest messages plus restored-input Retry passed. The isolated review closed normally without saving; all 62 protected physical files remain unchanged and the original editor remains running. Eighteen focused checks passed; complete ticket 12 independent acceptance is pending its final matrix.

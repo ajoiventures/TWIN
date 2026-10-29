@@ -1,6 +1,6 @@
 # Source audit and OCPA adapter contract
 
-Implementation checkpoint: October 28, 2026. This covers the full configured extraction containing College Park Main Street, with neighborhood context. It does not reduce tickets #2/#3 to a showcase block or complete their expanded property-verification criteria.
+Implementation checkpoint: October 28, 2026. This covers the configured extraction containing College Park Main Street with neighborhood context. Ticket #2 is a source inventory and release-boundary audit; ticket #3 separately owns physical property/link verification.
 
 ## Source audit and release boundary — #2
 
@@ -13,6 +13,25 @@ The mapping distinguishes `parcel_pin → parcel_id`, `cp_uid → program_record
 Source refresh code was inspected without execution. BTR's parcel refresher targets OCPA layer 4 but requests owner-related fields, so it cannot be copied into a public adapter unchanged. Its polygon acquisition uses layer 1, which must not be presumed interchangeable with TWIN's current layer 4. Its completion generator marks records for staff validation. TWIN reuses the bounded cached-query pattern with an independent safe projection. No live BOOMS API is established.
 
 Original source acquisition/retrieval dates, licenses and CRS remain explicitly unknown where the source lacks them; local file modification dates are recorded separately. Private exception identities and held-snapshot reconciliation/release acceptance remain source-side work. The older ignored `source_audit.json` is a historical local artifact, not the current contract or a publishable output.
+
+## Ticket #2 final acceptance evidence
+
+The October 28 source audit now inventories **six separate inputs**: BOOMS inventory, completion tracker, normalized spine, polygon snapshot, A016 parcel-map output and ontology parcel-profile output. It profiles only source metadata/aggregate results. Nested owner/business objects and raw map payloads are never imported or displayed. Every available profile includes SHA-256, schema/storage types, null counts, identifier grain, duplicate groups/excess rows, normalization collisions, explicit CRS or unknown, geometric bounds where available, source URL or unknown, retrieval/acquisition/effective date or unknown, local modification time, and redistribution/release posture. CSV geographic coverage remains unknown; source membership is not silently equated with TWIN's current boundaries.
+
+The ignored `data/private/source_audit_summary.json` is the restricted source register, freshness report, reconciliation report and aggregate exception queue. `profiles` holds all six schemas; `freshness_report` distinguishes original date-field ranges from file timestamps; `reconciliation_counts` compares inventory membership against every other input; `exception_queue` gives stable category keys, counts, accountable role and a source-side next action. Missing inputs produce **unknown reconciliation**, never apparent zero differences. Normalized identifier collisions are review exceptions, not accepted joins. Row-accounting arithmetic checks unique IDs + duplicate excess + blank IDs = rows. Count differences may reflect grain/vintage and must not be treated as additions/deletions of buildings.
+
+The two source refresh/parcel-polygon registry files are fingerprinted and their schemas inventoried. Only official OCPA/City source URLs without query/fragment, and parseable check/download dates, enter the private metadata summary; free-form registry notes and identifier-bearing query URLs do not. These registry dates are explicitly registry reports, not verified acquisition dates. Source policy and refresh-script hashes bind the review to the inspected versions. No source generators execute. Existing bounded/cached acquisition patterns are reused through TWIN's independent allowlisted adapter; layer 1 polygons and layer 4 parcel queries remain distinct. The completion generator's staff-validation default remains a hold, not approval.
+
+Publication contract:
+
+- Official public parcel output is restricted to `PUBLIC_ALLOWLIST`; it excludes owner/contact content, business names, staff notes and arbitrary source fields.
+- BOOMS row publication allowlist is **empty**. Even a source row labelled `public_record_detail` does not authorize export without the source project's release/QA gates.
+- Aggregate private audit counts/date ranges remain in ignored `data/private`; the ignored public-side metadata register includes only official-source metadata, the static field mapping and allowlist.
+- Held 2026 BTR snapshots are never opened, scanned or reconciled by this bounded audit. Their release prerequisites remain intact. No live BOOMS API is assumed.
+
+Verification: the actual six-input audit completes read-only; the existing two privacy regressions pass, with coverage extended inside the same cases for normalization collisions, malformed dates, unknown release tiers and row accounting. A fixture verifies private identifiers, contact notes and observation values never appear in reports, and input bytes remain unchanged. Generated audit files are ignored; no source records are staged. These are builder checks; an independent GIS/QA review is required before closure.
+
+Remaining source limitations are explicit **audit findings**, not fabricated metadata: original receipts/acquisition dates, exact local snapshot CRS where undeclared, redistribution authorization, and source-side disposition of identity exceptions may be unavailable. They block future release/physical integration, not recording the inventory. The audit does not authorize publishing those inputs. Source staff must supply original receipts/terms and resolve private record identities within BTR before any later release. The older map payloads' presence on disk is not proof that all nested content is publicly eligible.
 
 ## Shared public ingestion interface — #3
 
@@ -37,3 +56,7 @@ The refreshed independent-overlap construction audit of the **active** snapshot 
 The existing targeted adapter regressions now cover malformed/missing attributes, swapped geometry, duplicate exact-feature ambiguity, geometry changes, source outage preserving the active pointer, timeout/retry receipts and corrupt cache rejection. These are construction checks, not independent ticket acceptance.
 
 Remaining #3 scope includes disposition of 240 unaccepted links, high-severity floor conflicts, source-date/licensing gaps, sketch/dimension review, cross-refresh split/merge lineage and full-project missing-building/frontage verification. Existing dated landmark/property investigations contribute evidence but do not certify every Main Street/neighborhood property. Independent review and issue closure have not been performed by this builder.
+
+## Independent acceptance — October 29, 2026
+
+The parent reviewer independently inspected the implementation and actual restricted aggregate report, verified all six current source fingerprints and policy fingerprints against their audit receipts, checked complete schema/freshness/reconciliation coverage and confirmed ignored outputs. Synthetic privacy/unchanged-source checks passed after the reviewer identified and the builder fixed credential-bearing registry URL handling. [Public acceptance record](evidence/source-audit-acceptance.json) contains verification results only, without private counts or source records. Ticket #2's inventory/reconciliation-report scope is accepted; unknown provenance/terms and source-side exception disposition remain explicit constraints on later integration/release.

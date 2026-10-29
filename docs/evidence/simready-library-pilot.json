@@ -1,0 +1,82 @@
+{
+  "schema": "twin.simready-library-pilot/1",
+  "reviewed_utc": "2026-10-29T01:20:23.7842376Z",
+  "source_snapshot": "20261028T160543372334Z",
+  "local_building_id": "Building_0665",
+  "entity_id": "ocpa:building-group:e864fc666cdcf086e121428d",
+  "task": "one registered building source-inspection visualization, not district physics",
+  "library": "simready-validate==2026.8.0",
+  "tier": "simready-foundation-tier-core==2026.8.0",
+  "profile": "Open-Taxonomy-Cityscapes",
+  "profile_version": "0.1.0",
+  "python": "3.12.14",
+  "platform": "Windows x86_64",
+  "cuda_requirement": "none for CPU-only static validation performed",
+  "kit_changed": false,
+  "working_dependencies_changed": false,
+  "profile_result": "passed",
+  "measured_process_wall_seconds": 1.178,
+  "measurement_limit": "one local validation invocation including process launch; not rendering/FPS/full-scene benchmark",
+  "ram_vram": "not measured by this CPU-only invocation",
+  "dependency_lock": "tools/requirements-simready-validation.lock",
+  "isolated_artifact_hashes": {
+    "contract.usda": "e142405af095a6a99c24dbc334316fde8ba0bc8a377436d3385566c586782654",
+    "source_copy.usda": "00cff4cbfb8dbde31049e4627da8fecb517339689a2fbbf6df136b746017b8e9",
+    "city_building\\usd\\city_building.usda": "8a4548abd8ef516bbf9c2c22770dc43eea4adacd1874c5268814f7c2ec72d80b"
+  },
+  "source_dependencies_count": 59,
+  "source_changes_after_validation": {},
+  "inspection": {
+    "errors": [],
+    "warnings": [],
+    "meshes": 1,
+    "bound_materials": [
+      "/World/DetailMaterials/Facade1"
+    ],
+    "world_bounds_m": [
+      [
+        -90.39584350585938,
+        -683.7909545898438,
+        0.10000000149011612
+      ],
+      [
+        -79.42676544189453,
+        -678.3064575195312,
+        4.300000190734863
+      ]
+    ],
+    "authored_collision_prims": 0,
+    "collision_requirement": "not applicable to source-inspection visualization; NOT approved for navigation/physics",
+    "traversability_requirement": "not applicable to this task; pedestrian routes/clearances remain unverified",
+    "missing_references": []
+  },
+  "origin_verification": "declared frame copied from current registry; not independent survey control",
+  "visual_preflight": "Actual exact26e Kit capture completed2026-10-29T01:30:26Z, final image fully framed; see simready-pilot-preflight.png/.json. First tighter-camera image was rejected for clipping.",
+  "independent_acceptance": "Root independently inspected final PNG/manifest: bounded visual preflight passed, same3candidatehashes; plain mass only, no facade/architectural realism acceptance. Full#26 remains open.",
+  "warnings": "USD Flatten reported unsupported Kit UI metadata no_delete/hide_in_stage_window; isolated source preserves geometry/transforms/materials, not all Kit UI-only fields. SimReady CLI emitted find() deprecation warning.",
+  "ticket_26_complete": false,
+  "nvidia_certified": false,
+  "source_date_provenance_handoff": {
+    "receipt_ref": "data/footprint_manifest.json#requests",
+    "receipt_sha256": "e2e6f196796ecffa4ecc05f50adb502f4efca9ec0a23f42196332272bdb9539b",
+    "requests": [],
+    "source_ids_without_retained_request": [
+      "854211",
+      "854212",
+      "856680"
+    ],
+    "unknown_reason": "Reused legacy rows may lack retained original retrieval receipts; build/read times are not substitutions.",
+    "acquisition_interval": null,
+    "valid_time": {
+      "start": null,
+      "end": null,
+      "quality": "current_validity_not_verified"
+    },
+    "evidence_refs": [
+      "snapshot:20261028T160543372334Z:buildings:Building_0665",
+      "height:Building_0665"
+    ]
+  },
+  "candidate_metadata_limit": "Immutable26e retains placeholder retrievalTime from original validated contract. Current helper now writes concrete dateProvenance/evidence/receipt references for future candidates. Do not claim26e itself contains that later metadata.",
+  "resource_gate": "RAM,VRAM and installation-disk footprint were not measured. CPU validation latency only; GPU capture elapsed time is not performance benchmark."
+}

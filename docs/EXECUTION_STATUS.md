@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## NVIDIA isolated asset pilot — October 29, 2026 UTC
+
+Pinned NVIDIA SimReady validation 2026.8.0 in a separate environment. One copied registered building passes Core, Semantic Labels and Cityscapes profile checks. The exact candidate was rendered at 1920×1080; independent integrator inspection accepts the fully framed plain source mass only. Source assets, registry and user editor remain unchanged. [Actual image, validator evidence and remaining gates](SEMANTIC_VALIDATION.md) distinguish this interoperability pilot from district simulation, architectural realism and NVIDIA certification. #26 remains open for broader scope, metadata/resource gates and dependencies; ticket totals remain **6 closed / 25 open**.
+
 ## City sources and full-neighborhood parks — October 29, 2026 UTC
 
 Integrated supplemental City address points (4,621) and future-land-use polygons (46), plus 11 park reference footprints across the full official neighborhood. Mathews, Overbrook and Don Dudley parks supplement the prior eight. Independent park review reconciled all 14 source candidates and clipped memberships; the three outside candidates are excluded. The local source browser on port8771 exposes fields, first five rows, source dates, quality and coverage. Existing snapshot, 3D ground and user sessions remain unchanged. See [City contract](CITY_ADAPTER_CONTRACT.md) and [park inventory](FULL_NEIGHBORHOOD_PARKS.md). Ownership, vacancy, governing planning conditions and park-site acceptance remain open; totals remain **6 closed / 25 open**.

@@ -4,6 +4,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Church entrance detail](CHURCH_ENTRANCE_DETAIL.md) | Dated appraiser exterior, raised gable and actual estimated-façade proposal review |
 | [Parcel planning references](CITY_PLANNING_REFERENCE.md) | Full-neighborhood zoning/FLU intersections, exact-code area breakdowns and fields/first-five previews |
 | [Post-office historical form](POST_OFFICE_HISTORICAL_FORM.md) | Separate source-supported roof/body, preserved office work and pending integrated visual review |
 | [Office frontage detail](OFFICE_FRONTAGE_DETAIL.md) | Actual matched building renders, accepted appearance detail and remaining geometry/currentness limits |

@@ -264,3 +264,8 @@ Connected 5,723 parcel-feature contexts, 74 exact zoning-code area groups and 19
 ## Church source acquisition and central roof study - October 30, 2026
 
 Acquired full-campus 2024/2025 dated aerial references for both church sites and completed the Church on the Drive public LiDAR cache. A separate connected two-plane sanctuary study passed independent source/CPU and actual1920x1080 central-roof visual review. Full-building adoption is rejected: east-end articulation, wall/overhang positions, lower wings and exact legacy supersession remain unresolved. The owned isolated render exited normally; no active scene/editor changes. [Actual image, review and remaining construction work](LANDMARK_RECONSTRUCTION.md#latest-bounded-building-work--october-30-2026). This advances existing building tickets without claiming facade or whole-ticket completion.
+
+
+## Dated church exterior and entrance proposal - October 30, 2026
+
+A newly acquired official appraiser photo visibly captions November8,2021 and shows the raised sanctuary gable, four pale front frames, narrow glazing and physical steeple. The revised historical roof and separate estimated entrance appearance passed independent source/CPU checks and actual sharp1920x1080 appearance review. No source-photo pixels are used in materials; original TWIN masonry is reused. Full church activation remains unaccepted pending assembly/site/legacy reconciliation. Original returns also support a bounded steeple proxy, with true tip/louver geometry unknown. [Image, script contract and remaining work](CHURCH_ENTRANCE_DETAIL.md). No whole-ticket completion.

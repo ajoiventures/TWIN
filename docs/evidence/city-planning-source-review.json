@@ -1,0 +1,56 @@
+{
+  "reviewer": "primary integrator, independent of GIS helper author",
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "f3eadf2e6d97cfbfe8df36c897b6bd829a3e585d2785f51b8e5c542dc5b0eca0",
+  "result": "pass_bounded_planning_reference",
+  "original_source_populations": {
+    "zoning": {
+      "bbox_rows": 217,
+      "accepted_rows": 158
+    },
+    "future_land_use": {
+      "bbox_rows": 99,
+      "accepted_rows": 68
+    },
+    "parcels": {
+      "bbox_rows": 7532,
+      "accepted_rows": 5723
+    }
+  },
+  "all_source_feature_id_memberships_equal": true,
+  "all_exact_code_areas_recomputed": true,
+  "both_scope_union_and_feature_sum_denominators_recomputed": true,
+  "brute_force_original_membership_samples": [
+    "71",
+    "99556",
+    "99557",
+    "99566",
+    "99579",
+    "99896",
+    "99897",
+    "99898",
+    "105963",
+    "105964",
+    "105965",
+    "99558"
+  ],
+  "quarantined_original_ids": [
+    [
+      "zoning",
+      "1877"
+    ],
+    [
+      "zoning",
+      "2084"
+    ],
+    [
+      "future_land_use",
+      "1847"
+    ]
+  ],
+  "limits": [
+    "Sampled parcel intersection review, not a legal zoning/PD ordinance review.",
+    "No current-use, title, vacancy or physical-site count acceptance.",
+    "Whole issue4 remains open."
+  ]
+}

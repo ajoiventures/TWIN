@@ -1,0 +1,60 @@
+{
+  "reason": "Load newly reviewed City planning API routes into the owned local8768 service",
+  "previous_process_id": 32184,
+  "new_process_id": 15080,
+  "protected_sha256": {
+    "scene/college_park_connected.usda": "83D06DE19458EC4FDFB7FA97DF4DE752418D79EB0CE0E7D038CFCB4AC9B9836B",
+    "scene/manual_edits.usda": "7176205FC5FD5CC274967798E09D41C1A0D12C704E8AD712FD0D0ED683FD20DC",
+    "data/processed/active.json": "35B54F88166C9B77CBD62EEB012321C5428245667B83C3D961DC5CEDBEA2F167",
+    "data/processed/selection_bridge.json": "925AD037753AA76A8603EB111F90B618A4CD597E8DD6C05D02C6F200364C53AE"
+  },
+  "protected_files_unchanged": true,
+  "http_checks": [
+    {
+      "route": "/api/v1/health",
+      "status": 200,
+      "bytes": 125
+    },
+    {
+      "route": "/api/v1/city_planning_quality",
+      "status": 200,
+      "bytes": 447404
+    },
+    {
+      "route": "/api/v1/city_planning_parcel_context?limit=5",
+      "status": 200,
+      "bytes": 15238
+    },
+    {
+      "route": "/api/v1/city_planning_zoning_areas?limit=5",
+      "status": 200,
+      "bytes": 2330
+    },
+    {
+      "route": "/api/v1/city_planning_future_land_use_areas?limit=5",
+      "status": 200,
+      "bytes": 2314
+    },
+    {
+      "route": "/api/v1/mobility_inventory_quality",
+      "status": 200,
+      "bytes": 73888
+    },
+    {
+      "route": "/api/v1/reconstructions?limit=100",
+      "status": 200,
+      "bytes": 45239
+    },
+    {
+      "route": "/city-planning/coverage",
+      "status": 200,
+      "bytes": 101398
+    },
+    {
+      "route": "/source-browser",
+      "status": 200,
+      "bytes": 10129
+    }
+  ],
+  "omniverse_restarted": false
+}

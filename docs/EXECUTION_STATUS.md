@@ -2,23 +2,23 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
-## LYNX published schedule integration — October 29, 2026 UTC
+## LYNX published schedule integration â€” October 29, 2026 UTC
 
 Connected the actual official static GTFS feed, including service calendars and exceptions, 15 study stops and routes 106/125. The transit page now checks a selected date, labels expired/not-yet-effective periods and exposes source fields/sample records. Actual API/browser checks distinguish 100 scheduled local-stop trips on October 28 from unknown availability outside the feed period. Older GIS route 89 stays separate. [Contract and actual UI](LYNX_GTFS_REFERENCE.md). Live positions, FDOT/civil geometry and expanded transportation requirements remain open.
 
-## Interpreted Princeton roof visual review — October 29, 2026 UTC
+## Interpreted Princeton roof visual review â€” October 29, 2026 UTC
 
 Built and rendered a second separate roof proposal using broad architectural caps and terraces. It removes many pits but still has implausible compound joins; integrator and independent reviewer reject architectural acceptance and activation. Composed normals and face planarity were checked, so the next correction must address component geometry rather than a shading workaround. [Actual matched images and evidence](PRINCETON_ROOF_REFERENCES.md). No active geometry changed.
 
-## Property inspector government references — October 29, 2026 UTC
+## Property inspector government references â€” October 29, 2026 UTC
 
 Connected the accepted government-reference register to selected parcels using exact active feature and parcel identities. Actual browser review verified federal classification, a retained County/municipal conflict, unknown ownership for an unclassified office parcel, and clearing. Added readable inspector styling and preserved map-only review. [Usage and evidence](PROPERTY_SEARCH.md). Wider property/scene requirements remain open.
 
-## Government property reference integration — October 29, 2026 UTC
+## Government property reference integration â€” October 29, 2026 UTC
 
 Screened 5,732 OCPA parcel features against exact published use-code definitions and official inventories across the full neighborhood. Identified 93 government-related references, including five City vacant-lot inventory matches and one conflicting County/municipal reference. Independent source/geometry review passed; actual API/browser fields, first five rows and coverage are available on local port8773. All legal title/public-access/current-vacancy fields remain unverified. [Delivery and remaining scope](PUBLIC_OWNERSHIP.md). This does not close the broader land/planning tickets or expand the active 3D ground.
 
-## Native control round trips — October 29, 2026 UTC
+## Native control round trips â€” October 29, 2026 UTC
 
 Added broad clickable labels and verified independent tree, car and storefront hide/restore in the actual editor. Illustrative filtering removes those details and master-off restores them; corrected no-change refresh wording is now verified natively. Review session closed normally and all four protected file hashes remained unchanged. Remaining switches, filter responsiveness and changed-layer native recovery keep #12 open. [Evidence](NATIVE_CONTROL_REVIEW.md).
 
@@ -254,3 +254,8 @@ Independent review traced an invalid temporary render setup: implicit Y-up/centi
 ## Separate post-office historical form - October 30, 2026
 
 Added the reviewed historical four-component post-office form in a separate layer, preserving office/manual/root opinions apart from one additive sublayer. Source/geometry/preservation and isolated actual rendering passed independent review. Current operation/facade/geometry remain unverified; no raw tax links or physical-building count promoted. Reconstruction API exposes the separate historical site; derived corridor/reconstruction reports refreshed. Hardened identity/dependency validator after two independent findings; focused regression and nine independent cases passed. Integrated render command was blocked by automatic approval review (blocked by policy; no specific reason), created no process/wrapper and was not retried through an equivalent route. In-scene visual acceptance remains pending. Corrected-unit tree/car review still falls short of realism; no district replacement activated. No whole ticket closure.
+
+
+## Full-neighborhood parcel planning integration - October 30, 2026
+
+Connected 5,723 parcel-feature contexts, 74 exact zoning-code area groups and 19 FLU categories to the checked API/source browser, including fields and first five rows. Multiple intersecting codes and PD-review flags remain explicit; unique land-area unions are separate from overlapping tax-row sums. Independent original-source/area review and separate HTTP/UI integration review passed. Three invalid City polygons are quarantined, and nine numerical parcel slivers explain the ownership-inventory count difference. Governing ordinance/overlay/PD conditions, current use, vacancy and legal ownership remain unverified; full #4 stays open. [Contract and evidence](CITY_PLANNING_REFERENCE.md). No scene or active snapshot changes; completed-ticket count remains 7, with consolidated review due at 10.

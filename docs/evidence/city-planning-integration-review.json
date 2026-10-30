@@ -1,0 +1,98 @@
+{
+  "schema": "twin.city-planning-integration-review/1",
+  "reviewed_utc": "2026-10-30T15:48:51.589563+00:00",
+  "reviewer": "GIS Analyst AI agent",
+  "implementation_author": "Root integrator AI agent",
+  "separation": "Independent review of root-authored API/UI integration only. Reviewer authored underlying source adapter; source/area acceptance is independently recorded by root in city-planning-source-review.json.",
+  "scope": "Root API/UI integration; no underlying source self-approval",
+  "fingerprints": {
+    "tools/serve.py": "59ea09848cdd074979e415815ddec794d1a03f2774694361887c28a9039f5379",
+    "web/source-browser.html": "5674f0546c533055e9348027c7a6714718a52b26ee71441e16aaeac2db90e12e",
+    "tools/city_planning_reference.py": "bff853352d6b4637ecf75de64d5cf5467a6b412550dbda2addfffc361eca7040",
+    "data/processed/city_planning_reference/packet.json": "f3eadf2e6d97cfbfe8df36c897b6bd829a3e585d2785f51b8e5c542dc5b0eca0",
+    "data/processed/city_planning_reference/receipt.json": "6f84f2000337e5711e5bf2451e9a6c618a85afd3e3c0e09e6181937dd3c4484e",
+    "data/processed/city_planning_reference/coverage.svg": "ac29a4260c2a40c315e4b180c744ed30235f18f1516ef506508e1cc77a29999f"
+  },
+  "service_reviewed": "http://127.0.0.1:8774",
+  "actual_http_cases": [
+    {
+      "table": "city_planning_parcel_context",
+      "total": 5723,
+      "limit": 2,
+      "offset": 1,
+      "exact_source_slice": true,
+      "dictionary_exact": true,
+      "first_five_exact": true,
+      "snapshot_quality_match": true,
+      "packet_hash_quality_match": true
+    },
+    {
+      "table": "city_planning_zoning_areas",
+      "total": 74,
+      "limit": 2,
+      "offset": 1,
+      "exact_source_slice": true,
+      "dictionary_exact": true,
+      "first_five_exact": true,
+      "snapshot_quality_match": true,
+      "packet_hash_quality_match": true
+    },
+    {
+      "table": "city_planning_future_land_use_areas",
+      "total": 19,
+      "limit": 2,
+      "offset": 1,
+      "exact_source_slice": true,
+      "dictionary_exact": true,
+      "first_five_exact": true,
+      "snapshot_quality_match": true,
+      "packet_hash_quality_match": true
+    },
+    {
+      "case": "Exact parcel_id query",
+      "result": "Returned exact source-matching rows; tested original string preserved"
+    },
+    {
+      "case": "Absent parcel_id query",
+      "result": "total0, no unrelated rows"
+    },
+    {
+      "case": "/city-planning/coverage",
+      "result": "HTTP200,image/svg+xml, bytes exactly equal validated artifact"
+    },
+    {
+      "case": "Existing /api/v1/full_neighborhood_parks?limit=5",
+      "result": "total11, returned5; no regression"
+    }
+  ],
+  "controlled_error_cases": {
+    "method": "In-process unittest.mock replacement of planning validator with ValueError; no live file mutations",
+    "all_three_table_routes_reject_stale": true,
+    "quality_route_rejects_stale": true,
+    "coverage_handler_returns_409": true
+  },
+  "ui_executed_cases": {
+    "method": "Executed actual source-browser script using Node VM with minimal DOM and controlled deferred fetch responses; not a browser screenshot",
+    "default_parks_preserved": true,
+    "planning_success_populates_fields_and_shows_map": true,
+    "late_prior_dataset_response_ignored": true,
+    "same_snapshot_different_packet_hash_clears_rows_provenance_and_hides_map": true,
+    "http_stale_error_keeps_rows_provenance_cleared_and_map_hidden": true
+  },
+  "public_projection_review": {
+    "normalized_fields_only": true,
+    "owner_contact_private_values_observed": false,
+    "raw_media_route_added": false,
+    "coverage_path_fixed_allowlist": true,
+    "meaning": "Source IDs, planning designations and explicit limitations remain reference context, not legal ownership/current use/approval"
+  },
+  "decision": "pass_bounded_api_ui_integration",
+  "blocking_findings": [],
+  "limits": [
+    "Does not independently accept reviewer-authored source adapter or geographic/area calculations; separate root review covers those.",
+    "DOM behavior checks do not establish full browser visual/accessibility acceptance.",
+    "Actual HTTP checks used isolated review service8774; no server restart or user8768 selection mutation.",
+    "No scene, source-cache, active snapshot, GPU, editor or shared implementation edits performed by this review.",
+    "No whole-ticket4 closure or governing ordinance/PD/current-vacancy claims."
+  ]
+}

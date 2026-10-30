@@ -4,6 +4,7 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Parcel planning references](CITY_PLANNING_REFERENCE.md) | Full-neighborhood zoning/FLU intersections, exact-code area breakdowns and fields/first-five previews |
 | [Post-office historical form](POST_OFFICE_HISTORICAL_FORM.md) | Separate source-supported roof/body, preserved office work and pending integrated visual review |
 | [Office frontage detail](OFFICE_FRONTAGE_DETAIL.md) | Actual matched building renders, accepted appearance detail and remaining geometry/currentness limits |
 | [Tree and car visual review](ENVIRONMENT_ASSET_REVIEW.md) | Actual asset comparisons, rejected defects and production-asset next steps |

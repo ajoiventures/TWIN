@@ -17,6 +17,8 @@ FDOT_TABLES={'road_names','rci_top30','aadt','portable_sites','telemetered_sites
 TABLES.update({'fdot_'+name for name in FDOT_TABLES}|{'fdot_context_quality'})
 MOBILITY_TABLES={'local_facility_references','published_study_existing_facility_counts','study_proposed_recommendations'}
 TABLES.update({'mobility_'+name for name in MOBILITY_TABLES}|{'mobility_inventory_quality'})
+CITY_PLANNING_TABLES={'planning_parcel_context','planning_zoning_areas','planning_future_land_use_areas'}
+TABLES.update({'city_'+name for name in CITY_PLANNING_TABLES}|{'city_planning_quality'})
 def active_folder(root=ROOT):
  p=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
  folder=(root/p['relative_path']).resolve()
@@ -28,6 +30,18 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name=='city_planning_quality' or name in {'city_'+key for key in CITY_PLANNING_TABLES}:
+  from city_planning_reference import validate,OUT
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('City planning references unavailable or stale') from exc
+  digest=hashlib.sha256((root/OUT/'packet.json').read_bytes()).hexdigest()
+  if name=='city_planning_quality':
+   value={k:v for k,v in report.items() if k not in ('tables','rows','dependencies','first_five_safe_rows')}
+   value['table_counts']={key:len(rows) for key,rows in report['tables'].items()};value['report_sha256']=digest
+  else:
+   key=name.removeprefix('city_');value=VerifiedReviewRows(report['tables'][key]);value.report_sha256=digest
+   value.field_dictionary=report['table_field_dictionaries'][key];value.first_five_safe_rows=report['first_five_safe_rows'][key]
+  return value,report['source_snapshot']
  if name=='mobility_inventory_quality' or name in {'mobility_'+key for key in MOBILITY_TABLES}:
   from mobility_inventory import validate
   try:report=validate(root)
@@ -193,7 +207,7 @@ def page_table(name,query,root=ROOT):
  limit=min(1000,max(1,int(query.get('limit',[100])[0])));offset=max(0,int(query.get('offset',[0])[0]))
  packet={'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
  if report_digest:packet['report_sha256']=report_digest
- if name in {'mobility_'+key for key in MOBILITY_TABLES}:
+ if name in {'mobility_'+key for key in MOBILITY_TABLES}|{'city_'+key for key in CITY_PLANNING_TABLES}:
   packet['field_dictionary']=data.field_dictionary;packet['first_five_safe_rows']=data.first_five_safe_rows
  return packet
 class Handler(BaseHTTPRequestHandler):
@@ -205,6 +219,11 @@ class Handler(BaseHTTPRequestHandler):
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/city-planning/coverage':
+    from city_planning_reference import validate,OUT
+    try:validate(ROOT)
+    except (ValueError,OSError) as exc:raise SnapshotMismatch('City planning reference coverage unavailable or stale') from exc
+    return self.send((ROOT/OUT/'coverage.svg').read_bytes(),kind='image/svg+xml')
    if path=='/mobility-inventory':
     from mobility_inventory import validate
     try:validate(ROOT)

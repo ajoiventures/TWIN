@@ -259,3 +259,8 @@ Added the reviewed historical four-component post-office form in a separate laye
 ## Full-neighborhood parcel planning integration - October 30, 2026
 
 Connected 5,723 parcel-feature contexts, 74 exact zoning-code area groups and 19 FLU categories to the checked API/source browser, including fields and first five rows. Multiple intersecting codes and PD-review flags remain explicit; unique land-area unions are separate from overlapping tax-row sums. Independent original-source/area review and separate HTTP/UI integration review passed. Three invalid City polygons are quarantined, and nine numerical parcel slivers explain the ownership-inventory count difference. Governing ordinance/overlay/PD conditions, current use, vacancy and legal ownership remain unverified; full #4 stays open. [Contract and evidence](CITY_PLANNING_REFERENCE.md). No scene or active snapshot changes; completed-ticket count remains 7, with consolidated review due at 10.
+
+
+## Church source acquisition and central roof study - October 30, 2026
+
+Acquired full-campus 2024/2025 dated aerial references for both church sites and completed the Church on the Drive public LiDAR cache. A separate connected two-plane sanctuary study passed independent source/CPU and actual1920x1080 central-roof visual review. Full-building adoption is rejected: east-end articulation, wall/overhang positions, lower wings and exact legacy supersession remain unresolved. The owned isolated render exited normally; no active scene/editor changes. [Actual image, review and remaining construction work](LANDMARK_RECONSTRUCTION.md#latest-bounded-building-work--october-30-2026). This advances existing building tickets without claiming facade or whole-ticket completion.

@@ -2,7 +2,23 @@
 
 Source review October 28, 2026. Extends #3/#6/#8/#13/#17/#18/#20/#25/#32, the full Edgewater audit and existing sidewalk/ground work. This document identifies real targets and execution gates; it does not claim finished façade geometry.
 
-## Named targets and verified limits
+## Latest bounded building work — October 30, 2026
+
+The [office appearance detail](OFFICE_FRONTAGE_DETAIL.md) and [separate post-office historical form](POST_OFFICE_HISTORICAL_FORM.md) supersede the older inactive-office findings below. Their current geometry, facade and full-project limitations remain explicit in those records.
+
+For the two church campuses, acquired full-campus January 2024/2025 OCPA reference exports with actual returned EPSG:2236 frames and retained original receipts. Both selected campus parcel unions fit completely inside their returned frames; this establishes image coverage, not ground-control accuracy. Images remain local. Newly acquired public Church on the Drive LiDAR resolves the prior incomplete cache: 201,033 returns, including 79,445 classified building returns. The project acquisition is 2018–2019; the local flight date and current physical condition remain unknown.
+
+A separate sanctuary candidate uses two connected roof planes with approximately 19.3-degree opposing pitches. Independent review reproduced the selected supports (6,444 and 7,311 class-6 returns) and fit values, checked the closed serialized shell, and inspected the actual sharp 1920×1080 Z-up/meters render. The central roof study is visually clean, with no evident spikes, corrugations or open voids.
+
+**Whole-building architectural acceptance and activation are rejected.** The rectangular source-cell envelope and vertical closure walls do not establish actual wall lines, overhangs or the eastern roof return/hip/porch. Lower adjoining wings and courtyard connections are absent; conservative overlap with two existing campus groups requires exact partial replacement rather than hiding the campus. The neutral image is a geometry study, not a realistic church facade or conference presentation.
+
+The [subsequent roof-end analysis](evidence/church-roof-end-findings.json) finds raised, locally planar roof-oriented returns at the eastern end: median approximately 1.13 m above the central-plane extension. That contradicts assuming a simple lower hip from the aerial alone. The diagnostic normal screen is not a certified surface label, and the actual return/parapet/porch breakline remains unresolved. A dated or explicitly undated front/side oblique plus contiguous wing interpretation is needed before authoring that end; no guessed revision was prepared.
+
+![Historical sanctuary roof study, inactive](evidence/church-sanctuary-roof-study.png)
+
+[Independent source and actual-image review](evidence/church-sanctuary-candidate-review.json) · [Capture manifest](evidence/church-sanctuary-render.json). Frozen local package: `data/diagnostics/next_landmark_20261030/church_on_drive/sanctuary_candidate_v2`. The owned render process exited normally after capture; the owner's editor and active scene were not changed. End geometry and facade references remain the next reconstruction work. No existing ticket closed.
+
+## Named targets and verified limits (October 28 source checkpoint)
 
 | Target | Property/model evidence | Reconstruction requirement |
 |---|---|---|

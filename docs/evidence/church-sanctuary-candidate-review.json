@@ -1,0 +1,173 @@
+{
+  "schema": "twin.church-sanctuary-candidate-review/1",
+  "scope": "Independent historical central-sanctuary roof study, not activation or whole-campus replacement",
+  "manifest_sha256": "6c09fa05bff5be21d51cc6bcd7a4bb6fcafd3e53e2023a74405d98ec8f8e2511",
+  "all_dependencies_match": true,
+  "all_frozen_outputs_match": true,
+  "source_node_receipts_checked": 36,
+  "source_node_hashes_match": true,
+  "source_point_count": 201033,
+  "class6_point_count": 79445,
+  "independent_connected_plane_recomputation": [
+    {
+      "plane_index": 3,
+      "connected_cells": 458,
+      "selected_class6_returns": 6444,
+      "coefficients_match_max_abs": 0.0,
+      "residual_p50_p95_max_m": [
+        0.013070377666313249,
+        0.05536347524013717,
+        0.13523949842219452
+      ]
+    },
+    {
+      "plane_index": 4,
+      "connected_cells": 511,
+      "selected_class6_returns": 7311,
+      "coefficients_match_max_abs": 0.0,
+      "residual_p50_p95_max_m": [
+        0.012241108615654639,
+        0.04425312041860252,
+        0.14889293032173612
+      ]
+    }
+  ],
+  "independent_all_return_residual_p50_p90_p95_max_m": [
+    0.01740731372727211,
+    0.7719535293003661,
+    1.1296706368558067,
+    4.312008378762954
+  ],
+  "end_vs_central_diagnostics": [
+    {
+      "zone": "west_end",
+      "x_range_utm_m": [
+        461852,
+        461857
+      ],
+      "class6_returns": 1836,
+      "all_return_residual_p50_p90_p95_max_m": [
+        0.01246542684843277,
+        0.5932957954284035,
+        0.8584622136348887,
+        4.312008378762954
+      ]
+    },
+    {
+      "zone": "central",
+      "x_range_utm_m": [
+        461857,
+        461895
+      ],
+      "class6_returns": 14304,
+      "all_return_residual_p50_p90_p95_max_m": [
+        0.016660380113236783,
+        0.6252928277347608,
+        0.8301280767498692,
+        3.9956988745610857
+      ]
+    },
+    {
+      "zone": "east_end",
+      "x_range_utm_m": [
+        461895,
+        461900
+      ],
+      "class6_returns": 1720,
+      "all_return_residual_p50_p90_p95_max_m": [
+        0.15745885666509807,
+        1.1841719795941756,
+        1.2047913816235536,
+        1.3208978525564135
+      ]
+    }
+  ],
+  "serialized_mesh_checks": [
+    {
+      "prim": "/World/Landmarks/ChurchOnDriveSanctuaryCandidate",
+      "closed_shell": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 30,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "subdivision": "none"
+    }
+  ],
+  "units": 1.0,
+  "up_axis": "Z",
+  "current_visible_legacy_bbox_overlap_candidates": [
+    {
+      "prim": "/World/Buildings/Building_2919",
+      "conservative_bbox_intersection_m2": 1248.000099182129
+    },
+    {
+      "prim": "/World/Buildings/Building_3065",
+      "conservative_bbox_intersection_m2": 1035.3372288588434
+    }
+  ],
+  "aerial_review": {
+    "source": "data/diagnostics/next_landmark_20261030/full_campus_references/church_on_drive_2025.jpg",
+    "image_sha256": "6e510bc0a56f16155e660a04f05267941b01ed92be199d4fa9d0457c5d0b03bc",
+    "source_pixels_published": false,
+    "observations": [
+      "Long east-west sanctuary roof and lower attached south/west campus wings are visible.",
+      "East end near Edgewater has return/hip/porch-like roof articulation in aerial; simple full-width vertical gable termination is not established.",
+      "Lower intersecting wings and courtyard remain outside this isolated candidate; roof fit cannot determine precise shared walllines or connections."
+    ]
+  },
+  "decision": "pass_central_connected_historical_roof_plane_study_only_no_end_wall_or_whole_building_adoption",
+  "acceptance_limits": [
+    "Two dense connected source planes are independently reproduced; rectangle is common source-cell bounding span, not measured architectural outline.",
+    "Roof-envelope vertical closure is necessary for closed mass but is not source-observed wall or facade geometry.",
+    "1m cell extents and common-span truncation do not establish overhangs, end hips/returns, east porch or west abutment.",
+    "Known legacy overlap requires exact partial replacement/masking; no whole-campus hide or blind additive composition.",
+    "No logo-to-steeple inference; no invented facade or current/as-built acceptance.",
+    "Historical2018-2019 source vsJanuary2025 qualitative aerial; latest current conditions unknown.",
+    "Actual candidate render pending; no GPU/editor/source changes by reviewer."
+  ],
+  "center_utm_for_plane_coefficients": [
+    461868.3756420595,
+    3160331.3097023447
+  ],
+  "review_camera_check": {
+    "camera": "/World/Cameras/SanctuarySourceCandidate",
+    "valid_camera": true,
+    "composition_error_count": 0,
+    "review_up_axis": "Z",
+    "review_meters_per_unit": 1.0,
+    "independent_max_abs_bbox_corner_ndc_xy": 0.6363842876907856,
+    "all_bbox_corners_in_frame_xy": true
+  },
+  "actual_visual_review": {
+    "image": "data/renders/20261030T155325Z/SanctuarySourceCandidate.png",
+    "image_sha256": "306c2e6447d84ce2e831c68a990b42f5fb248be204376939f08ba285f2ad4616",
+    "image_matches_manifest": true,
+    "capture_manifest_sha256": "683dbe5daf960cfd114835130ab15e41164c8a1be6ba74e9b5a8310d57dd541a",
+    "all_capture_layer_hashes_match": true,
+    "camera": "/World/Cameras/SanctuarySourceCandidate",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "881eb4f58fa303a6452bc8b2076e009d306dab1accef59370259490bbd2cbc42"
+    },
+    "observations": [
+      "Candidate is completely framed and shows two continuous roof planes with a clean ridge; no visible widespread corrugation, triangular spikes or full-depth voids.",
+      "Plain rectangular end walls and long vertical side closures remain generic roof-envelope closures, not demonstrated church facade or actual wall lines.",
+      "No lower campus wings, east-end return/hip/porch or sanctuary-to-annex junctions are resolved by this render.",
+      "Neutral low-contrast lighting/materials make a roof study legible but do not deliver architectural character or professional whole-building presentation."
+    ],
+    "decision": "accept_visual_cleanliness_of_central_historical_roof_study_reject_whole_building_architectural_acceptance",
+    "activation": "Not approved; known legacy overlaps, unsupported ends/wall lines and attached wings remain unresolved.",
+    "limits": "Original source/end-zone/outline/overhang uncertainty findings remain in force. No current/as-built claim, inferred steeple or whole-campus replacement. Reviewer viewed existing image only; no additional tests, render, GPU, editor or source changes."
+  }
+}

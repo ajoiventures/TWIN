@@ -39,6 +39,20 @@ def build():
             prim=stage.GetPrimAtPath(site['prim_path'])
             if not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Landmark reconstruction not visible')
             records.append({'id':site['site_id'],'parcel_id':site['parcel_id'],'site_address':site['site_address'],'usd_path':site['prim_path'],'quality':'historical_component_reconstruction_current_conditions_unverified','components':site['components'],'main_roof_height_m':site['main_roof_height_m'],'maximum_rendered_height_m':site['maximum_rendered_height_m'],'main_roof_height_ground_reference_range_m':site['main_roof_height_ground_reference_range_m'],'superseded_legacy_groups':0,'raw_property_links_promoted':False,'limitations':packet['limitations']})
+    from activate_landmark_reconstructions import validated_post_office
+    post=validated_post_office(ROOT)
+    if post:
+        site=post['site'];post_layer=ROOT/post['layer'];prim=stage.GetPrimAtPath(site['prim_path'])
+        if post_layer.resolve() not in used or not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Historical post-office form is not visibly composed')
+        if any(r['id']==site['site_id'] for r in records):raise ValueError('Historical post-office identity duplicated')
+        records.append({'id':site['site_id'],'parcel_id':site['parcel_id'],'site_address':site['site_address'],'usd_path':site['prim_path'],
+            'quality':'historical_component_reconstruction_current_conditions_unverified','components':site['components'],
+            'main_roof_height_m':site['main_roof_height_m'],'maximum_rendered_height_m':site['maximum_rendered_height_m'],
+            'main_roof_height_ground_reference_range_m':site['main_roof_height_ground_reference_range_m'],
+            'physical_building_count':None,'rendered_entity_count':1,'superseded_legacy_groups':0,
+            'parcel_link_scope':'historical_site_context_not_accepted_tax_footprint_link','raw_property_links_promoted':False,'limitations':post['limitations']})
+        dependencies.extend([ROOT/'data/processed/post_office_historical_activation.json',post_layer])
+        dependencies.extend(ROOT/relative for relative in post['dependencies'])
     retail_path=ROOT/'data/heights/retail_edgewater/activation.json'
     if retail_path.exists():
         from verify_retail_block import validate_active_retail

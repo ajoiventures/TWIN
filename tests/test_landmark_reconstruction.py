@@ -181,4 +181,29 @@ class LandmarkTests(unittest.TestCase):
                             self.assertGreaterEqual((q[3,2]-q[0,2])*(q[2,2]-q[1,2]),-1e-10)
 
 
+class PostOfficeReceiptTests(unittest.TestCase):
+    def test_wrong_identity_and_missing_source_guards_are_rejected(self):
+        from activate_landmark_reconstructions import validated_post_office
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            def put(name,value):
+                p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(value,encoding='utf-8');return p
+            def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+            proposal=put('scene/landmark_building_proposal.usda','source geometry')
+            cloud=put('data/heights/landmarks/college_park_post_office/points.npz','cloud')
+            evidence=put('data/heights/landmarks/college_park_post_office/evidence.json','{}')
+            layer=put('scene/post_office_historical.usda','reviewed layer')
+            put('data/processed/active.json',json.dumps({'snapshot':'s1'}))
+            site={'site_id':'college_park_post_office','parcel_id':'292223149200010','prim_path':'/World/Landmarks/CollegeParkPostOffice','source_snapshot':'s1','cloud_sha256':digest(cloud),'evidence_sha256':digest(evidence)}
+            manifest=put('data/heights/landmarks/proposal_manifest.json',json.dumps({'sites':[site],'layer_sha256':digest(proposal)}))
+            packet={'schema':'twin.post-office-historical-activation/1','source_snapshot':'s1','layer':'scene/post_office_historical.usda','layer_sha256':digest(layer),'site':site,'dependencies':{p.relative_to(root).as_posix():digest(p) for p in (proposal,cloud,evidence,manifest)},'raw_property_links_promoted':False,'accepted_current_geometry':False}
+            receipt='data/processed/post_office_historical_activation.json'
+            put(receipt,json.dumps(packet));self.assertIsNotNone(validated_post_office(root))
+            wrong=json.loads(json.dumps(packet));wrong['site']['parcel_id']='different parcel'
+            put(receipt,json.dumps(wrong))
+            with self.assertRaisesRegex(ValueError,'identity'):validated_post_office(root)
+            wrong=json.loads(json.dumps(packet));wrong['dependencies']={};put(receipt,json.dumps(wrong))
+            with self.assertRaisesRegex(ValueError,'dependencies'):validated_post_office(root)
+
+
 if __name__=='__main__':unittest.main()

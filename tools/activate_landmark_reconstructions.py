@@ -6,6 +6,36 @@ from pxr import Sdf,Usd,UsdGeom,UsdUtils
 from data_pipeline import atomic_json,now
 from mesh_topology import closed_shell_report
 
+def validated_post_office(root=ROOT):
+    """Guard the separately reviewed historical site; never replace the office."""
+    root=Path(root).resolve();receipt=root/'data/processed/post_office_historical_activation.json'
+    layer=root/'scene/post_office_historical.usda'
+    if not receipt.exists() and not layer.exists():return None
+    if not receipt.is_file() or not layer.is_file():raise ValueError('Post-office activation is incomplete')
+    packet=json.loads(receipt.read_text(encoding='utf-8'))
+    if packet.get('schema')!='twin.post-office-historical-activation/1':raise ValueError('Unsupported post-office receipt schema')
+    active=json.loads((root/'data/processed/active.json').read_text(encoding='utf-8'))
+    if packet['source_snapshot']!=active['snapshot']:raise ValueError('Post-office source snapshot is stale')
+    if packet['layer']!='scene/post_office_historical.usda' or packet['site']['site_id']!='college_park_post_office':raise ValueError('Unexpected historical site identity')
+    required={'scene/landmark_building_proposal.usda','data/heights/landmarks/proposal_manifest.json',
+        'data/heights/landmarks/college_park_post_office/evidence.json','data/heights/landmarks/college_park_post_office/points.npz'}
+    dependencies=packet.get('dependencies')
+    if not isinstance(dependencies,dict) or not required.issubset(dependencies):raise ValueError('Post-office required source dependencies missing')
+    if hashlib.sha256(layer.read_bytes()).hexdigest()!=packet['layer_sha256']:raise ValueError('Post-office layer changed; re-review required')
+    for relative,digest in dependencies.items():
+        dependency=(root/relative).resolve()
+        if not dependency.is_relative_to(root) or hashlib.sha256(dependency.read_bytes()).hexdigest()!=digest:raise ValueError('Post-office source dependency changed')
+    manifest=json.loads((root/'data/heights/landmarks/proposal_manifest.json').read_text(encoding='utf-8'))
+    canonical=next((s for s in manifest['sites'] if s['site_id']=='college_park_post_office'),None)
+    if canonical is None or packet['site']!=canonical or canonical.get('parcel_id')!='292223149200010' or canonical.get('prim_path')!='/World/Landmarks/CollegeParkPostOffice' or canonical.get('source_snapshot')!=active['snapshot']:
+        raise ValueError('Post-office identity differs from source manifest')
+    if dependencies['scene/landmark_building_proposal.usda']!=manifest['layer_sha256'] or dependencies['data/heights/landmarks/college_park_post_office/points.npz']!=canonical['cloud_sha256'] or dependencies['data/heights/landmarks/college_park_post_office/evidence.json']!=canonical['evidence_sha256']:
+        raise ValueError('Post-office canonical source hashes differ')
+    if packet.get('raw_property_links_promoted') is not False or packet.get('accepted_current_geometry') is not False:
+        raise ValueError('Historical post-office receipt cannot promote current geometry or tax links')
+    return packet
+
+
 def activate(root=ROOT,site_ids=None):
     read=lambda p:json.loads(p.read_text(encoding='utf-8'))
     manifest_path=root/'data/heights/landmarks/proposal_manifest.json';manifest=read(manifest_path);active=read(root/'data/processed/active.json')
@@ -14,6 +44,8 @@ def activate(root=ROOT,site_ids=None):
     if Path(manifest['layer']).resolve()!=proposal or hashlib.sha256(proposal.read_bytes()).hexdigest()!=manifest['layer_sha256']:raise ValueError('Proposal layer changed')
     selected=[site for site in manifest['sites'] if site_ids is None or site['site_id'] in site_ids]
     if not selected or (site_ids and set(site_ids)-{site['site_id'] for site in selected}):raise ValueError('Unknown landmark selection')
+    if (root/'data/processed/post_office_historical_activation.json').exists() and any(s['site_id']=='college_park_post_office' for s in selected):
+        raise ValueError('Post-office form has a separate reviewed layer; preserve it instead of overwriting the office assembly')
     dependencies=[manifest_path,proposal];source_stage=Usd.Stage.Open(str(proposal))
     for site in selected:
         for component in site['components']:

@@ -213,6 +213,74 @@
       "Street edges, sidewalks, driveway/intersection joins and background building masses remain schematic; this view does not establish actual widths, slopes, accessible paths or full corridor realism."
     ],
     "scope_separation": "The additive trim/pediment fit remains acceptable as labeled photo interpretation. It does not accept striped facade materials, black ground artifacts, broader streetscape, current building dimensions, or whole tickets.",
-    "editor_preservation": "No editor, GPU or API operations performed by reviewer; existing user session untouched."
+    "editor_preservation": "No editor, GPU or API operations performed by reviewer; existing user session untouched.",
+    "superseded_for_actual_project_quality": true,
+    "supersession_reason": "Review wrapper omitted root axis/units and therefore evaluated as default Y-up/0.01m; corrected capture required."
+  },
+  "review_setup_supersession": {
+    "helper_sha256": "21a3d5ee3fb40aeeca9979a658c2066f925013238fb4afbb9944c2127c2fbd86",
+    "archive_proof": [
+      {
+        "file": "office_integrated_detail_review.usda",
+        "archive_hash_matches_receipt": true,
+        "archived_authored_up_axis": false,
+        "archived_authored_meters_per_unit": false,
+        "archive_effective_axis": "Y",
+        "archive_effective_units": 0.01,
+        "corrected_axis": "Z",
+        "corrected_units": 1.0
+      },
+      {
+        "file": "office_frontage_detail_review.usda",
+        "archive_hash_matches_receipt": true,
+        "archived_authored_up_axis": false,
+        "archived_authored_meters_per_unit": false,
+        "archive_effective_axis": "Y",
+        "archive_effective_units": 0.01,
+        "corrected_axis": "Z",
+        "corrected_units": 1.0
+      }
+    ],
+    "temporary_independent_checks": {
+      "proposal_precomposed": true,
+      "metadata_preserved": true,
+      "source_bytes_unchanged": true,
+      "missing_explicit_metadata_rejected": true
+    },
+    "old_integrated_manifest_scene_sha_matches_archive": true,
+    "decision": "Earlier integrated-image project-quality findings superseded because review wrappers omitted explicit axis/units; await corrected actual image.",
+    "important_limit": "This establishes invalid prior review setup and corrected explicit metadata, not the physical cause or resolution of facade striping/black bands. Old pixels remain observations of that setup only. No claim source geometry or rendering defects are fixed.",
+    "operations": "CPU-only read review; temporary fixtures only; no source/capture/editor/GPU mutation."
+  },
+  "corrected_integrated_visual_review": {
+    "image": "data/renders/20261030T142830Z/OfficeFrontage.png",
+    "image_sha256": "e501355f8a626a9e8b31f8ac688e08238443f9ac7df752a1c9414917be06c240",
+    "image_matches_receipt": true,
+    "manifest_sha256": "9a2d90d407f2b34eb7e1b5942c383752f58ccbcfc9afb913a1306c9f83347250",
+    "camera": "/World/Cameras/OfficeFrontage",
+    "same_camera_path_as_old_capture": true,
+    "common_captured_layer_hash_changes": {
+      "scene/office_integrated_detail_review.usda": {
+        "before": "cb50c0198eb025024e816dc83635c53cc53447318064b4248d55dc2422f4b6dd",
+        "corrected_capture": "a4712ea6b6c382748b9e60b37f784e1421510a634928f6ceaf1d00b850cdb27d"
+      }
+    },
+    "current_disk_mismatches_at_review": [
+      "scene/office_frontage_detail.usda"
+    ],
+    "actual_image_findings": [
+      "Previously conspicuous diagonal facade stripes and broad opaque black road/sidewalk bands are absent in this corrected actual image.",
+      "Brick surfaces, road and sidewalk materials now read coherently in this view; no material fix is established or needed to explain the before/after observation.",
+      "Photo-interpreted cornice/pediments/dark roof remain aligned; portico, dormers and chimneys remain recognizable."
+    ],
+    "setup_correction": "Review wrapper explicitly Z-up/1m and metadata-preserving anonymous composition; prior default Y-up/0.01m capture is invalid evidence for actual project-quality conclusions.",
+    "decision": "pass_bounded_interpreted_detail_visual_fit_corrected_review_setup",
+    "remaining_limits": [
+      "Professional full-scene/current physical accuracy not accepted.",
+      "Window rhythms, side/gable transitions, facade proportions, pedestrian/street geometry and background building/landscape detail remain simplified or unmeasured.",
+      "Photo acquisition date unknown and dimensions interpreted; no survey/as-built/ADA or currentness certification.",
+      "This image demonstrates absence of old artifacts in the corrected setup, not a general guarantee across cameras/render settings."
+    ],
+    "operations": "Actual saved image viewed only; no GPU, editor, API or capture-input changes."
   }
 }

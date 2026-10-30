@@ -6,10 +6,23 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
 from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera,SceneRefresh,government_preview
-from workspace_evidence import normalize_boundary_switches,preflight_workspace_stage
+from workspace_evidence import normalize_boundary_switches,preflight_workspace_stage,create_review_stage
 import json
 
 class WorkspaceEvidenceTests(unittest.TestCase):
+    def test_render_wrapper_preserves_units_and_precomposes_override(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);source=root/'source.usda';proposal=root/'proposal.usda'
+            stage=Usd.Stage.CreateNew(str(source));UsdGeom.SetStageUpAxis(stage,'Z');UsdGeom.SetStageMetersPerUnit(stage,1)
+            stage.SetStartTimeCode(12);UsdGeom.Cube.Define(stage,'/World/Box').CreateSizeAttr(2);stage.GetRootLayer().Save()
+            change=Usd.Stage.CreateNew(str(proposal));change.OverridePrim('/World/Box').CreateAttribute('size',Sdf.ValueTypeNames.Double).Set(3);change.GetRootLayer().Save()
+            before=source.read_bytes();review=create_review_stage(source,proposal)
+            self.assertEqual(UsdGeom.GetStageUpAxis(review),'Z');self.assertEqual(UsdGeom.GetStageMetersPerUnit(review),1)
+            self.assertEqual(review.GetStartTimeCode(),12);self.assertEqual(review.GetPrimAtPath('/World/Box').GetAttribute('size').Get(),3)
+            self.assertTrue(review.GetRootLayer().anonymous);self.assertEqual(source.read_bytes(),before)
+            empty=root/'implicit.usda';implicit=Usd.Stage.CreateNew(str(empty));implicit.GetRootLayer().Save()
+            with self.assertRaisesRegex(ValueError,'explicitly author'):create_review_stage(empty)
+
     def default_stage(self):
         stage=Usd.Stage.CreateInMemory();UsdGeom.Xform.Define(stage,'/World')
         UsdGeom.Camera.Define(stage,'/World/Camera');UsdLux.DistantLight.Define(stage,'/World/Light')
@@ -155,6 +168,25 @@ class WorkspaceEvidenceTests(unittest.TestCase):
         controller=SessionConfidenceFilter(stage)
         controller.apply({'unknown'});set_session_visibility(stage,'/World/Buildings',False);controller.reset()
         self.assertFalse(visible_for_test(stage,p))
+
+    def test_interpreted_detail_inspection_and_filter_preserve_source(self):
+        stage=Usd.Stage.CreateInMemory()
+        root=UsdGeom.Xform.Define(stage,'/World/OfficeFrontageDetail').GetPrim()
+        root.SetCustomData({'siteAddress':'1615 Edgewater Dr','appearanceId':'appearance:1615:detail',
+            'quality':'illustrative_photo_interpreted','sourceSnapshot':'s1',
+            'sourceContext':{'publisher':'Broker reference','sourceURL':'https://example.org/reference'}})
+        detail=UsdGeom.Cube.Define(stage,'/World/OfficeFrontageDetail/Cornice').GetPrim()
+        source=stage.GetRootLayer().ExportToString()
+        text=inspector_text(detail,active_snapshot='s1')
+        self.assertIn('Address: 1615 Edgewater Dr',text)
+        self.assertIn('Appearance ID: appearance:1615:detail',text)
+        self.assertIn('Source acquisition date: Unknown',text)
+        self.assertEqual(evidence_category(detail,'s1'),'illustrative')
+        controller=SessionConfidenceFilter(stage,'s1')
+        self.assertEqual(controller.apply({'unknown'})['hidden_groups'],1)
+        self.assertFalse(visible_for_test(stage,detail))
+        controller.reset();self.assertTrue(visible_for_test(stage,detail))
+        self.assertEqual(stage.GetRootLayer().ExportToString(),source)
 
     def test_boundary_switch_normalization_preserves_appearance_and_global_hides(self):
         stage=Usd.Stage.CreateInMemory();parent=UsdGeom.Xform.Define(stage,'/World/StudyBoundaries')

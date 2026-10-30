@@ -1,7 +1,7 @@
 {
   "activation": "appearance_only_photo_interpreted_detail",
   "layer": "scene\\office_frontage_detail.usda",
-  "layer_sha256": "7d6c58b1649df86a154dd19a63309534441c96aabacf4fffafb5ca60900c2c06",
+  "layer_sha256": "bf422e865aaefb06c814079c98067665e903c0d228b27ac3111df9e53a7abdde",
   "root_before_sha256": "77892fb3f009447d489f80c8d6768289b7ea234f56935b1b25adcc96db7c13a7",
   "root_after_sha256": "754355d470d93ea291ad0f4c5918fb3589f9be36d9976b9f8b4723df4652c774",
   "root_backup": "data\\diagnostics\\office_frontage_detail_20261029_a\\root_before_detail.usda",
@@ -89,5 +89,35 @@
   "base_layer_sha256": "00eaf72e19d26939061782245689f4d5558dd9aed27ec4ac4a207f606adaef3d",
   "independent_review": "docs/evidence/office-frontage-review.json",
   "source_snapshot": "20261028T160543372334Z",
-  "activation_metadata_only_change_from_reviewed_layer": true
+  "activation_metadata_only_change_from_reviewed_layer": true,
+  "provenance_metadata_update": {
+    "metadata_only": true,
+    "geometry_material_transforms_unchanged": true,
+    "appearance_metadata": {
+      "quality": "illustrative_photo_interpreted",
+      "appearanceId": "appearance:1615-edgewater:frontage-detail:v1",
+      "siteAddress": "1615 Edgewater Dr",
+      "sourceSnapshot": "20261028T160543372334Z",
+      "sourceURL": "https://www.bbdre.com/wp-content/uploads/2023/05/1615-Edgewater-Dr-2025-1.pdf",
+      "publisher": "BBDRE broker publication",
+      "photoCaptureDate": "unknown",
+      "measuredDimensions": false,
+      "physicalIdentityAccepted": false,
+      "currentConditionAccepted": false,
+      "sourceContext": {
+        "quality": "illustrative_photo_interpreted",
+        "publisher": "BBDRE broker publication",
+        "sourceURL": "https://www.bbdre.com/wp-content/uploads/2023/05/1615-Edgewater-Dr-2025-1.pdf",
+        "sourceSnapshot": "20261028T160543372334Z",
+        "acquisitionStart": "unknown",
+        "acquisitionEnd": "unknown",
+        "effectiveDate": "unknown",
+        "retrievedUTC": "unknown",
+        "photoCaptureDate": "unknown",
+        "method": "Qualitative visible architectural detail interpretation; dimensions and placement estimated, not measured/current/as-built"
+      }
+    },
+    "previous_layer_sha256": "7d6c58b1649df86a154dd19a63309534441c96aabacf4fffafb5ca60900c2c06",
+    "backup": "data\\diagnostics\\office_frontage_detail_20261029_a\\active_detail_before_provenance.usda"
+  }
 }

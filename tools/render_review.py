@@ -10,6 +10,7 @@ import omni.usd
 from omni.kit.viewport.utility import get_active_viewport,create_viewport_window,capture_viewport_to_file,next_viewport_frame_async
 
 ROOT=Path(__file__).resolve().parents[1]
+TOOL_SHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 async def capture():
     app=omni.kit.app.get_app();started=time.monotonic();folder=None
@@ -21,14 +22,20 @@ async def capture():
         scene_name=os.environ.get('TWIN_REVIEW_SCENE','college_park_connected.usda')
         if Path(scene_name).name!=scene_name or not scene_name.endswith('.usda'):raise ValueError('Review scene must name one local USD layer')
         scene=ROOT/'scene'/scene_name
-        ctx=omni.usd.get_context();success,error=await ctx.open_stage_async(str(scene))
-        if not success:raise RuntimeError(error)
+        ctx=omni.usd.get_context()
         proposal=os.environ.get('TWIN_REVIEW_PROPOSAL','')
+        candidate=None
         if proposal:
             if Path(proposal).name!=proposal or not proposal.endswith('.usda'):raise ValueError('Proposal must name one local USD layer')
             candidate=ROOT/'scene'/proposal
             if not candidate.exists():raise ValueError('Proposal layer is missing')
-            ctx.get_stage().GetSessionLayer().subLayerPaths=[str(candidate)]
+        import sys
+        sys.path.insert(0,str(ROOT/'tools'))
+        from workspace_evidence import create_review_stage
+        # Compose proposals and stage metadata before viewport attachment.
+        stage=create_review_stage(scene,candidate)
+        success,error=await ctx.attach_stage_async(stage)
+        if not success:raise RuntimeError(error)
         path='/World/Cameras/'+camera
         if not ctx.get_stage().GetPrimAtPath(path) and ctx.get_stage().GetPrimAtPath('/World/'+camera):path='/World/'+camera
         if not ctx.get_stage().GetPrimAtPath(path):raise ValueError('Missing review camera: '+path)
@@ -57,6 +64,10 @@ async def capture():
         if any(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()!=digest for relative,digest in layers.items()):raise RuntimeError('Scene source changed during capture; image is not an accepted comparison')
         active=json.loads((ROOT/'data/processed/active.json').read_text(encoding='utf-8'))
         report={'captured_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],'camera':path,'proposal_layer':proposal or None,'requested_resolution':[1920,1080],'scene':str(scene.relative_to(ROOT)),'scene_sha256':hashlib.sha256(scene.read_bytes()).hexdigest(),'layer_hashes':layers,'image':str(image.relative_to(ROOT)),'image_sha256':hashlib.sha256(image.read_bytes()).hexdigest(),'elapsed_seconds':round(time.monotonic()-started,2),'quality':'Actual Kit render for visual inspection; not visual sign-off or a performance benchmark','source_stage_saved':False}
+        from pxr import UsdGeom
+        report['render_stage']={'up_axis':str(UsdGeom.GetStageUpAxis(ctx.get_stage())),
+            'meters_per_unit':UsdGeom.GetStageMetersPerUnit(ctx.get_stage()),
+            'root_mode':'transient_precomposed','capture_tool_sha256':TOOL_SHA256}
         (folder/'manifest.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
         print('TWIN_RENDER_CAPTURE_READY',str(image),flush=True)
     except Exception:

@@ -71,6 +71,26 @@ def preflight_workspace_stage(stage):
     return True
 
 
+def create_review_stage(source_path,proposal_path=None):
+    """Compose a render candidate before attach, retaining explicit scene units."""
+    from pxr import Sdf,Usd
+    import math
+    source=Path(source_path).resolve()
+    layer=Sdf.Layer.FindOrOpen(str(source))
+    if not layer:raise ValueError('Review source is unavailable')
+    for name in ('upAxis','metersPerUnit'):
+        if not layer.pseudoRoot.HasInfo(name):raise ValueError('Review scene must explicitly author '+name)
+    units=float(layer.pseudoRoot.GetInfo('metersPerUnit'))
+    if not math.isfinite(units) or units<=0:raise ValueError('Invalid review scene units')
+    root=Sdf.Layer.CreateAnonymous('twin_render_review.usda')
+    root.subLayerPaths=[str(Path(proposal_path).resolve()),str(source)] if proposal_path else [str(source)]
+    for name in ('upAxis','metersPerUnit','startTimeCode','endTimeCode','framesPerSecond','timeCodesPerSecond','defaultPrim','customLayerData','colorConfiguration','colorManagementSystem','renderSettingsPrimPath'):
+        if layer.pseudoRoot.HasInfo(name):root.pseudoRoot.SetInfo(name,layer.pseudoRoot.GetInfo(name))
+    stage=Usd.Stage.Open(root)
+    if not stage or stage.GetCompositionErrors():raise ValueError('Review composition is incomplete')
+    return stage
+
+
 def create_workspace_stage(source_path):
     """Transient root absorbs Kit render/camera edits above the saved assembly."""
     from pxr import Sdf,Usd,UsdGeom
@@ -208,7 +228,8 @@ def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None)
     rows=[('Selected',evidence['selected_path']),
           ('Evidence category',dict(CONFIDENCE_CATEGORIES).get(category,UNKNOWN)),
           ('Snapshot freshness','Stale: differs from active dataset' if category=='stale' else 'Matches active dataset' if active_snapshot and snapshot==active_snapshot else UNKNOWN),
-          ('Address',pick(official.get('site_address'))),
+          ('Address',pick(official.get('site_address'),d.get('siteAddress'))),
+          ('Appearance ID',pick(d.get('appearanceId'))),
           ('Entity',pick(twin.get('entityId'),official.get('id'),d.get('id'))),
           ('Parcel',pick(official.get('parcel_id'),d.get('parcelId'),context.get('sourceParcelId'))),
           ('Source',pick(official.get('source'),d.get('source'),context.get('publisher'))),
@@ -276,7 +297,7 @@ def confidence_targets(stage):
     for root in ('/World/Buildings','/World/Roofs','/World/Landmarks'):
         parent=stage.GetPrimAtPath(root)
         if parent:targets.extend(p for p in parent.GetChildren() if not p.IsInstanceProxy())
-    for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples','/World/Scenario','/World/Scenarios'):
+    for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples','/World/OfficeFrontageDetail','/World/Scenario','/World/Scenarios'):
         prim=stage.GetPrimAtPath(root)
         if prim:targets.append(prim)
     return targets

@@ -13,6 +13,29 @@ from pxr import Gf,Sdf,Usd,UsdGeom,UsdShade
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def appearance_metadata(root=ROOT):
+    """Photo evidence identity only; never a parcel/building or currentness link."""
+    root=Path(root)
+    evidence=json.loads((root/'data/heights/landmarks/office_architectural_roof.json').read_text())
+    snapshot=evidence.get('source_snapshot')
+    if not isinstance(snapshot,str) or not snapshot:
+        raise ValueError('Office source manifest lacks snapshot provenance')
+    reference=evidence.get('photo_reference',{})
+    url=reference.get('url')
+    if not isinstance(url,str) or not url.startswith('https://www.bbdre.com/'):
+        raise ValueError('Office photo reference must be reconciled before use')
+    context={'quality':'illustrative_photo_interpreted','publisher':'BBDRE broker publication',
+        'sourceURL':url,'sourceSnapshot':snapshot,'acquisitionStart':'unknown',
+        'acquisitionEnd':'unknown','effectiveDate':'unknown','retrievedUTC':'unknown',
+        'photoCaptureDate':'unknown',
+        'method':'Qualitative visible architectural detail interpretation; dimensions and placement estimated, not measured/current/as-built'}
+    return {'quality':'illustrative_photo_interpreted',
+        'appearanceId':'appearance:1615-edgewater:frontage-detail:v1',
+        'siteAddress':'1615 Edgewater Dr','sourceSnapshot':snapshot,
+        'sourceURL':url,'publisher':context['publisher'],'photoCaptureDate':'unknown',
+        'measuredDimensions':False,'physicalIdentityAccepted':False,
+        'currentConditionAccepted':False,'sourceContext':context}
+
 def validated_active_detail(root=ROOT):
     """Retain only the accepted, compatible appearance layer on scene rebuild."""
     root=Path(root);receipt=root/'data/processed/office_frontage_detail_activation.json'
@@ -34,6 +57,8 @@ def build(output,root=ROOT):
     source=Usd.Stage.Open(str(review))
     if not source or source.GetCompositionErrors():raise ValueError('Office review composition is unavailable')
     hashes={str(Path(l.realPath).relative_to(root)):sha(Path(l.realPath)) for l in source.GetUsedLayers() if l.realPath}
+    evidence_path=root/'data/heights/landmarks/office_architectural_roof.json'
+    hashes[str(evidence_path.relative_to(root))]=sha(evidence_path)
     photos={f'data/imagery/landmark_reference/1615_exterior_page_{n}.png':sha(root/f'data/imagery/landmark_reference/1615_exterior_page_{n}.png') for n in (3,4,9)}
     skin=UsdGeom.Mesh(source.GetPrimAtPath('/World/OfficeFrontageProposal/BrickFrontSkin'))
     if not skin:raise ValueError('Office public frontage missing')
@@ -52,6 +77,8 @@ def build(output,root=ROOT):
     base='/World/OfficeFrontageDetail'
     prim=UsdGeom.Xform.Define(stage,base).GetPrim()
     prim.SetCustomData({'classification':'Photo-interpreted architectural detail proposal','siteAddress':'1615 Edgewater Dr','photoCaptureDate':'Unknown','measuredDimensions':False,'active':False})
+    metadata=appearance_metadata(root)
+    for key,value in metadata.items():prim.SetCustomDataByKey(key,value)
     mat=UsdShade.Material.Define(stage,base+'/Materials/Trim');shader=UsdShade.Shader.Define(stage,mat.GetPath().AppendChild('Surface'))
     shader.CreateIdAttr('UsdPreviewSurface');shader.CreateInput('diffuseColor',Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(.72,.73,.69));shader.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(.68)
     mat.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(),'surface')
@@ -88,13 +115,18 @@ def build(output,root=ROOT):
     shade=UsdShade.Shader(stage.OverridePrim(roof))
     shade.CreateInput('diffuseColor',Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(.035,.041,.045))
     shade.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(.82)
+    # Picking a detail mesh directly must retain the same appearance-only context.
+    # Material overrides outside this detail root are not physical entities.
+    for child in stage.Traverse():
+        if child.GetPath().HasPrefix(prim.GetPath()) and child.IsA(UsdGeom.Gprim):
+            for key,value in metadata.items():child.SetCustomDataByKey(key,value)
     output.mkdir(parents=True)
     stage.GetRootLayer().customLayerData={'purpose':'Inactive office detail review; no measured/current-condition claim','sourceHashesJson':json.dumps(hashes,sort_keys=True),'photoHashesJson':json.dumps(photos,sort_keys=True),'limitations':'Cornice and small pediment proportions interpreted from broker photos of unknown capture date; base roof geometry retained; no original pixels used as textures.'}
     layer=output/'detail.usda';stage.GetRootLayer().Export(str(layer))
     combined=Usd.Stage.CreateInMemory();combined.GetRootLayer().subLayerPaths=[str(layer),str(review)]
     workview=output/'workview.usda';combined.GetRootLayer().Export(str(workview))
     if any(sha(root/name)!=digest for name,digest in hashes.items()):raise ValueError('Source changed during detail build')
-    result={'proposal_only':True,'site_address':'1615 Edgewater Dr','source_hashes':hashes,'photo_hashes':photos,'cornice_segments':cornice_segments,'pediments':pediments,'photo_capture_date':None,'measured_dimensions':False,'original_pixels_embedded':False,'activation':False,'files':{p.name:sha(p) for p in (layer,workview)}}
+    result={'proposal_only':True,'site_address':'1615 Edgewater Dr','source_snapshot':metadata['sourceSnapshot'],'appearance_metadata':metadata,'source_hashes':hashes,'photo_hashes':photos,'cornice_segments':cornice_segments,'pediments':pediments,'photo_capture_date':None,'measured_dimensions':False,'original_pixels_embedded':False,'activation':False,'files':{p.name:sha(p) for p in (layer,workview)}}
     (output/'manifest.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 

@@ -48,3 +48,12 @@ Trigger: the full-neighborhood City vacant-lot inventory matched five parcels, i
 Decision: reconcile exact publisher parcel IDs against the full required boundary, retain assessment classification and official inventory membership as distinct observations, and expose conflicting agency references. Never translate an unestablished code namespace or classify unlabelled parcels as privately owned. Legal title, current vacancy and public access remain separate unverified questions.
 
 Verification and adoption: independent replay reconciled 5,732 source features and 93 combined references; `tools/public_ownership.py` preserves unknowns, exact code definitions and conflict records. The method applies to reference screening, not a comprehensive deed/title register. [Contract and limitations](PUBLIC_OWNERSHIP.md).
+
+
+## L-010: Render wrappers must preserve physical stage metadata
+
+Date: October 30, 2026. Status: adopted. Owner: 3D Delivery Integrator. Independent reviewer: GIS analyst, [setup and actual-image review](evidence/office-frontage-review.json). Supersession: earlier integrated-render project-quality diagnosis is superseded by the corrected setup.
+
+Temporary USD review wrappers omitted stage-level units and orientation, defaulting to Y-up and 0.01 metres/unit while the actual project is Z-up and 1 metre/unit. The earlier full-scene capture showed severe brick striping and black road bands. Exact old wrapper bytes are archived by their original capture hashes. The corrected actual comparison keeps camera, source geometry, materials and lighting layers unchanged; only the common wrapper layer hash differs, and both artifacts disappear. [Evidence](evidence/render-stage-correction.json).
+
+Decision and adoption: `create_review_stage` in `tools/workspace_evidence.py` requires explicit units/orientation, copies stage metadata to a transient root and composes proposal overrides before attachment. `tools/render_review.py` uses it and records stage settings on future captures. Twenty focused checks cover metadata preservation, precomposed overrides, missing authoring and existing controls. This establishes a repeatable review setup; it does not certify the remaining building geometry, street accuracy, assets or professional presentation.

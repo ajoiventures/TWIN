@@ -8,6 +8,8 @@ All district-wide building, multifamily, street/sidewalk, landscape, lighting, s
 
 Created October 27, 2026 (America/New_York).
 
+Latest GitHub check: October 30, 2026 — **7 completed / 24 open**. Completed existing tickets: #1, #2, #12, #19, #20, #23 and #24. The next consolidated review is at 10 completed tickets. The detailed specifications below retain their original scope; partial source packets and building corrections do not count as completed tickets. See [current execution evidence](docs/EXECUTION_STATUS.md).
+
 Build an accurate, navigable digital twin of College Park, Orlando, beginning with Edgewater Drive. The current prototype has public footprint/street geometry and illustrative storefront, tree and vehicle detail. This roadmap replaces assumptions with traceable evidence and upgrades the visual assets.
 
 ## Delivery sequence
@@ -16,8 +18,8 @@ Expanded source-by-source work packages and delivery gates are in [Government Da
 
 ### 1. Establish clean data foundations
 
-- [ ] https://github.com/ajoiventures/TWIN/issues/1 — Create a portable, versioned Omniverse project baseline
-- [ ] https://github.com/ajoiventures/TWIN/issues/2 — Audit local BOOMS, parcel and map sources before integration
+- [x] https://github.com/ajoiventures/TWIN/issues/1 — Create a portable, versioned Omniverse project baseline
+- [x] https://github.com/ajoiventures/TWIN/issues/2 — Audit local BOOMS, parcel and map sources before integration
 - [ ] https://github.com/ajoiventures/TWIN/issues/3 — Add cached OCPA parcel API ingestion and stable parcel-building links
 - [ ] https://github.com/ajoiventures/TWIN/issues/4 — Build clean, documented City of Orlando Open Data and GIS adapters
 - [ ] https://github.com/ajoiventures/TWIN/issues/5 — Align official district boundaries and a linked 2D parcel map with the 3D twin
@@ -33,7 +35,7 @@ Expanded source-by-source work packages and delivery gates are in [Government Da
 ### 3. Deliver and verify a realistic pilot block
 
 - [ ] https://github.com/ajoiventures/TWIN/issues/11 — Model a verified pilot block of storefronts and pedestrian streetscape
-- [ ] https://github.com/ajoiventures/TWIN/issues/12 — Add provenance, accuracy filters and dependable scene refresh controls
+- [x] https://github.com/ajoiventures/TWIN/issues/12 — Add provenance, accuracy filters and dependable scene refresh controls
 - [ ] https://github.com/ajoiventures/TWIN/issues/13 — Verify geographic accuracy, visual realism and laptop performance before release
 
 ## Definition of done

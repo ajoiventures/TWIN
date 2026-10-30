@@ -1,0 +1,46 @@
+{
+  "study_bbox_wgs84": [
+    -81.398,
+    28.5602,
+    -81.379,
+    28.5858
+  ],
+  "extent_note": "Existing prototype extraction rectangle; not an official neighborhood or pilot-block boundary.",
+  "candidate_geometry_source_id": "crosswalk_may2026",
+  "city_reference_maps": [
+    "a6b83c314766472cae5e1479f68f7e65",
+    "e65f6e0935e4456f946554f4f4600c60"
+  ],
+  "sources": [
+    {
+      "id": "crosswalk_jan2026",
+      "kind": "crosswalk_candidate",
+      "url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/PedestrianCrosswalks_Updated_2026_01_20/FeatureServer/0"
+    },
+    {
+      "id": "crosswalk_v1",
+      "kind": "crosswalk_candidate",
+      "url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/308090_004_FORWARD_Pedestrian_Crosswalks_WFL1/FeatureServer/0"
+    },
+    {
+      "id": "crosswalk_feb2026",
+      "kind": "crosswalk_candidate",
+      "url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/PedestrianCrosswalks_020926Update/FeatureServer/0"
+    },
+    {
+      "id": "crosswalk_may2026",
+      "kind": "crosswalk_candidate",
+      "url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/PedestrianCrosswalks_Updated_2026_05_28/FeatureServer/0"
+    },
+    {
+      "id": "roadway_sidewalk_attributes",
+      "kind": "roadway_attributes_not_walkway_edges",
+      "url": "https://services.arcgis.com/04HiymDgLlsbhaV4/ArcGIS/rest/services/Orlando_Sidewalks_AGOL/FeatureServer/1"
+    },
+    {
+      "id": "mapworks_internal",
+      "kind": "internal_reference_not_public",
+      "url": "https://gisweb2.orlando.cit/server/rest/services/MapWorks/Transportation/MapServer"
+    }
+  ]
+}

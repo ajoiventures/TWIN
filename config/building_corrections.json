@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "correction_id": "wellesley-historical-upper-roof-v1",
+  "original_building_id": "Building_2933",
+  "original_source_snapshot": "20261028T145054204280Z",
+  "snapshot_policy": "allow refreshed snapshot only when exact source identity, subareas and base mesh remain unchanged",
+  "source_parcel_id": "292214147406110",
+  "source_building_number": "1",
+  "source_object_ids": [
+    "1161794",
+    "1163955",
+    "1168624",
+    "1173129",
+    "1181917",
+    "1182436",
+    "1184630",
+    "1186049",
+    "1187964"
+  ],
+  "source_base_mesh_sha256": "91960a3da1ebf65985b3d203a33a00cc8e6298c4b559513464167227fe54f0b0",
+  "source_cloud_sha256": "a8b696f2e07547a1acd8a80a82ddc2afa42ac5713579bc81372064fc608faf0e",
+  "source_address_prefix": "2305 EDGEWATER DR",
+  "expected_previous_height_m": 4.3,
+  "expected_match_method": "ambiguous_or_unmatched",
+  "reported_stories": 7,
+  "reported_height_ft": 75,
+  "reported_height_m": 22.86,
+  "documentary_reference": {
+    "url": "https://metroplanorlando.gov/wp-content/uploads/2040-LRTP-TR1-Sustainable-Land-Use-Forecast.pdf",
+    "title": "MetroPlan Orlando Sustainable Land Use Forecast, January2016",
+    "physical_page": 62,
+    "printed_page": "B-7",
+    "figure": "B-5",
+    "local_reference_doc": "docs/WELLESLEY_REFERENCE.md",
+    "quality": "historical_planning_reported_nominal_height_not_surveyed"
+  },
+  "roof_extraction": {
+    "cell_size_m": 0.75,
+    "minimum_cell_points": 5,
+    "maximum_cell_p85_p15_m": 0.3,
+    "maximum_cell_plane_deviation_m": 0.4,
+    "minimum_height_above_ground_m": 15,
+    "maximum_height_above_ground_m": 30,
+    "histogram_bin_m": 0.1,
+    "opening_iterations": 1,
+    "closing_iterations": 1,
+    "minimum_component_area_m2": 100,
+    "maximum_enclosed_gap_fill_m2": 25,
+    "simplification_tolerance_m": 0.4,
+    "minimum_total_upper_area_m2": 1500,
+    "maximum_tax_envelope_area_fraction": 0.8,
+    "minimum_concavity_void_area_m2": 400,
+    "maximum_reported_height_difference_m": 2,
+    "surface_aware": true,
+    "minimum_deck_cell_points": 3,
+    "maximum_supported_equipment_gap_m2": 150,
+    "minimum_raised_patch_m2": 2.25,
+    "surface_simplification_m": 1.0,
+    "protected_upper_voids_utm": [
+      {
+        "id": "observed_lower_courtyard_deck_core",
+        "bounds": [
+          461960,
+          3160660,
+          461990,
+          3160670
+        ],
+        "evidence": "Actual historical point returns p05/p50/p95 48.50/49.30/51.313 NAVD88 m; not upper roof or ground void."
+      }
+    ]
+  },
+  "origin_wgs84": [
+    -81.389,
+    28.572
+  ]
+}

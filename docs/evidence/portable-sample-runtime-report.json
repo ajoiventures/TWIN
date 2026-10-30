@@ -1,0 +1,914 @@
+{
+  "status": "complete",
+  "sample_directory": "C:\\Users\\ajoiv\\AppData\\Local\\Temp\\twin-sample-runtime-yeffszfe",
+  "resolution": [
+    1280,
+    720
+  ],
+  "generated_bootstrap_used": true,
+  "manual_edit_target_verified": true,
+  "launch_to_stage_open_seconds": 4.375,
+  "launch_to_first_viewport_frame_seconds": 8.311999999976251,
+  "frame_completion_intervals_ms": [
+    17.6485,
+    9.5253,
+    8.5122,
+    16.5254,
+    8.9923,
+    16.5533,
+    9.47,
+    8.493,
+    16.5356,
+    9.0017,
+    16.5575,
+    8.5015,
+    9.0452,
+    16.4789,
+    9.012,
+    16.5861,
+    8.4332,
+    8.5036,
+    17.1712,
+    9.009,
+    16.5396,
+    8.5317,
+    9.4819,
+    16.0895,
+    8.9332,
+    17.324,
+    9.5444,
+    8.5322,
+    16.5535,
+    9.009,
+    16.523,
+    9.0106,
+    16.5181,
+    8.9976,
+    16.5224,
+    16.6128,
+    17.5295,
+    17.0057,
+    18.0672,
+    17.3085,
+    8.4874,
+    16.5257,
+    17.3416,
+    17.6277,
+    16.4727,
+    17.0393,
+    16.9928,
+    16.5148,
+    17.0393,
+    9.0167,
+    17.0022,
+    17.0187,
+    9.5241,
+    17.0029,
+    9.2182,
+    17.0311,
+    16.5078,
+    9.0376,
+    17.5595,
+    8.5353,
+    8.5967,
+    16.565,
+    9.0353,
+    16.4953,
+    9.0024,
+    16.3106,
+    9.5358,
+    16.499,
+    9.0319,
+    16.5585,
+    9.0815,
+    16.287,
+    9.0233,
+    9.0275,
+    16.5259,
+    9.0001,
+    16.5325,
+    9.0188,
+    17.0362,
+    9.5074,
+    8.2165,
+    16.5381,
+    8.9886,
+    16.5468,
+    9.5565,
+    16.012,
+    9.0814,
+    16.9581,
+    9.0041,
+    9.0139,
+    16.009,
+    9.5549,
+    16.5067,
+    9.0043,
+    9.0338,
+    16.0279,
+    9.0182,
+    17.0487,
+    8.9983,
+    17.0644,
+    8.979,
+    16.5119,
+    9.004,
+    17.3209,
+    8.4288,
+    16.5209,
+    9.0114,
+    16.8483,
+    17.0622,
+    8.971,
+    16.5338,
+    17.0339,
+    9.4747,
+    16.5282,
+    17.0412,
+    17.0234,
+    9.4914,
+    16.5865,
+    16.9962,
+    17.034
+  ],
+  "timings": {
+    "samples": 120,
+    "warmup_viewport_frames": 30,
+    "median_ms": 16.298799979267642,
+    "p95_ms": 17.3248800158035,
+    "min_ms": 8.216499991249293,
+    "max_ms": 18.067200027871877,
+    "reciprocal_median_viewport_completions_per_second": 61.354210203942465,
+    "method": "Wall-clock wait intervals for actual next_viewport_frame_async futures; not app updates or GPU timestamp timings."
+  },
+  "launch_to_capture_complete_seconds": 10.655999999959022,
+  "image": "sample.png",
+  "image_sha256": "c35c48e04700bf4a14f1957ab2c867e64392dfd9bbf69ab065d20b9b6d484f49",
+  "source_stage_saved": false,
+  "probe_pid": 18364,
+  "exit_code": 0,
+  "timed_out": false,
+  "sample_manifest": {
+    "format_version": 1,
+    "scene": "sample.usda",
+    "fictional": true,
+    "license": "CC0-1.0",
+    "counts": {
+      "buildings": 10,
+      "trees": 12,
+      "cars": 4
+    },
+    "camera": "/World/Cameras/Overview",
+    "render_resolution": [
+      1280,
+      720
+    ],
+    "camera_aperture_mm": [
+      36,
+      20.25
+    ],
+    "meters_per_unit": 1,
+    "up_axis": "Z",
+    "layers": [
+      "manual.usda",
+      "scenario.usda",
+      "base.usda"
+    ],
+    "external_assets": [],
+    "unresolved_assets": [],
+    "sha256": {
+      "sample.usda": "3d52aa12dd5a66a6b576f7d7e05857bfce6af85b22706497e00df553506b0a01",
+      "base.usda": "7a2a3f88a42105376cee1ea0809018efd6bf608ebaf2160cf8562c1511189df6",
+      "manual.usda": "994febd197aedd104fe5d73359942ca56778cedda4c97852cfe96b797c43c94a",
+      "scenario.usda": "c63a33327caf9f57ee17f4a1cfc6b3098f3986fb09408891add0ada2e6e4e725",
+      "sample.kit": "09208965bf9bdadf44f7d622fab4fc17d06dcb6555657ab5946992671b6f6a8f",
+      "open_sample.py": "60cc3cb9b41df1c6c9750efa3f900c03d07e8dd6f693397562bdd6c2a65440be"
+    }
+  },
+  "sample_sources_unchanged": true,
+  "other_kit_processes_before_launch": [],
+  "other_kit_processes_after_exit": [],
+  "protected_user_pid": 42464,
+  "protected_pid_was_running": false,
+  "resource_samples": [
+    {
+      "seconds": 0.0,
+      "ram": {
+        "working_set_bytes": 2273280,
+        "peak_working_set_bytes": 2273280,
+        "private_commit_bytes": 454656
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    },
+    {
+      "seconds": 0.2029999999795109,
+      "ram": {
+        "working_set_bytes": 54239232,
+        "peak_working_set_bytes": 54239232,
+        "private_commit_bytes": 154894336
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    },
+    {
+      "seconds": 0.4059999999590218,
+      "ram": {
+        "working_set_bytes": 84082688,
+        "peak_working_set_bytes": 84082688,
+        "private_commit_bytes": 208445440
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    },
+    {
+      "seconds": 0.6089999999967404,
+      "ram": {
+        "working_set_bytes": 225968128,
+        "peak_working_set_bytes": 226037760,
+        "private_commit_bytes": 378138624
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    },
+    {
+      "seconds": 0.8119999999762513,
+      "ram": {
+        "working_set_bytes": 337227776,
+        "peak_working_set_bytes": 337227776,
+        "private_commit_bytes": 521142272
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    },
+    {
+      "seconds": 1.0,
+      "ram": {
+        "working_set_bytes": 431640576,
+        "peak_working_set_bytes": 431640576,
+        "private_commit_bytes": 670633984
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 400470016
+      }
+    },
+    {
+      "seconds": 1.202999999979511,
+      "ram": {
+        "working_set_bytes": 643485696,
+        "peak_working_set_bytes": 643485696,
+        "private_commit_bytes": 1059389440
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 595636224
+      }
+    },
+    {
+      "seconds": 1.4059999999590218,
+      "ram": {
+        "working_set_bytes": 820756480,
+        "peak_working_set_bytes": 820756480,
+        "private_commit_bytes": 1231732736
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 630243328
+      }
+    },
+    {
+      "seconds": 1.6089999999967404,
+      "ram": {
+        "working_set_bytes": 1548382208,
+        "peak_working_set_bytes": 1548382208,
+        "private_commit_bytes": 2181222400
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 843075584
+      }
+    },
+    {
+      "seconds": 1.8119999999762513,
+      "ram": {
+        "working_set_bytes": 1589551104,
+        "peak_working_set_bytes": 1589551104,
+        "private_commit_bytes": 2259062784
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 843075584
+      }
+    },
+    {
+      "seconds": 2.014999999955762,
+      "ram": {
+        "working_set_bytes": 1591017472,
+        "peak_working_set_bytes": 1591017472,
+        "private_commit_bytes": 2260725760
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 843075584
+      }
+    },
+    {
+      "seconds": 2.202999999979511,
+      "ram": {
+        "working_set_bytes": 1592750080,
+        "peak_working_set_bytes": 1592750080,
+        "private_commit_bytes": 2262474752
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 843075584
+      }
+    },
+    {
+      "seconds": 2.405999999959022,
+      "ram": {
+        "working_set_bytes": 1675243520,
+        "peak_working_set_bytes": 1675243520,
+        "private_commit_bytes": 2363453440
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 855658496
+      }
+    },
+    {
+      "seconds": 2.6089999999967404,
+      "ram": {
+        "working_set_bytes": 1885761536,
+        "peak_working_set_bytes": 1885761536,
+        "private_commit_bytes": 2627432448
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 818040832
+      }
+    },
+    {
+      "seconds": 2.8119999999762513,
+      "ram": {
+        "working_set_bytes": 1905229824,
+        "peak_working_set_bytes": 1905229824,
+        "private_commit_bytes": 2695884800
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 818040832
+      }
+    },
+    {
+      "seconds": 3.014999999955762,
+      "ram": {
+        "working_set_bytes": 1909403648,
+        "peak_working_set_bytes": 1913139200,
+        "private_commit_bytes": 2700468224
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 818040832
+      }
+    },
+    {
+      "seconds": 3.2189999999827705,
+      "ram": {
+        "working_set_bytes": 1910804480,
+        "peak_working_set_bytes": 1914601472,
+        "private_commit_bytes": 2742726656
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 818040832
+      }
+    },
+    {
+      "seconds": 3.405999999959022,
+      "ram": {
+        "working_set_bytes": 1913233408,
+        "peak_working_set_bytes": 1915097088,
+        "private_commit_bytes": 2744872960
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 818040832
+      }
+    },
+    {
+      "seconds": 3.6089999999967404,
+      "ram": {
+        "working_set_bytes": 1965842432,
+        "peak_working_set_bytes": 1966895104,
+        "private_commit_bytes": 2785124352
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 836849664
+      }
+    },
+    {
+      "seconds": 3.8119999999762513,
+      "ram": {
+        "working_set_bytes": 2004647936,
+        "peak_working_set_bytes": 2004647936,
+        "private_commit_bytes": 2825981952
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 836980736
+      }
+    },
+    {
+      "seconds": 4.014999999955762,
+      "ram": {
+        "working_set_bytes": 2191720448,
+        "peak_working_set_bytes": 2200264704,
+        "private_commit_bytes": 3008225280
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 841183232
+      }
+    },
+    {
+      "seconds": 4.2189999999827705,
+      "ram": {
+        "working_set_bytes": 2895265792,
+        "peak_working_set_bytes": 2895265792,
+        "private_commit_bytes": 3856277504
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 889417728
+      }
+    },
+    {
+      "seconds": 4.421999999962281,
+      "ram": {
+        "working_set_bytes": 3452112896,
+        "peak_working_set_bytes": 3453108224,
+        "private_commit_bytes": 4253741056
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 890531840
+      }
+    },
+    {
+      "seconds": 4.60899999999674,
+      "ram": {
+        "working_set_bytes": 3644866560,
+        "peak_working_set_bytes": 3647873024,
+        "private_commit_bytes": 4453707776
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 894267392
+      }
+    },
+    {
+      "seconds": 4.811999999976251,
+      "ram": {
+        "working_set_bytes": 3796336640,
+        "peak_working_set_bytes": 3802038272,
+        "private_commit_bytes": 4601794560
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 900165632
+      }
+    },
+    {
+      "seconds": 5.014999999955762,
+      "ram": {
+        "working_set_bytes": 3950145536,
+        "peak_working_set_bytes": 3971194880,
+        "private_commit_bytes": 4760215552
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 905408512
+      }
+    },
+    {
+      "seconds": 5.2189999999827705,
+      "ram": {
+        "working_set_bytes": 4043780096,
+        "peak_working_set_bytes": 4043780096,
+        "private_commit_bytes": 4854939648
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 911437824
+      }
+    },
+    {
+      "seconds": 5.421999999962281,
+      "ram": {
+        "working_set_bytes": 4084678656,
+        "peak_working_set_bytes": 4122214400,
+        "private_commit_bytes": 4898365440
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 921071616
+      }
+    },
+    {
+      "seconds": 5.625,
+      "ram": {
+        "working_set_bytes": 4272029696,
+        "peak_working_set_bytes": 4274466816,
+        "private_commit_bytes": 5098954752
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 923832320
+      }
+    },
+    {
+      "seconds": 5.827999999979511,
+      "ram": {
+        "working_set_bytes": 4447281152,
+        "peak_working_set_bytes": 4447281152,
+        "private_commit_bytes": 5292163072
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 929665024
+      }
+    },
+    {
+      "seconds": 6.014999999955762,
+      "ram": {
+        "working_set_bytes": 4554678272,
+        "peak_working_set_bytes": 4682276864,
+        "private_commit_bytes": 5389299712
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 929665024
+      }
+    },
+    {
+      "seconds": 6.2189999999827705,
+      "ram": {
+        "working_set_bytes": 4520075264,
+        "peak_working_set_bytes": 4682276864,
+        "private_commit_bytes": 5351796736
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 929775616
+      }
+    },
+    {
+      "seconds": 6.421999999962281,
+      "ram": {
+        "working_set_bytes": 4787200000,
+        "peak_working_set_bytes": 4787200000,
+        "private_commit_bytes": 5622710272
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 929775616
+      }
+    },
+    {
+      "seconds": 6.625,
+      "ram": {
+        "working_set_bytes": 4874878976,
+        "peak_working_set_bytes": 4910669824,
+        "private_commit_bytes": 5715808256
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 929849344
+      }
+    },
+    {
+      "seconds": 6.827999999979511,
+      "ram": {
+        "working_set_bytes": 4805853184,
+        "peak_working_set_bytes": 4910669824,
+        "private_commit_bytes": 5634027520
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 933105664
+      }
+    },
+    {
+      "seconds": 7.030999999959022,
+      "ram": {
+        "working_set_bytes": 4823465984,
+        "peak_working_set_bytes": 4910669824,
+        "private_commit_bytes": 5653667840
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 936456192
+      }
+    },
+    {
+      "seconds": 7.2189999999827705,
+      "ram": {
+        "working_set_bytes": 4964179968,
+        "peak_working_set_bytes": 4964954112,
+        "private_commit_bytes": 5805236224
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 936529920
+      }
+    },
+    {
+      "seconds": 7.421999999962281,
+      "ram": {
+        "working_set_bytes": 5172469760,
+        "peak_working_set_bytes": 5175226368,
+        "private_commit_bytes": 6007783424
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 936529920
+      }
+    },
+    {
+      "seconds": 7.625,
+      "ram": {
+        "working_set_bytes": 5367341056,
+        "peak_working_set_bytes": 5372407808,
+        "private_commit_bytes": 6205726720
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 936603648
+      }
+    },
+    {
+      "seconds": 7.827999999979511,
+      "ram": {
+        "working_set_bytes": 5365821440,
+        "peak_working_set_bytes": 5406896128,
+        "private_commit_bytes": 6209839104
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 940187648
+      }
+    },
+    {
+      "seconds": 8.030999999959022,
+      "ram": {
+        "working_set_bytes": 5241806848,
+        "peak_working_set_bytes": 5406896128,
+        "private_commit_bytes": 6088052736
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 940224512
+      }
+    },
+    {
+      "seconds": 8.23399999999674,
+      "ram": {
+        "working_set_bytes": 5351403520,
+        "peak_working_set_bytes": 5406896128,
+        "private_commit_bytes": 7021314048
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 1888174080
+      }
+    },
+    {
+      "seconds": 8.421999999962281,
+      "ram": {
+        "working_set_bytes": 5409517568,
+        "peak_working_set_bytes": 5409517568,
+        "private_commit_bytes": 7777226752
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2626797568
+      }
+    },
+    {
+      "seconds": 8.625,
+      "ram": {
+        "working_set_bytes": 5432078336,
+        "peak_working_set_bytes": 5432078336,
+        "private_commit_bytes": 7797772288
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 8.827999999979511,
+      "ram": {
+        "working_set_bytes": 5427613696,
+        "peak_working_set_bytes": 5432086528,
+        "private_commit_bytes": 7791472640
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 9.030999999959022,
+      "ram": {
+        "working_set_bytes": 5427535872,
+        "peak_working_set_bytes": 5432086528,
+        "private_commit_bytes": 7790551040
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 9.23399999999674,
+      "ram": {
+        "working_set_bytes": 5431050240,
+        "peak_working_set_bytes": 5437280256,
+        "private_commit_bytes": 7793631232
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 9.436999999976251,
+      "ram": {
+        "working_set_bytes": 5429366784,
+        "peak_working_set_bytes": 5437280256,
+        "private_commit_bytes": 7790678016
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 9.625,
+      "ram": {
+        "working_set_bytes": 5435154432,
+        "peak_working_set_bytes": 5438468096,
+        "private_commit_bytes": 7792975872
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 9.827999999979511,
+      "ram": {
+        "working_set_bytes": 5469704192,
+        "peak_working_set_bytes": 5469704192,
+        "private_commit_bytes": 7824592896
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 10.030999999959022,
+      "ram": {
+        "working_set_bytes": 5474471936,
+        "peak_working_set_bytes": 5474471936,
+        "private_commit_bytes": 7828811776
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 10.23399999999674,
+      "ram": {
+        "working_set_bytes": 5474578432,
+        "peak_working_set_bytes": 5474578432,
+        "private_commit_bytes": 7828811776
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2527805440
+      }
+    },
+    {
+      "seconds": 10.436999999976251,
+      "ram": {
+        "working_set_bytes": 5496295424,
+        "peak_working_set_bytes": 5496295424,
+        "private_commit_bytes": 7851294720
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2528854016
+      }
+    },
+    {
+      "seconds": 10.639999999955762,
+      "ram": {
+        "working_set_bytes": 5509971968,
+        "peak_working_set_bytes": 5509971968,
+        "private_commit_bytes": 7863992320
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 2528854016
+      }
+    },
+    {
+      "seconds": 10.827999999979511,
+      "ram": {
+        "working_set_bytes": 4855963648,
+        "peak_working_set_bytes": 5510680576,
+        "private_commit_bytes": 6343233536
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 1372065792
+      }
+    },
+    {
+      "seconds": 11.030999999959022,
+      "ram": {
+        "working_set_bytes": 4624818176,
+        "peak_working_set_bytes": 5510680576,
+        "private_commit_bytes": 5145309184
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 612954112
+      }
+    },
+    {
+      "seconds": 11.23399999999674,
+      "ram": {
+        "working_set_bytes": 1388109824,
+        "peak_working_set_bytes": 5510680576,
+        "private_commit_bytes": 1797480448
+      },
+      "device_vram": {
+        "total_bytes": 12820938752,
+        "used_bytes": 394747904
+      }
+    }
+  ],
+  "device_vram_baseline": {
+    "total_bytes": 12820938752,
+    "used_bytes": 394747904
+  },
+  "nvml_unavailable_reason": null,
+  "process_vram_bytes": null,
+  "peak_sampled_process_working_set_bytes": 5509971968,
+  "peak_sampled_device_vram_used_bytes": 2626797568,
+  "command": [
+    "C:\\Omniverse\\kit-app-template\\_build\\windows-x86_64\\release\\kit\\kit.exe",
+    "C:\\Users\\ajoiv\\AppData\\Local\\Temp\\twin-sample-runtime-yeffszfe\\sample.kit",
+    "--ext-folder",
+    "C:\\Omniverse\\kit-app-template\\_build\\windows-x86_64\\release\\exts",
+    "--ext-folder",
+    "C:\\Omniverse\\kit-app-template\\_build\\windows-x86_64\\release\\extscache",
+    "--no-window",
+    "--/app/renderer/skipWhileMinimized=false",
+    "--/app/window/hideUi=true",
+    "--/renderer/multiGpu/enabled=false",
+    "--/app/extensions/registryEnabled=false",
+    "--exec",
+    "C:\\Projects\\TWIN\\tools\\probe_sample_runtime.py"
+  ],
+  "experience": "C:\\Users\\ajoiv\\AppData\\Local\\Temp\\twin-sample-runtime-yeffszfe\\sample.kit",
+  "minimal_renderer_experience": false,
+  "experience_sha256": "09208965bf9bdadf44f7d622fab4fc17d06dcb6555657ab5946992671b6f6a8f",
+  "numeric_worker_threads": 1,
+  "probe_tool_sha256": "6d89d11c37cecfc03fe875e0e77f0653c26a15a7e2a1338651aa65fb108824f8",
+  "caveats": [
+    "Small fictional portable sample only; not the College Park district or a 30 FPS acceptance benchmark.",
+    "Viewport completion timings include CPU scheduling/renderer waits; no GPU timestamp or displayed-monitor frame rate was measured.",
+    "Device NVML VRAM includes all processes, driver and desktop allocations; per-process VRAM was not queried.",
+    "Preinstalled SDK/cache used with extension registry disabled; network isolation was not externally enforced.",
+    "Existing Kit processes were inventoried, never interrupted; this headless probe owns only its newly spawned PID."
+  ]
+}

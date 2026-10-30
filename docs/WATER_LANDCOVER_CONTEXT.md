@@ -1,0 +1,29 @@
+# Verified historical water and land-cover context — #23
+
+The full configured College Park extraction has a cached SJRWMD context packet, clipped coverage map, field dictionary, safe first-five rows, shoreline comparisons and a default-off USD layer. This is historical environmental reference, not current shoreline certification, water elevation, parcel use or a replacement terrain model.
+
+| Source | Actual study result | Date and decision |
+|---|---|---|
+| SJRWMD Waterbody/Wetland 24K, item `88dbb4caee9f4826bc06a3c22a73bc34`, layer 13 | 11 clipped records, including Lake Adair, Ivanhoe and Silver | Description says last update August 2012. Acquisition/effective dates unknown. Older shoreline/wetland reference; not indiscriminately rendered as open water. |
+| SJRWMD Land cover/Land use 2020, item `1a670e2a082342768ad51df948639434`, layer 0 | 56 polygons, 15 decoded classes, 99.999% study coverage; 12 water-family polygons | Orange source imagery December 2020–March 2021, month precision. Official coded domains distinguish lakes, reservoirs, wetlands and urban classes. Selected only as dated visual context. |
+| Historic SJRWMD DEM index | Official 4.18 MB index parsed: 11 dataset footprints; one overlaps 76.84% of study | Index publication January 4, 2013; intersecting dataset is SW Lake Jesup Basin, 2001, with NGVD29/NAVD88 variants. Footprint is not proof of usable raster values. No raster adopted. |
+| CFCA NE 2009 DEM | Metadata bounds do not intersect study | February 8–11, 2009 acquisition; NAD83 HARN UTM metres horizontally, NAVD88 **feet** vertically. No conversion or import. |
+| Existing USGS Orange 2018–2019 DEM index | Full indexed study overlap | Existing newer terrain investigation retained; no duplicate elevation download or automatic terrain activation. |
+
+The [official GIS catalog](https://ra.sjrwmd.com/data/gis/) cautions that many historic elevation datasets are district-property projects. Coverage was measured rather than inferred from a county name. Its 2009 imagery download entry excludes Orange County while the broader metadata lists Orange as a keyword: package overlap remains unresolved and no such imagery is used. Existing OCPA January 2025 pilot coverage and its limited lake overlap are measured separately in the packet.
+
+Original provider IDs, string reach codes with leading zeroes, nulls, source URLs/item IDs, source update/acquisition/retrieval/build dates, CRS/units, as-is reuse conditions and cache checksums are retained. Both vector sources use NAD83(HARN) / UTM zone 17N metres natively and EPSG:4326 in normalized collections. Display coordinates use project-local EPSG:32617 metres. `NHDELEVATION` datum/units are unverified and unused.
+
+Actual January 2025 OCPA Lake Adair imagery was acquired and viewed for local shoreline comparison. The visible lake, roadside edge and irregular vegetated banks support contextual inspection; canopy, date differences and study-frame cuts prevent survey/current-condition acceptance. The viewer overlays this georeferenced image with both boundary vintages. Numerical boundary comparisons exclude artificial study-frame edges. The 2012-versus-2021 Adair/Ivanhoe/Silver outlines have approximate area IoUs 0.947/0.919/0.969; these are disagreement metrics, not accuracy scores.
+
+Ground inspection found a flat composed ground at local Z=0. Optional water/land-cover surfaces are display overlays at Z=0.04/0.008 metres and are clipped to the actual composed ground; these offsets are not water levels. Rendered floating-point boundary spill totals about 0.042 m² across 68 meshes. Active water, base geometry and manual edits remain unchanged.
+
+Run `python tools/build_water_context.py`; `--offline` replays verified local caches. Outputs: ignored `data/transport/water_context.json`, `water_context/{first_five.json,coverage.svg,layer_receipt.json}`, plus the local reference image. `/water-context` provides the inspector and `/api/v1/water_context` the provenance/quality packet. Original imagery pixels are not committed or used as textures.
+
+`scene/water_landcover_context.usda` defines `/World/WaterLandcoverContext` with visibility **invisible**. Before serving/composition, `validate_water_context()` verifies packet/layer/coverage/source-cache hashes, snapshot identity and a freshly recomputed fingerprint of contributing ground/water geometry, transforms and visibility. Unrelated root edits do not invalidate that geometric fingerprint. Regeneration rejects manually changed or dirty generated USD/SVG files and backs up prior receipted artifacts under timestamped `water_context/backups/`. Rollback restores those artifacts together or removes the optional sublayer; no active/manual source file is rewritten.
+
+Independent review remains separate from builder checks. Unresolved current shorelines, hydrological levels, historic raster suitability and coarse-class interpretation remain visible in the delivered packet; no proposed design, private BOOMS values or held data are imported.
+
+## Final scene acceptance
+
+The optional context layer is now composed and remains invisible by default; its activation has a root backup, and normal scene rebuilds retain only a validated opt-in. Parent comparison of root opinions and manual file hashes before/after activation passed. [Actual Lake Adair render](evidence/water-context-render.png) and [capture manifest](evidence/water-context-render.json) were inspected by the parent and independently by the GIS reviewer. No floating sheets, detached surfaces or ground-intersection defect was visible. The diagonal lake termination is the declared ground/study-frame cut; pale urban classes are an optional thematic display, not photorealistic materials. Independent source/geometry/guard and visual reviews approved #23. [Acceptance record](evidence/water-context-acceptance.json).

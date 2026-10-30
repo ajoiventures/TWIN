@@ -1,0 +1,123 @@
+{
+  "schema": "twin.campus-hardscape-c-review/1",
+  "reviewed_utc": "2026-10-30T16:37:52.973190+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator; original B geometry by GIS analyst",
+  "decision": "pass_c_delta_and_actual_bounded_historical_surface_review_not_whole_lot_or_conference_acceptance",
+  "candidate_manifest_sha256": "020da0d1c5a9615f252238458f9b044e429b4d4bccfa440c8d3f2ca81bbe7b2f",
+  "candidate_site_sha256": "397a9fcae073fd155c79e5aa6d36049213c2f860fd99dd787b145f854e2199bd",
+  "candidate_review_sha256": "7ce330b03955865a7b2da250ee2de150275f35aeca4efb0dec613fe87d3f1aa8",
+  "implementation_sha256": "06298b1fa75b7fcfa64b156908db8d5bb1f764d352cbbe03f23e9d16b8c1f3d2",
+  "baseline_b_manifest_sha256": "ca8518501e4466a3beb27e10a43cacaea44e5eee8123da1a3133192f9db98a63",
+  "baseline_b_helper_archive_sha256": "65259dac948c4c8d82db8261634868aefef0c7ef83401dbd1d01b462163fd9a1",
+  "all_c_dependency_and_output_hashes_match": true,
+  "baseline_geometry_preservation": {
+    "methodist_rear_visible": {
+      "triangle_count": 178,
+      "points_topology_extent_subdivision_double_sided_and_world_transform_equal": true,
+      "paving_area_m2": 1537.4680473920525
+    },
+    "drive_west_visible": {
+      "triangle_count": 23,
+      "points_topology_extent_subdivision_double_sided_and_world_transform_equal": true,
+      "paving_area_m2": 335.9458272047341
+    },
+    "paving_local_geojson_identical_to_b": true
+  },
+  "pale_feature_delta": {
+    "connected_features": 11,
+    "triangles": 22,
+    "serialized_area_m2": 22.038820305577246,
+    "independently_projected_original_pixel_hole_area_m2": 22.038757520825456,
+    "serialized_vs_source_symmetric_difference_m2": 0.00010928681826637459,
+    "composed_world_transform_identity": true,
+    "bound_material": "/World/CampusHardscapeCandidate/Materials/UnclassifiedPaleFeature",
+    "source_context_preserved": true,
+    "function_explicitly_unknown": true,
+    "measured_dimensions": false,
+    "planting_curb_pole_or_accessible_facility_not_inferred": true,
+    "prior_green_grass_hole_finding_addressed_in_geometry_not_yet_render_verified": true
+  },
+  "paving_material_review": {
+    "bound_existing_material": "/World/DetailMaterials/Asphalt",
+    "all_texture_assets_resolve_and_are_dependency_hashed": true,
+    "base_face_varying_uv_period_m": 4.0,
+    "maximum_uv_mapping_error": 0.0,
+    "inherited_physical_scale": 1.3333333333333333,
+    "effective_pbr_texture_period_m": 3.0,
+    "scale_note": "The base UV mapping repeats every4m; inherited PhysicalScale multiplies4/3, producing a3m PBR texture period. Do not describe the final material period as4m.",
+    "new_source_imagery_pixels_embedded": false
+  },
+  "composition": {
+    "errors": 0,
+    "up_axis": "Z",
+    "meters_per_unit": 1
+  },
+  "source_dates": {
+    "primary_aerial_month": "2025-01",
+    "qualitative_comparison_month": "2024-01",
+    "current_condition_verified": false,
+    "survey_accuracy_verified": false
+  },
+  "actual_visual_review": {
+    "status": "pass_bounded_historical_surface_appearance_and_placement",
+    "reviewed_utc": "2026-10-30T16:48:02.974378+00:00",
+    "captures": [
+      {
+        "camera": "/World/Cameras/CampusHardscape_methodist_rear_visible",
+        "image": "data/renders/20261030T164129Z/CampusHardscape_methodist_rear_visible.png",
+        "image_sha256": "ef66255a097f105922c15e3a081b4e150166c88c6612f4a225eeacc95b5ba422",
+        "complete_png_1920x1080": true,
+        "capture_layer_hashes_match_current_files": true,
+        "render_stage": {
+          "up_axis": "Z",
+          "meters_per_unit": 1.0,
+          "root_mode": "transient_precomposed",
+          "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+        },
+        "source_stage_saved": false
+      },
+      {
+        "camera": "/World/Cameras/CampusHardscape_drive_west_visible",
+        "image": "data/renders/20261030T164129Z/CampusHardscape_drive_west_visible.png",
+        "image_sha256": "9852f13ec7d8dcb8738671fa092da2f5e65ed21c6c8df88928eab3c754ae32da",
+        "complete_png_1920x1080": true,
+        "capture_layer_hashes_match_current_files": true,
+        "render_stage": {
+          "up_axis": "Z",
+          "meters_per_unit": 1.0,
+          "root_mode": "transient_precomposed",
+          "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+        },
+        "source_stage_saved": false
+      }
+    ],
+    "batch_manifest": "data/renders/20261030T164129Z/manifest.json",
+    "batch_manifest_sha256": "9235e9e870960d41356c33c4d97daa410548a28ad4650dbd94e92631062a593c",
+    "prior_B_grass_diamond_finding_resolved": true,
+    "observations": [
+      {
+        "site": "methodist_rear_visible",
+        "result": "The eleven small features now render pale rather than exposing green ground. The inherited textured paving resolves continuously behind the campus; no obvious floating faces, roof spill, missing material or black band artifacts appear in this view.",
+        "remaining": "Thin green seam loops from the declared model exclusion margin and large conservative canopy/uncertain green gaps remain. They are unfinished display gaps, not source-verified grass or curb strips. Lot markings, physical surface classification and ground transitions are not accepted."
+      },
+      {
+        "site": "drive_west_visible",
+        "result": "The narrow western/southwestern pieces now use the resolved project paving material and appear on ground beside the campus. Placement is visually coherent for the bounded interpreted pieces.",
+        "remaining": "The interior is fragmentary, with large green gaps and retained road/sidewalk strips. This does not establish a complete paved lot, access route or parking capacity."
+      }
+    ],
+    "bounded_surface_visual_gate_passed": true,
+    "reviewer_performed_activation": false,
+    "whole_lot_or_conference_acceptance": false,
+    "activation_accepted": false,
+    "activation_scope_note": "C visual delta is accepted for a qualified local historical-surface interpretation. Integrator remains responsible for preservation, source/reuse and application gates; no whole-project or finished-lot approval."
+  },
+  "blocking_source_or_delta_geometry_findings": [],
+  "limits": [
+    "Actual C images must confirm pale features no longer read as grass and the inherited material renders without artifacts.",
+    "This delta does not complete lot boundaries, canopy-hidden surfaces, road/sidewalk reconciliation, stalls, walking routes, legal access, capacity or conference realism.",
+    "B source/placement findings remain qualified historical visual interpretation, not engineering or current-condition acceptance.",
+    "No activation, scene/source edit, public imagery publication, GPU launch or owner-session mutation by reviewer."
+  ]
+}

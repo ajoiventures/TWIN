@@ -1,0 +1,118 @@
+{
+  "schema": "twin.independent-fdot-context-review/1",
+  "reviewer": "Independent PM/Director agent; did not implement FDOT adapter",
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "f022e8cc8c13dae66550953e90ba31fea2867ed55857a17fa65c6750ce1ee5dc",
+  "coverage_sha256": "a470d2dd075e3774b53e543b86b919c2e50df301e305bb5c68f69a7cbb12620b",
+  "result": "PASS bounded official roadway/annual-traffic reference delivery; not full ticket closure or physical-network acceptance",
+  "checks": {
+    "required_output_receipts_and_all_dependencies_verified": 166,
+    "official_FDOT_directory_to_enterprise_portal_verified": true,
+    "official_FDOT_org_id": "O1JpcwDW8sjYuddV",
+    "hosted_item_public_org_and_exact_service_matches": 5,
+    "all_JSON_source_rows_fields_identifiers_and_clips_replayed": true,
+    "original_surface_ZIP_reopened_native_CRS": "EPSG26917",
+    "embedded_and_external_surface_XML_SHA_equal": true,
+    "foot_attribute_to_metre_conversion": 0.3048,
+    "posted_mph_to_mps_conversion": 0.44704,
+    "sidewalk_width_and_separation_units_verified_from_XML_and_F216": true,
+    "speed_units_verified_F311_physical_page2": true,
+    "native_ROADWAY_eight_character_and_COSITE_six_character_strings_preserved": true,
+    "all_767_City_coverage_screens_recomputed": true,
+    "maximum_coverage_fraction_replay_delta": 0,
+    "candidate_ID_set_mismatches": 0,
+    "source_only_changed_hash_refuses_validate": true,
+    "temporary_modified_coverage_refuses_rebuild": true,
+    "source_scene_API_UI_files_written": false
+  },
+  "source_table_replay": {
+    "road_names": {
+      "source_envelope_features": 57,
+      "neighborhood": 32,
+      "main_street": 6
+    },
+    "rci_top30": {
+      "source_envelope_features": 191,
+      "neighborhood": 69,
+      "main_street": 13
+    },
+    "aadt": {
+      "source_envelope_features": 58,
+      "neighborhood": 26,
+      "main_street": 5
+    },
+    "portable_sites": {
+      "source_envelope_features": 39,
+      "neighborhood": 16,
+      "main_street": 1
+    },
+    "telemetered_sites": {
+      "source_envelope_features": 0,
+      "neighborhood": 0,
+      "main_street": 0
+    },
+    "lanes": {
+      "source_envelope_features": 145,
+      "neighborhood": 70,
+      "main_street": 15
+    },
+    "speed": {
+      "source_envelope_features": 32,
+      "neighborhood": 13,
+      "main_street": 4
+    },
+    "sidewalk_width_sep": {
+      "source_envelope_features": 248,
+      "neighborhood": 148,
+      "main_street": 32
+    },
+    "sidewalk_gaps": {
+      "source_envelope_features": 17,
+      "neighborhood": 3,
+      "main_street": 1
+    },
+    "city_streets": {
+      "source_envelope_features": 1057,
+      "neighborhood": 767,
+      "main_street": 86
+    },
+    "surface_width": {
+      "source_envelope_features": 112,
+      "neighborhood": 49,
+      "main_street": 11
+    }
+  },
+  "station_AADT_join_review": {
+    "join_count": 16,
+    "native_key": "COSITE + SECTION_/ROADWAY + YEAR_",
+    "all_values_agree": true,
+    "year": 2025,
+    "maximum_source_station_to_event_distance_m": 4.779062447681787e-05,
+    "scope": "Numerical/native-source correspondence, not surveyed alignment or current flow"
+  },
+  "dates": {
+    "hosted_and_surface_spatial_publication_date": "2026-10-24",
+    "AADT_count_year": 2025,
+    "underlying_field_acquisition_date": null,
+    "MapServer_publication_date_where_not_supplied": null,
+    "retrieval_receipts": "Original binary receipts and JSON request receipts retain actual retrieval separately"
+  },
+  "explicit_unresolved": {
+    "unverified_AADT_method_flags": {
+      "T": 7,
+      "R": 1
+    },
+    "cardinal_side_and_City_direction_alignment": false,
+    "accepted_curb_ROW_or_sidewalk_edge_geometry": false,
+    "live_traffic_or_arrival_predictions": false,
+    "physical_missing_sidewalk_inferred_from_coverage_gap": false,
+    "legal_ownership_inferred": false
+  },
+  "limits": [
+    "12m/20degree parallel sampling is a reference-inventory screen with10m maximum sampling, not network identity, positional acceptance tolerance or sidewalk completeness.",
+    "Zero telemetered records is bounded source-query coverage, not proof no other live sensors exist.",
+    "Surface width covers through lanes for one native roadside, not ROW, all pavement, curb or sidewalk width.",
+    "Source widths, sides, dates and AADT remain source attributes; zero/blank/null and unresolved flags stay distinct.",
+    "Expanded ticket15 parking/demand/bike/scooter and calibrated pedestrian/transit connection requirements remain open; API/UI integration reviewed by root separately."
+  ]
+}

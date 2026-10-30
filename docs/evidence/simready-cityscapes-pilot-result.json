@@ -1,0 +1,30 @@
+{
+    "data/diagnostics/asset_contract_20261029_26e/city_building/usd/city_building.usda": {
+        "features_summary": {
+            "FET_000_STANDARD": {
+                "blocking_failure": false,
+                "dependencies": "[]",
+                "passed": true,
+                "version": "0.1.0"
+            },
+            "FET_011_STANDARD": {
+                "blocking_failure": false,
+                "dependencies": "[]",
+                "passed": true,
+                "version": "0.2.0"
+            },
+            "FET_041_STANDARD": {
+                "blocking_failure": false,
+                "dependencies": "[{'FET_011_STANDARD': {'version': '0.2.0'}}]",
+                "passed": true,
+                "version": "0.1.0"
+            }
+        },
+        "profile_id": "Open-Taxonomy-Cityscapes",
+        "profile_version": "0.1.0",
+        "simready_validate_version": "2026.8.0",
+        "tier_versions": {
+            "tier_core": "2026.8.0"
+        }
+    }
+}

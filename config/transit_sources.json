@@ -1,0 +1,18 @@
+{
+  "publisher": "Central Florida Regional Transportation Authority (LYNX)",
+  "official_download_page": "https://www.golynx.com/maps-schedules/data-download.stml",
+  "official_gis_group": "32d7b3502c9047ae8e44ec3e2b335665",
+  "gtfs": {"url": "https://gtfsrt.golynx.com/gtfsrt", "status": "unavailable_prior_web_timeout", "probe_time_utc": null, "calendars_available": false, "realtime_available": false},
+  "sources": {
+    "stops": {
+      "url": "https://services2.arcgis.com/rp0R3ANPwsAdELpS/arcgis/rest/services/Bus_Stops_LYNX/FeatureServer/0",
+      "oid": "OBJECTID", "max_features": 10000,
+      "fields": ["OBJECTID", "Route", "StopId", "Trapeze_Stop_ID", "StopName", "BSName", "BSActive", "StrName", "NrXSt", "LineId", "LineAbbr", "LineName", "SdwlkPresn", "SdwlkWdth", "SdwlkConn", "CrbCtsNear"]
+    },
+    "routes": {
+      "url": "https://services2.arcgis.com/rp0R3ANPwsAdELpS/arcgis/rest/services/BusRoute_Schedule/FeatureServer/0",
+      "oid": "OBJECTID", "max_features": 1000,
+      "fields": ["OBJECTID", "LineId", "LineAbbr", "LineName", "LineType", "Route_Type", "Route_Description", "ROUTE", "NAME", "RouteMiles", "Route_SchedulePg_URL"]
+    }
+  }
+}

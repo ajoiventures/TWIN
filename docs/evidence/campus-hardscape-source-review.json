@@ -1,0 +1,35 @@
+{
+  "reviewer": "root integrator independent of GIS candidate author",
+  "packet_sha256": "ca8518501e4466a3beb27e10a43cacaea44e5eee8123da1a3133192f9db98a63",
+  "result": "pass_bounded_historical_paving_geometry_only",
+  "records": [
+    {
+      "id": "methodist_rear_visible",
+      "triangles": 178,
+      "serialized_area_m2": 1537.4680473920525,
+      "independent_outer_pixel_transform_area_m2": 2146.489117017737,
+      "union_vs_triangle_sum_error_m2": 0.0,
+      "world_transformed_building_road_overlap_m2": 0.0,
+      "outside_actual_ground_m2": 0.0,
+      "source_interpretation": "Actual2025image visually inspected; visiblepaving only with canopy/equipment/island exclusions; positionalaccuracy unknown"
+    },
+    {
+      "id": "drive_west_visible",
+      "triangles": 23,
+      "serialized_area_m2": 335.9458272047341,
+      "independent_outer_pixel_transform_area_m2": 593.7535565923652,
+      "union_vs_triangle_sum_error_m2": 0.0,
+      "world_transformed_building_road_overlap_m2": 0.0,
+      "outside_actual_ground_m2": 0.0,
+      "source_interpretation": "Actual2025image visually inspected; visiblepaving only with canopy/equipment/island exclusions; positionalaccuracy unknown"
+    }
+  ],
+  "input_and_output_hashes_verified": true,
+  "actual_visual_render_pending": true,
+  "activation_accepted": false,
+  "public_imagery_pixels_published": false,
+  "limits": [
+    "No surveyed edges, access, stall/capacity/currentness acceptance.",
+    "Ground/model conflict clipping is relative to prototype geometry, not real-world survey."
+  ]
+}

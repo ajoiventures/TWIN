@@ -1,0 +1,185 @@
+{
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "f3eadf2e6d97cfbfe8df36c897b6bd829a3e585d2785f51b8e5c542dc5b0eca0",
+  "counts": {
+    "source_parcel_features": 5723,
+    "distinct_parcel_id_strings": 5721,
+    "multiple_zoning_code_context_features": 716,
+    "pd_condition_review_required_features": 303
+  },
+  "table_counts": {
+    "planning_parcel_context": 5723,
+    "planning_zoning_areas": 74,
+    "planning_future_land_use_areas": 19
+  },
+  "denominators": {
+    "zoning": {
+      "main_street": {
+        "scope_area_m2": 390203.5054023607,
+        "source_feature_area_sum_m2": 377302.3864144197,
+        "unique_covered_area_m2": 377286.3136586842,
+        "overlapping_source_area_excess_m2": 16.072755735483952,
+        "unrepresented_area_m2": 12917.191743676492,
+        "coverage_fraction": 0.9668962693444877
+      },
+      "neighborhood": {
+        "scope_area_m2": 8374757.587226948,
+        "source_feature_area_sum_m2": 7698160.237719097,
+        "unique_covered_area_m2": 7698125.4668783415,
+        "overlapping_source_area_excess_m2": 34.77084075566381,
+        "unrepresented_area_m2": 676632.1203486063,
+        "coverage_fraction": 0.9192057664593665
+      }
+    },
+    "future_land_use": {
+      "main_street": {
+        "scope_area_m2": 390203.5054023607,
+        "source_feature_area_sum_m2": 377293.9324211199,
+        "unique_covered_area_m2": 377293.9324211197,
+        "overlapping_source_area_excess_m2": 1.7462298274040222e-10,
+        "unrepresented_area_m2": 12909.572981240985,
+        "coverage_fraction": 0.9669157944444163
+      },
+      "neighborhood": {
+        "scope_area_m2": 8374757.587226948,
+        "source_feature_area_sum_m2": 8373060.523807918,
+        "unique_covered_area_m2": 8373047.106231114,
+        "overlapping_source_area_excess_m2": 13.417576803825796,
+        "unrepresented_area_m2": 1710.4809958338737,
+        "coverage_fraction": 0.9997957575514254
+      }
+    },
+    "parcels": {
+      "main_street": {
+        "scope_area_m2": 390203.5054023607,
+        "source_feature_area_sum_m2": 353906.0919439281,
+        "unique_covered_area_m2": 271206.57853429276,
+        "overlapping_source_area_excess_m2": 82699.51340963534,
+        "unrepresented_area_m2": 118996.92686806794,
+        "coverage_fraction": 0.6950388061087162
+      },
+      "neighborhood": {
+        "scope_area_m2": 8374757.587226948,
+        "source_feature_area_sum_m2": 6993502.627516827,
+        "unique_covered_area_m2": 6739095.710405056,
+        "overlapping_source_area_excess_m2": 254406.91711177025,
+        "unrepresented_area_m2": 1635661.8768218914,
+        "coverage_fraction": 0.8046914361656774
+      }
+    }
+  },
+  "exceptions": [
+    {
+      "source": "zoning",
+      "source_object_id": "1877",
+      "reason": "invalid_or_missing_source_polygon_not_repaired"
+    },
+    {
+      "source": "zoning",
+      "source_object_id": "2084",
+      "reason": "invalid_or_missing_source_polygon_not_repaired"
+    },
+    {
+      "source": "future_land_use",
+      "source_object_id": "1847",
+      "reason": "invalid_or_missing_source_polygon_not_repaired"
+    }
+  ],
+  "source_register": [
+    {
+      "source": "zoning",
+      "publisher": "City of Orlando",
+      "api_url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoLUZoning/FeatureServer/0",
+      "metadata_url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoLUZoning/FeatureServer/0?f=json",
+      "native_spatial_reference": {
+        "wkid": 102658,
+        "latestWkid": 2236
+      },
+      "normalized_crs": "EPSG:4326 geometry; EPSG:32617 square-meter area calculations",
+      "source_last_edit_unix_ms": 1792899882958,
+      "inventory_acquisition_date": null,
+      "effective_ordinance_date": null,
+      "update_frequency": null,
+      "reuse_original": "",
+      "pagination": "bounded object-ID discovery +50-ID batches",
+      "auth": "public read, no credentials",
+      "rate_limit": null,
+      "timeout_seconds": 60,
+      "maximum_attempts": 3,
+      "backoff_seconds": [
+        1,
+        2
+      ],
+      "incremental_refresh": "No verified change/deletion token; bounded complete query only",
+      "bbox_source_rows": 217,
+      "valid_positive_neighborhood_rows": 158
+    },
+    {
+      "source": "future_land_use",
+      "publisher": "City of Orlando",
+      "api_url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoLUFutureLandUse/FeatureServer/0",
+      "metadata_url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoLUFutureLandUse/FeatureServer/0?f=json",
+      "native_spatial_reference": {
+        "wkid": 102658,
+        "latestWkid": 2236
+      },
+      "normalized_crs": "EPSG:4326 geometry; EPSG:32617 square-meter area calculations",
+      "source_last_edit_unix_ms": 1792899845678,
+      "inventory_acquisition_date": null,
+      "effective_ordinance_date": null,
+      "update_frequency": null,
+      "reuse_original": "",
+      "pagination": "bounded object-ID discovery +50-ID batches",
+      "auth": "public read, no credentials",
+      "rate_limit": null,
+      "timeout_seconds": 60,
+      "maximum_attempts": 3,
+      "backoff_seconds": [
+        1,
+        2
+      ],
+      "incremental_refresh": "No verified change/deletion token; bounded complete query only",
+      "bbox_source_rows": 99,
+      "valid_positive_neighborhood_rows": 68
+    },
+    {
+      "source": "parcels",
+      "publisher": "Orange County Property Appraiser",
+      "api_url": "https://vgispublic.ocpafl.org/server/rest/services/DynamicForJs/PARCEL/MapServer/4",
+      "metadata_url": "https://vgispublic.ocpafl.org/server/rest/services/DynamicForJs/PARCEL/MapServer/4?f=json",
+      "native_spatial_reference": {
+        "wkid": 102658,
+        "latestWkid": 2236
+      },
+      "normalized_crs": "EPSG:4326 geometry; EPSG:32617 square-meter area calculations",
+      "source_last_edit_unix_ms": null,
+      "inventory_acquisition_date": null,
+      "effective_ordinance_date": null,
+      "update_frequency": null,
+      "reuse_original": "",
+      "pagination": "bounded object-ID discovery +50-ID batches",
+      "auth": "public read, no credentials",
+      "rate_limit": null,
+      "timeout_seconds": 60,
+      "maximum_attempts": 3,
+      "backoff_seconds": [
+        1,
+        2
+      ],
+      "incremental_refresh": "No verified change/deletion token; bounded complete query only",
+      "bbox_source_rows": 7532,
+      "valid_positive_neighborhood_rows": 5723
+    }
+  ],
+  "limits": [
+    "Original code strings retained; slash split is lexical only, not ordinance interpretation.",
+    "C/T/PD or other tokens do not infer commercial/townhouse/developable status or approval.",
+    "Unique union land area is distinct from overlapping source-feature area sums and tax-row counts.",
+    "Source parcel features/condominium records are not a count of physical properties/buildings.",
+    "Invalid planning polygons are quarantined without repair; coverage gaps and overlap excess remain explicit.",
+    "Threshold0.01m2 excludes numerical slivers; source positional accuracy unknown; no survey tolerance.",
+    "Current legal zoning/effective ordinances, PD amendments, vacancy and park-site acceptance remain unresolved."
+  ],
+  "source_review": "city-planning-source-review.json",
+  "integration_review": "city-planning-integration-review.json"
+}

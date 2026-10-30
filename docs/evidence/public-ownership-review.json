@@ -1,0 +1,122 @@
+{
+  "schema": "twin.public-ownership-independent-review/1",
+  "reviewed_utc": "2026-10-29T02:26:47.088203+00:00",
+  "reviewer": "Independent technical QA agent; did not implement register",
+  "result": "pass bounded government-reference screen; not complete legal ownership or expanded ticket acceptance",
+  "source_snapshot": "20261028T160543372334Z",
+  "register_sha256": "8f1833a9b7b9fefc07b41be47c0ae5aabadf88c58c4c8fd5864136ae1fc5d672",
+  "artifact_sha256": {
+    "government_references.geojson": "7b67ee9e04055282e7b96543354dba2c020d59b06ba3b7c0bd51567f0090338d",
+    "register.json": "8f1833a9b7b9fefc07b41be47c0ae5aabadf88c58c4c8fd5864136ae1fc5d672",
+    "coverage.svg": "e6cedacbc0eaabcf8d931624c2263fbee72f48f65a6aa9776a217648baa0b4e4"
+  },
+  "counts": {
+    "envelope_source_features": 7532,
+    "official_neighborhood_features": 5732,
+    "unique_parcel_ids": 5730,
+    "government_assessment_reference_features": 92,
+    "combined_government_reference_features": 93,
+    "official_inventory_matched_features": 6,
+    "agency_reference_conflicts": 1,
+    "assessment_without_government_label_features": 5640,
+    "no_government_reference_features": 5639,
+    "legal_owner_class_unknown_features": 5732,
+    "legal_titles_verified": 0,
+    "source_envelope_exclusions": 1800,
+    "class_counts": {
+      "unknown_not_classified_private": 5640,
+      "federal": 1,
+      "municipal": 34,
+      "state": 36,
+      "government_level_unspecified": 13,
+      "school_district_reference": 3,
+      "county": 3,
+      "municipal_government_leasehold_reference": 2
+    },
+    "exact_active_feature_matches": 3842
+  },
+  "population_replay": {
+    "original_envelope_features": 7532,
+    "positive_area_neighborhood_features": 5732,
+    "source_feature_set_exact": true,
+    "original_lookup_definitions": 398,
+    "pinned_OCPA_definitions_exact": true,
+    "classification_identity_or_promotion_findings": []
+  },
+  "geometry_replay": {
+    "combined_reference_geometries": 93,
+    "all_valid_and_exact_original_intersection": true,
+    "findings": [],
+    "maximum_outside_area_m2": 4.48675143338486e-09,
+    "precision_note": "GEOS buffered-covers predicates at1e-12degrees can be unstable at shared boundaries; exact source-intersection equality and negligible difference area were used, not a new positional acceptance tolerance."
+  },
+  "inventory_only_reference": {
+    "count": 1,
+    "source_features": [
+      "ocpa:105357"
+    ],
+    "original_use_codes": [
+      "0001"
+    ],
+    "assessment_code_not_promoted": true
+  },
+  "agency_conflicts": {
+    "count": 1,
+    "observations_retained": [
+      {
+        "source_feature_id": "ocpa:106534",
+        "parcel_id": "292214016023110",
+        "assessment_classification": "municipal",
+        "inventory_reported_candidates": [
+          "county",
+          "municipal"
+        ],
+        "reason": "Published government reference classifications disagree; no selected owner/title promoted"
+      }
+    ],
+    "selected_legal_owner": null
+  },
+  "official_inventory_counts": {
+    "city": 5,
+    "county": 1,
+    "county_unmatched": 1,
+    "agency_reference_conflicts": 1
+  },
+  "exemption_namespace": {
+    "accepted_crosswalk": false,
+    "GIS_values_published": false,
+    "numeric_dictionary_not_used_for_GIS_classification": true,
+    "meaning": "Unestablished namespace; blank/unknown exemption does not establish private ownership."
+  },
+  "safe_fields": "Original parcel extraction requests onlyOBJECTID,PARCEL,DOR_CODE,EXEMPT_CODE; output excludes exemption values, ownernames, contacts and addresses. City/county inventory requests are bounded to declared identifier/use/date fields.",
+  "guard_checks": {
+    "modified_packet_read_refused": true,
+    "modified_output_rebuild_refused_before_client": true,
+    "changed_source_dependency_refused": true,
+    "foreign_8012_unknown": true,
+    "leasehold_not_title": true
+  },
+  "findings": [],
+  "acceptance_limits": [
+    "92exactgovernment/municipalleaseassessmentreferences plus1officialCityinventory-onlyreference, not93title-verifiedparcels.",
+    "All5732legalownerclasses remainunknown;5639featureslackeithergovernmentreference and are not classifiedprivate.",
+    "Municipalassessmentcodealone doesnot identifyOrlando; exactCityinventory adds reportedagencycontextonly.",
+    "Currentvacancy,publicaccess,deed/title,developmentavailability,taxrollyear and acquisition/effectivedatesremainunknown whereunsupplied.",
+    "Fullneighborhoodparcelquery coverage doesnoteliminate cadastralroads/watergaps or prove completegovernment-landcoverage.",
+    "No API/browser/native visualacceptance performedhere; noGPU/newacquisitions/source/scenechanges byreviewer."
+  ],
+  "fdor_integrity_followup": {
+    "reviewed_pdf_sha256": "558abe7336d8c05638b4fa09046acfb2617deda31f5d0844f6f212f13c4271a3",
+    "reviewed_publication_date": "2026-03-27",
+    "tests": {
+      "unknown_pdf_rejected_without_pdf_or_dated_receipt": true,
+      "partial_pdf_preserved_before_network": true,
+      "partial_receipt_preserved_before_network": true,
+      "current_original_pdf_exact_pinned_hash": true
+    },
+    "implementation_scope": "Unknown replacement bytes rejected before any PDF/datestamped receipt write; existing incomplete PDF/receipt pairs preserved before network; complete cached pairs require exact reviewed bytes, receipt digest, date and URL.",
+    "government_geojson_unchanged_after_guard": true,
+    "coverage_svg_unchanged_after_guard": true,
+    "final_register_sha256": "8f1833a9b7b9fefc07b41be47c0ae5aabadf88c58c4c8fd5864136ae1fc5d672"
+  }
+}

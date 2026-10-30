@@ -1,0 +1,28 @@
+{
+  "source_snapshot": "20261028T160543372334Z",
+  "method": "Replayed current build_scene.py local projection, buffer(0), extraction intersection for orphan rows; no scene generation/writes",
+  "counts": {
+    "excluded_by_actual_generator_boundary": 73
+  },
+  "actual_ground_vs_configured_boundary_difference_m2": 0.1176473497975049,
+  "ground_comparison_note": "Float mesh serialization difference; orphan disposition uses exact generator boundary, not an assumed neighborhood boundary",
+  "dependencies": {
+    "config/study_area.json": "1ad1c1026fe81d03fdcce45a1bacf9040eb79356f7832127e08421d4e5355a82",
+    "tools/build_scene.py": "854fcaf7c18770d0b708b73ce5162fb959249b4274913b024bccfb2354baa1f8",
+    "data/buildings.geojson": "fcb32769c8b2cc133bf0e3d823ff8c707dc7cf403694d2d3b9a8c0d2c4c211ea",
+    "scene/college_park.usda": "408952a55df07822511653ff7b1a675e9e0a44c6e5b7703e87b99259a78e2b1d",
+    "data/processed/building_lineage.json": "e86b15fb5ecfdf43abacc68f1975e27aad79385059909035bb2fbd3770680f6f"
+  },
+  "orphan_rows": 73,
+  "inside_extraction_area_m2": 0.0,
+  "full_neighborhood_coverage_claimed": false,
+  "independent_review": {
+    "reviewer": "PM/Director agent acting as independent GIS reviewer",
+    "all_dependency_hashes_match": true,
+    "independently_recomputed_empty_rows": 73,
+    "row_disagreements": 0,
+    "inside_extraction_area_m2": 0.0,
+    "ground_boundary_difference_m2": 0.117647289,
+    "source_and_active_files_written": false
+  }
+}

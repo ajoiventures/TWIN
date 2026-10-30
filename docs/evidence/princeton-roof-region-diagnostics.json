@@ -1,0 +1,1036 @@
+{
+  "status": "2Dsource-and-seam-diagnostic_only_no3Dpromotion",
+  "source_snapshot": "20261028T160543372334Z",
+  "original_rejected_proposal_sha256": "65eb74f6ffcaee3d79272569e2ea06f06b98a30f26f00adc411cb5960ef64a47",
+  "fit_origin_utm_m": [
+    462101.72853486007,
+    3160572.8945353865
+  ],
+  "source_supported_area_m2": 2404.50419200755,
+  "retain_original_unresolved_area_m2": 619.1130226457085,
+  "plane_regions": 28,
+  "merged_coplanar_fits": [],
+  "support_confidence_bound_m": 1.4142135623730951,
+  "support_bound_method": "0.5m occupancy grid uses only one8neighbor dilation; actualsource-to-seedcenter plus seed-to-neighborcenter plus neighborcenter-to-corner <=1.414214m. This is confidence clipping only, not plane-label partitioning.",
+  "class6_residual_p50_p95_max_m": [
+    0.03886505246863692,
+    0.15905135217413607,
+    3.4890795186876034
+  ],
+  "boundary_sample_max_support_m": 1.3366756468519108,
+  "protected_courtyard_overlap_m2": 0.0,
+  "analytic_shared_boundaries": [
+    {
+      "plane_a": 1,
+      "plane_b": 20,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 0.8867924528301887,
+      "b_side_fraction": 0.98828125,
+      "a_local_support_points": 53,
+      "b_local_support_points": 256,
+      "closest_measured3Dsupport_m": 0.4195694904452582,
+      "overlap_partitioned_m2": 0.613072745183873,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 2,
+      "plane_b": 15,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 0.8375634517766497,
+      "b_side_fraction": 0.9832402234636871,
+      "a_local_support_points": 394,
+      "b_local_support_points": 179,
+      "closest_measured3Dsupport_m": 0.08673306910110774,
+      "overlap_partitioned_m2": 11.472526059170267,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 3,
+      "plane_b": 8,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 0.8421052631578947,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 114,
+      "b_local_support_points": 62,
+      "closest_measured3Dsupport_m": 0.1561007431425072,
+      "overlap_partitioned_m2": 1.3438871950802476,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 3,
+      "plane_b": 14,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 0.8489208633093526,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 139,
+      "b_local_support_points": 139,
+      "closest_measured3Dsupport_m": 0.11152144081643175,
+      "overlap_partitioned_m2": 2.247302247472992,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 4,
+      "plane_b": 13,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 53,
+      "b_local_support_points": 60,
+      "closest_measured3Dsupport_m": 0.6814938228462321,
+      "overlap_partitioned_m2": 0.6177081013882562,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 4,
+      "plane_b": 16,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 20,
+      "b_local_support_points": 426,
+      "closest_measured3Dsupport_m": 0.6167166771309451,
+      "overlap_partitioned_m2": 0.08797071939982098,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 6,
+      "plane_b": 17,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 154,
+      "b_local_support_points": 130,
+      "closest_measured3Dsupport_m": 0.36940807184838925,
+      "overlap_partitioned_m2": 0.6161512940653523,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 11,
+      "plane_b": 15,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 0.8861386138613861,
+      "b_side_fraction": 0.9333333333333333,
+      "a_local_support_points": 202,
+      "b_local_support_points": 90,
+      "closest_measured3Dsupport_m": 0.021844604880431065,
+      "overlap_partitioned_m2": 5.871359779602305,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 13,
+      "plane_b": 20,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 0.968609865470852,
+      "a_local_support_points": 182,
+      "b_local_support_points": 223,
+      "closest_measured3Dsupport_m": 0.2684455411200896,
+      "overlap_partitioned_m2": 3.774663422491518,
+      "boundary_height_jump_m": 0.0
+    },
+    {
+      "plane_a": 19,
+      "plane_b": 25,
+      "method": "analyticalheight-equalityline, sides independently supported by source inliers",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 55,
+      "b_local_support_points": 43,
+      "closest_measured3Dsupport_m": 0.5900039330807973,
+      "overlap_partitioned_m2": 0.0257838942016404,
+      "boundary_height_jump_m": 0.0
+    }
+  ],
+  "unresolved_relations": [
+    {
+      "plane_a": 0,
+      "plane_b": 1,
+      "area_m2": 1.458810433860807,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 62,
+      "b_local_support_points": 138,
+      "closest_measured3Dsupport_m": 1.2303280894103732
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 3,
+      "area_m2": 0.13733587834126532,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 31,
+      "closest_measured3Dsupport_m": 1.8261676020025581
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 4,
+      "area_m2": 0.6100654618763561,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 57,
+      "b_local_support_points": 48,
+      "closest_measured3Dsupport_m": 1.435995051006013
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 6,
+      "area_m2": 0.15252930804195988,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.5576227980063159,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 82,
+      "closest_measured3Dsupport_m": 3.4618292071944765
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 7,
+      "area_m2": 46.1018749798876,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 1217,
+      "b_local_support_points": 567,
+      "closest_measured3Dsupport_m": 0.015924108652156058
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 8,
+      "area_m2": 0.03128245242511174,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.9310961457976639,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 25,
+      "closest_measured3Dsupport_m": 1.6152850540096582
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 14,
+      "area_m2": 0.026560328259479404,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 0.8877551020408163,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 784,
+      "closest_measured3Dsupport_m": 2.1149601826970055
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 16,
+      "area_m2": 0.3874992269604934,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 38,
+      "b_local_support_points": 42,
+      "closest_measured3Dsupport_m": 1.9880984808374789
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 17,
+      "area_m2": 2.326764973942204,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 203,
+      "b_local_support_points": 244,
+      "closest_measured3Dsupport_m": 1.018220344555889
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 19,
+      "area_m2": 0.04253045779287491,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.7568770688277594,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 18,
+      "closest_measured3Dsupport_m": 1.3243288370080006
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 22,
+      "area_m2": 0.00760199549773033,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26283,
+      "b_local_support_points": 17,
+      "closest_measured3Dsupport_m": 1.7372641566241427
+    },
+    {
+      "plane_a": 0,
+      "plane_b": 26,
+      "area_m2": 0.24687631820479217,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 26,
+      "b_local_support_points": 141,
+      "closest_measured3Dsupport_m": 1.5120020801779293
+    },
+    {
+      "plane_a": 1,
+      "plane_b": 4,
+      "area_m2": 2.299353995153131,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.7473684210526316,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 95,
+      "b_local_support_points": 159,
+      "closest_measured3Dsupport_m": 0.7062229894942766
+    },
+    {
+      "plane_a": 1,
+      "plane_b": 8,
+      "area_m2": 5.3733549323123775,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.9849624060150376,
+      "b_side_fraction": 0.7575757575757576,
+      "a_local_support_points": 133,
+      "b_local_support_points": 198,
+      "closest_measured3Dsupport_m": 0.20554143781077858
+    },
+    {
+      "plane_a": 1,
+      "plane_b": 16,
+      "area_m2": 11.917338252012907,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.9675090252707581,
+      "b_side_fraction": 0.8470588235294118,
+      "a_local_support_points": 277,
+      "b_local_support_points": 85,
+      "closest_measured3Dsupport_m": 0.06759922467483372
+    },
+    {
+      "plane_a": 2,
+      "plane_b": 4,
+      "area_m2": 4.908106574144808,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 257,
+      "b_local_support_points": 288,
+      "closest_measured3Dsupport_m": 1.033706357608771
+    },
+    {
+      "plane_a": 4,
+      "plane_b": 15,
+      "area_m2": 4.860686921932278,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 94,
+      "b_local_support_points": 75,
+      "closest_measured3Dsupport_m": 0.10140556385809134
+    },
+    {
+      "plane_a": 5,
+      "plane_b": 16,
+      "area_m2": 3.5925720117007205,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.5142857142857142,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 140,
+      "b_local_support_points": 139,
+      "closest_measured3Dsupport_m": 0.05959780872307126
+    },
+    {
+      "plane_a": 5,
+      "plane_b": 23,
+      "area_m2": 0.8987787606631652,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 0.7096774193548387,
+      "a_local_support_points": 103,
+      "b_local_support_points": 93,
+      "closest_measured3Dsupport_m": 0.24736274090973034
+    },
+    {
+      "plane_a": 7,
+      "plane_b": 11,
+      "area_m2": 0.594696546928115,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 47,
+      "b_local_support_points": 40,
+      "closest_measured3Dsupport_m": 1.4025232696326133
+    },
+    {
+      "plane_a": 7,
+      "plane_b": 15,
+      "area_m2": 1.0529406195717281,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 111,
+      "b_local_support_points": 89,
+      "closest_measured3Dsupport_m": 1.369767622587259
+    },
+    {
+      "plane_a": 8,
+      "plane_b": 22,
+      "area_m2": 3.337853855354411,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 0.7808988764044944,
+      "a_local_support_points": 194,
+      "b_local_support_points": 178,
+      "closest_measured3Dsupport_m": 0.11410705498457001
+    },
+    {
+      "plane_a": 9,
+      "plane_b": 13,
+      "area_m2": 3.06648541812597,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.7346938775510204,
+      "b_side_fraction": 0.6111111111111112,
+      "a_local_support_points": 147,
+      "b_local_support_points": 72,
+      "closest_measured3Dsupport_m": 0.07567996197632151
+    },
+    {
+      "plane_a": 13,
+      "plane_b": 16,
+      "area_m2": 18.301453506732656,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.7010309278350515,
+      "b_side_fraction": 0.5825242718446602,
+      "a_local_support_points": 291,
+      "b_local_support_points": 103,
+      "closest_measured3Dsupport_m": 0.08156051200189844
+    },
+    {
+      "plane_a": 14,
+      "plane_b": 16,
+      "area_m2": 2.2561033275755324,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.8091603053435115,
+      "b_side_fraction": 0.5217391304347826,
+      "a_local_support_points": 131,
+      "b_local_support_points": 46,
+      "closest_measured3Dsupport_m": 0.1128762257201244
+    },
+    {
+      "plane_a": 14,
+      "plane_b": 24,
+      "area_m2": 2.9555190238275584,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 1.0,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 157,
+      "b_local_support_points": 88,
+      "closest_measured3Dsupport_m": 0.04869358512275957
+    },
+    {
+      "plane_a": 16,
+      "plane_b": 20,
+      "area_m2": 2.7652155466770543,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.5555555555555556,
+      "b_side_fraction": 1.0,
+      "a_local_support_points": 81,
+      "b_local_support_points": 292,
+      "closest_measured3Dsupport_m": 0.04702527373200574
+    },
+    {
+      "plane_a": 16,
+      "plane_b": 24,
+      "area_m2": 1.8220855159092775,
+      "reason": "No unique source-supported ridge/valley relation; retain original approximation instead of nearest-plane stair interface",
+      "a_side_fraction": 0.5833333333333334,
+      "b_side_fraction": 0.9746835443037974,
+      "a_local_support_points": 48,
+      "b_local_support_points": 79,
+      "closest_measured3Dsupport_m": 0.07763650043412657
+    }
+  ],
+  "limits": [
+    "No architectural ridge/valley is asserted merely from min/max planes; accepted joins require measured adjacent source supports and independently consistent opposite halfspaces.",
+    "Confidence outlines come from source-point hulls clipped to rigorously1.414214m-bounded source occupancy neighborhoods; no aerial tracing, sourcepixels or current/photorealism acceptance.",
+    "Grey unresolved regions retain original approximation in a futureproposal; no new microterrace interfaces are invented."
+  ],
+  "rejected_v1": {
+    "layer_sha256": "65eb74f6ffcaee3d79272569e2ea06f06b98a30f26f00adc411cb5960ef64a47",
+    "status": "VISUAL_REJECTED_NOT_ACTIVATED",
+    "actual_baseline": "data/renders/20261029T010149Z/PrincetonCoherentRoofEvidence.png",
+    "actual_proposal": "data/renders/20261029T010301Z/PrincetonCoherentRoofEvidence.png",
+    "source_numerical_review": "Independent PM pass of source membership, residuals,strictsupport,courtyard andweldedtopology; actualvisualgate nevertheless failed",
+    "reason": "Nearest-support-cell region boundaries created fragmented triangular spikes/microterraces."
+  },
+  "artifacts": {
+    "diagnostics.json": "12700ee0633e17515a9bfeadcb1744bedf7f03eef0af3763d283a9b06ffcdb30",
+    "regions.geojson": "352aae048b5a410acd3b11acaeab17c181370c70d5f0daa3832e348a0cf8d1e8",
+    "regions.png": "92f4c29f0f860bcbbeda853c36ad16811f54f719caec56ee1a249a6bb82cdbd0",
+    "regions.svg": "7ea4cf874820065ac211223e17be1114c02faede4defd1af2d82fb956c758139",
+    "unresolved.geojson": "ead3bf357bcd3a5773ddcf659c888a1a3d47c1cb9608b1b442c06a74b979a3e1"
+  },
+  "geojson_export_precision_degrees": 1e-09,
+  "geojson_export_policy": "Polygonal make-valid plus submillimeter WGS84 serialization grid only; UTM analytical regions/source-fit calculations unchanged",
+  "small_unsupported_clusters": [
+    {
+      "plane_index": 0,
+      "points": 4,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 0,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 1,
+      "points": 9,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 4,
+      "points": 78,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 4,
+      "points": 27,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 4,
+      "points": 4,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 5,
+      "points": 16,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 48,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 21,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 11,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 17,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 14,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 16,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 5,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 4,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 10,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 30,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 6,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 28,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 8,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 7,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 6,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 13,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 12,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 25,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 56,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 18,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 18,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 9,
+      "points": 31,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 12,
+      "points": 32,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 12,
+      "points": 36,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 12,
+      "points": 40,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 6,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 11,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 3,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 66,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 13,
+      "points": 12,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 14,
+      "points": 39,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 14,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 14,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 14,
+      "points": 19,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 14,
+      "points": 7,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 4,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 46,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 18,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 9,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 9,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 15,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 16,
+      "points": 15,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 16,
+      "points": 58,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 16,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 16,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 20,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 71,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 11,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 21,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 24,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 2,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 24,
+      "points": 7,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 25,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 27,
+      "points": 19,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    },
+    {
+      "plane_index": 27,
+      "points": 1,
+      "reason": "Small/disconnected support cluster; no architectural region inferred"
+    }
+  ],
+  "dependencies": {
+    "data/heights/princeton/rejected_65eb74f6ffcaee3d/data/heights/princeton/coherent_roof_manifest.json": "2e734b41adc79a6f1c7413ef635815c95c31820b5c8416f21d22d22f5cae1119",
+    "data/heights/princeton/rejected_65eb74f6ffcaee3d/data/heights/princeton/coherent_roof_support.npz": "f1f03a4db2bec3acaf9291cdff32d6ec332bb4f4f8b3c44e79572eff23db0476",
+    "data/heights/princeton/points.npz": "ce6903160cb6c7d2ce3cfb7c15f6a37f127bdf1c9d61aed5b82bab7470457905",
+    "scene/princeton_correction.usda": "3a1dbaf898a95290461917b33b8c3f5acf9b56af5836f8c24ed16dfbb9976eb0",
+    "config/princeton_sources.json": "4fd294591359ffce061624d63e412a0490a7de7f888e92c750e97211bd5f228f",
+    "tools/princeton_roof_regions.py": "b615b2ccc648009914bec67913a99e477772d9d703e40c197be2b87abade3109"
+  }
+}

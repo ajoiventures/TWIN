@@ -1,0 +1,329 @@
+{
+  "source_snapshot": "20261028T160543372334Z",
+  "interface_scope": "Known-to-retained-uncertain boundaries only; original outer/courtyard boundaries and analytical known-known seams excluded",
+  "status": "interface_diagnostic_not_geometry_acceptance",
+  "sample_spacing_m": 0.25,
+  "datum": "relative prototype geometry; fittedNAVD88 minus31.59ground plus.1displaybase",
+  "boundary_delta_p50_p95_max_m": [
+    0.1710862197165408,
+    0.7151444082043614,
+    3.230087652247766
+  ],
+  "samples": 4421,
+  "missing_source_triangle_samples": 0,
+  "above_point2m": 1815,
+  "conflict_source_classification": {
+    "measured_neighbor_supports_fitted_surface_over_original_approximation": 545,
+    "measured_neighbor_prefers_original_surface_or_true_step": 585,
+    "source_neighborhood_unresolved": 685
+  },
+  "diagnostic_thresholds": {
+    "height_delta_trigger_m": 0.2,
+    "source_neighborhood_radius_m": 0.5,
+    "minimum_source_points": 5,
+    "source_preference_p95_m": 0.25,
+    "meaning": "Diagnostic conflict thresholds, not survey/engineering accuracy acceptance"
+  },
+  "source_observation": "2018-2019historicalclass6; comparison uses samecached acquisition, not independent temporal/current validation",
+  "closing_policy": "No seamwall or inferredroofbridge authored. Large source-versus-original deltas require physical/source interpretation before a jointly continuous candidate.",
+  "dependencies": {
+    "scene/princeton_correction.usda": "3a1dbaf898a95290461917b33b8c3f5acf9b56af5836f8c24ed16dfbb9976eb0",
+    "data/heights/princeton/architectural_regions/regions.geojson": "352aae048b5a410acd3b11acaeab17c181370c70d5f0daa3832e348a0cf8d1e8",
+    "tools/princeton_roof_seams.py": "4d72de96bc957027bed4975af05612431b3cca4f783ed2b5cc5448c4e4cc9235",
+    "data/heights/princeton/architectural_regions/unresolved.geojson": "ead3bf357bcd3a5773ddcf659c888a1a3d47c1cb9608b1b442c06a74b979a3e1",
+    "data/heights/princeton/points.npz": "ce6903160cb6c7d2ce3cfb7c15f6a37f127bdf1c9d61aed5b82bab7470457905",
+    "data/heights/princeton/manifest.json": "e4c5fbf4d13aede74f86bf73395bf15c243d26bd3dac989e8105491cba75e077"
+  },
+  "plane_summary": [
+    {
+      "plane_index": 0,
+      "samples": 742,
+      "above_point2m": 309,
+      "boundary_delta_p50_p95_max_m": [
+        0.1590865549755005,
+        1.5955971984849684,
+        3.230087652247766
+      ]
+    },
+    {
+      "plane_index": 1,
+      "samples": 358,
+      "above_point2m": 168,
+      "boundary_delta_p50_p95_max_m": [
+        0.18482352947668623,
+        0.535559851431999,
+        0.816027507203934
+      ]
+    },
+    {
+      "plane_index": 2,
+      "samples": 199,
+      "above_point2m": 130,
+      "boundary_delta_p50_p95_max_m": [
+        0.24692591726885738,
+        0.7899552239271954,
+        0.9515409802251416
+      ]
+    },
+    {
+      "plane_index": 3,
+      "samples": 127,
+      "above_point2m": 63,
+      "boundary_delta_p50_p95_max_m": [
+        0.19689289666072263,
+        0.6515607335653679,
+        0.7671451945621168
+      ]
+    },
+    {
+      "plane_index": 4,
+      "samples": 334,
+      "above_point2m": 233,
+      "boundary_delta_p50_p95_max_m": [
+        0.2574252992529038,
+        1.0243505166957665,
+        1.633134608652469
+      ]
+    },
+    {
+      "plane_index": 5,
+      "samples": 224,
+      "above_point2m": 82,
+      "boundary_delta_p50_p95_max_m": [
+        0.17648218563434526,
+        0.41279237138631475,
+        0.7515100780543875
+      ]
+    },
+    {
+      "plane_index": 6,
+      "samples": 78,
+      "above_point2m": 54,
+      "boundary_delta_p50_p95_max_m": [
+        0.2324703075174437,
+        1.0647727875256083,
+        1.130942349688242
+      ]
+    },
+    {
+      "plane_index": 7,
+      "samples": 106,
+      "above_point2m": 61,
+      "boundary_delta_p50_p95_max_m": [
+        0.23813949955440972,
+        0.6611690027947885,
+        0.6967995180886248
+      ]
+    },
+    {
+      "plane_index": 8,
+      "samples": 167,
+      "above_point2m": 37,
+      "boundary_delta_p50_p95_max_m": [
+        0.08222486548344499,
+        0.5052383533478247,
+        0.7628252246243079
+      ]
+    },
+    {
+      "plane_index": 9,
+      "samples": 110,
+      "above_point2m": 44,
+      "boundary_delta_p50_p95_max_m": [
+        0.1450601917438723,
+        0.898065614978417,
+        1.123762435878069
+      ]
+    },
+    {
+      "plane_index": 10,
+      "samples": 112,
+      "above_point2m": 67,
+      "boundary_delta_p50_p95_max_m": [
+        0.21463595210795017,
+        0.32773170073503993,
+        0.33624336601540783
+      ]
+    },
+    {
+      "plane_index": 11,
+      "samples": 98,
+      "above_point2m": 49,
+      "boundary_delta_p50_p95_max_m": [
+        0.2008638106828471,
+        0.30645550923148335,
+        0.34689608200968536
+      ]
+    },
+    {
+      "plane_index": 12,
+      "samples": 87,
+      "above_point2m": 25,
+      "boundary_delta_p50_p95_max_m": [
+        0.16689421204653776,
+        0.3104346415536069,
+        0.3324299149571104
+      ]
+    },
+    {
+      "plane_index": 13,
+      "samples": 227,
+      "above_point2m": 27,
+      "boundary_delta_p50_p95_max_m": [
+        0.11379694149495201,
+        0.23194119638373464,
+        0.29061417241656784
+      ]
+    },
+    {
+      "plane_index": 14,
+      "samples": 147,
+      "above_point2m": 35,
+      "boundary_delta_p50_p95_max_m": [
+        0.1272078967472723,
+        0.3252892025384143,
+        0.5292045896430881
+      ]
+    },
+    {
+      "plane_index": 15,
+      "samples": 99,
+      "above_point2m": 52,
+      "boundary_delta_p50_p95_max_m": [
+        0.21680397847258526,
+        0.9680823739470656,
+        1.007136694218044
+      ]
+    },
+    {
+      "plane_index": 16,
+      "samples": 195,
+      "above_point2m": 40,
+      "boundary_delta_p50_p95_max_m": [
+        0.11235282447865913,
+        0.7037126538837569,
+        0.8905743337101093
+      ]
+    },
+    {
+      "plane_index": 17,
+      "samples": 98,
+      "above_point2m": 33,
+      "boundary_delta_p50_p95_max_m": [
+        0.1618046304942551,
+        0.5096509743366945,
+        0.9427644610712562
+      ]
+    },
+    {
+      "plane_index": 18,
+      "samples": 66,
+      "above_point2m": 31,
+      "boundary_delta_p50_p95_max_m": [
+        0.1961571182888644,
+        0.26092888288253135,
+        0.29700566630989655
+      ]
+    },
+    {
+      "plane_index": 19,
+      "samples": 61,
+      "above_point2m": 30,
+      "boundary_delta_p50_p95_max_m": [
+        0.19969728908263384,
+        0.2793215229919195,
+        0.34758130713324853
+      ]
+    },
+    {
+      "plane_index": 20,
+      "samples": 196,
+      "above_point2m": 11,
+      "boundary_delta_p50_p95_max_m": [
+        0.04427566348665035,
+        0.20414095181934222,
+        0.2849058721079256
+      ]
+    },
+    {
+      "plane_index": 21,
+      "samples": 63,
+      "above_point2m": 16,
+      "boundary_delta_p50_p95_max_m": [
+        0.09350493937290949,
+        0.24388330455263318,
+        0.2488071473408464
+      ]
+    },
+    {
+      "plane_index": 22,
+      "samples": 69,
+      "above_point2m": 34,
+      "boundary_delta_p50_p95_max_m": [
+        0.1911284805941893,
+        0.3503665173951383,
+        0.4217826781619305
+      ]
+    },
+    {
+      "plane_index": 23,
+      "samples": 76,
+      "above_point2m": 35,
+      "boundary_delta_p50_p95_max_m": [
+        0.19763892677919248,
+        0.3130124792408524,
+        0.3237025991078717
+      ]
+    },
+    {
+      "plane_index": 24,
+      "samples": 138,
+      "above_point2m": 30,
+      "boundary_delta_p50_p95_max_m": [
+        0.12131129567301002,
+        0.5123161720281945,
+        0.6828395579871103
+      ]
+    },
+    {
+      "plane_index": 25,
+      "samples": 56,
+      "above_point2m": 33,
+      "boundary_delta_p50_p95_max_m": [
+        0.20405224101640407,
+        0.2623487156295754,
+        0.30264653865954827
+      ]
+    },
+    {
+      "plane_index": 26,
+      "samples": 104,
+      "above_point2m": 38,
+      "boundary_delta_p50_p95_max_m": [
+        0.17096387877822394,
+        0.27767816776586307,
+        0.28809883026045746
+      ]
+    },
+    {
+      "plane_index": 27,
+      "samples": 84,
+      "above_point2m": 48,
+      "boundary_delta_p50_p95_max_m": [
+        0.21522053452486656,
+        0.28859006101716844,
+        0.31449602229298357
+      ]
+    }
+  ],
+  "reference_review": {
+    "source": "Existing OCPA Aerials2025, January2025 per official metadata",
+    "image_path": "data/imagery/princeton/aerial_2025_local_review.jpg",
+    "reuse": "Local qualitative only; no pixels committed, no tracing",
+    "finding": "Visible flat terraces/pitchedcaps/courtyard pavilion corroborate multiple roof forms; overhead cannot choose precise historicalstep/crease coordinates or elevations for unresolvedinterfaces.",
+    "new_closed_geometry_authored": false,
+    "image_sha256": "bc7da52daee6f412eaaa28347b0c45f310dcf22a15a2b2b3df494084270c8a0a",
+    "returned_extent_receipt_sha256": "e4db9542afaa86fa1b3f103f144024f0daff16fc36864588784dd74af83bb98d"
+  },
+  "diagnostic_sha256": "dddc2b57bd051acad3761af10f59486ed44da97dcf906bf5b79554e7a94eaee2"
+}

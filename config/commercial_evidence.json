@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded commercial reference verification for four College Park addresses; not a complete listing inventory.",
+  "review_after_days": 30,
+  "sources": [
+    {
+      "id": "cbre_wellesley_loopnet_41801447",
+      "publisher": "CBRE",
+      "distribution": "LoopNet broker listing",
+      "url": "https://www.loopnet.com/Listing/2305-Edgewater-Dr-Orlando-FL/41801447/",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_search_indexed_listing",
+      "access_note": "Listing facts observed in indexed broker-attributed result; direct page access restricted. Not a live broker confirmation.",
+      "source_record_id": "41801447",
+      "reported_date": "2026-08-19",
+      "reported_date_kind": "date_on_market_not_status_update",
+      "status_as_of_date": null,
+      "source_family": "cbre-wellesley-retail-sale"
+    },
+    {
+      "id": "crossman_wellesley_index",
+      "publisher": "Crossman & Company",
+      "distribution": "broker property index",
+      "url": "https://www.crossmanco.com/properties/",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_search_indexed_broker_page",
+      "access_note": "Direct index fetch denied/timed out; indexed page identifies The Wellesley address and retail GLA. Exact suite detail not verified.",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "crossman-wellesley-retail-index"
+    },
+    {
+      "id": "propertyshark_wellesley_suite_i",
+      "publisher": "PropertyShark, attributed to Crossman & Company",
+      "distribution": "syndicated listing",
+      "url": "https://www.propertyshark.com/cre/commercial-property/us/fl/orlando/2305-edgewater-dr/",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_tool_page_and_search",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "date_conflicts": [
+        {
+          "value": "2026-09-16",
+          "basis": "Latest Update in search-indexed variant"
+        },
+        {
+          "value": "2026-08-17",
+          "basis": "Latest Update in opened page variant"
+        }
+      ],
+      "source_family": "crossman-wellesley-suite-i-lease",
+      "access_note": "945 SF Suite I is syndicated only; direct broker suite detail and effective date unconfirmed."
+    },
+    {
+      "id": "bbd_1615_property_6282",
+      "publisher": "Bishop Beale Duncan",
+      "distribution": "direct broker property page",
+      "url": "https://www.bbdre.com/properties/professional-office-space-in-college-park/",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_tool_broker_page",
+      "source_record_id": "6282",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "bbd-1615-office-lease"
+    },
+    {
+      "id": "bbd_1615_brochure_2025",
+      "publisher": "Bishop Beale Duncan",
+      "distribution": "direct broker authored PDF",
+      "url": "https://www.bbdre.com/wp-content/uploads/2023/05/1615-Edgewater-Dr-2025-1.pdf",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "direct_pdf_read",
+      "document_sha256": "375e510f8c8e9709fd404d8cce8c0ef5a958a0b9ed7f0f776f00250965637c64",
+      "pdf_created": "2025-02-27T13:43:07-05:00",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "bbd-1615-office-lease",
+      "access_note": "PDF creation time and filename year are not an effective availability date."
+    },
+    {
+      "id": "jll_1420_brochure",
+      "publisher": "JLL",
+      "distribution": "broker authored PDF on Showcase CDN",
+      "url": "https://images1.showcase.com/d2/lvjT5gaqmC3LIrytPi5vTozAOKxT7JRm0JWVewFNNhw/document.pdf",
+      "alternate_url": "https://images3.loopnet.com/d2/jSG-JuAs2MeubPhrlFZjW_neOko67XJ_864RxFdYcw4/document.pdf",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_tool_pdf_read",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "jll-1420-office-brochure",
+      "access_note": "Two-story 15,556 SF physical building facts verified; no current listing status established. Copyright year is not a listing date."
+    },
+    {
+      "id": "bywater_2114_brochure",
+      "publisher": "The Bywater Company",
+      "distribution": "broker authored PDF on Showcase CDN",
+      "url": "https://images1.showcase.com/d2/rykYlhKYHY0C8_R_jEyecvx8s7X7b86GOpgW6lGyR4U/document.pdf",
+      "observed_utc": "2026-10-28T15:54:32Z",
+      "access_method": "web_tool_pdf_read",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "bywater-2114-retail-lease",
+      "access_note": "Undated brochure advertises retail space. Expense-year reference does not establish current availability."
+    }
+  ],
+  "claims": [
+    {
+      "id": "wellesley-retail-sale",
+      "claim_group": "cbre-wellesley-retail-sale",
+      "address": "2305 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "retail_condominium_component",
+      "suite": null,
+      "reported_status": "offered_for_sale",
+      "source_ids": [
+        "cbre_wellesley_loopnet_41801447"
+      ],
+      "facts": {
+        "component_area_sf": 19827,
+        "area_basis": "reported retail component area; excludes residential tower",
+        "building_story_context": 7
+      },
+      "exclusions": [
+        "residential tower",
+        "residential condos",
+        "entire mixed-use building"
+      ],
+      "identity_evidence": {
+        "kind": "unverified",
+        "parcel_id": null
+      }
+    },
+    {
+      "id": "wellesley-crossman-index",
+      "claim_group": "crossman-wellesley-retail-index",
+      "address": "2305 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "retail_property_index",
+      "suite": null,
+      "reported_status": "unknown",
+      "source_ids": [
+        "crossman_wellesley_index"
+      ],
+      "facts": {
+        "retail_gla_sf": 19827
+      },
+      "exclusions": [
+        "specific suite availability",
+        "residential tower"
+      ],
+      "identity_evidence": {
+        "kind": "unverified",
+        "parcel_id": null
+      }
+    },
+    {
+      "id": "wellesley-suite-i-lease",
+      "claim_group": "crossman-wellesley-suite-i-lease",
+      "address": "2305 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "individual_suite",
+      "suite": "I",
+      "reported_status": "offered_for_lease",
+      "source_ids": [
+        "propertyshark_wellesley_suite_i"
+      ],
+      "facts": {
+        "suite_area_sf": 945
+      },
+      "exclusions": [
+        "whole retail component",
+        "whole building",
+        "residential tower"
+      ],
+      "primary_suite_confirmation": false,
+      "identity_evidence": {
+        "kind": "unverified",
+        "parcel_id": null
+      }
+    },
+    {
+      "id": "1615-office-lease",
+      "claim_group": "bbd-1615-office-lease",
+      "address": "1615 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "office_suite_bundle",
+      "suite": null,
+      "reported_status": "offered_for_lease",
+      "source_ids": [
+        "bbd_1615_property_6282",
+        "bbd_1615_brochure_2025"
+      ],
+      "facts": {
+        "building_area_sf": 25324,
+        "building_area_basis": "reported building rentable area",
+        "year_built": 2002,
+        "page_available_area_sf_min": 2789,
+        "page_available_area_sf_max": 6315,
+        "brochure_suites": [
+          {
+            "suite": "190",
+            "area_rsf": 2507
+          },
+          {
+            "suite": "200B1",
+            "area_rsf": 3426
+          }
+        ]
+      },
+      "conflicts": [
+        "Direct page availability range differs from dated-file suite schedule; no total vacancy inferred."
+      ],
+      "exclusions": [
+        "entire building availability",
+        "verified current vacancy"
+      ],
+      "identity_evidence": {
+        "kind": "reviewed_property_address_context",
+        "parcel_id": "292223016600090",
+        "evidence_url": "https://www.bbdre.com/properties/professional-office-space-in-college-park/",
+        "scope_verified": "property_context_only",
+        "review_basis": "Direct broker property6282 address and2002year agree with unique public parcel; no physical suite or scene-building assignment."
+      }
+    },
+    {
+      "id": "1420-office-physical-reference",
+      "claim_group": "jll-1420-office-brochure",
+      "address": "1420 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "building_physical_reference",
+      "suite": null,
+      "reported_status": "unknown",
+      "source_ids": [
+        "jll_1420_brochure"
+      ],
+      "facts": {
+        "building_area_sf": 15556,
+        "building_stories": 2
+      },
+      "exclusions": [
+        "current sale status",
+        "current lease status",
+        "available floor area"
+      ],
+      "identity_evidence": {
+        "kind": "reviewed_building_physical_reference",
+        "parcel_id": "292223181900010",
+        "parcel_feature_id": "ocpa:99727",
+        "evidence_url": "https://images1.showcase.com/d2/lvjT5gaqmC3LIrytPi5vTozAOKxT7JRm0JWVewFNNhw/document.pdf",
+        "scope_verified": "physical_building_metadata_only",
+        "review_basis": "Parent independent review: unique1420situs, exactID+geometry OCPA sourcePIN/featureID and unique active buildinggroup; broker whole-building description and2stories corroborate government2stories. Derive generated buildingID from active snapshot; undated market status excluded."
+      }
+    },
+    {
+      "id": "2114-retail-lease",
+      "claim_group": "bywater-2114-retail-lease",
+      "address": "2114 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "retail_space_unspecified_suite",
+      "suite": null,
+      "reported_status": "offered_for_lease",
+      "source_ids": [
+        "bywater_2114_brochure"
+      ],
+      "facts": {
+        "space_area_sf_approx": 1100,
+        "reported_dimensions_feet": [
+          15,
+          70
+        ]
+      },
+      "exclusions": [
+        "whole building availability",
+        "verified current tenant",
+        "current vacancy"
+      ],
+      "identity_evidence": {
+        "kind": "unverified",
+        "parcel_id": null
+      }
+    }
+  ]
+}

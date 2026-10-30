@@ -1,0 +1,258 @@
+{
+  "scope": "Independent historical post-office mass readiness; no facade/current-condition claim",
+  "source_snapshot": "20261028T160543372334Z",
+  "parcel_id": "292223149200010",
+  "site_address": "1705 EDGEWATER DR",
+  "identity_basis": "Exact OCPA parcel context plus guarded historical cloud; not accepted parcel-footprint identity. Historical USPS December2020 station/address source is documented; current operation unverified.",
+  "source_checks": {
+    "proposal_hash_matches": true,
+    "evidence_hash_matches": true,
+    "verify_source_passed": true,
+    "original_nodes_verified": 23,
+    "point_count": 301791,
+    "acquisition": "2018-12-04 to2019-04-12 project interval; local flight date/construction phase uncertain",
+    "crs": "EPSG:32617 XY after conversion; NAVD88 meters Z"
+  },
+  "components": [
+    {
+      "id": "RoofBand2_Component2",
+      "closed_shell": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 264,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "roof_projection_vs_recorded_footprint_symdiff_m2": 0.01691611486680067,
+      "recorded_area_m2": 1110.1896696731637
+    },
+    {
+      "id": "RoofBand1_Component1",
+      "closed_shell": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 54,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "roof_projection_vs_recorded_footprint_symdiff_m2": 0.014620051279057399,
+      "recorded_area_m2": 292.0
+    },
+    {
+      "id": "RoofBand1_Component2",
+      "closed_shell": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 36,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "roof_projection_vs_recorded_footprint_symdiff_m2": 0.0033663096809132967,
+      "recorded_area_m2": 136.05000000001746
+    },
+    {
+      "id": "RoofBand0_Component2",
+      "closed_shell": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 138,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "roof_projection_vs_recorded_footprint_symdiff_m2": 0.003779904350471335,
+      "recorded_area_m2": 141.5
+    }
+  ],
+  "roof_projection_union_m2": 1679.7408623185474,
+  "actual_class6_points_inside_roof": 34500,
+  "all_class6_vertical_absolute_residual_p50_p90_p95_max_m": [
+    0.05019160031747205,
+    0.202226535506695,
+    0.33162278628794645,
+    3.128550812018979
+  ],
+  "residual_policy": "All class6 returns intersecting upward projected mesh triangles; highest roof at coincident coverage. Includes lower returns/classification/equipment outliers, not selected-inlier or survey accuracy.",
+  "current_prim_exists": false,
+  "visible_existing_building_bbox_overlap_candidates": [],
+  "ground_navd88_m": 29.529999999999973,
+  "main_roof_height_m": 6.381249999999994,
+  "maximum_rendered_height_m": 7.541822338104248,
+  "ground_variation_only_height_range_m": [
+    6.08125000000004,
+    6.69124999999994
+  ],
+  "decision": "bounded_historical_mass_visual_review_pass_additive_preservation_required",
+  "limits": [
+    "No actual visual acceptance from topology/source fit alone; isolated render required.",
+    "Separate main/lower roof components retained; no invented facade, signage, parking/access or floor-count geometry.",
+    "2018-2019 source; current shape/occupancy and local flight day unknown.",
+    "Parcel search envelope is not extruded building footprint.",
+    "Common adjacent-ground flat-prototype datum is not terrain rebasing.",
+    "Existing activation helper overwrites landmark_buildings.usda: post-only activation must first preserve existing office geometry/material/detail and reconcile registry dependencies."
+  ],
+  "dependencies": {
+    "tools/reconstruct_landmarks.py": "ed9eebf8a751df32eb8bd4933d30bbcc329dcdcadd1cd42412975a06cab097ea",
+    "data/heights/landmarks/proposal_manifest.json": "3a0629aa2a2a9969228378362abb95f5813abb317e99c1e84dd51d7ff197d6b0",
+    "data/heights/landmarks/college_park_post_office/evidence.json": "fc04da74108ffceb29e2a1f1cde75433a64543b692339e30dc43ee3e0b55ce42",
+    "data/heights/landmarks/college_park_post_office/points.npz": "f50af7f58cf139a43555aa4f424f733b1fca9ca305053c1a1dfee7c8d11d8799",
+    "scene/landmark_building_proposal.usda": "c81964557d188cb3920bebb1334ed34762532f1043f99a58e18d0456b3eea86b",
+    "scene/college_park_connected.usda": "754355d470d93ea291ad0f4c5918fb3589f9be36d9976b9f8b4723df4652c774"
+  },
+  "isolated_visual_review": {
+    "image": "data/renders/20261030T145231Z/PostOfficeHistoricalMass.png",
+    "image_sha256": "e705bd250ce36bef9ee03e3e8790a0baa928aa6b570b2f995ff42bf02ab50aa1",
+    "image_matches_capture": true,
+    "camera": "/World/Cameras/PostOfficeHistoricalMass",
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "881eb4f58fa303a6452bc8b2076e009d306dab1accef59370259490bbd2cbc42"
+    },
+    "all_capture_layer_hashes_match_current": true,
+    "prepared_output_hashes_match": true,
+    "source_manifest_hash_matches": true,
+    "source_proposal_hash_matches": true,
+    "prepared_source_component_comparison": [
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand2_Component2",
+        "all_composed_attribute_values_equal": true,
+        "changed_attribute_names": [],
+        "world_transform_equal": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand1_Component1",
+        "all_composed_attribute_values_equal": true,
+        "changed_attribute_names": [],
+        "world_transform_equal": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand1_Component2",
+        "all_composed_attribute_values_equal": true,
+        "changed_attribute_names": [],
+        "world_transform_equal": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand0_Component2",
+        "all_composed_attribute_values_equal": true,
+        "changed_attribute_names": [],
+        "world_transform_equal": true
+      }
+    ],
+    "prepared_axis": "Z",
+    "prepared_units": 1.0,
+    "prim_quality": {
+      "parcelId": "292223149200010",
+      "parcelLinkStatus": "new landmark context only; no legacy association promoted",
+      "quality": "historical_2018_2019_point_derived_proposal_not_current_survey",
+      "siteAddress": "1705 EDGEWATER DR",
+      "sourceCloudSha256": "f50af7f58cf139a43555aa4f424f733b1fca9ca305053c1a1dfee7c8d11d8799",
+      "sourceSnapshot": "20261028T160543372334Z",
+      "userDocBrief": "Base class to endow a prim with a configurable \naffine transformation (e.g. translate, rotate, scale, etc.)."
+    },
+    "actual_visual_findings": [
+      "Main broad roof and lower/annex components read as coherent plain historical mass, without widespread spikes, crumpled planes or obvious open full-depth roof voids.",
+      "Narrow longitudinal raised strips and small roof-level steps remain visible and are not asserted to be parapets, equipment or precise architectural detail.",
+      "Plain walls intentionally contain no invented windows, entry, sign/logo or customer/service interpretation.",
+      "Neutral white mass rendering is suitable for source-derived form review, not recognizable finished-post-office or photorealism acceptance."
+    ],
+    "decision": "approve_bounded_historical_mass_adoption_subject_to_separate_additive_layer_preserving_office_and_manual_context",
+    "limits": [
+      "No current/as-built condition, facade/access, exact component function, floor count or whole-ticket acceptance.",
+      "Source-fit/topology results from prior independent review retained; actual image does not establish hidden/back details.",
+      "Use separate post-office site layer; do not run overwriting activator against existing office landmark layer.",
+      "Manifest readiness-review hash references the pre-visual report; this append intentionally changes this review file only, not frozen capture inputs."
+    ],
+    "operations": "Read-only CPU/artifact and saved-image inspection; no source/scene/GPU/editor changes."
+  },
+  "activation_review": {
+    "receipt_sha256": "b4e303d5cc5ff503ad3563d08728fc7a60489ae2a5a6bd5a3c4f087b4dbe79d1",
+    "root_backup_hash_matches": true,
+    "root_current_hash_matches": true,
+    "root_opinions_preserved_except_single_post_layer": true,
+    "protected_file_mismatches": [],
+    "source_component_comparison": [
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand2_Component2",
+        "geometry_equal": true,
+        "world_transform_equal": true,
+        "closed_shell": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand1_Component1",
+        "geometry_equal": true,
+        "world_transform_equal": true,
+        "closed_shell": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand1_Component2",
+        "geometry_equal": true,
+        "world_transform_equal": true,
+        "closed_shell": true
+      },
+      {
+        "prim": "/World/Landmarks/CollegeParkPostOffice/RoofBand0_Component2",
+        "geometry_equal": true,
+        "world_transform_equal": true,
+        "closed_shell": true
+      }
+    ],
+    "temporary_validator_cases": {
+      "valid_passes": true,
+      "snapshot_rejected": true,
+      "site_id_rejected": true,
+      "parcel_id_rejected": false,
+      "empty_dependencies_rejected": false,
+      "escaping_dependency_rejected": true,
+      "layer_mutation_rejected": true,
+      "dependency_mutation_rejected": true,
+      "missing_receipt_rejected": true,
+      "both_absent_none": true
+    },
+    "actual_validator_passes": true,
+    "identity_semantics": {
+      "physical_building_count": null,
+      "rendered_entity_count": 1,
+      "raw_property_links_promoted": false,
+      "accepted_current_geometry": false
+    },
+    "decision": "preservation_geometry_pass_prior_validator_gaps_resolved_see_followup",
+    "gaps": [
+      "Validator accepts receipt with wrong parcel_id despite fixed post-office site_id.",
+      "Validator accepts empty dependencies map, disabling all source guards."
+    ],
+    "operations": "Temporary fixture mutations only; no source/scene/GPU/editor writes.",
+    "gaps_resolved_by_followup": true
+  },
+  "activation_validator_followup": {
+    "helper_sha256": "b7fcabe918088978299c61988738b18d71b3e4bbf1df0124ce0f0cd9bb95e57c",
+    "actual_packet_passes": true,
+    "independent_temporary_cases": {
+      "valid_passes": true,
+      "wrong_parcel_rejected": true,
+      "wrong_prim_rejected": true,
+      "wrong_site_snapshot_rejected": true,
+      "empty_dependencies_rejected": true,
+      "missing_cloud_dependency_rejected": true,
+      "wrong_schema_rejected": true,
+      "promoted_current_rejected": true,
+      "promoted_tax_link_rejected": true
+    },
+    "prior_gaps_resolved": true,
+    "decision": "approve_bounded_historical_mass_disk_activation_preservation_source_geometry_and_validator_checks_pass",
+    "visual_status": "Isolated historical-mass visual review passed; integrated in-scene visual remains pending. Parent reports automatic approval blocked integrated render command; reviewer made no retry, bypass or GPU invocation.",
+    "limits": "No current/as-built/facade/physical-building-count claim or full-ticket closure. No editor interaction."
+  }
+}

@@ -1,0 +1,21 @@
+# Property search
+
+Implemented October 28, 2026 for the active local parcel extract. Open the [local map](http://127.0.0.1:8768/), enter an address or parcel number under **Find a property**, then select a result. The map zooms to and highlights the parcel; its inspector shows appraiser attributes, building-link evidence, permit context, zoning reference and a parcel reference coordinate.
+
+Address matching accepts street abbreviations, reordered words and word prefixes. Exact parcel numbers rank first, followed by exact addresses; up to ten results are displayed with the total match count. Parcel numbers retain leading zeroes. OCPA's formatted `14-22-29-1478-00-150` form is also supported. Condominium unit records can share a street address, so the result's parcel number remains visible and selection uses its exact feature identity.
+
+Search covers the loaded snapshot, not all Orange County properties. An absent result does not establish that a property is absent in the real world. Owner names are not indexed. Parcel reference coordinates are interior representative points in latitude/longitude, not surveyed entrance or building locations. The map uses projected meter coordinates for geometry. The app rejects a search response from a different snapshot and asks for a reload.
+
+**Verification:** automated address, PIN, input-limit, no-result and pagination/snapshot tests pass. Actual browser checks covered 1615 Edgewater Drive, formatted parcel number `14-22-29-1478-00-150`, selection, coordinates, clearing and an unmatched address. [Captured browser evidence](evidence/property-search.png). Building reconstruction, current listing status and full corridor accuracy remain separate open acceptance work.
+
+API: `GET /api/v1/parcels?q=1615%20Edgewater%20Drive&limit=10`. Filtering and ranking occur before pagination. Search reads the cached snapshot without calling an agency service per request.
+
+The local selection bridge maps exact parcel features to accepted 3D entity IDs without a parcel-number/address fallback. It shows matched, unmatched and editor-pending states. Browser and Kit exchange only ephemeral selection state; source tables remain read-only. The updated workspace script must be loaded for editor acknowledgment. A current browser check of 1420 Edgewater resolved one accepted building and correctly displayed pending editor acknowledgment; bidirectional live Kit verification remains outstanding.
+
+## Government reference inspector
+
+Selecting a property now also loads its government assessment/inventory evidence through the validated local register. Exact current feature identity and parcel ID are required; matching parcel numbers alone cannot promote changed geometry. The expandable panel shows source use codes, reported inventory membership, agency conflicts and explicit unknown title/access/vacancy. A property with no government reference remains ownership unknown. Snapshot mismatch, unavailable data, changed selection and Clear cannot leave the previous property's evidence presented as current.
+
+Actual browser review on port8773 covered 1705 Edgewater (federal use), 2406 Elizabeth (County/municipal conflict), 1615 Edgewater (no government reference) and clearing. [Screenshot](evidence/property-government-inspector.png). This does not complete the physical-building census or legal-title verification.
+
+Independent GIS-agent review found no blocking identity, stale-response, clearing or labeling defects in this addition. The parcel summary now labels its counts as source building links; those counts do not include separately registered historical reconstructions.

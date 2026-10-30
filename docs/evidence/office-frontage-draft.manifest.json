@@ -1,0 +1,25 @@
+{
+  "captured_utc": "2026-10-28T21:36:48.032954+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "camera": "/World/Cameras/OfficeFrontage",
+  "proposal_layer": null,
+  "requested_resolution": [
+    1920,
+    1080
+  ],
+  "scene": "scene\\office_frontage_review.usda",
+  "scene_sha256": "8492775f09ef60ef50e1f97b70bc31a6d98dcae67691e2eb227d3e6e0153ae36",
+  "layer_hashes": {
+    "scene/office_brick_material_proposal.usda": "5dc49a99d0249be292e635df43b8da67d1b8c4b0486b4322d2a7e48f6f038142",
+    "scene/office_architectural_roof_proposal.usda": "198abea8184d07604be11feb52fd1acba85c45cdd08366d2152062992a5eaaea",
+    "scene/office_frontage_proposal.usda": "a9743844612d5348327a90b7b1da4ce25ef32405bb12db6842fee63528933a50",
+    "scene/landmark_appearance_proposal.usda": "e4e8e38609d6de5a9981b14e4b57591fb8bb43cd64fbbb015f2e0ab006ac36f6",
+    "scene/office_frontage_review.usda": "8492775f09ef60ef50e1f97b70bc31a6d98dcae67691e2eb227d3e6e0153ae36",
+    "scene/landmark_building_proposal.usda": "c81964557d188cb3920bebb1334ed34762532f1043f99a58e18d0456b3eea86b"
+  },
+  "image": "data\\renders\\20261028T213515Z\\OfficeFrontage.png",
+  "image_sha256": "12f6a274185b51f4f9b7d44435d5f4da9e35c77f333afc6cb46cf34444d363a7",
+  "elapsed_seconds": 92.16,
+  "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+  "source_stage_saved": false
+}

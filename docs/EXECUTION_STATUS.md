@@ -239,3 +239,8 @@ Pushed 4ac7210 and closed ticket 12 after the independent eight-criterion accept
 ## Parking/mobility integration and pedestrian evidence - October 29, 2026
 
 Integrated four attributed local parking/charger references, 24 published study count cells and 70 proposed unlocated recommendations. Complete field dictionaries, first-five previews and readable facility cards passed independent source/HTTP review and actual browser inspection. Missing legal capacity, access, entrances and demand remain explicit. New pedestrian acquisition found 67 MetroPlan references (18 synthetic nonphysical duplicates) plus 263 draft recommendations, retained separately. Independent review passed bounded source/geometry findings; actual sidewalk/ramp layers and engineering/as-built geometry remain missing. Tickets 15/16/25 remain open.
+
+
+## Office appearance integration and asset review - October 30, 2026
+
+Integrated independently reviewed cornice, small front pediments and darker roofing for 1615 Edgewater as a separate appearance layer. All 177 existing office geometry/transform records match the reviewed base; only one root sublayer was added, preserving other root/manual/snapshot/selection opinions and recoverable backups. Scene rebuild/refresh retain the guarded layer; reconstruction/corridor reports and the local scene profile were refreshed. Actual integrated detail placement passes, while overall presentation fails due to facade striping and black road/sidewalk polygons. Those defects remain under diagnosis. Revised trees/cars remain inactive after actual visual rejection; permissive production-asset source research is documented. No whole ticket closed; 7 completed / 24 open remains the latest verified count.

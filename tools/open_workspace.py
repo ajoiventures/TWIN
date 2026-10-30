@@ -22,6 +22,8 @@ def checkbox_label(text,model):
                      style={'background_color':0x00000000,'border_width':0})
 REFRESH_LAYERS=['final_omission_roofs.usda','retail_block.usda','wellesley_architecture.usda','landmark_buildings.usda','rear_parking_samples.usda','road_materials.usda','main_street_palms.usda','main_street_presentation.usda','college_park.usda','edgewater_details.usdc','asset_upgrade.usda','asset_upgrade_environment_v2.usda','building_heights.usda','semantic_assets.usda','official_context.usda','study_scope.usda','commercial_context.usda','landmark_corrections.usda','princeton_correction.usda','map_extent_guard.usda','college_park_connected.usda','fema_effective_hazards.usda','water_landcover_context.usda','pilot_aerial_review.usda']
 
+REFRESH_LAYERS.append('office_frontage_detail.usda')
+
 async def open_workspace():
     global project_window, selection_subscription, confidence_controller, scene_refresh_controller
     if 'confidence_controller' in globals():confidence_controller.reset()

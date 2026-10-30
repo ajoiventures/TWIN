@@ -4,6 +4,8 @@ Last reviewed: October 28, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Office frontage detail](OFFICE_FRONTAGE_DETAIL.md) | Actual matched building renders, accepted appearance detail and remaining geometry/currentness limits |
+| [Tree and car visual review](ENVIRONMENT_ASSET_REVIEW.md) | Actual asset comparisons, rejected defects and production-asset next steps |
 | [Pedestrian source evidence](PEDESTRIAN_SOURCE_EVIDENCE.md) | Verified local crossing candidates, excluded synthetic duplicates, proposed recommendations and missing ADA/as-built inputs |
 | [Parking and mobility references](MOBILITY_INVENTORY.md) | Local attributed parking/charger references, City study tables and explicit capacity/demand gaps |
 | [FDOT road and sidewalk references](FDOT_CONTEXT.md) | Full-neighborhood inventory coverage, traffic counts, original fields and independent review |

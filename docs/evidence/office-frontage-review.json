@@ -1,0 +1,218 @@
+{
+  "scope": "Independent office architectural display-proposal review; no activation, GPU operation or current/as-built certification",
+  "render": "data\\renders\\20261029T162514Z\\OfficeFrontage.png",
+  "render_sha256": "708bf475ae8740b4eefb92b38c06d8a1ac93bf673406a0219d7ff0b982b6e2ef",
+  "reference_reviewed": "data/imagery/landmark_reference/1615_exterior_page_3.png",
+  "source_pixel_publication": false,
+  "reference_capture_date": null,
+  "reference_original_url": "https://www.bbdre.com/wp-content/uploads/2023/05/1615-Edgewater-Dr-2025-1.pdf",
+  "render_input_hashes_match": true,
+  "roof_topology_independently_recomputed": {
+    "/World/Landmarks/AndersenOffice1615/RoofBand0_Component1": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 252,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalDormers/South1": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 15,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalDormers/South2": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 15,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalDormers/North1": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 15,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalDormers/North2": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 15,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalChimneys/South": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 14,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "/World/Landmarks/AndersenOffice1615/ArchitecturalChimneys/North": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 14,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    }
+  },
+  "source_fit_receipt": {
+    "historical_acquisition": "2018-12-04 to2019-04-12; exact local flight date unknown",
+    "ground_navd88_m": 29.8,
+    "all_roof_source_p50_p90_p95_m": [
+      0.06999999999993634,
+      1.42999999999995,
+      2.0299999999999727
+    ],
+    "excluding_front_portico_p50_p90_p95_m": [
+      0.05160910221288617,
+      1.0599999999999454,
+      1.5199999999999818
+    ],
+    "note": "Recorded residual summaries inspected, not independently refitted in this bounded visual pass. Selected-plane fit residuals are conditioned on guided support selection and do not establish whole-roof accuracy."
+  },
+  "visual_findings": {
+    "supported_identity_features": [
+      "Two-storey red-brick frontage, central white-column clock pediment, dark glazed entry, paired dormer groups and end chimneys make the intended office recognizable.",
+      "Roof planes read coherently in this view without the earlier widespread triangular pits."
+    ],
+    "material_remaining_gaps": [
+      "Reference shows additional smaller projecting front pediments beside the central entry; candidate omits them.",
+      "Reference has a prominent continuous white eaves/cornice hierarchy and detailed central entablature; candidate roof meets brick with coarse or absent trim.",
+      "Candidate roof appears lighter green-gray than the dark charcoal roof in the reference; different lighting prevents treating color values as measured.",
+      "Uniform repeated candidate window bays omit the reference variation, multi-pane hierarchy, entry/door details and some projecting brick bays; exact spacings are interpreted.",
+      "End roof blocks show large simplified exposed brick gable/transition surfaces; profile and junction dimensions are not established by the frontal photograph."
+    ]
+  },
+  "decision": "acceptable_recognizable_interpreted_display_draft_only_not_accurate_or_current_acceptance",
+  "activation_recommendation": "Do not promote as current/as-built or completed building accuracy; retain proposal and uncertainty labels. Root may choose a separately labeled illustrative display after preserving source and manual opinions.",
+  "limits": [
+    "Photo capture date unknown; PDF filename2025 and URL2023 path are not observation dates.",
+    "Source LiDAR is historical2018-2019, not completed-current geometry evidence.",
+    "Photo supplies qualitative visible-form evidence, not calibrated dimensions or hidden/back geometry.",
+    "No source photograph pixels embedded or redistributed in this review; source remains local.",
+    "Full site, sidewalk, windows, materials and photorealism acceptance remain incomplete."
+  ],
+  "detail_delta_review": {
+    "actual_image": "data/renders/20261029T162931Z/OfficeFrontage.png",
+    "image_sha256": "11077f774b1e5b32cd4a018875bdbb756a038a7c3cc6c27651802c446ff25096",
+    "manifest_sha256": "0135a8bd876695e19d933e2c60131d8547c015183af3cdcad9114862acdb0414",
+    "all_source_photo_output_hashes_match": true,
+    "composition_errors": 0,
+    "existing_mesh_count_compared": 13,
+    "existing_mesh_geometry_or_world_transform_changes": [],
+    "added_pediment_closed_shell_checks": {
+      "/World/OfficeFrontageDetail/Pediments/South": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 9,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      },
+      "/World/OfficeFrontageDetail/Pediments/North": {
+        "weld_tolerance_m": 0.0001,
+        "edge_count": 9,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_edge_orientation": 0,
+        "collapsed_edges": 0,
+        "passed_closed_shell": true,
+        "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+      }
+    },
+    "inset_policy": "Two intentionally open planar decorative inserts, not enclosed mass; closure gate not applicable.",
+    "source_and_rights": "Source photo supports presence of white cornice, small front pediments and dark charcoal roof. Generator uses original geometry/material only; no source pixels. Exact dimensions/positions/color values estimated and photo capture date unknown.",
+    "visual_decision": "approve_bounded_appearance_delta_subject_to_active_base_equivalence_and_preservation_guards",
+    "actual_visual_findings": [
+      "Darkened roof and continuous white cornice improve correspondence to reviewed photograph.",
+      "Two small front pediments add the missing silhouette cue; no conspicuous floating/penetrating new detail or open roof seams visible at this view.",
+      "Pediments remain simplified shallow white wedges: reference has brick tympana/trim and small round features; precise bay positions/projections not demonstrated.",
+      "Existing uniform window pattern and simplified gable transitions remain; this does not make the entire office accurate/current."
+    ],
+    "adoption_limits": [
+      "Only additive interpreted trim/pediments and roof-material appearance are reviewed, not replacement of active measured/historical base geometry.",
+      "Root must verify existing active base equivalence and preserve root/manual opinions before composition.",
+      "No current/as-built claim, full-building accuracy acceptance or whole-ticket closure."
+    ]
+  },
+  "activation_review": {
+    "receipt_sha256": "efa803adc639e4169edd9f68c9596f32fc2e94bdf2b86b41c5443f8c87a14c75",
+    "active_layer_sha256": "7d6c58b1649df86a154dd19a63309534441c96aabacf4fffafb5ca60900c2c06",
+    "receipt_layer_hash_matches": true,
+    "root_backup_hash_matches": true,
+    "root_current_hash_matches": true,
+    "root_opinions_exact_except_single_added_sublayer": true,
+    "active_detail_geometry_matches_reviewed_detail_except_layer_metadata": true,
+    "other_protected_file_changes": [],
+    "temporary_fixture_validator_cases": {
+      "valid": true,
+      "changed_detail": true,
+      "changed_base": true,
+      "changed_snapshot": true,
+      "missing_receipt": true,
+      "both_absent_returns_none": true
+    },
+    "actual_validator_result": "office_frontage_detail.usda",
+    "decision": "approve_bounded_photo_interpreted_appearance_activation_cpu_preservation_checks_pass_integrated_visual_pending",
+    "limits": [
+      "No geometry-currentness or ticket closure approval.",
+      "Historical source model and estimated trim dimensions remain labeled.",
+      "Existing editor was not inspected or reloaded by reviewer."
+    ],
+    "additional_prim_metadata_only_change": {
+      "path": "/World/OfficeFrontageDetail",
+      "field": "customData.active",
+      "before": false,
+      "after": true,
+      "independent_diff": "After removing customLayerData, unified layer diff consists solely of this boolean; no geometry/material/transform differences."
+    }
+  },
+  "integrated_visual_review": {
+    "image": "data/renders/20261029T163710Z/OfficeFrontage.png",
+    "image_sha256": "e61252fe015d7920e8526a2829269e2d3244710fbf80ae930177e8a950a199d2",
+    "image_matches_capture_receipt": true,
+    "capture_manifest_sha256": "e36d54e82aec0e5795bef5b65487d3d521c47534e018d2911213735c4898a19f",
+    "capture_scene": "scene\\office_integrated_detail_review.usda",
+    "captured_detail_sha256": "7d6c58b1649df86a154dd19a63309534441c96aabacf4fffafb5ca60900c2c06",
+    "detail_fit_decision": "pass_bounded_additive_appearance_fit_in_this_view",
+    "detail_findings": [
+      "Cornice follows stepped front wall outline with no conspicuous free-floating spans visible.",
+      "Both small pediments and dark roof remain visible and proportionally coherent with the interpreted office mass.",
+      "Central portico, dormers and chimneys remain intact; no obvious detail displacement introduced by integration."
+    ],
+    "broader_scene_decision": "fail_whole_scene_visual_acceptance",
+    "broader_scene_defects": [
+      "Office brick frontage displays strong diagonal and near-vertical striping absent from the isolated reference render and real photograph. This materially degrades facade appearance; cause not established by pixels alone.",
+      "Broad opaque black strips/polygons interrupt road and sidewalk ground, including frontage and foreground junctions; these are conspicuous unresolved ground/material/overlap artifacts, not accepted physical features.",
+      "Street edges, sidewalks, driveway/intersection joins and background building masses remain schematic; this view does not establish actual widths, slopes, accessible paths or full corridor realism."
+    ],
+    "scope_separation": "The additive trim/pediment fit remains acceptable as labeled photo interpretation. It does not accept striped facade materials, black ground artifacts, broader streetscape, current building dimensions, or whole tickets.",
+    "editor_preservation": "No editor, GPU or API operations performed by reviewer; existing user session untouched."
+  }
+}

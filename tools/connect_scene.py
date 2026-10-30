@@ -11,10 +11,12 @@ from activate_pilot_aerial_review import validate_active_aerial
 from build_wellesley_architecture import validate_active_wellesley
 from refine_office_frontage import validated_active_detail
 from activate_landmark_reconstructions import validated_post_office
+from accepted_scene_layers import validated_layer
 def connect():
  wellesley_active=validate_active_wellesley(ROOT)
  office_detail=validated_active_detail(ROOT)
  post_office=validated_post_office(ROOT)
+ campus_hardscape=validated_layer('campus_hardscape',ROOT)
  active=json.loads((ROOT/'data/processed/active.json').read_text(encoding='utf-8'));folder=ROOT/active['relative_path'];scene=ROOT/'scene'
  buildings=json.loads((folder/'buildings.json').read_text(encoding='utf-8'));permits=json.loads((folder/'permits.json').read_text(encoding='utf-8'));parcels=json.loads((folder/'parcels.json').read_text(encoding='utf-8'));counts=collections.Counter(p['parcel_id'] for p in permits)
  stage=Usd.Stage.CreateNew(str(scene/'official_context.usda'))
@@ -40,6 +42,7 @@ def connect():
  layers+=['manual_edits.usda']
  if office_detail:layers.append(office_detail)
  if post_office:layers.append('post_office_historical.usda')
+ if campus_hardscape:layers.append(campus_hardscape)
  activated_environment=validated_environment_layer(ROOT)
  if activated_environment:layers.append(activated_environment)
  activated_flood=validate_active_flood(ROOT)

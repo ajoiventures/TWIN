@@ -1,0 +1,68 @@
+{
+  "reviewed_utc": "2026-10-30T16:33:12.229119+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator (render helper); GIS analyst (hardscape candidate)",
+  "candidate_manifest_sha256": "ca8518501e4466a3beb27e10a43cacaea44e5eee8123da1a3133192f9db98a63",
+  "captures": [
+    {
+      "camera": "/World/Cameras/CampusHardscape_methodist_rear_visible",
+      "image": "data/renders/20261030T162802Z/CampusHardscape_methodist_rear_visible.png",
+      "image_sha256": "9691db09473c9b0f1a2649d1c5c1d096d28e3c4700de4a476689b0645a981b18",
+      "individual_manifest_sha256": "0baebb0d8008a4210d567a1a8a17b1457e47e7ab4d9de6359ed6eca64d96ea51",
+      "complete_png_1920x1080": true,
+      "layer_hashes_match_current_files": true,
+      "explicit_z_up_meters": true,
+      "elapsed_seconds": 151.02
+    },
+    {
+      "camera": "/World/Cameras/CampusHardscape_drive_west_visible",
+      "image": "data/renders/20261030T162802Z/CampusHardscape_drive_west_visible.png",
+      "image_sha256": "6ffd45e508ab97c4709e678bbf1822c79913f2d251cee28fb9ade4cbdd9f4155",
+      "individual_manifest_sha256": "34e5cfebfb928a34fee17090d808c7243d1ec1aa0de9b990cff9a48635f06be7",
+      "complete_png_1920x1080": true,
+      "layer_hashes_match_current_files": true,
+      "explicit_z_up_meters": true,
+      "elapsed_seconds": 157.61
+    }
+  ],
+  "reviewer_launched_or_modified_gpu_process": false,
+  "reviewer_modified_active_scene_or_user_session": false,
+  "schema": "twin.render-batch-review/1",
+  "decision": "pass_bounded_multi_camera_capture_implementation",
+  "tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f",
+  "batch_manifest": "data/renders/20261030T162802Z/manifest.json",
+  "batch_manifest_sha256": "0acda63895e8f027a7a51e978c51c1373ba92233710cdd518fdfb998e64b9990",
+  "batch_complete": true,
+  "actual_requested_cameras_exact": true,
+  "same_layer_set_for_both_captures": true,
+  "current_active_snapshot_matches_both": true,
+  "actual_second_capture_increment_seconds": 6.59,
+  "code_review": {
+    "one_to_five_unique_alphanumeric_or_underscore_names_validated": true,
+    "all_camera_paths_checked_before_frames_captured": true,
+    "explicit_physical_stage_metadata_required_by_shared_creator": true,
+    "transient_precomposed_stage_used": true,
+    "default_single_camera_environment_fallback_and_manifest_filename_preserved": "Verified by code inspection; this run exercised the new two-camera path",
+    "each_complete_png_dimensions_hash_and_source_layers_checked": true,
+    "active_snapshot_bytes_guard_each_capture": true,
+    "individual_manifests_written_per_successful_capture": true,
+    "batch_complete_manifest_written_only_after_all_captures_succeed": true,
+    "failures_write_error_and_do_not_write_complete_batch_manifest": true,
+    "source_stage_not_saved_and_only_owned_stage_closed": true
+  },
+  "runtime_lifecycle": {
+    "pid_observed_live": 45772,
+    "expected_command_verified_read_only": true,
+    "process_absent_after_capture_completion": true,
+    "exit_code_not_independently_available": true
+  },
+  "runtime_warnings": [
+    "Descriptor set utilization reached 80%; actual captures completed. This run does not establish full five-view, GPU-memory, or district performance acceptance."
+  ],
+  "blocking_findings": [],
+  "limits": [
+    "Not a benchmark comparing two equivalent cold launches; 6.59-second incremental second capture demonstrates startup reuse in this run only.",
+    "Failure semantics and default single-camera preservation were inspected in code; no additional GPU failure/single-camera run was launched.",
+    "No general NVIDIA certification, complete scene realism, or whole-ticket acceptance."
+  ]
+}

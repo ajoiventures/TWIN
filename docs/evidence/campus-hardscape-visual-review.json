@@ -1,0 +1,70 @@
+{
+  "reviewed_utc": "2026-10-30T16:33:12.229119+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator (render helper); GIS analyst (hardscape candidate)",
+  "candidate_manifest_sha256": "ca8518501e4466a3beb27e10a43cacaea44e5eee8123da1a3133192f9db98a63",
+  "captures": [
+    {
+      "camera": "/World/Cameras/CampusHardscape_methodist_rear_visible",
+      "image": "data/renders/20261030T162802Z/CampusHardscape_methodist_rear_visible.png",
+      "image_sha256": "9691db09473c9b0f1a2649d1c5c1d096d28e3c4700de4a476689b0645a981b18",
+      "individual_manifest_sha256": "0baebb0d8008a4210d567a1a8a17b1457e47e7ab4d9de6359ed6eca64d96ea51",
+      "complete_png_1920x1080": true,
+      "layer_hashes_match_current_files": true,
+      "explicit_z_up_meters": true,
+      "elapsed_seconds": 151.02
+    },
+    {
+      "camera": "/World/Cameras/CampusHardscape_drive_west_visible",
+      "image": "data/renders/20261030T162802Z/CampusHardscape_drive_west_visible.png",
+      "image_sha256": "6ffd45e508ab97c4709e678bbf1822c79913f2d251cee28fb9ade4cbdd9f4155",
+      "individual_manifest_sha256": "34e5cfebfb928a34fee17090d808c7243d1ec1aa0de9b990cff9a48635f06be7",
+      "complete_png_1920x1080": true,
+      "layer_hashes_match_current_files": true,
+      "explicit_z_up_meters": true,
+      "elapsed_seconds": 157.61
+    }
+  ],
+  "reviewer_launched_or_modified_gpu_process": false,
+  "reviewer_modified_active_scene_or_user_session": false,
+  "schema": "twin.campus-hardscape-visual-review/1",
+  "decision": "pass_bounded_historical_paving_placement_hold_combined_candidate_activation_for_island_semantics",
+  "source_images_actually_viewed_and_hash_verified": {
+    "data/diagnostics/next_landmark_20261030/full_campus_references/college_park_methodist_2025.jpg": "0c06f9989c541a8bc247128991be7c29c6c1a804e454a1e0cd20765ff3773fdf",
+    "data/diagnostics/next_landmark_20261030/full_campus_references/college_park_methodist_2024.jpg": "8edb71f9d785ee4f8acb9c7b534ff2b37a747ae143fe6eb5541502225597ec91",
+    "data/diagnostics/next_landmark_20261030/full_campus_references/church_on_drive_2025.jpg": "6e510bc0a56f16155e660a04f05267941b01ed92be199d4fa9d0457c5d0b03bc",
+    "data/diagnostics/next_landmark_20261030/full_campus_references/church_on_drive_2024.jpg": "6c11754a14f7a8f93fd4d77bd3f9415d605d147f52f9c6aec5b2eb5aec8f8790"
+  },
+  "source_pixels_published": false,
+  "geometry_audit_reference": "campus-hardscape-source-review.json",
+  "site_observations": [
+    {
+      "site": "methodist_rear_visible",
+      "placement": "The pale paving occupies visible rear-campus ground behind the existing building mass. No obvious floating faces, roof spill or broken triangles appear in the inspected oblique.",
+      "source_comparison": "The 2024 and 2025 aerials show extensive rear hardscape, equipment notches and a row of pale diamond-shaped features. Conservative canopy omissions do not establish complete lot edges.",
+      "blocking_visual_finding": "Excluded diamond-shaped light ground features reveal green base ground in the actual render, visually implying grass islands unsupported by the pale aerial features. Correct this representation before activating the combined candidate.",
+      "remaining_visual_limits": [
+        "Large green canopy/uncertain areas remain; the candidate is a partial interior, not a complete paved lot.",
+        "Existing road/sidewalk strips cross the lot with a different material; surfaces still read as schematic patches.",
+        "Uniform pale material, missing parking markings, curb detail and ground transitions do not meet conference realism."
+      ]
+    },
+    {
+      "site": "drive_west_visible",
+      "placement": "The narrow pale western/southwestern paving pieces appear contiguous and on ground beside the existing campus mass. No obvious floating geometry or roof spill appears in this view.",
+      "source_comparison": "Both dated aerials show this western parking context, with trees obscuring some edges. The proposed pieces retain only bounded visible interiors.",
+      "remaining_visual_limits": [
+        "Large green gaps and retained generic road strips remain within the visible lot context.",
+        "No complete-lot, stalls, walking connections, current surface, accessibility or capacity acceptance."
+      ]
+    }
+  ],
+  "activation_accepted": false,
+  "whole_lot_or_conference_visual_acceptance": false,
+  "required_next_correction": "Keep candidate B frozen. Prepare a separate revision with neutral pale surface treatment for the light diamond features rather than grass holes, retaining unknown function and source/geometry limitations. Review its actual result before local adoption.",
+  "limits": [
+    "Only these two sharp oblique views were judged; no matched baseline images or eye-level review were captured in this batch.",
+    "Aerial visual correspondence and model exclusion checks do not establish survey alignment, legal access, parking capacity or current conditions.",
+    "No original aerial imagery or derived geometry was published by the reviewer; only this factual review was written."
+  ]
+}

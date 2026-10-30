@@ -269,3 +269,8 @@ Acquired full-campus 2024/2025 dated aerial references for both church sites and
 ## Dated church exterior and entrance proposal - October 30, 2026
 
 A newly acquired official appraiser photo visibly captions November8,2021 and shows the raised sanctuary gable, four pale front frames, narrow glazing and physical steeple. The revised historical roof and separate estimated entrance appearance passed independent source/CPU checks and actual sharp1920x1080 appearance review. No source-photo pixels are used in materials; original TWIN masonry is reused. Full church activation remains unaccepted pending assembly/site/legacy reconciliation. Original returns also support a bounded steeple proxy, with true tip/louver geometry unknown. [Image, script contract and remaining work](CHURCH_ENTRANCE_DETAIL.md). No whole-ticket completion.
+
+
+## Historical campus paving adopted locally - October 30, 2026
+
+Added 1,873.414 m² of dated visible-paving interpretation plus 22.039 m² of unclassified pale ground features in one additive layer. Separate source, actual visual and adoption-preservation reviews passed. Other root opinions, manual edits, snapshot, selection, office and post-office files are unchanged; camera-only saves remain compatible with recipe guards. Five focused tests pass; the refreshed local profile checks 17,799 meshes without errors. The editor was not reloaded. Whole lots, edge accuracy, access, capacity, currentness and public derivative publication remain unaccepted. [Delivery](CAMPUS_HARDSCAPE.md). The second view took 6.59 additional seconds after a shared startup. The church material revision remains inactive after global rendering defects; no whole ticket closed.

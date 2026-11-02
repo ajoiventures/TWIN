@@ -1,0 +1,95 @@
+{
+  "schema": "twin.vehicle-qem-review/1",
+  "reviewed_utc": "2026-11-02T17:19:26.063333+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "hold_adoption_visible_close_view_regressions",
+  "candidate": {
+    "directory": "data/diagnostics/vehicle_lods_20261102/qem_v2",
+    "manifest_sha256": "3df926b5d04969cde87bfe1aff3746512e8810d813235755b231585fbb861072",
+    "qem_sha256": "6785ada161465362426139dd1df521e0ed671764fedb6d1673a1941fd73fd94e",
+    "source_sha256": "28737a869c9ee1ac0fd96abd9c847f385c842c71c78446ca95dd93005132cc7b",
+    "declared_producer_sha256": "07b9c7ceb529e0bfd19353e7e596f5e9ef7f6144d6818fda13b560f165af009b",
+    "working_helper_sha256_at_review": "a14950193e6cdf4e8c33de771bcc410ea4ceb4b74db22d935aa4870833b30f4a",
+    "working_helper_matches_declared_producer": false,
+    "producer_caveat": "Current helper reviewed may contain later edits; exact original producer archive not supplied to reviewer at report time. Do not claim current working bytes reproduce qem_v2. Frozen output hash and actual captures remain verified.",
+    "all_candidate_file_hashes_match": true,
+    "source_meshes": 108,
+    "output_meshes": 108,
+    "reduced_meshes": 51,
+    "textured_meshes_preserved_exactly": 11,
+    "source_triangles": 213313,
+    "output_triangles": 175267,
+    "triangle_reduction_percent": 17.835762471110527,
+    "method": "Genuine per-component quadric simplification, separate from previous source-component culling."
+  },
+  "independent_structure_checks": {
+    "all_mesh_positions_and_normals_finite": true,
+    "normals_match_vertex_cardinality": true,
+    "all_face_indices_valid": true,
+    "material_and_shader_values_connections_unchanged": true,
+    "relationship_targets_compared": 318,
+    "world_transforms_compared": 210,
+    "differences": [],
+    "all_108_source_mesh_paths_retained": true
+  },
+  "controlled_capture": {
+    "manifest": "data/renders/20261102T171004Z/manifest.json",
+    "manifest_sha256": "de513dcba3728e2326949b08f8c7317afaf47fa337a7884536f9e430ec24ff79",
+    "complete": true,
+    "all_four_actual_images_viewed": true,
+    "all_images_and_captured_layer_hashes_match": true,
+    "all_pngs_1920x1080": true,
+    "images": [
+      {
+        "path": "data/renders/20261102T171004Z/fullFront.png",
+        "sha256": "9981f3553b100906983695dae85f2377fc63fa3004fc075c51998bd609fd84fe",
+        "camera": "/World/Cameras/fullFront"
+      },
+      {
+        "path": "data/renders/20261102T171004Z/fullRear.png",
+        "sha256": "d03a9da465eb10748ea20cf24f9efc92dfcb08bea5537fd551e1b05bec7facc8",
+        "camera": "/World/Cameras/fullRear"
+      },
+      {
+        "path": "data/renders/20261102T171004Z/fullSide.png",
+        "sha256": "8a6d98c58f5fcfc60981a8902eadd362895d00008eea20676578a32816fda827",
+        "camera": "/World/Cameras/fullSide"
+      },
+      {
+        "path": "data/renders/20261102T171004Z/fullTop.png",
+        "sha256": "11edd98e89a27f6fb87210baddcd01eb7350ce80b38a0a842ac8da5b03ec382d",
+        "camera": "/World/Cameras/fullTop"
+      }
+    ],
+    "full_control": "data/renders/20261102T165222Z/manifest.json",
+    "full_control_four_images_previously_actually_viewed": true,
+    "control_camera_light_ground_attribute_comparisons": 370,
+    "control_differences": [],
+    "selected_vehicle_world_transform_equal": true,
+    "wrapper_scope": "Single reference replacement at /World/full to qem_v2/qem.usda /CarConcept over exact full-control review scene."
+  },
+  "visual_findings": [
+    "Front: lower windshield/hood boundary and front lower bumper transitions gain uneven or faceted edges relative to full control.",
+    "Side: new dark notch on the front door seam, changes around upper window/roof joins and subtle red paint/specular faceting are visible.",
+    "Rear: lower red-body to black-diffuser boundary becomes visibly uneven; small reflective edge changes appear.",
+    "Top: glass/roof boundary joins differ subtly; major shape remains recognizable.",
+    "Wipers, brakes and all original components remain, distinguishing this from far culling; retaining component paths alone does not preserve surface appearance."
+  ],
+  "source_helper_assessment": {
+    "topological_boundary": "preserve_border and exact open-boundary coordinate checks do not lock all closed-surface silhouettes or every material-adjacent appearance contour. Separate components avoid welding but adjacent simplifications can still visually mismatch.",
+    "normals": "Reviewed helper interpolates four nearby source normals with inverse-distance weights inside indexed components, exact at retained coordinates. It does not guarantee original triangle-barycentric normal-field preservation and can alter reflective curvature.",
+    "uv_material_boundaries": "Textured primitives remain exact; reduced untextured meshes drop vertex/varying/faceVarying primvars to avoid stale cardinality. Material bindings remain unchanged, but geometric/specular edge fidelity is not guaranteed.",
+    "metric_scope": "Bidirectional sampled vertices/centroids with nearest-of32 centroid-near triangle distance upper bounds; not exhaustive Hausdorff, pixel error, seam or specular fidelity proof. Small2mm samples cannot override actual visible defects.",
+    "causality": "Edge/normal mechanisms are plausible contributors from code, not uniquely isolated causes by this review."
+  },
+  "next_step": "Retain quality-critical glass/body/door-seam geometry or add feature-aware seam/silhouette/normal-field preservation, then repeat the same controlled views before any adoption.",
+  "limits": [
+    "Hold applies to this exact qem_v2 near-view candidate; does not establish an acceptable distant threshold.",
+    "No active placements, automatic switching, GPU/runtime FPS or memory acceptance.",
+    "No further implementation, rerender or new tests performed by reviewer."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/vehicle-qem-review.json",
+    "gpu_source_editor_api_changes": false
+  }
+}

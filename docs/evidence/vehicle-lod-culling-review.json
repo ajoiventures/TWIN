@@ -1,0 +1,172 @@
+{
+  "schema": "twin.vehicle-lod-culling-review/1",
+  "reviewed_utc": "2026-11-02T17:08:52.623120+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_inactive_mid_four_view_occlusion_only; far_visible_detail_loss_requires_distance_validation",
+  "candidate": {
+    "directory": "data/diagnostics/vehicle_lods_20261102/candidate_v4",
+    "manifest_sha256": "e50861a3e91d0d4a2424bb26407c3412be31174931b7749f06465cf37a047e45",
+    "tool_sha256": "7ea777ba2890ab20ebaec3ffdbf513642e2416a2987666d649dbe44264859b8b",
+    "source_car_sha256": "28737a869c9ee1ac0fd96abd9c847f385c842c71c78446ca95dd93005132cc7b",
+    "source_manifest_sha256": "f38953e2a508bc54ce1ef6b1cd37e5b37fd1ac7c35003b6eed60a6c5705c7cf0",
+    "all_source_and_candidate_file_hashes_match": true,
+    "current_helper_matches_manifest": true,
+    "method": "Whole source-mesh component deletion only; no QEM, decimation or vertex simplification. Separate QEM work is outside this report.",
+    "variants": {
+      "full": {
+        "mesh_count": 108,
+        "triangles": 213313,
+        "vertices": 162718,
+        "removed_mesh_count": 0,
+        "triangle_reduction_percent": 0.0
+      },
+      "mid": {
+        "mesh_count": 62,
+        "triangles": 169084,
+        "vertices": 127774,
+        "removed_mesh_count": 46,
+        "triangle_reduction_percent": 20.734319989874034
+      },
+      "far": {
+        "mesh_count": 51,
+        "triangles": 129672,
+        "vertices": 87063,
+        "removed_mesh_count": 57,
+        "triangle_reduction_percent": 39.21045599658717
+      }
+    }
+  },
+  "independent_preservation": {
+    "retained_attribute_and_connection_comparisons": 8229,
+    "retained_relationship_target_comparisons": 748,
+    "world_transform_comparisons": 527,
+    "differences": [],
+    "all_three_bounds_exactly_equal_source": true,
+    "removed_mesh_paths_exactly_match_manifest": true,
+    "all_remaining_geometry_uv_normals_materials_and_transform_values_exact_to_v3_source": true,
+    "full_source_unchanged": "Pinned source car/manifest and every source manifest file hash validated.",
+    "attribution": "Pinned Khronos source credit, CC BY4.0 notice, logo/plate/tire-texture omissions, opaque-glass and conversion limits preserved; appended culling-modification notice. Earlier independent car-concept-review remains relevant."
+  },
+  "actual_captures": [
+    {
+      "level": "full",
+      "batch_manifest": "data/renders/20261102T165222Z/manifest.json",
+      "sha256": "914c17274a409d11bb011baf7f3b10ef4a79361ddaac2bd830062171270686ab",
+      "complete": true,
+      "all_four_images_actually_viewed": true,
+      "image_and_layer_hashes_match": true,
+      "all_pngs_1920x1080": true,
+      "source_stage_saved": false,
+      "images": [
+        {
+          "path": "data/renders/20261102T165222Z/fullFront.png",
+          "sha256": "03a34ddf9fbc8ee7c5e8ff5d8e28fb75ac3fcb15637f8d6405f86b565830ab07",
+          "camera": "/World/Cameras/fullFront"
+        },
+        {
+          "path": "data/renders/20261102T165222Z/fullRear.png",
+          "sha256": "3f12d1183629ea923e878b49b7c69524c1548098663145940ba0480e5bc892f2",
+          "camera": "/World/Cameras/fullRear"
+        },
+        {
+          "path": "data/renders/20261102T165222Z/fullSide.png",
+          "sha256": "6ae04f221bf9368965a4393c9779df8c348be916b5ad45dae38ea36b1cb38863",
+          "camera": "/World/Cameras/fullSide"
+        },
+        {
+          "path": "data/renders/20261102T165222Z/fullTop.png",
+          "sha256": "646975c7e31dde5f4b3e818bd4a6f5b2d5374c2e705fea1f638319f45c0d3d80",
+          "camera": "/World/Cameras/fullTop"
+        }
+      ]
+    },
+    {
+      "level": "mid",
+      "batch_manifest": "data/renders/20261102T165824Z/manifest.json",
+      "sha256": "4196b9c9fa53bb364f1a4322a0ac5db88fed5ba5ed978215b27e7ccca93f5806",
+      "complete": true,
+      "all_four_images_actually_viewed": true,
+      "image_and_layer_hashes_match": true,
+      "all_pngs_1920x1080": true,
+      "source_stage_saved": false,
+      "images": [
+        {
+          "path": "data/renders/20261102T165824Z/midFront.png",
+          "sha256": "162d71f2fdc0f384957d243cb1d44b89eab84d5e91704771fa72fafa61cd0cec",
+          "camera": "/World/Cameras/midFront"
+        },
+        {
+          "path": "data/renders/20261102T165824Z/midRear.png",
+          "sha256": "ea1e08bd172b14a5c78db1e0709541f9a552897e9ebbfe9e04d8dc26bf3065c4",
+          "camera": "/World/Cameras/midRear"
+        },
+        {
+          "path": "data/renders/20261102T165824Z/midSide.png",
+          "sha256": "a5570a7124b993cf5ea8835f4cc7fbabf5e6cac7132049f872e47bebe2207581",
+          "camera": "/World/Cameras/midSide"
+        },
+        {
+          "path": "data/renders/20261102T165824Z/midTop.png",
+          "sha256": "c3e70eb752d85fa09a8e6b68ee8829fd5fc350dc2e3ec08536f13e143911d0bd",
+          "camera": "/World/Cameras/midTop"
+        }
+      ]
+    },
+    {
+      "level": "far",
+      "batch_manifest": "data/renders/20261102T170135Z/manifest.json",
+      "sha256": "e8cf61692851644c15e3206ddeafeed0b48eaf8ed2911c0cfb862874b031c70c",
+      "complete": true,
+      "all_four_images_actually_viewed": true,
+      "image_and_layer_hashes_match": true,
+      "all_pngs_1920x1080": true,
+      "source_stage_saved": false,
+      "images": [
+        {
+          "path": "data/renders/20261102T170135Z/farFront.png",
+          "sha256": "bccf1c4384041585ed96d0c3d7e77ac8f0af133e7bf6e633254d829b4953cce4",
+          "camera": "/World/Cameras/farFront"
+        },
+        {
+          "path": "data/renders/20261102T170135Z/farRear.png",
+          "sha256": "475932df0d70964f092fd586ff105aabf39bf1255f48d2920602ed375559d598",
+          "camera": "/World/Cameras/farRear"
+        },
+        {
+          "path": "data/renders/20261102T170135Z/farSide.png",
+          "sha256": "f7bd15f5694286bbcb9d6a26cc32bf07b1abda0f6faf5a0f1bb8a525a1680ab5",
+          "camera": "/World/Cameras/farSide"
+        },
+        {
+          "path": "data/renders/20261102T170135Z/farTop.png",
+          "sha256": "afa94123d77a041af94e6a2e7b56f8fb005e07dcdc4be06aae9dedf33d9232af",
+          "camera": "/World/Cameras/farTop"
+        }
+      ]
+    }
+  ],
+  "appearance_verdict": {
+    "full": "Four-angle retained v3 opaque-glass baseline; body, mirrors, lights, wheels, visible brakes and wipers coherent. Not native glTF transmission/refraction fidelity.",
+    "mid": "All four inspected angles preserve exterior silhouette and visible detailing. Removed46 cabin/underhood-interior meshes remain occluded under this closed opaque-glass configuration; no newly visible interior holes or protrusions observed in these four views.",
+    "far": "Major body silhouette remains, but actual close front/top/side views visibly lose wipers; side-view perforated brake discs/calipers disappear and wheel openings change strongly. It is not visually equivalent to full/mid at these close views.",
+    "far_removed_additional_components": {
+      "engine": 1,
+      "brake_hardware": 8,
+      "wipers": 2
+    },
+    "scope": "Four azimuth/elevation samples per level do not prove all possible occlusion, underside appearance, open-door states, transparency changes or moving-camera transition behavior."
+  },
+  "acceptance_limits": [
+    "Full/mid/far are inactive diagnostic candidates; no active vehicle placements or automatic switching accepted.",
+    "Mid component-culling supports this closed opaque-glass presentation only.",
+    "Far is held for close-view use; distance/screen-pixel thresholds, hysteresis and transition popping remain unvalidated. Variant names are labels, not validated switching distances.",
+    "20.73% mid and39.21% far triangle reductions are exact source triangle counts, not FPS/memory/draw-call/runtime savings.",
+    "No district variety, vehicle scale/parking placement, scene performance, conference readiness or whole-ticket acceptance.",
+    "Manifest phrase no installed proper decimator found describes culling preparation context; later independent QEM acquisition is a separate experiment, not a change in this frozen method."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/vehicle-lod-culling-review.json",
+    "gpu_editor_api_source_or_active_scene_mutation": false,
+    "test_suite_added": false
+  }
+}

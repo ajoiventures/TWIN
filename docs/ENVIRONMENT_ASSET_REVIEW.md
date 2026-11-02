@@ -16,3 +16,7 @@ Frozen manifests preserve file hashes, camera names, approximate mesh budgets an
 
 
 The latest comparison is `data/renders/20261030T144245Z/CompareCamera.png`, captured after correcting the temporary wrapper to explicit Z-up/meters. Independent review confirms better lamp integration and fuller oak crowns, while the car remains angular/generic and palms sparse. Earlier v3b detached-lamp defects are superseded for v3c. This corrected setup still does not satisfy professional asset or district placement acceptance.
+
+## Newer acquired vehicle benchmark — November 2, 2026
+
+The [CarConcept conversion and actual comparison](CAR_CONCEPT_BENCHMARK.md) now supplies an independently reviewed detailed vehicle benchmark with source/license attribution. V3's opaque-tinted glass resolves the preceding milky-triangle appearance in its two inspected views. This supersedes the earlier vehicle source-research-only status; no district replacement, LOD/parking acceptance or tree improvement is implied. The attempted tree acquisitions did not yield an accepted usable asset, so the tree work remains unfinished.

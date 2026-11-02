@@ -27,3 +27,20 @@ Snapshot, stale-source and existing-output failures were checked independently; 
 Original returns independently support a narrow historical steeple cluster and an approximate taper. The highest return is not a verified physical tip; louver walls and slot dimensions are unmeasured. A separately labeled photo-estimated enclosure may connect the roof to the observed cap, but must not be presented as measured. [Steeple source audit](evidence/church-steeple-source-review.json).
 
 Complete the architectural assembly, reconcile exact legacy fragments, inspect the combined actual image and preserve the remaining campus before any bounded historical integration. Source dates, estimated details and currentness limits remain visible; this proposal does not establish current use, tax-building linkage or a finished block.
+
+## Combined historical assembly review — November 2, 2026
+
+The extended helper's `--with-steeple` mode combines the frozen observed-return spire with a separately photo-estimated white enclosure, cap and louver appearance. Hidden enclosure sides are plain closure; 18 blades on each visible face are an appearance estimate, not counted/measured louvers. The highest observed return bounds the nominal proxy apex; the true physical tip remains unknown. A second appearance override supplies masonry and dark roofing, with nondegenerate dominant-plane UVs while preserving the source shell's points, topology and normals.
+
+```text
+python tools/prepare_church_frontage.py --with-steeple --output data/diagnostics/<new-assembly-folder>
+python tools/prepare_church_legacy_mask.py --output data/diagnostics/<new-mask-folder>
+```
+
+Both prepare fresh ignored candidates, with no activation, source writes, editor saves or network access. The assembly depends on the frozen entrance/roof, original steeple evidence, original masonry and their source/hash guards. The mask helper reuses partial original-surface subtraction rather than making a new parcel extrusion; it checks exact original group/source IDs, retains source face elevations/materials and interpolates original affine UVs. An error may leave a partial new directory; only a completed manifest and review establish a usable candidate.
+
+The independent [legacy remainder review](evidence/church-legacy-mask-review.json) verifies that Building_2919 is a bounding-box false positive with no actual overlap; its original surfaces remain intact. Building_3065 retains 87.048 m² outside the replacement projection, at its original elevations and with its original identity/material metadata. No raw tax link or physical-building identity is promoted. [Initial assembly review](evidence/church-assembly-visual-review.json) required suppression of unrelated illustrative STUDIO/MARKET fronts; the revised appearance suppresses only those two generated campus storefront groups, preserving their raw building masses.
+
+The first revised captures still had global road/wall artifacts. Correcting 18 zero-area bottom-face UVs was necessary but did not eliminate those artifacts. The subsequent actual capture, `data/renders/20261102T155708Z/ChurchAssembly.png`, waits for 60 viewport frames **before** scheduling capture and shows coherent entrance, masonry, roof and attached steeple without the previous global bands. The old and new C captures have identical scene-layer hashes, camera and physical metadata. [Independent controlled image review](evidence/church-frame-gate-review.json) and [SDK findings](evidence/viewport-capture-sdk-review.json) support the bounded capture correction; they do not prove shader convergence or unique root cause. The exact captured helper is archived locally by its recorded SHA.
+
+The combined church remains inactive. Current conditions, exact wall/overhang and tip dimensions, complete side/wing façades, steps/ramps/site connections and full-building presentation remain unaccepted. Local preservation/rebuild integration must pass before historical composition; no whole ticket is closed. Original photos/aerials and generated local review scenes remain outside the public repository.

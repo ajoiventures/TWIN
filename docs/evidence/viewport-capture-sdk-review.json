@@ -1,0 +1,144 @@
+{
+  "schema": "twin.viewport-capture-sdk-review/1",
+  "reviewed_utc": "2026-11-02T15:58:55.713260+00:00",
+  "authority": "Installed NVIDIA Kit SDK source/stubs, inspected read-only; no internet substitution or GPU launch",
+  "sdk_root": "Installed NVIDIA Kit release",
+  "sources": {
+    "viewport_utility": {
+      "path": "extscache/omni.kit.viewport.utility-2.1.2+187cf21b/omni/kit/viewport/utility/__init__.py",
+      "sha256": "99ec45eca632fdff9e255d37b56f59511e33534297f6f7cec8aa4a7291ef0dd9"
+    },
+    "capture_delegate": {
+      "path": "extscache/omni.kit.widget.viewport-110.0.1+187cf21b/omni/kit/widget/viewport/capture.py",
+      "sha256": "9a50fd85dc337018dfc66c5cec4865224d73866f62c8e7588580c43b1ea6cdab"
+    },
+    "viewport_api": {
+      "path": "extscache/omni.kit.widget.viewport-110.0.1+187cf21b/omni/kit/widget/viewport/api.py",
+      "sha256": "23fc9317020f42e17137ffaafeb9c74f410fbbcc4e4bfcbdacced997b3b493dd"
+    },
+    "usd_frame_impl": {
+      "path": "extscache/omni.usd-1.19.11+187cf21b.wx64.r.cp312/omni/usd/_impl/__init__.py",
+      "sha256": "942c13ebc23a15a210c33baf3ad7d4e877f22e774679b2500f9a4c98555d9ec7"
+    },
+    "usd_api_stub": {
+      "path": "extscache/omni.usd-1.19.11+187cf21b.wx64.r.cp312/omni/usd/_usd.pyi",
+      "sha256": "53d96ec72e194124b4f1d5813cf6d0f6de02271aa1c671b145b4f8744f2b87e3"
+    },
+    "renderer_ready": {
+      "path": "extscache/omni.kit.renderer.ready-1.0.0/omni/kit/renderer/ready/extension.py",
+      "sha256": "345e52f0867d44adbd95f1070640c535bb23d9f946c8edd9e2e51a80ce14c5b8"
+    },
+    "hydra_frame_info_stub": {
+      "path": "extscache/omni.kit.hydra_texture-1.6.2+187cf21b.wx64.r.cp312/omni/hydratexture/_hydra_texture.pyi",
+      "sha256": "da3c57ee8b3cbd4006dadb72064f5421fba18a9f8c904f0d3f4fe9b3da8546a9"
+    },
+    "usd_context_header": {
+      "path": "kit/dev/include/omni/usd/UsdContext.h",
+      "sha256": "8af8c4eaa06b15a50c3328a80c3c94cd0ec6e448ea29e5164397c4411e4a162b"
+    }
+  },
+  "evidence": [
+    {
+      "source": "capture_delegate",
+      "start_line": 25,
+      "end_line": 30,
+      "finding": "Capture.wait_for_result first awaits capture completion future, then advances completion_frames APP updates. Thus60means post-capture updates, never60pre-capture rendered frames."
+    },
+    {
+      "source": "capture_delegate",
+      "start_line": 123,
+      "additional_lines": [
+        173,
+        178
+      ],
+      "finding": "RenderCapture dispatches saving of selected AOV resource and completes its delegate afterward. Pixel/file completion is a separate concern; retain PNG completion and source-hash checks."
+    },
+    {
+      "source": "viewport_utility",
+      "start_line": 356,
+      "additional_lines": [
+        435
+      ],
+      "finding": "Calling capture_viewport_to_file schedules capture immediately. A later wait_for_result cannot retroactively make that scheduled image a later warmed frame."
+    },
+    {
+      "source": "viewport_utility",
+      "start_line": 794,
+      "finding": "n_frames defaults0 and forwards to viewport.usd_context.next_frame_async(viewport,n_frames). Explicit n_frames is the relevant pre-capture rendered-frame wait."
+    },
+    {
+      "source": "usd_frame_impl",
+      "start_line": 141,
+      "additional_lines": [
+        151,
+        154,
+        161
+      ],
+      "finding": "Wait observes NEW_FRAME events filtered by viewport_handle; defaults0/1complete at first matching delivered frame, larger n decrements on matching render events."
+    },
+    {
+      "source": "viewport_api",
+      "start_line": 213,
+      "finding": "Alternative viewport-specific rendered-frame callback counter exists. Neither its source nor next_frame_async guarantees material/shader/PSO convergence."
+    },
+    {
+      "source": "renderer_ready",
+      "start_line": 36,
+      "additional_lines": [
+        72
+      ],
+      "finding": "RTX ready extension emits once on the FIRST NEW_FRAME; it is not a proof that every scene material or PSO compiled, and does not re-establish readiness for each later camera/stage."
+    },
+    {
+      "source": "usd_api_stub",
+      "start_line": 651,
+      "additional_lines": [
+        353,
+        379,
+        359,
+        765
+      ],
+      "finding": "Stage file-loading counts and asset/material events are exposed; MDL_PARAM_LOADED concerns some material parameters. These are not a documented global PSO-ready barrier. Renderer accumulation reset is documented for deterministic subsequent frame history, not loading completion."
+    },
+    {
+      "source": "hydra_frame_info_stub",
+      "start_line": 78,
+      "finding": "Frame info exposes resolution, frame_number, swh_frame_number, progression and subframe_count for observability. No material-fully-ready/PSO-complete flag is documented in this inspected contract."
+    }
+  ],
+  "confirmed_defect": "Existing120application-updates +defaultoneviewportframe +capture().wait_for_result(completion_frames60) does NOT provide60rendered warmup frames before capture.",
+  "cause_status": "Capture guard semantics defect confirmed. NOT proof that render timing caused global wavy walls/black bands or that UV/source/material issues are absent. Prior18zero-area bottom-UV fix is a separate confirmed issue; artifacts reportedly persisted afterward.",
+  "minimal_confirmed_guard_proposal": {
+    "owner": "Root edits tools/render_review.py; reviewer makes no implementation change",
+    "order": [
+      "Compose explicitZ-up/meters stage before attach, bind exact camera/resolution, retain existing120app-update preparation.",
+      "Before capture is scheduled: await asyncio.wait_for(next_viewport_frame_async(viewport,n_frames=60),timeout=180).",
+      "Then schedule capture_viewport_to_file; itscompletion_frames60 can remain post-capture cleanup.",
+      "Retain complete PNG/IEND/resolution, source layer/snapshot hash and controlled-scene checks.",
+      "Record requested_pre_capture_rendered_frames60 and prewait timing separately from post-capture updates; do not label this fully-converged material readiness."
+    ],
+    "what_it_guarantees": "60matching viewport-delivered NEW_FRAME events after the wait is armed, before image capture scheduling.",
+    "what_it_does_not_guarantee": "Global shader/PSO compilation completion, physically correct materials/geometry, convergence or a performance benchmark."
+  },
+  "material_readiness_boundary": {
+    "verified_available": [
+      "UsdContext.get_stage_loading_status",
+      "ASSETS_LOADING/ASSETS_LOADED/ASSETS_LOAD_ABORTED/MDL_PARAM_LOADED stage events",
+      "viewport NEW_FRAME and frame_info",
+      "UsdContext.reset_renderer_accumulation"
+    ],
+    "global_material_or_pso_ready_api_verified": false,
+    "unverified_do_not_invent": [
+      "Any guessed /rtx/transientInfo setting or is_renderer_ready/is_materials_ready method",
+      "RTX ready log as global shader-complete assertion",
+      "File counts or app-update counts as GPU convergence proof"
+    ],
+    "optional_future_policy": "If a stronger guard is implemented, subscribe to documented asset events before attachment, observe file-loading state, wait the first matching viewport frame, and count rendered warmup frames only after the chosen asset-settled policy; restart the counter on new asset work and timeout visibly. This remains an explicitly bounded readiness policy, not certified PSO completion. Accumulation reset after camera/loading changes may be evaluated identically for baseline/proposal under the locally documented API."
+  },
+  "controlled_comparison_proposal": "Repeat exact same Church C scene/camera/source hashes and explicitZ/1/light/material settings, changing only pre-capture rendered-frame wait. Inspect actual new pixels before attributing cause or accepting architecture. No equivalent retry or GPU launch performed by reviewer.",
+  "performance_limit": "Old capture elapsed interval spanningOct30-Nov2 is not valid isolated performance evidence.",
+  "files_written": [
+    "data/diagnostics/viewport_capture_sdk_20261102/report.json"
+  ],
+  "source_or_gpu_operations": "Read-only SDK/project inspection; no user editor/API/process changes, source/helper edits, rendered frames or GPU launches."
+}

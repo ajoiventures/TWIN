@@ -1,0 +1,41 @@
+{
+  "reviewer": "root independent of GIS mask author",
+  "source_snapshot": "20261028T160543372334Z",
+  "decision": "pass_bounded_source_remainder_no_architectural_activation",
+  "untouched_2919_prims_checked": 104,
+  "records": [
+    {
+      "path": "/World/Buildings/Building_3065",
+      "retained_area_m2": 87.04766255267896,
+      "expected_outside_source_area_m2": 87.04766255267896,
+      "symmetric_difference_m2": 0.0,
+      "inside_candidate_overlap_m2": 0.0,
+      "source_height_levels_preserved": [
+        0.1,
+        4.4
+      ],
+      "original_custom_metadata_and_material_preserved": true,
+      "only_added_metadata": "displayMask provenance"
+    },
+    {
+      "path": "/World/Roofs/Roof_3065",
+      "retained_area_m2": 87.04766255267896,
+      "expected_outside_source_area_m2": 87.04766255267896,
+      "symmetric_difference_m2": 0.0,
+      "inside_candidate_overlap_m2": 0.0,
+      "source_height_levels_preserved": [
+        4.42
+      ],
+      "original_custom_metadata_and_material_preserved": true,
+      "only_added_metadata": "displayMask provenance"
+    }
+  ],
+  "mask_layer_sha256": "6b661fc3e828f2e3edc0064efd34767b8337f99d3ae3907e93450b2aed14171c",
+  "audit_correction": "Initial overly strict metadata equality assertion rejected the deliberately added displayMask provenance. All original keys are now independently compared and equal; only that added key is allowed.",
+  "limits": [
+    "UV interpolation is recorded by producer; this independent check covers area, original attributes on untouched group, height/material/identity on remainder.",
+    "Approximate candidate roof-envelope/wallline remains unaccepted as survey/current geometry.",
+    "Later appearance suppression affects illustrative storefront groups, not raw source building identities.",
+    "Actual church visual/material defects still prevent activation."
+  ]
+}

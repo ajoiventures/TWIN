@@ -110,5 +110,85 @@ def build(output,root=ROOT):
         'outputs':{n:sha(output/n) for n in ['appearance.usda','review.usda']}}
     (output/'manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');return report
 
+def build_assembly(output,root=ROOT):
+    """Combine the observed spire proxy with a separately estimated enclosure."""
+    root=Path(root).resolve();output=Path(output).resolve()
+    if output.exists() or not output.is_relative_to(root/'data/diagnostics'):raise ValueError('Use a new diagnostic directory')
+    source=root/'data/diagnostics/next_landmark_20261030/church_on_drive/steeple_study_v1'
+    evidence=source/'evidence.json';e=json.loads(evidence.read_text(encoding='utf-8'))
+    dependencies={evidence:sha(evidence)}
+    for name,digest in e['dependencies'].items():
+        path=(root/name).resolve()
+        if not path.is_relative_to(root) or sha(path)!=digest:raise ValueError('Steeple source changed')
+        dependencies[path]=digest
+    for name,digest in e['outputs'].items():
+        path=source/name
+        if sha(path)!=digest:raise ValueError('Steeple study changed')
+        dependencies[path]=digest
+    entrance=build(output/'entrance',root)
+    stage=Usd.Stage.CreateNew(str(output/'belfry.usda'));UsdGeom.SetStageUpAxis(stage,'Z');UsdGeom.SetStageMetersPerUnit(stage,1)
+    base='/World/ChurchBelfryAppearance';p=stage.DefinePrim(base,'Xform')
+    p.SetCustomData({'quality':'illustrative_photo_estimated_belfry_enclosure','photoDate':'2021-11-08','measuredWalls':False,'measuredLouvers':False,'currentConditionsVerified':False,'purpose':'Estimated visible enclosure only, connected to observed cap and spire proxy; not measured wall or bell-function evidence'})
+    def material(name,color):
+        m=UsdShade.Material.Define(stage,base+'/Materials/'+name);s=UsdShade.Shader.Define(stage,m.GetPath().AppendChild('Surface'));s.CreateIdAttr('UsdPreviewSurface');s.CreateInput('diffuseColor',Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color));s.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(.65);m.CreateSurfaceOutput().ConnectToSource(s.ConnectableAPI(),'surface');return m
+    white=material('Paint',(.74,.75,.70));dark=material('VentShadow',(.055,.065,.062))
+    roof=material('InterpretedMetalRoof',(.035,.05,.045))
+    # These are generated illustrative business fronts, not source buildings.
+    # Suppress only the named campus groups while retaining their raw masses.
+    suppressed=['/World/Storefronts/Building_2919','/World/Storefronts/Building_3065']
+    for path in suppressed:UsdGeom.Imageable(stage.OverridePrim(path)).CreateVisibilityAttr().Set('invisible')
+    candidate=root/'data/diagnostics/next_landmark_20261030/church_on_drive/sanctuary_candidate_v3/site.usda'
+    body_stage=Usd.Stage.Open(str(candidate));mesh_path=entrance['frontage_alignment']['mesh_prim_path'];body=UsdGeom.Mesh(body_stage.GetPrimAtPath(mesh_path))
+    points=body.GetPointsAttr().Get();indices=body.GetFaceVertexIndicesAttr().Get();uv=[];offset=0
+    for count in body.GetFaceVertexCountsAttr().Get():
+        face=[Gf.Vec3d(*points[i]) for i in indices[offset:offset+count]];offset+=count
+        normal=Gf.Cross(face[1]-face[0],face[2]-face[0])
+        dominant=max(range(3),key=lambda axis:abs(normal[axis]))
+        face_uv=[(point[0]/2.4384,point[1]/.8001) if dominant==2 else ((point[1] if dominant==0 else point[0])/2.4384,point[2]/.8001) for point in face]
+        area2=sum(face_uv[i][0]*face_uv[(i+1)%count][1]-face_uv[(i+1)%count][0]*face_uv[i][1] for i in range(count))
+        if abs(area2)<1e-10:raise ValueError('Degenerate body texture coordinates; normal-mapped surfaces need a valid tangent frame')
+        uv.extend(face_uv)
+    target=stage.OverridePrim(mesh_path)
+    UsdGeom.PrimvarsAPI(target).CreatePrimvar('st',Sdf.ValueTypeNames.TexCoord2fArray,UsdGeom.Tokens.faceVarying).Set(uv)
+    wall_subset=stage.OverridePrim(mesh_path+'/WallMaterial');UsdShade.MaterialBindingAPI.Apply(wall_subset).GetDirectBindingRel().SetTargets([Sdf.Path('/World/ChurchFrontageAppearance/Materials/Brick')])
+    roof_subset=stage.OverridePrim(mesh_path+'/RoofMaterial');UsdShade.MaterialBindingAPI.Apply(roof_subset).Bind(roof)
+    x,y=e['nominal_axis_local_xy_m'];top=e['nominal_candidate']['base_scene_z_m']
+    bounds=e['cap_support']['xy_bbox_utm_m'];width=(bounds[1][0]-bounds[0][0])*.88;depth=(bounds[1][1]-bounds[0][1])*.88
+    # The enclosure walls/slot count come from a qualitative photo, not a scan.
+    # An estimated skirt overlaps the roof so it does not float above the slopes.
+    bottom=entrance['frontage_alignment']['front_roof_ridge_z_local_m']-.55
+    if not 0<top-bottom<5:raise ValueError('Unexpected estimated belfry height')
+    box(stage,base+'/Enclosure',(x,y,(bottom+top)/2),(width,depth,top-bottom),white)
+    for face in ('East','South'):
+        horizontal=depth if face=='East' else width;low=bottom+.18;high=top-.18
+        if face=='East':center=(x+width/2+.012,y,(low+high)/2);size=(.025,horizontal-.28,high-low)
+        else:center=(x,y-depth/2-.012,(low+high)/2);size=(horizontal-.28,.025,high-low)
+        box(stage,base+'/'+face+'VentShadow',center,size,dark)
+        for i in range(18):
+            z=low+(high-low)*(i+.5)/18
+            if face=='East':center=(x+width/2+.045,y,z);size=(.065,horizontal-.24,.065)
+            else:center=(x,y-depth/2-.045,z);size=(horizontal-.24,.065,.065)
+            box(stage,base+f'/{face}EstimatedBlade{i}',center,size,white)
+    box(stage,base+'/Cap',(x,y,top-.055),(width+.20,depth+.20,.11),white)
+    stage.GetRootLayer().Save()
+    review=Usd.Stage.CreateNew(str(output/'review.usda'));UsdGeom.SetStageUpAxis(review,'Z');UsdGeom.SetStageMetersPerUnit(review,1)
+    review.GetRootLayer().subLayerPaths=['belfry.usda',relative(source/'spire_candidate.usda',output),'entrance/review.usda']
+    camera=UsdGeom.Camera.Define(review,'/World/Cameras/ChurchAssembly');target=Gf.Vec3d(x,y,12)
+    camera.AddTransformOp().Set(Gf.Matrix4d().SetLookAt(target+Gf.Vec3d(63,-38,17),target,Gf.Vec3d(0,0,1)).GetInverse());camera.CreateFocalLengthAttr(45);camera.CreateHorizontalApertureAttr(36);camera.CreateVerticalApertureAttr(20.25);camera.CreateFStopAttr(0);camera.CreateClippingRangeAttr(Gf.Vec2f(.1,2000));review.GetRootLayer().Save()
+    assembled=Usd.Stage.Open(str(output/'review.usda'))
+    if assembled.GetCompositionErrors():raise ValueError('Church assembly composition failed')
+    if any(sha(path)!=digest for path,digest in dependencies.items()):raise ValueError('Steeple source changed during assembly')
+    report={'schema':'twin.church-assembly-proposal/1','source_snapshot':entrance['source_snapshot'],'activated':False,
+        'belfry_walls_and_slots':'Photo-estimated, unmeasured; hidden sides plain closure, no function inferred',
+        'suppressed_illustrative_campus_frontages':suppressed,'raw_campus_building_groups_hidden':False,
+        'body_appearance':'Photo-interpreted brick/roof material and nominal dominant-plane UV on all faces; source positions/topology/normals preserved',
+        'zero_area_body_uv_faces':0,
+        'belfry_local_bounds':[[x-width/2,y-depth/2,bottom],[x+width/2,y+depth/2,top]],'estimated_blades_per_visible_face':18,
+        'spire_height_policy':'Highest observed return used as nominal proxy apex; true physical tip unknown',
+        'highest_observed_proxy_z_m':e['nominal_candidate']['apex_scene_z_m'],'entrance_manifest_sha256':sha(output/'entrance/manifest.json'),
+        'dependencies':{path.relative_to(root).as_posix():digest for path,digest in dependencies.items()},
+        'outputs':{name:sha(output/name) for name in ['belfry.usda','review.usda']},'camera':'/World/Cameras/ChurchAssembly','render_status':'not_run'}
+    (output/'manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8');return report
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();print(json.dumps(build(args.output),indent=2))
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);parser.add_argument('--with-steeple',action='store_true');args=parser.parse_args();print(json.dumps((build_assembly if args.with_steeple else build)(args.output),indent=2))

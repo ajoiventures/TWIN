@@ -53,7 +53,10 @@ async def capture():
         for camera,path in paths.items():
             viewport.resolution=(1920,1080);viewport.camera_path=path
             for _ in range(120):await app.next_update_async()
-            await next_viewport_frame_async(viewport)
+            # completion_frames below is a POST-capture app-update wait.
+            # Count actual viewport frames before scheduling capture; this is
+            # not a guarantee of shader compilation or image convergence.
+            await asyncio.wait_for(next_viewport_frame_async(viewport,n_frames=60),timeout=180)
             image=folder/(camera+'.png')
             result=await asyncio.wait_for(capture_viewport_to_file(viewport,file_path=str(image)).wait_for_result(completion_frames=60),timeout=90)
             # Kit builds differ in their callback return value. Verify the actual
@@ -74,7 +77,8 @@ async def capture():
             from pxr import UsdGeom
             report['render_stage']={'up_axis':str(UsdGeom.GetStageUpAxis(ctx.get_stage())),
                 'meters_per_unit':UsdGeom.GetStageMetersPerUnit(ctx.get_stage()),
-                'root_mode':'transient_precomposed','capture_tool_sha256':TOOL_SHA256}
+                'root_mode':'transient_precomposed','capture_tool_sha256':TOOL_SHA256,
+                'pre_capture_rendered_frames':60,'post_capture_completion_app_updates':60}
             (folder/('manifest.json' if len(cameras)==1 else camera+'.manifest.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
             reports.append(report)
             print('TWIN_RENDER_CAPTURE_READY',str(image),flush=True)

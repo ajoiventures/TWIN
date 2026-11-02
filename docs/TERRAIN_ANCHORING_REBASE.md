@@ -1,6 +1,6 @@
 # Terrain anchoring: current cached-data rebase
 
-Read-only #6 analysis completed November 2, 2026. **Original DEM availability is not the remaining global anchoring blocker.** This work does not activate terrain, move an object, change an API/editor, or accept current/surveyed geometry. Source/analysis authorship is separate from the next independent review.
+Read-only #6 analysis completed November 2, 2026. **Original DEM availability is not the remaining global anchoring blocker.** This work does not activate terrain, move an object, change an API/editor, or accept current/surveyed geometry. [Independent review of report D](evidence/terrain-anchoring-rebase-review.json) passes the bounded source, sampling, skip and frame findings; it does not accept terrain adoption.
 
 ## Exact findings
 

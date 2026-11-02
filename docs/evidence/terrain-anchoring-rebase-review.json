@@ -1,0 +1,84 @@
+{
+  "schema": "twin.terrain-anchoring-rebase-independent-review/1",
+  "reviewed_utc": "2026-11-02T19:00:30.040907+00:00",
+  "reviewer": "Independent read-only terrain QA",
+  "decision": "pass_bounded_cached_data_rebase_diagnostic_only",
+  "reviewed_artifacts_sha256": {
+    "tools/analyze_terrain_anchoring.py": "ee16345fec26d6be3ccc9bcf740d778787427d6ca04353141bd6444c3e7c33f9",
+    "data/diagnostics/terrain_rebase_20261102_d/captured_helper.py": "ee16345fec26d6be3ccc9bcf740d778787427d6ca04353141bd6444c3e7c33f9",
+    "data/diagnostics/terrain_rebase_20261102_d/report.json": "66cc6057d365a59a224dfcf92f6b485a5675a39d7216d08bd1db61a7dd2efb29",
+    "data/diagnostics/terrain_rebase_20261102_d/handling_decisions.json": "39fb5b1eb6b954866872fb6b41c11f34133b8a60e520fbc0aa1d33499497e396",
+    "docs/TERRAIN_ANCHORING_REBASE.md": "4bb1415babdc1b60857f1a6a111f114a7bc1cb1473cb053a4096be14f88c64a4",
+    "docs/evidence/terrain-anchoring-rebase-summary.json": "b9c2ca4ccc567d25e4f95790092d664511e4bb053af4f1beae2bfe9f9df19cdc"
+  },
+  "initial_blocker": {
+    "finding": "C omitted consumed OSM bridge-policy input and source receipt bytes",
+    "resolution": "Fresh D binds OSM and all12 TIFF/XML receipts; C preserved, not accepted as final"
+  },
+  "actual_checks": {
+    "all_dependency_hashes_current": 67,
+    "producer_archive_equals_working_helper": true,
+    "independent_original_tiff_xml_inspection": {
+      "tiles": 6,
+      "shape_each": [
+        2000,
+        2000
+      ],
+      "valid_pixels_total": 24000000,
+      "native_pixel_size_ft": 2.5,
+      "horizontal_epsg": 6438,
+      "horizontal_unit_geokey": 9003,
+      "vertical_epsg": 6360,
+      "vertical_datum_xml": "NAVD88",
+      "vertical_unit_xml": "US survey foot",
+      "acquisition_interval_xml": [
+        "2018-12-04",
+        "2019-04-12"
+      ],
+      "source_unit_to_m": 0.3048006096012192,
+      "scene_z_origin_navd88_m": 30
+    },
+    "source_validity_vs_mask": "All original pixels finite/non-NoData; old lookup injects NaN outside inside_study. Availability gap is lookup masking/extent, not absent original pixels.",
+    "old_data_extent_cases_now_sampleable": 257,
+    "source_water_reprojection": {
+      "source": "Existing composed /World/Water, not authoritative shoreline",
+      "triangle_faces": 669,
+      "old_water_cases": 20,
+      "independent_hull_intersections": 20,
+      "independent_actual_face_projection_intersections": 0,
+      "limit": "False positives relative to source water geometry only; not proof no real water, wetland, flood or clearance issue"
+    },
+    "independent_osm_grade_policy": {
+      "bridge_tunnel_or_nonzero_layer_holds": 18,
+      "other_roads_grade_unverified": 1855,
+      "absent_tag_not_accepted_at_grade": true
+    },
+    "independent_family_anchor_check": {
+      "families": 11,
+      "method": "Composed bbox center to original GeoTIFF; direct four-pixel bilinear USft sampling then30m origin",
+      "maximum_difference_m": 1.0658141036401503e-14,
+      "hazards_confirmed": [
+        "Steeple naive drop about14.15m",
+        "Belfry naive drop about11.14m",
+        "Office detail naive drop about7.57m"
+      ],
+      "required": "Buildingframe/family inheritance; distinguish absolute/relative datum; no per-detail minZ anchor"
+    },
+    "independent_visible_building_road_objects_with_all_vertices_inside_full_bilinear_support": 5076,
+    "support_check_count_semantics": "5076 mesh objects (3203 visible legacy building groups plus1873 road surfaces), each checked using all authored mesh vertices transformed to native source coordinates; not5076 vertices."
+  },
+  "remaining_activation_gaps": [
+    "No coordinated all-object anchor overlay",
+    "Bridge/grade/curb/ADA/currentness unresolved",
+    "Cached availability does not expand accepted extent",
+    "Roofs/details/trees/cars/water/masks/contact preservation unaccepted",
+    "No anchored-scene visual acceptance"
+  ],
+  "reviewer_actions": {
+    "source_scene_modified": false,
+    "gpu_editor_used": false,
+    "network_acquisition": false,
+    "broad_suite_run": false
+  },
+  "public_scope": "Aggregate public-source checks only; no private geometry or connected-source IDs"
+}

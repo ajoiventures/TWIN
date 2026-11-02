@@ -1,0 +1,54 @@
+{
+  "schema": "twin.viewport-camera-switch-review/1",
+  "reviewed_utc": "2026-11-02T19:32:34.143910+00:00",
+  "decision": "pass_bounded_two_camera_delivered_frame_binding",
+  "reviewer": "Independent source and actual-image QA",
+  "capture_helper_sha256": "48e4e7a9bcfdc3ceecf0b964f0561dbe6f3ffe4d5e849998ebb670a85714e3a9",
+  "batch_manifest_sha256": "337c679edf83f586183201581153f9d9f8d81c8f9b23b8a0ae19436b208b2e4a",
+  "sdk_sources_sha256": {
+    "omni.kit.widget.viewport-110.0.1+187cf21b/omni/kit/widget/viewport/impl/texture.py": "516d102faa4722c7dcae3975348e0cc608ec7cafb46cb578f4913dc4f23a0918",
+    "omni.kit.widget.viewport-110.0.1+187cf21b/omni/kit/widget/viewport/capture.py": "9a50fd85dc337018dfc66c5cec4865224d73866f62c8e7588580c43b1ea6cdab",
+    "omni.kit.widget.viewport-110.0.1+187cf21b/omni/kit/widget/viewport/api.py": "23fc9317020f42e17137ffaafeb9c74f410fbbcc4e4bfcbdacced997b3b493dd"
+  },
+  "sdk_findings": [
+    "camera_path getter is cached requested path, not a rendering barrier",
+    "NEW_FRAME counts viewport events, not requested camera identity",
+    "Delivered viewport.frame_info exposes actual view/projection",
+    "Capture delegate retains actual captured frame view/projection/frame number/handle after completion"
+  ],
+  "implementation_review": [
+    "Requires60consecutive advancing delivered frames matching expected requested static camera view",
+    "Rechecks actual capture delegate view, finite16element matrices and0.001maximum element tolerance",
+    "Records captured view/projection/frame/viewport/renderproduct diagnostic data",
+    "Rejects identical PNG bytes for distinct expected camera transforms"
+  ],
+  "actual_captures": [
+    {
+      "camera": "/World/Cameras/StreetScale",
+      "image": "data\\renders\\20261102T192208Z\\StreetScale.png",
+      "image_sha256": "d4dade0632eb13cb5b632ba0861ff4a643bdf9693c8f2d0e3279da79558859cf",
+      "independent_source_vs_delivered_view_max_error": 1.1368683772161603e-13,
+      "matching_camera_frames": 60,
+      "captured_frame_number": 61,
+      "viewport_handle": 2,
+      "actual_visual_observation": "Oblique district overview"
+    },
+    {
+      "camera": "/World/Cameras/TreeLinedEdgewater",
+      "image": "data\\renders\\20261102T192208Z\\TreeLinedEdgewater.png",
+      "image_sha256": "bed5b097ac231086b6c8a4ff3705db90f5db19001aa32dedf0084e8da5fbf41a",
+      "independent_source_vs_delivered_view_max_error": 3.552713678800501e-15,
+      "matching_camera_frames": 60,
+      "captured_frame_number": 141,
+      "viewport_handle": 2,
+      "actual_visual_observation": "Close-up generic storefront/awning; no useful street/tree composition"
+    }
+  ],
+  "all_recorded_source_layer_hashes_current": true,
+  "limitation": "Camera binding/switching only; no global shader convergence, render fidelity, performance or camera-composition quality acceptance. Camera names do not establish useful framing. Old duplicated-camera batch not accepted as5distinctviews.",
+  "reviewer_operations": {
+    "gpu_launched": false,
+    "source_editor_modified": false,
+    "only_written_file": "docs/evidence/viewport-camera-switch-review.json"
+  }
+}

@@ -1,9 +1,10 @@
 # Living project documentation
 
-Last reviewed: October 30, 2026. Project scope: the full College Park digital twin, with all College Park Main Street as the detailed focus and neighborhood context. Princeton–Edgewater is one priority component. This is the starting index; older checkpoints remain historical evidence and do not establish current completion.
+Last reviewed: November 2, 2026. Project scope: the full College Park digital twin, with all College Park Main Street as the detailed focus and neighborhood context. Princeton–Edgewater is one priority component. This is the starting index; older checkpoints remain historical evidence and do not establish current completion.
 
 | Document | Purpose |
 |---|---|
+| [CarConcept benchmark](CAR_CONCEPT_BENCHMARK.md) | Licensed detailed vehicle conversion, actual comparison images, opaque-glass compromise and remaining placement/performance gates |
 | [Historical campus paving](CAMPUS_HARDSCAPE.md) | Locally adopted interpreted surfaces, preservation, actual visual review and faster multi-camera captures |
 | [Church entrance detail](CHURCH_ENTRANCE_DETAIL.md) | Dated appraiser exterior, raised gable and actual estimated-façade proposal review |
 | [Parcel planning references](CITY_PLANNING_REFERENCE.md) | Full-neighborhood zoning/FLU intersections, exact-code area breakdowns and fields/first-five previews |

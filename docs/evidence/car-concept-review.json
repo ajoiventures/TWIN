@@ -1,0 +1,181 @@
+{
+  "schema": "twin.car-concept-review/1",
+  "reviewed_utc": "2026-11-02T15:52:37.073575+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "VP source/conversion agent",
+  "decision": "pass_licensed_static_geometry_and_v3_opaque_tint_visual_benchmark_only",
+  "source": {
+    "repository": "KhronosGroup/glTF-Sample-Assets",
+    "commit": "8f492390ddc7a2ae221a1369ef560589cf8c70fb",
+    "glb_sha256": "c272098089d78c5cd9fd9f24ff50ee8acf8d932c55f2d55fc10adb6c8998966b",
+    "source_receipt_sha256": "9b9168ab80a1514cd0ac4cfd48bfaa65d709c434426d725d186cd82f56deabd8",
+    "all_original_receipt_hashes_verified": true,
+    "license_file_sha256": "e11477f29eab33d1a5c9fc8534f931556faeb2e11a7fee9e4723d917fcfaee50",
+    "metadata_sha256": "89555a6cb9dc0a4f300abe3cc6476c2d8d77c6f3f2cbde9bf790c1bd320027ed",
+    "license": "CC-BY-4.0 for model/textures; logos/trademarks excluded by publisher",
+    "artist": "Eric Chadwick",
+    "owner": "Darmstadt Graphics Group GmbH",
+    "year": "2024",
+    "attribution_prepared": true,
+    "attribution_sha256": "2e1bd3bf31306ac5a8c9e4b78af6a89d46e26422cfca2d804c31c7d69a996a03",
+    "attribution_contains_creator_owner_source_license_modifications_and_no_endorsement": true,
+    "scope": "Pinned publisher files and factual attribution completeness checked; not a legal opinion or rights grant for other assets."
+  },
+  "conversion": {
+    "tool_sha256": "47d03ace4fc8f24b1d893c1c0fee8d5f1a36b4eed8060cbab840cefdc1fb29e3",
+    "v3_manifest_sha256": "f38953e2a508bc54ce1ef6b1cd37e5b37fd1ac7c35003b6eed60a6c5705c7cf0",
+    "v3_asset_sha256": "28737a869c9ee1ac0fd96abd9c847f385c842c71c78446ca95dd93005132cc7b",
+    "all_derivative_manifest_file_hashes_verified": true,
+    "static_dense_accessors_only": true,
+    "original_nodes": 101,
+    "original_meshes": 97,
+    "converted_primitives": 108,
+    "vertices": 162718,
+    "triangles": 213313,
+    "all_original_positions_indices_normals_raw_uvs_tangents_equal": true,
+    "source_node_hierarchy_independently_reconstructed": "Independent column-major matrices or glTF T*R*S from original quaternion/scale/translation, then Y-up to Z-up mapping",
+    "maximum_independent_world_vertex_difference_m": 8.881784197001252e-16,
+    "v2_v3_geometry_normals_uv_and_world_transforms_equal": true,
+    "nominal_dimensions_xyz_m": [
+      2.5423209905678505,
+      4.357385993003846,
+      1.1488961303761167
+    ],
+    "dimension_order": "Converted +X width, +Y length, +Z height; comparison rotates length to prototype axis",
+    "source_meter_scale_preserved": true,
+    "ground_pivot": "Comparison raises original minimumZ by approximately0.000241m; no body scale normalization or district placement changes",
+    "included_image_indices_pixel_checked": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13
+    ],
+    "all_included_pixels_exact_vertical_flip_of_original": true,
+    "all_shader_asset_paths_resolve": true,
+    "excluded_logo_brand_images_actually_inspected": [
+      3,
+      10,
+      11
+    ],
+    "excluded_texture_paths_absent_from_bound_resources": true,
+    "license_plate_node_32_absent": true,
+    "steering_emblem": "Original node23 geometric surface retained, but image3 emission logo atlas binding omitted. No readable mark visible in inspected opaque-glass views.",
+    "no_readable_brand_marks_in_inspected_views": true
+  },
+  "material_approximation": {
+    "glass_mode": "tinted-opaque",
+    "transmission_refraction_preserved": false,
+    "actual_glass_opacity": 1.0,
+    "purpose": "Dark reflective tint replaces visually failed v2 opacity approximation; interior visibility and native glass physics are not delivered",
+    "mapped": "Default Carmine base color/metallic/roughness, scalar clearcoat, emissive strength and supported UV transforms/samplers",
+    "declared_degradation": [
+      "Default Carmine only; material variants not authored",
+      "Tangent normal maps not connected to PreviewSurface; source tangents retained as data",
+      "AO and iridescence omitted",
+      "V3 uses opaque dark tint with no refraction/transmission claim"
+    ],
+    "native_gltf_pbr_fidelity_accepted": false
+  },
+  "capture_context": {
+    "status": "Historical October30 captured comparison, re-reviewed November2; not current full-scene acceptance",
+    "captured_root_sha256": "83d06de19458ec4fdfb7fa97df4de752418d79eb0ce0e7d038cfcb4ac9b9836b",
+    "exact_captured_root_archive": "data/diagnostics/paving_adoption_20261030/assembly_before.usda",
+    "current_root_sha256": "23a668244b25cbc8d32cc30fe1df3f0b0ba0715ff834b07a584d83c6a44433e9",
+    "independent_root_reconciliation": "After removing only the newly added campus_hardscape.usda sublayer in memory, canonical current root opinions equal the exact archived captured root. No scene file edited.",
+    "all_other_capture_layer_inputs_match_current_bytes": true,
+    "current_car_placement_adoption": false
+  },
+  "actual_views": [
+    {
+      "version": "v2_source_opacity",
+      "captured_utc": "2026-10-30T16:36:48.092836+00:00",
+      "camera": "/World/Cameras/VehicleComparison",
+      "image": "data/renders/20261030T163437Z/VehicleComparison.png",
+      "image_sha256": "7eb27da30e6c82d792a4714f15fce013436e3c7976238427fc15f1b62a691d01",
+      "capture_layer_hashes_match_current_or_exact_archived_root": true,
+      "complete_png_1920x1080": true,
+      "render_stage": {
+        "up_axis": "Z",
+        "meters_per_unit": 1.0,
+        "root_mode": "transient_precomposed",
+        "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+      },
+      "batch_manifest_sha256": "14d066daa81cd5476249b459f36cabdf17a429311636412c36f22e56d9a6d021"
+    },
+    {
+      "version": "v2_source_opacity",
+      "captured_utc": "2026-10-30T16:36:52.465896+00:00",
+      "camera": "/World/Cameras/VehicleDetail",
+      "image": "data/renders/20261030T163437Z/VehicleDetail.png",
+      "image_sha256": "22b48515f3318fdb7e92a39f7370428f07cdda736a103be560697f2706d67a49",
+      "capture_layer_hashes_match_current_or_exact_archived_root": true,
+      "complete_png_1920x1080": true,
+      "render_stage": {
+        "up_axis": "Z",
+        "meters_per_unit": 1.0,
+        "root_mode": "transient_precomposed",
+        "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+      },
+      "batch_manifest_sha256": "14d066daa81cd5476249b459f36cabdf17a429311636412c36f22e56d9a6d021"
+    },
+    {
+      "version": "v3_tinted_opaque",
+      "captured_utc": "2026-10-30T16:54:04.102032+00:00",
+      "camera": "/World/Cameras/VehicleComparison",
+      "image": "data/renders/20261030T165216Z/VehicleComparison.png",
+      "image_sha256": "fc92ab87aeaec41976e9dae5ec0dbcb45278aca5a74988eea800f9202b4759a3",
+      "capture_layer_hashes_match_current_or_exact_archived_root": true,
+      "complete_png_1920x1080": true,
+      "render_stage": {
+        "up_axis": "Z",
+        "meters_per_unit": 1.0,
+        "root_mode": "transient_precomposed",
+        "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+      },
+      "batch_manifest_sha256": "bad01f753ecb4097b309282fb8bd04dfb4cf263246d5180c6f42e5406b0650c5"
+    },
+    {
+      "version": "v3_tinted_opaque",
+      "captured_utc": "2026-10-30T16:54:08.316819+00:00",
+      "camera": "/World/Cameras/VehicleDetail",
+      "image": "data/renders/20261030T165216Z/VehicleDetail.png",
+      "image_sha256": "376639bc8bad17173d815e0ad295876176ee1e3576fa7e0aa133170fb4e439f3",
+      "capture_layer_hashes_match_current_or_exact_archived_root": true,
+      "complete_png_1920x1080": true,
+      "render_stage": {
+        "up_axis": "Z",
+        "meters_per_unit": 1.0,
+        "root_mode": "transient_precomposed",
+        "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+      },
+      "batch_manifest_sha256": "bad01f753ecb4097b309282fb8bd04dfb4cf263246d5180c6f42e5406b0650c5"
+    }
+  ],
+  "visual_findings": {
+    "v2": "Body and wheel geometry are superior to depicted active blue prototype, but glass is milky with triangle-pattern artifacts. V2 opacity appearance is rejected.",
+    "v3": "Body curvature, wheel/arch detail, mirrors, panel seams, wipers and lamp shape are substantially more convincing than the depicted prototype. Dark glazing no longer shows the v2 milky triangle pattern.",
+    "accepted_scope": "One isolated static concept-car quality benchmark with a declared opaque-tint compromise.",
+    "remaining": [
+      "Opaque glass is an artistic fallback, not physical automotive glazing",
+      "One wide low concept car does not establish sedan/SUV/van variety or local vehicle distribution",
+      "No accepted multi-level LOD or district performance budget for213313triangles",
+      "No actual parking/stall fit, varied-ground wheel contact, collision/clearance or live traffic acceptance",
+      "No district asset replacement activated by reviewer"
+    ]
+  },
+  "activation_accepted": false,
+  "whole_ticket10_accepted": false,
+  "operations": {
+    "reviewer_launched_gpu_or_conversion": false,
+    "reviewer_modified_original_or_derived_assets": false,
+    "reviewer_modified_active_scene_or_placements": false,
+    "only_written_file": "docs/evidence/car-concept-review.json"
+  }
+}

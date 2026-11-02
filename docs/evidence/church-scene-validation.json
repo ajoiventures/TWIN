@@ -1,0 +1,18 @@
+{
+  "profile": "college-park-evidence-visualization/1.0",
+  "created_utc": "2026-11-02T16:39:04.902579+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "building_entities": 3216,
+  "meshes_checked": 17876,
+  "instance_proxy_meshes_checked": 3480,
+  "layers": 37,
+  "external_assets": 23,
+  "errors": [],
+  "warnings": [
+    "Ground remains flat; terrain/ground anchoring is not survey-validated.",
+    "Collision, pedestrian clearances and sensor material response are not validated by this visualization profile.",
+    "Historical LiDAR and estimated heights do not prove current conditions."
+  ],
+  "passed_local_profile": true,
+  "nvidia_certified": false
+}

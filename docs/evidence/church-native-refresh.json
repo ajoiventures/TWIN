@@ -1,0 +1,14 @@
+{
+  "status": "applied_in_existing_editor",
+  "owner_pid": 32644,
+  "recovery_receipt": "data\\processed\\workspace_refresh\\20261102T163443530477Z.json",
+  "recovery_sha256": "7b978406715f1372376b040d904694963143289dbb88ab6d402307a6c63e699e",
+  "screenshot": "data\\diagnostics\\church_adoption_20261102\\native_applied.png",
+  "screenshot_sha256": "d5b87889ea5f1688eace4163c4efa447d118b678cef75500ef94aa5040d44539",
+  "manual_snapshot_selection_office_post_paving_preserved": true,
+  "camera": "MainStreetOverview",
+  "selected": "/World/Buildings/Building_2939",
+  "source_saved": false,
+  "restarted_editor": false,
+  "guarded_refresh_existing_regression": "pass"
+}

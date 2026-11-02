@@ -1,5 +1,7 @@
 # Church on the Drive entrance proposal
 
+**November 2 update:** the bounded historical sanctuary/entrance/tower assembly is now locally adopted and applied in the existing editor. [Current integration and actual evidence](CHURCH_INTEGRATION_CONTRACT.md#local-adoption-and-running-editor--november-2-2026). Earlier inactive-proposal statements below describe the preceding preparation stages; current/whole-campus accuracy remains unaccepted.
+
 October 30, 2026. Existing building tickets #6/#8/#11/#13. The proposal is separate and inactive; no whole ticket closed.
 
 The official OCPA exterior for parcel `292214146005190` visibly captions **1914 Edgewater Drive, November 8, 2021, 12:04 PM**. It shows a raised central entrance gable, four pale vertical frames, narrow dark glazing, masonry and a steeple. The other campus parcel's image shows a different flat-roof brick building. This resolves the earlier tentative hip interpretation and avoids combining two building fronts. Retrieval time does not establish a newer exterior observation.

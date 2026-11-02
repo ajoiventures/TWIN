@@ -17,6 +17,7 @@ def connect():
  office_detail=validated_active_detail(ROOT)
  post_office=validated_post_office(ROOT)
  campus_hardscape=validated_layer('campus_hardscape',ROOT)
+ church_historical=validated_layer('church_historical',ROOT)
  active=json.loads((ROOT/'data/processed/active.json').read_text(encoding='utf-8'));folder=ROOT/active['relative_path'];scene=ROOT/'scene'
  buildings=json.loads((folder/'buildings.json').read_text(encoding='utf-8'));permits=json.loads((folder/'permits.json').read_text(encoding='utf-8'));parcels=json.loads((folder/'parcels.json').read_text(encoding='utf-8'));counts=collections.Counter(p['parcel_id'] for p in permits)
  stage=Usd.Stage.CreateNew(str(scene/'official_context.usda'))
@@ -40,6 +41,7 @@ def connect():
   manual_stage=Usd.Stage.CreateNew(str(manual));manual_stage.GetRootLayer().Save()
  assembly=Usd.Stage.Open(str(scene/'college_park_connected.usda')) if (scene/'college_park_connected.usda').exists() else Usd.Stage.CreateNew(str(scene/'college_park_connected.usda'));layers=['map_extent_guard.usda'] if (scene/'map_extent_guard.usda').exists() else []
  layers+=['manual_edits.usda']
+ if church_historical:layers.append(church_historical)
  if office_detail:layers.append(office_detail)
  if post_office:layers.append('post_office_historical.usda')
  if campus_hardscape:layers.append(campus_hardscape)

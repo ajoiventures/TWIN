@@ -1,0 +1,68 @@
+{
+  "schema": "twin.church-integrated-render-review/1",
+  "reviewed_utc": "2026-11-02T16:35:03.345063+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_single_integrated_historical_sanctuary_view_only",
+  "capture": {
+    "manifest": "data/renders/20261102T163017Z/manifest.json",
+    "manifest_sha256": "b6dd739a2e78abe173d1fd7adaa4cf8a4cb8611325eaa88b64355382f55c08c6",
+    "image": "data/renders/20261102T163017Z/ChurchAssembly.png",
+    "image_sha256": "a351253becdcbd5e04aa22aa5f94de5dd0e92ed15a853f1f39f9a5637b7fc08b",
+    "image_actually_viewed": true,
+    "complete_png_resolution": [
+      1920,
+      1080
+    ],
+    "captured_utc": "2026-11-02T16:32:11.218673+00:00",
+    "camera": "/World/Cameras/ChurchAssembly",
+    "source_snapshot": "20261028T160543372334Z",
+    "scene": "scene/church_active_review_20261102.usda",
+    "scene_sha256": "c8ac7a0bafad287e1ded131aa2e4ded2f03b53512a2a1a3f8709c6e48ccd0a90",
+    "source_stage_saved": false,
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "f5fa18e23c29b6be878b506cfb20c9867f3186fea68bf9efa7da63ad4cfc8bd1",
+      "pre_capture_rendered_frames": 60,
+      "post_capture_completion_app_updates": 60
+    }
+  },
+  "independent_composition_checks": {
+    "all_captured_layer_hashes_match_current_files": true,
+    "captured_layer_count": 34,
+    "wrapper_only_sublayer": "college_park_connected.usda",
+    "wrapper_additions_only_review_camera": true,
+    "no_A_or_C_proposal_layers_composed": true,
+    "active_root_sha256": "6ff1ba0fe8afeda4bc990c511c86d3705824d1c7a3a9812114cfeec0464495ed",
+    "accepted_church_layer_sha256": "55388928a2750ed22e739ef9fad2c5137835a60335a3abe45ab08cc1c50e3fbc",
+    "accepted_church_validator_passes_now": true,
+    "camera_all_attribute_values_equal_clean_C": true,
+    "adoption_preservation_review": "docs/evidence/church-adoption-review.json"
+  },
+  "actual_image_findings": {
+    "passed": [
+      "Church sanctuary mass, brick frontage, pale vertical facade members, belfry louvers and attached tapered spire form a coherent assembly in this view.",
+      "Roads, walls, ground and background lack the prior global black-road and wavy-wall artifacts.",
+      "Generic retail signage previously present on church groups is absent.",
+      "Adopted assembly shows the same bounded appearance established in clean C, now through current active-root composition."
+    ],
+    "remaining_detail": [
+      "Large smooth roof planes still lack verified roof-material variation, gutters, seams and small roof details.",
+      "Side walls and surrounding district remain simplified; background buildings are mostly generic masses.",
+      "Benches, planters, landscaping, entrances and ground interfaces remain generic or incomplete.",
+      "This camera alone cannot establish side/rear roof, whole-campus, street or sidewalk accuracy."
+    ]
+  },
+  "limits": [
+    "Single actual integrated render acceptance only; no claim of conference-ready or world-class district quality.",
+    "Historical source, photo-estimated facade/belfry dimensions and observed-return spire-tip proxy limitations remain.",
+    "No new physical identity, current-condition, survey, accessibility, parking-capacity or public-release acceptance.",
+    "No native user-editor viewport or refresh inspected by this review; root owns native application separately.",
+    "No whole-ticket completion or frame-timing performance benchmark."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-integrated-render-review.json",
+    "gpu_source_editor_api_mutations": false
+  }
+}

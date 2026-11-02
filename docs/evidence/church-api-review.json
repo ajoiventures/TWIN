@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:8768/api/v1/reconstructions?limit=100",
+  "status": 200,
+  "snapshot": "20261028T160543372334Z",
+  "church_records": 1,
+  "record": {
+    "id": "church_on_drive_sanctuary",
+    "parcel_id": "292214146005190",
+    "parcel_ids": [
+      "292214146005190"
+    ],
+    "source_parcel_context": [
+      "292214146004210",
+      "292214146005190"
+    ],
+    "site_address": "1914 Edgewater Drive",
+    "usd_path": "/World/Landmarks/ChurchOnDriveSanctuaryCandidateV3",
+    "quality": "historical_component_reconstruction_current_conditions_unverified",
+    "components": [
+      {
+        "id": "sanctuary",
+        "prim_path": "/World/Landmarks/ChurchOnDriveSanctuaryCandidateV3"
+      },
+      {
+        "id": "spire_proxy",
+        "prim_path": "/World/Landmarks/ChurchOnDriveSteepleCandidate"
+      },
+      {
+        "id": "entrance_appearance",
+        "prim_path": "/World/ChurchFrontageAppearance"
+      },
+      {
+        "id": "belfry_appearance",
+        "prim_path": "/World/ChurchBelfryAppearance"
+      }
+    ],
+    "physical_building_count": null,
+    "rendered_entity_count": 1,
+    "current_geometry_verified": false,
+    "raw_property_links_promoted": false,
+    "parcel_link_scope": "historical_site_context_not_accepted_tax_footprint_link",
+    "superseded_legacy_groups": 0,
+    "partially_retained_legacy_groups": 1,
+    "limitations": [
+      "Main sanctuary assembly only, not whole campus",
+      "Parcel IDs are source context, not accepted tax links",
+      "Historical source, current condition unknown",
+      "Belfry/facade dimensions photo-estimated",
+      "Spire apex is highest observed return, actual tip unknown",
+      "Local-only; public derivative release not accepted"
+    ]
+  },
+  "api_restarted": false
+}

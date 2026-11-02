@@ -28,6 +28,10 @@ def manual_model_fingerprint(root=ROOT):
     return hashlib.sha256(layer.ExportToString().encode()).hexdigest()
 
 def validated_layer(name,root=ROOT):
+    if name=='church_historical':
+        from activate_church_integration import validated_church
+        packet=validated_church(root)
+        return Path(packet['layer']).name if packet else None
     root=Path(root).resolve();config=CONFIG[name];layer=root/config['layer'];receipt=root/config['receipt']
     if not layer.exists() and not receipt.exists():return None
     if not layer.is_file() or not receipt.is_file():raise ValueError('Accepted scene layer/receipt incomplete: '+name)

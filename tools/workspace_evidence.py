@@ -232,7 +232,7 @@ def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None)
           ('Appearance ID',pick(d.get('appearanceId'))),
           ('Entity',pick(twin.get('entityId'),official.get('id'),d.get('id'))),
           ('Parcel',pick(official.get('parcel_id'),d.get('parcelId'),context.get('sourceParcelId'))),
-          ('Source',pick(official.get('source'),d.get('source'),context.get('publisher'))),
+          ('Source',pick(official.get('source'),d.get('source'),context.get('publisher'),d.get('publisher'))),
           ('Source object IDs',pick(d.get('sourceObjectIds'),official.get('source_object_id'),context.get('sourceObjectIds'))),
           ('Source building key',pick(context.get('sourceBuildingKey'))),
           ('Assigned parcel reference',pick(context.get('assignedParcelId'))),
@@ -243,7 +243,7 @@ def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None)
           ('Reference feature ID',pick(d.get('sourceZoneId'),d.get('sourceId'))),
           ('Source zone code',pick(d.get('zoneCode'))),
           ('Effective/source status',pick(d.get('sourceStatus'),d.get('productStatus'))),
-          ('Source URL',pick(context.get('sourceURL'))),
+          ('Source URL',pick(context.get('sourceURL'),d.get('sourceURL'))),
           ('Display lift meaning',pick(d.get('displayLiftMeaning'))),
           ('Height (m)',pick(height.get('height_m'),d.get('heightMeters'))),
           ('Height method',pick(height.get('method'))),
@@ -251,7 +251,9 @@ def inspector_text(prim,project_refresh=None,registry=None,active_snapshot=None)
           ('Quality',pick(height.get('quality'),twin.get('quality'),d.get('quality'),official.get('geometry_quality'),context.get('quality'))),
           ('Snapshot',snapshot),
           ('Source acquisition date',acquisition),
-          ('Acquisition interval',f"{context.get('acquisitionStart') or UNKNOWN} to {context.get('acquisitionEnd') or UNKNOWN}"),
+          ('Photograph observation date',pick(context.get('photoDate'),d.get('photoDate'))),
+          ('Acquisition interval',f"{context.get('acquisitionStart') or d.get('acquisitionStart') or UNKNOWN} to {context.get('acquisitionEnd') or d.get('acquisitionEnd') or UNKNOWN}"),
+          ('Acquisition interval scope',pick(context.get('acquisitionDateScope'),d.get('acquisitionDateScope'))),
           ('Source effective date',pick(context.get('effectiveDate'))),
           ('Original retrieval time',pick(context.get('retrievedUTC'))),
           ('Acquisition / mirror group',pick(context.get('acquisitionId'),context.get('sharedAcquisition'))),
@@ -297,7 +299,7 @@ def confidence_targets(stage):
     for root in ('/World/Buildings','/World/Roofs','/World/Landmarks'):
         parent=stage.GetPrimAtPath(root)
         if parent:targets.extend(p for p in parent.GetChildren() if not p.IsInstanceProxy())
-    for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples','/World/OfficeFrontageDetail','/World/Scenario','/World/Scenarios'):
+    for root in ('/World/Trees','/World/ParkedVehicles','/World/Storefronts','/World/StreetFurniture','/World/RearParkingSamples','/World/OfficeFrontageDetail','/World/ChurchFrontageAppearance','/World/ChurchBelfryAppearance','/World/Scenario','/World/Scenarios'):
         prim=stage.GetPrimAtPath(root)
         if prim:targets.append(prim)
     return targets

@@ -7,6 +7,7 @@ Last reviewed: November 2, 2026. Project scope: the full College Park digital tw
 | [CarConcept benchmark](CAR_CONCEPT_BENCHMARK.md) | Licensed detailed vehicle conversion, actual comparison images, opaque-glass compromise and remaining placement/performance gates |
 | [Historical campus paving](CAMPUS_HARDSCAPE.md) | Locally adopted interpreted surfaces, preservation, actual visual review and faster multi-camera captures |
 | [Church entrance detail](CHURCH_ENTRANCE_DETAIL.md) | Dated appraiser exterior, raised gable and actual estimated-façade proposal review |
+| [Church integration contract](CHURCH_INTEGRATION_CONTRACT.md) | Separate canonical historical assembly, preserved legacy remainder, provenance and pending application |
 | [Parcel planning references](CITY_PLANNING_REFERENCE.md) | Full-neighborhood zoning/FLU intersections, exact-code area breakdowns and fields/first-five previews |
 | [Post-office historical form](POST_OFFICE_HISTORICAL_FORM.md) | Separate source-supported roof/body, preserved office work and pending integrated visual review |
 | [Office frontage detail](OFFICE_FRONTAGE_DETAIL.md) | Actual matched building renders, accepted appearance detail and remaining geometry/currentness limits |

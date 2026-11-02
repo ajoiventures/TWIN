@@ -28,6 +28,10 @@ def manual_model_fingerprint(root=ROOT):
     return hashlib.sha256(layer.ExportToString().encode()).hexdigest()
 
 def validated_layer(name,root=ROOT):
+    if name=='church_southeast_wing':
+        from activate_church_wing import validated_wing
+        packet=validated_wing(root)
+        return Path(packet['layer']).name if packet else None
     if name=='church_historical':
         from activate_church_integration import validated_church
         packet=validated_church(root)

@@ -4,7 +4,7 @@ Last reviewed: November 2, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
-| [Church wing correction](CHURCH_WING_REVIEW.md) | Complete campus source census, underheight Building2892, corrected inactive continuous roof/enclosure and preserved source fragments |
+| [Church wing correction](CHURCH_WING_REVIEW.md) | Locally adopted continuous roof/estimated enclosure, original Building2892 identity, actual API/render review and pending running-editor refresh |
 | [Vehicle reduction trials](VEHICLE_LOD.md) | Actual all-angle culling review, rejected QEM appearance changes and remaining production LOD requirements |
 | [CarConcept benchmark](CAR_CONCEPT_BENCHMARK.md) | Licensed detailed vehicle conversion, actual comparison images, opaque-glass compromise and remaining placement/performance gates |
 | [Historical campus paving](CAMPUS_HARDSCAPE.md) | Locally adopted interpreted surfaces, preservation, actual visual review and faster multi-camera captures |

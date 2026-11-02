@@ -1,5 +1,19 @@
 # Church southern-wing source and geometry review - November 2, 2026
 
+## Latest integration status
+
+The reviewed continuous roof and estimated enclosure are now locally adopted in the saved scene. `tools/activate_church_wing.py` prepares an ignored plan by default; `--apply` is the explicit adoption path. It preserves Building2892's existing semantic entity, source alias and raw membership, with no new physical-building count or accepted tax link. [Independent preapplication review](evidence/church-wing-activation-code-review.json) accepts the canonical package and activation safeguards. Actual saved-scene adoption and rendering passed separately; the running editor has not applied this batch.
+
+The reconstruction register supports multiple forms on one parcel. A form correction resolves its stable entity ID through the existing asset registry to its local alias and source USD path; it extends that existing spatial candidate rather than becoming another model entity. Both the registry and snapshot remain dependencies. The old single-form field remains populated only for parcels with exactly one registered form; the list and per-form visibility fields describe multi-form parcels.
+
+The full project and building tickets remain open. The blank facades, estimated wall/roof-cover boundaries, retained source fragments and unverified current conditions are unfinished work, even after a bounded geometry correction passes.
+
+Application added only `church_southeast_wing.usda`, immediately after manual edits and above the sanctuary. Backup: ignored `data/backups/church_wing_20261102T184212309446Z`; root hash changed from `6ff1ba0fe8afeda4bc990c511c86d3705824d1c7a3a9812114cfeec0464495ed` to `9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8`. Manual, selection, snapshot, sanctuary, office, post-office and paving bytes remain unchanged. Both church validators retain the original source fingerprints.
+
+[Independent consumer review](evidence/church-wing-consumer-review.json) verifies all 3,849 parcel rows: Building2892 appears at most once per candidate list, and the correction never appears as a standalone additional candidate. The exact assigned parcel has both sanctuary and wing records, both visible, while raw and assigned contexts retain zero accepted legacy links. [Actual API/browser/profile evidence](evidence/church-wing-runtime-review.json) confirms two returned forms, readable plural display, 17,879 meshes / 38 layers / zero profile errors. These numbers do not certify survey accuracy or conference quality.
+
+Actual active-root capture: ignored `data/renders/20261102T184257Z/ChurchSoutheastWingContinuousRoof.png`, with the same camera as reviewed continuous B. It retains the clean continuous roof; plain walls, retained white source fragments and missing architectural/site detail remain conspicuous. The owned capture exited normally. User input then minimized the original editor during refresh preparation, so no fetch, Apply, save or restart was performed. Use its reversible local Review/Apply controls when the working session is ready; this is a saved-scene delivery, not a claim that the current viewport already changed.
+
 **Campus census correction:** the southeast wing is already represented by Building2892 (BLDG_NUM4), but its height and flat roof are wrong. It is not a newly discovered physical building. The earlier2919/3065-only review was incomplete. Raising all Building2919 would also be wrong. This is a read-only source assessment, not an activated reconstruction or proof of current/surveyed dimensions.
 
 ## Spatial identity and dated references

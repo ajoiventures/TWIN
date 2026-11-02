@@ -4,7 +4,7 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'tools'),str(ROOT/'.dependencies')]
 import verify_retail_block as retail
 from register_reconstructions import retail_registration_record
-from review_corridor_buildings import reconstruction_context_index
+from review_corridor_buildings import reconstruction_context_index,correction_context_index
 from serve import page_table,matches_parcel_id
 from pxr import Usd,UsdGeom
 from PIL import Image
@@ -57,7 +57,19 @@ class RetailActivationTests(unittest.TestCase):
    self.assertFalse((root/'scene/retail_block.usda').exists())
  def test_exact_context_matching(self):
   self.assertTrue(matches_parcel_id({'parcel_ids':['001','002']},'001'));self.assertFalse(matches_parcel_id({'parcel_ids':['001','002']},'1'))
-  with self.assertRaises(ValueError):reconstruction_context_index([{'id':'a','parcel_id':'001'},{'id':'b','parcel_id':'001'}])
+  records=[{'id':'a','parcel_id':'001'},{'id':'b','parcel_id':'001'}]
+  self.assertEqual([r['id'] for r in reconstruction_context_index(records)['001']],['a','b'])
+  self.assertNotIn('1',reconstruction_context_index(records))
+  with self.assertRaises(ValueError):reconstruction_context_index([records[0],records[0]])
+ def test_form_correction_retains_source_identity(self):
+  source={'id':'Building_1','usd_path':'/World/Buildings/Building_1'}
+  asset={'entity_id':'source:001','local_building_id':source['id'],'usd_path':source['usd_path'],'parcel_link_accepted':False}
+  record={'id':'correction','kind':'historical_form_correction','existing_entity_id':asset['entity_id'],'source_model_alias':source['id'],
+      'source_usd_path':source['usd_path'],'adds_physical_entity':False,'physical_building_count':None}
+  self.assertEqual(correction_context_index([record],[source],[asset]),{source['id']:[record]})
+  self.assertFalse(asset['parcel_link_accepted'])
+  for change in [{'existing_entity_id':'unknown'},{'source_model_alias':'Building_2'},{'source_usd_path':'/wrong'},{'adds_physical_entity':True},{'physical_building_count':1}]:
+   with self.subTest(change=change),self.assertRaises(ValueError):correction_context_index([{**record,**change}],[source],[asset])
 
 if __name__=='__main__':unittest.main()
 

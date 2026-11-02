@@ -71,6 +71,21 @@ def build():
             'superseded_legacy_groups':0,'partially_retained_legacy_groups':1,'limitations':site['limits']})
         dependencies.extend([ROOT/'data/processed/church_historical_activation.json',church_layer])
         dependencies.extend(ROOT/relative for relative in church['dependencies'])
+    from activate_church_wing import validated_wing
+    wing=validated_wing(ROOT)
+    if wing:
+        site=wing['site'];wing_layer=ROOT/wing['layer']
+        if wing_layer.resolve() not in used:raise ValueError('Historical wing correction is not composed')
+        if any(r['id']==site['id'] for r in records):raise ValueError('Historical wing correction duplicated')
+        for component in site['components']:
+            prim=stage.GetPrimAtPath(component['prim_path'])
+            if not prim or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':raise ValueError('Historical wing component is not visible')
+        records.append({**{k:v for k,v in site.items() if k not in ('prim_path','limits')},
+            'usd_path':site['prim_path'],'limitations':site['limits'],'rendered_entity_count':1,
+            'raw_property_links_promoted':False,'parcel_link_scope':'historical_site_context_not_accepted_tax_footprint_link',
+            'superseded_legacy_groups':0,'partially_retained_legacy_groups':2})
+        dependencies.extend([ROOT/'data/processed/church_wing_activation.json',wing_layer])
+        dependencies.extend(ROOT/relative for relative in wing['dependencies'])
     retail_path=ROOT/'data/heights/retail_edgewater/activation.json'
     if retail_path.exists():
         from verify_retail_block import validate_active_retail

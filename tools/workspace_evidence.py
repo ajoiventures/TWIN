@@ -464,9 +464,10 @@ class SceneRefresh:
             if not candidate:raise ValueError('Unreadable candidate: '+path.name)
             candidate_snapshot=candidate.customLayerData.get('sourceSnapshot',candidate.customLayerData.get('snapshot'))
             if candidate_snapshot and candidate_snapshot!=snapshot:raise ValueError('Candidate layer snapshot is stale: '+path.name)
-            if path.name in ('church_historical.usda','college_park_connected.usda'):
+            if path.name in ('church_historical.usda','church_southeast_wing.usda','college_park_connected.usda'):
                 from accepted_scene_layers import validated_layer
                 validated_layer('church_historical',self.root)
+                validated_layer('church_southeast_wing',self.root)
             if path.name=='fema_effective_hazards.usda':
                 from build_flood_overlay import validate_packet
                 validate_packet(self.root)

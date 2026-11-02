@@ -1,0 +1,87 @@
+{
+  "schema": "twin.church-wing-adoption-review/1",
+  "reviewed_utc": "2026-11-02T18:49:30.351001+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_bounded_existing2892_historical_form_local_adoption_and_preservation",
+  "root": {
+    "before_sha256": "6ff1ba0fe8afeda4bc990c511c86d3705824d1c7a3a9812114cfeec0464495ed",
+    "after_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+    "backup": "data/backups/church_wing_20261102T184212309446Z/college_park_connected.usda",
+    "backup_matches_before_hash": true,
+    "exactly_one_new_church_southeast_wing_sublayer": true,
+    "immediately_after_manual": true,
+    "removing_added_sublayer_normalized_root_equals_backup": true,
+    "other_root_opinions_order_unchanged": true
+  },
+  "protected": {
+    "six_nonroot_baseline_files_unchanged": {
+      "scene/manual_edits.usda": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+      "scene/church_historical.usda": "55388928a2750ed22e739ef9fad2c5137835a60335a3abe45ab08cc1c50e3fbc",
+      "scene/landmark_buildings.usda": "00eaf72e19d26939061782245689f4d5558dd9aed27ec4ac4a207f606adaef3d",
+      "scene/post_office_historical.usda": "fb5cc95dbcec9f749f7ad7be2c1f6f0eb721a30683066e61ef7e013f05d9dd5a",
+      "scene/campus_hardscape.usda": "76004ce8760a665bb56f83f78c4d76208e39a0660dd5db2f5ff49ac8024a6397",
+      "data/processed/active.json": "35b54f88166c9b77cbd62eeb012321c5428245667b83c3d961dc5cedbea2f167"
+    },
+    "selection_bridge_unchanged": {
+      "path": "data/processed/selection_bridge.json",
+      "sha256": "c6ca93322820d1201baa8b7709822a5b2e839b73002b0790c2864e11e148943e"
+    },
+    "original_owner_kit_pid32644_running_start": "2026-10-30 10:04:10 local",
+    "original_api_pid15080_running_start": "2026-10-30 11:50:33 local"
+  },
+  "canonical": {
+    "layer": "scene/church_southeast_wing.usda",
+    "sha256": "2fdb4e7fb8f3e6170486a3f82ee06bfd8194323455d0a175bed1ad054fbd9303",
+    "exact_reviewed_packaged_bytes": true,
+    "receipt": "data/processed/church_wing_activation.json",
+    "receipt_sha256": "8647c3b681316fff731ecfc08cf8a0e38bea8b5d7a5ca796153072c5d94a341e",
+    "main_and_wing_actual_validators_pass": true,
+    "original_main_legacy_fingerprint": "0862fe207f519338f72a4353eaff956e928878339538c8961eb93b9512eaeae6",
+    "original_six_group_wing_source_fingerprint": "6089acbbd7b8d41bc6b708876b329c9668c1eb414ef1dd2211e0fcdb197c1131",
+    "source_fingerprints_match_with_canonical_corrections_muted": true
+  },
+  "independent_composition_checks": {
+    "reconstituted_pre_root_neighbors_compared": 6495,
+    "neighbor_customdata_attribute_relationship_differences": [],
+    "scope": "Original Buildings/Roofs/Landmarks descendants outside intended2892/2919 body/roof override targets; includes preexisting sanctuary and other landmark components.",
+    "actual_active_wing_and_remainders_vs_reviewed_B": {
+      "attribute_connection_comparisons": 999,
+      "relationship_comparisons": 84,
+      "world_transform_comparisons": 45,
+      "customdata_equal": true,
+      "differences": []
+    },
+    "remainder_source_surface_uv_heights_identity_proof": "docs/evidence/church-wing-continuous-review.json; unchanged exact package/hash and active value comparison bind prior independent remainder proof."
+  },
+  "registry": {
+    "path": "data/processed/reconstructions.json",
+    "sha256": "ad4fe65c0497c50e0686434d3562bbd488cd5e4f53582b5ed1aeef1b40aa2108",
+    "matching_correction_record_count": 1,
+    "correction_record_id": "church_southeast_wing_existing_2892_correction",
+    "existing_entity_id": "ocpa:building-group:69f7107de66f455f9cb153eb",
+    "source_alias": "Building_2892",
+    "source_building_number": "4",
+    "source_object_ids": [
+      "1158142",
+      "1160052",
+      "1170575"
+    ],
+    "source_pid": "292214146004210",
+    "assigned_parcel_context": "292214146005190",
+    "adds_physical_entity": false,
+    "physical_building_count": null,
+    "current_geometry_verified": false,
+    "raw_property_links_promoted": false,
+    "source_floor_count_not_promoted": true,
+    "scope": "One historical form correction record bound to original existing source entity; not a new physical building. Consumer/semantic/local-ID integration reviewed separately by VP."
+  },
+  "limits": [
+    "Actual editor refresh has not been inspected here; owner session remains running.",
+    "Historical two-plane form plus estimated edge continuation and zero-overhang enclosure only; lower returns,1m+alignment/epoch shifts, foundation/wallline and facade detail remain unresolved.",
+    "No current/surveyed/full-campus/professional-quality/public-release or broad-ticket acceptance."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-wing-adoption-review.json",
+    "source_editor_api_gpu_mutations": false
+  }
+}

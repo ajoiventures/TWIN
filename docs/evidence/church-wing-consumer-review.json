@@ -1,0 +1,72 @@
+{
+  "schema": "twin.church-wing-consumer-review/1",
+  "reviewed_utc": "2026-11-02T18:44:46.754030+00:00",
+  "reviewer": "Independent consumer QA agent",
+  "scope": "Read-only consumer code review plus fresh post-application processed report and registry verification",
+  "decision": "pass_bounded_consumer_code_and_actual_post_application_identity_readback",
+  "initial_finding": {
+    "severity": "blocker",
+    "description": "correction_context_index initially indexed snapshot Building_2892 by local ID while wing existing_entity_id used semantic entity namespace, so actual post-activation corridor rebuild would reject it",
+    "resolution": "Resolve semantic asset entity to local_building_id, validate source_model_alias and both USD paths, index corrections by local snapshot ID",
+    "regression": "Different semantic/local IDs and wrong alias reject; real mapping checked by coordinator"
+  },
+  "verified_code_behavior": [
+    "One source model entry receives union of retained legacy and corrected geometry; correction record not appended as another model entity",
+    "Multiple reconstruction records per contextual parcel permitted, duplicate record IDs rejected",
+    "Plural fields added; legacy scalar retained only for one record; browser supports plural and single-record fallback",
+    "Global registry snapshot checked and registry hash bound in corridor dependencies",
+    "No raw4210 or contextual5190 accepted-identity promotion in reviewed changes",
+    "Optional wing validated in composition and reload; source/manual ordering retained; no recursive identity/full-validation loop identified"
+  ],
+  "focused_tests": {
+    "command": "python -m unittest discover -s tests -p test_retail_activation.py",
+    "actual_result": "5 tests passed",
+    "reviewer_executed": true
+  },
+  "reviewed_file_sha256": {
+    "tools/review_corridor_buildings.py": "42e4240fc72a04d28f9fb9cd1fb817deae2b21084f741467d8ccad8b08a8add8",
+    "tools/register_reconstructions.py": "3714d14fe64d102a8b1b10e5a74754f4b8849a411f6c1cf804f42d7dec76bc69",
+    "tools/accepted_scene_layers.py": "83173b8848671ffa5c0de28e9fd53b20d455df3297d87655743f667d33ea0e86",
+    "tools/connect_scene.py": "2a0dfc4c9444ff7bb17e744f44e5ed1e6834bbaf57c6251d5bd53b49703ee6f8",
+    "tools/open_workspace.py": "31e09b08d1b6558b317668c3a011a0ebe1b698be6ac592924d0fa19d5bb420a2",
+    "tools/workspace_evidence.py": "2e8dbb0f2a6bbfa50f9cef957725acf37afa74aa379185816ee4b73736c262ef",
+    "tools/activate_church_integration.py": "5f12667e4bfcfadba1bd5fca6c8e0fd2f4b6beef3db6d6c0a46942745a16d550",
+    "tools/activate_church_wing.py": "aac59a2ef86ba936663044fb66bc1f9479e36c0e7a800b4bb4e71f5d2ada8bbf",
+    "web/building-review.html": "79c859aab1770240dda1a08a35b81c330bb9e1bff08f6c8b4a44d79e8dad8013",
+    "tests/test_retail_activation.py": "5344367be652f577df8c1922d3bbff8959d2f279178e6dd5033f207dcbd75322"
+  },
+  "post_application": {
+    "status": "pass_actual_processed_reports",
+    "verified_utc": "2026-11-02T18:46:36.506725+00:00",
+    "snapshot": "20261028T160543372334Z",
+    "processed_artifact_sha256": {
+      "data/processed/corridor_building_review.json": "658b4b15a47e995d08c265e7f4d0c58b397d6d47f23ee961f4a6e2c739efc34b",
+      "data/processed/reconstructions.json": "ad4fe65c0497c50e0686434d3562bbd488cd5e4f53582b5ed1aeef1b40aa2108",
+      "data/processed/asset_registry.json": "26741d5332772b33c99d2fb3dd9173743c26d7c01ce92358709af205f254dff1"
+    },
+    "all_corridor_and_reconstruction_dependency_hashes_current": true,
+    "classified_parcel_features": 3849,
+    "maximum_Building_2892_entries_per_parcel_candidate_list": 1,
+    "Building_2892_entries_on5190": 1,
+    "wing_correction_ID_separately_counted_as_model_candidate": false,
+    "5190_registered_forms": [
+      "church_on_drive_sanctuary",
+      "church_southeast_wing_existing_2892_correction"
+    ],
+    "5190_registered_form_visibility": {
+      "church_on_drive_sanctuary": true,
+      "church_southeast_wing_existing_2892_correction": true
+    },
+    "5190_legacy_scalar": null,
+    "5190_accepted_legacy_links": 0,
+    "4210_accepted_legacy_links": 0,
+    "existing_semantic_entity": "ocpa:building-group:69f7107de66f455f9cb153eb",
+    "existing_entity_parcel_link_accepted": false,
+    "raw_source_parcel_id_retained": "292214146004210",
+    "wing_adds_physical_entity": false,
+    "wing_physical_building_count": null,
+    "raw_tax_and_property_links_promoted": false,
+    "scope_limit": "Actual disk report/registry readback; no new API/native/render claim and no whole-campus or physical-building census acceptance"
+  },
+  "production_files_modified_by_reviewer": false
+}

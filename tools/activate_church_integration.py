@@ -57,17 +57,38 @@ def checked(root, relative, digest):
     return path
 
 
-def legacy_fingerprint(root=ROOT):
+def legacy_fingerprint(root=ROOT, paths=None):
     root = Path(root).resolve()
     stage = Usd.Stage.Open(str(root / 'scene/college_park_connected.usda'))
     if not stage:
         raise ValueError('Church legacy source stage unavailable')
     if (root / LAYER).exists():
+        # Nonrecursive canonical identity check before muting the accepted
+        # sanctuary correction. Never hide an arbitrary replacement file.
+        receipt_path=root/RECEIPT
+        if not receipt_path.is_file():raise ValueError('Church layer lacks canonical receipt')
+        own=json.loads(receipt_path.read_text(encoding='utf-8'))
+        if own.get('schema')!='twin.church-historical-activation/1' or own.get('layer')!=LAYER or own.get('site')!=canonical_site():
+            raise ValueError('Church canonical identity changed before source fingerprint')
+        if own.get('dependencies')!=recipe(root)[1] or own.get('source_snapshot')!=SNAPSHOT:
+            raise ValueError('Church source recipe changed before source fingerprint')
+        if own.get('layer_sha256')!=FIXED[BASE+'site.usda']:
+            raise ValueError('Church receipt layer hash changed before source fingerprint')
+        if any(own.get(flag) is not False for flag in ('current_geometry_verified','raw_tax_links_accepted','public_derivative_release_accepted')):
+            raise ValueError('Church identity promotion forbidden')
+        checked(root,LAYER,FIXED[BASE+'site.usda'])
         stage.MuteLayer(str(root / LAYER))
+    elif (root/RECEIPT).exists():
+        raise ValueError('Church receipt lacks layer')
+    # Identity validation deliberately excludes a legacy fingerprint call, so
+    # main/wing source checks cannot recurse through one another.
+    from activate_church_wing import validate_wing_identity
+    wing=validate_wing_identity(root)
+    if wing:stage.MuteLayer(str(root/wing['layer']))
     cache = UsdGeom.XformCache()
     rows = []
     materials = set()
-    for prefix in LEGACY:
+    for prefix in (LEGACY if paths is None else paths):
         parent = stage.GetPrimAtPath(prefix)
         if not parent:
             raise ValueError('Church required legacy group absent: ' + prefix)

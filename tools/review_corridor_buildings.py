@@ -31,12 +31,38 @@ def record_state(p,context):
     return 'unresolved_building_evidence'
 
 def reconstruction_context_index(records):
-    index={}
+    index={};seen=set()
     for record in records:
+        if record['id'] in seen:raise ValueError('Duplicate reconstruction record: '+record['id'])
+        seen.add(record['id'])
         for pid in set([record['parcel_id']]+record.get('parcel_ids',[])):
-            if pid in index and index[pid]['id']!=record['id']:raise ValueError('Ambiguous reconstruction parcel context: '+pid)
-            index[pid]=record
+            index.setdefault(pid,[]).append(record)
     return index
+
+
+def correction_context_index(records,buildings,assets):
+    """A reviewed form correction extends its source entity, never counts it twice."""
+    known={b['id']:b for b in buildings};entities={a['entity_id']:a for a in assets};index={}
+    for record in records:
+        if record.get('kind')!='historical_form_correction':continue
+        entity=entities.get(record.get('existing_entity_id'))
+        key=entity.get('local_building_id') if entity else None;source=known.get(key)
+        if not source or record.get('source_model_alias')!=key or record.get('source_usd_path')!=source['usd_path'] or entity['usd_path']!=source['usd_path']:
+            raise ValueError('Form correction source entity/path mismatch: '+record['id'])
+        if record.get('adds_physical_entity') is not False or record.get('physical_building_count') is not None:
+            raise ValueError('Form correction cannot add a physical building')
+        index.setdefault(key,[]).append(record)
+    return index
+
+
+def visible_form_footprint(stage,path):
+    prim=stage.GetPrimAtPath(path);pieces=[]
+    if prim:
+        for child in Usd.PrimRange(prim):
+            if child.IsA(UsdGeom.Mesh) and UsdGeom.Imageable(child).ComputeVisibility()!='invisible':
+                g=mesh_footprint(child)
+                if not g.is_empty and g.area>.01:pieces.append(g)
+    return unary_union(pieces)
 
 def build(root=ROOT):
     active=read(root/'data/processed/active.json');folder=(root/active['relative_path']).resolve()
@@ -59,6 +85,9 @@ def build(root=ROOT):
     aby={r['parcel_feature_id']:r for r in audit['rows']};old35={r['parcel_feature_id'] for r in audit['rows'] if r['commercial_tax_family_review'] and not r['accepted_model_links']}
     old17={r['parcel_feature_id'] for r in audit['rows'] if r['commercial_tax_family_review'] and not r['spatial_footprint_candidates_not_accepted_identity']}
     registered=read(root/'data/processed/reconstructions.json');recon_records=registered['records'];recon=reconstruction_context_index(recon_records)
+    asset_path=root/'data/processed/asset_registry.json';assets=read(asset_path)
+    if assets['source_snapshot']!=active['snapshot']:raise ValueError('Form correction registry snapshot stale')
+    corrections=correction_context_index(recon_records,buildings,assets['records'])
     proposal_path=root/'data/heights/landmarks/proposal_manifest.json';proposal=read(proposal_path) if proposal_path.exists() else {'sites':[]}
     pending={r['parcel_id']:r for r in proposal['sites'] if r['parcel_id'] not in recon}
     stage=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'))
@@ -69,26 +98,31 @@ def build(root=ROOT):
     for b in buildings:
         by_parcel[b.get('parcel_id')].append(b);by_source[b.get('source_parcel_id')].append(b)
         prim=stage.GetPrimAtPath(b['usd_path'])
-        if not prim or not prim.IsA(UsdGeom.Mesh) or UsdGeom.Imageable(prim).ComputeVisibility()=='invisible':continue
-        g=mesh_footprint(prim)
+        if not prim or not prim.IsA(UsdGeom.Mesh):continue
+        corrected=corrections.get(b['id'],[])
+        pieces=[visible_form_footprint(stage,r['usd_path']) for r in corrected]
+        if UsdGeom.Imageable(prim).ComputeVisibility()!='invisible':pieces.append(mesh_footprint(prim))
+        g=unary_union(pieces)
         if g.is_empty or g.area<.01:continue
         ids=prim.GetCustomData().get('sourceObjectIds','').split(',');floors=[int(raw[i].get('FLOOR_NUM') or 0) for i in ids if i in raw]
         source_floor=max(floors,default=0);height=hby[b['id']]
         if source_floor>height.get('floors_used',0):underused_source_floors.append({'building_id':b['id'],'source_floor':source_floor,'modeled_floors':height.get('floors_used')})
-        model.append({'id':b['id'],'usd_path':b['usd_path'],'representation':'visible_legacy_or_corrected_mesh','source_parcel_id':b.get('source_parcel_id'),
-            'floors_used':height.get('floors_used'),'source_maximum_floor_num':source_floor,'height_m':height['height_m'],'quality':height['quality']})
+        model.append({'id':b['id'],'usd_path':b['usd_path'],
+            'representation':'source_group_with_historical_form_correction' if corrected else 'visible_legacy_or_corrected_mesh',
+            'source_parcel_id':b.get('source_parcel_id'),'form_correction_ids':[r['id'] for r in corrected],
+            'floors_used':height.get('floors_used'),'source_maximum_floor_num':source_floor,
+            'height_m':None if corrected else height['height_m'],'source_height_estimate_m':height['height_m'],
+            'quality':'historical_correction_and_retained_source_fragments_current_unverified' if corrected else height['quality']})
         model_shapes.append(g)
+    visible_reconstruction_ids=set()
     for record in recon_records:
-        prim=stage.GetPrimAtPath(record['usd_path']);pieces=[]
-        if prim:
-            for child in Usd.PrimRange(prim):
-                if child.IsA(UsdGeom.Mesh) and UsdGeom.Imageable(child).ComputeVisibility()!='invisible':
-                    g=mesh_footprint(child)
-                    if not g.is_empty and g.area>.01:pieces.append(g)
-        if pieces:
+        geometry=visible_form_footprint(stage,record['usd_path'])
+        if not geometry.is_empty:
+            visible_reconstruction_ids.add(record['id'])
+            if record.get('kind')=='historical_form_correction':continue
             model.append({'id':record['id'],'usd_path':record['usd_path'],'representation':'registered_historical_reconstruction','source_parcel_id':None,
                 'floors_used':record.get('reported_project_maximum_storeys'),'height_m':None,'quality':record.get('quality')})
-            model_shapes.append(unary_union(pieces))
+            model_shapes.append(geometry)
     tree=STRtree(model_shapes);model_index={m['id']:i for i,m in enumerate(model)}
     geometries={f['properties']['id']:project(shape(f['geometry'])) for f in parcels}
     coincidence=collections.Counter(shapely.normalize(g).wkb for g in geometries.values())
@@ -101,8 +135,8 @@ def build(root=ROOT):
             area=model_shapes[index].intersection(local).area
             if area>1:candidates.append({**model[index],'parcel_overlap_m2':round(area,3),'model_footprint_overlap_ratio':round(area/model_shapes[index].area,6)})
         associated=by_parcel[p['parcel_id']];accepted=[b for b in associated if b['match_method']=='id_and_geometry'];a=aby.get(p['id'],{})
-        reconstruction=recon.get(p['parcel_id']);proposal_site=pending.get(p['parcel_id'])
-        registered_visible=bool(reconstruction and reconstruction['id'] in model_index)
+        reconstruction=recon.get(p['parcel_id'],[]);proposal_site=pending.get(p['parcel_id'])
+        registered_visible=bool(reconstruction) and all(r['id'] in visible_reconstruction_ids for r in reconstruction)
         coincident=coincidence[shapely.normalize(g).wkb];condo=any('condominium' in flag for flag in a.get('review_flags',[])) or (coincident>1 and not accepted)
         building_attributes=bool((p.get('stories') or 0)>0 or (p.get('year_built') or 0)>0)
         land_only=not building_attributes and (not a.get('ocpa_building_use_code')) and str(p.get('property_use_code') or '') in ['0000','1000','2800','4000','8000']
@@ -131,7 +165,10 @@ def build(root=ROOT):
         row={'record_type':'parcel_feature','parcel_feature_id':p['id'],'parcel_id':p['parcel_id'],'site_address':p.get('site_address'),
             'scopes':scopes,'state':state,'property_use_code':p.get('property_use_code'),'appraiser_storeys':p.get('stories'),'year_built':p.get('year_built'),
             'accepted_legacy_links':len(accepted),'visible_model_candidates':candidates,'source_identity_candidates':raw_candidates,
-            'registered_reconstruction':reconstruction['id'] if reconstruction else None,'registered_form_visible':registered_visible,'ready_uncomposed_form':proposal_site['site_id'] if proposal_site else None,
+            'registered_reconstruction':reconstruction[0]['id'] if len(reconstruction)==1 else None,
+            'registered_reconstructions':[r['id'] for r in reconstruction],
+            'registered_form_visibility':{r['id']:r['id'] in visible_reconstruction_ids for r in reconstruction},
+            'registered_form_visible':registered_visible,'ready_uncomposed_form':proposal_site['site_id'] if proposal_site else None,
             'coincident_tax_geometry_records':coincident,'flags':flags,'original_35_unaccepted_queue':p['id'] in old35,'original_17_no_legacy_queue':p['id'] in old17,
             'physical_omission_confirmed':False,'current_shape_verified':False,'parcel_is_building_footprint':False}
         rows.append(row);features.append({'type':'Feature','geometry':feature['geometry'],'properties':{k:v for k,v in row.items() if k not in ['visible_model_candidates','source_identity_candidates']}})
@@ -145,6 +182,7 @@ def build(root=ROOT):
     layer=root/'scene/corridor_building_corrections_proposal.usda';temporary=layer.with_name(layer.stem+'.tmp.usda');stage_out.GetRootLayer().Export(str(temporary));os.replace(temporary,layer)
     dependencies=[root/'data/processed/active.json',folder/'parcels.json',folder/'buildings.json',root/'data/buildings.geojson',root/'data/heights/building_heights.json',
         root/'data/processed/study_boundaries.geojson',root/'config/study_area.json',root/'data/commercial/edgewater_property_audit.json',root/'data/processed/reconstructions.json',Path(__file__).resolve()]
+    dependencies.append(asset_path)
     if proposal_path.exists():dependencies.append(proposal_path)
     dependencies += [Path(l.realPath) for l in stage.GetUsedLayers() if l.realPath and Path(l.realPath).resolve().is_relative_to(root.resolve())]
     report={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],

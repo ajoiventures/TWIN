@@ -1,0 +1,110 @@
+{
+  "schema": "twin.church-wing-fullroof-review/1",
+  "reviewed_utc": "2026-11-02T17:32:05.604595+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "hold_activation_new_transition_pits_fins_and_unresolved_roof_semantics",
+  "candidate": {
+    "directory": "data/diagnostics/church_se_wing_fullroof_20261102_c",
+    "site_sha256": "3cc8798ad51af9b7bb56c75f8e6cb42d076f059635fa9eb9a1a72861e186045e",
+    "manifest_sha256": "b70e4f8e9e00e50d78fdb768322fdcdafe1c04d00c341b2fe866f1a5f80e8ad7",
+    "captured_producer_sha256": "5fa22a15800a6809372b94d00737288c381515d9e7c4edebab633c3fa743e848",
+    "archive_matches_manifest_producer": true,
+    "all_dependency_and_output_hashes_match": true,
+    "source_snapshot": "20261028T160543372334Z",
+    "roof_only": true,
+    "activated": false
+  },
+  "source_assessment": {
+    "original_2021_exterior_and_2024_2025_aerials_actually_viewed": true,
+    "no_imagery_pixels_published_by_review": true,
+    "five_major_plane_unique_original_indices_independently_recounted": 11605,
+    "count_correction": "11711 included106 minor second south-bar points; it is not the five-major-plane total. Corrected metadata v2 preserves frozen originals.",
+    "main_SE_planes": {
+      "support_counts": [
+        2890,
+        2406
+      ],
+      "all_class6_replayed": true,
+      "independent_p95_vertical_residual_m": [
+        0.0453884438668062,
+        0.027652792759496947
+      ]
+    },
+    "lower_regions": {
+      "support_counts": [
+        71,
+        25,
+        24,
+        30,
+        21
+      ],
+      "all_class6_replayed": true,
+      "independent_per_region_p95_vertical_residual_m": [
+        0.10274894134208878,
+        0.08462396577061636,
+        0.09239996033003375,
+        0.0802671367640531,
+        0.04220809449950025
+      ],
+      "meaning": "Five separated connected support regions reuse two fitted lower end-return planes. These points establish historical lower returns, not that upper roof material must be cut out above them."
+    },
+    "outline": "Dated aerial roof-cover interpretation, not raw parcel footprint, diagnostic search rectangle, eave survey or measured wallline.",
+    "pixel_projection_replayed_exactly": true,
+    "pixel_projection_symmetric_difference_m2": 0.0,
+    "roofcover_interpretation_area_m2": 458.46437578237624,
+    "interpretation_alignment_allowance_m": 1.0,
+    "allowance_is_not_accuracy_measurement": true,
+    "no_established_aerial_opening_evidence_for_patch_pits": true,
+    "time_scope": "USGS project2018-12-04..2019-04-12; local flight date unknown. Exterior2021 and aerial2024/25 do not verify2026 conditions or exact contemporaneous geometry."
+  },
+  "independent_geometry_checks": {
+    "mesh_count": 12,
+    "roof_patch_count": 7,
+    "estimated_transition_groups": 5,
+    "transition_quads": 26,
+    "roof_projected_union_m2": 458.46432756551076,
+    "roof_triangle_projected_area_sum_m2": 458.46433055005036,
+    "float_quantization_projected_overlap_m2": 2.984539605677128e-06,
+    "roof_union_outline_symmetric_difference_m2": 0.00019538457609924188,
+    "maximum_serialized_plane_discrepancy_m": 7.21351177901397e-06,
+    "maximum_transition_vertical_extent_m": 3.165149688720703,
+    "no_legacy_body_roof_storefront_overrides_in_candidate": true,
+    "protected_root_manual_church_landmark_snapshot_hashes_match": true,
+    "courtyard_and_west_walkway": "Interpreted SE outline remains south/east of courtyard and separated from western return; no whole courtyard/walkway spanning roof polygon authored. This does not establish actual wall/overhang boundaries.",
+    "material": "Exact copied existing InterpretedMetalRoof; this neutral appearance cannot validate lower-return geometry or cover uncertainty."
+  },
+  "actual_visual_review": {
+    "manifest": "data/renders/20261102T172425Z/manifest.json",
+    "manifest_sha256": "2b4d63211b8e63812aec2081e9c85cf07b12c40998b67db8b3d7bac36fc6bc8b",
+    "image": "data/renders/20261102T172425Z/ChurchSoutheastWingFullRoof.png",
+    "image_sha256": "2c97a0298e8a1913b3969b3f27e06a4e0fb5ff8dc4ff756ec702ec1a63127270",
+    "actual_image_viewed": true,
+    "complete_png_resolution": [
+      1920,
+      1080
+    ],
+    "all_captured_layer_hashes_match": true,
+    "camera": "/World/Cameras/ChurchSoutheastWingFullRoof",
+    "findings": [
+      "Multiple conspicuous dark triangular pits/notches occur along near and far roof-end/edge regions; a smaller isolated depressed patch is visible on the left slope.",
+      "Tall narrow transition fins and abrupt level cuts are visually implausible without explicit source roof-opening/step proof.",
+      "Roof appears floating/open at edges because no body/end walls exist. That intentional roof-only limitation is separate from the new patch-junction defects.",
+      "Existing flat legacy masses and generic storefront details remain below the proposed roof. Candidate does not reconcile those surfaces or supply a completed wing."
+    ],
+    "scope": "CPU plane/projection consistency passes narrowly; actual architectural roof-junction interpretation fails adoption quality gate."
+  },
+  "mechanism_and_next_step": {
+    "code_mechanism": "Main roof regions use difference(lower_patch_union); explicit vertical transitions connect removed upper areas to lower planes. Lower returns alone do not prove this topological substitution.",
+    "uncertainty": "Lower returns might belong to separate lower/overlapping awnings, under-eave surfaces or another junction arrangement. Those are hypotheses requiring source investigation, not findings accepted here.",
+    "required": "Resolve actual end/junction roof semantics using original returns and dated aerial/exterior evidence before modeling cuts/closures. Preserve separated source components; do not bridge disjoint heights solely to create a closed-looking interface.",
+    "no_shortcut": "A body or improved material cannot make unsupported pits/fins source-accurate."
+  },
+  "remaining_limits": [
+    "No activation or full-wing acceptance.",
+    "No new body/floors, surveyed wallline/overhang, physical/tax identity or whole-campus/current accuracy.",
+    "No GPU rerender, editor refresh or API/source changes by reviewer."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-wing-fullroof-review.json"
+  }
+}

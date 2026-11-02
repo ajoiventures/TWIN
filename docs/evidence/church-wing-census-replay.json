@@ -1,0 +1,104 @@
+{
+  "schema": "twin.church-source-census-replay/1",
+  "reviewer": "Root independent of GIS census author",
+  "source_snapshot": "20261028T160543372334Z",
+  "raw_features": 18,
+  "model_aliases": 6,
+  "all_raw_ids_reconciled_exactly_once": true,
+  "unmodeled_raw_ids": [],
+  "groups": [
+    {
+      "alias": "Building_2892",
+      "source_building_number": "4",
+      "source_object_ids": [
+        "1158142",
+        "1160052",
+        "1170575"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146005190",
+      "match_accepted": false
+    },
+    {
+      "alias": "Building_2919",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1164930",
+        "1172347",
+        "1174819",
+        "1175733",
+        "1178840",
+        "1182924",
+        "1185989"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146004210",
+      "match_accepted": false
+    },
+    {
+      "alias": "Building_2928",
+      "source_building_number": "6",
+      "source_object_ids": [
+        "1166921",
+        "1176674",
+        "1181766"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146005190",
+      "match_accepted": false
+    },
+    {
+      "alias": "Building_3065",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "1165872",
+        "1177992",
+        "1186545"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146005190",
+      "match_accepted": false
+    },
+    {
+      "alias": "Building_3074",
+      "source_building_number": "3",
+      "source_object_ids": [
+        "1164493"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146005190",
+      "match_accepted": false
+    },
+    {
+      "alias": "Building_3076",
+      "source_building_number": "5",
+      "source_object_ids": [
+        "1166299"
+      ],
+      "raw_floor_values": [
+        "1"
+      ],
+      "source_pid": "292214146004210",
+      "assigned_pid": "292214146005190",
+      "match_accepted": false
+    }
+  ],
+  "correction": "Southeast wing is underheight/flat-roof geometry in existing Building2892. Earlier two-alias subset was not a complete campus census; no newly absent physical building is established.",
+  "current_geometry_verified": false,
+  "tax_links_promoted": false
+}

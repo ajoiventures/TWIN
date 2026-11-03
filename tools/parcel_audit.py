@@ -198,6 +198,104 @@ def build(root=ROOT):
     for filename,data in [('parcel_audit_quality.json',summary),('parcel_audit_exceptions.json',queues),('parcel_audit_identifiers.json',stable),('parcel_audit_preview.json',preview)]:write_json(root/'data/processed'/filename,data)
     print(json.dumps(summary,indent=2));return summary
 
+def file_sha(path):
+    digest=hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for block in iter(lambda:stream.read(1024*1024),b''):digest.update(block)
+    return digest.hexdigest()
+
+def disposition_records(queues,lineage,parcels,corridor,reconstructions,aerial):
+    """Explain every cached exception without accepting a join or physical correction."""
+    identities={r['id']:r for r in lineage};features={str(f['id']):f['properties'] for f in parcels}
+    contexts={r['parcel_feature_id']:r for r in corridor['rows']};rows=[];keys=set()
+    for category in ('non_exact_links','floor_conflicts'):
+        for item in queues[category]:
+            identity=identities[item['id']];feature_id=item.get('parcel_feature_id');parcel=features.get(feature_id)
+            if feature_id and (not parcel or parcel['parcel_id']!=item['parcel_id']):raise ValueError('Exception parcel-feature identity changed')
+            if identity['usd_path']!=item['usd_path']:raise ValueError('Exception source USD path changed')
+            context=contexts.get(feature_id,{})
+            forms=[{'id':r['id'],'quality':r.get('quality'),'association':'exact_existing_model_alias' if r.get('source_model_alias')==item['id'] else 'parcel_context_only_not_identity_acceptance'} for r in reconstructions if r.get('source_model_alias')==item['id'] or (feature_id and item.get('parcel_id') in [r.get('parcel_id'),*r.get('parcel_ids',[])])]
+            aerial_rows=[{'source_building_key':identity['source_building_key'],'source_object_ids':r['source_object_ids'],'dated_reference_ids':r.get('dated_reference_ids',[]),'frame_disposition':r.get('frame_disposition'),'review_status':r.get('review_status'),'roof_observation':r.get('roof_observation')} for r in aerial if 'ocpa-building:'+str(r['source_parcel_id'])+':'+str(r['source_building_number'])==identity['source_building_key'] and set(r['source_object_ids'])==set(identity['source_object_ids'])]
+            if category=='non_exact_links':
+                if identity['join_state']=='accepted':raise ValueError('Unaccepted exception became accepted; rebuild audit')
+                reason={'spatial_review':'spatial_overlap_is_not_an_accepted_source_identity','ambiguous':'multiple_or_conflicting_candidate_features','unmatched':'no_accepted_parcel_feature'}[identity['join_state']]
+                action='Compare original PID/BLDG_NUM and all exact candidate feature geometries with dated property/sketch evidence; record an explicit reviewed link decision without parcel-number fallback.'
+                severity='high' if identity['join_state']=='ambiguous' else 'normal'
+            else:
+                reason='large_floor_definition_or_source_outlier' if item['severity']=='large_conflict' else 'parcel_maximum_vs_component_floor_disagreement' if item.get('accepted_buildings_on_parcel',0)>1 else 'source_floor_vs_parcel_story_disagreement'
+                action='Verify OCPA STYS versus subarea FLOOR_NUM and unit FLOOR_NO semantics using the specific property building record and dimensioned sketch; compare dated independent elevations before changing component height.'
+                severity='high' if item['severity']=='large_conflict' else 'normal'
+            key=category+':'+identity['entity_id']
+            if key in keys:raise ValueError('Duplicate disposition identity')
+            keys.add(key)
+            rows.append({'id':key,'category':category,'building_id':item['id'],'entity_id':identity['entity_id'],'usd_path':identity['usd_path'],
+              'source_building_key':identity['source_building_key'],'source_object_ids':identity['source_object_ids'],'source_parcel_id':item['source_parcel_id'],
+              'assigned_parcel_id':item.get('parcel_id'),'assigned_parcel_feature_id':feature_id,'candidate_parcel_features':identity['candidate_parcel_features'],
+              'site_address':item.get('site_address'),'status':'deferred_pending_property_component_evidence','reason_code':reason,'priority':severity,'next_action':action,
+              'corridor_state':context.get('state'),'official_scopes':context.get('scopes',[]),'outside_corridor_register':not bool(context),
+              'source_building_floor':item.get('source_building_floor'),'source_parcel_stories':item.get('source_parcel_stories'),'existing_floors_used':item.get('floors_used'),
+              'existing_height_method':item.get('height_method'),'existing_height_quality':item.get('height_quality'),
+              'registered_historical_evidence':forms,'dated_aerial_observations':aerial_rows,'sketch_dimensions_verified':False,
+              'physical_identity_verified':False,'current_conditions_verified':False,'new_link_accepted':False,'height_change_authorized':False})
+    return sorted(rows,key=lambda r:r['id'])
+
+def prepare_dispositions(output,root=ROOT):
+    """Fresh cached candidate; shared lineage validation, no full geometry audit/publication."""
+    root=Path(root).resolve();output=(root/output).resolve()
+    if output.exists() or not output.is_relative_to(root/'data/diagnostics'):raise ValueError('Use a fresh ignored diagnostic output directory')
+    folder,active=active_folder(root);snapshot=active['snapshot'];dependencies={}
+    def bind(name):
+        path=(root/name).resolve()
+        if not path.is_relative_to(root) or not path.is_file():raise ValueError('Missing/nonlocal disposition source: '+str(name))
+        dependencies[path.relative_to(root).as_posix()]=file_sha(path);return read_json(path)
+    quality=bind('data/processed/parcel_audit_quality.json');queues=bind('data/processed/parcel_audit_exceptions.json')
+    if quality['snapshot']!=snapshot:raise ValueError('Parcel audit snapshot stale')
+    # Hash arbitrary bytes, not only JSON, for transitive source closures.
+    def verify(hashes):
+        for name,digest in hashes.items():
+            path=(root/name).resolve()
+            if not path.is_relative_to(root) or not path.is_file() or file_sha(path)!=digest:raise ValueError('Stale disposition source: '+name)
+            dependencies[name]=digest
+    verify(quality['source_sha256'])
+    pointer=bind('data/processed/building_lineage.json');receipt=bind('data/processed/building_lineage.json.receipt')
+    if receipt['sha256']!=dependencies['data/processed/building_lineage.json']:raise ValueError('Lineage pointer receipt mismatch')
+    lineage=bind(pointer['packet_path'])
+    if dependencies[pointer['packet_path']]!=pointer['packet_sha256'] or pointer['source_snapshot']!=snapshot or receipt['source_snapshot']!=snapshot:raise ValueError('Lineage packet or snapshot changed')
+    from build_building_lineage import validate as validate_lineage
+    verified_lineage=validate_lineage(root)
+    if lineage!=verified_lineage:raise ValueError('Validated lineage changed while reading disposition inputs')
+    verify(lineage['dependencies'])
+    corridor=bind('data/processed/corridor_building_review.json');recon=bind('data/processed/reconstructions.json');aerial=bind('data/imagery/pilot_complete/review.json')
+    for packet in (lineage,corridor,recon,aerial):
+        if packet['source_snapshot']!=snapshot:raise ValueError('Disposition context snapshot stale')
+        verify(packet['dependencies'])
+    parcels=bind((folder/'parcels.json').relative_to(root).as_posix())['features'];bind('data/processed/active.json');dependencies['tools/parcel_audit.py']=file_sha(root/'tools/parcel_audit.py')
+    if quality['exception_counts']!={k:len(v) for k,v in queues.items()}:raise ValueError('Audit queue counts changed')
+    buildings=bind((folder/'buildings.json').relative_to(root).as_posix());heights=bind('data/heights/building_heights.json')
+    _,replayed,_=audit_records([f['properties'] for f in parcels],buildings,heights,snapshot)
+    for category in ('non_exact_links','floor_conflicts'):
+        if queues[category]!=replayed[category]:raise ValueError('Cached exception rows differ from original audit derivation: '+category)
+    rows=disposition_records(queues,lineage['records'],parcels,corridor,recon['records'],aerial['building_reviews'])
+    counts=dict(collections.Counter(r['category'] for r in rows))
+    report={'schema':'twin.parcel-exception-dispositions/1','source_snapshot':snapshot,'mode':'offline_candidate_no_promotion',
+      'dependencies':dependencies,'counts':counts,'status_counts':dict(collections.Counter(r['status'] for r in rows)),
+      'reason_counts':dict(collections.Counter(r['reason_code'] for r in rows)),'large_floor_conflicts':[r['id'] for r in rows if r['category']=='floor_conflicts' and r['priority']=='high'],
+      'rows':rows,'first_five_rows':rows[:5],'fields':list(rows[0]) if rows else [],
+      'coverage':{'active_parcel_features':len(parcels),'active_source_groups':len(lineage['records']),'corridor_classified_features':len(corridor['rows']),
+        'official_extent_coverage':corridor['coverage'],'physical_building_census_complete':False,'district_sketch_inventory_complete':False,
+        'rows_with_exact_source_aerial_observation':sum(bool(r['dated_aerial_observations']) for r in rows),'rows_with_historical_form_context':sum(bool(r['registered_historical_evidence']) for r in rows)},
+      'source_observation_date':None,'source_effective_date':None,'new_links_accepted':0,'heights_changed':0,
+      'limitations':['Deferred disposition is an explicit evidence/action queue, not resolution or independent property verification.','Historical forms and aerial observations are scoped evidence; shared parcel context cannot accept a source identity or current height.','Sketch dimensions were not evaluated by this cached derivation; obtain and inspect exact property/component sketches.','Official area coverage is not parcel/building/sketch completeness; outside-extraction physical counts remain unknown.']}
+    verify(dependencies.copy())
+    output.mkdir(parents=True);(output/'captured_helper.py').write_bytes(Path(__file__).read_bytes());write_json(output/'dispositions.json',report)
+    return {k:v for k,v in report.items() if k not in ('dependencies','rows','first_five_rows','fields')}
+
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--offline',action='store_true',help='Audit is always offline; flag is explicit documentation.')
-    parser.parse_args();build()
+    parser.add_argument('--dispositions',action='store_true',help='Prepare explicit cached exception dispositions without rerunning geometry audit')
+    parser.add_argument('--output',help='Fresh data/diagnostics directory for disposition candidate')
+    args=parser.parse_args()
+    if args.dispositions:
+        if not args.output:parser.error('--dispositions requires --output')
+        print(json.dumps(prepare_dispositions(args.output),indent=2))
+    else:build()

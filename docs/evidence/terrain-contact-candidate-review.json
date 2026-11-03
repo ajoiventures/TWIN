@@ -1,0 +1,58 @@
+{
+  "schema": "twin.independent-terrain-contact-review/1",
+  "review_date": "2026-11-03",
+  "reviewer": "independent contact_review agent",
+  "decision": "bounded_inactive_composition_and_actual_visual_review_only",
+  "activation_accepted": false,
+  "whole_ticket_completed": false,
+  "producer_sha256": "4abb645bd4e9a6d270f98763dc61a40362112df5d7bfaf2d4f12625cfaad261e",
+  "captured_producer_sha256": "4abb645bd4e9a6d270f98763dc61a40362112df5d7bfaf2d4f12625cfaad261e",
+  "manifest_sha256": "761e7ae4b1b2abf6de7523217ae8687bdcbe00efb5828118919ac68b2effe624",
+  "layer_sha256": "a879123a9b2bca6bc236d98761c8f934ba312c58514972fd1977f22ae3f2d9a8",
+  "dependency_count": 80,
+  "changed_dependencies": [],
+  "protected_mismatches": [],
+  "before_after_protected_equal": true,
+  "layer_namespace": {
+    "unexpected_paths": [],
+    "world_metadata_keys": [
+      "specifier"
+    ],
+    "world_properties": [],
+    "sublayers": [],
+    "up_axis": "Z",
+    "meters_per_unit": 1.0
+  },
+  "independent_geometry": {
+    "meshes": 3441,
+    "faces": 111909,
+    "unique_vertices": 225509,
+    "unique_xy_columns": 114128,
+    "invalid_meshes": 0,
+    "degenerate_first_triangles": 0,
+    "unresolved_material_targets": [],
+    "maximum_point_above_final_ground_m": 0.7447902320528692,
+    "minimum_point_minus_ground_m": -2.3838276064225283e-07,
+    "maximum_lower_column_contact_error_m": 2.3838276064225283e-07,
+    "semantic_errors": []
+  },
+  "scope": {
+    "F_flagged_contact_rows": 806,
+    "F_flagged_paths": 772,
+    "F_flagged_paths_with_some_closure": 771,
+    "not_a_resolved_flag_count": true,
+    "held_reason_counts": {
+      "gap_exceeds_estimated_render_cap_no_truncated_skirt": 125,
+      "outside_final_ground_edge_support": 4,
+      "missing_original_face_material": 1445,
+      "no_eligible_positive_bounded_source_base_gap": 21
+    }
+  },
+  "limits": [
+    "No actual image reviewed in this CPU/source review; actual camera comparisons required.",
+    "Layer adds estimated visual skirts only; no survey, foundation, entrance, floor, currentness or new physical-building claim.",
+    "Addition-only namespace preserves existing source opinions, but shading, overlaps, watertightness, material UV appearance and complete closure are not accepted.",
+    "Remaining terrain grade/source-membership/extent/bridge/water and hardscape seam cases remain open.",
+    "No active source, editor, snapshot or geometry was changed by this review."
+  ]
+}

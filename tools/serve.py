@@ -232,9 +232,20 @@ class Handler(BaseHTTPRequestHandler):
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/api/v1/building_footprints':
     from build_map_footprints import read_packet
+    from pyproj import Transformer
+    from shapely.geometry import shape
+    from shapely.ops import transform, unary_union
     try:packet=read_packet(ROOT)
     except (ValueError,OSError) as exc:
      return self.send({'error':'Building footprint reference is unavailable or stale; rebuild the cached packet.','detail':str(exc)},503)
+    if parse_qs(url.query).get('scope')==['study']:
+     boundaries,snapshot=read_table('study_boundaries')
+     if snapshot!=packet['snapshot'] or not boundaries['features']:
+      raise SnapshotMismatch('Footprint map scope is unavailable for this snapshot')
+     projection=Transformer.from_crs(4326,32617,always_xy=True)
+     scope=unary_union([transform(projection.transform,shape(feature['geometry'])) for feature in boundaries['features']])
+     features=[feature for feature in packet['features'] if scope.relate_pattern(shape(feature['geometry']),'2********')]
+     packet={**packet,'features':features,'map_scope':'study_boundaries','map_feature_count':len(features)}
     return self.send(packet)
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/city-planning/coverage':

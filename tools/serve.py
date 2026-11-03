@@ -230,6 +230,25 @@ class Handler(BaseHTTPRequestHandler):
   url=urlparse(self.path);path=url.path
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path in ('/api/v1/naip_basemap','/map-reference/naip.jpg'):
+    from naip_basemap import read_basemap
+    manifest,raw=read_basemap(ROOT)
+    if path=='/api/v1/naip_basemap':return self.send(manifest)
+    if parse_qs(url.query).get('sha256')!=[manifest['sha256']]:
+     raise SnapshotMismatch('NAIP reference changed; reload the map')
+    return self.send(raw,kind='image/jpeg')
+   if path=='/api/v1/edgewater_focus_corridor':
+    from build_edgewater_focus_corridor import validate
+    try:packet=validate(ROOT)
+    except ValueError as exc:raise SnapshotMismatch('Edgewater focus corridor is stale') from exc
+    from pyproj import Transformer
+    from shapely.geometry import shape,mapping
+    from shapely.ops import transform
+    projection=Transformer.from_crs(4326,32617,always_xy=True)
+    for feature in packet['features']:
+     feature['geometry']=mapping(transform(projection.transform,shape(feature['geometry'])))
+    packet['map_crs']='EPSG:32617'
+    return self.send(packet)
    if path=='/api/v1/building_footprints':
     from build_map_footprints import read_packet
     from pyproj import Transformer

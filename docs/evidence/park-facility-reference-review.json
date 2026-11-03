@@ -1,0 +1,58 @@
+{
+  "schema": "twin.independent-park-facility-reference-review/1",
+  "reviewed_utc": "2026-11-03T23:42:55.611764+00:00",
+  "reviewer": "independent parcel_review agent",
+  "decision": "bounded City directory reference packet passes; L-01 site verification and ticket #4 remain open",
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "49f6b8aae21b47a99c14446a862cb672ab1e558fa08ee72b744d8e8c65aa1434",
+  "builder_sha256": "1d6e38afe39eca4cd23da7fc80997221b17e3bd16c1f0139dadcb5696ca1fb89",
+  "checks": {
+    "upstream_inventory_validator_and_exact_original_ids": true,
+    "original_object_ids": [
+      "62",
+      "66",
+      "79",
+      "81",
+      "91",
+      "94",
+      "113",
+      "121",
+      "125",
+      "145",
+      "239"
+    ],
+    "direct_dependencies_validated": 25,
+    "complete_field_dictionary_entries": 18,
+    "first_five_preview_matches_rows": true,
+    "independent_cached_html_receipt_checks": 11,
+    "independent_hours_and_feature_block_replays": 11,
+    "textual_sunrise_sunset_schedules": 6,
+    "explicit_seven_day_schedules": 5,
+    "focused_tests_passed": 2,
+    "published_geometry_count": 0,
+    "verified_access_count": 0,
+    "current_conditions_verified_count": 0,
+    "legal_titles_verified_count": 0
+  },
+  "address_conflicts": [
+    {
+      "source_object_id": "62",
+      "issue": "GIS 57 South Ivanhoe versus directory 6 North Ivanhoe Boulevard East; directory facilities apply at page scope."
+    },
+    {
+      "source_object_id": "125",
+      "issue": "GIS 2411 Elizebeth Street versus directory 2393 Elizabeth Avenue; park/pool page schedule stays separate from neighborhood center and independently established pool operations."
+    },
+    {
+      "source_object_id": "145",
+      "issue": "GIS 995 versus directory 951 Lake Adair; preserve both."
+    }
+  ],
+  "limits": [
+    "Facility names, labels and schedules come from the original City directory page blocks. Retrieval timestamps, page dates and field-observation dates serve different roles.",
+    "Nominal dimension assertions and a linked amenity map remain reference evidence pending measured placement and dated site reconciliation.",
+    "Packet holds public-access, live-open, current-condition, ownership and physical amenity geometry fields unknown or unverified.",
+    "Raw page HTML, keys, mail links and photos stay outside derived output. Review used cached files and read-only validators.",
+    "API and UI integration, broader land and planning requirements, and whole-ticket closure are outside this packet review."
+  ]
+}

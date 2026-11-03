@@ -4,6 +4,7 @@ Last reviewed: November 2, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [City park facility references](PARK_FACILITY_REFERENCES.md) | Published hours and features for all eleven park records, exact identity and source-scope conflicts |
 | [Parcel exception dispositions](PARCEL_EXCEPTION_DISPOSITIONS.md) | Per-record relationship/floor review actions, historical source context and unresolved property/sketch coverage |
 | [Map building footprints](MAP_BUILDING_FOOTPRINTS.md) | Cached source outlines, exact source/parcel-feature contexts, actual map review and remaining pointer/basemap acceptance |
 | [Church wing correction](CHURCH_WING_REVIEW.md) | Locally adopted continuous roof/estimated enclosure, original Building2892 identity, actual API/render review and pending running-editor refresh |

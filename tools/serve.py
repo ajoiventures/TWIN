@@ -11,6 +11,7 @@ class SnapshotMismatch(ValueError):pass
 class VerifiedReviewRows(list):pass
 TABLES.update({'building_lineage','building_lineage_quality'})
 TABLES.update({'city_addresses','city_future_land_use','city_adapter_quality','full_neighborhood_parks','full_neighborhood_parks_quality'})
+TABLES.update({'park_facility_references','park_facility_quality'})
 TABLES.update({'county_addresses','county_roads','county_drainage_basins','county_context_quality'})
 TABLES.update({'public_property_references','government_property_references','public_property_quality'})
 FDOT_TABLES={'road_names','rci_top30','aadt','portable_sites','telemetered_sites','lanes','speed','sidewalk_width_sep','sidewalk_gaps','city_streets','surface_width'}
@@ -30,6 +31,17 @@ def current_report(path,snapshot):
  return data
 
 def read_table(name,root=ROOT):
+ if name in ('park_facility_references','park_facility_quality'):
+  from enrich_park_facilities import validate,OUT
+  try:report=validate(root)
+  except (ValueError,OSError) as exc:raise SnapshotMismatch('Park facility references unavailable or stale') from exc
+  digest=hashlib.sha256((root/OUT/'packet.json').read_bytes()).hexdigest()
+  if name=='park_facility_quality':
+   value={k:v for k,v in report.items() if k not in ('rows','dependencies','first_five_safe_rows')};value['report_sha256']=digest
+  else:
+   value=VerifiedReviewRows(report['rows']);value.report_sha256=digest
+   value.field_dictionary=report['field_dictionary'];value.first_five_safe_rows=report['first_five_safe_rows']
+  return value,report['source_snapshot']
  if name=='city_planning_quality' or name in {'city_'+key for key in CITY_PLANNING_TABLES}:
   from city_planning_reference import validate,OUT
   try:report=validate(root)
@@ -207,7 +219,7 @@ def page_table(name,query,root=ROOT):
  limit=min(1000,max(1,int(query.get('limit',[100])[0])));offset=max(0,int(query.get('offset',[0])[0]))
  packet={'snapshot':snapshot,'total':len(rows),'limit':limit,'offset':offset,'rows':rows[offset:offset+limit]}
  if report_digest:packet['report_sha256']=report_digest
- if name in {'mobility_'+key for key in MOBILITY_TABLES}|{'city_'+key for key in CITY_PLANNING_TABLES}:
+ if name in {'mobility_'+key for key in MOBILITY_TABLES}|{'city_'+key for key in CITY_PLANNING_TABLES}|{'park_facility_references'}:
   packet['field_dictionary']=data.field_dictionary;packet['first_five_safe_rows']=data.first_five_safe_rows
  return packet
 class Handler(BaseHTTPRequestHandler):

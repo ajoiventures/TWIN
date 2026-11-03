@@ -14,6 +14,8 @@ Run `python tools/build_map_footprints.py` to derive an immutable content-addres
 
 `GET /api/v1/building_footprints` serves the validated cache with no-store caching. It returns 3,262 features: 3,216 registered source groups and 46 review-only groups containing 73 unrepresented subareas. Every one of the 13,999 raw OBJECTIDs occurs exactly once. The dictionary documents all 21 properties plus geometry. No external imagery or per-display agency request is included.
 
+The [source-record preview](http://127.0.0.1:8769/source-browser?source=building_footprints) displays that complete dictionary and the first five records, including original IDs, assigned/candidate parcel-feature contexts, original floor values and explicit unknown dates. Large geometry arrays are represented by their geometry type in this readable preview; the original projected coordinates remain available from the API. An actual November 3 browser check verified 22 dictionary entries and Building_0000 through Building_0004 with provenance and policy flags. The screenshot remains local at `data/diagnostics/map_footprints_20261103/fields.png`. This preview does not alter selection or the source cache.
+
 Three focused checks cover holes, conflicting/duplicate source membership, retained duplicate parcel-feature contexts, stale snapshot/tampered packet and transitive validation failure. Independent review replayed the full ID census and 27 distributed projected unions with zero symmetric-difference area. [Independent evidence](evidence/map-footprints-review.json).
 
 ## Actual runtime review and remaining work

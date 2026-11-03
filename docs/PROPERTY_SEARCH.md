@@ -1,6 +1,6 @@
 # Property search
 
-Implemented October 28, 2026 for the active local parcel extract. Open the [local map](http://127.0.0.1:8768/), enter an address or parcel number under **Find a property**, then select a result. The map zooms to and highlights the parcel; its inspector shows appraiser attributes, building-link evidence, permit context, zoning reference and a parcel reference coordinate.
+Implemented October 28, 2026 for the active local parcel extract. Current preserving review service, checked November 3: [local map](http://127.0.0.1:8769/). Enter an address or parcel number under **Find a property**, then select a result. The map zooms to and highlights the parcel; its inspector shows appraiser attributes, building-link evidence, permit context, zoning reference and a parcel reference coordinate.
 
 Address matching accepts street abbreviations, reordered words and word prefixes. Exact parcel numbers rank first, followed by exact addresses; up to ten results are displayed with the total match count. Parcel numbers retain leading zeroes. OCPA's formatted `14-22-29-1478-00-150` form is also supported. Condominium unit records can share a street address, so the result's parcel number remains visible and selection uses its exact feature identity.
 
@@ -10,7 +10,9 @@ Search covers the loaded snapshot, not all Orange County properties. An absent r
 
 API: `GET /api/v1/parcels?q=1615%20Edgewater%20Drive&limit=10`. Filtering and ranking occur before pagination. Search reads the cached snapshot without calling an agency service per request.
 
-The local selection bridge maps exact parcel features to accepted 3D entity IDs without a parcel-number/address fallback. It shows matched, unmatched and editor-pending states. Browser and Kit exchange only ephemeral selection state; source tables remain read-only. The updated workspace script must be loaded for editor acknowledgment. A current browser check of 1420 Edgewater resolved one accepted building and correctly displayed pending editor acknowledgment; bidirectional live Kit verification remains outstanding.
+The local selection bridge maps exact parcel features to accepted 3D entity IDs without a parcel-number/address fallback. It shows matched, unmatched and editor-pending states. Browser and Kit exchange only ephemeral selection state; source tables remain read-only. The updated workspace script must be loaded for editor acknowledgment. The older 1420 Edgewater check observed pending acknowledgment. Later [implementation runtime evidence](evidence/workspace-selection-runtime.json) records an actual browser selection of 1600 Edgewater delivered to two Kit paths, a Kit selection delivered back to an exact map feature, unmatched/unaccepted cases, unchanged camera and 25 unchanged source files. Kit-to-map selection used a bounded selection-API harness, not viewport pixel picking; this record explicitly lacks independent acceptance. It is historical evidence, not proof of a currently running bridge.
+
+November 3 actual map review used **Link property selection with 3D** off and verified the selection-bridge file hash stayed unchanged. The [source footprint layer](MAP_BUILDING_FOOTPRINTS.md) adds original OCPA outlines and exact parcel-context inspection without accepting new relationships. Current native bridge/pixel-picking acceptance must be assessed separately from this map-only review.
 
 ## Government reference inspector
 

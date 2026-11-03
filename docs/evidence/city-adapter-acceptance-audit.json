@@ -1,0 +1,199 @@
+{
+  "schema": "twin.independent-city-adapter-acceptance-audit/1",
+  "reviewed_utc": "2026-11-03T17:25:35.833887+00:00",
+  "reviewer": "city_adapter_acceptance agent, independent read-only audit",
+  "ticket": "https://github.com/ajoiventures/TWIN/issues/4",
+  "github_state_observed": "open",
+  "decision": "do_not_close_expanded_issue",
+  "scope": "Original six adapter acceptance criteria plus G04 and the explicit parks/public land/zoning L-01\u2013L-07 addition; no scope removal.",
+  "source_snapshot": "20261028T160543372334Z",
+  "requirements": [
+    {
+      "id": "original-1",
+      "requirement": "Inventory actual official datasets and availability, including tree/elevation candidates",
+      "status": "proved_bounded_adapter_scope",
+      "evidence": [
+        "tools/city_adapter_contract.py:build",
+        "docs/CITY_ADAPTER_CONTRACT.md"
+      ],
+      "observed": "131-service cached directory; verified Address_Point layer22 and NAVD88 benchmark POINT layer1; no invented tree inventory/DEM; County OCPA kept separate"
+    },
+    {
+      "id": "original-2",
+      "requirement": "Selected-source publisher/IDs/URLs/pagination/auth/rate/update/CRS/units/license/retrieval records",
+      "status": "proved_with_explicit_unknowns",
+      "observed": "8 source-register entries contain all required keys; unknown rate, acquisition/effective dates, update frequency and reuse permission remain unknown rather than fabricated"
+    },
+    {
+      "id": "original-3",
+      "requirement": "Normalize/preserve original source IDs/dates and geometry quality, keeping entity types separate",
+      "status": "proved_bounded_adapter_scope",
+      "evidence": [
+        "tools/city_adapter_contract.py:normalize",
+        "tests/test_city_adapter_contract.py"
+      ],
+      "observed": "Original row IDs differ from duplicate license case numbers; invalid geometry quarantined only in derived packet; approved source fields projected"
+    },
+    {
+      "id": "original-4",
+      "requirement": "Read-only bounded adapter, pagination/retry/backoff/timeout/schema/cache and supported refresh",
+      "status": "proved_declared_full_refresh_scope",
+      "observed": "Existing data_pipeline.Client three attempts/60seconds/backoff; ArcGIS50-ID batches; ordered Socrata1000-row pages; no verified incremental delta/deletion token so bounded full refresh declared; validation makes no agency request"
+    },
+    {
+      "id": "original-5",
+      "requirement": "Fixtures for schema/missing/duplicate/swapped/invalid/empty/outage and preserve good data",
+      "status": "proved_focused_checks_and_source_review",
+      "observed": "3 focused City fixtures pass now in0.012s; source inspected for guarded previous packet/backup/failure record behavior; no rebuild performed in audit"
+    },
+    {
+      "id": "original-6",
+      "requirement": "Approved normalized snapshot-only client publication, no keys/private exports",
+      "status": "proved_current_readonly_routes",
+      "observed": "6 selected current8769 routes HTTP200; source publication allowlist and no perdisplay agency requests inspected; no source/private/credential data written by audit"
+    },
+    {
+      "id": "G04-boundaries-addresses-public-assets",
+      "status": "proved_bounded_references",
+      "evidence": [
+        "docs/STUDY_SCOPE.md",
+        "docs/FULL_NEIGHBORHOOD_PARKS.md",
+        "docs/PUBLIC_OWNERSHIP.md"
+      ],
+      "observed": "Separate official neighborhood/MainStreet boundary and full Citypark-service inventory; references do not prove access/title/currentness"
+    },
+    {
+      "id": "G04-permit-business-date-identity",
+      "status": "proved_bounded_historical_records",
+      "observed": "3,402 permit records and 3,590 business-license rows retain original portal row identity; no current-tenant promotion."
+    },
+    {
+      "id": "G04-fields-firstfive-coverage-county",
+      "status": "proved_bounded_publication",
+      "observed": "Source-browser options, field dictionaries and first-five previews exist; all four derived validators pass their current dependencies; County references remain distinct."
+    },
+    {
+      "id": "expanded-L01",
+      "status": "incomplete",
+      "completed": "Eleven full-neighborhood City park footprints, both boundary memberships and source dates, with independent clipping, API and UI evidence.",
+      "remaining": "Reconcile facility types, amenity maps, access, hours and dated site records across all eleven; service membership alone is insufficient."
+    },
+    {
+      "id": "expanded-L02",
+      "status": "incomplete",
+      "completed": "5,732-feature reference screen; 93 government-related records; five exact City vacant-inventory matches; unknowns and conflicts retained.",
+      "remaining": "Comprehensive verifiable government ownership classification or current City register, plus unresolved agency-context cases; 93 references do not establish complete government ownership coverage."
+    },
+    {
+      "id": "expanded-L03",
+      "status": "incomplete",
+      "remaining": "All-owner dated vacancy/current-use register using documented OCPA codes plus aerial and permit evidence; distinguish parking, open water, parks, underused development, construction, vacant buildings and vacant land."
+    },
+    {
+      "id": "expanded-L04",
+      "status": "partial",
+      "completed": "5,723 parcel contexts, 74 exact zoning codes and 19 FLU categories; split intersections and denominators retained; three invalid source polygons quarantined.",
+      "remaining": "Governing PD/overlay/ordinance conditions and effective dates, unknown/conflict dispositions and requested map filters"
+    },
+    {
+      "id": "expanded-L05",
+      "status": "partial",
+      "completed": "Exact-code unique landareas versus feature-summed overlaps are already reconciled",
+      "remaining": "Reviewed residential, office, mixed-use, activity-center, public and conservation interpretation with clear parcel and area denominators; no entitlement or scenario claims from abbreviations."
+    },
+    {
+      "id": "expanded-L06",
+      "status": "incomplete",
+      "remaining": "Accepted source-supported park and public-space paths, canopy, playground, pavilion, access and parking detail, with existing/future separation and actual visual acceptance."
+    },
+    {
+      "id": "expanded-L07",
+      "status": "partial",
+      "completed": "Separate park,ownershipreference and planning source/geometry/API reviews already exist",
+      "remaining": "Independent full-scope acceptance after ownership, vacancy, governing conditions and site detail are delivered."
+    }
+  ],
+  "current_product_validation": {
+    "city_adapter_contract": {
+      "passed": true,
+      "source_register_entries": 8,
+      "cached_service_count": 131,
+      "cached_requests": 100,
+      "dependency_hashes": 116,
+      "counts": {
+        "streets": 487,
+        "neighborhoods": 4,
+        "zoning": 105,
+        "parks": 8,
+        "permits": 3402,
+        "businesses": 3590,
+        "addresses": 4621,
+        "future_land_use": 46
+      }
+    },
+    "inventory_neighborhood_parks": {
+      "passed": true,
+      "rows": 11
+    },
+    "public_ownership": {
+      "passed": true,
+      "rows": 5732
+    },
+    "city_planning_reference": {
+      "passed": true,
+      "rows": 5723
+    }
+  },
+  "actual_http_routes": {
+    "base": "http://127.0.0.1:8769",
+    "all_status_200": [
+      "city_adapter_quality",
+      "city_addresses",
+      "city_future_land_use",
+      "full_neighborhood_parks",
+      "public_property_quality",
+      "city_planning_quality"
+    ],
+    "agency_calls": false,
+    "browser_review_performed_by_this_auditor": false
+  },
+  "focused_test": {
+    "command": "python -m unittest discover -s tests -p test_city_adapter_contract.py",
+    "passed": 3,
+    "failed": 0,
+    "seconds": 0.012
+  },
+  "current_file_hashes": {
+    "tools/city_adapter_contract.py": "e67a25fd132fef03ab88fe3f23d5b0e1202658f41b5906849bb4d28f16fb0e88",
+    "tools/data_pipeline.py": "688fe532e3ecdcb8ea36be9d899ba8b2c7fa4eb32794cff43f064aae7b3629ff",
+    "tools/serve.py": "184957eced23799ff18edfe8c92a8508a05f04ca624dfa1e6c285913bc2d592c",
+    "tests/test_city_adapter_contract.py": "8b15ffb93536b5c0b2faead7ba481d6572bf1d22edc527e092b01a6b3979ecd7",
+    "tools/inventory_neighborhood_parks.py": "fc0dccd7c1aa1cf12d82699b468e04366cff328a0082a9ec9cdb1f4650f7e89b",
+    "tools/public_ownership.py": "32916d84521e5917a00d5511a324b9555ac60da8dced0b032a24358fc19b2b82",
+    "tools/city_planning_reference.py": "bff853352d6b4637ecf75de64d5cf5467a6b412550dbda2addfffc361eca7040",
+    "web/source-browser.html": "5674f0546c533055e9348027c7a6714718a52b26ee71441e16aaeac2db90e12e",
+    "docs/CITY_ADAPTER_CONTRACT.md": "9d0527ec49023b421cea2beacdc897f60420d51f9d093a7e1e5e1b9d879ce77f",
+    "docs/PARKS_PUBLIC_LAND_ZONING.md": "320e859e7782a67a860bf130a750b108bc7015e8267023ba208a9e200c9cc60c",
+    "docs/FULL_NEIGHBORHOOD_PARKS.md": "99076d5057e6dff0f0040058bdd77b5153cdf93e85b62d8c6bbcd163ad7eb559",
+    "docs/PUBLIC_OWNERSHIP.md": "292093abffdfa855752e8e4c5a426548bb265c6c3954a2460bec7be759fedd35",
+    "docs/CITY_PLANNING_REFERENCE.md": "712983a9816570000d4cd89ecd5cf5a9e72ecd0d941cc08fd8dbe2b016b749fe"
+  },
+  "shortest_scope_preserving_next_steps": [
+    "Reuse the existing eleven park rows to add a complete dated facility, access, hours and amenities register, instead of reacquiring park geometry.",
+    "Extend existing ownership and planning registers with explicit source-backed unresolved-case dispositions and verified current vacancy/use evidence; never turn unknowns into private ownership or vacancy.",
+    "Resolve governing PD and overlay conditions and effective dates for prioritized Main Street parcels using applicable City records; retain exact codes and split polygons.",
+    "Complete accepted park-site detail and requested map filters, then conduct one independent acceptance pass over the expanded scope."
+  ],
+  "not_required_for_original_adapter_acceptance": [
+    "A new ingestion rewrite",
+    "A repeated broad test suite",
+    "An incremental-change token unsupported by the publisher",
+    "A claim that historical license records identify current tenants"
+  ],
+  "limitations": [
+    "No new City agency inquiry or current legal/title determination performed.",
+    "Earlier independent visual/browser evidence was read; this audit directly exercised HTTP but did not control the browser.",
+    "Original adapter can be accepted as a bounded delivered component, but closing the whole issue would discard explicit expanded requirements."
+  ],
+  "side_effects": "Only this bounded audit JSON written; no service restart, source cache, snapshot, scene, manual, selection or issue changes."
+}

@@ -247,6 +247,8 @@ class Handler(BaseHTTPRequestHandler):
     projection=Transformer.from_crs(4326,32617,always_xy=True)
     for feature in packet['features']:
      feature['geometry']=mapping(transform(projection.transform,shape(feature['geometry'])))
+    packet['source_geometry_crs']=packet['geometry_crs']
+    packet['geometry_crs']='EPSG:32617'
     packet['map_crs']='EPSG:32617'
     return self.send(packet)
    if path=='/api/v1/building_footprints':

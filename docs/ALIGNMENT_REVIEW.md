@@ -40,6 +40,14 @@ The reviewer identified a robustness gap in inferring source pixels by inverse-t
 
 **No independently surveyed control network or source-supported positional acceptance tolerance was available in the retained evidence.** The report records zero survey controls and a null tolerance. A task-specific control source and justified acceptance tolerance are still needed before claiming external positional accuracy. No new acquisitions were made for this review.
 
+## November 3 follow-up on available control
+
+The [NOAA Data Explorer bounds query](https://geodesy.noaa.gov/api/nde/bounds?minlat=28.552917&maxlat=28.590025&minlon=-81.404656&maxlon=-81.375076) returned 36 marks in the neighborhood bounding box. Exact polygon screening found nine in the official neighborhood and zero in either Main Street or the Edgewater focus corridor. The index identifies nine adjusted horizontal positions, 17 `HD_HELD1` positions and ten scaled positions. The adjusted positions use NAD83(1990) and are approximately 845–1,506 m from the corridor centerline in a screening projection. The bounds response SHA256 is `77ed6ffde8cedbcb10158f3e3cf659de1c5d25f97332f3aea7f447df01203c1b`. [NOAA index documentation](https://geodesy.noaa.gov/web_services/data-explorer.shtml)
+
+Three adjusted marks fall in the neighborhood. Two are I-4 marks and one is a radio tower. The latest recovery listed for I-4 mark AK0334 records that the mark could not be found in 1995. An eligible control needs a verified match to a scene feature and a documented datum transformation. The control screen found no such pair for Edgewater, so the survey-control residual and project tolerance remain unavailable. [AK0334 datasheet](https://geodesy.noaa.gov/cgi-bin/ds_mark.prl?PidBox=AK0334)
+
+The [NAIP service metadata](https://imagery.geoplatform.gov/iipp/rest/services/NAIP/NAIP2023_CONUS/ImageServer) describes generic ±6 m true-ground rectification for its stated 1 m and 60 cm products. The map uses local 30 cm source rasters. A tile-specific accuracy report is still needed to establish an applicable source tolerance.
+
 ## Remaining ticket #5 gates
 
 | Criterion | Evidence and remaining limit |

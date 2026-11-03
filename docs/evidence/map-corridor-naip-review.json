@@ -1,0 +1,61 @@
+{
+  "ticket": 5,
+  "reviewed_commit": "709af5d",
+  "reviewed_date": "2026-11-03",
+  "scope": "Independent corridor geometry replay, local API, cached aerial reproduction and supplied browser screenshot",
+  "snapshot": "20261028T160543372334Z",
+  "review_api": "http://127.0.0.1:8769",
+  "corridor": {
+    "route": "/api/v1/edgewater_focus_corridor",
+    "method": "Union and merge all named cached City segments before clipping to the Main Street polygon, then reconstruct the 60 m flat-cap context polygon independently",
+    "source_ids_match": true,
+    "matching_dependency_hashes": 6,
+    "city_segments": 33,
+    "length_m": 2916.56556591232,
+    "area_m2": 300843.1870530227,
+    "area_outside_neighborhood_m2": 12542.8278543094,
+    "area_outside_main_street_m2": 1.2974944190203576e-7,
+    "max_endpoint_boundary_distance_m": 1.398170244087136e-10,
+    "centerline_replay_hausdorff_m": 1.3080544917753566e-9,
+    "context_replay_symmetric_difference_m2": 7.470804430812985e-7,
+    "scope_status": "project_review_scope",
+    "effective_and_observation_dates": null,
+    "api_crs_finding": "The reviewed commit reported the source geometry_crs EPSG:4326 for projected EPSG:32617 response coordinates. A follow-up deployment corrected the metadata. Independent recheck on port 8769 returned geometry_crs and map_crs EPSG:32617, source_geometry_crs EPSG:4326 and the same source snapshot. The southern endpoint returned [461962.530242347, 3159332.608939933]."
+  },
+  "footprint_scope": {
+    "full_groups": 3262,
+    "positive_area_groups": 3194,
+    "method": "Calculate each full footprint intersection area with the independently projected City boundary union and compare the entire eligible ID set to the scoped response",
+    "exact_id_set_match": true
+  },
+  "aerial": {
+    "metadata_route": "/api/v1/naip_basemap",
+    "image_route": "/map-reference/naip.jpg",
+    "source_service": "https://imagery.geoplatform.gov/iipp/rest/services/NAIP/NAIP2023_CONUS/ImageServer",
+    "catalog": "https://catalog.data.gov/dataset/national-agriculture-imagery-program-naip-imagery",
+    "catalog_license": "https://www.usa.gov/publicdomain/label/1.0/",
+    "public_raster_ids": [9784, 9786, 9787, 9789],
+    "fresh_source_record_query_matches": true,
+    "acquisition_date": "2023-01-12",
+    "cache_retrieved_utc": "2026-11-03T23:52:32.678535+00:00",
+    "crs": "EPSG:32617",
+    "extent": [460222.9248863799, 3158511.6927512, 463519.28805062006, 3162632.1467065],
+    "image_dimensions_pixels": [1600, 2000],
+    "image_bytes": 869536,
+    "image_sha256": "c723ead5d00c1a1e77828ebf1a1ac8d213e2de77a11c232c85b907c8a79ce214",
+    "locked_source_export_grid_and_image_digest_reproduced": true,
+    "wrong_image_hash_http_status": 409,
+    "covered_scope_geometries": ["neighborhood", "main_street", "edgewater_focus_corridor", "edgewater_focus_centerline"],
+    "export_sampling_m_per_pixel": [2.0602269776500908, 2.060226977650076],
+    "registration": "Client maps the returned UTM extent into the same metre-based origin and axis conversion as vector geometry. This checks grid placement and displayed context. Field positional accuracy remains unknown."
+  },
+  "screenshot": {
+    "path": "data/diagnostics/naip_basemap_20261103/2204-edgewater.png",
+    "sha256": "64a31a6d2c63738fb8c6784486bd52368ec8d43c0723d9d96fd6e47010e2f780",
+    "observed": "Historical aerial and teal corridor visible with City boundary, parcel and footprint layers. The 2204 Edgewater parcel is selected and its inspector shows the matching address. 3D linking is off in the screenshot."
+  },
+  "remaining_acceptance": [
+    "Establish source-supported positional tolerance and independent control evidence for the modeled assets.",
+    "Verify broader native 2D/3D counterpart selection and accept the full ticket scope."
+  ]
+}

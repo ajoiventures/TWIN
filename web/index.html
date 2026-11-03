@@ -109,7 +109,7 @@ async function loadEdgewaterCorridor(){
   const response=await fetch('/api/v1/edgewater_focus_corridor');
   if(!response.ok)throw Error('Corridor cache unavailable');
   const packet=await response.json();
-  if(packet.source_snapshot!==data.snapshot||packet.map_crs!==data.map_crs)throw Error('Corridor source mismatch');
+  if(packet.source_snapshot!==data.snapshot||packet.map_crs!==data.map_crs||packet.geometry_crs!==data.map_crs)throw Error('Corridor source mismatch');
   const area=packet.features.find(feature=>feature.id==='edgewater_focus_corridor');
   const centerline=packet.features.find(feature=>feature.id==='edgewater_focus_centerline');
   if(!area||!centerline)throw Error('Corridor geometry unavailable');

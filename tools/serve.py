@@ -218,6 +218,12 @@ class Handler(BaseHTTPRequestHandler):
   url=urlparse(self.path);path=url.path
   try:
    if path=='/':return self.send((ROOT/'web/index.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
+   if path=='/api/v1/building_footprints':
+    from build_map_footprints import read_packet
+    try:packet=read_packet(ROOT)
+    except (ValueError,OSError) as exc:
+     return self.send({'error':'Building footprint reference is unavailable or stale; rebuild the cached packet.','detail':str(exc)},503)
+    return self.send(packet)
    if path=='/source-browser':return self.send((ROOT/'web/source-browser.html').read_text(encoding='utf-8'),kind='text/html; charset=utf-8')
    if path=='/city-planning/coverage':
     from city_planning_reference import validate,OUT

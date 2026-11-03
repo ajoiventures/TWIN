@@ -4,6 +4,7 @@ Last reviewed: November 2, 2026. Project scope: the full College Park digital tw
 
 | Document | Purpose |
 |---|---|
+| [Map building footprints](MAP_BUILDING_FOOTPRINTS.md) | Cached source outlines, exact source/parcel-feature contexts, actual map review and remaining pointer/basemap acceptance |
 | [Church wing correction](CHURCH_WING_REVIEW.md) | Locally adopted continuous roof/estimated enclosure, original Building2892 identity, actual API/render review and pending running-editor refresh |
 | [Terrain anchoring rebase](TERRAIN_ANCHORING_REBASE.md) | Cached elevation availability, all old skip dispositions and shared-building/road/landscape anchoring requirements; no terrain activation |
 | [Coordinated terrain candidate](TERRAIN_COORDINATED_CANDIDATE.md) | Inactive terrain/building/surface model, five matched actual views, source preservation and contact/seam corrections required before adoption |

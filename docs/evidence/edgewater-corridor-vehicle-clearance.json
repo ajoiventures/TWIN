@@ -1,0 +1,35 @@
+{
+  "preview_sha256": "2eafbbf11fb81666f0d91324699e8988193a0bce9ed81d450553d23cb326c0a3",
+  "visible_vehicle_mesh_hulls_tested": 70,
+  "target_count": 41,
+  "threshold_m2": 0.01,
+  "intersections": [],
+  "closest_five_new_parking_pairs": [
+    {
+      "vehicle": "/World/ParkedVehicles/Car_016",
+      "surface": "/World/RearParkingSamples/south01_east_long_lot",
+      "distance_m": 9.412686657990514
+    },
+    {
+      "vehicle": "/World/ParkedVehicles/Car_080",
+      "surface": "/World/RearParkingSamples/mid04_west_south_marked_row",
+      "distance_m": 12.975164716225773
+    },
+    {
+      "vehicle": "/World/ParkedVehicles/Car_067",
+      "surface": "/World/RearParkingSamples/mid06_west_marked_rear_bays",
+      "distance_m": 15.158587259119498
+    },
+    {
+      "vehicle": "/World/ParkedVehicles/Car_040",
+      "surface": "/World/RearParkingSamples/northeast_edgewater_front_bays",
+      "distance_m": 16.504644201709578
+    },
+    {
+      "vehicle": "/World/ParkedVehicles/Car_084",
+      "surface": "/World/RearParkingSamples/south03_east_north_marked_bays",
+      "distance_m": 19.00024506827089
+    }
+  ],
+  "limitations": "plan convex hull screen only; curb clearance, tire contact, lot stripes and real vehicle placement require separate review"
+}

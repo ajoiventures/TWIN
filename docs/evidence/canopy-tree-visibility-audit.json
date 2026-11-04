@@ -1,0 +1,32 @@
+{
+  "added_hidden_ids": [
+    0,
+    34,
+    36,
+    38,
+    39,
+    43,
+    136,
+    236
+  ],
+  "already_hidden": 102,
+  "now_hidden": 110,
+  "all": {
+    "all_positions": 505,
+    "visible_positions": 403,
+    "visible_beyond_2m": 93,
+    "hidden_beyond_2m": 53
+  },
+  "main_street": {
+    "all_positions": 74,
+    "visible_positions": 74,
+    "visible_beyond_2m": 35,
+    "hidden_beyond_2m": 0
+  },
+  "neighborhood": {
+    "all_positions": 384,
+    "visible_positions": 371,
+    "visible_beyond_2m": 76,
+    "hidden_beyond_2m": 3
+  }
+}

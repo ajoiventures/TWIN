@@ -6,6 +6,12 @@ Eight January 2025 OCPA exports now cover the full 2.92 km City-defined Edgewate
 
 The local contact sheet confirms useful parking evidence outside the pilot. Tiles 01–03 show smaller lots on both sides of Edgewater. Tile 04 covers Princeton and Smith and adjacent lots. Tiles 05–06 show additional commercial rear and side parking. Tiles 07–08 show larger parking areas where drive aisles, planted islands and pond edges need separate outlines. These are priorities from the overview image. Use the original frames to distinguish actual paving from shadow and to check what is already modeled before tracing. Original imagery remains in the ignored local cache.
 
+### Commercial blocks on tiles 05 and 06
+
+The [combined Omniverse preview](../data/diagnostics/edgewater_tile06_parking_20261104/review.usda) adds **999.13 m²** of asphalt across six paved interiors traced from the January 2025 aerial. The locations include east commercial lots and rear aisles and west side and rear parking bays. The build retains existing road and building geometry, clips the new asphalt against those meshes and fits it to the LiDAR-derived ground. The six reopened surfaces have less than 0.00002 m² of overlap per patch with the tested blockers. [Tile 05 fit](evidence/edgewater-tile05-parking-fit.json) · [Tile 06 fit](evidence/edgewater-tile06-parking-fit.json)
+
+At seven sampled lot-to-road joins, 1,695 pairs matched in elevation within 0.001 mm. Two other roads intersect the original traces but are separated from the retained new paving by 1.04 m and 5.82 m in plan. Keep these two interfaces open for an aerial and mesh review before deciding whether they need additional fill. Markings, curb details, and rendered acceptance are pending. [Tile 05 joins](evidence/edgewater-tile05-parking-joins.json) · [Tile 06 joins](evidence/edgewater-tile06-parking-joins.json)
+
 ### Northern Edgewater tile 08
 
 The [separate Omniverse preview](../data/diagnostics/north_edgewater_tile08_parking_20261104/review.usda) adds **632.93 m²** of LiDAR-fitted pavement from five visible interiors. The traces cover two groups of parking bays near Edgewater and three drive aisles in the large lot west of the corridor. The build clips against composed buildings, road surfaces and other existing paving. The traces stop short of the ponds and omit planted islands and obscured edges. Saved overlap with tested blockers stays below 0.0002 m² per surface. [Saved-mesh receipt](evidence/north-edgewater-tile08-parking-fit.json)

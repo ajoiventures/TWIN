@@ -42,7 +42,7 @@ def grouped_claims(claims):
         if key not in groups:groups[key]={**claim,'source_ids':list(claim['source_ids']),'member_claim_ids':[claim['id']]}
         else:
             current=groups[key]
-            if any(current.get(k)!=claim.get(k) for k in ['address','scope','suite','reported_status','facts']):
+            if any(current.get(k)!=claim.get(k) for k in ['address','scope','suite','reported_status','facts','candidate_property_use_codes']):
                 raise ValueError('Conflicting scope/status in explicit syndication group: '+key)
             current['source_ids']=sorted(set(current['source_ids']+claim['source_ids']));current['member_claim_ids'].append(claim['id'])
     return list(groups.values())

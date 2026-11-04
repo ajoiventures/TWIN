@@ -32,6 +32,17 @@ class CommercialEvidenceTests(unittest.TestCase):
         for scope in ['individual_suite','retail_condominium_component']:
             c=claim(scope=scope);c['identity_evidence']={'kind':'explicit_source_parcel_id','parcel_id':'00123','evidence_url':'https://broker.example','scope_verified':True}
             r=entity_links(c,[parcel()],[building()]);self.assertEqual(r['accepted_entity_links'],[])
+    def test_retail_scope_excludes_same_address_residential_and_unknown_use(self):
+        retail={**parcel(),'property_use_code':'1101'}
+        condo={**parcel(),'id':'ocpa:2','parcel_id':'00456','site_address':'2305 EDGEWATER DR UNIT 1201','property_use_code':'0400'}
+        unknown={**parcel(),'id':'ocpa:3','parcel_id':'00789'}
+        c={**claim(scope='retail_condominium_component',status='offered_for_sale'),'candidate_property_use_codes':['1101']}
+        r=entity_links(c,[retail,condo,unknown],[building()])
+        self.assertEqual(r['candidate_parcel_feature_ids'],['ocpa:1'])
+        self.assertEqual(r['accepted_entity_links'],[])
+        copy={**c,'id':'copy','candidate_property_use_codes':None}
+        with self.assertRaisesRegex(ValueError,'Conflicting'):
+            grouped_claims([c,copy])
     def test_address_candidate_alone_never_activates_any_building(self):
         r=entity_links(claim(scope='building_physical_reference'),[parcel()],[building()]);self.assertFalse(r['address_only_link_accepted']);self.assertEqual(r['accepted_entity_links'],[])
     def test_reviewed_physical_building_metadata_is_separate_from_market_status(self):

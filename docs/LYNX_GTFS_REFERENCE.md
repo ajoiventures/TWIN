@@ -10,6 +10,8 @@ The feed publishes validity **2026-10-02 through 2026-12-12**, with agency timez
 
 ## Actual College Park coverage
 
+All 15 GTFS points and their paired older GIS points fall on the same side of the nearest City centerline segment with the GIS-reported street name. The comparison uses EPSG:32617 metres, normalizes the publisher's `EDGWATER` spelling, and holds offsets within 1 m of the line for review. At Princeton, stop 4170 falls south of City centerline 6246 in both sources, at lateral offsets of 7.36 m and 6.80 m. This verifies a reference-side agreement. The boarding pad, actual curb location, sidewalk connection and accessibility still need field evidence. [Stop reference-side audit](evidence/lynx-stop-reference-side-audit.json)
+
 | Record | Observed study-area result | Limit |
 |---|---:|---|
 | Static stops | 15 | Published stop references, not surveyed boarding areas or verified accessibility |

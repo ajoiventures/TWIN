@@ -1,0 +1,161 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "gtfs_packet_sha256": "92813f68531da733acfe55f4bb601ad8e3bbfa5b08e3042f96fab3ea9584ff24",
+  "city_street_sha256": "273eb5582a254284e0e249705424d90b5ab606baede9f9bdd46ec72ff99c71a7",
+  "results": {
+    "same_reference_side": 15
+  },
+  "rows": [
+    {
+      "stop_id": "      2005",
+      "reported_street": "MAURY RD",
+      "centerline_id": 5039,
+      "gtfs_lateral_m": -10.84,
+      "gis_lateral_m": -10.2,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "NO",
+      "gtfs_wheelchair_boarding": "2"
+    },
+    {
+      "stop_id": "      2114",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": 9.49,
+      "gis_lateral_m": 9.62,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4170",
+      "reported_street": "W PRINCETON ST",
+      "centerline_id": 6246,
+      "gtfs_lateral_m": -7.36,
+      "gis_lateral_m": -6.8,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4172",
+      "reported_street": "W PRINCETON ST",
+      "centerline_id": 6246,
+      "gtfs_lateral_m": 10.23,
+      "gis_lateral_m": 10.78,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4217",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": -7.5,
+      "gis_lateral_m": -7.24,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4219",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": -8.91,
+      "gis_lateral_m": -8.65,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4220",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": -13.12,
+      "gis_lateral_m": -12.88,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "NO",
+      "gtfs_wheelchair_boarding": "2"
+    },
+    {
+      "stop_id": "      4223",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": 10.05,
+      "gis_lateral_m": 10.3,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "2"
+    },
+    {
+      "stop_id": "      4224",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": 10.94,
+      "gis_lateral_m": 11.25,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4225",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": 10.97,
+      "gis_lateral_m": 11.29,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      4676",
+      "reported_street": "W PRINCETON ST",
+      "centerline_id": 6246,
+      "gtfs_lateral_m": -10.99,
+      "gis_lateral_m": -10.39,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      5731",
+      "reported_street": "EDGEWATER DR",
+      "centerline_id": 2271,
+      "gtfs_lateral_m": -8.38,
+      "gis_lateral_m": -8.1,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      6169",
+      "reported_street": "MAURY RD",
+      "centerline_id": 5039,
+      "gtfs_lateral_m": -9.56,
+      "gis_lateral_m": -8.93,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "YES",
+      "gtfs_wheelchair_boarding": "1"
+    },
+    {
+      "stop_id": "      6185",
+      "reported_street": "MAURY RD",
+      "centerline_id": 5039,
+      "gtfs_lateral_m": 10.26,
+      "gis_lateral_m": 10.91,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "NO",
+      "gtfs_wheelchair_boarding": "2"
+    },
+    {
+      "stop_id": "      6192",
+      "reported_street": "MAURY RD",
+      "centerline_id": 5039,
+      "gtfs_lateral_m": 9.5,
+      "gis_lateral_m": 10.13,
+      "status": "same_reference_side",
+      "old_gis_sidewalk_connection": "NO",
+      "gtfs_wheelchair_boarding": "2"
+    }
+  ],
+  "limits": "Signed offset to same-name City reference line. Candidate side only; no curb, boarding pad, accessible route or present condition verified."
+}

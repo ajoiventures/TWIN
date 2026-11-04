@@ -8,9 +8,11 @@ The local contact sheet confirms useful parking evidence outside the pilot. Tile
 
 ### Northern Edgewater tile 07
 
-The [local review stage](../data/diagnostics/north_edgewater_parking_20261104_c/review.usda) adds **1,214.97 m²** of asphalt across four visible paved interiors. The shapes cover the west marked lot, an east commercial lot, and two west-side parking rows. Five existing service-road meshes account for about 289 m² within the original traces and retain their pavement. The four new surfaces preserve the asphalt material and use the existing LiDAR ground with the nominal 65 mm preview offset.
+The [local review stage](../data/diagnostics/north_edgewater_parking_20261104_d/review.usda) adds **1,214.97 m²** of asphalt across four visible paved interiors. The shapes cover the west marked lot, an east commercial lot, and two west-side parking rows. Five existing service-road meshes account for about 289 m² within the original traces and retain their pavement. The four new surfaces preserve the asphalt material and use the existing LiDAR ground with the nominal 65 mm preview offset.
 
 The [saved-mesh receipt](evidence/north-edgewater-parking-fit.json) records the image coordinates, source hashes and measurements. Each reopened surface differs from the clipped area by less than 0.002 m², and the maximum tested overlap with existing blockers is below 0.00005 m². Remaining work includes rendered joins, curbs, striping, tree and car clearance, and full boundaries where canopy obscures pavement. This separate preview extends the earlier Princeton–Smith comparison.
+
+The seam audit caught 16 faces that became degenerate after point serialization. The revised stage omits those faces and passes the saved area and overlap checks again. Across **1,601 sample pairs** at five modeled aisle interfaces, the greatest elevation difference was under **0.002 mm**. Boundary points were paired within 1 mm in plan. The sample proves the modeled paving meets the modeled aisles vertically at the tested points. Rendered seams and field grades still require review. [Join audit](evidence/north-edgewater-parking-joins.json)
 
 ## East rear aisle coverage
 

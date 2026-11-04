@@ -1,0 +1,24 @@
+{
+  "stages": [
+    {
+      "stage": "suv_original_visual_review.usda",
+      "sha256": "1a24c390ecc619dfca538992608182109deb8739eec4321caa2341e82462f2c4",
+      "usd_layers": [
+        "compact_suv.usda",
+        "suv_original_visual_review.usda"
+      ],
+      "mesh_count": 436
+    },
+    {
+      "stage": "suv_batched_visual_review.usda",
+      "sha256": "b8705b2ca8cdaac28d5c67977c54337346be526c8e032bb7048a89c80e9b59e5",
+      "usd_layers": [
+        "compact_suv_material_batches.usda",
+        "suv_batched_visual_review.usda"
+      ],
+      "mesh_count": 13
+    }
+  ],
+  "camera_and_lighting_opinions_identical": true,
+  "limits": "Prepared and geometrically framed. Actual rendering and image comparison pending."
+}

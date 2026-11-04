@@ -1,0 +1,13 @@
+{
+  "stage_sha256": "276d87ee1f613920d4a502d70604fc3b59b3176b29f36adf59672d56273163a2",
+  "parent_sha256": "10758a6fcb086b75f8cfe6f4ca06da49b87aeb746903d699e8d5c1d2647dff8f",
+  "repartitioned_source_sha256": "8cbc52e8bc382d4c59027f17855bc8bac19d83056f13af7fc406822ca20f8976",
+  "original_elevated_unpaired_edges": 12,
+  "saved_elevated_unpaired_edges": 0,
+  "inserted_vertical_edge_splits": 4,
+  "saved_boundary_edges_at_base": 9,
+  "face_count": 21,
+  "vertex_count_before": 75,
+  "vertex_count_after": 24,
+  "outline_symmetric_difference_m2": 0.0
+}

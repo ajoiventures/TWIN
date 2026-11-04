@@ -1,5 +1,13 @@
 # Commercial reference and listing-status verification
 
+## November 4 evidence update
+
+Added **1610 Edgewater Drive** to the property context register. The broker listing describes a freestanding, single-story 1950 retail building with 11,937 square feet and 75 reported parking spaces. The active OCPA snapshot has one exact situs match, feature `ocpa:345458` and parcel `292223949602010`, with consistent year, stories, lot area and zoning. The sale offer is a publisher-reported observation. The 75 spaces are a parking inventory lead. Current availability, occupancy, field counts and a physical 3D assignment remain unverified. [Broker listing 40304288](https://www.loopnet.com/Listing/1610-Edgewater-Dr-Orlando-FL/40304288/)
+
+The Wellesley listing text was rechecked and still identifies the sale scope as the 19,827-square-foot ground-floor retail condominium within the seven-story project. The listing update field supplies no date. Residential and suite assignments remain separate and unresolved. [CBRE-attributed listing 41801447](https://www.loopnet.com/Listing/2305-Edgewater-Dr-Orlando-FL/41801447/)
+
+Offline replay now yields seven scoped claims and two accepted property-context links. Current verified status remains unknown for all seven. No market-status badge or geometry change was activated.
+
 Bounded ticket #32 implementation, October 28, 2026. This register separates broker-reported physical facts, marketing status, component/suite scope, current verification and government entity links. It does not change scene geometry or activate market-status labels.
 
 ## Verified source observations

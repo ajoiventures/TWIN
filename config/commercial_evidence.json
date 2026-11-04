@@ -1,8 +1,21 @@
 {
   "schema_version": 1,
-  "scope": "Bounded commercial reference verification for four College Park addresses; not a complete listing inventory.",
+  "scope": "Bounded commercial reference verification for five College Park addresses; not a complete listing inventory.",
   "review_after_days": 30,
   "sources": [
+    {
+      "id": "madsensmith_1610_loopnet_40304288",
+      "publisher": "Madsen Smith Enterprises, LLC",
+      "distribution": "LoopNet broker listing",
+      "url": "https://www.loopnet.com/Listing/1610-Edgewater-Dr-Orlando-FL/40304288/",
+      "observed_utc": "2026-11-04T00:55:06Z",
+      "access_method": "web_broker_listing_text",
+      "access_note": "Broker-attributed listing text inspected. Reported area and parking are marketing facts; current status and capacity are unverified.",
+      "source_record_id": "40304288",
+      "reported_date": null,
+      "status_as_of_date": null,
+      "source_family": "madsensmith-1610-retail-sale"
+    },
     {
       "id": "cbre_wellesley_loopnet_41801447",
       "publisher": "CBRE",
@@ -254,6 +267,31 @@
         "evidence_url": "https://images1.showcase.com/d2/lvjT5gaqmC3LIrytPi5vTozAOKxT7JRm0JWVewFNNhw/document.pdf",
         "scope_verified": "physical_building_metadata_only",
         "review_basis": "Parent independent review: unique1420situs, exactID+geometry OCPA sourcePIN/featureID and unique active buildinggroup; broker whole-building description and2stories corroborate government2stories. Derive generated buildingID from active snapshot; undated market status excluded."
+      }
+    },
+    {
+      "id": "1610-retail-sale",
+      "claim_group": "madsensmith-1610-retail-sale",
+      "address": "1610 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "freestanding_retail_property",
+      "suite": null,
+      "reported_status": "offered_for_sale",
+      "source_ids": ["madsensmith_1610_loopnet_40304288"],
+      "facts": {
+        "building_area_sf": 11937,
+        "building_stories": 1,
+        "year_built": 1950,
+        "reported_parking_spaces": 75
+      },
+      "exclusions": ["verified current availability", "field-verified parking capacity", "verified occupancy"],
+      "identity_evidence": {
+        "kind": "reviewed_property_address_context",
+        "parcel_id": "292223949602010",
+        "evidence_url": "https://www.loopnet.com/Listing/1610-Edgewater-Dr-Orlando-FL/40304288/",
+        "scope_verified": "property_context_only",
+        "review_basis": "Exact situs matches unique OCPA feature ocpa:345458. Appraiser year, stories, rounded site area and zoning agree with the marketing record. Physical scene identity remains separate."
       }
     },
     {

@@ -1,0 +1,128 @@
+{
+  "stage_sha256": "abed2133414f68e65e65184af82b75604951101a54b803760e1a33986af2c252",
+  "parent_sha256": "22a78126e941d0e79b9581c727fd379551dd54c74668756b777528c7ecc7c01a",
+  "image_sha256": "05282c2f1cbe7cb16ee758f03c38b04156d813553996cb637e5f09841c48e051",
+  "cloud_sha256": "2bc9c6458e834c32282198bfe0df84b32186d12d9886408bd6f49f92d6347eff",
+  "equipment": [
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater2100/Unit_01",
+      "pixels": [
+        [
+          350,
+          410
+        ],
+        [
+          378,
+          410
+        ],
+        [
+          378,
+          440
+        ],
+        [
+          350,
+          440
+        ]
+      ],
+      "high_returns": 39,
+      "median_relative_height_m": 1.1531770539395154,
+      "trace_area_m2": 3.6579090296448173
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater2100/Unit_02",
+      "pixels": [
+        [
+          442,
+          411
+        ],
+        [
+          475,
+          411
+        ],
+        [
+          475,
+          437
+        ],
+        [
+          442,
+          437
+        ]
+      ],
+      "high_returns": 45,
+      "median_relative_height_m": 1.1319721279530413,
+      "trace_area_m2": 3.73629279450753
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater2100/Unit_03",
+      "pixels": [
+        [
+          396,
+          504
+        ],
+        [
+          428,
+          504
+        ],
+        [
+          428,
+          534
+        ],
+        [
+          396,
+          534
+        ]
+      ],
+      "high_returns": 54,
+      "median_relative_height_m": 1.1606331822153493,
+      "trace_area_m2": 4.18046746305647
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater2100/Unit_04",
+      "pixels": [
+        [
+          326,
+          600
+        ],
+        [
+          379,
+          600
+        ],
+        [
+          379,
+          627
+        ],
+        [
+          326,
+          627
+        ]
+      ],
+      "high_returns": 67,
+      "median_relative_height_m": 1.5709830825089597,
+      "trace_area_m2": 6.231509311145056
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater2100/Unit_05",
+      "pixels": [
+        [
+          439,
+          596
+        ],
+        [
+          482,
+          596
+        ],
+        [
+          482,
+          626
+        ],
+        [
+          439,
+          626
+        ]
+      ],
+      "high_returns": 57,
+      "median_relative_height_m": 1.555092233023025,
+      "trace_area_m2": 5.6175031535019375
+    }
+  ]
+}

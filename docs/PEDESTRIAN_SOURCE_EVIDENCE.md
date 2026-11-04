@@ -1,5 +1,9 @@
 # Pedestrian source acquisition follow-up
 
+## Crossing support in the saved 3D roads
+
+Projected all eight draft lines into the saved scene's local frame and intersected them with the union of visible roadway meshes. Six lines lie entirely on modeled road surfaces to the reported precision. The Smith south line has about 1 mm outside the road union. The **Smith north traverse, draft line 3731, has 1.901 m of its 14.034 m outside the modeled road union**. Inspect the aerial and verified curb edges at that junction before adding or clipping paint. The audit found no prim named for a crosswalk. That name search does not classify all markings, and line support alone cannot establish paint coverage or dimensions. [Per-crossing road mesh paths and lengths](evidence/pilot-crossing-road-support.json)
+
 ## Smith–Edgewater crossing reconciliation
 
 The January 2025 OCPA image shows crossing paint at four locations around the offset Smith approaches. Shadows partly obscure the west approach, and the two Edgewater traversals must be kept separate. All four MetroPlan points have `EDGEDUP=0`. The May 2026 and task-force line geometries match exactly for these four line IDs.

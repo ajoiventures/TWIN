@@ -1,0 +1,40 @@
+{
+  "stage_sha256": "ec271268f2e0bc0c5a48c173f3ed3a30e1497a05fabb4d681f668612f15a8e2f",
+  "parent_sha256": "e6d9c1b7390d71df245bdadb7db9a4f4d9f8a2d577f128609abacb839068c398",
+  "zone_comparison_sha256": "8d45dc9651f1b8805e673b0359317f3a4a820af5190591ebebd26b753b295421",
+  "zone_areas_m2": {
+    "northeast": 367.86547305877406,
+    "south": 124.73593345288475,
+    "west_dominant_fallback": 86.5242702945281
+  },
+  "saved_outline_difference_m2": 0.00011772665311582386,
+  "face_count": 59,
+  "equipment_adjustments": [
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater1807/Unit_01",
+      "center_vertical_change_m": 0.0
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater1807/Unit_02",
+      "center_vertical_change_m": 0.0
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater1807/Unit_03",
+      "center_vertical_change_m": -0.01564998753210034
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater1807/Unit_04",
+      "center_vertical_change_m": -0.003342350623007917
+    },
+    {
+      "path": "/World/HistoricalRoofEquipment/Edgewater1807/Unit_05",
+      "center_vertical_change_m": 0.0452435026990301
+    }
+  ],
+  "observed_closeup_outline_screen": {
+    "area_m2": 477.49647733967396,
+    "outside_existing_preview_m2": 38.85726405118936,
+    "existing_preview_outside_observed_m2": 140.48646351770225,
+    "status": "draft close-up check; reconcile XY outline before promotion"
+  }
+}

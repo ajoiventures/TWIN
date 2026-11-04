@@ -147,6 +147,7 @@ proj=Transformer.from_crs(4326,32617,always_xy=True);ox,oy=proj.transform(-81.38
 def project(lon,lat):
     x,y=proj.transform(lon,lat);return x-ox,y-oy
 osm=json.loads((ROOT/'data'/'openstreetmap.json').read_text(encoding='utf-8'))
+way_tags={str(way['id']):way.get('tags',{}) for way in osm['elements'] if way.get('type')=='way'}
 edge_lines=[];other_lines=[]
 for way in osm['elements']:
     tags=way.get('tags',{});geo=way.get('geometry',[])
@@ -163,7 +164,19 @@ for prim,g in buildings:
 for prim in base.GetPrimAtPath('/World/Roofs').GetChildren():bind(planar_uv(prim,5),'Roof')
 for prim in base.GetPrimAtPath('/World/Streets').GetChildren():
     name=prim.GetName()
-    if name.startswith('Road_'):bind(planar_uv(prim,4),'Asphalt')
+    if name.startswith('Road_'):
+        tags=way_tags.get(prim.GetCustomDataByKey('osmId'),{})
+        highway=tags.get('highway')
+        footway=tags.get('footway')
+        sidewalk=highway=='footway' and footway=='sidewalk'
+        concrete=sidewalk and tags.get('surface') in (None,'concrete')
+        override=planar_uv(prim,4)
+        bind(override,'Concrete' if concrete else 'Asphalt')
+        if highway:override.SetCustomDataByKey('osmHighway',highway)
+        if footway:override.SetCustomDataByKey('osmFootway',footway)
+        if concrete:
+            evidence='osm_concrete_tag' if tags.get('surface')=='concrete' else 'illustrative_sidewalk_default'
+            override.SetCustomDataByKey('surfaceAppearanceEvidence',evidence)
     elif name.startswith('Shoulders_'):bind(planar_uv(prim,4),'Concrete')
 bind(planar_uv(base.GetPrimAtPath('/World/Ground'),10),'Grass')
 

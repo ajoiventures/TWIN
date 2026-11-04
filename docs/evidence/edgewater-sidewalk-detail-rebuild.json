@@ -1,0 +1,47 @@
+{
+  "tool_sha256": "1cc3fe51acee9d27ed3dc5cf7eef5ad872c5868f747e266cf5570e8f897bf5d9",
+  "source_scene_sha256": "408952a55df07822511653ff7b1a675e9e0a44c6e5b7703e87b99259a78e2b1d",
+  "source_osm_sha256": "d4b3c0adb52e272a33b4676f9ef6223b74c98e45dfb6aa3d922475ac3309202b",
+  "detail_sha256": "e6ecc6952b3813146c6c5193890206f5eee9b118d427fcb8004db810eaf502ee",
+  "checked_bindings": {
+    "existing_asphalt_binding": 1079,
+    "illustrative_sidewalk_default": 185,
+    "osm_concrete_tag": 46
+  },
+  "all_checked_road_points_and_indices_match_base": true,
+  "parking_context_ways": {
+    "214485743": {
+      "source_tags": {
+        "highway": "secondary",
+        "surface": "asphalt"
+      },
+      "material": "/World/DetailMaterials/Asphalt",
+      "material_evidence": null
+    },
+    "812509209": {
+      "source_tags": {
+        "highway": "service",
+        "surface": "asphalt"
+      },
+      "material": "/World/DetailMaterials/Asphalt",
+      "material_evidence": null
+    },
+    "1387314535": {
+      "source_tags": {
+        "highway": "footway",
+        "footway": "sidewalk",
+        "surface": "concrete"
+      },
+      "material": "/World/DetailMaterials/Concrete",
+      "material_evidence": "osm_concrete_tag"
+    },
+    "1473552009": {
+      "source_tags": {
+        "highway": "footway",
+        "footway": "sidewalk"
+      },
+      "material": "/World/DetailMaterials/Concrete",
+      "material_evidence": "illustrative_sidewalk_default"
+    }
+  }
+}

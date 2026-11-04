@@ -1,7 +1,7 @@
 import json,sys,tempfile,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from pxr import Usd,UsdGeom
+from pxr import Usd,UsdGeom,UsdShade
 from semantic_registry import building_identity,sha,SCHEMA,PROFILE
 from validate_scene import validate
 
@@ -10,6 +10,7 @@ class SceneValidationIntegrationTests(unittest.TestCase):
   r=Path(folder);(r/'scene').mkdir();(r/'data/processed').mkdir(parents=True);(r/'data/snapshots/s1').mkdir(parents=True);(r/'data/heights').mkdir()
   p=r/'scene/college_park.usda';s=Usd.Stage.CreateNew(str(p));UsdGeom.SetStageMetersPerUnit(s,1);UsdGeom.SetStageUpAxis(s,'Z')
   m=UsdGeom.Mesh.Define(s,'/World/B1');m.CreatePointsAttr([(0,0,4.3),(1,0,4.3),(0,1,4.3)]);m.CreateFaceVertexCountsAttr([3]);m.CreateFaceVertexIndicesAttr([0,1,2])
+  m.CreateDisplayColorAttr([(0.5,0.5,0.5)])
   key=building_identity(['01']);m.GetPrim().SetCustomDataByKey('twin',{'entityId':key,'validationProfile':PROFILE})
   if corrupt_instance:
    a=Usd.Stage.CreateNew(str(r/'scene/asset.usda'));x=UsdGeom.Xform.Define(a,'/Asset');q=UsdGeom.Mesh.Define(a,'/Asset/BadMesh');q.CreatePointsAttr([(0,0,0),(1,0,0),(0,1,0)]);q.CreateFaceVertexCountsAttr([3]);q.CreateFaceVertexIndicesAttr([0,1,99]);a.GetRootLayer().Save()
@@ -37,5 +38,13 @@ class SceneValidationIntegrationTests(unittest.TestCase):
  def test_invalid_instanced_mesh_is_checked(self):
   with tempfile.TemporaryDirectory() as d:
    r,_=self.fixture(d,True);report=validate(r,verbose=False);self.assertEqual(report['instance_proxy_meshes_checked'],1);self.assertIn('face_index_out_of_range',{e['code'] for e in report['errors']})
+ def test_bound_material_without_surface_fails_even_with_display_color(self):
+  with tempfile.TemporaryDirectory() as d:
+   r,_=self.fixture(d)
+   s=Usd.Stage.Open(str(r/'scene/college_park_connected.usda'))
+   m=UsdShade.Material.Define(s,'/World/BrokenMaterial')
+   UsdShade.MaterialBindingAPI.Apply(s.GetPrimAtPath('/World/B1')).Bind(m)
+   s.GetRootLayer().Save()
+   self.assertIn('missing_material_surface',{e['code'] for e in validate(r,verbose=False)['errors']})
 
 if __name__=='__main__':unittest.main()

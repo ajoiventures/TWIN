@@ -2,6 +2,8 @@
 
 ## City stormwater companion source
 
+The follow-up retrieved the pilot candidates in batches of up to ten IDs. Every returned ID matched the source query, all 34 geometries were valid, and all 16 structures and 18 culverts intersected the actual pilot polygon. The channel and vault queries returned no candidate IDs. This supersedes the earlier pilot geometry-access limitation. The wider neighborhood figures below remain envelope counts. [Pilot clipping and response hashes](evidence/orlando-stormwater-pilot-clipping.json)
+
 Orlando's public Utilities Data Portal links to a City-hosted stormwater service with Structures, Culverts, Open Channels and Vaults. A count-only spatial query returned 16 structure and 18 culvert candidates in the frozen pilot envelope, and zero channel or vault candidates. The wider neighborhood envelope returned 2,774 structures, 2,678 culverts, 39 channels and 66 vaults. Polygon and geometry request attempts returned HTTP 404, so these counts remain rectangular screens. City inventory locations and elevations require field verification. Keep this municipal source separate from the County structure and pipe queries, which returned zero pilot records in their own layers. [Count receipt](evidence/orlando-stormwater-coverage-screen.json) · [City Utilities Data Portal](https://www.orlando.gov/Our-Government/Departments-Offices/Public-Works/View-Wastewater-and-Stormwater-Utilities-Data)
 
 ## Public right-of-way source screen

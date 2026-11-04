@@ -1,0 +1,64 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "retrieved_utc": "2026-11-04T03:48:25.053612+00:00",
+  "county_packet_sha256": "d71aac17d7b395ddf80bb2b50637569f2a90209c7cea235216d262107d8de40f",
+  "envelope_screen_sha256": "f2e5a23415184c27799c4a9081e737f9a68e550dd4a1f85ffcfdc230a9c70626",
+  "layers": [
+    {
+      "layer": 1,
+      "name": "Structures",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/1",
+      "envelope_candidates": 16,
+      "exact_pilot_matches": 16,
+      "excluded_from_pilot": 0,
+      "metadata_sha256": "c9b106998d409a0798d2a5df0f807fb0be8e7919fed174a601458a39d32f0292",
+      "id_response_sha256": "69693a6fc5672f14a013dcdd784464f7e0490410f8db38ed544a4c8ad47048fa",
+      "geometry_response_sha256": [
+        "4fbde45dbe172e728d61f0900e25973509dc4abee77987b03e3fb4277f52a74f",
+        "e200dd7a20d0fb1dc56a134bd34f46a071eb54b873f2405e221f1c909ececf92"
+      ]
+    },
+    {
+      "layer": 2,
+      "name": "Culverts",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/2",
+      "envelope_candidates": 18,
+      "exact_pilot_matches": 18,
+      "excluded_from_pilot": 0,
+      "metadata_sha256": "20291540f9b4319327f4e98f27e84c20be54eb2486b5132c68d091e47503ca03",
+      "id_response_sha256": "23a73464cd8989dd9fa1349fd72fe9970011113ca9b0aedbac06c98f65e9014d",
+      "geometry_response_sha256": [
+        "01d4b34cb2830e8d86d82673fab5b3a81d761d9d021528305151eedcb332f465",
+        "36ee281f77206aec0de8f6553ffe7004606e077990d17785aeab89010ecfc71f"
+      ]
+    },
+    {
+      "layer": 3,
+      "name": "Open Channels",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/3",
+      "envelope_candidates": 0,
+      "exact_pilot_matches": 0,
+      "excluded_from_pilot": 0,
+      "metadata_sha256": "9714e921b302a1bd2ffccaf3d50d8afb55765dcc54b419007b1adf11b1cf8cd9",
+      "id_response_sha256": "667410564a013e24d2b824ed7ea5c2613b8f5a6ea02633399a491988c5e3a512",
+      "geometry_response_sha256": []
+    },
+    {
+      "layer": 4,
+      "name": "Vaults",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/4",
+      "envelope_candidates": 0,
+      "exact_pilot_matches": 0,
+      "excluded_from_pilot": 0,
+      "metadata_sha256": "c929c0e759bac76cd56fccea5c022763723535940ee3106ee8da32ce030b930c",
+      "id_response_sha256": "667410564a013e24d2b824ed7ea5c2613b8f5a6ea02633399a491988c5e3a512",
+      "geometry_response_sha256": []
+    }
+  ],
+  "method": "Bounded City ID query and GeoJSON retrieval in batches of ten, matching all unique IDs before exact WGS84 polygon intersection.",
+  "limits": [
+    "Counts are City inventory references, not a complete or field-verified drainage network.",
+    "Only aggregate counts and response hashes are retained. Utility geometry remains inactive.",
+    "Zero-count layers have no individual geometries to retrieve."
+  ]
+}

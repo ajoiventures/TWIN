@@ -1,0 +1,61 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "retrieved_utc": "2026-11-04T03:52:13.472698+00:00",
+  "boundary_audit_sha256": "c33d42655041b9f1babf01cb0d311a2af8882d3865984f374f20c5570b47b121",
+  "culvert_source_response_sha256": "3d82ccdeb3ff81405eb983d5db2ac7cdcbf125ba7df9762cb5c8a82d40f0e511",
+  "source_fields": {
+    "OBJECTID": 38568,
+    "Culvtype": "Storm Sewer",
+    "Material": "RCP",
+    "Status": "Private"
+  },
+  "length_m": 8.652,
+  "endpoint": "first coordinate of original City LineString; order is not verified flow direction",
+  "radius_m": 25,
+  "nearby_assets": [
+    {
+      "layer": 1,
+      "envelope_candidates": 5,
+      "within_25_m": 4,
+      "nearest_object_id": 11735,
+      "nearest_distance_m": 8.652,
+      "id_response_sha256": "45e8e0dee76ea570f48387e1eeaaab3c96e27464e030afa936bd6bee7da36516",
+      "geometry_response_sha256": [
+        "ac672065537e88fca613a2f5926bf0763b1c264a61f77a88238a963f995f0dbf"
+      ]
+    },
+    {
+      "layer": 2,
+      "envelope_candidates": 8,
+      "within_25_m": 5,
+      "nearest_object_id": 13295,
+      "nearest_distance_m": 8.221,
+      "id_response_sha256": "2c6d6f0afb4e99df2c8ce82e87ef42debe5d47d757dc73732dc5e6a510a39eb4",
+      "geometry_response_sha256": [
+        "1b76eb6902ccedd438601b3ac90f4117e8e2b56dd227a211034e69cb7d27b2dc"
+      ]
+    },
+    {
+      "layer": 3,
+      "envelope_candidates": 0,
+      "within_25_m": 0,
+      "nearest_object_id": null,
+      "nearest_distance_m": null,
+      "id_response_sha256": "667410564a013e24d2b824ed7ea5c2613b8f5a6ea02633399a491988c5e3a512",
+      "geometry_response_sha256": []
+    },
+    {
+      "layer": 4,
+      "envelope_candidates": 0,
+      "within_25_m": 0,
+      "nearest_object_id": null,
+      "nearest_distance_m": null,
+      "id_response_sha256": "667410564a013e24d2b824ed7ea5c2613b8f5a6ea02633399a491988c5e3a512",
+      "geometry_response_sha256": []
+    }
+  ],
+  "limits": [
+    "No utility coordinates retained. Distances are to mapped source geometry, not field observations.",
+    "No hydraulic connection, flow direction or reason for the unmatched endpoint was verified."
+  ]
+}

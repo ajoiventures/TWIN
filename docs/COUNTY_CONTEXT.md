@@ -2,6 +2,8 @@
 
 ## City stormwater companion source
 
+City culvert object 38568 is coded `Storm Sewer`, material `RCP`, status `Private`. At its unmatched endpoint, the nearest other mapped culvert is 8.221 m away, the nearest structure is 8.652 m away, and there are no mapped open channels or vaults within 25 m. The status is the City's source attribute. This screen leaves the endpoint disposition and any off-inventory connection unresolved. [Exception receipt](evidence/orlando-stormwater-culvert-38568.json)
+
 The boundary follow-up queried City structures around all three unresolved endpoints. Both endpoints outside the pilot coincide with City structure points in plan. The one unresolved endpoint inside the pilot, culvert object 38568, remains 8.652 m from the nearest mapped structure even after expanding the search. These results distinguish a pilot clipping effect from an inventory exception. [Boundary endpoint audit](evidence/orlando-stormwater-boundary-endpoints.json)
 
 The structure and culvert schemas expose separate asset IDs with no from/to structure fields. A geometry screen found that 33 of the 34 original culvert endpoints inside the pilot lie within 0.25 m of a City structure point. One lies more than 3 m from the nearest pilot structure, and two endpoints lie outside the pilot. The proximity screen supports candidate connections for review. Hydraulic connectivity, direction and elevations remain unverified. [Endpoint screen and source schemas](evidence/orlando-stormwater-connectivity-screen.json)

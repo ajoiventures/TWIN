@@ -1,0 +1,9 @@
+{
+  "source_sha256": "1cfc728f4d85a1ae2065c1e49c4b3805256f84d27ded552e93f08be4f8a83259",
+  "candidate_sha256": "3465865473712872bc8aa9e54730094ebeb71a9685d40cae0ed0eed7d9579d8b",
+  "source_meshes": 435,
+  "batched_meshes": 12,
+  "triangles": 126758,
+  "resolved_textures": 12,
+  "limits": "Preserves transformed triangle data and materials. This is material batching, not polygon LOD or measured runtime performance."
+}

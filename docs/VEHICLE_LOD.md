@@ -1,5 +1,9 @@
 # Vehicle source-detail culling candidates
 
+## Compact SUV material batching
+
+The local `data/diagnostics/vehicle_body_style_sources/compact_suv_material_batches.usda` groups the SUV's 435 meshes into 12 material batches. It retains all 126,758 triangles and all 12 color textures. Reopened USD matches the assembled vertex positions, normalized transformed normals, UVs, indices and material targets. The original separately addressable wheel and body prims remain available in the unbatched source for fit and inspection. Actual render comparison and performance measurement are still required. [Batch audit](evidence/suv-material-batch-audit.json)
+
 ## Saved-scene parking clearance screen
 
 The [west lot plan comparison](evidence/west-stall-vehicle-plan.svg) shows all seven January 2025 stall traces and the car, SUV and van hulls extracted from their actual composed USD meshes. The drawing uses equal XY scale and no aerial pixels. It is a plan-clearance review and does not show materials, shadows, doors opening or vehicle movement.

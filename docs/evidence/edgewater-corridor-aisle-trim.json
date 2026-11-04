@@ -1,0 +1,65 @@
+{
+  "preview_sha256": "ee67cdd7284fb40f15c18116972962efda30a46d2be8a5d6446fe9e6e75a8bea",
+  "parent_sha256": "6d6e49ebcff27b2d72c6e7f111cb2202df2e9eb1ecfd39bd157106f25729771c",
+  "shared_sample_spacing_m": 0.05,
+  "combined_outline_error_m2": 0.0003765550245172254,
+  "pair_audits": [
+    {
+      "owner": "/World/Streets/Road_889980335",
+      "trimmed": "/World/Streets/Road_915343997",
+      "sample_pairs": 9670,
+      "max_height_error_m": 1.8241017381015467e-06,
+      "before_m2": 24.167597858244235,
+      "after_m2": 0.0002435380760894858
+    },
+    {
+      "owner": "/World/Streets/Road_612145651",
+      "trimmed": "/World/Streets/Road_612145652",
+      "sample_pairs": 3249,
+      "max_height_error_m": 3.3928083009726606e-07,
+      "before_m2": 8.120891642413664,
+      "after_m2": 8.80134887982114e-08
+    },
+    {
+      "owner": "/World/Streets/Road_740287196",
+      "trimmed": "/World/Streets/Road_740287197",
+      "sample_pairs": 3198,
+      "max_height_error_m": 1.672231135785296e-07,
+      "before_m2": 7.999436574256307,
+      "after_m2": 1.6595146329645848e-08
+    },
+    {
+      "owner": "/World/Streets/Road_610249518",
+      "trimmed": "/World/Streets/Road_610249525",
+      "sample_pairs": 1591,
+      "max_height_error_m": 2.43748397965593e-07,
+      "before_m2": 3.8981801354012386,
+      "after_m2": 1.0421917893545934e-05
+    },
+    {
+      "owner": "/World/Streets/Road_612145650",
+      "trimmed": "/World/Streets/Road_612145651",
+      "sample_pairs": 1254,
+      "max_height_error_m": 1.434998115890096e-07,
+      "before_m2": 3.135901376678139,
+      "after_m2": 8.400659195773041e-06
+    },
+    {
+      "owner": "/World/Streets/Road_612145650",
+      "trimmed": "/World/Streets/Road_612145652",
+      "sample_pairs": 336,
+      "max_height_error_m": 1.151654771547328e-07,
+      "before_m2": 0.8409422003613644,
+      "after_m2": 0.0
+    },
+    {
+      "owner": "/World/Streets/Road_807089803",
+      "trimmed": "/World/Streets/Road_885333840",
+      "sample_pairs": 120,
+      "max_height_error_m": 5.0888187552722286e-08,
+      "before_m2": 0.277312862817847,
+      "after_m2": 0.0
+    }
+  ],
+  "holds": []
+}

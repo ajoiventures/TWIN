@@ -1,0 +1,41 @@
+{
+  "status": "Source acquisition and structural validation; no conversion or visual acceptance",
+  "models": [
+    {
+      "source": "https://www.innerscene.com/tools/library/3d-parts/generic-compact-suv-9f157ee5",
+      "license": "CC0 as declared by original publisher",
+      "file": "suv.glb",
+      "sha256": "fd08e2f12559e0c49b65a79e8c9fb3d3811b2109475c219af48a9be466612d3b",
+      "bytes": 4782932,
+      "mesh_count": 429,
+      "primitives": 435,
+      "triangles": 126758,
+      "materials": 12,
+      "images": 12,
+      "index_component_types": [
+        5123
+      ],
+      "extensions": [
+        "KHR_materials_clearcoat",
+        "KHR_materials_transmission",
+        "KHR_materials_ior"
+      ]
+    },
+    {
+      "source": "https://www.innerscene.com/tools/library/3d-parts/delivery-van-131990b3",
+      "license": "CC0 as declared by original publisher",
+      "file": "van.glb",
+      "sha256": "9bf34cceaa3f25088d37e6e0a737effc2e5d7a47b892514782fb7a90543808d4",
+      "bytes": 637364,
+      "mesh_count": 70,
+      "primitives": 71,
+      "triangles": 16280,
+      "materials": 8,
+      "images": 0,
+      "index_component_types": [
+        5123
+      ],
+      "extensions": []
+    }
+  ]
+}

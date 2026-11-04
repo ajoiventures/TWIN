@@ -1,0 +1,67 @@
+[
+  {
+    "group": 1,
+    "pairs": [
+      [
+        "/World/Streets/Road_612145651",
+        "/World/Streets/Road_612145652"
+      ],
+      [
+        "/World/Streets/Road_612145650",
+        "/World/Streets/Road_612145651"
+      ],
+      [
+        "/World/Streets/Road_612145650",
+        "/World/Streets/Road_612145652"
+      ]
+    ],
+    "tile": 5,
+    "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+    "source_crop_pixels": [
+      106,
+      1372,
+      230,
+      1496
+    ],
+    "comparison": "data\\diagnostics\\edgewater_corridor_aisle_trim_preview\\aerial_context_group_1.png",
+    "comparison_sha256": "3e7f59eb3b3ce80cae9cbc9801bd1bcef5873207493b1cb9bdfde88f2c8d653f"
+  },
+  {
+    "group": 3,
+    "pairs": [
+      [
+        "/World/Streets/Road_610249518",
+        "/World/Streets/Road_610249525"
+      ]
+    ],
+    "tile": 7,
+    "source_sha256": "6379045c12e6cc88a76f643379797fd2df215cd0ad15173bff8ba11f72683638",
+    "source_crop_pixels": [
+      748,
+      825,
+      872,
+      949
+    ],
+    "comparison": "data\\diagnostics\\edgewater_corridor_aisle_trim_preview\\aerial_context_group_3.png",
+    "comparison_sha256": "8a663b4d4f22c07a073e611bae4fba2e47a14d7f44e576e435a60e7f1dc6fa98"
+  },
+  {
+    "group": 4,
+    "pairs": [
+      [
+        "/World/Streets/Road_807089803",
+        "/World/Streets/Road_885333840"
+      ]
+    ],
+    "tile": 1,
+    "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+    "source_crop_pixels": [
+      19,
+      239,
+      143,
+      363
+    ],
+    "comparison": "data\\diagnostics\\edgewater_corridor_aisle_trim_preview\\aerial_context_group_4.png",
+    "comparison_sha256": "d0e14e0ed5280f2097d8b62684984cc509b15d07c03cd1e7128878875f6f113c"
+  }
+]

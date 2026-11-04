@@ -1,0 +1,49 @@
+{
+  "tile": 5,
+  "image_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+  "source_sha256": "ee67cdd7284fb40f15c18116972962efda30a46d2be8a5d6446fe9e6e75a8bea",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "f6b5c84ffd0bb0f8f1eed710df0a95e6d09c3ec48963f6b235b5a95de1a421cf",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill",
+      "pixels": [
+        [
+          157,
+          1404
+        ],
+        [
+          207,
+          1404
+        ],
+        [
+          209,
+          1454
+        ],
+        [
+          175,
+          1454
+        ],
+        [
+          157,
+          1444
+        ]
+      ],
+      "trace_m2": 96.41203086441571,
+      "surface_m2": 10.793016679577313,
+      "triangles": 40,
+      "excluded_paths": [
+        "/World/Streets/Road_612145650",
+        "/World/Streets/Road_612145651",
+        "/World/Streets/Road_612145652",
+        "/World/RearParkingSamples/mid05_west_storefront_side_bays",
+        "/World/RearParkingSamples/mid05_west_storefront_bay_connection"
+      ],
+      "saved_m2": 10.79306008934509,
+      "overlap_m2": 7.95828293188124e-06,
+      "max_ground_offset_residual_m": 2.956193246306249e-07,
+      "aisle_distance_m": 0.0,
+      "existing_parking_distance_m": 0.0
+    }
+  ]
+}

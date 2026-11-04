@@ -1,0 +1,93 @@
+{
+  "preview_sha256": "2eafbbf11fb81666f0d91324699e8988193a0bce9ed81d450553d23cb326c0a3",
+  "active_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "new_patch_count": 38,
+  "original_patch_count": 5,
+  "by_tile": [
+    {
+      "tile": 1,
+      "patches": 5,
+      "saved_m2": 1266.1765454091155
+    },
+    {
+      "tile": 2,
+      "patches": 4,
+      "saved_m2": 827.7545840718376
+    },
+    {
+      "tile": 3,
+      "patches": 5,
+      "saved_m2": 1004.7184144233063
+    },
+    {
+      "tile": 4,
+      "patches": 5,
+      "saved_m2": 576.0820728635099
+    },
+    {
+      "tile": 5,
+      "patches": 3,
+      "saved_m2": 479.6268156642659
+    },
+    {
+      "tile": 6,
+      "patches": 3,
+      "saved_m2": 519.4996184006523
+    },
+    {
+      "tile": 7,
+      "patches": 4,
+      "saved_m2": 1214.967546370288
+    },
+    {
+      "tile": 8,
+      "patches": 5,
+      "saved_m2": 632.92584230192
+    }
+  ],
+  "new_patch_overlaps_above_0_001_m2": [],
+  "net_added_parking_m2": 7009.578410983202,
+  "baseline_paving_missing_m2": 0.0001726708986953202,
+  "all_new_paths": [
+    "/World/RearParkingSamples/east_commercial_lot_interior",
+    "/World/RearParkingSamples/edgewater_1807_south_parking_restoration",
+    "/World/RearParkingSamples/edgewater_3005_east_parking_restoration",
+    "/World/RearParkingSamples/edgewater_3005_west_stall_paving",
+    "/World/RearParkingSamples/mid04_east_south_central_aisle",
+    "/World/RearParkingSamples/mid04_east_south_rear_row",
+    "/World/RearParkingSamples/mid04_west_north_rear_aisle",
+    "/World/RearParkingSamples/mid04_west_north_side_row",
+    "/World/RearParkingSamples/mid04_west_south_marked_row",
+    "/World/RearParkingSamples/mid05_east_double_loaded_lot",
+    "/World/RearParkingSamples/mid05_east_long_rear_aisle",
+    "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+    "/World/RearParkingSamples/mid05_west_storefront_side_bays",
+    "/World/RearParkingSamples/mid06_east_angled_commercial_lot",
+    "/World/RearParkingSamples/mid06_west_central_lot",
+    "/World/RearParkingSamples/mid06_west_marked_rear_bays",
+    "/World/RearParkingSamples/northeast_edgewater_front_bays",
+    "/World/RearParkingSamples/northwest_edgewater_angled_bays",
+    "/World/RearParkingSamples/south01_east_long_lot",
+    "/World/RearParkingSamples/south01_east_lower_rear_bays",
+    "/World/RearParkingSamples/south01_east_upper_rear_bays",
+    "/World/RearParkingSamples/south01_west_north_marked_bays",
+    "/World/RearParkingSamples/south01_west_side_aisle",
+    "/World/RearParkingSamples/south02_east_south_marked_bays",
+    "/World/RearParkingSamples/south02_west_middle_side_bays",
+    "/World/RearParkingSamples/south02_west_north_aisle",
+    "/World/RearParkingSamples/south02_west_north_rear_bays",
+    "/World/RearParkingSamples/south03_east_middle_east_aisle",
+    "/World/RearParkingSamples/south03_east_middle_west_aisle",
+    "/World/RearParkingSamples/south03_east_north_marked_bays",
+    "/World/RearParkingSamples/south03_east_southern_angled_bays",
+    "/World/RearParkingSamples/south03_east_storefront_rear_bays",
+    "/World/RearParkingSamples/west_large_lot_center_aisle",
+    "/World/RearParkingSamples/west_large_lot_north_aisle",
+    "/World/RearParkingSamples/west_large_lot_south_aisle",
+    "/World/RearParkingSamples/west_north_marked_lot",
+    "/World/RearParkingSamples/west_south_building_side_row",
+    "/World/RearParkingSamples/west_south_parking_bays"
+  ],
+  "new_paving_tree_pivot_conflicts": [],
+  "visible_tree_pivots_tested": 403
+}

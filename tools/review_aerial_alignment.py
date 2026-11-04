@@ -72,15 +72,22 @@ def build(root=ROOT):
         controls.append({'name':p['street'],'source':'City centerline intersection; comparison feature, not independent survey control','pixel_x':x,'pixel_y':y})
         marks.append(f'<g><circle cx="{x}" cy="{y}" r="9"/><text x="{x+14}" y="{y-12}">{html.escape(p["street"])}</text></g>')
     driveway_path=root/'docs/evidence/smith-driveway-aerial-reference.json'
+    driveway_checks=[]
     if driveway_path.exists():
         driveway=read(driveway_path)
         if driveway['image_sha256']!=digest:raise ValueError('Smith driveway traces refer to another image')
         for reference in driveway['references']:
             points=' '.join(f'{float(x):.2f},{float(y):.2f}' for x,y in reference['pixels'])
             marks.append(f'<polyline points="{points}" style="stroke:#ff826d;stroke-width:2;stroke-opacity:1"><title>{html.escape(reference["label"])} · January 2025 visual reference</title></polyline>')
+        for point in driveway.get('field_review',{}).get('points',[]):
+            lat,lon=point['coordinates']
+            x,y=pixel(*project.transform(lon,lat),extent,width,height)
+            if not (0<=x<width and 0<=y<height):raise ValueError('Smith field point falls outside the aerial frame')
+            driveway_checks.append({**point,'pixel_x':x,'pixel_y':y})
     requested=manifest['preview_bbox_epsg2236'];requested_width=requested[2]-requested[0];actual_width=extent['xmax']-extent['xmin']
     report={'source_snapshot':active['snapshot'],'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'image_sha256':digest,'image_acquisition':ref['acquisition'],'reference_manifest_snapshot':manifest['source_snapshot'],'returned_extent':extent,'image_size':[width,height],'export_sampling_m':actual_width/width*1200/3937,'requested_width_usft':requested_width,'returned_width_usft':actual_width,'width_adjustment_percent':100*(actual_width/requested_width-1),'comparison_features':controls,'preview_accepted_for_modeling':False,'survey_control_residuals_m':None,'limits':['Frame arithmetic and source overlay only; independent ground-control residuals are not measured.','Sampling resolution does not establish native GSD or positional accuracy.','City centerlines do not establish curb, sidewalk, parking or roof edges.','Historical image reference and active GIS snapshot describe different observation dates.']}
     report['crossing_endpoint_review']=sorted(crossing_endpoints,key=lambda row:row['id'])
+    report['smith_driveway_field_review']=driveway_checks
     out=root/'data/imagery/aerial_alignment_review.json';out.write_text(json.dumps(report,indent=2),encoding='utf-8')
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Edgewater aerial alignment</title><style>body{font:16px/1.5 system-ui;max-width:1000px;margin:24px auto;padding:0 18px;background:#f3f5f0;color:#163e31}svg{width:100%;height:auto;background:#ddd}polyline{fill:none;stroke:#00efff;stroke-width:1.5;stroke-opacity:.8}circle{fill:none;stroke:#ff3434;stroke-width:3}text{fill:#fff;stroke:#222;stroke-width:3;paint-order:stroke;font-size:17px}label{display:block;padding:10px}a{color:#245f48}</style><a href="/road-review">Road reference review</a><h1>Edgewater aerial registration check</h1><p>January 2025 OCPA aerial with current City street centerlines (cyan) and pilot intersections (red). These are reference comparisons, not surveyed controls. No curb or parking geometry has been accepted from this overlay.</p><p>Use the actual returned export extent: the server widened the requested image frame by __ADJUST__%. Using the requested box would stretch/shift horizontal placement. Export sampling is approximately 0.178 m/pixel; positional accuracy remains unknown.</p><label><input type="checkbox" checked id="show"> Show City reference geometry</label><svg viewBox="0 0 __W__ __H__" role="img" aria-label="Dated aerial with City street centerline overlay"><defs><clipPath id="frame"><rect width="__W__" height="__H__"/></clipPath></defs><image href="/road-reference/aerial2025" width="__W__" height="__H__"/><g id="overlay" clip-path="url(#frame)">__LINES____MARKS__</g></svg><p>Local review only. Roof lean, tree cover, shadows and historical changes require separate interpretation. Source imagery is not a road texture.</p><script>document.getElementById('show').addEventListener('change',e=>document.getElementById('overlay').style.display=e.target.checked?'':'none')</script></html>'''
     if crossings:
@@ -94,6 +101,19 @@ def build(root=ROOT):
             rows.append(f'<tr><td>{row["location"]}</td><td>{row["id"]}</td><td>{lat:.6f}, {lon:.6f}</td></tr>')
         checklist='<details><summary>Crossing endpoint field checklist</summary><p>Coordinates locate draft line ends. At each end, verify ramp location, clear width, running grade, cross slope, and current condition.</p><table><thead><tr><th>Location</th><th>Draft end</th><th>Reference latitude, longitude</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></details>'
         page=page.replace('</svg>','</svg>'+checklist,1)
+    if driveway_checks:
+        markers=[]
+        rows=[]
+        for number,point in enumerate(driveway_checks,1):
+            label=html.escape(point['verify'])
+            x,y=point['pixel_x'],point['pixel_y']
+            lat,lon=point['coordinates']
+            markers.append(f'<g><circle cx="{x:.2f}" cy="{y:.2f}" r="4" style="fill:#a5fff2;stroke:#102e2a;stroke-width:1"><title>{number}. {label}</title></circle><text x="{x+5:.2f}" y="{y-2:.2f}" style="font-size:10px">{number}</text></g>')
+            rows.append(f'<tr><th scope="row">{number}</th><td>{label}</td><td>{lat:.7f}, {lon:.7f}</td></tr>')
+        page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showSmithChecks"> Show Smith driveway field-check points</label><svg viewBox=',1)
+        checklist='<details><summary>Smith driveway field checklist</summary><p>These coordinates locate approximate review points. Curb geometry, sidewalk alignment and grades require field verification.</p><table><thead><tr><th>Point</th><th>Check in field</th><th>Reference latitude, longitude</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></details>'
+        page=page.replace('</svg>', '<g id="smithChecks" style="display:none" clip-path="url(#frame)">'+''.join(markers)+'</g></svg>'+checklist,1)
+        page=page.replace('</script>',";document.getElementById('showSmithChecks').addEventListener('change',e=>document.getElementById('smithChecks').style.display=e.target.checked?'':'none')</script>",1)
     schedule_path=root/'data/processed/lynx_gtfs_reference/packet.json'
     if schedule_path.exists():
         from lynx_gtfs_reference import validate as validate_schedule

@@ -4,7 +4,8 @@ import argparse,collections,datetime,hashlib,json,os,re
 ROOT=Path(__file__).resolve().parents[1]
 FACT_FIELDS={'component_area_sf','area_basis','building_story_context','retail_gla_sf','suite_area_sf',
  'building_area_sf','building_area_basis','year_built','page_available_area_sf_min','page_available_area_sf_max',
- 'brochure_suites','building_stories','space_area_sf_approx','reported_dimensions_feet','reported_parking_spaces'}
+ 'brochure_suites','building_stories','space_area_sf_approx','reported_dimensions_feet','reported_parking_spaces',
+ 'proposed_office_area_sf','proposed_retail_area_sf','proposed_building_stories'}
 
 def read_json(path):return json.loads(path.read_text(encoding='utf-8'))
 def write_json(path,value):

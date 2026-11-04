@@ -1,8 +1,22 @@
 {
   "schema_version": 1,
-  "scope": "Bounded commercial reference verification for five College Park addresses; not a complete listing inventory.",
+  "scope": "Bounded commercial reference verification for six College Park addresses; not a complete listing inventory.",
   "review_after_days": 30,
   "sources": [
+    {
+      "id": "harbert_1717_loopnet_23379028",
+      "publisher": "Harbert Realty Services",
+      "distribution": "LoopNet broker listing",
+      "url": "https://www.loopnet.com/Listing/1717-Edgewater-Dr-Orlando-FL/23379028/",
+      "observed_utc": "2026-11-04T01:00:00Z",
+      "access_method": "web_broker_listing_text",
+      "access_note": "Build-to-suit proposal. The date on market does not establish current availability, and the listed construction year is prospective.",
+      "source_record_id": "23379028",
+      "reported_date": "2021-06-11",
+      "reported_date_kind": "date_on_market_not_status_update",
+      "status_as_of_date": null,
+      "source_family": "harbert-1717-development-sale"
+    },
     {
       "id": "madsensmith_1610_loopnet_40304288",
       "publisher": "Madsen Smith Enterprises, LLC",
@@ -313,6 +327,31 @@
         "evidence_url": "https://www.loopnet.com/Listing/1610-Edgewater-Dr-Orlando-FL/40304288/",
         "scope_verified": "physical_building_metadata_only",
         "review_basis": "One freestanding retail building reported. Exact OCPA situs, one appraiser story, and one active ID-and-geometry linked building group corroborate physical scope. Reported area is retained as broker metadata."
+      }
+    },
+    {
+      "id": "1717-proposed-development-sale",
+      "claim_group": "harbert-1717-development-sale",
+      "address": "1717 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "proposed_build_to_suit_development",
+      "suite": null,
+      "reported_status": "offered_for_sale",
+      "source_ids": ["harbert_1717_loopnet_23379028"],
+      "facts": {
+        "proposed_office_area_sf": 8909,
+        "proposed_retail_area_sf": 989,
+        "proposed_building_stories": 3
+      },
+      "conflicts": ["The City's September 2024 project list gives 899 SF in its retail column and 989 SF in the narrative. Permit plans are needed to resolve the discrepancy."],
+      "exclusions": ["existing building dimensions", "verified current availability", "verified entitlement validity"],
+      "identity_evidence": {
+        "kind": "reviewed_property_address_context",
+        "parcel_id": "292223000000091",
+        "evidence_url": "https://www.loopnet.com/Listing/1717-Edgewater-Dr-Orlando-FL/23379028/",
+        "scope_verified": "property_context_only",
+        "review_basis": "Listing PIN, exact OCPA situs and City case MPL2020-10076 identify the same site. Marketing refers to future construction."
       }
     },
     {

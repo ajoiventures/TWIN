@@ -45,6 +45,9 @@ function showCommercial(featureId){
   if(Number.isFinite(facts.building_area_sf))labels.push(facts.building_area_sf.toLocaleString('en-US')+' sq ft reported building area');
   if(Number.isFinite(facts.building_stories))labels.push(facts.building_stories+' reported building '+(facts.building_stories===1?'story':'stories'));
   if(Number.isFinite(facts.reported_parking_spaces))labels.push(facts.reported_parking_spaces+' reported parking spaces (field count unverified)');
+  if(Number.isFinite(facts.proposed_office_area_sf))labels.push(facts.proposed_office_area_sf.toLocaleString('en-US')+' sq ft proposed office');
+  if(Number.isFinite(facts.proposed_retail_area_sf))labels.push(facts.proposed_retail_area_sf.toLocaleString('en-US')+' sq ft proposed retail');
+  if(Number.isFinite(facts.proposed_building_stories))labels.push(facts.proposed_building_stories+' proposed stories');
   if(labels.length){
    const details=document.createElement('p');details.textContent=labels.join(' · ');box.append(details);
   }

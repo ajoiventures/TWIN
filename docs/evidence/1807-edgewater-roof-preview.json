@@ -1,0 +1,95 @@
+{
+  "stage_sha256": "4fc3f83a388ab27ca991e00f282330a998761fe42845951eabeb25134a3f884b",
+  "coverage_audit": {
+    "stage_sha256": "d8ecf577b3b0d65a571da315938317edee9112700df2989cfbd71b8ff9ac7b0a",
+    "image_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+    "roof_traces_px": {
+      "main": [
+        [
+          355,
+          1075
+        ],
+        [
+          534,
+          1074
+        ],
+        [
+          535,
+          1132
+        ],
+        [
+          487,
+          1134
+        ],
+        [
+          487,
+          1166
+        ],
+        [
+          357,
+          1167
+        ]
+      ],
+      "secondary": [
+        [
+          495,
+          1205
+        ],
+        [
+          542,
+          1202
+        ],
+        [
+          543,
+          1245
+        ],
+        [
+          497,
+          1246
+        ]
+      ]
+    },
+    "areas_m2": {
+      "main": 581.3135966461664,
+      "secondary": 76.6593220982586
+    },
+    "intersections": [
+      {
+        "path": "/World/Buildings/Building_1886",
+        "main": 2.126359720157117,
+        "secondary": 0.0
+      },
+      {
+        "path": "/World/Roofs/Roof_1886",
+        "main": 2.126359720157117,
+        "secondary": 0.0
+      },
+      {
+        "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays",
+        "main": 0.0,
+        "secondary": 0.0
+      },
+      {
+        "path": "/World/Streets/Road_559971544",
+        "main": 0.0,
+        "secondary": 0.0
+      }
+    ]
+  },
+  "proposals": [
+    {
+      "path": "/World/HistoricalRoofCandidates/Edgewater1807_main",
+      "observed_roof_m2": 581.3135966461664,
+      "prepared_roof_m2": 579.1262747750485,
+      "height_m_estimate": 4.3,
+      "saved_roof_m2": 579.1256768061867
+    },
+    {
+      "path": "/World/HistoricalRoofCandidates/Edgewater1807_secondary",
+      "observed_roof_m2": 76.6593220982586,
+      "prepared_roof_m2": 76.6593220982586,
+      "height_m_estimate": 3.0,
+      "saved_roof_m2": 76.65930857384956
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "review_sha256": "00eaa63fedc2ae73fb36881441f6ca266d243315fa3fc2b684b718e31b511c3a",
+  "parent_sha256": "24a9bcb6314da5322e9cab7d32dd5f11d7a70ad804859ba53a3dc9f519d4e577",
+  "source_tile": 7,
+  "image_sha256": "6379045c12e6cc88a76f643379797fd2df215cd0ad15173bff8ba11f72683638",
+  "paint_width_m_assumed": 0.1,
+  "paint_offset_m": 0.003,
+  "records": [
+    {
+      "pixels": [
+        [
+          355,
+          357
+        ],
+        [
+          353,
+          374
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_01",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.3179504917934537,
+      "off_pavement_m2": 4.431061518601256e-06
+    },
+    {
+      "pixels": [
+        [
+          371,
+          358
+        ],
+        [
+          369,
+          377
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_02",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.34410578245297074,
+      "off_pavement_m2": 0.0
+    },
+    {
+      "pixels": [
+        [
+          384,
+          360
+        ],
+        [
+          381,
+          382
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_03",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.4181710761040449,
+      "off_pavement_m2": 3.836620758263989e-06
+    },
+    {
+      "pixels": [
+        [
+          424,
+          365
+        ],
+        [
+          422,
+          386
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_04",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.4125310471281409,
+      "off_pavement_m2": 8.095362684144505e-07
+    },
+    {
+      "pixels": [
+        [
+          439,
+          367
+        ],
+        [
+          437,
+          384
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_05",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.3389949630945921,
+      "off_pavement_m2": 0.0
+    },
+    {
+      "pixels": [
+        [
+          350,
+          417
+        ],
+        [
+          347,
+          439
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_06",
+      "status": "authored",
+      "triangles": 51,
+      "saved_area_m2": 0.4397135488688946,
+      "off_pavement_m2": 0.0
+    },
+    {
+      "pixels": [
+        [
+          363,
+          420
+        ],
+        [
+          361,
+          442
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_07",
+      "status": "authored",
+      "triangles": 34,
+      "saved_area_m2": 0.437420099042356,
+      "off_pavement_m2": 0.0
+    },
+    {
+      "pixels": [
+        [
+          407,
+          425
+        ],
+        [
+          404,
+          445
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_08",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.40044464031234384,
+      "off_pavement_m2": 0.0
+    },
+    {
+      "pixels": [
+        [
+          446,
+          430
+        ],
+        [
+          442,
+          447
+        ]
+      ],
+      "path": "/World/RearParkingSamples/west_north_marked_lot/Paint_09",
+      "status": "authored",
+      "triangles": 22,
+      "saved_area_m2": 0.3457938050851226,
+      "off_pavement_m2": 0.0
+    }
+  ]
+}

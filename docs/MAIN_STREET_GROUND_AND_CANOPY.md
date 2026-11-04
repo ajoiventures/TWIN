@@ -14,6 +14,8 @@ The [saved-mesh receipt](evidence/north-edgewater-parking-fit.json) records the 
 
 The seam audit caught 16 faces that became degenerate after point serialization. The revised stage omits those faces and passes the saved area and overlap checks again. Across **1,601 sample pairs** at five modeled aisle interfaces, the greatest elevation difference was under **0.002 mm**. Boundary points were paired within 1 mm in plan. The sample proves the modeled paving meets the modeled aisles vertically at the tested points. Rendered seams and field grades still require review. [Join audit](evidence/north-edgewater-parking-joins.json)
 
+The [striping preview](../data/diagnostics/north_edgewater_parking_paint_20261104/review.usda) adds nine visible parking line fragments at the west marked lot. The fragments follow the saved paving triangles with a 3 mm modeled offset and an estimated 10 cm width. Reopening the USD verified that all nine resolve to white paint and stay inside the lot within 0.0001 m² per fragment. The trace omits sections hidden by vehicles and trees. The lines need rendered review, and this partial record does not establish stall counts or accessibility. [Striping receipt](evidence/north-edgewater-parking-paint.json)
+
 ## East rear aisle coverage
 
 The January 2025 OCPA aerial shows a continuous strip of asphalt beside the east rear parking aisle between Princeton and Smith. The revised trace extends the existing parking polygon into that visible strip and keeps the adjacent planted island outside the new fill. The source frame is projected into the same local UTM coordinates as the street and building meshes. The parking builder clips the trace against modeled obstacles and the ground extent.

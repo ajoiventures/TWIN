@@ -38,18 +38,30 @@ def build(root=ROOT):
     obstacles=unary_union([geometry for _,geometry in blockers])
     continuous={f'/World/Streets/Road_{road_id}' for road_id in config.get('continuous_asphalt_road_ids',[])}
     if not continuous.issubset({path for path,_ in blockers}):raise ValueError('Continuous asphalt road is missing or hidden')
-    separated=unary_union([geometry for path,geometry in blockers if path not in continuous])
-    shared=unary_union([geometry for path,geometry in blockers if path in continuous])
     # Where the interpreted asphalt meets an existing service aisle, retain the
     # shared edge. Keep the clearance around every other modeled obstacle.
-    exclusion=separated.buffer(.15).union(shared)
     ground=ground_footprint(source)
     stage=Usd.Stage.CreateInMemory();UsdGeom.SetStageMetersPerUnit(stage,1);UsdGeom.SetStageUpAxis(stage,'Z');records=[]
     for sample in config['samples']:
         polygon=pixel_ground(sample['pixels'],extent,ref['image_fetch']['width'],ref['image_fetch']['height'],project,origin)
+        joins=continuous.copy()
+        z_offset=.045
+        if 'join_service_road_id' in sample:
+            road_path=f"/World/Streets/Road_{sample['join_service_road_id']}"
+            road=source.GetPrimAtPath(road_path)
+            if not any(path==road_path and geometry.intersection(polygon).area>0 for path,geometry in blockers):
+                raise ValueError(f'Join must intersect a visible modeled road: {road_path}')
+            transform=UsdGeom.XformCache().GetLocalToWorldTransform(road)
+            elevations={transform.Transform(Gf.Vec3d(*p))[2] for p in UsdGeom.Mesh(road).GetPointsAttr().Get()}
+            if len(elevations)!=1:raise ValueError(f'Join requires a flat source road: {road_path}')
+            z_offset=elevations.pop()
+            joins.add(road_path)
+        separated=unary_union([geometry for path,geometry in blockers if path not in joins])
+        shared=unary_union([geometry for path,geometry in blockers if path in joins])
+        exclusion=separated.buffer(.15).union(shared)
         clipped=polygon.intersection(ground).difference(exclusion);points=[]
         for tri in constrained_delaunay_triangles(clipped).geoms:
-            if clipped.covers(tri):points.extend([(x,y,.045) for x,y in list(tri.exterior.coords)[:3]])
+            if clipped.covers(tri):points.extend([(x,y,z_offset) for x,y in list(tri.exterior.coords)[:3]])
         if not points:raise ValueError('Sample has no supported unblocked surface')
         path='/World/RearParkingSamples/'+sample['id'];mesh=UsdGeom.Mesh.Define(stage,path);mesh.CreatePointsAttr(points);mesh.CreateFaceVertexCountsAttr([3]*(len(points)//3));mesh.CreateFaceVertexIndicesAttr(list(range(len(points))));mesh.CreateSubdivisionSchemeAttr('none');mesh.CreateDoubleSidedAttr(True)
         UsdGeom.PrimvarsAPI(mesh).CreatePrimvar('st',Sdf.ValueTypeNames.TexCoord2fArray,UsdGeom.Tokens.faceVarying).Set([(x/4,y/4) for x,y,z in points])

@@ -1,0 +1,63 @@
+{
+  "stage_sha256": "2418bc2467005ef0c9a234eec3ef72063e29c111303d005c5ab09c24b951cc99",
+  "cameras": [
+    {
+      "camera": "/World/Cameras/WestLotOverview",
+      "eye": [
+        -108.11543977124859,
+        -71.21912234150761,
+        26.972998967027593
+      ],
+      "target": [
+        -87.11543977124859,
+        -72.21912234150761,
+        1.9729989670275927
+      ],
+      "focal_length_mm": 37,
+      "box_checks": [
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotSUV",
+          "max_normalized_image_radius": 0.5563675201979285
+        },
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotCar",
+          "max_normalized_image_radius": 0.27960497660626477
+        },
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotVan",
+          "max_normalized_image_radius": 0.7105707259601589
+        }
+      ]
+    },
+    {
+      "camera": "/World/Cameras/WestLotEyeLevel",
+      "eye": [
+        -102.11543977124859,
+        -71.21912234150761,
+        2.9141192164272067
+      ],
+      "target": [
+        -87.11543977124859,
+        -72.21912234150761,
+        1.9729989670275927
+      ],
+      "focal_length_mm": 22,
+      "box_checks": [
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotSUV",
+          "max_normalized_image_radius": 0.8149340959336461
+        },
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotCar",
+          "max_normalized_image_radius": 0.2894880371660544
+        },
+        {
+          "vehicle": "/World/ParkingFitReview/WestLotVan",
+          "max_normalized_image_radius": 0.9846629767571383
+        }
+      ],
+      "building_footprint_center_sightlines_clear": true
+    }
+  ],
+  "limits": "Geometric framing check only. Occlusion, materials, shadows and visual quality need actual render."
+}

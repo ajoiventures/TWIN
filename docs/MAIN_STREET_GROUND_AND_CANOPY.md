@@ -6,6 +6,12 @@ Eight January 2025 OCPA exports now cover the full 2.92 km City-defined Edgewate
 
 The local contact sheet confirms useful parking evidence outside the pilot. Tiles 01–03 show smaller lots on both sides of Edgewater. Tile 04 covers Princeton and Smith and adjacent lots. Tiles 05–06 show additional commercial rear and side parking. Tiles 07–08 show larger parking areas where drive aisles, planted islands and pond edges need separate outlines. These are priorities from the overview image. Use the original frames to distinguish actual paving from shadow and to check what is already modeled before tracing. Original imagery remains in the ignored local cache.
 
+### Northern Edgewater tile 07
+
+The [local review stage](../data/diagnostics/north_edgewater_parking_20261104_c/review.usda) adds **1,214.97 m²** of asphalt across four visible paved interiors. The shapes cover the west marked lot, an east commercial lot, and two west-side parking rows. Five existing service-road meshes account for about 289 m² within the original traces and retain their pavement. The four new surfaces preserve the asphalt material and use the existing LiDAR ground with the nominal 65 mm preview offset.
+
+The [saved-mesh receipt](evidence/north-edgewater-parking-fit.json) records the image coordinates, source hashes and measurements. Each reopened surface differs from the clipped area by less than 0.002 m², and the maximum tested overlap with existing blockers is below 0.00005 m². Remaining work includes rendered joins, curbs, striping, tree and car clearance, and full boundaries where canopy obscures pavement. This separate preview extends the earlier Princeton–Smith comparison.
+
 ## East rear aisle coverage
 
 The January 2025 OCPA aerial shows a continuous strip of asphalt beside the east rear parking aisle between Princeton and Smith. The revised trace extends the existing parking polygon into that visible strip and keeps the adjacent planted island outside the new fill. The source frame is projected into the same local UTM coordinates as the street and building meshes. The parking builder clips the trace against modeled obstacles and the ground extent.

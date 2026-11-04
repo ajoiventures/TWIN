@@ -1,0 +1,61 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "retrieved_utc": "2026-11-04T03:49:52.791619+00:00",
+  "pilot_clipping_receipt_sha256": "cf76b5658a17fbc9ac52b0db9e0efd1c1a9783b91a11f956474ebe5f83987a67",
+  "source_receipts": [
+    {
+      "name": "Structures",
+      "fields": [
+        "OBJECTID",
+        "Structure_ID",
+        "Structype",
+        "InletManholeOutlet",
+        "Maintenance_Responsibility",
+        "Ownership",
+        "Status",
+        "Basin_ID"
+      ],
+      "metadata_sha256": "c9b106998d409a0798d2a5df0f807fb0be8e7919fed174a601458a39d32f0292",
+      "ids_sha256": "69693a6fc5672f14a013dcdd784464f7e0490410f8db38ed544a4c8ad47048fa",
+      "geometry_sha256": [
+        "4fbde45dbe172e728d61f0900e25973509dc4abee77987b03e3fb4277f52a74f",
+        "e200dd7a20d0fb1dc56a134bd34f46a071eb54b873f2405e221f1c909ececf92"
+      ]
+    },
+    {
+      "name": "Culverts",
+      "fields": [
+        "OBJECTID",
+        "Pipe_ID",
+        "Culvtype",
+        "Material",
+        "Maintenance_Responsibility",
+        "Ownership",
+        "Status",
+        "XShape",
+        "Height_In",
+        "Width_In"
+      ],
+      "metadata_sha256": "20291540f9b4319327f4e98f27e84c20be54eb2486b5132c68d091e47503ca03",
+      "ids_sha256": "23a73464cd8989dd9fa1349fd72fe9970011113ca9b0aedbac06c98f65e9014d",
+      "geometry_sha256": [
+        "01d4b34cb2830e8d86d82673fab5b3a81d761d9d021528305151eedcb332f465",
+        "36ee281f77206aec0de8f6553ffe7004606e077990d17785aeab89010ecfc71f"
+      ]
+    }
+  ],
+  "endpoint_counts": {
+    "inside_pilot": 34,
+    "within_0_25_m": 33,
+    "within_1_m": 33,
+    "within_3_m": 33,
+    "farther_than_3_m": 1,
+    "outside_pilot": 2
+  },
+  "method": "Compare each original culvert line-part endpoint inside the pilot polygon to the nearest City structure point in EPSG:32617. Thresholds are cumulative and geometric only.",
+  "limits": [
+    "The exposed structure and culvert schemas have separate IDs and no shared from/to structure fields.",
+    "No hydraulic connectivity, elevation, flow direction, or field condition was verified.",
+    "No utility feature coordinates or raw records are retained in this report."
+  ]
+}

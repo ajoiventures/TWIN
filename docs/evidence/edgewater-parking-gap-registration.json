@@ -1,0 +1,78 @@
+[
+  {
+    "group": 1,
+    "pairs": [
+      [
+        "/World/RearParkingSamples/northeast_edgewater_front_bays",
+        "/World/Streets/Road_1473552009"
+      ]
+    ],
+    "tile": 8,
+    "source_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+    "source_crop_pixels": [
+      521,
+      453,
+      645,
+      577
+    ],
+    "comparison": "data\\diagnostics\\edgewater_south_cross_street_trim_b\\parking_gap_1.png",
+    "comparison_sha256": "43fa882d245dbf21aad18d66fe8b5e73a83cb9ab3b88d8864a917c86dcbdf581"
+  },
+  {
+    "group": 2,
+    "pairs": [
+      [
+        "/World/RearParkingSamples/south01_east_long_lot",
+        "/World/Streets/Road_1387314535"
+      ]
+    ],
+    "tile": 1,
+    "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+    "source_crop_pixels": [
+      384,
+      518,
+      508,
+      642
+    ],
+    "comparison": "data\\diagnostics\\edgewater_south_cross_street_trim_b\\parking_gap_2.png",
+    "comparison_sha256": "ce883a6ba8ec4e2c5909dafe7f3f7b90ed92867bdd33fb3ece1e9c2794d17e18"
+  },
+  {
+    "group": 3,
+    "pairs": [
+      [
+        "/World/RearParkingSamples/south02_west_middle_side_bays",
+        "/World/Streets/Road_11202651"
+      ]
+    ],
+    "tile": 2,
+    "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+    "source_crop_pixels": [
+      99,
+      708,
+      223,
+      832
+    ],
+    "comparison": "data\\diagnostics\\edgewater_south_cross_street_trim_b\\parking_gap_3.png",
+    "comparison_sha256": "86f2f7bf7c51cbc1a69777dd44242502cec343fe1cb3bf93c057cc302eaca96a"
+  },
+  {
+    "group": 4,
+    "pairs": [
+      [
+        "/World/RearParkingSamples/south02_east_south_marked_bays",
+        "/World/Streets/Road_812509209"
+      ]
+    ],
+    "tile": 2,
+    "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+    "source_crop_pixels": [
+      357,
+      1370,
+      481,
+      1494
+    ],
+    "comparison": "data\\diagnostics\\edgewater_south_cross_street_trim_b\\parking_gap_4.png",
+    "comparison_sha256": "821cb9d016a6b5386df4569435efd1f54c83fec260815c1cf9a6a15cade6a0be"
+  }
+]

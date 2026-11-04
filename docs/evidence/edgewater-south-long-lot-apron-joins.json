@@ -1,0 +1,39 @@
+{
+  "stage_sha256": "8454bd6f4c0c1b7fe999a6ff8cea0f139fa09e456d841a2ced14b2b2126d5564",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/south01_east_long_lot_apron",
+      "adjacent_custom_data": {
+        "osmId": "1387314535",
+        "roadName": "Unnamed",
+        "source": "OpenStreetMap",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/Streets/Road_1387314535",
+      "sample_pairs": 26,
+      "lot_minus_aisle_m": [
+        0.0,
+        1.1832132642553006e-06
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/south01_east_long_lot_apron",
+      "adjacent_custom_data": {
+        "completeLotBoundary": false,
+        "imageAcquisition": "2025-01",
+        "quality": "historical_aerial_visual_interpretation_not_surveyed",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/RearParkingSamples/south01_east_long_lot",
+      "sample_pairs": 32,
+      "lot_minus_aisle_m": [
+        0.0,
+        2.4167304601974138e-08
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

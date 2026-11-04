@@ -29,7 +29,20 @@ def build(root=ROOT):
             pixels=[pixel(*project.transform(*p[:2]),extent,width,height) for p in part]
             if not any(-100<x<width+100 and -100<y<height+100 for x,y in pixels):continue
             lines.append('<polyline points="'+ ' '.join(f'{x:.2f},{y:.2f}' for x,y in pixels)+'"/>')
-    controls=[];marks=[]
+    controls=[];marks=[];crossings=[]
+    crossing_path=root/'data/processed/pedestrian_source_evidence/candidate_crossings.geojson'
+    if crossing_path.exists():
+        princeton={'metroplan_crossings':{6999,7000,7001,7002},'orlando_task_force':{3869,3871,3872,3873}}
+        for feature in read(crossing_path)['features']:
+            props=feature['properties'];source=props['source_id'];oid=props['source_object_id']
+            if oid not in princeton.get(source,set()):continue
+            geometry=feature['geometry'];coords=geometry['coordinates']
+            if source=='metroplan_crossings' and geometry['type']=='Point' and props['source_attributes']['EDGEDUP']==0:
+                x,y=pixel(*project.transform(*coords[:2]),extent,width,height)
+                crossings.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="5" style="fill:#ff4dde;stroke:#222;stroke-width:1"><title>MetroPlan reference point {oid}</title></circle>')
+            elif source=='orlando_task_force' and geometry['type']=='LineString':
+                points=' '.join(f'{x:.2f},{y:.2f}' for x,y in (pixel(*project.transform(*p[:2]),extent,width,height) for p in coords))
+                crossings.append(f'<polyline points="{points}" style="stroke:#fff657;stroke-width:3;stroke-dasharray:6 3"><title>City draft line {oid}</title></polyline>')
     samples_path=root/'config/rear_parking_samples.json'
     if samples_path.exists():
         for sample in read(samples_path)['samples']:
@@ -43,6 +56,10 @@ def build(root=ROOT):
     report={'source_snapshot':active['snapshot'],'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'image_sha256':digest,'image_acquisition':ref['acquisition'],'reference_manifest_snapshot':manifest['source_snapshot'],'returned_extent':extent,'image_size':[width,height],'export_sampling_m':actual_width/width*1200/3937,'requested_width_usft':requested_width,'returned_width_usft':actual_width,'width_adjustment_percent':100*(actual_width/requested_width-1),'comparison_features':controls,'preview_accepted_for_modeling':False,'survey_control_residuals_m':None,'limits':['Frame arithmetic and source overlay only; independent ground-control residuals are not measured.','Sampling resolution does not establish native GSD or positional accuracy.','City centerlines do not establish curb, sidewalk, parking or roof edges.','Historical image reference and active GIS snapshot describe different observation dates.']}
     out=root/'data/imagery/aerial_alignment_review.json';out.write_text(json.dumps(report,indent=2),encoding='utf-8')
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Edgewater aerial alignment</title><style>body{font:16px/1.5 system-ui;max-width:1000px;margin:24px auto;padding:0 18px;background:#f3f5f0;color:#163e31}svg{width:100%;height:auto;background:#ddd}polyline{fill:none;stroke:#00efff;stroke-width:1.5;stroke-opacity:.8}circle{fill:none;stroke:#ff3434;stroke-width:3}text{fill:#fff;stroke:#222;stroke-width:3;paint-order:stroke;font-size:17px}label{display:block;padding:10px}a{color:#245f48}</style><a href="/road-review">Road reference review</a><h1>Edgewater aerial registration check</h1><p>January 2025 OCPA aerial with current City street centerlines (cyan) and pilot intersections (red). These are reference comparisons, not surveyed controls. No curb or parking geometry has been accepted from this overlay.</p><p>Use the actual returned export extent: the server widened the requested image frame by __ADJUST__%. Using the requested box would stretch/shift horizontal placement. Export sampling is approximately 0.178 m/pixel; positional accuracy remains unknown.</p><label><input type="checkbox" checked id="show"> Show City reference geometry</label><svg viewBox="0 0 __W__ __H__" role="img" aria-label="Dated aerial with City street centerline overlay"><defs><clipPath id="frame"><rect width="__W__" height="__H__"/></clipPath></defs><image href="/road-reference/aerial2025" width="__W__" height="__H__"/><g id="overlay" clip-path="url(#frame)">__LINES____MARKS__</g></svg><p>Local review only. Roof lean, tree cover, shadows and historical changes require separate interpretation. Source imagery is not a road texture.</p><script>document.getElementById('show').addEventListener('change',e=>document.getElementById('overlay').style.display=e.target.checked?'':'none')</script></html>'''
+    if crossings:
+        page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showCrossings"> Show Princeton crossing references (yellow draft lines and magenta MetroPlan points). Review only.</label><svg viewBox=',1)
+        page=page.replace('</svg>', '<g id="crossingOverlay" style="display:none" clip-path="url(#frame)">'+''.join(crossings)+'</g></svg>',1)
+        page=page.replace('</script>',";document.getElementById('showCrossings').addEventListener('change',e=>document.getElementById('crossingOverlay').style.display=e.target.checked?'':'none')</script>",1)
     for key,value in {'__ADJUST__':f'{report["width_adjustment_percent"]:.2f}','__W__':str(width),'__H__':str(height),'__LINES__':''.join(lines),'__MARKS__':''.join(marks)}.items():page=page.replace(key,value)
     (root/'data/imagery/aerial_alignment_review.html').write_text(page,encoding='utf-8')
     print(json.dumps(report,indent=2));return report

@@ -1,5 +1,18 @@
 # Pedestrian source acquisition follow-up
 
+## Smith–Edgewater crossing reconciliation
+
+The January 2025 OCPA image shows crossing paint at four locations around the offset Smith approaches. Shadows partly obscure the west approach, and the two Edgewater traversals must be kept separate. All four MetroPlan points have `EDGEDUP=0`. The May 2026 and task-force line geometries match exactly for these four line IDs.
+
+| Location in the offset junction | MetroPlan point | Draft line | Point-to-line distance | Draft line length |
+|---|---:|---:|---:|---:|
+| North traverse of Edgewater | 6993 | 3731 | 0.142 m | 14.034 m |
+| East Smith approach | 6994 | 630 | 0.564 m | 15.921 m |
+| South traverse of Edgewater | 6995 | 3870 | 0.752 m | 15.113 m |
+| West Smith approach | 6996 | 631 | 0.317 m | 11.221 m |
+
+The local [aerial review](http://127.0.0.1:8769/aerial-alignment) shows the Princeton and Smith reference sets on one optional overlay. The distances above compare the point and draft line in EPSG:32617. Existing paint in January 2025 does not establish the current route, curb-ramp configuration, width, grade or the alignment of future work. Keep those fields open.
+
 ## Princeton–Edgewater crossing reconciliation
 
 The January 2025 OCPA image shows paint on all four legs. Using the actual returned aerial frame and transforming the cached candidate sources to EPSG:32617, the MetroPlan reference points pair with the following draft lines. All four points have `EDGEDUP=0`. The May 2026 and task-force line coordinates are identical for these IDs. Treat them as duplicate line evidence.

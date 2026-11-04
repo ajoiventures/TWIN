@@ -1,0 +1,53 @@
+{
+  "preview_stage_sha256": "4fc3f83a388ab27ca991e00f282330a998761fe42845951eabeb25134a3f884b",
+  "pin": "292214147800010",
+  "roof_area_m2": {
+    "main": 579.1256768061867,
+    "secondary": 76.65930857384956
+  },
+  "parcels": [
+    {
+      "properties": {
+        "id": "ocpa:107379",
+        "parcel_id": "292214147801730",
+        "site_address": "634 DARTMOUTH ST"
+      },
+      "overlap_m2": {
+        "main": 67.25135913428878,
+        "secondary": 60.908491877570896
+      }
+    },
+    {
+      "properties": {
+        "id": "ocpa:107382",
+        "parcel_id": "292214147800010",
+        "site_address": "1807 EDGEWATER DR"
+      },
+      "overlap_m2": {
+        "main": 511.87431767189827,
+        "secondary": 15.750816696278553
+      }
+    }
+  ],
+  "all_cached_source_intersections_above_0_01_m2": [],
+  "live_source_object_ids": [
+    1162422,
+    1163104,
+    1167663,
+    1173742
+  ],
+  "live_vs_cached_symmetric_difference_m2": 0.0,
+  "live_source_response_sha256": "466dac0adcc19871c790bf92fc91500bb3a9fef9445e1ee058455e5981004873",
+  "adjacent_live_query": {
+    "pin": "292214147801730",
+    "source_sha256": "6d88edf204024486f207ff139b6ec6d3be8dae76bd58f24b4d5e6b768a0d256e",
+    "source_object_ids": [
+      895267,
+      895752
+    ],
+    "roof_overlap_m2": {
+      "main": 0.0,
+      "secondary": 0.0
+    }
+  }
+}

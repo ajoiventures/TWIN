@@ -1,6 +1,7 @@
 {
   "image_service": "OCPA/Aerials2025",
   "interpretation": "Conservative visible asphalt interiors, January 2025 aerial; not complete parking lots, survey edges or verified public access",
+  "continuous_asphalt_road_ids": [812573898, 812573899, 618387850, 618387847, 618387851, 756936109],
   "samples": [
     {"id":"west_north_interior","pixels":[[20,311],[134,311],[134,443],[179,443],[179,405],[207,405],[207,524],[149,524],[149,500],[21,500]]},
     {"id":"west_south_interior","pixels":[[53,608],[144,608],[144,531],[190,531],[190,601],[182,601],[182,675],[174,675],[174,766],[58,766],[58,742],[53,742]]},

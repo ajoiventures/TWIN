@@ -28,18 +28,26 @@ def build(root=ROOT):
     if extent['spatialReference'].get('latestWkid')!=2236:raise ValueError('Unsupported aerial frame')
     active=read(root/'data/processed/active.json');study=read(root/'config/study_area.json')
     origin=Transformer.from_crs(4326,32617,always_xy=True).transform(*study['local_origin_wgs84']);project=Transformer.from_crs(2236,32617,always_xy=True)
-    source=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'));blocked=[];blockers=[]
+    source=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'));blockers=[]
     for scope in ['Buildings','Streets','Sidewalks']:
         parent=source.GetPrimAtPath('/World/'+scope)
         if parent:
             for prim in Usd.PrimRange(parent):
                 if prim.IsA(UsdGeom.Mesh) and UsdGeom.Imageable(prim).ComputeVisibility()!='invisible':
-                    geometry=mesh_footprint(prim);blocked.append(geometry);blockers.append((str(prim.GetPath()),geometry))
-    obstacles=unary_union(blocked);ground=ground_footprint(source)
+                    blockers.append((str(prim.GetPath()),mesh_footprint(prim)))
+    obstacles=unary_union([geometry for _,geometry in blockers])
+    continuous={f'/World/Streets/Road_{road_id}' for road_id in config.get('continuous_asphalt_road_ids',[])}
+    if not continuous.issubset({path for path,_ in blockers}):raise ValueError('Continuous asphalt road is missing or hidden')
+    separated=unary_union([geometry for path,geometry in blockers if path not in continuous])
+    shared=unary_union([geometry for path,geometry in blockers if path in continuous])
+    # Where the interpreted asphalt meets an existing service aisle, retain the
+    # shared edge. Keep the clearance around every other modeled obstacle.
+    exclusion=separated.buffer(.15).union(shared)
+    ground=ground_footprint(source)
     stage=Usd.Stage.CreateInMemory();UsdGeom.SetStageMetersPerUnit(stage,1);UsdGeom.SetStageUpAxis(stage,'Z');records=[]
     for sample in config['samples']:
         polygon=pixel_ground(sample['pixels'],extent,ref['image_fetch']['width'],ref['image_fetch']['height'],project,origin)
-        clipped=polygon.intersection(ground).difference(obstacles.buffer(.15));points=[]
+        clipped=polygon.intersection(ground).difference(exclusion);points=[]
         for tri in constrained_delaunay_triangles(clipped).geoms:
             if clipped.covers(tri):points.extend([(x,y,.045) for x,y in list(tri.exterior.coords)[:3]])
         if not points:raise ValueError('Sample has no supported unblocked surface')

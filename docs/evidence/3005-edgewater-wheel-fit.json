@@ -1,0 +1,28 @@
+{
+  "stage_sha256": "aaf26ceee84c80bc7c60ec0d66974cc5ff0ab4d80933f8a4f080e5e3e4e4d8c0",
+  "parent_sha256": "7a688dd9482f83d7563e9f1a9ba61e4c76345560a55cb9018c4576235271c934",
+  "tilt_degrees": 0.414016137650645,
+  "minimum_bay_margin_m": 0.15062890302671036,
+  "wheels": [
+    {
+      "name": "N80_WheelFrontL",
+      "original_min_gap_m": 0.020529910527084708,
+      "tilted_min_gap_m": 3.052876406314797e-05
+    },
+    {
+      "name": "N85_WheelFrontR",
+      "original_min_gap_m": 0.014850108749974139,
+      "tilted_min_gap_m": 0.007176976395765533
+    },
+    {
+      "name": "N90_WheelRearL",
+      "original_min_gap_m": 0.019292338583480423,
+      "tilted_min_gap_m": 0.007039655503897069
+    },
+    {
+      "name": "N95_WheelRearR",
+      "original_min_gap_m": -0.0005713735394659858,
+      "tilted_min_gap_m": -1.7486012637846216e-15
+    }
+  ]
+}

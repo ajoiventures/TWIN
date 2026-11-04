@@ -2,6 +2,8 @@
 
 ## Saved-scene parking clearance screen
 
+The [west lot plan comparison](evidence/west-stall-vehicle-plan.svg) shows all seven January 2025 stall traces and the car, SUV and van hulls extracted from their actual composed USD meshes. The drawing uses equal XY scale and no aerial pixels. It is a plan-clearance review and does not show materials, shadows, doors opening or vehicle movement.
+
 The local `data/diagnostics/vehicle_placement_audit/west_stall_two_vehicle_terrain_preview.usda` places the car and van together on the LiDAR-derived parking preview. Direct interpolation on the reopened pavement triangles gives van tire gaps of 0, 2.37, 3.50 and 10.64 mm after a rigid vertical lift. The van retains 0.231 m minimum plan clearance to the stall trace and 8.316 m separation from the car. This is a static mesh fit. Actual grade, door swing, circulation and rendered contact remain open. [Terrain fit receipt](evidence/west-stall-van-terrain-fit.json)
 
 The [CC0 Innerscene delivery van](https://www.innerscene.com/tools/library/3d-parts/delivery-van-131990b3) was tested at original scale across all seven west stall traces. It fits each polygon at its centered pose but has only 8 mm plan clearance in stall 5. The local two-vehicle preview `data/diagnostics/vehicle_placement_audit/west_stall_van_preview.usda` uses stall 7, with 0.231 m clearance to its trace and 8.316 m plan separation from the car in stall 3. Reopened USD confirms both hulls fit their own stalls and both lowest mesh vertices meet the flat modeled paving. The 0.12 m selection margin is a modeling criterion. Door swing, vehicle maneuvering, actual parking restrictions, terrain wheel contact for the van, and rendered appearance remain open.

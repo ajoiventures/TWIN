@@ -1,0 +1,27 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "source_stage": "data/diagnostics/smith_sidewalk_priority_preview/review.usda",
+  "source_sha256": "643f61a13de21f5ceabf8f274ee4350d1f3b0562d165aa6e57182d066faad526",
+  "preview_stage": "data/diagnostics/smith_static_collision_preview/review.usda",
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "static_collision_meshes": [
+    {
+      "path": "/World/RearParkingSamples/southwest_smith_rear_row",
+      "triangles": 92,
+      "min_upward_projected_triangle_area_m2": 0.06332771270535886
+    },
+    {
+      "path": "/World/Streets/Road_1479148116",
+      "triangles": 66,
+      "min_upward_projected_triangle_area_m2": 0.0011358514020685107
+    }
+  ],
+  "authored_physics_scene": true,
+  "geometry_preserved": true,
+  "runtime_tested": false,
+  "holds": [
+    "Ground, Smith Street, sidewalk, curb, paint and district objects have no collision in this preview.",
+    "Aisle pieces on both sides of the sidewalk retain their existing partition. No walking or driving route across the sidewalk is accepted.",
+    "Static triangle-mesh runtime cooking and contact behavior require separate validation."
+  ]
+}

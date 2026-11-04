@@ -1,0 +1,23 @@
+{
+  "preview_sha256": "e2853d8761519899aeb0d580d4408ec61b2adef25283ded67b62ba5a5fefc1bf",
+  "wheel_gaps": [
+    {
+      "wheel": "N80_WheelFrontL",
+      "mesh_gap_mm": 0.0
+    },
+    {
+      "wheel": "N85_WheelFrontR",
+      "mesh_gap_mm": 7.1229
+    },
+    {
+      "wheel": "N90_WheelRearL",
+      "mesh_gap_mm": 10.4176
+    },
+    {
+      "wheel": "N95_WheelRearR",
+      "mesh_gap_mm": 0.3776
+    }
+  ],
+  "tested_overlap_paths": [],
+  "scope": "Saved USD in one traced stall. No clearance approval, survey claim or visual inspection."
+}

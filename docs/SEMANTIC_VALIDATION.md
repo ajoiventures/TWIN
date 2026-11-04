@@ -1,5 +1,9 @@
 # Semantic registry and scene inspection
 
+## Current API and USD reconciliation
+
+The local `/api/v1/assets` endpoint on port 8769 returned 3,216 building records across paginated requests. The complete ordered result matched the saved registry. Every returned USD path resolved in the saved connected stage, and every `twin:entityId` matched its API value. The current local visualization validator checked 17,886 meshes, including 3,480 instance proxies, with zero errors for its configured checks. The source snapshot was `20261028T160543372334Z`. This audit covers building identity links and the local visualization profile. Physics, collision, traversability and current-condition verification remain open.
+
 The local `college-park-evidence-visualization/1.0` profile supports #26 without claiming NVIDIA certification or physical/survey accuracy.
 
 `tools/semantic_registry.py` derives building-group identity from sorted original OCPA footprint object IDs, independent of list order and local mesh numbering. A membership change creates a new group identity. Parcels remain separate one-to-many relationships; spatial-only associations stay unaccepted. Records retain snapshot, source-file hash, height method, current-validity unknowns, historical acquisition interval where applicable and evidence references. Existing tree/car assets remain illustrative and are not given false official identity.

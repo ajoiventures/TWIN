@@ -98,6 +98,20 @@ def build(root=ROOT):
         page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showSmithPaint"> Show Smith north paint trace (green). January 2025 interpretation.</label><svg viewBox=',1)
         page=page.replace('</svg>','<g id="smithPaintOverlay" style="display:none" clip-path="url(#frame)">'+''.join(paint)+'</g></svg>',1)
         page=page.replace('</script>',";document.getElementById('showSmithPaint').addEventListener('change',e=>document.getElementById('smithPaintOverlay').style.display=e.target.checked?'':'none')</script>",1)
+    canopy_path=root/'config/pilot_canopy_traces.json'
+    if canopy_path.exists():
+        canopy=read(canopy_path)
+        if canopy['aerial_sha256']!=digest:raise ValueError('Canopy traces refer to another image')
+        crowns=[]
+        for trace in canopy['traces']:
+            points=trace['pixels']
+            if len(points)<3 or not all(0<=x<=width and 0<=y<=height for x,y in points):
+                raise ValueError('Invalid canopy trace in the verified image frame')
+            coordinates=' '.join(f'{x:.2f},{y:.2f}' for x,y in points)
+            crowns.append(f'<polygon points="{coordinates}" fill="#47e59d" fill-opacity=".2" stroke="#47e59d" stroke-width="2"><title>{html.escape(trace["id"])}</title></polygon>')
+        page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showCanopy"> Show January 2025 visible canopy traces. Trunk locations remain unverified.</label><svg viewBox=',1)
+        page=page.replace('</svg>', '<g id="canopyOverlay" style="display:none" clip-path="url(#frame)">'+''.join(crowns)+'</g></svg>',1)
+        page=page.replace('</script>',";document.getElementById('showCanopy').addEventListener('change',e=>document.getElementById('canopyOverlay').style.display=e.target.checked?'':'none')</script>",1)
     for key,value in {'__ADJUST__':f'{report["width_adjustment_percent"]:.2f}','__W__':str(width),'__H__':str(height),'__LINES__':''.join(lines),'__MARKS__':''.join(marks)}.items():page=page.replace(key,value)
     (root/'data/imagery/aerial_alignment_review.html').write_text(page,encoding='utf-8')
     print(json.dumps(report,indent=2));return report

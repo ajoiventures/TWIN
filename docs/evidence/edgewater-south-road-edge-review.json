@@ -1,0 +1,38 @@
+{
+  "preview_sha256": "bedc00f4f9ad646015ec5c8dd607d61003987ce789e9eb31abab601c1b740407",
+  "parent_sha256": "a5048ae0e5959c9a2a2d59caa69107e3ae22fe83eb7e40ba30a1d628261340f6",
+  "image_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+  "osm_sha256": "d4b3c0adb52e272a33b4676f9ef6223b74c98e45dfb6aa3d922475ac3309202b",
+  "path": "/World/Streets/Road_209187375",
+  "mask_pixels": [
+    [
+      277,
+      1607
+    ],
+    [
+      303,
+      1607
+    ],
+    [
+      413,
+      1768
+    ],
+    [
+      404,
+      1782
+    ],
+    [
+      370,
+      1778
+    ],
+    [
+      274,
+      1630
+    ]
+  ],
+  "removed_road_m2": 64.70536217051637,
+  "trace_overlap_before_m2": 21.557051371868397,
+  "trace_overlap_after_m2": 0.0,
+  "mask_clearance_to_osm_centerline_m": 2.4172991251166107,
+  "saved_outline_delta_from_intended_m2": 0.0005736170835188587
+}

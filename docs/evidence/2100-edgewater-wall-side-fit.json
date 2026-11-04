@@ -1,0 +1,52 @@
+{
+  "tile": "2100 matched crop 2022",
+  "image_sha256": "a804dffe6eec0950b2ea5e0f1a15344b714836b894413f1723c91f67d8e6a763",
+  "source_sha256": "a815865d7ce3087b7a02fd4a744578eb124b642f90814be1cd7ead3091d594aa",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "1fb9578f4091c25d8e90486137c158d91d75040a551dc2700ca57a67bf52cd04",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/edgewater_2100_wall_side_aisle",
+      "pixels": [
+        [
+          142,
+          358
+        ],
+        [
+          204,
+          350
+        ],
+        [
+          233,
+          364
+        ],
+        [
+          239,
+          631
+        ],
+        [
+          230,
+          651
+        ],
+        [
+          161,
+          651
+        ],
+        [
+          146,
+          628
+        ]
+      ],
+      "trace_m2": 117.42976649618369,
+      "surface_m2": 16.90821754215171,
+      "triangles": 52,
+      "excluded_paths": [
+        "/World/Streets/Road_833430192",
+        "/World/RearParkingSamples/edgewater_2100_west_parking_restoration"
+      ],
+      "saved_m2": 16.90824867086485,
+      "overlap_m2": 5.425050501636601e-06,
+      "max_ground_offset_residual_m": 1.9999474926146732e-07
+    }
+  ]
+}

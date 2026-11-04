@@ -1,5 +1,13 @@
 # Main Street rear parking, canopy and street-view correction
 
+## East rear aisle coverage
+
+The January 2025 OCPA aerial shows a continuous strip of asphalt beside the east rear parking aisle between Princeton and Smith. The revised trace extends the existing parking polygon into that visible strip and keeps the adjacent planted island outside the new fill. The source frame is projected into the same local UTM coordinates as the street and building meshes. The parking builder clips the trace against modeled obstacles and the ground extent.
+
+The [local Omniverse review stage](../data/diagnostics/east_parking_fill_20261104/terrain_review.usda) fits the revised surface to the existing LiDAR-derived ground with the same nominal 65 mm offset as the parent parking review. Reopening the USD verified **42.94 m² added**, **521.83 m² total** for that surface, 297 triangles, and the existing asphalt binding. The outline differs from the projected trace after clipping by less than 0.0001 m². Two parking registration tests passed. The underlying terrain and the new paving are available in this separate review stage. Actual rendered appearance and the pavement tie-ins still need review.
+
+Rebuild the parking trace for review with `python tools/build_rear_parking.py --preview-dir data/diagnostics/NEW_PARKING_REVIEW`. The terrain comparison and its fit receipt are local. For the rest of Main Street, record each block's visible pavement, landscaped islands and obscured boundaries before tracing. Reuse the local frame and the terrain fitter, then check driveway transitions, sidewalk priority and stall markings in plan and at street level. Carry forward unknown dates and field grades under #13 and #15.
+
 ## Southwest Smith rear parking and LiDAR fit
 
 The inactive `data/diagnostics/smith_sidewalk_priority_preview/review.usda` gives the existing sidewalk mesh priority over the aisle at the driveway crossing. The saved mesh audit reduced their overlap from 7.200 m² to 0.000003 m² while preserving their combined paved footprint and the parking join. In the matched Kit render at `data/renders/20261104T032053Z/SmithStreetscape.png`, the walking line still does not read distinctly. Both the modeled sidewalk and the driveway bind to the same asphalt material. The priority change resolves duplicate geometry for review. A visually distinct apron and walking line need dated material and edge evidence, and a usable pedestrian connection requires field verification. The [reference record](evidence/smith-driveway-aerial-reference.json) includes five approximate field locations covering the sidewalk ties, apron, street approach and parking transition.

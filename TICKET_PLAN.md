@@ -250,6 +250,8 @@ Deliverables: Acceptance report, comparison captures, performance measurements a
 
 Shared scope configuration now fully contains the official City College Park Main Street polygon. The rebuilt 3D ground has 100% area coverage and 0 m² uncovered; 3,216 building groups are composed. Wider neighborhood coverage is partial (60.77%). See `docs/STUDY_SCOPE.md` and `docs/EXECUTION_STATUS.md`. Remaining #5/#6/#17 acceptance includes current building completeness, missing redevelopment geometry, heights and accurate pedestrian infrastructure; spatial coverage alone does not close those tickets.
 
+For #5/#13/#15, verify the City boundary and common scene coordinates, then inventory rear lots block by block using dated aerials. Trace visible paving separately from islands, curbs, sidewalks, and stalls. Fit paving to the checked LiDAR ground and review driveway joins and elevation continuity in the saved stage and matched renders. The [east rear aisle preview](docs/MAIN_STREET_GROUND_AND_CANOPY.md#east-rear-aisle-coverage) is one worked block segment.
+
 ### Princeton / Edgewater conference focus
 
 Prioritize #15/#16/#17/#18/#13 on the Princeton–Edgewater intersection. The source review finds close centerline agreement but generic widths and unverified sidewalk buffers; it does not accept the intersection geometry. Required correction and presentation gates: `docs/PRINCETON_EDGEWATER_REVIEW.md`.

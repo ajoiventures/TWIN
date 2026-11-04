@@ -1,6 +1,6 @@
 """Add bounded historical asphalt interpretation, preserving all source geometry."""
 from pathlib import Path
-import datetime,hashlib,json,sys
+import argparse,datetime,hashlib,json,sys
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.dependencies'))
 from pxr import Usd,UsdGeom,UsdShade,Sdf,Gf
 from shapely.geometry import LineString,Polygon
@@ -22,7 +22,7 @@ def pixel_ground(points,extent,width,height,project,origin):
     if not result.is_valid or result.area<=0:raise ValueError('Invalid surface polygon')
     return result
 
-def build(root=ROOT):
+def build(root=ROOT, preview_dir=None):
     read=lambda p:json.loads(p.read_text(encoding='utf-8'))
     config=read(root/'config/rear_parking_samples.json');manifest=read(root/'data/imagery/pilot_imagery_manifest.json')
     ref=next(r for r in manifest['references'] if r['service_name']==config['image_service']);image=root/ref['image_path']
@@ -98,8 +98,22 @@ def build(root=ROOT):
                 stripes.append({'path':stripe_path,'source_pixels':segment,'paint_area_m2':paint.area})
             records[-1]['visible_stripe_fragments']=stripes
     stage.GetRootLayer().customLayerData={'purpose':config['interpretation'],'sourceSnapshot':active['snapshot'],'surveyAccepted':False,'imageryPixelsEmbedded':False}
-    output=root/'scene/rear_parking_samples.usda';stage.GetRootLayer().Export(str(output))
+    if preview_dir is None:
+        output=root/'scene/rear_parking_samples.usda'
+        report_path=root/'data/transport/rear_parking_samples.json'
+    else:
+        preview_dir=Path(preview_dir).resolve()
+        if not preview_dir.is_relative_to(root/'data/diagnostics') or preview_dir==root/'data/diagnostics':
+            raise ValueError('Preview must be a fresh directory below data/diagnostics')
+        preview_dir.mkdir()
+        output=preview_dir/'rear_parking_samples.usda'
+        report_path=preview_dir/'rear_parking_samples.json'
+    if not stage.GetRootLayer().Export(str(output)):
+        raise RuntimeError('Could not export parking layer')
     report={'source_snapshot':active['snapshot'],'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_image_sha256':ref['image_fetch']['sha256'],'records':records,'acceptance':'Historical visual interpretation only; full lot edges, islands, access, capacity and field accuracy remain unresolved','layer_sha256':hashlib.sha256(output.read_bytes()).hexdigest()}
-    (root/'data/transport/rear_parking_samples.json').write_text(json.dumps(report,indent=2),encoding='utf-8');print(json.dumps(report,indent=2));return report
+    report_path.write_text(json.dumps(report,indent=2),encoding='utf-8');print(json.dumps(report,indent=2));return report
 
-if __name__=='__main__':build()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--preview-dir',type=Path)
+    build(preview_dir=parser.parse_args().preview_dir)

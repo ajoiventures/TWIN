@@ -1,0 +1,53 @@
+{
+  "address": "3005 EDGEWATER DR",
+  "pin": "292211305604310",
+  "source_group": "Building_2964",
+  "source_layer": "https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/28",
+  "image_acquisition_month": "2025-01",
+  "image_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+  "live_response_local_sha256": "91cc13d98989e7e1d352d94086dd41f0dbe4c0fce598a95c018d62986d32c59c",
+  "source_object_ids": [
+    1158624,
+    1159219,
+    1159313,
+    1164644,
+    1167057,
+    1175396,
+    1176446,
+    1179024,
+    1179055,
+    1179908,
+    1181412
+  ],
+  "body_m2": 1079.6392965942032,
+  "cached_union_m2": 1079.638243876671,
+  "model_outside_cached_union_m2": 0.0011778503380629195,
+  "cached_union_outside_model_m2": 0.00012513280583432613,
+  "live_vs_cached_union_symmetric_difference_m2": 0.0,
+  "example_roof_pixel": [
+    452,
+    550
+  ],
+  "roof_point_source_records": [],
+  "example_parking_pixel": [
+    571,
+    578
+  ],
+  "parking_point_in_source_object_ids": [
+    1181412
+  ],
+  "roof_point_parcels": [
+    {
+      "id": "ocpa:346440",
+      "parcel_id": "292211305604310",
+      "site_address": "3005 EDGEWATER DR"
+    }
+  ],
+  "parking_point_parcels": [
+    {
+      "id": "ocpa:346440",
+      "parcel_id": "292211305604310",
+      "site_address": "3005 EDGEWATER DR"
+    }
+  ]
+}

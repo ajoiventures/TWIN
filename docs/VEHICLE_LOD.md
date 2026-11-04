@@ -2,6 +2,8 @@
 
 ## Compact SUV material batching
 
+An offline CPU raster check compared both saved USD variants at 460 × 260 with the matched oblique camera, depth testing, bound color textures and diffuse normal shading. One pixel differed, by one channel value of 1 on an 8-bit scale. The local images are `data/diagnostics/vehicle_body_style_sources/suv_original_cpu_preview.png` and `suv_batched_cpu_preview.png`. This comparison checks a basic textured silhouette. It does not exercise Kit RTX shading, clearcoat, reflections or shadows. The opaque windows read pale in this simplified view, so the window appearance remains a visual review item.
+
 The local `data/diagnostics/vehicle_body_style_sources/compact_suv_material_batches.usda` groups the SUV's 435 meshes into 12 material batches. It retains all 126,758 triangles and all 12 color textures. Reopened USD matches the assembled vertex positions, normalized transformed normals, UVs, indices and material targets. The original separately addressable wheel and body prims remain available in the unbatched source for fit and inspection. Actual render comparison and performance measurement are still required. [Batch audit](evidence/suv-material-batch-audit.json)
 
 ## Saved-scene parking clearance screen

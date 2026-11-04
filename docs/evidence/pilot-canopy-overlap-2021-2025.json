@@ -1,0 +1,43 @@
+{
+  "observation_years": [
+    2021,
+    2025
+  ],
+  "canopy_archive_md5": "e8bba02b4c8556311ecf3673e6e4e735",
+  "scene_root_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "rows": [
+    {
+      "trace": "smith_north_east_crown",
+      "area_m2": 33.61,
+      "classified_pixels": 93,
+      "historical_tree_pixels": 0,
+      "historical_tree_fraction": 0.0,
+      "main_tree_instancer_origins_inside": []
+    },
+    {
+      "trace": "smith_south_crown_group",
+      "area_m2": 200.54,
+      "classified_pixels": 558,
+      "historical_tree_pixels": 237,
+      "historical_tree_fraction": 0.4247,
+      "main_tree_instancer_origins_inside": []
+    },
+    {
+      "trace": "east_rear_island_crown",
+      "area_m2": 28.83,
+      "classified_pixels": 77,
+      "historical_tree_pixels": 14,
+      "historical_tree_fraction": 0.1818,
+      "main_tree_instancer_origins_inside": []
+    },
+    {
+      "trace": "princeton_south_east_crown_group",
+      "area_m2": 206.12,
+      "classified_pixels": 572,
+      "historical_tree_pixels": 248,
+      "historical_tree_fraction": 0.4336,
+      "main_tree_instancer_origins_inside": []
+    }
+  ],
+  "limits": "Canopy presence across acquisition dates. Instancer origins are a placement diagnostic and do not measure rendered crown coverage or other tree layers."
+}

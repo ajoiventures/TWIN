@@ -1,0 +1,92 @@
+{
+  "address": "1807 EDGEWATER DR",
+  "parcel_feature_id": "ocpa:107382",
+  "stage_sha256": "2c262fc6f3b4e42c09aa5c57bb4d1f21ce419cb2d6bbc9e9951e22ec6920564b",
+  "masked_prims": [
+    {
+      "path": "/World/Buildings/Building_3026",
+      "entity_id": "ocpa:building-group:463348abdffce97e5cbb68ad"
+    },
+    {
+      "path": "/World/Roofs/Roof_3026",
+      "entity_id": null
+    },
+    {
+      "path": "/World/Buildings/Building_3080",
+      "entity_id": "ocpa:building-group:a02ecbf7f159405e24c14cc8"
+    },
+    {
+      "path": "/World/Roofs/Roof_3080",
+      "entity_id": null
+    }
+  ],
+  "source_images": [
+    {
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=531203.896546876%2C1539231.2128581607%2C531337.0904350897%2C1539403.3903234124&bboxSR=2236&imageSR=2236&size=615%2C795&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531203.896546876,
+        "ymin": 1539231.2128581612,
+        "xmax": 531337.0904350897,
+        "ymax": 1539403.3903234128,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "6b3a932ee670b25608b7e06a56dedc4b795b191e339934912bc70b693a070a17",
+      "retrieved_utc": "2026-11-04T15:18:25.160298+00:00"
+    },
+    {
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=531203.896546876%2C1539231.2128581607%2C531337.0904350897%2C1539403.3903234124&bboxSR=2236&imageSR=2236&size=615%2C795&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531203.896546876,
+        "ymin": 1539231.2128581612,
+        "xmax": 531337.0904350897,
+        "ymax": 1539403.3903234128,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "b21ab64d942e14407b3e9076a6bcd5f57b42b9042799695f2eb7b717c2b23312",
+      "retrieved_utc": "2026-11-04T15:18:25.157797+00:00"
+    },
+    {
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531203.896546876%2C1539231.2128581607%2C531337.0904350897%2C1539403.3903234124&bboxSR=2236&imageSR=2236&size=615%2C795&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531203.896546876,
+        "ymin": 1539231.2128581612,
+        "xmax": 531337.0904350897,
+        "ymax": 1539403.3903234128,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "0ad0218a5426f28247239cbacdc53fd9ff6ea1e51ab177232d88984fe5a7ec5a",
+      "retrieved_utc": "2026-11-04T15:18:25.470592+00:00"
+    }
+  ],
+  "status": "inactive historical aerial interpretation"
+}

@@ -2,6 +2,8 @@
 
 ## City stormwater companion source
 
+The boundary follow-up queried City structures around all three unresolved endpoints. Both endpoints outside the pilot coincide with City structure points in plan. The one unresolved endpoint inside the pilot, culvert object 38568, remains 8.652 m from the nearest mapped structure even after expanding the search. These results distinguish a pilot clipping effect from an inventory exception. [Boundary endpoint audit](evidence/orlando-stormwater-boundary-endpoints.json)
+
 The structure and culvert schemas expose separate asset IDs with no from/to structure fields. A geometry screen found that 33 of the 34 original culvert endpoints inside the pilot lie within 0.25 m of a City structure point. One lies more than 3 m from the nearest pilot structure, and two endpoints lie outside the pilot. The proximity screen supports candidate connections for review. Hydraulic connectivity, direction and elevations remain unverified. [Endpoint screen and source schemas](evidence/orlando-stormwater-connectivity-screen.json)
 
 The follow-up retrieved the pilot candidates in batches of up to ten IDs. Every returned ID matched the source query, all 34 geometries were valid, and all 16 structures and 18 culverts intersected the actual pilot polygon. The channel and vault queries returned no candidate IDs. This supersedes the earlier pilot geometry-access limitation. The wider neighborhood figures below remain envelope counts. [Pilot clipping and response hashes](evidence/orlando-stormwater-pilot-clipping.json)

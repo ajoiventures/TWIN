@@ -48,6 +48,12 @@ Three adjusted marks fall in the neighborhood. Two are I-4 marks and one is a ra
 
 The [NAIP service metadata](https://imagery.geoplatform.gov/iipp/rest/services/NAIP/NAIP2023_CONUS/ImageServer) describes generic ±6 m true-ground rectification for its stated 1 m and 60 cm products. The map uses local 30 cm source rasters. A tile-specific accuracy report is still needed to establish an applicable source tolerance.
 
+## Building counterpart identity
+
+The selection bridge now retains the exact registered building ID when Kit publishes a building selection. The map highlights that footprint and styles the other parcel footprints as context. A parcel selection continues to request all accepted building counterparts. The editor verifies each expected USD path against its own registered entity ID and reports partial delivery when scene identity or snapshot evidence is missing.
+
+Seven selection bridge tests passed, including the same-parcel swapped-identity regression in a real USD stage. A browser session backed by a temporary copy of the current registry and parcels received a simulated Kit event for `Building_2945`. It highlighted that building while showing `Building_2978` as parcel context. Selecting 2204 Edgewater returned both registered scene paths, and selecting 1615 Edgewater displayed the unmatched state. The live native viewport round trip and direct map-footprint-to-building selection remain open.
+
 ## Remaining ticket #5 gates
 
 | Criterion | Evidence and remaining limit |

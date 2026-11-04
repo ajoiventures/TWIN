@@ -262,8 +262,8 @@ async def open_workspace():
                 bridge_runtime['remote_paths']=tuple(paths)
                 ctx.get_selection().set_selected_prim_paths(paths,False)
                 selection=packet['selection']
-                if selection['status']=='matched' and not paths:
-                    notice='Accepted counterparts are not loaded with matching snapshot evidence in this editor.'
+                if selection['status']=='matched' and len(paths)!=len(selection['paths']):
+                    notice=f'{len(paths)} of {len(selection["paths"])} counterparts have matching scene identity and snapshot evidence.'
                     acknowledge(packet,'unmatched-editor',notice,ROOT)
                 else:
                     notice=selection['reason']

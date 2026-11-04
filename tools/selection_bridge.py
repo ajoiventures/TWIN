@@ -64,6 +64,11 @@ def resolve_selection(context,feature_id='',entity_id=''):
         if row.get('parcel_link_accepted') is not True:
             return {'status':'unmatched','feature_id':None,'paths':[],'entity_ids':[entity_id],'reason':'3D parcel association is not accepted.'}
         feature_id=row.get('parcel_feature_id') or ''
+        path=row.get('usd_path')
+        if feature_id not in context['features'] or not isinstance(path,str) or not path.startswith('/World/Buildings/'):
+            return {'status':'unmatched','feature_id':None,'paths':[],'entity_ids':[entity_id],'reason':'Selected building has no valid current parcel and scene counterpart.'}
+        return {'status':'matched','feature_id':feature_id,'paths':[path],'entity_ids':[entity_id],
+                'selected_entity_id':entity_id,'reason':'One exact registered building counterpart.'}
     if not feature_id:return {'status':'cleared','feature_id':None,'paths':[],'entity_ids':[],'reason':'Selection cleared.'}
     if feature_id not in context['features']:raise SelectionError('Parcel feature is not in the current snapshot',409)
     accepted=[r for r in records if r.get('source_snapshot')==snapshot and r.get('parcel_feature_id')==feature_id and r.get('parcel_link_accepted') is True and isinstance(r.get('usd_path'),str) and r['usd_path'].startswith('/World/Buildings/')]
@@ -138,12 +143,20 @@ def counterpart_paths(stage,packet,context):
     selection=packet.get('selection',{})
     if not selection.get('feature_id'):return []
     canonical=resolve_selection(context,selection['feature_id'])
+    expected_entities={}
+    for record in context['records']:
+        if (record.get('source_snapshot')==context['snapshot'] and record.get('parcel_link_accepted') is True
+                and record.get('parcel_feature_id')==selection['feature_id'] and record.get('usd_path') in canonical['paths']):
+            expected_entities.setdefault(record['usd_path'],set()).add(record['entity_id'])
     result=[]
     for path in canonical['paths']:
         prim=stage.GetPrimAtPath(path)
         if not prim:continue
         data=prim.GetCustomData();twin=data.get('twin',{})
-        if twin.get('sourceSnapshot')==context['snapshot'] and twin.get('entityId') in canonical['entity_ids']:result.append(path)
+        entity=twin.get('entityId')
+        if (twin.get('sourceSnapshot')==context['snapshot'] and isinstance(entity,str)
+                and expected_entities.get(path)=={entity}):
+            result.append(path)
     return result
 
 def selection_identity(prim,context):

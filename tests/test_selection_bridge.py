@@ -29,7 +29,9 @@ class SelectionBridgeTests(unittest.TestCase):
         self.assertEqual(resolve_selection(context,'ocpa:b')['status'],'unmatched')
         self.assertEqual(resolve_selection(context,'ocpa:condo')['status'],'unmatched')
         self.assertEqual(resolve_selection(context,entity_id='e2')['feature_id'],None)
-        self.assertEqual(resolve_selection(context,entity_id='e1')['feature_id'],'ocpa:a')
+        selected=resolve_selection(context,entity_id='e1')
+        self.assertEqual((selected['feature_id'],selected['selected_entity_id']),('ocpa:a','e1'))
+        self.assertEqual(selected['paths'],['/World/Buildings/B1'])
         with self.assertRaises(SelectionError):resolve_selection(context,'SAME-PIN')
 
     def test_stale_epoch_revision_snapshot_and_ack_rejected(self):
@@ -79,6 +81,8 @@ class SelectionBridgeTests(unittest.TestCase):
         roof_body.SetCustomDataByKey('twin',{'entityId':'e1','sourceSnapshot':'old'})
         self.assertEqual(selection_identity(roof,context),{'entity_id':'unregistered-selection'})
         self.assertEqual(counterpart_paths(stage,packet,context),['/World/Buildings/B1'])
+        prim.SetCustomDataByKey('twin',{'entityId':'e3','sourceSnapshot':'s1'})
+        self.assertEqual(counterpart_paths(stage,packet,context),[])
         prim.SetCustomDataByKey('twin',{'entityId':'e1','sourceSnapshot':'old'})
         self.assertEqual(counterpart_paths(stage,packet,context),[])
         unrelated=UsdGeom.Cube.Define(stage,'/World/Storefronts/Guess').GetPrim()

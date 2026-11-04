@@ -1,0 +1,41 @@
+{
+  "tile": 5,
+  "image_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+  "source_sha256": "ec2de585d2c36ba318ef3a30664411fbcf9df95572195103479d24429630d478",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "5bcb35aa1f8187806c0a92552c0d203642ddbd57d0e1bd9438d47a123cd93288",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+      "pixels": [
+        [
+          155,
+          1418
+        ],
+        [
+          165,
+          1417
+        ],
+        [
+          166,
+          1427
+        ],
+        [
+          156,
+          1428
+        ]
+      ],
+      "trace_m2": 3.958380128203913,
+      "surface_m2": 1.8404398642208415,
+      "triangles": 12,
+      "excluded_paths": [
+        "/World/Streets/Road_612145650",
+        "/World/Streets/Road_612145652",
+        "/World/RearParkingSamples/mid05_west_storefront_side_bays"
+      ],
+      "saved_m2": 1.8404555037850514,
+      "overlap_m2": 2.7225707595386226e-06,
+      "max_ground_offset_residual_m": 2.6425554727760314e-07
+    }
+  ]
+}

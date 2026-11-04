@@ -1,0 +1,37 @@
+{
+  "stage_sha256": "5bcb35aa1f8187806c0a92552c0d203642ddbd57d0e1bd9438d47a123cd93288",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+      "aisle": "/World/Streets/Road_612145650",
+      "sample_pairs": 17,
+      "lot_minus_aisle_m": [
+        -7.12066374752851e-08,
+        5.576977013532769e-08
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+      "aisle": "/World/Streets/Road_612145652",
+      "sample_pairs": 15,
+      "lot_minus_aisle_m": [
+        -3.40835112133675e-07,
+        0.0
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+      "aisle": "/World/RearParkingSamples/mid05_west_storefront_side_bays",
+      "sample_pairs": 7,
+      "lot_minus_aisle_m": [
+        1.7763568394002505e-15,
+        1.361330674853889e-07
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

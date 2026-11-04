@@ -1,0 +1,49 @@
+{
+  "county_packet_sha256": "d71aac17d7b395ddf80bb2b50637569f2a90209c7cea235216d262107d8de40f",
+  "city_packet_sha256": "30d6876360b6d1cad1a8b0d9ac9099e90cefbb32de82772751870fb045482ec1",
+  "pairs": 137,
+  "county_minus_city_component_median_east_north_m": [
+    6.605,
+    -19.545
+  ],
+  "separation_p10_p50_p90_m": [
+    7.536,
+    20.631,
+    20.631
+  ],
+  "residual_after_common_median_shift_p10_p50_p90_m": [
+    0.0,
+    0.0,
+    19.046
+  ],
+  "pairs_within_5m_before": 2,
+  "pairs_within_5m_after": 105,
+  "groups": {
+    "side_street": {
+      "count": 7,
+      "median_vector_east_north_m": [
+        -0.381,
+        -1.411
+      ],
+      "median_distance_m": 12.843
+    },
+    "edgewater": {
+      "count": 130,
+      "median_vector_east_north_m": [
+        6.605,
+        -19.545
+      ],
+      "median_distance_m": 20.631
+    }
+  },
+  "limits": "Same normalized address text only. Median translation is diagnostic and does not establish a datum correction or shared identity.",
+  "unique_coordinate_pairs": 34,
+  "largest_repeated_coordinate_pair_rows": 104,
+  "largest_repeated_site": "2305 Edgewater Drive",
+  "unique_pairs_component_median_east_north_m": [
+    6.577,
+    -1.556
+  ],
+  "unique_pairs_within_5m_before": 2,
+  "unique_pairs_within_5m_after_unique_median_shift": 16
+}

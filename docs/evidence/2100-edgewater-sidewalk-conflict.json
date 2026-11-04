@@ -1,0 +1,14 @@
+{
+  "preview_sha256": "22a78126e941d0e79b9581c727fd379551dd54c74668756b777528c7ecc7c01a",
+  "image_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+  "road_path": "/World/Streets/Road_559971475",
+  "osm_id": 559971475,
+  "cached_tags": {
+    "footway": "sidewalk",
+    "highway": "footway"
+  },
+  "centerline_to_roof_m": 0.47125147575180554,
+  "centerline_inside_roof_m": 0.0,
+  "mesh_roof_overlap_m2": 6.263084851795128,
+  "roof_overlap_legacy_source_union_m2": 70.02470041729082
+}

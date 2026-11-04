@@ -295,6 +295,27 @@
       }
     },
     {
+      "id": "1610-retail-physical-reference",
+      "claim_group": "madsensmith-1610-retail-physical",
+      "address": "1610 EDGEWATER DR",
+      "city": "ORLANDO",
+      "state": "FL",
+      "scope": "building_physical_reference",
+      "suite": null,
+      "reported_status": "unknown",
+      "source_ids": ["madsensmith_1610_loopnet_40304288"],
+      "facts": {"building_area_sf": 11937, "building_stories": 1},
+      "exclusions": ["current listing status", "surveyed height", "geometry resize"],
+      "identity_evidence": {
+        "kind": "reviewed_building_physical_reference",
+        "parcel_id": "292223949602010",
+        "parcel_feature_id": "ocpa:345458",
+        "evidence_url": "https://www.loopnet.com/Listing/1610-Edgewater-Dr-Orlando-FL/40304288/",
+        "scope_verified": "physical_building_metadata_only",
+        "review_basis": "One freestanding retail building reported. Exact OCPA situs, one appraiser story, and one active ID-and-geometry linked building group corroborate physical scope. Reported area is retained as broker metadata."
+      }
+    },
+    {
       "id": "2114-retail-lease",
       "claim_group": "bywater-2114-retail-lease",
       "address": "2114 EDGEWATER DR",

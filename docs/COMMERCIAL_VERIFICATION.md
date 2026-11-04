@@ -6,7 +6,7 @@ Added **1610 Edgewater Drive** to the property context register. The broker list
 
 The Wellesley listing text was rechecked and still identifies the sale scope as the 19,827-square-foot ground-floor retail condominium within the seven-story project. The listing update field supplies no date. Residential and suite assignments remain separate and unresolved. [CBRE-attributed listing 41801447](https://www.loopnet.com/Listing/2305-Edgewater-Dr-Orlando-FL/41801447/)
 
-Offline replay now yields seven scoped claims and two accepted property-context links. Current verified status remains unknown for all seven. No market-status badge or geometry change was activated.
+Offline replay now yields eight scoped claims and two accepted property-context links. The separate 1610 physical reference resolves to the unique ID-and-geometry-linked building group. A fresh read of the composed USD verifies the broker-reported area and story count on `/World/Buildings/Building_3090`, with current status unknown and the market-status update flag off. No geometry was resized. The refreshed metadata layer changes the input hash recorded by older terrain previews.
 
 Bounded ticket #32 implementation, October 28, 2026. This register separates broker-reported physical facts, marketing status, component/suite scope, current verification and government entity links. It does not change scene geometry or activate market-status labels.
 

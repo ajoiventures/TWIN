@@ -11,6 +11,7 @@ from data_pipeline import atomic_json
 
 SCHEMA='twin.asset/1.0'
 PROFILE='college-park-evidence-visualization/1.0'
+REFERENCE_SCENARIO='existing_conditions_reference'
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -42,6 +43,8 @@ def validate_records(records):
         if not isinstance(source_ids,list) or not source_ids or any(not isinstance(i,str) or not i.strip() for i in source_ids):errors.append({'entity_id':key,'code':'invalid_source_ids'})
         elif key!=building_identity(source_ids):errors.append({'entity_id':key,'code':'source_identity_mismatch'})
         if row.get('observation_kind') not in ['estimated','historical_lidar_derived']:errors.append({'entity_id':key,'code':'invalid_quality'})
+        if 'scenario_status' in row and row['scenario_status']!=REFERENCE_SCENARIO:
+            errors.append({'entity_id':key,'code':'invalid_building_reference_scenario'})
     return errors
 
 def build(root=ROOT):
@@ -64,6 +67,7 @@ def build(root=ROOT):
             'parcel_match_method':b['match_method'],'height_m':h['height_m'],'height_method':h['method'],
             'maximum_rendered_height_m':h.get('maximum_rendered_height_m',h['height_m']),'maximum_rendered_height_scope':h.get('maximum_rendered_height_scope','main_mass_height'),
             'observation_kind':'historical_lidar_derived' if h['quality']=='historical_lidar_derived' else 'estimated',
+            'scenario_status':REFERENCE_SCENARIO,
             'valid_time':{'start':None,'end':None,'quality':'current_validity_not_verified'},
             'acquisition_interval':{'start':'2018-12-04','end':'2019-04-12'} if h['quality']=='historical_lidar_derived' else None,
             'horizontal_reference':{'crs':'EPSG:32617','origin_wgs84':[-81.389,28.572],'local_units':'meters'},
@@ -75,7 +79,7 @@ def build(root=ROOT):
     if errors:raise ValueError(str(errors[:10]))
     scene=root/'scene';layer=Usd.Stage.CreateNew(str(scene/'semantic_assets.usda'))
     for r in records:
-        prim=layer.OverridePrim(r['usd_path']);prim.SetCustomDataByKey('twin',{'entityId':r['entity_id'],'schema':SCHEMA,'semanticClass':'building_group','quality':r['observation_kind'],'sourceSnapshot':active['snapshot'],'validationProfile':PROFILE})
+        prim=layer.OverridePrim(r['usd_path']);prim.SetCustomDataByKey('twin',{'entityId':r['entity_id'],'schema':SCHEMA,'semanticClass':'building_group','quality':r['observation_kind'],'scenarioStatus':r['scenario_status'],'sourceSnapshot':active['snapshot'],'validationProfile':PROFILE})
     layer.GetRootLayer().customLayerData={'profile':PROFILE,'certification':'local evidence/visualization checks only; no NVIDIA certification claim'};layer.GetRootLayer().Save()
     report={'schema':'twin.registry/1.0','profile':PROFILE,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_snapshot':active['snapshot'],'base_geometry_sha256':base_hash,'height_evidence_sha256':sha(root/'data/heights/building_heights.json'),'records':records}
     atomic_json(root/'data/processed/asset_registry.json',report)

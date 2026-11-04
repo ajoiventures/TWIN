@@ -35,6 +35,12 @@ class SceneValidationIntegrationTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    r,data=self.fixture(d);s=Usd.Stage.Open(str(r/'scene/college_park.usda'));s.GetPrimAtPath('/World/B1').SetCustomDataByKey('twin:validationProfile','different');s.GetRootLayer().Save();data['base_geometry_sha256']=sha(r/'scene/college_park.usda');self.write_registry(r,data)
    self.assertIn('semantic_profile_mismatch',{e['code'] for e in validate(r,verbose=False)['errors']})
+ def test_declared_scenario_requires_matching_usd_metadata(self):
+  with tempfile.TemporaryDirectory() as d:
+   r,data=self.fixture(d)
+   data['records'][0]['scenario_status']='existing_conditions_reference'
+   self.write_registry(r,data)
+   self.assertIn('semantic_scenario_mismatch',{e['code'] for e in validate(r,verbose=False)['errors']})
  def test_invalid_instanced_mesh_is_checked(self):
   with tempfile.TemporaryDirectory() as d:
    r,_=self.fixture(d,True);report=validate(r,verbose=False);self.assertEqual(report['instance_proxy_meshes_checked'],1);self.assertIn('face_index_out_of_range',{e['code'] for e in report['errors']})

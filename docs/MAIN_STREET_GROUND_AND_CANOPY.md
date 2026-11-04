@@ -6,6 +6,10 @@ Eight January 2025 OCPA exports now cover the full 2.92 km City-defined Edgewate
 
 The local contact sheet confirms useful parking evidence outside the pilot. Tiles 01–03 show smaller lots on both sides of Edgewater. Tile 04 covers Princeton and Smith and adjacent lots. Tiles 05–06 show additional commercial rear and side parking. Tiles 07–08 show larger parking areas where drive aisles, planted islands and pond edges need separate outlines. These are priorities from the overview image. Use the original frames to distinguish actual paving from shadow and to check what is already modeled before tracing. Original imagery remains in the ignored local cache.
 
+### Southern commercial blocks on tile 03
+
+The [combined Omniverse preview](../data/diagnostics/edgewater_tile03_parking_20261104/review.usda) adds **1,004.72 m²** of terrain-fitted asphalt across five observed paved interiors east of Edgewater. Separate traces retain the planted divider in the middle lot. The build clips against existing streets, parking and buildings. Reopened meshes show less than 0.00005 m² of overlap per patch with tested blockers. At five modeled aisle interfaces, all 1,943 sample pairs matched elevation within 0.002 mm. Remaining work includes full boundaries, the two building overlaps removed from the storefront trace, markings and rendered review. [Pavement fit](evidence/edgewater-tile03-parking-fit.json) · [Join audit](evidence/edgewater-tile03-parking-joins.json)
+
 ### Commercial blocks on tiles 05 and 06
 
 The [combined Omniverse preview](../data/diagnostics/edgewater_tile06_parking_20261104/review.usda) adds **999.13 m²** of asphalt across six paved interiors traced from the January 2025 aerial. The locations include east commercial lots and rear aisles and west side and rear parking bays. The build retains existing road and building geometry, clips the new asphalt against those meshes and fits it to the LiDAR-derived ground. The six reopened surfaces have less than 0.00002 m² of overlap per patch with the tested blockers. [Tile 05 fit](evidence/edgewater-tile05-parking-fit.json) · [Tile 06 fit](evidence/edgewater-tile06-parking-fit.json)

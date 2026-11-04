@@ -19,24 +19,35 @@ SCENE='scene/terrain_candidate_review_20261102.usda'
 
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
-def build(output,root=ROOT,max_gap=.75):
+def build(output,root=ROOT,max_gap=.75,building_folder=FOLDER,review_scene=SCENE):
     root,output=Path(root).resolve(),Path(output).resolve()
     if output.exists() or not output.is_relative_to(root/'data/diagnostics'):raise ValueError('Fresh ignored diagnostic directory required')
     if not 0<max_gap<=1.:raise ValueError('Render-closure cap must be positive and at most1m')
-    output.mkdir(parents=True);(output/'captured_helper.py').write_bytes(Path(__file__).read_bytes())
-    deps={p:sha(root/p) for p in ['tools/prepare_terrain_contacts.py',SCENE,FOLDER+'manifest.json',FOLDER+'ground_surface.npz',FOLDER+'contact_discrepancies.json',FOLDER+'captured_helper.py','data/processed/study_boundaries.geojson','tools/acquire_dem.py','tools/anchor_terrain_proposal.py','tools/build_terrain_proposal.py','tools/prepare_church_legacy_mask.py']}
-    f=json.loads((root/FOLDER/'manifest.json').read_text());flagged=json.loads((root/FOLDER/'contact_discrepancies.json').read_text());deps.update(f['dependencies'])
+    folder=(root/building_folder).resolve().relative_to(root)
+    review=(root/review_scene).resolve().relative_to(root).as_posix()
+    candidate_inputs=[(folder/name).as_posix() for name in ('manifest.json','ground_surface.npz','captured_helper.py')]
+    deps={p:sha(root/p) for p in ['tools/prepare_terrain_contacts.py',review,*candidate_inputs,'data/processed/study_boundaries.geojson','tools/acquire_dem.py','tools/anchor_terrain_proposal.py','tools/build_terrain_proposal.py','tools/prepare_church_legacy_mask.py']}
+    f=json.loads((root/folder/'manifest.json').read_text())
+    flagged={'rows':[row for row in f['contacts'] if max(map(abs,row['base_clearance_boundary_minmax_m']))>.30]}
+    for path,digest in f['dependencies'].items():
+        if sha(root/path)!=digest:raise ValueError('Stale building candidate dependency: '+path)
+        deps[path]=digest
     if sha(root/f['layer'])!=f['layer_sha256']:raise ValueError('Frozen building candidate changed')
-    if sha(root/FOLDER/'ground_surface.npz')!=f['ground_field']['sha256']:raise ValueError('Frozen ground field changed')
-    module_spec=importlib.util.spec_from_file_location('frozen_terrain_contact_support',root/FOLDER/'captured_helper.py');support=importlib.util.module_from_spec(module_spec);module_spec.loader.exec_module(support)
-    ground=support.TerrainSurfaceSampler.from_npz(root/FOLDER/'ground_surface.npz')
-    scene=Usd.Stage.Open(str(root/SCENE));original=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'));cache=UsdGeom.XformCache();base_cache=UsdGeom.XformCache()
+    if sha(root/folder/'ground_surface.npz')!=f['ground_field']['sha256']:raise ValueError('Frozen ground field changed')
+    module_spec=importlib.util.spec_from_file_location('frozen_terrain_contact_support',root/folder/'captured_helper.py');support=importlib.util.module_from_spec(module_spec);module_spec.loader.exec_module(support)
+    ground=support.TerrainSurfaceSampler.from_npz(root/folder/'ground_surface.npz')
+    scene=Usd.Stage.Open(str(root/review));original=Usd.Stage.Open(str(root/'scene/college_park_connected.usda'));cache=UsdGeom.XformCache();base_cache=UsdGeom.XformCache()
+    used_paths=set()
     for layer in scene.GetUsedLayers():
         if layer.realPath:
             p=Path(layer.realPath).resolve()
             if not p.is_relative_to(root):raise ValueError('Unexpected external scene dependency')
-            deps[p.relative_to(root).as_posix()]=sha(p)
-    protected={p:sha(root/p) for p in ['scene/college_park_connected.usda','scene/manual_edits.usda','data/processed/active.json',f['layer'],'data/diagnostics/terrain_surfaces_20261102_c/surfaces.usda']}
+            relative=p.relative_to(root).as_posix()
+            used_paths.add(relative)
+            deps.setdefault(relative,sha(p))
+    if f['layer'] not in used_paths:raise ValueError('Review stage does not compose the specified building candidate')
+    output.mkdir(parents=True);(output/'captured_helper.py').write_bytes(Path(__file__).read_bytes())
+    protected={p:sha(root/p) for p in ['scene/college_park_connected.usda','scene/manual_edits.usda','data/processed/active.json',f['layer']]}
     def xyz(prim,xc=cache):
         v=UsdGeom.Mesh(prim).GetPointsAttr().Get();m=xc.GetLocalToWorldTransform(prim)
         return np.array([m.Transform(p) for p in v],float)
@@ -207,4 +218,10 @@ def build(output,root=ROOT,max_gap=.75):
     return {'layer':manifest['layer'],'layer_sha256':manifest['layer_sha256'],'closure_meshes':len(applied),'faces':generated_faces,'F_flagged_paths_with_closures':manifest['F_flagged_paths_with_closure_geometry'],'held_records':len(held),'manifest_sha256':sha(output/'manifest.json'),'coarse_all_centroid_residual_max_m':float(res.max())}
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',required=True);parser.add_argument('--max-gap',type=float,default=.75);args=parser.parse_args();print(json.dumps(build(ROOT/args.output,max_gap=args.max_gap),indent=2))
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output',required=True)
+    parser.add_argument('--max-gap',type=float,default=.75)
+    parser.add_argument('--building-folder',default=FOLDER)
+    parser.add_argument('--review-scene',default=SCENE)
+    args=parser.parse_args()
+    print(json.dumps(build(ROOT/args.output,max_gap=args.max_gap,building_folder=args.building_folder,review_scene=args.review_scene),indent=2))

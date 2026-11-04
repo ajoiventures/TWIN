@@ -2,6 +2,8 @@
 
 ## Crossing support in the saved 3D roads
 
+The follow-up mesh trace locates both unsupported road-only segments of Smith north line 3731. The western 1.749 m falls at aerial pixels (336.74, 208.24)–(346.52, 208.87), and the eastern 0.152 m falls at (413.81, 213.18)–(414.66, 213.24). Both segments are fully supported in XY by `/World/Streets/Shoulders_83288818`. The dated image shows marked pavement around those positions, so the 1.901 m discrepancy is between modeled roadway and shoulder classes at the painted crossing. Treat the existing shoulder geometry as an approximation. Verify the actual curb, paint ends and vertical transitions before adjusting either surface.
+
 Projected all eight draft lines into the saved scene's local frame and intersected them with the union of visible roadway meshes. Six lines lie entirely on modeled road surfaces to the reported precision. The Smith south line has about 1 mm outside the road union. The **Smith north traverse, draft line 3731, has 1.901 m of its 14.034 m outside the modeled road union**. Inspect the aerial and verified curb edges at that junction before adding or clipping paint. The audit found no prim named for a crosswalk. That name search does not classify all markings, and line support alone cannot establish paint coverage or dimensions. [Per-crossing road mesh paths and lengths](evidence/pilot-crossing-road-support.json)
 
 ## Smith–Edgewater crossing reconciliation

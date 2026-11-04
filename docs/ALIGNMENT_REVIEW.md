@@ -56,7 +56,7 @@ Seven selection bridge tests passed, including the same-parcel swapped-identity 
 
 The footprint inspector now offers **Select this building in 3D**. The isolated Kit probe used the full saved scene and the normal workspace event handlers. The building request selected only `Building_2945`, the parcel request selected both registered paths, and `ocpa:99613` reported unmatched. Programmatically selecting `Roof_2945` through Kit's selection API published the exact building identity. Browser inspection separately confirmed that the action prompts for the link to be enabled when the link checkbox is off. [Native event evidence](evidence/native-exact-building-selection.json)
 
-The event test used an isolated bridge and programmatic selection. Manual viewport picking and a single connected browser-to-native gesture replay remain pending. Existing Kit instances need to load the updated workspace code before using the exact-building action.
+The subsequent connected replay used an actual browser action and a dedicated Kit process sharing an isolated selection bridge. Clicking **Select this building in 3D** for Building_2945 selected exactly its USD path and received the editor acknowledgment. Selecting Roof_2978 through Kit's selection API then highlighted Building_2978 in the same browser, with both buildings shown as parcel context. The browser later reported the link unavailable when the dedicated service shut down. Manual viewport picking and field positional tolerance remain pending. Existing Kit instances need to load the updated workspace code before using the exact-building action. [Connected replay evidence](evidence/browser-native-selection-replay.json)
 
 ## Remaining ticket #5 gates
 

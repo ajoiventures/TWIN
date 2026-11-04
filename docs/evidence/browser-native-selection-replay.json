@@ -1,0 +1,61 @@
+{
+  "browser_event": {
+    "snapshot": "20261028T160543372334Z",
+    "revision": 1,
+    "sender": "map",
+    "selection": {
+      "status": "matched",
+      "feature_id": "ocpa:332228",
+      "paths": [
+        "/World/Buildings/Building_2945"
+      ],
+      "entity_ids": [
+        "ocpa:building-group:334a4fcbfde329c81273f0f0"
+      ],
+      "selected_entity_id": "ocpa:building-group:334a4fcbfde329c81273f0f0",
+      "reason": "One exact registered building counterpart."
+    },
+    "updated_utc": "2026-11-04T00:16:52.548025+00:00",
+    "delivery": {
+      "status": "selected-in-editor",
+      "reason": "One exact registered building counterpart."
+    }
+  },
+  "editor_paths": [
+    "/World/Buildings/Building_2945"
+  ],
+  "editor_event": {
+    "snapshot": "20261028T160543372334Z",
+    "revision": 2,
+    "sender": "kit",
+    "selection": {
+      "status": "matched",
+      "feature_id": "ocpa:332228",
+      "paths": [
+        "/World/Buildings/Building_2978"
+      ],
+      "entity_ids": [
+        "ocpa:building-group:7bdddf0a9bb00c82988013fc"
+      ],
+      "selected_entity_id": "ocpa:building-group:7bdddf0a9bb00c82988013fc",
+      "reason": "One exact registered building counterpart."
+    },
+    "updated_utc": "2026-11-04T00:16:53.720554+00:00",
+    "delivery": {
+      "status": "selected-in-editor"
+    }
+  },
+  "status": "passed",
+  "browser_observed_exact_highlight": [
+    "Building_2978"
+  ],
+  "browser_observed_parcel_context": [
+    "Building_2945",
+    "Building_2978"
+  ],
+  "bridge_scope": "isolated copy of active snapshot and registry",
+  "native_return_input": "Kit selection API on Roof_2978",
+  "manual_viewport_click_tested": false,
+  "browser_status_after_owned_service_shutdown": "3D link unavailable: Failed to fetch",
+  "live_selection_sha256": "c6ca93322820d1201baa8b7709822a5b2e839b73002b0790c2864e11e148943e"
+}

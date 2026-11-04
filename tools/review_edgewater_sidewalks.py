@@ -22,6 +22,7 @@ def review(corridor_path, osm_path):
     scope = transform(features['edgewater_focus_corridor'], project, interleaved=False)
     step, reach, minimum_parallel = 5, 25, math.cos(math.pi / 4)
     pedestrian = []
+    in_scope_count = 0
     crossings = []
     for way in json.loads(osm_bytes)['elements']:
         tags = way.get('tags', {})
@@ -32,20 +33,20 @@ def review(corridor_path, osm_path):
         if kind not in ('sidewalk', 'crossing') or len(coords) < 2:
             continue
         line = transform(LineString(coords), project, interleaved=False)
-        if not line.intersects(scope):
-            continue
         if kind == 'crossing':
             point = line.intersection(spine)
             if not point.is_empty:
                 crossings.append({'osm_way': way['id'], 'station_m': round(spine.project(point.centroid), 2)})
-        else:
+        elif line.intersects(scope) or line.distance(spine) <= reach:
             pedestrian.append((way['id'], line))
-    if not pedestrian:
+            in_scope_count += int(line.intersects(scope))
+    if not in_scope_count:
         raise ValueError('No tagged sidewalk geometry intersects the review corridor')
 
     tree = STRtree([line for _, line in pedestrian])
     matched_ways = set()
     runs = {'west': [], 'east': []}
+    adjacent = {'west': [], 'east': []}
     for start in range(0, math.ceil(spine.length), step):
         end = min(start + step, spine.length)
         station = (start + end) / 2
@@ -56,9 +57,10 @@ def review(corridor_path, osm_path):
         for side, sign in [('west', 1), ('east', -1)]:
             probe = LineString([center, (center.x - sign * dy * reach, center.y + sign * dx * reach)])
             candidates = []
+            outside = []
             for index in tree.query(probe, predicate='intersects'):
                 way, line = pedestrian[index]
-                intersection = line.intersection(probe).intersection(scope)
+                intersection = line.intersection(probe)
                 if intersection.is_empty:
                     continue
                 for point in getattr(intersection, 'geoms', [intersection]):
@@ -68,10 +70,18 @@ def review(corridor_path, osm_path):
                     p, q = line.interpolate(max(0, along - 1)), line.interpolate(along + 1)
                     delta = p.distance(q)
                     if delta and abs(dx * (q.x - p.x) + dy * (q.y - p.y)) / delta >= minimum_parallel:
-                        candidates.append((center.distance(point), way))
+                        matches = candidates if scope.covers(point) else outside
+                        matches.append((center.distance(point), way))
             way = min(candidates)[1] if candidates else None
             if way is not None:
                 matched_ways.add(way)
+            elif outside:
+                nearby_way = min(outside)[1]
+                previous = adjacent[side][-1] if adjacent[side] else None
+                if previous and previous['end_m'] == start and previous['osm_way'] == nearby_way:
+                    previous['end_m'] = end
+                else:
+                    adjacent[side].append({'start_m': start, 'end_m': end, 'osm_way': nearby_way})
             if runs[side] and runs[side][-1]['osm_way'] == way:
                 runs[side][-1]['end_m'] = end
             else:
@@ -80,17 +90,20 @@ def review(corridor_path, osm_path):
     summary = {}
     for side, rows in runs.items():
         missing = [r for r in rows if r['osm_way'] is None]
-        for row in rows:
+        for row in rows + adjacent[side]:
             row['start_lonlat'] = list(unproject(*spine.interpolate(row['start_m']).coords[0]))
             row['end_lonlat'] = list(unproject(*spine.interpolate(row['end_m']).coords[0]))
-        summary[side] = {'unmapped_station_m': round(sum(r['end_m'] - r['start_m'] for r in missing), 2),
-                         'unmapped_runs': len(missing)}
+        unmapped = sum(r['end_m'] - r['start_m'] for r in missing)
+        adjacent_length = sum(r['end_m'] - r['start_m'] for r in adjacent[side])
+        summary[side] = {'unmapped_station_m': round(unmapped, 2), 'unmapped_runs': len(missing),
+                         'with_adjacent_sidewalk_reference_m': round(adjacent_length, 2),
+                         'without_in_scope_or_adjacent_match_m': round(unmapped - adjacent_length, 2)}
     return {'source_snapshot': packet['source_snapshot'], 'corridor_sha256': hashlib.sha256(corridor_bytes).hexdigest(),
             'osm_sha256': hashlib.sha256(osm_bytes).hexdigest(), 'spine_length_m': spine.length,
             'station_step_m': step, 'maximum_offset_m': reach, 'maximum_heading_difference_degrees': 45,
-            'sidewalk_way_count_in_scope': len(pedestrian), 'matched_way_count': len(matched_ways),
+            'sidewalk_way_count_in_scope': in_scope_count, 'matched_way_count': len(matched_ways),
             'osm_crossing_ways_intersecting_spine': sorted(crossings, key=lambda r: r['station_m']),
-            'summary': summary, 'station_runs': runs,
+            'summary': summary, 'station_runs': runs, 'adjacent_sidewalk_reference_runs': adjacent,
             'interpretation': 'Missing station matches flag source review. Width, condition, crossings and physical continuity remain unverified.'}
 
 

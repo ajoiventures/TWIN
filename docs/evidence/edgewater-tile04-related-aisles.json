@@ -1,0 +1,38 @@
+{
+  "preview_sha256": "f3bb0755e4241e1af31d88e71b8cd0252cc2bfb6244f54a5ebd110c72a9f53b7",
+  "screened_aisle_ids": [
+    761398362,
+    761398363,
+    1426362672,
+    756936104,
+    756936105,
+    756936106,
+    833430192
+  ],
+  "overlaps_above_0_01_m2": [
+    {
+      "aisles": [
+        761398362,
+        761398363
+      ],
+      "overlap_m2": 7.993166604732071,
+      "representative_height_difference_m": -4.46384049723747e-08
+    },
+    {
+      "aisles": [
+        756936104,
+        756936105
+      ],
+      "overlap_m2": 7.999578074566168,
+      "representative_height_difference_m": 5.255464197162496e-08
+    },
+    {
+      "aisles": [
+        756936104,
+        756936106
+      ],
+      "overlap_m2": 8.004490606041363,
+      "representative_height_difference_m": -2.4624380312587846e-08
+    }
+  ]
+}

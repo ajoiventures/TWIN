@@ -1,0 +1,30 @@
+{
+  "tile": 1,
+  "pixels": [
+    [
+      65,
+      298
+    ],
+    [
+      77,
+      298
+    ],
+    [
+      77,
+      304
+    ],
+    [
+      65,
+      304
+    ]
+  ],
+  "screen_area_m2": 2.8218155379269665,
+  "uncovered_by_modeled_surfaces_m2": 0.0,
+  "coverage_by_path_m2": {
+    "/World/Streets/Shoulders_11181335": 2.821815537926966,
+    "/World/Streets/Road_11181335": 2.821815537926966,
+    "/World/Streets/Road_807089803": 1.3560458084632878,
+    "/World/Streets/Road_885333840": 0.8803822648445155
+  },
+  "preview_sha256": "c7f3a154e25af39fe9f9b7528f1c76ee7c119dc3612f35dfe72f0936432dc21d"
+}

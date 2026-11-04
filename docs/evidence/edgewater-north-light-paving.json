@@ -1,0 +1,43 @@
+{
+  "tile": 7,
+  "image_sha256": "6379045c12e6cc88a76f643379797fd2df215cd0ad15173bff8ba11f72683638",
+  "source_sha256": "c7f3a154e25af39fe9f9b7528f1c76ee7c119dc3612f35dfe72f0936432dc21d",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "09eea40d55dc9a5cfec236c40e3b3417db36125306b0dac1bb06f50631f6b836",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/north_tile07_light_paving_corner",
+      "pixels": [
+        [
+          812,
+          883
+        ],
+        [
+          830,
+          883
+        ],
+        [
+          830,
+          895
+        ],
+        [
+          812,
+          895
+        ]
+      ],
+      "trace_m2": 8.469833421739416,
+      "surface_m2": 2.1367546301855023,
+      "triangles": 8,
+      "excluded_paths": [
+        "/World/Streets/Road_610249518",
+        "/World/Streets/Road_610249523",
+        "/World/Streets/Road_610249525"
+      ],
+      "saved_m2": 2.136784334346885,
+      "overlap_m2": 8.174430958655162e-07,
+      "max_ground_offset_residual_m": 2.437820469936014e-07,
+      "aisle_distance_m": 0.0,
+      "existing_parking_distance_m": null
+    }
+  ]
+}

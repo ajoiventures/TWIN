@@ -1,5 +1,9 @@
 # Orange County pilot context
 
+## City stormwater companion source
+
+Orlando's public Utilities Data Portal links to a City-hosted stormwater service with Structures, Culverts, Open Channels and Vaults. A count-only spatial query returned 16 structure and 18 culvert candidates in the frozen pilot envelope, and zero channel or vault candidates. The wider neighborhood envelope returned 2,774 structures, 2,678 culverts, 39 channels and 66 vaults. Polygon and geometry request attempts returned HTTP 404, so these counts remain rectangular screens. City inventory locations and elevations require field verification. Keep this municipal source separate from the County structure and pipe queries, which returned zero pilot records in their own layers. [Count receipt](evidence/orlando-stormwater-coverage-screen.json) · [City Utilities Data Portal](https://www.orlando.gov/Our-Government/Departments-Offices/Public-Works/View-Wastewater-and-Stormwater-Utilities-Data)
+
 ## Public right-of-way source screen
 
 ### Main Street document lookup

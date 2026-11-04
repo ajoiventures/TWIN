@@ -1,0 +1,244 @@
+{
+  "tile": 8,
+  "image_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+  "source_sha256": "00eaa63fedc2ae73fb36881441f6ca266d243315fa3fc2b684b718e31b511c3a",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "0c538c0cbd2169d0740de9eb53880eb69f3078d8d08cb514e29c6f09bc24c4be",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/northwest_edgewater_angled_bays",
+      "pixels": [
+        [
+          463,
+          651
+        ],
+        [
+          504,
+          677
+        ],
+        [
+          549,
+          718
+        ],
+        [
+          598,
+          748
+        ],
+        [
+          615,
+          769
+        ],
+        [
+          587,
+          787
+        ],
+        [
+          548,
+          765
+        ],
+        [
+          516,
+          733
+        ],
+        [
+          482,
+          717
+        ],
+        [
+          450,
+          682
+        ]
+      ],
+      "trace_m2": 272.98058057156226,
+      "surface_m2": 108.0428840878016,
+      "triangles": 84,
+      "excluded_paths": [
+        "/World/Streets/Road_740941351",
+        "/World/Buildings/Building_3055"
+      ],
+      "saved_m2": 108.04223871044815,
+      "overlap_m2": 0.00011801155877706748,
+      "max_ground_offset_residual_m": 7.946746609643895e-07
+    },
+    {
+      "path": "/World/RearParkingSamples/northeast_edgewater_front_bays",
+      "pixels": [
+        [
+          554,
+          483
+        ],
+        [
+          582,
+          453
+        ],
+        [
+          608,
+          473
+        ],
+        [
+          657,
+          507
+        ],
+        [
+          675,
+          535
+        ],
+        [
+          650,
+          565
+        ],
+        [
+          614,
+          536
+        ],
+        [
+          585,
+          514
+        ]
+      ],
+      "trace_m2": 224.128328716106,
+      "surface_m2": 218.8146570205311,
+      "triangles": 106,
+      "excluded_paths": [
+        "/World/Buildings/Building_3209"
+      ],
+      "saved_m2": 218.815036309883,
+      "overlap_m2": 0.00019935485775190998,
+      "max_ground_offset_residual_m": 3.2184634725651584e-06
+    },
+    {
+      "path": "/World/RearParkingSamples/west_large_lot_north_aisle",
+      "pixels": [
+        [
+          516,
+          1313
+        ],
+        [
+          643,
+          1313
+        ],
+        [
+          643,
+          1328
+        ],
+        [
+          679,
+          1328
+        ],
+        [
+          679,
+          1314
+        ],
+        [
+          779,
+          1314
+        ],
+        [
+          806,
+          1307
+        ],
+        [
+          814,
+          1328
+        ],
+        [
+          787,
+          1342
+        ],
+        [
+          518,
+          1342
+        ]
+      ],
+      "trace_m2": 306.42437737351963,
+      "surface_m2": 95.11984891257191,
+      "triangles": 314,
+      "excluded_paths": [
+        "/World/Streets/Road_610249490"
+      ],
+      "saved_m2": 95.12306344695389,
+      "overlap_m2": 0.00018264708045988287,
+      "max_ground_offset_residual_m": 1.559681943097413e-06
+    },
+    {
+      "path": "/World/RearParkingSamples/west_large_lot_center_aisle",
+      "pixels": [
+        [
+          523,
+          1414
+        ],
+        [
+          844,
+          1414
+        ],
+        [
+          884,
+          1411
+        ],
+        [
+          918,
+          1411
+        ],
+        [
+          934,
+          1432
+        ],
+        [
+          865,
+          1440
+        ],
+        [
+          524,
+          1439
+        ]
+      ],
+      "trace_m2": 402.5801940639121,
+      "surface_m2": 84.43236490694031,
+      "triangles": 640,
+      "excluded_paths": [
+        "/World/Streets/Road_610249489"
+      ],
+      "saved_m2": 84.43156020157039,
+      "overlap_m2": 1.0151416063308716e-06,
+      "max_ground_offset_residual_m": 1.953794538767095e-06
+    },
+    {
+      "path": "/World/RearParkingSamples/west_large_lot_south_aisle",
+      "pixels": [
+        [
+          525,
+          1511
+        ],
+        [
+          921,
+          1511
+        ],
+        [
+          966,
+          1510
+        ],
+        [
+          979,
+          1531
+        ],
+        [
+          947,
+          1539
+        ],
+        [
+          525,
+          1538
+        ]
+      ],
+      "trace_m2": 481.1515525552865,
+      "surface_m2": 126.51744626350546,
+      "triangles": 1004,
+      "excluded_paths": [
+        "/World/Streets/Road_610249487"
+      ],
+      "saved_m2": 126.51394363306463,
+      "overlap_m2": 4.443853243487131e-05,
+      "max_ground_offset_residual_m": 2.860956492323208e-06
+    }
+  ]
+}

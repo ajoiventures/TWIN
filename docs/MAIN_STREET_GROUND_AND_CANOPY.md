@@ -6,6 +6,12 @@ Eight January 2025 OCPA exports now cover the full 2.92 km City-defined Edgewate
 
 The local contact sheet confirms useful parking evidence outside the pilot. Tiles 01–03 show smaller lots on both sides of Edgewater. Tile 04 covers Princeton and Smith and adjacent lots. Tiles 05–06 show additional commercial rear and side parking. Tiles 07–08 show larger parking areas where drive aisles, planted islands and pond edges need separate outlines. These are priorities from the overview image. Use the original frames to distinguish actual paving from shadow and to check what is already modeled before tracing. Original imagery remains in the ignored local cache.
 
+### Northern Edgewater tile 08
+
+The [separate Omniverse preview](../data/diagnostics/north_edgewater_tile08_parking_20261104/review.usda) adds **632.93 m²** of LiDAR-fitted pavement from five visible interiors. The traces cover two groups of parking bays near Edgewater and three drive aisles in the large lot west of the corridor. The build clips against composed buildings, road surfaces and other existing paving. The traces stop short of the ponds and omit planted islands and obscured edges. Saved overlap with tested blockers stays below 0.0002 m² per surface. [Saved-mesh receipt](evidence/north-edgewater-tile08-parking-fit.json)
+
+Across 4,049 samples at four modeled aisle interfaces, the maximum vertical separation was below 0.003 mm with sample pairs within 1 mm in plan. The east front-bay patch did not intersect a modeled aisle. The five traces remain partial parking coverage and await rendered review, striping and field checks. [Join audit](evidence/north-edgewater-tile08-parking-joins.json)
+
 ### Northern Edgewater tile 07
 
 The [local review stage](../data/diagnostics/north_edgewater_parking_20261104_d/review.usda) adds **1,214.97 m²** of asphalt across four visible paved interiors. The shapes cover the west marked lot, an east commercial lot, and two west-side parking rows. Five existing service-road meshes account for about 289 m² within the original traces and retain their pavement. The four new surfaces preserve the asphalt material and use the existing LiDAR ground with the nominal 65 mm preview offset.

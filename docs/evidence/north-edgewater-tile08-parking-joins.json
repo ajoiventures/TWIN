@@ -1,0 +1,43 @@
+{
+  "stage_sha256": "0c538c0cbd2169d0740de9eb53880eb69f3078d8d08cb514e29c6f09bc24c4be",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/northwest_edgewater_angled_bays",
+      "aisle": "/World/Streets/Road_740941351",
+      "sample_pairs": 392,
+      "lot_minus_aisle_m": [
+        -6.165349830666855e-07,
+        2.9405891233125203e-07
+      ]
+    },
+    {
+      "lot": "/World/RearParkingSamples/west_large_lot_north_aisle",
+      "aisle": "/World/Streets/Road_610249490",
+      "sample_pairs": 757,
+      "lot_minus_aisle_m": [
+        -1.2516975402832031e-06,
+        1.324172437477955e-06
+      ]
+    },
+    {
+      "lot": "/World/RearParkingSamples/west_large_lot_center_aisle",
+      "aisle": "/World/Streets/Road_610249489",
+      "sample_pairs": 1369,
+      "lot_minus_aisle_m": [
+        -1.7661644520217123e-06,
+        1.687564768815264e-06
+      ]
+    },
+    {
+      "lot": "/World/RearParkingSamples/west_large_lot_south_aisle",
+      "aisle": "/World/Streets/Road_610249487",
+      "sample_pairs": 1531,
+      "lot_minus_aisle_m": [
+        -2.753465501825758e-06,
+        2.9476786096438445e-06
+      ]
+    }
+  ]
+}

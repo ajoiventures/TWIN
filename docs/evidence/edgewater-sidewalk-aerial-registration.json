@@ -1,0 +1,630 @@
+{
+  "station_inventory_sha256": "2dc2d2946b91d46671f89106dea12e32a6e867e09d7febfe53213d97432a2cb7",
+  "source_month": "2025-01",
+  "records": [
+    {
+      "id": "west_0000_0070",
+      "side": "west",
+      "start_m": 0,
+      "end_m": 70,
+      "tile": 1,
+      "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "source_crop_pixels": [
+        216,
+        1411,
+        637,
+        1841
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0000_0070.png",
+      "comparison_sha256": "38afcddb7027b4011ebd67ac4936d72e0d0a62d61a660743902dec68a92b9ab4"
+    },
+    {
+      "id": "west_0205_0215",
+      "side": "west",
+      "start_m": 205,
+      "end_m": 215,
+      "tile": 1,
+      "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "source_crop_pixels": [
+        206,
+        679,
+        423,
+        946
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0205_0215.png",
+      "comparison_sha256": "0fabd4abbc21ff26b6b7e9f31176372608a5dc274aad0448095ff3fa7bf2c785"
+    },
+    {
+      "id": "west_0505_0520",
+      "side": "west",
+      "start_m": 505,
+      "end_m": 520,
+      "tile": 2,
+      "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+      "source_crop_pixels": [
+        233,
+        902,
+        450,
+        1195
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0505_0520.png",
+      "comparison_sha256": "57a652cf53c1f128d8d62edc31e074257738cfd7b81ff95fd65cc77625ab40a2"
+    },
+    {
+      "id": "west_0555_0570",
+      "side": "west",
+      "start_m": 555,
+      "end_m": 570,
+      "tile": 2,
+      "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+      "source_crop_pixels": [
+        234,
+        650,
+        451,
+        942
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0555_0570.png",
+      "comparison_sha256": "e17af45f331b881767c2db7d95254715d36618d9814964763a9064fd43a1613e"
+    },
+    {
+      "id": "west_0605_0620",
+      "side": "west",
+      "start_m": 605,
+      "end_m": 620,
+      "tile": 2,
+      "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+      "source_crop_pixels": [
+        238,
+        397,
+        455,
+        689
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0605_0620.png",
+      "comparison_sha256": "6aa34994f718641e9598e37ec8e01028b87474c5d270032b1acca06839c93099"
+    },
+    {
+      "id": "west_0705_0725",
+      "side": "west",
+      "start_m": 705,
+      "end_m": 725,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        175,
+        1631,
+        393,
+        1841
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0705_0725.png",
+      "comparison_sha256": "61d41df6e98b455a190d2285eeeca36fc272f38b54f5414f8dc91793c468babc"
+    },
+    {
+      "id": "west_0855_0875",
+      "side": "west",
+      "start_m": 855,
+      "end_m": 875,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        162,
+        874,
+        379,
+        1191
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0855_0875.png",
+      "comparison_sha256": "4d1c7d7fe8c4a3d143aa4a149600c9d8c64b003e18622e6301c8c3f408c1a4cc"
+    },
+    {
+      "id": "west_0950_0965",
+      "side": "west",
+      "start_m": 950,
+      "end_m": 965,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        154,
+        419,
+        372,
+        711
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_0950_0965.png",
+      "comparison_sha256": "ce661047150574151baf707dd34c1327d22e7cee69dd44e9519d7b7270de7cce"
+    },
+    {
+      "id": "west_1030_1045",
+      "side": "west",
+      "start_m": 1030,
+      "end_m": 1045,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        151,
+        15,
+        368,
+        307
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1030_1045.png",
+      "comparison_sha256": "a6d7ffb37c7f94cdf7409b2193cd95e4077ef9631b3a970d1f93eab2fa142304"
+    },
+    {
+      "id": "west_1110_1125",
+      "side": "west",
+      "start_m": 1110,
+      "end_m": 1125,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        241,
+        1375,
+        460,
+        1667
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1110_1125.png",
+      "comparison_sha256": "d6327f052df702dcbae69f8474f3009ed683eb30a5bb479e94b8f26836a3776c"
+    },
+    {
+      "id": "west_1210_1225",
+      "side": "west",
+      "start_m": 1210,
+      "end_m": 1225,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        238,
+        870,
+        454,
+        1162
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1210_1225.png",
+      "comparison_sha256": "aa63267a094a601971d2aa3fb97b9ddf2d4c48a5e0668d11fec98266dfc85943"
+    },
+    {
+      "id": "west_1315_1325",
+      "side": "west",
+      "start_m": 1315,
+      "end_m": 1325,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        240,
+        365,
+        457,
+        632
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1315_1325.png",
+      "comparison_sha256": "91dd9bf215c3cc2693453076eba18f7e0a3a1e36de33d2c53516c83d1c978ba8"
+    },
+    {
+      "id": "west_1410_1425",
+      "side": "west",
+      "start_m": 1410,
+      "end_m": 1425,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        240,
+        1624,
+        457,
+        1841
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1410_1425.png",
+      "comparison_sha256": "3eeb3df7aea5eeb07a3d4b385be8fcc76bd71f7170fb492822f6dfe4e503665e"
+    },
+    {
+      "id": "west_1525_1540",
+      "side": "west",
+      "start_m": 1525,
+      "end_m": 1540,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        233,
+        1043,
+        450,
+        1335
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1525_1540.png",
+      "comparison_sha256": "4757a24bacba6d0ad765af201b4d1dbf25031b32600800f661ae4f8ba102b9a6"
+    },
+    {
+      "id": "west_1615_1630",
+      "side": "west",
+      "start_m": 1615,
+      "end_m": 1630,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        227,
+        588,
+        444,
+        880
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1615_1630.png",
+      "comparison_sha256": "f540182bf4cf48eeb6aa6e76660d6ca9cfa2243653484a086bf47e88494d06c2"
+    },
+    {
+      "id": "west_1670_1685",
+      "side": "west",
+      "start_m": 1670,
+      "end_m": 1685,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        225,
+        310,
+        442,
+        603
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1670_1685.png",
+      "comparison_sha256": "82e01fced0e8bea95a07798c8ca0c9342f81a25f8524b69bac7191781c5f5c55"
+    },
+    {
+      "id": "west_1760_1780",
+      "side": "west",
+      "start_m": 1760,
+      "end_m": 1780,
+      "tile": 6,
+      "source_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "source_crop_pixels": [
+        232,
+        1595,
+        450,
+        1841
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_1760_1780.png",
+      "comparison_sha256": "2b87dec75091ebf5717402f59bd8026a614f57c6aa671b6d0d0bc8fae67faa0e"
+    },
+    {
+      "id": "west_2025_2035",
+      "side": "west",
+      "start_m": 2025,
+      "end_m": 2035,
+      "tile": 6,
+      "source_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "source_crop_pixels": [
+        214,
+        307,
+        431,
+        574
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_2025_2035.png",
+      "comparison_sha256": "15d44271ed7899a46d3cf7b090d1a46e684cbb7ba5ca5b8d57dea3c73c3ffc5f"
+    },
+    {
+      "id": "west_2170_2185",
+      "side": "west",
+      "start_m": 2170,
+      "end_m": 2185,
+      "tile": 7,
+      "source_sha256": "6379045c12e6cc88a76f643379797fd2df215cd0ad15173bff8ba11f72683638",
+      "source_crop_pixels": [
+        499,
+        1313,
+        716,
+        1605
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_2170_2185.png",
+      "comparison_sha256": "9d1243cb7d77132edeed84568998c62f92937ec77375cec5d945ade8a1290d60"
+    },
+    {
+      "id": "west_2710_2730",
+      "side": "west",
+      "start_m": 2710,
+      "end_m": 2730,
+      "tile": 8,
+      "source_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+      "source_crop_pixels": [
+        788,
+        790,
+        1077,
+        1077
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_2710_2730.png",
+      "comparison_sha256": "1ddf0b0dc7fde645d30915171818bffa628877e074abae004414ade08eaf83d8"
+    },
+    {
+      "id": "west_2740_2750",
+      "side": "west",
+      "start_m": 2740,
+      "end_m": 2750,
+      "tile": 8,
+      "source_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+      "source_crop_pixels": [
+        716,
+        720,
+        969,
+        971
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_2740_2750.png",
+      "comparison_sha256": "7701430e747c63ff4eb58e8db4f2bf339932797e3d1c7cfe88bc546d69f10b96"
+    },
+    {
+      "id": "west_2915_2916.57",
+      "side": "west",
+      "start_m": 2915,
+      "end_m": 2916.56556591232,
+      "tile": 8,
+      "source_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+      "source_crop_pixels": [
+        116,
+        131,
+        337,
+        353
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\west_2915_2916.57.png",
+      "comparison_sha256": "723370a6f8934b73f2c6190fa4f54e9db4f18c314d41db54d18edd7458ef98f2"
+    },
+    {
+      "id": "east_0160_0165",
+      "side": "east",
+      "start_m": 160,
+      "end_m": 165,
+      "tile": 1,
+      "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "source_crop_pixels": [
+        209,
+        931,
+        426,
+        1173
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0160_0165.png",
+      "comparison_sha256": "1e7eae57bcd4f38e0674f7efeda22dbbb2fb40a165bbc1e5b17d4f22ae4ea591"
+    },
+    {
+      "id": "east_0185_0190",
+      "side": "east",
+      "start_m": 185,
+      "end_m": 190,
+      "tile": 1,
+      "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "source_crop_pixels": [
+        208,
+        805,
+        425,
+        1047
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0185_0190.png",
+      "comparison_sha256": "ebfc0b7f650f99d686719e1e8506f3bef66bbac6bc5e919fde3484792678a6c7"
+    },
+    {
+      "id": "east_0260_0275",
+      "side": "east",
+      "start_m": 260,
+      "end_m": 275,
+      "tile": 1,
+      "source_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "source_crop_pixels": [
+        213,
+        376,
+        430,
+        668
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0260_0275.png",
+      "comparison_sha256": "1347169b6ab70f17d70418adbf380c473b69591620f93bd99b600247df2602b3"
+    },
+    {
+      "id": "east_0505_0520",
+      "side": "east",
+      "start_m": 505,
+      "end_m": 520,
+      "tile": 2,
+      "source_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+      "source_crop_pixels": [
+        233,
+        902,
+        450,
+        1195
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0505_0520.png",
+      "comparison_sha256": "f9da0191cd40a113b5461b8ae4845c0f6d84935af3bdcb6edb169476d03c1fc8"
+    },
+    {
+      "id": "east_0860_0875",
+      "side": "east",
+      "start_m": 860,
+      "end_m": 875,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        162,
+        874,
+        379,
+        1166
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0860_0875.png",
+      "comparison_sha256": "bfd2cd8dc13c07694e1ccfb0175517b8af6be62052d1d5d7736dac4e91525005"
+    },
+    {
+      "id": "east_0950_0965",
+      "side": "east",
+      "start_m": 950,
+      "end_m": 965,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        154,
+        419,
+        372,
+        711
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_0950_0965.png",
+      "comparison_sha256": "1c2711850bcc7bfdfe2ec10d02f5eb08ca4ce8a04f64bd67f037a24a3c17f949"
+    },
+    {
+      "id": "east_1030_1045",
+      "side": "east",
+      "start_m": 1030,
+      "end_m": 1045,
+      "tile": 3,
+      "source_sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "source_crop_pixels": [
+        151,
+        15,
+        368,
+        307
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1030_1045.png",
+      "comparison_sha256": "59f9ade11c9dd0a38473f15e356d06c54b4f987aef0b60423475cccd8c16fa8d"
+    },
+    {
+      "id": "east_1120_1135",
+      "side": "east",
+      "start_m": 1120,
+      "end_m": 1135,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        241,
+        1324,
+        459,
+        1617
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1120_1135.png",
+      "comparison_sha256": "a1ac0ca1fdbd22b2db9795e2e065e47ae4c737b26c4007067e96b1a244a91655"
+    },
+    {
+      "id": "east_1210_1225",
+      "side": "east",
+      "start_m": 1210,
+      "end_m": 1225,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        238,
+        870,
+        454,
+        1162
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1210_1225.png",
+      "comparison_sha256": "ac734a10229f0ebeebc04e16e9da4c1fe4d4f69312718685bb2198a727811e6c"
+    },
+    {
+      "id": "east_1300_1315",
+      "side": "east",
+      "start_m": 1300,
+      "end_m": 1315,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        241,
+        415,
+        458,
+        707
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1300_1315.png",
+      "comparison_sha256": "ebd3b23e6f6479ac65b648e8faba772972aae0d0453b9ba314b5d8bf3fe69ba8"
+    },
+    {
+      "id": "east_1320_1325",
+      "side": "east",
+      "start_m": 1320,
+      "end_m": 1325,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        240,
+        365,
+        457,
+        606
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1320_1325.png",
+      "comparison_sha256": "cc80edddc0c6cfa4b1c5807620c6c2444473c95c11400f35d9facd00a0a7472b"
+    },
+    {
+      "id": "east_1385_1400",
+      "side": "east",
+      "start_m": 1385,
+      "end_m": 1400,
+      "tile": 4,
+      "source_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "source_crop_pixels": [
+        235,
+        0,
+        452,
+        278
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1385_1400.png",
+      "comparison_sha256": "78833f4118d3e7beb0d8b07ad61b9bafb8cb52f3c0a2e184cdd02962bac108a8"
+    },
+    {
+      "id": "east_1475_1495",
+      "side": "east",
+      "start_m": 1475,
+      "end_m": 1495,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        234,
+        1270,
+        452,
+        1588
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1475_1495.png",
+      "comparison_sha256": "dbc773484f7b7349ec44f1c3ba0bdff58b522a670d0ee9b51d0324cfafb53979"
+    },
+    {
+      "id": "east_1670_1685",
+      "side": "east",
+      "start_m": 1670,
+      "end_m": 1685,
+      "tile": 5,
+      "source_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "source_crop_pixels": [
+        225,
+        310,
+        442,
+        603
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1670_1685.png",
+      "comparison_sha256": "b23506a9947251793c74443ff20ff18890a64f8d26f251e4f71fe995e08cbc5c"
+    },
+    {
+      "id": "east_1765_1775",
+      "side": "east",
+      "start_m": 1765,
+      "end_m": 1775,
+      "tile": 6,
+      "source_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "source_crop_pixels": [
+        232,
+        1620,
+        449,
+        1841
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1765_1775.png",
+      "comparison_sha256": "aa27caef631944f743b6e37b170aecd5bd32e10b6f31dcdb6ee2d4cb7c73eafd"
+    },
+    {
+      "id": "east_1865_1880",
+      "side": "east",
+      "start_m": 1865,
+      "end_m": 1880,
+      "tile": 6,
+      "source_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "source_crop_pixels": [
+        224,
+        1090,
+        442,
+        1382
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1865_1880.png",
+      "comparison_sha256": "3796eed305269f5a6499c7dcc1ceaa1f20c9df66a2fe7bcc2c25c483d65044b6"
+    },
+    {
+      "id": "east_1970_1980",
+      "side": "east",
+      "start_m": 1970,
+      "end_m": 1980,
+      "tile": 6,
+      "source_sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "source_crop_pixels": [
+        216,
+        585,
+        433,
+        851
+      ],
+      "comparison": "data\\diagnostics\\edgewater_sidewalk_aerial_review\\east_1970_1980.png",
+      "comparison_sha256": "606936897866133092e0c382db2edca4575cc5597d890955a9fb82be150827a2"
+    }
+  ]
+}

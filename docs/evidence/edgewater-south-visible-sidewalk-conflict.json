@@ -1,0 +1,59 @@
+{
+  "tile": 1,
+  "image_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+  "source_sha256": "a5048ae0e5959c9a2a2d59caa69107e3ae22fe83eb7e40ba30a1d628261340f6",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "c42c9d6d8e9b96a252cf1b7335776960fcf7a29bf1cb18accc436a331abe38da",
+  "records": [
+    {
+      "path": "/World/Sidewalks/south_west_visible_walk",
+      "pixels": [
+        [
+          294,
+          1616
+        ],
+        [
+          300,
+          1612
+        ],
+        [
+          404,
+          1769
+        ],
+        [
+          397,
+          1774
+        ]
+      ],
+      "trace_m2": 58.37630891752724,
+      "surface_m2": 2.757265998784055,
+      "triangles": 6,
+      "excluded_paths": [
+        "/World/Streets/Shoulders_209187375",
+        "/World/Streets/Road_209187375",
+        "/World/Streets/Road_1416575073"
+      ],
+      "saved_m2": 2.7571494919247925,
+      "overlap_m2": 6.575957910159922e-07,
+      "max_ground_offset_residual_m": 8.698141713003871e-07
+    }
+  ],
+  "blocker_area_m2": [
+    {
+      "path": "/World/Streets/Shoulders_209187375",
+      "name": null,
+      "overlap_m2": 50.859406280664984
+    },
+    {
+      "path": "/World/Streets/Road_209187375",
+      "name": "Edgewater Drive",
+      "overlap_m2": 21.557051371868425
+    },
+    {
+      "path": "/World/Streets/Road_1416575073",
+      "name": "Unnamed",
+      "overlap_m2": 48.40694464067598
+    }
+  ],
+  "disposition": "hold_clipped_fragment_until_road_edge_is_reconciled"
+}

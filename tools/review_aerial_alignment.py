@@ -64,6 +64,9 @@ def build(root=ROOT):
         for sample in read(samples_path)['samples']:
             points=' '.join(f'{float(x):.2f},{float(y):.2f}' for x,y in sample['pixels'])
             marks.append(f'<polygon points="{points}" fill="#ffbd24" fill-opacity=".18" stroke="#ffbd24" stroke-width="2"><title>{html.escape(sample["id"])}: interpreted asphalt interior, not full lot boundary</title></polygon>')
+            for segment in sample.get('visible_stripe_segments_px',[]):
+                stripe=' '.join(f'{float(x):.2f},{float(y):.2f}' for x,y in segment)
+                marks.append(f'<polyline points="{stripe}" style="stroke:white;stroke-width:1.5;stroke-opacity:1"><title>Visible parking stripe fragment, January 2025</title></polyline>')
     for p in pilot['endpoints']:
         x,y=pixel(*project.transform(*p['coordinates']),extent,width,height)
         controls.append({'name':p['street'],'source':'City centerline intersection; comparison feature, not independent survey control','pixel_x':x,'pixel_y':y})

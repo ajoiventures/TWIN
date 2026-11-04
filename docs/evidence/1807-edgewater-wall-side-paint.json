@@ -1,0 +1,100 @@
+{
+  "review_sha256": "260b63499edfe00c043a730c29af12eebbac25f24edc2f63ffd8571c9d70a224",
+  "parent_sha256": "525f00e7af38c2705797fd2dea23a84faba75df6dda900c98480e875f745cf18",
+  "source_tile": "1807 matched crop 2025",
+  "image_sha256": "0ad0218a5426f28247239cbacdc53fd9ff6ea1e51ab177232d88984fe5a7ec5a",
+  "paint_width_m_assumed": 0.1,
+  "paint_offset_m": 0.003,
+  "records": [
+    {
+      "pixels": [
+        [
+          187,
+          421
+        ],
+        [
+          189,
+          474
+        ]
+      ],
+      "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays/Paint_01",
+      "status": "authored",
+      "triangles": 2,
+      "saved_area_m2": 0.34882466576527804,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.0231042124608791e-08
+    },
+    {
+      "pixels": [
+        [
+          229,
+          422
+        ],
+        [
+          230,
+          486
+        ]
+      ],
+      "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays/Paint_02",
+      "status": "authored",
+      "triangles": 12,
+      "saved_area_m2": 0.4221833663759753,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.1668312477342013e-07
+    },
+    {
+      "pixels": [
+        [
+          269,
+          422
+        ],
+        [
+          269,
+          478
+        ]
+      ],
+      "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays/Paint_03",
+      "status": "authored",
+      "triangles": 6,
+      "saved_area_m2": 0.36954486672766507,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 8.394145981083234e-08
+    },
+    {
+      "pixels": [
+        [
+          309,
+          421
+        ],
+        [
+          311,
+          481
+        ]
+      ],
+      "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays/Paint_04",
+      "status": "authored",
+      "triangles": 2,
+      "saved_area_m2": 0.39616128455963917,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.6047098816418526e-08
+    },
+    {
+      "pixels": [
+        [
+          348,
+          420
+        ],
+        [
+          349,
+          487
+        ]
+      ],
+      "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays/Paint_05",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.44218103791354224,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.390869792117222e-07
+    }
+  ]
+}

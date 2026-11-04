@@ -1,0 +1,52 @@
+{
+  "tile": "1807 matched crop 2025",
+  "image_sha256": "0ad0218a5426f28247239cbacdc53fd9ff6ea1e51ab177232d88984fe5a7ec5a",
+  "source_sha256": "276d87ee1f613920d4a502d70604fc3b59b3176b29f36adf59672d56273163a2",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "525f00e7af38c2705797fd2dea23a84faba75df6dda900c98480e875f745cf18",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/edgewater_1807_wall_side_stalls",
+      "pixels": [
+        [
+          151,
+          422
+        ],
+        [
+          366,
+          417
+        ],
+        [
+          377,
+          432
+        ],
+        [
+          379,
+          461
+        ],
+        [
+          362,
+          482
+        ],
+        [
+          312,
+          490
+        ],
+        [
+          152,
+          491
+        ]
+      ],
+      "trace_m2": 67.4840669492523,
+      "surface_m2": 3.334426666055778,
+      "triangles": 18,
+      "excluded_paths": [
+        "/World/Streets/Road_805246853",
+        "/World/RearParkingSamples/south03_east_storefront_rear_bays"
+      ],
+      "saved_m2": 3.334399342958932,
+      "overlap_m2": 0.0,
+      "max_ground_offset_residual_m": 1.4924534896820774e-07
+    }
+  ]
+}

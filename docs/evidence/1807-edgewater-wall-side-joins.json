@@ -1,0 +1,24 @@
+{
+  "stage_sha256": "525f00e7af38c2705797fd2dea23a84faba75df6dda900c98480e875f745cf18",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/edgewater_1807_wall_side_stalls",
+      "aisle": "/World/Streets/Road_805246853",
+      "sample_pairs": 0,
+      "lot_minus_aisle_m": null,
+      "minimum_boundary_distance_m": 4.100387103545012
+    },
+    {
+      "lot": "/World/RearParkingSamples/edgewater_1807_wall_side_stalls",
+      "aisle": "/World/RearParkingSamples/south03_east_storefront_rear_bays",
+      "sample_pairs": 125,
+      "lot_minus_aisle_m": [
+        -2.4470018900046853e-08,
+        2.220446049250313e-16
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

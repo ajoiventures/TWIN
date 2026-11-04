@@ -1,0 +1,42 @@
+{
+  "preview_sha256": "4fc3f83a388ab27ca991e00f282330a998761fe42845951eabeb25134a3f884b",
+  "source_url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/FL_Peninsular_FDEM_Orange_2018/",
+  "source_interval": "2018-12-04 to2019-04-12 project interval; local flight date/construction phase uncertain",
+  "point_count": 58891,
+  "cloud_sha256": "b832d7e7f94d0c03da29019dda407851f7c33d25620a8d863940de3443cbcdc9",
+  "receipt_sha256": "072d3dcfde3bb7a94d2b7faad7d0a762b30c3a20fa09dae567edf095020eabd1",
+  "roof_screens": [
+    {
+      "roof": "main",
+      "roof_points": 5377,
+      "ground_points": 2789,
+      "roof_p10_p50_p90_navd88_m": [
+        33.99000000000001,
+        34.25,
+        34.52999999999997
+      ],
+      "ground_p10_p50_p90_navd88_m": [
+        30.029999999999973,
+        30.16999999999996,
+        30.329999999999927
+      ],
+      "roof_ground_median_difference_m": 4.080000000000041
+    },
+    {
+      "roof": "secondary",
+      "roof_points": 1,
+      "ground_points": 1987,
+      "roof_p10_p50_p90_navd88_m": [
+        32.58000000000004,
+        32.58000000000004,
+        32.58000000000004
+      ],
+      "ground_p10_p50_p90_navd88_m": [
+        29.840000000000032,
+        30.019999999999982,
+        30.139999999999986
+      ],
+      "roof_ground_median_difference_m": 2.560000000000059
+    }
+  ]
+}

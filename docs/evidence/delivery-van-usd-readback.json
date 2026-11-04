@@ -1,0 +1,14 @@
+{
+  "usd_sha256": "7a19a7ca9cfc2342c60048db9233b9998722c0b7b7b8d310c922301c74a06410",
+  "axis": "Z",
+  "meters_per_unit": 1,
+  "mesh_count": 71,
+  "triangles": 16280,
+  "bound_materials": 8,
+  "dimensions_xyz_m": [
+    2.479999929666519,
+    5.445999870076777,
+    2.4200000762939466
+  ],
+  "scope": "Static geometry/material structural readback. Render and placement pending."
+}

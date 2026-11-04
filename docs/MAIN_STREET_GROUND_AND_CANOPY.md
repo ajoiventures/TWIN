@@ -8,6 +8,10 @@ Ran all four composed meshes through the existing terrain surface fitter against
 
 The pilot remains an aerial interpretation. Confirmed lot boundaries, circulation, striping, access, current grades and the rest of Main Street remain open. The City's impervious-area assessment explicitly includes parking, making it a source lead for coverage outside the pilot. No public Orlando polygon endpoint was verified. [City stormwater utility](https://www.orlando.gov/Our-Government/Departments-Offices/Public-Works/Streets-and-Stormwater-Division/Stormwater-Utility-Fee)
 
+### Composed parking and terrain preview
+
+Rebuilt both terrain manifests against the revised parking layer because the earlier manifests pin the original parking bytes. The rebuilt ground field and terrain/building USD matched their previous hashes. The new inactive preview at `data/diagnostics/terrain_combined_20261104_parking/review.usda` has SHA256 `525306b18e0f60b4cca3b40b163778ab7fdf104438369612acb39895a70b3926`. The composition audit accounted for all 21,246 visible source boundables, with no changed original identities or material bindings. The previous contact-closure layer also pins the former parking and surface inputs and is outside this preview. A fresh contact-closure build and actual road-to-parking visual review remain open. The running editor was preserved.
+
 October 28, 2026. Extends the full College Park Main Street scope, with the existing pilot as the first verification area. Parent tickets #8/#9/#10/#13/#14/#15/#16/#17/#18 and parking P-02/P-03/P-05.
 
 ## Direct visual evidence

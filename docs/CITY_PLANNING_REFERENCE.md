@@ -16,6 +16,8 @@ There are 5,721 distinct parcel-ID strings, 716 feature records intersecting mul
 
 ## Coverage and outstanding source work
 
+The City's Laserfiche archive now resolves the exact Princeton Council document `1411031206`, item `12-6`, dated November 3, 2014. This 22-page record is separate from the eight-page agenda attachment. Physical page 19 shows the project site plan and T6/T5/T4 transects. Page 22 shows the Smith Street, west and courtyard elevations. These design sheets can guide roof and façade review against dated imagery. Verification of the executed signature page, later revisions and as-built correspondence remains open. [City Clerk archive record](https://portal.laserfiche.com/Portal/DocView.aspx?id=1062181&repo=r-b158fc8c)
+
 ### Main Street planned development review
 
 The validated zoning geometry contains six PD polygons with positive area inside the official Main Street boundary. Use the source polygon IDs to keep the document research separate from parcel-feature counts.

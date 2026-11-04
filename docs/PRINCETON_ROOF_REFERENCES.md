@@ -1,5 +1,7 @@
 # Princeton completed-roof reference handoff
 
+The City Clerk archive holds a 22-page version of the November 3 Council record, document `1411031206`. Page 19 shows the site plan and transects. Page 22 shows Smith Street, west and courtyard elevations with stepped roof profiles and façade bays. Use these sheets as design references alongside the completed-building aerial and LiDAR. Their relationship to the built roof and any later drawing revisions still need checking. [City Clerk archive record](https://portal.laserfiche.com/Portal/DocView.aspx?id=1062181&repo=r-b158fc8c)
+
 Status: completed-building architectural form evidence found and visually inspected; exact measured roof breaklines/elevations remain unresolved. No geometry, active layer, root composition or user editor was changed. This supports an explicitly interpreted candidate, not acceptance of a current measured roof.
 
 ## Identity and original sources

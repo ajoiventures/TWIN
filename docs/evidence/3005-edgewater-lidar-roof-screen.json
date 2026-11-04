@@ -1,0 +1,19 @@
+{
+  "roof_preview_sha256": "7b8fc2db128552dd635bb81327f6941bb05c6b592c656887a4feae6f12508170",
+  "cloud_sha256": "ff781cf58fba9d3dd751cd356ff4ae3dc77a568bb80fa9558c9d5a73b2e9e5a3",
+  "source_receipt_sha256": "645d99bc7d90c995ee836776b95286c5f7636e665c61b265860b69e4786ef98d",
+  "roof_count": 4821,
+  "ground_count": 2307,
+  "roof_p10_p50_p90_navd88_m": [
+    35.68999999999994,
+    35.889999999999986,
+    36.049999999999955
+  ],
+  "ground_p10_p50_p90_navd88_m": [
+    29.99000000000001,
+    30.069999999999936,
+    30.210000000000036
+  ],
+  "median_roof_minus_median_ground_m": 5.82000000000005,
+  "screen": "class 6 inside roof inset 1m; class 2 in exterior 5m buffer; historical project interval 2018-2019"
+}

@@ -3,19 +3,22 @@ from pathlib import Path
 import datetime,hashlib,json,sys
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.dependencies'))
 from pxr import Usd,UsdGeom,UsdShade,Sdf,Gf
-from shapely.geometry import Polygon
+from shapely.geometry import LineString,Polygon
 from shapely.ops import unary_union
 from shapely import constrained_delaunay_triangles
 from pyproj import Transformer
 from constrain_scene import mesh_footprint,ground_footprint
 
-def pixel_ground(points,extent,width,height,project,origin):
+def local_image_coordinates(points,extent,width,height,project,origin):
     if any(not 0<=x<=width or not 0<=y<=height for x,y in points):raise ValueError('Sample outside image')
     coords=[]
     for x,y in points:
         a=extent['xmin']+x/width*(extent['xmax']-extent['xmin']);b=extent['ymax']-y/height*(extent['ymax']-extent['ymin'])
         e,n=project.transform(a,b);coords.append((e-origin[0],n-origin[1]))
-    result=Polygon(coords)
+    return coords
+
+def pixel_ground(points,extent,width,height,project,origin):
+    result=Polygon(local_image_coordinates(points,extent,width,height,project,origin))
     if not result.is_valid or result.area<=0:raise ValueError('Invalid surface polygon')
     return result
 
@@ -72,6 +75,28 @@ def build(root=ROOT):
         if rendered.intersection(obstacles).area>1e-6 or rendered.difference(ground).area>1e-6:raise ValueError('Surface overlap or spillover')
         conflicts=[{'usd_path':path,'overlap_m2':round(geometry.intersection(polygon).area,3)} for path,geometry in blockers if geometry.intersection(polygon).area>.1]
         records.append({'id':sample['id'],'source_pixels':sample['pixels'],'interpreted_area_m2':polygon.area,'rendered_area_m2':rendered.area,'removed_for_obstacles_or_extent_m2':polygon.area-rendered.area,'triangles':len(points)//3,'source_model_conflicts':sorted(conflicts,key=lambda r:-r['overlap_m2']),'requires_edge_and_conflict_review':True})
+        stripe_segments=sample.get('visible_stripe_segments_px',[])
+        if stripe_segments:
+            material_path=Sdf.Path('/World/DetailMaterials/WhitePaint')
+            if not source.GetPrimAtPath(material_path).IsA(UsdShade.Material):raise ValueError('Parking paint material unavailable')
+            stripes=[]
+            for index,segment in enumerate(stripe_segments,1):
+                centerline=LineString(local_image_coordinates(segment,extent,ref['image_fetch']['width'],ref['image_fetch']['height'],project,origin))
+                # Paint width is illustrative; the aerial only supports the observed line fragments.
+                paint=centerline.buffer(.05,cap_style='flat').intersection(clipped)
+                if paint.is_empty:raise ValueError(f'Paint segment {index} misses its parking surface')
+                stripe_points=[(x,y,z_offset+.003) for tri in constrained_delaunay_triangles(paint).geoms for x,y in list(tri.exterior.coords)[:3]]
+                stripe_path=f'{path}/Paint_{index:02}'
+                stripe=UsdGeom.Mesh.Define(stage,stripe_path)
+                stripe.CreatePointsAttr(stripe_points)
+                stripe.CreateFaceVertexCountsAttr([3]*(len(stripe_points)//3))
+                stripe.CreateFaceVertexIndicesAttr(list(range(len(stripe_points))))
+                stripe.CreateSubdivisionSchemeAttr('none')
+                stripe.CreateDoubleSidedAttr(True)
+                UsdShade.MaterialBindingAPI.Apply(stripe.GetPrim()).GetDirectBindingRel().SetTargets([material_path])
+                stripe.GetPrim().SetCustomData({'quality':'dated_visible_stripe_fragment','imageAcquisition':'2025-01','modeledWidthM':.10,'capacityVerified':False})
+                stripes.append({'path':stripe_path,'source_pixels':segment,'paint_area_m2':paint.area})
+            records[-1]['visible_stripe_fragments']=stripes
     stage.GetRootLayer().customLayerData={'purpose':config['interpretation'],'sourceSnapshot':active['snapshot'],'surveyAccepted':False,'imageryPixelsEmbedded':False}
     output=root/'scene/rear_parking_samples.usda';stage.GetRootLayer().Export(str(output))
     report={'source_snapshot':active['snapshot'],'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_image_sha256':ref['image_fetch']['sha256'],'records':records,'acceptance':'Historical visual interpretation only; full lot edges, islands, access, capacity and field accuracy remain unresolved','layer_sha256':hashlib.sha256(output.read_bytes()).hexdigest()}

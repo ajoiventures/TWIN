@@ -1,0 +1,215 @@
+{
+  "scope_sha256": "5e217793251e7cebec34cd786344c660a82945a77b90721e295b69270056bc89",
+  "acquisition": {
+    "month": "2025-01",
+    "precision": "month",
+    "evidence": "Orthophotos flown January 2025 by Sanborn",
+    "exact_capture_date": null
+  },
+  "item_metadata_sha256": "de6f4338470b6bb4169e60f42a59d94afb7d6cb8121b8b29d67a34f9687445c5",
+  "uncovered_corridor_sq_usft": 0.0,
+  "tiles": [
+    {
+      "tile": 1,
+      "extent": {
+        "xmin": 530985.8561080146,
+        "ymin": 1536587.4187609619,
+        "xmax": 531480.2978101146,
+        "ymax": 1537783.5648497478,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6497262839684398,
+        "y_us_survey_feet": 0.6497262839684723,
+        "x_m": 0.1980369674275153,
+        "y_m": 0.19803696742752522,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530985.8632740357%2C1536587.4187609614%2C531480.2906440934%2C1537783.5648497473&bboxSR=2236&imageSR=2236&size=761%2C1841&format=jpg&transparent=false",
+      "sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+      "retrieved_utc": "2026-11-04T14:25:40.429332+00:00",
+      "width": 761,
+      "height": 1841
+    },
+    {
+      "tile": 2,
+      "extent": {
+        "xmin": 530966.440926019,
+        "ymin": 1537733.5648497473,
+        "xmax": 531392.6613683023,
+        "ymax": 1538929.7109385333,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6497262839684703,
+        "y_us_survey_feet": 0.6497262839684723,
+        "x_m": 0.1980369674275246,
+        "y_m": 0.19803696742752522,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530966.4628220194%2C1537733.5648497473%2C531392.6394723017%2C1538929.7109385333&bboxSR=2236&imageSR=2236&size=656%2C1841&format=jpg&transparent=false",
+      "sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+      "retrieved_utc": "2026-11-04T14:25:40.576910+00:00",
+      "width": 656,
+      "height": 1841
+    },
+    {
+      "tile": 3,
+      "extent": {
+        "xmin": 531002.4813988459,
+        "ymin": 1538879.7109385338,
+        "xmax": 531392.9668955109,
+        "ymax": 1540075.8570273197,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.649726283968389,
+        "y_us_survey_feet": 0.6497262839684723,
+        "x_m": 0.19803696742749985,
+        "y_m": 0.19803696742752522,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531002.6441653315%2C1538879.7109385333%2C531392.8041290255%2C1540075.8570273193&bboxSR=2236&imageSR=2236&size=601%2C1841&format=jpg&transparent=false",
+      "sha256": "4660b6303e7a2b10daf8538ab760cf4432f396a49c0eb9893342b7cc32a24e3d",
+      "retrieved_utc": "2026-11-04T14:25:43.913587+00:00",
+      "width": 601,
+      "height": 1841
+    },
+    {
+      "tile": 4,
+      "extent": {
+        "xmin": 530940.7197084823,
+        "ymin": 1540025.8570273193,
+        "xmax": 531389.6805707045,
+        "ymax": 1541222.0031161052,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6497262839685153,
+        "y_us_survey_feet": 0.6497262839684723,
+        "x_m": 0.19803696742753832,
+        "y_m": 0.19803696742752522,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530940.783542343%2C1540025.8570273193%2C531389.6167368438%2C1541222.0031161052&bboxSR=2236&imageSR=2236&size=691%2C1841&format=jpg&transparent=false",
+      "sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+      "retrieved_utc": "2026-11-04T14:25:42.324924+00:00",
+      "width": 691,
+      "height": 1841
+    },
+    {
+      "tile": 5,
+      "extent": {
+        "xmin": 530935.8771710134,
+        "ymin": 1541172.0031161052,
+        "xmax": 531384.8380332356,
+        "ymax": 1542368.1492048914,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6497262839685153,
+        "y_us_survey_feet": 0.6497262839685988,
+        "x_m": 0.19803696742753832,
+        "y_m": 0.19803696742756374,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530936.0249100671%2C1541172.0031161052%2C531384.6902941818%2C1542368.1492048914&bboxSR=2236&imageSR=2236&size=691%2C1841&format=jpg&transparent=false",
+      "sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+      "retrieved_utc": "2026-11-04T14:25:41.469828+00:00",
+      "width": 691,
+      "height": 1841
+    },
+    {
+      "tile": 6,
+      "extent": {
+        "xmin": 530927.1303687828,
+        "ymin": 1542318.1492048916,
+        "xmax": 531344.2546430905,
+        "ymax": 1543514.2952936776,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.649726283968451,
+        "y_us_survey_feet": 0.6497262839684723,
+        "x_m": 0.1980369674275187,
+        "y_m": 0.19803696742752522,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530927.3164154163%2C1542318.1492048914%2C531344.0685964567%2C1543514.2952936774&bboxSR=2236&imageSR=2236&size=642%2C1841&format=jpg&transparent=false",
+      "sha256": "90acecd60a1d12fa45ac94eb4651267616c601ae4cdd7f154a1e1c9d8048335d",
+      "retrieved_utc": "2026-11-04T14:25:42.272278+00:00",
+      "width": 642,
+      "height": 1841
+    },
+    {
+      "tile": 7,
+      "extent": {
+        "xmin": 530739.0403599913,
+        "ymin": 1543464.1403524063,
+        "xmax": 531352.5408689177,
+        "ymax": 1544660.5963237344,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6498946069136224,
+        "y_us_survey_feet": 0.6498946069136752,
+        "x_m": 0.19808827236381685,
+        "y_m": 0.19808827236383292,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530739.0403599914%2C1543464.2952936774%2C531352.5408689178%2C1544660.4413824633&bboxSR=2236&imageSR=2236&size=944%2C1841&format=jpg&transparent=false",
+      "sha256": "6379045c12e6cc88a76f643379797fd2df215cd0ad15173bff8ba11f72683638",
+      "retrieved_utc": "2026-11-04T14:25:44.596386+00:00",
+      "width": 944,
+      "height": 1841
+    },
+    {
+      "tile": 8,
+      "extent": {
+        "xmin": 529831.1932496446,
+        "ymin": 1544610.3240264603,
+        "xmax": 531316.1091267818,
+        "ymax": 1545806.7048272523,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sampling": {
+        "x_us_survey_feet": 0.6498537755523924,
+        "y_us_survey_feet": 0.6498537755524258,
+        "x_m": 0.19807582694002307,
+        "y_m": 0.19807582694003328,
+        "meaning": "Export sampling resolution; not native acquisition GSD or surveyed positional accuracy"
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=529831.1932496445%2C1544610.4413824633%2C531316.1091267817%2C1545806.5874712493&bboxSR=2236&imageSR=2236&size=2285%2C1841&format=jpg&transparent=false",
+      "sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+      "retrieved_utc": "2026-11-04T14:25:44.582870+00:00",
+      "width": 2285,
+      "height": 1841
+    }
+  ],
+  "scope": "City-defined Edgewater review corridor within College Park Main Street",
+  "coverage_basis": "Union of returned image frames against projected corridor polygon, not source positional accuracy"
+}

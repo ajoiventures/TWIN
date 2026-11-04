@@ -1,5 +1,11 @@
 # Main Street rear parking, canopy and street-view correction
 
+## Full Edgewater aerial coverage for the parking inventory
+
+Eight January 2025 OCPA exports now cover the full 2.92 km City-defined Edgewater review corridor. Their returned EPSG:2236 frames leave zero corridor area uncovered. The exports sample at approximately 0.20 m per pixel. Survey accuracy, exact capture day and present-day conditions remain unverified. The [coverage receipt](evidence/edgewater-parking-imagery-coverage.json) records the frame, export request and image checksum for each tile. [OCPA imagery service](https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer)
+
+The local contact sheet confirms useful parking evidence outside the pilot. Tiles 01–03 show smaller lots on both sides of Edgewater. Tile 04 covers Princeton and Smith and adjacent lots. Tiles 05–06 show additional commercial rear and side parking. Tiles 07–08 show larger parking areas where drive aisles, planted islands and pond edges need separate outlines. These are priorities from the overview image. Use the original frames to distinguish actual paving from shadow and to check what is already modeled before tracing. Original imagery remains in the ignored local cache.
+
 ## East rear aisle coverage
 
 The January 2025 OCPA aerial shows a continuous strip of asphalt beside the east rear parking aisle between Princeton and Smith. The revised trace extends the existing parking polygon into that visible strip and keeps the adjacent planted island outside the new fill. The source frame is projected into the same local UTM coordinates as the street and building meshes. The parking builder clips the trace against modeled obstacles and the ground extent.

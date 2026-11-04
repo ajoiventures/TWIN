@@ -37,6 +37,8 @@ The previous GTFS access/calendar gap now has actual source data and validity ev
 
 ## App integration
 
+On November 4 the public ZIP was downloaded again and matched the active archive SHA-256. The published feed remains valid through December 12. The date-aware API schedules 100 study-stop trips on November 3, 70 on Saturday November 7, 35 on Sunday November 8, and 35 on Thanksgiving November 26. The endpoint now returns JSON null trip counts outside the published validity window, including December 13. An isolated HTTP run verified the holiday, expired and not-yet-effective responses. These are schedule figures, and no live operation was verified.
+
 `GET /api/v1/transit_schedule?service_date=2026-10-28` returns validated schedule validity, calendar-derived counts, source fields, first five safe rows and limits. The optional date defaults to the agency's New York date. Invalid dates return an error; unavailable/stale dependencies reject the response. No agency call occurs during display.
 
 The existing `/transit` page now includes a service-date selector and expandable schedule evidence alongside the separate static GIS map. Actual API/browser checks verified October 28 (100 scheduled stop-serving trips; 170 including passing shape trips) and January 1, 2027 (expired; UI says availability unknown instead of implying zero service). Source-schema/sample rows were inspected. [Actual browser view](evidence/lynx-schedule-browser.png). Static route 89 remains visible as a separate older GIS reference and its absence from current intersecting GTFS shapes is flagged, not treated as proof of cancellation.

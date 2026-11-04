@@ -339,6 +339,10 @@ class Handler(BaseHTTPRequestHandler):
      except ValueError:return self.send({'error':'Use a valid service date: YYYY-MM-DD'},400)
     try:report=validate(ROOT,service_date=requested_date)
     except (ValueError,OSError) as exc:raise SnapshotMismatch('LYNX schedule references unavailable or stale') from exc
+    if report['read_time_validity']['status']!='within_published_feed_period':
+     summary=report['read_time_schedule_summary']
+     summary['scheduled_selected_trip_count']=None
+     summary['scheduled_trips_serving_study_stops']=None
     return self.send({k:v for k,v in report.items() if k not in ('tables','dependencies')})
    if path=='/api/v1/transit':
     _,snapshot=active_folder()

@@ -1,0 +1,60 @@
+{
+  "schema": "twin.terrain-anchoring-rebase-summary/1",
+  "author_role": "GIS/data analysis agent; implementation author, not independent reviewer",
+  "decision": "read_only_rebase_completed_no_activation_acceptance",
+  "source_snapshot": "20261028T160543372334Z",
+  "helper": "tools/analyze_terrain_anchoring.py",
+  "helper_sha256": "ee16345fec26d6be3ccc9bcf740d778787427d6ca04353141bd6444c3e7c33f9",
+  "local_report": "data/diagnostics/terrain_rebase_20261102_d/report.json",
+  "local_report_sha256": "66cc6057d365a59a224dfcf92f6b485a5675a39d7216d08bd1db61a7dd2efb29",
+  "local_handling_decisions_sha256": "39fb5b1eb6b954866872fb6b41c11f34133b8a60e520fbc0aa1d33499497e396",
+  "source_frame": {
+    "horizontal_epsg": 6438,
+    "source_vertical_unit": "US survey foot",
+    "vertical_datum": "NAVD88",
+    "scene_z_origin_navd88_m": 30.0,
+    "cached_tiles": 6,
+    "cached_valid_pixels": 24000000,
+    "cached_total_pixels": 24000000
+  },
+  "metrics": {
+    "visible_legacy_building_groups_sampleable": 3203,
+    "road_surfaces_sampleable": 1873,
+    "old_skips": 307,
+    "old_mask_or_grid_extent_failures_data_available": 257,
+    "convex_hull_water_screen_cases": 20,
+    "those_cases_actual_scene_water_projection_intersections": 0,
+    "explicit_bridge_tunnel_layer_cases": 18,
+    "whole_unhandled_categories_in_old_packet": 12,
+    "roads_grade_unverified_no_explicit_bridge_no": 1855,
+    "tree_instance_positions_sampleable": 505,
+    "multipart_legacy_groups": 764,
+    "building_groups_sampled_vertex_relief_over_half_m": 305,
+    "building_groups_sampled_vertex_relief_over_one_m": 36,
+    "building_groups_sampled_vertex_relief_over_two_m": 3,
+    "historical_or_appearance_families_inventoried": 11,
+    "old_packet_changed_dependencies": 5
+  },
+  "actions": {
+    "downloaded_sources": false,
+    "edited_scene_or_snapshot": false,
+    "activated_terrain": false,
+    "launched_gpu": false,
+    "used_private_booms": false
+  },
+  "limits": [
+    "Source availability and sampler checks do not certify accurate/current geometry, grade, ADA or shoreline",
+    "Falseconvexhullscreen does notclear wetland/shoreline/clearance review",
+    "Historical parts require shared anchor/frame inheritance, not ownmeshminZ",
+    "No survey control/absoluteaccuracy claim; historical2018-2019 bareearth",
+    "Independent review, coordinated inactiveanchoring overlay and visual/contact/sourcepreservation checks still required"
+  ],
+  "captured_helper": "data/diagnostics/terrain_rebase_20261102_d/captured_helper.py",
+  "dependency_followup": {
+    "supersedes": "terrain_rebase_20261102_c (retainedunchanged)",
+    "osm_grade_tags_bound": true,
+    "original_dem_xml_receipt_files_bound": 12,
+    "all_direct_data_reads_reviewed": true,
+    "source_or_scene_mutated": false
+  }
+}

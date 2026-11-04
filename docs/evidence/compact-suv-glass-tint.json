@@ -1,0 +1,15 @@
+{
+  "asset_sha256": "67ed2f9630008deefef7bf6da733eddd02bdfc8e1fd0f1b965bf64de401c6c7d",
+  "preview_sha256": "0cdda14b38e3f4f7f5fd0f6469361157846cda92e025040d2d3d5b2a931ada0d",
+  "only_changed_shader_attribute": [
+    "/CompactSUV/Materials/M8/Color",
+    "inputs:scale"
+  ],
+  "glass_rgb_scale": [
+    0.10000000149011612,
+    0.1599999964237213,
+    0.2199999988079071,
+    1.0
+  ],
+  "limits": "Opaque tint candidate. Native render and reflections pending."
+}

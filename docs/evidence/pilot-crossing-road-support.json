@@ -1,0 +1,103 @@
+{
+  "scene_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "rows": [
+    {
+      "id": 630,
+      "line_m": 15.921,
+      "on_road_m": 15.921,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_156300342",
+        "/World/Streets/Road_209187386",
+        "/World/Streets/Road_933604306",
+        "/World/Streets/Road_1355211060",
+        "/World/Streets/Road_1355211061",
+        "/World/Streets/Road_1355211062"
+      ]
+    },
+    {
+      "id": 631,
+      "line_m": 11.221,
+      "on_road_m": 11.221,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_28715509",
+        "/World/Streets/Road_1355211057",
+        "/World/Streets/Road_1355211058",
+        "/World/Streets/Road_1364513053"
+      ]
+    },
+    {
+      "id": 3731,
+      "line_m": 14.034,
+      "on_road_m": 12.133,
+      "outside_road_m": 1.901,
+      "road_paths": [
+        "/World/Streets/Road_83288818",
+        "/World/Streets/Road_1355211063",
+        "/World/Streets/Road_1355211064"
+      ]
+    },
+    {
+      "id": 3869,
+      "line_m": 16.649,
+      "on_road_m": 16.649,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_73974956",
+        "/World/Streets/Road_933604309",
+        "/World/Streets/Road_933604312"
+      ]
+    },
+    {
+      "id": 3870,
+      "line_m": 15.113,
+      "on_road_m": 15.111,
+      "outside_road_m": 0.001,
+      "road_paths": [
+        "/World/Streets/Road_73974956",
+        "/World/Streets/Road_209187386",
+        "/World/Streets/Road_559971538",
+        "/World/Streets/Road_1355211059",
+        "/World/Streets/Road_1355211060",
+        "/World/Streets/Road_1355211061"
+      ]
+    },
+    {
+      "id": 3871,
+      "line_m": 13.607,
+      "on_road_m": 13.607,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_80768670",
+        "/World/Streets/Road_933604308",
+        "/World/Streets/Road_1387314547"
+      ]
+    },
+    {
+      "id": 3872,
+      "line_m": 16.956,
+      "on_road_m": 16.956,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_933604308",
+        "/World/Streets/Road_933604310",
+        "/World/Streets/Road_933604311",
+        "/World/Streets/Road_1387314547",
+        "/World/Streets/Road_1450779536"
+      ]
+    },
+    {
+      "id": 3873,
+      "line_m": 13.951,
+      "on_road_m": 13.951,
+      "outside_road_m": 0.0,
+      "road_paths": [
+        "/World/Streets/Road_46980775",
+        "/World/Streets/Road_933604307",
+        "/World/Streets/Road_933604312"
+      ]
+    }
+  ],
+  "named_crosswalk_prims": []
+}

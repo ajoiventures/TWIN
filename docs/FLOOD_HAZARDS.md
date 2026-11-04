@@ -1,0 +1,31 @@
+# FEMA effective mapped-hazard overlay
+
+Ticket #24 implementation, October 28, 2026. This is a dated optional information overlay, not live flooding, predicted depth, an engineering simulation or a property insurance determination.
+
+`python tools/build_flood_overlay.py` queries FEMA's public effective NFHL service for the bounding rectangle of the official College Park neighborhood/Main Street union, then clips all features to that actual union. `--offline` reproduces it from checksummed Client cache entries. No private BOOMS, preliminary-map service or proposed/construction geometry is read. Source XY is NAD83 EPSG:4269; the service returns WGS84 EPSG:4326, and area/joins use EPSG:32617 meters.
+
+The current extract has seven clipped hazard-zone records (A, AE and X with original subtype), two effective panels, one availability record and zero intersecting LOMR polygons. The panels are `12095C0235F` and `12095C0245F`, effective **2009-09-25**, source version `1.1.1.0`. Their `PANEL` strings retain leading zeroes. The study acquisition date is unknown; effective date, original retrieval receipts and local build date remain separate. The source `PRE_DATE` year-9999 sentinel is preserved numerically and normalizes to null; it does not turn these into preliminary products. Original `-9999` vertical/depth sentinels remain verbatim and are never interpreted as negative depths. BFE is a source map attribute with its own datum/unit, not scene Z.
+
+Mapped-zone coverage includes the complete official boundaries within sub-square-meter transformation tolerance. Mapped SFHA area is approximately 1,126.85 m² in Main Street and 1,281,315.55 m² in the neighborhood. The 60 m pilot review context has zero mapped SFHA intersection; that is not a flood-free claim or a right-of-way boundary. All extracted parcel features were checked geometrically: 3,847 parcel features intersect mapped zones. These are area-intersection context links, never accepted building/tax identities. Parcels outside the existing extraction remain unknown even though this hazard query covers the whole official neighborhood.
+
+One source X polygon has a ring self-intersection outside the clip. Its raw cached bytes remain untouched. `make_valid` produced valid polygon geometry with source/repaired geographic areas differing by approximately 3.3e-16 square degrees; the exact issue and original OBJECTID are in the unresolved report. Triangulated scene areas are checked against clipped projected areas. No overlapping hazard-zone area or failed parcel-area invariants were found.
+
+Outputs:
+
+- `data/flood/effective_nfhl.json`: normalized source tables, feature IDs, original source codes, effective panel intersections, field dictionary, first five safe rows per table (fewer when fewer exist), parcel joins, coverage, unresolved results and all dependency/output checksums.
+- `data/flood/coverage.html`: self-contained geographic map, clipped zones and Main Street boundary. No aerial imagery is redistributed.
+- `scene/fema_effective_hazards.usda`: independent **default invisible** information layer. Root `/World/Information/FemaEffectiveFloodHazards`; a fixed **0.035 m cartographic lift** over flat prototype ground prevents ground overlap. It is not a terrain-draped shoreline, flood elevation or water surface. Source context metadata identifies unknown acquisition dates, effective date, preserved retrieval time and quality.
+- `web/flood.html`: optional map off by default, zone/source/date inspector, all original codes and nulls, field dictionary/safe sample rows, separate preliminary/effective status and explicit limits.
+- [Committed source/evidence report](evidence/fema-effective-source-report.json): compact review evidence; local caches and full geometry are regenerated rather than committed.
+
+The builder checks the active snapshot/pilot, validates ID completeness and checksums, and refuses to overwrite a manually modified generated layer/map. Rebuilds retain timestamped local backups. It never edits root composition, manual edits, scenarios, the base scene or active API code. `validate_packet()` checks active snapshot and every source/output dependency before display.
+
+Integration contract: `/api/v1/flood` returns `build_flood_overlay.validate_packet(ROOT)` and rejects validation errors; `/flood` serves `web/flood.html`; `/flood/coverage` validates the packet before serving the coverage artifact. Compose the optional USD layer without changing its invisible default. Workspace visibility changes belong in the existing manual/scenario mechanism.
+
+Original source: [FEMA effective NFHL service](https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer), [FEMA Map Service Center](https://msc.fema.gov/portal/home). FEMA compiles effective map databases and revisions, as described by [NOAA's federal data catalog](https://www.coast.noaa.gov/digitalcoast/data/flood.html). The service supplies no explicit dataset reuse license or study acquisition date; those remain recorded unknowns. Property-specific LOMA determinations and FIS profiles are not imported. A zero LOMR result is a bounded polygon-query result, not proof that no property-specific map change exists.
+
+## Delivery acceptance
+
+Actual enabled-view rendering initially exposed an unusable broad X-zone fill. The corrected scene omits X area fill while retaining all X source geometry/codes in the packet and its inspector node; six SFHA polygons use blue cartographic fills. The optional layer remains invisible by default. Parent inspection and independent VP review accepted the [actual corrected render](evidence/fema-mapped-hazard-render.png), with [capture provenance](evidence/fema-mapped-hazard-render.json). Independent PM coverage/date/label review passed. The dedicated review camera and visibility override are not part of the active scene.
+
+`python tools/activate_flood_context.py --apply` validates receipt/source/output hashes, preserves root opinions and manual edits, stores rollback backups and records an opt-in that subsequent scene builds validate. The builder also writes a separate normalized-packet checksum receipt, preventing packet-only changes from passing API validation. Native editor interaction acceptance remains tracked by #12.

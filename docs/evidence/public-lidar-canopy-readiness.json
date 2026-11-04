@@ -1,0 +1,350 @@
+{
+  "schema": "twin.public-lidar-canopy-readiness-review/1",
+  "reviewed_utc": "2026-10-30T14:46:22.408073+00:00",
+  "decision": "NOT READY to replace illustrative street trees with accepted physical trees; bounded historical elevated-return review candidates only",
+  "sites": [
+    {
+      "site_id": "andersen_office_1615",
+      "parcel_id": "292223016600090",
+      "point_count": 105060,
+      "classification_counts": {
+        "1": 73058,
+        "2": 22421,
+        "6": 9415,
+        "7": 166
+      },
+      "classified_vegetation_3_4_5_points": 0,
+      "point_xy_bbox_utm_m": [
+        461930.09444179665,
+        3159932.065260477,
+        461974.2075213137,
+        3160038.7146242056
+      ],
+      "class2_ground_p05_p50_p95_navd88_m": [
+        29.389999999999986,
+        29.529999999999973,
+        29.850000000000023
+      ],
+      "class1_above3m_with_nearest_ground_within3m": 46475,
+      "class1_above3m_after2m_class6_exclusion": 41772,
+      "diagnostic_clusters_min5_occupied_1m_cells": [
+        {
+          "occupied_1m_cells": 432,
+          "unclassified_points": 10578,
+          "centroid_utm_m": [
+            461934.9570857405,
+            3159950.3069986245
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            4.339999999999918,
+            6.470000000000027,
+            8.120000000000005
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 1501,
+          "unclassified_points": 30560,
+          "centroid_utm_m": [
+            461965.7492314145,
+            3159978.8652954428
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            4.490000000000009,
+            6.940000000000055,
+            10.770000000000095
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 64,
+          "unclassified_points": 522,
+          "centroid_utm_m": [
+            461956.5004035903,
+            3159978.417120023
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            3.1899999999999524,
+            4.590000000000032,
+            5.22900000000002
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 18,
+          "unclassified_points": 79,
+          "centroid_utm_m": [
+            461956.9105549309,
+            3160002.8645380847
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            3.1120000000000116,
+            3.4400000000000546,
+            3.800000000000068
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 8,
+          "unclassified_points": 31,
+          "centroid_utm_m": [
+            461957.18143978383,
+            3160009.669590598
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            3.07000000000005,
+            3.2799999999999727,
+            3.550000000000068
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        }
+      ],
+      "original_node_hierarchy_cache_hashes_verified": 21,
+      "cloud_sha256": "809a5e6998c13122e9e2a02f21f99ad33543165cecbf847b5b162699fc98e983",
+      "evidence_sha256": "d3901143aad6a72c148bd18c213cab24c7d1c722f51806bc75e6e36c9b1f0920",
+      "source": {
+        "ept_url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/FL_Peninsular_FDEM_Orange_2018/",
+        "acquisition": "2018-12-04 to2019-04-12 project interval; local flight date/construction phase uncertain",
+        "coordinate_reference": "EPSG:32617 XY after conversion; NAVD88 meters Z"
+      },
+      "ocpa_footprint_features": 0
+    },
+    {
+      "site_id": "college_park_post_office",
+      "parcel_id": "292223149200010",
+      "point_count": 301791,
+      "classification_counts": {
+        "1": 146350,
+        "2": 118887,
+        "6": 35884,
+        "7": 670
+      },
+      "classified_vegetation_3_4_5_points": 0,
+      "point_xy_bbox_utm_m": [
+        461929.36035066657,
+        3160038.184785602,
+        462045.84069946926,
+        3160140.1816729377
+      ],
+      "class2_ground_p05_p50_p95_navd88_m": [
+        28.50999999999999,
+        29.159999999999968,
+        29.840000000000032
+      ],
+      "class1_above3m_with_nearest_ground_within3m": 93932,
+      "class1_above3m_after2m_class6_exclusion": 88765,
+      "diagnostic_clusters_min5_occupied_1m_cells": [
+        {
+          "occupied_1m_cells": 35,
+          "unclassified_points": 673,
+          "centroid_utm_m": [
+            461933.28929272527,
+            3160059.6652651373
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            6.319999999999936,
+            7.259999999999991,
+            7.800000000000045
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 282,
+          "unclassified_points": 6384,
+          "centroid_utm_m": [
+            461938.21944300993,
+            3160074.7446455825
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            7.230000000000018,
+            9.770000000000039,
+            12.139999999999986
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 1250,
+          "unclassified_points": 27422,
+          "centroid_utm_m": [
+            461963.7410836561,
+            3160105.4901867397
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            5.311000000000051,
+            9.159999999999968,
+            13.830000000000041
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 11,
+          "unclassified_points": 106,
+          "centroid_utm_m": [
+            461931.27920328925,
+            3160039.3722871975
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            5.789999999999964,
+            7.039999999999964,
+            8.754999999999995
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 28,
+          "unclassified_points": 518,
+          "centroid_utm_m": [
+            461940.4088549754,
+            3160089.7571998322
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            4.919999999999959,
+            5.569999999999993,
+            6.180000000000064
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 223,
+          "unclassified_points": 3287,
+          "centroid_utm_m": [
+            461956.53037028754,
+            3160044.5805959716
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            5.330000000000041,
+            7.300000000000068,
+            10.910000000000082
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 5,
+          "unclassified_points": 25,
+          "centroid_utm_m": [
+            461962.2979800547,
+            3160063.434638743
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            4.998000000000002,
+            5.0499999999999545,
+            5.0919999999999614
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 11,
+          "unclassified_points": 113,
+          "centroid_utm_m": [
+            461972.3738571484,
+            3160039.0749224178
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            6.112000000000012,
+            9.25,
+            9.915999999999963
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 1731,
+          "unclassified_points": 49649,
+          "centroid_utm_m": [
+            462027.20443273423,
+            3160107.3141150954
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            4.720000000000027,
+            9.599999999999909,
+            15.580000000000041
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 5,
+          "unclassified_points": 29,
+          "centroid_utm_m": [
+            462003.2354312374,
+            3160047.5178976664
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            3.080000000000041,
+            3.240000000000009,
+            3.4840000000000146
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 34,
+          "unclassified_points": 424,
+          "centroid_utm_m": [
+            462014.7323205714,
+            3160065.897593129
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            3.3799999999999955,
+            3.419999999999959,
+            3.4699999999999136
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        },
+        {
+          "occupied_1m_cells": 5,
+          "unclassified_points": 24,
+          "centroid_utm_m": [
+            462011.8234541659,
+            3160097.276942787
+          ],
+          "above_nearest_ground_p10_p50_p90_m": [
+            8.522000000000014,
+            8.605000000000018,
+            8.727999999999986
+          ],
+          "quality": "unclassified elevated-return cluster, NOT accepted canopy/tree/trunk/species"
+        }
+      ],
+      "original_node_hierarchy_cache_hashes_verified": 25,
+      "cloud_sha256": "f50af7f58cf139a43555aa4f424f733b1fca9ca305053c1a1dfee7c8d11d8799",
+      "evidence_sha256": "fc04da74108ffceb29e2a1f1cde75433a64543b692339e30dc43ee3e0b55ce42",
+      "source": {
+        "ept_url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/FL_Peninsular_FDEM_Orange_2018/",
+        "acquisition": "2018-12-04 to2019-04-12 project interval; local flight date/construction phase uncertain",
+        "coordinate_reference": "EPSG:32617 XY after conversion; NAVD88 meters Z"
+      },
+      "ocpa_footprint_features": 0
+    }
+  ],
+  "method": {
+    "allowed_sources": "Only existing publicUSGS landmark points/evidence and their original cached public node/hierarchy receipts; no new requests, private canopy, BOOMS or restricted data.",
+    "ground": "Nearest class2 point within3m in XY; height difference is a diagnostic local reference, not tree height or terrain interpolation.",
+    "exclusion": "Exclude class1 elevated points within2m of any class6 building return; this is a conservative screening distance, not a roof-footprint or canopy boundary.",
+    "clusters": "8-connected occupied1m grid, minimum5cells; reported centroids are return-cluster centroids, never tree trunks. Thresholds are diagnostic choices, not forestry accuracy criteria."
+  },
+  "findings": [
+    "Both cached clouds contain class1(unclassified),2(ground),6(building),7(noise), with ZERO class3/4/5 vegetation-classified returns. Class1 must not be relabelled vegetation.",
+    "Acquisition helper clips returns to each selected parcel polygon before saving. These two clouds do not establish full adjacent street/right-of-way coverage; bounding boxes include unsampled gaps and are not coverage polygons.",
+    "OCPA footprint query returned0 for both parcels; class6 point exclusion cannot eliminate roof overhangs, unclassified building surfaces, equipment, wires or all wall returns.",
+    "Nearest ground references vary spatially; a parcel-median subtraction alone is unsuitable for canopy height. Local flight dates/leaf state and changes since2018-2019 remain unknown.",
+    "Current illustrative tree arrays were deliberately not queried under this source-only scope. Existing tree overlap/de-duplication is UNASSESSED, not zero. Candidate centroid matching would not establish trunk identity."
+  ],
+  "promotion_gates": [
+    "Vegetation interpretation of original class1 clusters with roof/equipment exclusions and dated public aerial/reference corroboration.",
+    "Explicit candidate/source coverage polygons and street/right-of-way coverage before any full-corridor placement claim.",
+    "Separate observed crown envelope from inferred trunk; evaluate existing illustrative-tree collisions/duplicate positions in an authorized scene comparison.",
+    "Retain historical2018-12-04 through2019-04-12 project interval, unknown local flight/currentness/species and explicit geometry confidence."
+  ],
+  "side_effects": {
+    "network_requests": 0,
+    "geometry_authored": false,
+    "scene_activated": false,
+    "GPU_used": false,
+    "private_sources_read": false,
+    "output": "docs/evidence/public-lidar-canopy-readiness.json"
+  },
+  "cached_ept_crs_metadata": {
+    "authority": "EPSG",
+    "horizontal": "3857",
+    "wkt": "PROJCS[\"WGS 84 / Pseudo-Mercator\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Mercator_1SP\"],PARAMETER[\"central_meridian\",0],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],EXTENSION[\"PROJ4\",\"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\"],AUTHORITY[\"EPSG\",\"3857\"]]"
+  },
+  "crs_limits": "Original EPT metadata retained here; acquisition helper converts EPSG3857 XY toEPSG32617 without modifying Z. Source receipt declares NAVD88meters. NPZ itself has no independent CRS header; no vertical reprojection or geoid/current survey accuracy claimed."
+}

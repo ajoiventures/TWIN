@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "project_id": "princeton-at-college-park",
+  "parcel_id": "292214725701000",
+  "site_address": "646 W SMITH ST",
+  "property_name": "PRINCETON AT COLLEGE PARK",
+  "reported_project_maximum_storeys": 6,
+  "year_built": 2019,
+  "origin_wgs84": [
+    -81.389,
+    28.572
+  ],
+  "ept_url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/FL_Peninsular_FDEM_Orange_2018/",
+  "ept_max_depth": 10,
+  "maximum_ept_nodes": 100,
+  "maximum_node_bytes": 16777216,
+  "grid_cell_m": 1.0,
+  "minimum_cell_points": 5,
+  "maximum_cell_spread_m": 0.55,
+  "minimum_component_m2": 35,
+  "gap_infill_m2": 25,
+  "simplify_m": 0.45,
+  "legacy_groups": [
+    {
+      "original_id": "Building_1866",
+      "source_parcel_id": "292214147407201",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1158124",
+        "1163885",
+        "895048",
+        "895049",
+        "895050",
+        "895051",
+        "895634",
+        "895635",
+        "896202"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "09a3d2069edbda7e448c57596046cd21ce14d230c884aab9a8aa0b32c1f61b9e"
+    },
+    {
+      "original_id": "Building_1867",
+      "source_parcel_id": "292214147407240",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895052",
+        "895053",
+        "895054"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "7709259b27ab6c26ee72d2228fb3e9d282aaad0c2d7f6a911b779772fc1b10ff"
+    },
+    {
+      "original_id": "Building_1907",
+      "source_parcel_id": "292214147407071",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895044",
+        "895045",
+        "895046",
+        "895047"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "49f052028c26da9a25d335a315243f4a8119062f128f83734dba62ebe550a9c3"
+    },
+    {
+      "original_id": "Building_1908",
+      "source_parcel_id": "292214147407260",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895056",
+        "895057",
+        "895058",
+        "895642",
+        "895643",
+        "896208",
+        "896209",
+        "897469",
+        "897470"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "cbdd5a4bd50975063c280b851eff139bf583a098a064264f4334c50c24e222b2"
+    },
+    {
+      "original_id": "Building_1909",
+      "source_parcel_id": "292214147407270",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895059",
+        "895644",
+        "896210"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "334b7371bd6361c924fcfbab50f094dbc3547b4551e4fd2bebffc2f58c8a232a"
+    },
+    {
+      "original_id": "Building_1965",
+      "source_parcel_id": "292214147407060",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895628",
+        "895629",
+        "896156"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "f8c24bd363abbdc7cb2a9b441fc7b95bbeb33e20fb38d9409a8789f0731a0a56"
+    },
+    {
+      "original_id": "Building_2013",
+      "source_parcel_id": "292214147407100",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895633",
+        "896160",
+        "896161",
+        "897461"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "f4f8286952d2f1e6809317b6bff33ed31ca21ab67bc1dc442209bcb5bb6ea280"
+    },
+    {
+      "original_id": "Building_2178",
+      "source_parcel_id": "292214147407090",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895631",
+        "895632",
+        "896158",
+        "896159",
+        "897458",
+        "897459",
+        "897460"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "cfd686276541a9b862e7cb3070f915d6b593ae1be5eb8f61e24141308d755d2f"
+    },
+    {
+      "original_id": "Building_2179",
+      "source_parcel_id": "292214147407220",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895638",
+        "895639",
+        "896204",
+        "896205"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "94604509c0f3d99e2fe762ec8f30feea44b66ec169e95bdd2cbd194d0bba169e"
+    },
+    {
+      "original_id": "Building_2180",
+      "source_parcel_id": "292214147407250",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895055",
+        "895640",
+        "895641",
+        "896206",
+        "896207",
+        "897466",
+        "897467",
+        "897468"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "318f5a962fad9f89c4fbe22e2263363e2c8e834e3c4868f9605c9e8d23b2e2e8"
+    },
+    {
+      "original_id": "Building_2302",
+      "source_parcel_id": "292214147407050",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "897255",
+        "897455",
+        "897456",
+        "897457"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "127d450a0aca165121b74023dab8a034c99c206223ae8d23105bfb4862aa56ad"
+    },
+    {
+      "original_id": "Building_2303",
+      "source_parcel_id": "292214147407210",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895636",
+        "895637",
+        "896203",
+        "897462",
+        "897463",
+        "897464",
+        "897465"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "714797fd15bc03246194604c352c04b2cdb4ea43e57c3aacddd17b27609d17eb"
+    },
+    {
+      "original_id": "Building_2397",
+      "source_parcel_id": "292214147407060",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "895630",
+        "896157"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "452b0d53735864a43cc12cea26425cc0ba7185596c7018f0d812c9925c8d4785"
+    },
+    {
+      "original_id": "Building_3024",
+      "source_parcel_id": "292214147407110",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1160850",
+        "1174750",
+        "1175035"
+      ],
+      "expected_match_method": "spatial_review",
+      "source_mesh_sha256": "132736cff4fdc68a9d1cb3c3d886781f32d5b2f3f5d82e57b1fc6ef9f6b696e8"
+    }
+  ],
+  "minimum_supersession_parcel_overlap": 0.98,
+  "zone_bands": [
+    {
+      "id": "highest_west_zone",
+      "min_z_m": 50.7,
+      "max_z_m": 53.0,
+      "local_review_interpretation": "highest western parking deck / roof surfaces; not six residential floors everywhere"
+    },
+    {
+      "id": "middle_height_zone",
+      "min_z_m": 48.7,
+      "max_z_m": 50.7,
+      "local_review_interpretation": "middle-height surrounding roof strips and lower deck/ramp surfaces; exact use per component unresolved"
+    },
+    {
+      "id": "lower_east_zone",
+      "min_z_m": 42.3,
+      "max_z_m": 43.7,
+      "local_review_interpretation": "lower eastern roof terraces"
+    },
+    {
+      "id": "east_hipped_high_parts",
+      "min_z_m": 43.7,
+      "max_z_m": 47.1,
+      "local_review_interpretation": "higher eastern hipped roof surfaces; diagnostic band median only, rendered with variable cell-supported roof geometry"
+    }
+  ],
+  "aerial_review": {
+    "service_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer",
+    "local_file": "data/imagery/princeton/aerial_2025_local_review.jpg",
+    "eligibility": "local review only; no texture redistribution or image-derived traced geometry",
+    "qualitative_observation": "completed stepped project, west parking deck and east pool courtyard; obsolete detached houses absent",
+    "geometry_derived_from_aerial": false
+  },
+  "documentary_sources": [
+    {
+      "url": "https://orlando.novusagenda.com/AgendaPublic/AttachmentViewer.ashx?AttachmentID=58930&ItemID=37138",
+      "role": "2014-47 PD ordinance; proposed design context only, not as-built geometry"
+    },
+    {
+      "url": "https://www.orlando.gov/files/sharedassets/public/v/1/departments/edv/business-development/city-of-orlando-market-report_final_november-2024.pdf",
+      "role": "City market report text confirms project completed2019; unit-count graphic/text conflict not used"
+    }
+  ],
+  "protected_voids_utm": [
+    {
+      "id": "eastern_open_courtyard_core",
+      "bounds": [
+        462075,
+        3160574,
+        462083,
+        3160582
+      ],
+      "crs": "EPSG:32617",
+      "evidence": "Frozen empty roof-grid core in historical point-derived masks; qualitative aerial corroboration only, no imagery tracing."
+    }
+  ]
+}

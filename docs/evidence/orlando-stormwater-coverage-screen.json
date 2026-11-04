@@ -1,0 +1,152 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "retrieved_utc": "2026-11-04T03:46:52.161622+00:00",
+  "app_item_id": "97221422e91549fdb9a3cb74e85aed8e",
+  "webmap_item_id": "b8182fe6bf624e44ad905fc0d9c6c594",
+  "bbox_wgs84": {
+    "pilot_envelope": [
+      -81.39005735010592,
+      28.57061471210497,
+      -81.38882596834101,
+      28.57246902833272
+    ],
+    "neighborhood_envelope": [
+      -81.4046556182154,
+      28.5529171498791,
+      -81.3750768508643,
+      28.5900242176227
+    ]
+  },
+  "layers": [
+    {
+      "layer": 1,
+      "name": "Structures",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/1",
+      "metadata_sha256": "c9b106998d409a0798d2a5df0f807fb0be8e7919fed174a601458a39d32f0292",
+      "native_crs": {
+        "wkid": 102658,
+        "latestWkid": 2236,
+        "xyTolerance": 0.003280833333333333,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -17791300,
+        "falseY": -41645400,
+        "xyUnits": 137249422.9425764,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "geometry_type": "esriGeometryPoint",
+      "counts": {
+        "pilot_envelope": {
+          "count": 16,
+          "response_sha256": "13862f084a72fbe80d353527118c5ce361f7edde5713476ca2e774a04952b03a"
+        },
+        "neighborhood_envelope": {
+          "count": 2774,
+          "response_sha256": "ea7b27b1af32154f92fdd8df7350989fa323bb7a24516df3eff3d53f503fedfa"
+        }
+      }
+    },
+    {
+      "layer": 2,
+      "name": "Culverts",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/2",
+      "metadata_sha256": "20291540f9b4319327f4e98f27e84c20be54eb2486b5132c68d091e47503ca03",
+      "native_crs": {
+        "wkid": 102658,
+        "latestWkid": 2236,
+        "xyTolerance": 0.003280833333333333,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -17791300,
+        "falseY": -41645400,
+        "xyUnits": 137249422.9425764,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "geometry_type": "esriGeometryPolyline",
+      "counts": {
+        "pilot_envelope": {
+          "count": 18,
+          "response_sha256": "19f8817224a7a07445208b8738e329b10f123cce8737a134a2c1048911fa83cc"
+        },
+        "neighborhood_envelope": {
+          "count": 2678,
+          "response_sha256": "e5ad09439a49b5e9773fc8d1b2e549e057e3845e924bb8c045eb90ce29e27389"
+        }
+      }
+    },
+    {
+      "layer": 3,
+      "name": "Open Channels",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/3",
+      "metadata_sha256": "9714e921b302a1bd2ffccaf3d50d8afb55765dcc54b419007b1adf11b1cf8cd9",
+      "native_crs": {
+        "wkid": 102658,
+        "latestWkid": 2236,
+        "xyTolerance": 0.003280833333333333,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -17791300,
+        "falseY": -41645400,
+        "xyUnits": 137249422.9425764,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "geometry_type": "esriGeometryPolyline",
+      "counts": {
+        "pilot_envelope": {
+          "count": 0,
+          "response_sha256": "618de7d9f46f3f697d827a1b6d84974760d5deda62e4e592adaa3c646602a94c"
+        },
+        "neighborhood_envelope": {
+          "count": 39,
+          "response_sha256": "378b29d3b1366f06830e5d8508c4904df51d579982c733a79a98b2439063aa21"
+        }
+      }
+    },
+    {
+      "layer": 4,
+      "name": "Vaults",
+      "url": "https://gis.orlando.gov/server/rest/services/PSCameras/Stormwater_Utilities/MapServer/4",
+      "metadata_sha256": "c929c0e759bac76cd56fccea5c022763723535940ee3106ee8da32ce030b930c",
+      "native_crs": {
+        "wkid": 102658,
+        "latestWkid": 2236,
+        "xyTolerance": 0.003280833333333333,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -17791300,
+        "falseY": -41645400,
+        "xyUnits": 137249422.9425764,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "geometry_type": "esriGeometryPolygon",
+      "counts": {
+        "pilot_envelope": {
+          "count": 0,
+          "response_sha256": "618de7d9f46f3f697d827a1b6d84974760d5deda62e4e592adaa3c646602a94c"
+        },
+        "neighborhood_envelope": {
+          "count": 66,
+          "response_sha256": "b34cbb225708a765ceca6544d037fd67954047d77308854225bd82a38e5d7659"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "City features are approximate inventory references.",
+    "Counts are rectangular-envelope candidates. Geometry and polygon query attempts returned HTTP 404; exact clipping remains unverified.",
+    "The public culvert layer does not establish a comprehensive stormwater pipe inventory.",
+    "Only aggregate counts and response hashes are retained. No utility geometry was activated."
+  ]
+}

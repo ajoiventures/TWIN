@@ -1,0 +1,55 @@
+{
+  "schema": "twin.independent-full-neighborhood-parks-review/1",
+  "reviewer": "Independent PM/Director agent; did not implement inventory",
+  "comparison_snapshot": "20261028T160543372334Z",
+  "source_url": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoParks/FeatureServer/0",
+  "verified_counts": {
+    "complete_source_envelope_candidates": 14,
+    "positive_area_neighborhood_features": 11,
+    "zero_area_envelope_exclusions": 3,
+    "main_street_features": 1,
+    "prior_features_preserved": 8,
+    "additional_features": 3
+  },
+  "additional_park_reference_features": [
+    {
+      "source_object_id": "113",
+      "name": "Mathews Park",
+      "neighborhood_intersection_m2": 20054.345792527034
+    },
+    {
+      "source_object_id": "121",
+      "name": "Overbrook Park",
+      "neighborhood_intersection_m2": 6397.657194932498
+    },
+    {
+      "source_object_id": "81",
+      "name": "Don Dudley Park",
+      "neighborhood_intersection_m2": 6562.7955459326
+    }
+  ],
+  "main_street_names": [
+    "Albert Park (Stanley, Arnold & Margaret)"
+  ],
+  "maximum_original_eight_source_geometry_change_m2": 0.0,
+  "checks": [
+    "Cached advertised object IDs equal all raw response feature IDs; no duplicates or missing features.",
+    "Independent WGS84 polygon clipping and EPSG32617 area computations match all accepted/excluded memberships and delivered GeoJSON.",
+    "All original eight source features retained; three additional original source IDs.",
+    "All eleven ownership/hours unknown and public-access/amenity verification false; no ownership or vacancy inferred.",
+    "All artifact receipt checksums match."
+  ],
+  "dependency_hash_mismatches_at_review": [],
+  "input_sha256": {
+    "inventory.json": "71085dfe3d7acd4424bb47590240d658bffd5f90f2baabc49e0fbc6cfbb8a394",
+    "inventory.geojson": "4281b1aa3bfac71c37c64f14eebe7475baa0eaff1d402da9306dfa7b3fdc0423",
+    "coverage.svg": "8f305ec7d81bededd6565f7436d313f1011a25e4116f0aa10a01d1ac842e8621",
+    "study_boundaries.geojson": "4f4ae09cdbbba27eb1dae5b797588ac1a1a510c124621c5536f8b1d9cbd233c4"
+  },
+  "limits": [
+    "Complete query for the published City park layer and official polygon only; not a census of all public/private/County/school open space.",
+    "No legal ownership, public access, hours, amenities, present-day site geometry or expansion of 3D ground accepted.",
+    "Source update/retrieval is not acquisition/effective date; root is separately completing validator/manual-output guards."
+  ],
+  "result": "PASS geometry, source response completeness, source membership and non-inference; final publication validator reviewed separately"
+}

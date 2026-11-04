@@ -1,0 +1,58 @@
+{
+  "schema": "twin.independent-parcel-dispositions-review/1",
+  "reviewed_utc": "2026-11-03T23:39:57.174667+00:00",
+  "reviewer": "independent parcel_review agent; not implementation author",
+  "decision": "bounded inactive exception-routing candidate passes; no property verification or issue closure",
+  "source_snapshot": "20261028T160543372334Z",
+  "candidate_version": "C",
+  "candidate_sha256": "4a334823602cdb945b7bc19047eeaf888c8595cda9cd5a17a032827dd4dbd188",
+  "producer_sha256": "59938e67ae4942971869db3c2c6de20536d0b03c9a981765a23b40207e14789e",
+  "captured_producer_sha256": "59938e67ae4942971869db3c2c6de20536d0b03c9a981765a23b40207e14789e",
+  "checks": {
+    "dependency_count": 188,
+    "changed_dependencies": [],
+    "shared_lineage_validator_success": true,
+    "lineage_semantic_fingerprints": {
+      "base_building_geometry": "f309f5367a8df5ed3b90bf4c63c4d9f335151519982aadb4292ec79a9c989a1a",
+      "registry_identities": "0df132c2bfc3806adfbcce49daa54655359ed97e557dd2c1ccaef9a4015dbdd1"
+    },
+    "injected_lineage_failure_rejected_before_output": true,
+    "original_two_audit_queues_replayed_exactly": true,
+    "rows_equal_to_independently_inspected_B": true,
+    "distinct_disposition_rows": 801,
+    "queue_counts": {
+      "floor_conflicts": 561,
+      "non_exact_links": 240
+    },
+    "reason_counts": {
+      "large_floor_definition_or_source_outlier": 6,
+      "parcel_maximum_vs_component_floor_disagreement": 38,
+      "source_floor_vs_parcel_story_disagreement": 517,
+      "spatial_overlap_is_not_an_accepted_source_identity": 202,
+      "no_accepted_parcel_feature": 35,
+      "multiple_or_conflicting_candidate_features": 3
+    },
+    "deferred_rows": 801,
+    "six_larger_numerical_differences_verified": true,
+    "all_exact_source_identity_and_candidate_context_checks_pass": true,
+    "dated_aerial_observations_exact_source_membership_and_values": 11,
+    "historical_form_context_rows": 19,
+    "new_parcel_links_accepted": 0,
+    "height_changes": 0,
+    "focused_unit_tests_passed": 2,
+    "protected_hashes_unchanged_during_review": true,
+    "protected_hashes": {
+      "data/processed/active.json": "35b54f88166c9b77cbd62eeb012321c5428245667b83c3d961dc5cedbea2f167",
+      "scene/college_park_connected.usda": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+      "scene/manual_edits.usda": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+      "data/processed/selection_bridge.json": "c6ca93322820d1201baa8b7709822a5b2e839b73002b0790c2864e11e148943e"
+    }
+  },
+  "limitations": [
+    "An initial B guard omitted semantic lineage fingerprints; C reuses the existing validator and rejects its failure. B is not the accepted candidate.",
+    "All 801 rows are deferred and include evidence/action routing; numerical differences are not verified wrong buildings or complete reviews.",
+    "No individual sketch dimensions, physical identity, current conditions, frontage completeness or outside-extraction census were accepted.",
+    "Aerial and reconstructed evidence is historical or contextual; it does not promote parcel association or height.",
+    "No runtime serving integration, model change, source change or whole-ticket acceptance was performed."
+  ]
+}

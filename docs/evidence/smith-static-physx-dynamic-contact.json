@@ -1,0 +1,21 @@
+{
+  "kit_version": "110.4.0+feature.386251.187cf21b.gl",
+  "physx_extension": "110.4.4",
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "steps": 60,
+  "step_seconds": 0.016666666666666666,
+  "sphere_radius_m": 0.08,
+  "drop_height_m": 0.5,
+  "positive_contact_pairs": [
+    [
+      "/World/Probes/Aisle",
+      "/World/Streets/Road_1479148116"
+    ],
+    [
+      "/World/Probes/Lot",
+      "/World/RearParkingSamples/southwest_smith_rear_row"
+    ]
+  ],
+  "off_pavement_contacts": 0,
+  "source_saved": false
+}

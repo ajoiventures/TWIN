@@ -1,0 +1,32 @@
+{
+  "schema": "twin.building-lineage-acceptance/1",
+  "verified_utc": "2026-10-29T00:44:27.549107+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "records": 3216,
+  "counts": {
+    "accepted": 2976,
+    "ambiguous": 3,
+    "spatial_review": 202,
+    "unmatched": 35
+  },
+  "membership": {
+    "modeled_subareas": 13926,
+    "orphan_source_groups": 46,
+    "orphan_subareas": 73,
+    "partially_represented_source_groups": 35,
+    "raw_subareas": 13999,
+    "registry_membership_conflicts": 0,
+    "wholly_unrepresented_source_groups": 11
+  },
+  "immutable_replay_manifest_unchanged": true,
+  "preserved_source_sha256": {
+    "data/processed/active.json": "35b54f88166c9b77cbd62eeb012321c5428245667b83c3d961dc5cedbea2f167",
+    "scene/manual_edits.usda": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+    "scene/college_park_connected.usda": "77892fb3f009447d489f80c8d6768289b7ea234f56935b1b25adcc96db7c13a7",
+    "data/snapshots/20261028T160543372334Z/buildings.json": "62b49141ad0db7157f680b141fccbf95ee28fe8354e2457413ad9ed0eb9c0eae",
+    "data/snapshots/20261028T160543372334Z/parcels.json": "c26b8a832800ad008080bd682c985998e91a30af8fa2149c3cb7657afb9c76f3"
+  },
+  "actual_api_review": "8770 building_lineage/building_lineage_quality/buildings return verified source identities",
+  "actual_browser_review": "2204 Edgewater shows two distinct building groups, original subarea IDs, exact parcel feature and overlap basis; map-only mode leaves 3D link disabled",
+  "limitations": "Full #3 property/sketch/source omissions remain open; native editor control acceptance remains #12; port8768 older API was not restarted"
+}

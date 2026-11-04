@@ -1,0 +1,37 @@
+{
+  "archive_md5": "e8bba02b4c8556311ecf3673e6e4e735",
+  "scene_root_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "groups": {
+    "all_tree_instancer_positions": {
+      "positions": 505,
+      "center_on_tree_pixel": 192,
+      "within_2m_of_tree_pixel": 359,
+      "class_counts": {
+        "2": 188,
+        "1": 125,
+        "3": 192
+      }
+    },
+    "main_street": {
+      "positions": 74,
+      "center_on_tree_pixel": 19,
+      "within_2m_of_tree_pixel": 39,
+      "class_counts": {
+        "2": 45,
+        "1": 10,
+        "3": 19
+      }
+    },
+    "neighborhood": {
+      "positions": 384,
+      "center_on_tree_pixel": 169,
+      "within_2m_of_tree_pixel": 305,
+      "class_counts": {
+        "1": 108,
+        "3": 169,
+        "2": 107
+      }
+    }
+  },
+  "limits": "Procedural tree positions compared to historical canopy pixels. This does not verify individual trees, palms in other scopes, or current absence."
+}

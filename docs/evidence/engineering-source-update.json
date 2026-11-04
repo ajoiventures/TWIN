@@ -1,0 +1,50 @@
+{
+  "schema": "twin.engineering-source-update/1",
+  "checked_utc": "2026-11-02T16:46:42.467470+00:00",
+  "new_physical_geometry_ready": false,
+  "signed_asbuilt_pilot_sheet_set_acquired": false,
+  "sources": [
+    {
+      "name": "city_project",
+      "url": "https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project",
+      "final_url": "https://www.orlando.gov/Building-Development/City-Projects/Edgewater-Drive-Complete-Street-Project",
+      "retrieved_utc": "2026-11-02T16:43:44.546978+00:00",
+      "status": 200,
+      "sha256": "259d2cba17f112c7f11361ca15f8fd06b83103deab2421b0df287276dad38652",
+      "bytes": 187460,
+      "pages": null
+    },
+    {
+      "name": "asbuilt_checklist",
+      "url": "https://www.orlando.gov/files/sharedassets/public/documents/engineering/as-built-surveys/city-of-orlando-as-built-survey-checklist.pdf",
+      "final_url": "https://www.orlando.gov/files/sharedassets/public/v/2/documents/engineering/as-built-surveys/as-built-checklist-2026.pdf",
+      "retrieved_utc": "2026-11-02T16:44:57.714710+00:00",
+      "status": 200,
+      "sha256": "359c267bbbcb4b2a64cfed9c02a0ae98851944f863f42a18f9514bc6bc0145e8",
+      "bytes": 167028,
+      "pages": 6
+    },
+    {
+      "name": "assumed_datum_memo",
+      "url": "https://www.orlando.gov/files/sharedassets/public/documents/engineering/as-built-surveys/memo-on-assumed-datum-for-as-built-surveys.pdf",
+      "final_url": "https://www.orlando.gov/files/sharedassets/public/v/1/documents/engineering/as-built-surveys/memo-on-assumed-datum-for-as-built-surveys.pdf",
+      "retrieved_utc": "2026-11-02T16:44:58.246686+00:00",
+      "status": 200,
+      "sha256": "f841b1da12a294f3c99bf617bfcfd516d3285dc2db7c1b8a9d5921de1f02b507",
+      "bytes": 218257,
+      "pages": 1
+    }
+  ],
+  "limitations": [
+    "Guidance/programming references, not actual Princeton-Smith roadway/ADA geometry",
+    "Checklist PDF metadata is not a field survey date",
+    "Source-specific reuse terms remain unestablished; original files retained locally",
+    "No outreach/request submission/account/spend/access bypass occurred"
+  ],
+  "missing": [
+    "signed existing/asbuilt roadway/marking/signal/ADA pilot sheets",
+    "source survey control and exact datum realization/units",
+    "nativeCAD and reference files",
+    "revision/effective/status evidence"
+  ]
+}

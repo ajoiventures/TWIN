@@ -1,0 +1,97 @@
+{
+  "schema": "twin.church-adoption-review/1",
+  "reviewed_utc": "2026-11-02T16:29:52.432449+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_bounded_local_historical_sanctuary_adoption_and_registry_only",
+  "root_preservation": {
+    "before_sha256": "23a668244b25cbc8d32cc30fe1df3f0b0ba0715ff834b07a584d83c6a44433e9",
+    "after_sha256": "6ff1ba0fe8afeda4bc990c511c86d3705824d1c7a3a9812114cfeec0464495ed",
+    "baseline": "data/diagnostics/church_adoption_20261102/baseline.json",
+    "archive": "data/diagnostics/church_adoption_20261102/assembly_before.usda",
+    "rollback_backup": "data/backups/church_integration_20261102T162810786761Z/college_park_connected.usda",
+    "archives_byte_identical_to_pre_root": true,
+    "normalized_root_after_removing_single_church_sublayer_equals_before": true,
+    "church_sublayer_occurrences": 1,
+    "inserted_immediately_after_manual": true,
+    "other_root_opinions_and_sublayer_order_unchanged": true,
+    "seven_nonroot_protected_file_hashes_match": {
+      "scene/manual_edits.usda": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+      "scene/landmark_buildings.usda": "00eaf72e19d26939061782245689f4d5558dd9aed27ec4ac4a207f606adaef3d",
+      "scene/office_frontage_detail.usda": "bf422e865aaefb06c814079c98067665e903c0d228b27ac3111df9e53a7abdde",
+      "scene/post_office_historical.usda": "fb5cc95dbcec9f749f7ad7be2c1f6f0eb721a30683066e61ef7e013f05d9dd5a",
+      "scene/campus_hardscape.usda": "76004ce8760a665bb56f83f78c4d76208e39a0660dd5db2f5ff49ac8024a6397",
+      "data/processed/active.json": "35b54f88166c9b77cbd62eeb012321c5428245667b83c3d961dc5cedbea2f167",
+      "data/processed/selection_bridge.json": "c6ca93322820d1201baa8b7709822a5b2e839b73002b0790c2864e11e148943e"
+    }
+  },
+  "accepted_layer": {
+    "path": "scene/church_historical.usda",
+    "sha256": "55388928a2750ed22e739ef9fad2c5137835a60335a3abe45ab08cc1c50e3fbc",
+    "byte_identical_to_reviewed_canonical_candidate": true,
+    "receipt": "data/processed/church_historical_activation.json",
+    "receipt_sha256": "96d0a3c1ef5faf6dec8cc90e89d5a2bea766c49f456734aabb85b98793070a91",
+    "actual_validated_church_passed": true,
+    "canonical_critical_dependencies_validated": 43,
+    "source_snapshot": "20261028T160543372334Z",
+    "proposal_layer_metadata_activated_false": "Frozen source provenance remains unmodified. Exact active root composition plus validated receipt establishes local adoption; proposal metadata is not runtime activation state."
+  },
+  "legacy_and_render_preservation": {
+    "legacy_2919_3065_semantic_fingerprint": "0862fe207f519338f72a4353eaff956e928878339538c8961eb93b9512eaeae6",
+    "original_fingerprint_matches_with_church_layer_muted": true,
+    "fingerprint_scope": "Original body/roof/storefront source customData identity, geometry/default attributes including heights, relationships, world transforms and directly bound materials/connections.",
+    "actual_composed_comparison_against_clean_C": {
+      "attribute_values": 2064,
+      "relationships": 167,
+      "world_transforms": 84,
+      "differences": [],
+      "scope": "Four church reconstruction/appearance roots, two3065 remainder roots and unchanged2919body/roof; resolved AssetPaths normalized. Schema fallback values included."
+    },
+    "all_four_church_component_roots_visible": true,
+    "two_illustrative_storefronts_invisible": true,
+    "no_2919_body_or_roof_authored_override": "Confirmed in canonical package review; exact adopted package bytes unchanged.",
+    "visual_review_binding": "docs/evidence/church-frame-gate-review.json and docs/evidence/church-integration-package-review.json. Existing single clean historical C view, not a new active-scene screenshot."
+  },
+  "registry": {
+    "path": "data/processed/reconstructions.json",
+    "sha256": "d4c1eb8bf4b1e76325c3f54ff6f1fb81733e5f16d1b2d9126762b8e579bc99e6",
+    "church_record_count": 1,
+    "id": "church_on_drive_sanctuary",
+    "parcel_id": "292214146005190",
+    "parcel_ids": [
+      "292214146005190"
+    ],
+    "source_parcel_context": [
+      "292214146004210",
+      "292214146005190"
+    ],
+    "component_count": 4,
+    "components_match_canonical_schema": true,
+    "rendered_entity_count": 1,
+    "physical_building_count": null,
+    "raw_property_links_promoted": false,
+    "current_geometry_verified": false,
+    "superseded_legacy_groups": 0,
+    "partially_retained_legacy_groups": 1,
+    "parcel_link_scope": "historical_site_context_not_accepted_tax_footprint_link"
+  },
+  "session_preservation": {
+    "owner_kit_pid": 32644,
+    "owner_kit_observed_start_local": "2026-10-30 10:04:10",
+    "api_pid": 15080,
+    "api_observed_start_local": "2026-10-30 11:50:33",
+    "both_running_at_review": true,
+    "review_did_not_refresh_or_modify_editor_gpu_api": true
+  },
+  "limits": [
+    "Accepts bounded local main-sanctuary adoption and one reconstruction registration only.",
+    "No editor reload, new GPU render or active native-view acceptance performed.",
+    "Whole campus/current conditions, surveyed facade/belfry/spire tip accuracy and accepted raw tax links remain unverified.",
+    "No public derivative release approval or broad ticket completion.",
+    "Corridor-builder outcome belongs to root execution; this report independently checks reconstruction registry and source composition."
+  ],
+  "review_side_effects": {
+    "only_written_file": "docs/evidence/church-adoption-review.json",
+    "tests_added": false,
+    "source_active_scene_changes_by_reviewer": false
+  }
+}

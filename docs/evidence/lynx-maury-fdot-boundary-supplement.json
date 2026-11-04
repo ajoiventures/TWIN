@@ -1,0 +1,245 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "base_audit_sha256": "2a851ea81735200e4d96e92190d1ab860971714d7675ca6a840f03135700d5f1",
+  "raw_bbox_counts": {
+    "road_names": 57,
+    "sidewalk_width_sep": 248,
+    "sidewalk_gaps": 17
+  },
+  "cache_receipts": [
+    {
+      "sha256": "c98953cace90359acabc316822242aa36e16e34a5f2d71337757058bd5ea62cf",
+      "retrieved_utc": "2026-10-29T02:38:22.221273+00:00"
+    },
+    {
+      "sha256": "c98953cace90359acabc316822242aa36e16e34a5f2d71337757058bd5ea62cf",
+      "retrieved_utc": "2026-10-29T02:38:22.221273+00:00"
+    },
+    {
+      "sha256": "40f2aa6b10854e61993b34ef47f74072a0fcabc41451c621808db358a1735a84",
+      "retrieved_utc": "2026-10-29T02:39:11.743619+00:00"
+    },
+    {
+      "sha256": "d8bd7425e667ac0055e5f5eb085ddbb8b3aa13f2edf364aac1fd731042049327",
+      "retrieved_utc": "2026-10-29T02:39:12.095986+00:00"
+    },
+    {
+      "sha256": "6f480509d80ccfb73dbb674046f1345d3240edfa70d49d6654957cbe51be354e",
+      "retrieved_utc": "2026-10-29T02:39:12.304254+00:00"
+    },
+    {
+      "sha256": "f9da6db292073fe38716888c4e6d41fa22a115cbc7689ba04b85a5df06549073",
+      "retrieved_utc": "2026-10-29T02:40:33.919324+00:00"
+    },
+    {
+      "sha256": "f9da6db292073fe38716888c4e6d41fa22a115cbc7689ba04b85a5df06549073",
+      "retrieved_utc": "2026-10-29T02:40:33.919324+00:00"
+    },
+    {
+      "sha256": "a778643600dbe70f297aa72149d6fb5498f5d76c26743e16f0479ebef35ed5d8",
+      "retrieved_utc": "2026-10-29T02:40:34.225285+00:00"
+    },
+    {
+      "sha256": "a109fe7e7e3387ea1150df9249cf219a8624c6e059bd7e979def852f4f788691",
+      "retrieved_utc": "2026-10-29T02:40:34.513246+00:00"
+    },
+    {
+      "sha256": "ca279945c648fd1dcfb792087ff870b71e7530b884e9b4932ae79502deebd10f",
+      "retrieved_utc": "2026-10-29T02:40:34.908889+00:00"
+    },
+    {
+      "sha256": "74092ca76f82974a400ea2635e1245c352af4cf1524aeeb181dddc50ba9e7d8d",
+      "retrieved_utc": "2026-10-29T02:40:35.236182+00:00"
+    },
+    {
+      "sha256": "d342cc1cac52eaac78437854dfeb1c9dc58ef05c5712b8f4bed78107a870946f",
+      "retrieved_utc": "2026-10-29T02:40:35.527259+00:00"
+    },
+    {
+      "sha256": "e6fb208f38a8c4a918c586a6f7f9b375668f3c2d2d5ec7f117b3b4f8f172ba73",
+      "retrieved_utc": "2026-10-29T02:40:35.829066+00:00"
+    },
+    {
+      "sha256": "d486d258a59dd8464b807567f5acbf391d752335ebf8f5f1a1c937f7c6ef1033",
+      "retrieved_utc": "2026-10-29T02:40:39.874437+00:00"
+    },
+    {
+      "sha256": "d486d258a59dd8464b807567f5acbf391d752335ebf8f5f1a1c937f7c6ef1033",
+      "retrieved_utc": "2026-10-29T02:40:39.874437+00:00"
+    },
+    {
+      "sha256": "869f6448d0969349f13974f58de5a1c1745c04eddf169a9a932e8dd00333d82e",
+      "retrieved_utc": "2026-10-29T02:40:40.113051+00:00"
+    },
+    {
+      "sha256": "79253a47ce80fb765cb4298a6ccbb8a711122f6b8647d1be9689904a3d779633",
+      "retrieved_utc": "2026-10-29T02:40:40.350565+00:00"
+    }
+  ],
+  "road_name_event": {
+    "OBJECTID": 21443,
+    "ROADWAY": "75705000",
+    "NAME": "MAURY RD",
+    "BEGIN_POST": 0.456,
+    "END_POST": 1.111
+  },
+  "method": "Offline replay of original rectangular FDOT requests. Use only events on the named Maury Road roadway with overlapping mileposts, within 12 m of the City tie and within 20 degrees of its axis.",
+  "rows": [
+    {
+      "stop_id": "2005",
+      "city_object_id": 8031,
+      "stop_inside_official_neighborhood": true,
+      "matches": {
+        "sidewalk_width_sep": [
+          {
+            "object_id": 101000,
+            "distance_to_city_tie_m": 1.843,
+            "begin_post": 1.047,
+            "end_post": 1.094,
+            "native_fields": {
+              "ROAD_SIDE": "L",
+              "DIRFMRD": "3",
+              "SWSCD": 5,
+              "DISTFMRD": 2
+            }
+          },
+          {
+            "object_id": 103223,
+            "distance_to_city_tie_m": 1.843,
+            "begin_post": 0.994,
+            "end_post": 1.078,
+            "native_fields": {
+              "ROAD_SIDE": "R",
+              "DIRFMRD": "2",
+              "SWSCD": 5,
+              "DISTFMRD": 5
+            }
+          }
+        ],
+        "sidewalk_gaps": []
+      },
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6169",
+      "city_object_id": 8033,
+      "stop_inside_official_neighborhood": true,
+      "matches": {
+        "sidewalk_width_sep": [
+          {
+            "object_id": 103132,
+            "distance_to_city_tie_m": 1.68,
+            "begin_post": 0.715,
+            "end_post": 1.047,
+            "native_fields": {
+              "ROAD_SIDE": "L",
+              "DIRFMRD": "3",
+              "SWSCD": 5,
+              "DISTFMRD": 2
+            }
+          },
+          {
+            "object_id": 104948,
+            "distance_to_city_tie_m": 1.68,
+            "begin_post": 0.683,
+            "end_post": 0.841,
+            "native_fields": {
+              "ROAD_SIDE": "R",
+              "DIRFMRD": "2",
+              "SWSCD": 5,
+              "DISTFMRD": 0
+            }
+          }
+        ],
+        "sidewalk_gaps": []
+      },
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6185",
+      "city_object_id": 8031,
+      "stop_inside_official_neighborhood": false,
+      "matches": {
+        "sidewalk_width_sep": [
+          {
+            "object_id": 101000,
+            "distance_to_city_tie_m": 1.854,
+            "begin_post": 1.047,
+            "end_post": 1.094,
+            "native_fields": {
+              "ROAD_SIDE": "L",
+              "DIRFMRD": "3",
+              "SWSCD": 5,
+              "DISTFMRD": 2
+            }
+          },
+          {
+            "object_id": 103223,
+            "distance_to_city_tie_m": 1.854,
+            "begin_post": 0.994,
+            "end_post": 1.078,
+            "native_fields": {
+              "ROAD_SIDE": "R",
+              "DIRFMRD": "2",
+              "SWSCD": 5,
+              "DISTFMRD": 5
+            }
+          }
+        ],
+        "sidewalk_gaps": []
+      },
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6192",
+      "city_object_id": 8032,
+      "stop_inside_official_neighborhood": false,
+      "matches": {
+        "sidewalk_width_sep": [
+          {
+            "object_id": 101091,
+            "distance_to_city_tie_m": 10.422,
+            "begin_post": 0.841,
+            "end_post": 0.906,
+            "native_fields": {
+              "ROAD_SIDE": "R",
+              "DIRFMRD": "2",
+              "SWSCD": 6,
+              "DISTFMRD": 0
+            }
+          },
+          {
+            "object_id": 103132,
+            "distance_to_city_tie_m": 0.708,
+            "begin_post": 0.715,
+            "end_post": 1.047,
+            "native_fields": {
+              "ROAD_SIDE": "L",
+              "DIRFMRD": "3",
+              "SWSCD": 5,
+              "DISTFMRD": 2
+            }
+          },
+          {
+            "object_id": 105178,
+            "distance_to_city_tie_m": 0.708,
+            "begin_post": 0.906,
+            "end_post": 0.994,
+            "native_fields": {
+              "ROAD_SIDE": "R",
+              "DIRFMRD": "2",
+              "SWSCD": 5,
+              "DISTFMRD": 0
+            }
+          }
+        ],
+        "sidewalk_gaps": []
+      },
+      "boarding_access_verified": false
+    }
+  ],
+  "limits": [
+    "Separate boundary supplement; official neighborhood coverage counts are unchanged.",
+    "A missing gap record does not establish continuous sidewalk. Native side and actual boarding access remain unverified."
+  ]
+}

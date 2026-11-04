@@ -1,0 +1,71 @@
+{
+  "publisher": "St. Johns River Water Management District",
+  "official_catalog": "https://ra.sjrwmd.com/data/gis/",
+  "water": {
+    "item_id": "88dbb4caee9f4826bc06a3c22a73bc34",
+    "url": "https://services.arcgis.com/s8wtJX9suxFen6TA/arcgis/rest/services/Waterbody_Wetland_24K/FeatureServer/13",
+    "oid": "OBJECTID",
+    "fields": [
+      "OBJECTID",
+      "GlobalID",
+      "HYDROID",
+      "HYDROCODE",
+      "NAME",
+      "ALTERNATE_NAME",
+      "NHDCOMID",
+      "NHDREACHCODE",
+      "NHDFTYPE",
+      "NHDELEVATION",
+      "AREASQKM",
+      "EDIT_DATE"
+    ],
+    "effective_date": null,
+    "acquisition_start": null,
+    "acquisition_end": null,
+    "date_precision": "month; last update stated by service description",
+    "source_updated": "2012-08"
+  },
+  "landcover": {
+    "item_id": "1a670e2a082342768ad51df948639434",
+    "url": "https://services.arcgis.com/s8wtJX9suxFen6TA/arcgis/rest/services/Land_cover_Land_use_2020/FeatureServer/0",
+    "oid": "OBJECTID",
+    "fields": [
+      "OBJECTID",
+      "LCCODE",
+      "LUCODE"
+    ],
+    "effective_date": null,
+    "acquisition_start": "2020-12",
+    "acquisition_end": "2021-03",
+    "date_precision": "Orange County source imagery flight-season months; not exact feature observation date"
+  },
+  "dem_index": {
+    "url": "https://secure.sjrwmd.com/elev/DEMIndex_SJRWMD.zip",
+    "metadata_url": "https://secure.sjrwmd.com/docs/metadata/DEMIndex_SJRWMD.htm",
+    "publication_date": "2013-01-04",
+    "maximum_bytes": 8388608
+  },
+  "cfca_ne_dem": {
+    "metadata_url": "https://secure.sjrwmd.com/docs/metadata/Elev_CFCA_NE_DEM.htm",
+    "acquisition_start": "2009-02-08",
+    "acquisition_end": "2009-02-11",
+    "publication_date": "2009-08-20",
+    "bbox_wgs84": [
+      -81.362822,
+      28.528418,
+      -80.925547,
+      28.831454
+    ],
+    "horizontal_crs": "NAD83 HARN / UTM zone17N",
+    "horizontal_unit": "metre",
+    "vertical_datum": "NAVD88",
+    "vertical_unit": "feet (metadata altitude units; foot definition unspecified; no conversion applied)",
+    "pixel_size_m": 1.524
+  },
+  "imagery_2009": {
+    "metadata_url": "https://secure.sjrwmd.com/docs/metadata/Ortho2009.htm",
+    "acquisition_year": 2009,
+    "orange_county_coverage": "explicitly excluded on official GIS download page",
+    "metadata_conflict": "Download page explicitly excludes Orange; project metadata lists Orange as a keyword. Actual package overlap is unverified and no imagery is adopted."
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "reviewed_utc": "2026-10-29T02:01:47.653315+00:00",
+  "reviewer": "Independent GIS/Data Analyst; not implementation author",
+  "result": "PASS_NUMERICAL_ALIGNMENT_SCOPE_ONLY",
+  "source_snapshot": "20261028T160543372334Z",
+  "report_sha256": "1b016f6f14c3e7177acec2df7d179c78f301e6f8f8e1c1ecfc009738a7c71e9e",
+  "implementation_sha256": "0423711e3d9c5c73d94a9822da4ce085ea5ba3f7e6119a7f19b5ba92eff9424e",
+  "documentation_sha256": "37a2940feb92ac70024eca9789748d744ffe1617b4b8632b849120991a21b4a7",
+  "dependency_count": 54,
+  "dependency_mismatches": [],
+  "city": {
+    "distinct_references": 10,
+    "east_span_m": 777.1957215555594,
+    "north_span_m": 2816.8973368103616,
+    "independent_PROJ_nearest_curve_max_m": 2.169943523183329e-05,
+    "analytic_report_max_m": 2.1664657405792013e-05
+  },
+  "native_dem": {
+    "distinct_ties": 10,
+    "verified_original_tiles": 6,
+    "crs_epsg": 6438,
+    "linear_unit_code": 9003,
+    "pixel_size_usft": 2.5,
+    "source_mask_stride_vertex_order_independently_verified": true,
+    "direct_native_to_utm_max_residual_m": 4.913160995929087e-05,
+    "actual_proposal_world_transform_identity": true,
+    "ties": [
+      {
+        "id": "dem-pixel-3731-2328",
+        "vertex_index": 141920,
+        "source_row": 3731,
+        "source_col": 2328,
+        "direct_residual_m": 2.666241336693825e-05
+      },
+      {
+        "id": "dem-pixel-8-16",
+        "vertex_index": 0,
+        "source_row": 8,
+        "source_col": 16,
+        "direct_residual_m": 4.913160995929087e-05
+      },
+      {
+        "id": "dem-pixel-1080-2440",
+        "vertex_index": 41173,
+        "source_row": 1080,
+        "source_col": 2440,
+        "direct_residual_m": 2.2741830922524533e-05
+      },
+      {
+        "id": "dem-pixel-2592-8",
+        "vertex_index": 98491,
+        "source_row": 2592,
+        "source_col": 8,
+        "direct_residual_m": 1.5311103947953685e-05
+      },
+      {
+        "id": "dem-pixel-1304-896",
+        "vertex_index": 49497,
+        "source_row": 1304,
+        "source_col": 896,
+        "direct_residual_m": 2.9372071823144335e-05
+      },
+      {
+        "id": "dem-pixel-2384-1840",
+        "vertex_index": 90790,
+        "source_row": 2384,
+        "source_col": 1840,
+        "direct_residual_m": 2.0852410268857678e-05
+      },
+      {
+        "id": "dem-pixel-3720-896",
+        "vertex_index": 141595,
+        "source_row": 3720,
+        "source_col": 896,
+        "direct_residual_m": 1.897373497617232e-05
+      },
+      {
+        "id": "dem-pixel-8-1496",
+        "vertex_index": 185,
+        "source_row": 8,
+        "source_col": 1496,
+        "direct_residual_m": 4.8645771258845844e-05
+      },
+      {
+        "id": "dem-pixel-96-2451",
+        "vertex_index": 3663,
+        "source_row": 96,
+        "source_col": 2451,
+        "direct_residual_m": 2.6935050395160432e-05
+      },
+      {
+        "id": "dem-pixel-2760-952",
+        "vertex_index": 105014,
+        "source_row": 2760,
+        "source_col": 952,
+        "direct_residual_m": 1.4214656330326936e-06
+      }
+    ]
+  },
+  "frame": {
+    "origin_wgs84": [
+      -81.389,
+      28.572
+    ],
+    "independent_PROJ_origin_utm_m": [
+      461956.244192314,
+      3160630.1560335075
+    ],
+    "analytic_origin_difference_m": [
+      -6.984919309616089e-10,
+      -2.0221807062625885e-05
+    ],
+    "east_positive_x": true,
+    "north_positive_y": true,
+    "meters_per_unit": 1.0,
+    "up_axis": "Z"
+  },
+  "limits": [
+    "The .001m screen is software/float32 consistency, not survey accuracy or construction tolerance. Same-source City geometry cannot establish field truth.",
+    "Ten DEM ties check inactive proposal/grid correspondence; they do not validate active flat ground or vertical accuracy.",
+    "No independent surveyed controls or source-supported project tolerance were available; zero controls/null tolerance/ticket5_complete=false are correctly retained. EPSG operation accuracy metadata is not measured source/project accuracy.",
+    "Review is valid for recorded dependency hashes; re-run after relevant source/scene/frame changes."
+  ],
+  "source_or_scene_files_modified": false,
+  "gpu_or_editor_operations": false,
+  "robustness_followup": {
+    "result": "PASS",
+    "source_ordering": "Source valid/inside masks plus inclusive block rejection and sorted used vertex indices match independently reviewed ordering",
+    "source_vertex_count": 141934,
+    "native_ties": 10,
+    "maximum_residual_m": 4.907268285210038e-05,
+    "full_world_transform_applied": true,
+    "inverse_snapping_removed": true,
+    "focused_regressions": "whole-pixel shift, uncancelled ancestor translation, compensated local points and vertex-count mismatch inspected",
+    "current_report_rechecked": true,
+    "focused_tests_passed": 3,
+    "reported_city_max_m": 2.1664657405792013e-05,
+    "reported_native_max_m": 4.907268285210038e-05,
+    "external_controls": 0,
+    "external_tolerance_m": null
+  }
+}

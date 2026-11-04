@@ -20,3 +20,19 @@ data/processed/
 college_park_workspace.kit
 Open College Park.bat
 config/local.json
+data/transport/
+data/heights/
+data/imagery/
+data/commercial/
+assets/generated/
+tools/kit_bootstrap.py
+data/renders/
+data/backups/
+data/sample_runtime/
+data/diagnostics/
+data/ui_runtime/
+data/land/
+data/flood/
+/data/derived/ocpa-lineage/
+# Derived footprint geometry stays local; commit its builder and review evidence.
+/data/derived/map-footprints/

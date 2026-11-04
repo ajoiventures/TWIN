@@ -1,0 +1,26 @@
+{
+  "schema": "twin.render-stage-correction/1",
+  "review_date": "2026-10-30",
+  "old_image_sha256": "e61252fe015d7920e8526a2829269e2d3244710fbf80ae930177e8a950a199d2",
+  "corrected_image_sha256": "e501355f8a626a9e8b31f8ac688e08238443f9ac7df752a1c9414917be06c240",
+  "same_camera": true,
+  "changed_common_layer_hashes": [
+    "scene/office_integrated_detail_review.usda"
+  ],
+  "original_review_up_axis": "Y",
+  "original_review_meters_per_unit": 0.01,
+  "corrected_review_up_axis": "Z",
+  "corrected_review_meters_per_unit": 1.0,
+  "materials_and_geometry_changed": false,
+  "render_pipeline": "Preserve explicit scene metadata in transient root and compose candidates before attachment",
+  "actual_visual_result": "Diagonal facade striping and black road bands absent in corrected view; independent GIS review agrees",
+  "limits": [
+    "Does not establish engineering road/sidewalk geometry or current facade dimensions.",
+    "Does not accept world-class district presentation.",
+    "The old normal-only probe had identical pixels; it did not establish a material cause."
+  ],
+  "independent_review": "docs/evidence/office-frontage-review.json",
+  "archived_invalid_inputs": "data/diagnostics/road_bands_20261030/invalid_original_wrappers",
+  "focused_checks": 20,
+  "user_editor_untouched": true
+}

@@ -1,0 +1,64 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "retrieved_utc": "2026-11-04T03:51:04.331274+00:00",
+  "prior_screen_sha256": "a85ad37100b36550f5b5ed34e77dae25a2f6225e8d7211fc2ce529e185bb3a15",
+  "scope": "Structure search envelope covers 25 m around the three unresolved culvert endpoints.",
+  "expanded_structure_count": 26,
+  "rows": [
+    {
+      "culvert_object_id": 25598,
+      "line_part": 1,
+      "end": "first",
+      "inside_pilot": false,
+      "nearest_original_structure_distance_m": 44.826,
+      "nearest_extended_structure_distance_m": 0.0,
+      "within_25cm": true
+    },
+    {
+      "culvert_object_id": 38568,
+      "line_part": 1,
+      "end": "first",
+      "inside_pilot": true,
+      "nearest_original_structure_distance_m": 8.652,
+      "nearest_extended_structure_distance_m": 8.652,
+      "within_25cm": false
+    },
+    {
+      "culvert_object_id": 46826,
+      "line_part": 1,
+      "end": "last",
+      "inside_pilot": false,
+      "nearest_original_structure_distance_m": 89.76,
+      "nearest_extended_structure_distance_m": 0.0,
+      "within_25cm": true
+    }
+  ],
+  "receipts": {
+    "pilot_culverts": {
+      "id_response_sha256": "23a73464cd8989dd9fa1349fd72fe9970011113ca9b0aedbac06c98f65e9014d",
+      "geometry_response_sha256": [
+        "01d4b34cb2830e8d86d82673fab5b3a81d761d9d021528305151eedcb332f465",
+        "36ee281f77206aec0de8f6553ffe7004606e077990d17785aeab89010ecfc71f"
+      ]
+    },
+    "pilot_structures": {
+      "id_response_sha256": "69693a6fc5672f14a013dcdd784464f7e0490410f8db38ed544a4c8ad47048fa",
+      "geometry_response_sha256": [
+        "4fbde45dbe172e728d61f0900e25973509dc4abee77987b03e3fb4277f52a74f",
+        "e200dd7a20d0fb1dc56a134bd34f46a071eb54b873f2405e221f1c909ececf92"
+      ]
+    },
+    "expanded_structures": {
+      "id_response_sha256": "4cc4be9c54a64f311ae9195bade78371409180ea726208909e5a6c798ad84042",
+      "geometry_response_sha256": [
+        "6c81a2f9af73aff5918b29887258c3bcdd887099a31f34a97f3b6adb266cf61c",
+        "ea30c2a279d1c22661590c7ee287dcdfc957e755bfda4d136f8476cae7a5f338",
+        "35e362aab87a7217e54dc241f7c28f87155e277154a4c2b83c12e9a654e9362c"
+      ]
+    }
+  },
+  "limits": [
+    "Distances are geometric candidates. Shared endpoint IDs, hydraulic connectivity, flow direction and field condition remain unverified.",
+    "No utility coordinates are retained in this report."
+  ]
+}

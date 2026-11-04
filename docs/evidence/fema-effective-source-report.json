@@ -1,0 +1,782 @@
+{
+  "source_snapshot": "20261028T160543372334Z",
+  "publisher": "Federal Emergency Management Agency (FEMA)",
+  "source_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer",
+  "source_product": "effective_NFHL",
+  "preliminary_products_imported": false,
+  "source_xy_crs": "EPSG:4269 NAD83 geographic degrees",
+  "normalized_xy_crs": "EPSG:4326 WGS84 geographic degrees",
+  "analysis_crs": "EPSG:32617 meters",
+  "vertical_values": "Original STATIC_BFE/DEPTH fields and LEN_UNIT/V_DATUM preserved; no Z conversion or water-depth surface; -9999 source sentinel retained verbatim",
+  "reuse_conditions": "Public official service; explicit dataset license not supplied in layer metadata (unresolved); attribution and original provenance retained",
+  "metadata": {
+    "hazard_zones": {
+      "layer_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28",
+      "source_crs": {
+        "wkid": 4269,
+        "latestWkid": 4269,
+        "xyTolerance": 8.983152841195215e-09,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -400,
+        "falseY": -400,
+        "xyUnits": 999999999.9999999,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "copyrightText": "",
+      "description": "",
+      "source_feature_count_bbox": 11
+    },
+    "effective_panels": {
+      "layer_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/3",
+      "source_crs": {
+        "wkid": 4269,
+        "latestWkid": 4269,
+        "xyTolerance": 8.983152841195215e-09,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -400,
+        "falseY": -400,
+        "xyUnits": 999999999.9999999,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "copyrightText": "",
+      "description": "",
+      "source_feature_count_bbox": 2
+    },
+    "effective_revisions": {
+      "layer_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/1",
+      "source_crs": {
+        "wkid": 4269,
+        "latestWkid": 4269,
+        "xyTolerance": 8.983152841195215e-09,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -400,
+        "falseY": -400,
+        "xyUnits": 999999999.9999999,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "copyrightText": "",
+      "description": "",
+      "source_feature_count_bbox": 0
+    },
+    "availability": {
+      "layer_url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/0",
+      "source_crs": {
+        "wkid": 4269,
+        "latestWkid": 4269,
+        "xyTolerance": 8.983152841195215e-09,
+        "zTolerance": 0.001,
+        "mTolerance": 0.001,
+        "falseX": -400,
+        "falseY": -400,
+        "xyUnits": 999999999.9999999,
+        "falseZ": -100000,
+        "zUnits": 10000,
+        "falseM": -100000,
+        "mUnits": 10000
+      },
+      "copyrightText": "",
+      "description": "",
+      "source_feature_count_bbox": 1
+    }
+  },
+  "normalized_field_dictionary": {
+    "source_id": "FLD_AR_ID/FIRM_PAN/LOMR_ID/STUDY_ID; original string key, OBJECTID fallback identified",
+    "source_global_id": "Original source GlobalID, nullable; GFID is dataset-level and is not used as feature identity",
+    "effective_date_utc": "EFF_DATE epoch milliseconds normalized to UTC YYYY-MM-DD; original preserved",
+    "preliminary_date_utc": "PRE_DATE within1900\u20132100 normalized; source year9999 sentinel becomes null, not preliminary product status",
+    "product_status": "effective_NFHL; source service product classification",
+    "clipped_area_m2": "EPSG32617 intersection area in square meters",
+    "effective_panel_refs": "All positive-area intersecting panel IDs/dates; no single-date nearest assignment"
+  },
+  "field_dictionary": {
+    "hazard_zones": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "DFIRM_ID",
+        "alias": "DFIRM_ID",
+        "type": "esriFieldTypeString",
+        "length": 6,
+        "domain": null
+      },
+      {
+        "name": "VERSION_ID",
+        "alias": "VERSION_ID",
+        "type": "esriFieldTypeString",
+        "length": 11,
+        "domain": null
+      },
+      {
+        "name": "FLD_AR_ID",
+        "alias": "FLD_AR_ID",
+        "type": "esriFieldTypeString",
+        "length": 32,
+        "domain": null
+      },
+      {
+        "name": "STUDY_TYP",
+        "alias": "STUDY_TYP",
+        "type": "esriFieldTypeString",
+        "length": 38,
+        "domain": null
+      },
+      {
+        "name": "FLD_ZONE",
+        "alias": "FLD_ZONE",
+        "type": "esriFieldTypeString",
+        "length": 17,
+        "domain": null
+      },
+      {
+        "name": "ZONE_SUBTY",
+        "alias": "ZONE_SUBTY",
+        "type": "esriFieldTypeString",
+        "length": 76,
+        "domain": null
+      },
+      {
+        "name": "SFHA_TF",
+        "alias": "SFHA_TF",
+        "type": "esriFieldTypeString",
+        "length": 1,
+        "domain": null
+      },
+      {
+        "name": "STATIC_BFE",
+        "alias": "STATIC_BFE",
+        "type": "esriFieldTypeDouble",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "V_DATUM",
+        "alias": "V_DATUM",
+        "type": "esriFieldTypeString",
+        "length": 17,
+        "domain": null
+      },
+      {
+        "name": "DEPTH",
+        "alias": "DEPTH",
+        "type": "esriFieldTypeDouble",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "LEN_UNIT",
+        "alias": "LEN_UNIT",
+        "type": "esriFieldTypeString",
+        "length": 16,
+        "domain": null
+      },
+      {
+        "name": "VELOCITY",
+        "alias": "VELOCITY",
+        "type": "esriFieldTypeDouble",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "VEL_UNIT",
+        "alias": "VEL_UNIT",
+        "type": "esriFieldTypeString",
+        "length": 20,
+        "domain": null
+      },
+      {
+        "name": "SOURCE_CIT",
+        "alias": "SOURCE_CIT",
+        "type": "esriFieldTypeString",
+        "length": 21,
+        "domain": null
+      },
+      {
+        "name": "GlobalID",
+        "alias": "GlobalID",
+        "type": "esriFieldTypeGlobalID",
+        "length": 38,
+        "domain": null
+      }
+    ],
+    "effective_panels": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "DFIRM_ID",
+        "alias": "DFIRM_ID",
+        "type": "esriFieldTypeString",
+        "length": 6,
+        "domain": null
+      },
+      {
+        "name": "VERSION_ID",
+        "alias": "VERSION_ID",
+        "type": "esriFieldTypeString",
+        "length": 11,
+        "domain": null
+      },
+      {
+        "name": "FIRM_ID",
+        "alias": "FIRM_ID",
+        "type": "esriFieldTypeString",
+        "length": 32,
+        "domain": null
+      },
+      {
+        "name": "ST_FIPS",
+        "alias": "ST_FIPS",
+        "type": "esriFieldTypeString",
+        "length": 2,
+        "domain": null
+      },
+      {
+        "name": "PCOMM",
+        "alias": "PCOMM",
+        "type": "esriFieldTypeString",
+        "length": 4,
+        "domain": null
+      },
+      {
+        "name": "PANEL",
+        "alias": "PANEL",
+        "type": "esriFieldTypeString",
+        "length": 4,
+        "domain": null
+      },
+      {
+        "name": "SUFFIX",
+        "alias": "SUFFIX",
+        "type": "esriFieldTypeString",
+        "length": 1,
+        "domain": null
+      },
+      {
+        "name": "FIRM_PAN",
+        "alias": "FIRM_PAN",
+        "type": "esriFieldTypeString",
+        "length": 11,
+        "domain": null
+      },
+      {
+        "name": "PANEL_TYP",
+        "alias": "PANEL_TYP",
+        "type": "esriFieldTypeString",
+        "length": 30,
+        "domain": null
+      },
+      {
+        "name": "PRE_DATE",
+        "alias": "PRE_DATE",
+        "type": "esriFieldTypeDate",
+        "length": 8,
+        "domain": null
+      },
+      {
+        "name": "EFF_DATE",
+        "alias": "EFF_DATE",
+        "type": "esriFieldTypeDate",
+        "length": 8,
+        "domain": null
+      },
+      {
+        "name": "SCALE",
+        "alias": "SCALE",
+        "type": "esriFieldTypeString",
+        "length": 5,
+        "domain": null
+      },
+      {
+        "name": "SOURCE_CIT",
+        "alias": "SOURCE_CIT",
+        "type": "esriFieldTypeString",
+        "length": 21,
+        "domain": null
+      },
+      {
+        "name": "GlobalID",
+        "alias": "GlobalID",
+        "type": "esriFieldTypeGlobalID",
+        "length": 38,
+        "domain": null
+      }
+    ],
+    "effective_revisions": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "DFIRM_ID",
+        "alias": "DFIRM_ID",
+        "type": "esriFieldTypeString",
+        "length": 6,
+        "domain": null
+      },
+      {
+        "name": "VERSION_ID",
+        "alias": "VERSION_ID",
+        "type": "esriFieldTypeString",
+        "length": 11,
+        "domain": null
+      },
+      {
+        "name": "LOMR_ID",
+        "alias": "LOMR_ID",
+        "type": "esriFieldTypeString",
+        "length": 32,
+        "domain": null
+      },
+      {
+        "name": "EFF_DATE",
+        "alias": "EFF_DATE",
+        "type": "esriFieldTypeDate",
+        "length": 8,
+        "domain": null
+      },
+      {
+        "name": "CASE_NO",
+        "alias": "CASE_NO",
+        "type": "esriFieldTypeString",
+        "length": 13,
+        "domain": null
+      },
+      {
+        "name": "STATUS",
+        "alias": "STATUS",
+        "type": "esriFieldTypeString",
+        "length": 12,
+        "domain": null
+      },
+      {
+        "name": "SOURCE_CIT",
+        "alias": "SOURCE_CIT",
+        "type": "esriFieldTypeString",
+        "length": 21,
+        "domain": null
+      },
+      {
+        "name": "GlobalID",
+        "alias": "GlobalID",
+        "type": "esriFieldTypeGlobalID",
+        "length": 38,
+        "domain": null
+      }
+    ],
+    "availability": [
+      {
+        "name": "OBJECTID",
+        "alias": "OBJECTID",
+        "type": "esriFieldTypeOID",
+        "length": null,
+        "domain": null
+      },
+      {
+        "name": "STUDY_ID",
+        "alias": "STUDY_ID",
+        "type": "esriFieldTypeString",
+        "length": 6,
+        "domain": null
+      },
+      {
+        "name": "GlobalID",
+        "alias": "GlobalID",
+        "type": "esriFieldTypeGlobalID",
+        "length": 38,
+        "domain": null
+      }
+    ]
+  },
+  "first_five_safe_rows": {
+    "hazard_zones": [
+      {
+        "OBJECTID": 27996613,
+        "GlobalID": "{E58FB8F5-300F-47FA-A234-7887FA5652CB}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FLD_AR_ID": "12095C_64",
+        "STUDY_TYP": "NP",
+        "FLD_ZONE": "AE",
+        "ZONE_SUBTY": null,
+        "SFHA_TF": "T",
+        "STATIC_BFE": 80.1,
+        "V_DATUM": "NAVD88",
+        "DEPTH": -9999,
+        "LEN_UNIT": "Feet",
+        "VELOCITY": -9999,
+        "VEL_UNIT": "",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C_64",
+        "source_global_id": "{E58FB8F5-300F-47FA-A234-7887FA5652CB}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 290441.549331459,
+        "effective_panel_refs": [
+          {
+            "FIRM_PAN": "12095C0245F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 290441.54933140683
+          }
+        ]
+      },
+      {
+        "OBJECTID": 27996819,
+        "GlobalID": "{1EDB61CD-7B73-4D8F-BB53-AFA31B8704B3}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FLD_AR_ID": "12095C_183",
+        "STUDY_TYP": "NP",
+        "FLD_ZONE": "A",
+        "ZONE_SUBTY": null,
+        "SFHA_TF": "T",
+        "STATIC_BFE": -9999,
+        "V_DATUM": "",
+        "DEPTH": -9999,
+        "LEN_UNIT": "",
+        "VELOCITY": -9999,
+        "VEL_UNIT": "",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C_183",
+        "source_global_id": "{1EDB61CD-7B73-4D8F-BB53-AFA31B8704B3}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 172421.6818413041,
+        "effective_panel_refs": [
+          {
+            "FIRM_PAN": "12095C0235F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 172421.6818411801
+          }
+        ]
+      },
+      {
+        "OBJECTID": 27996915,
+        "GlobalID": "{0E60E0E4-CFAC-4F98-8E01-D686987C3A21}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FLD_AR_ID": "12095C_335",
+        "STUDY_TYP": "NP",
+        "FLD_ZONE": "AE",
+        "ZONE_SUBTY": null,
+        "SFHA_TF": "T",
+        "STATIC_BFE": 79.6,
+        "V_DATUM": "NAVD88",
+        "DEPTH": -9999,
+        "LEN_UNIT": "Feet",
+        "VELOCITY": -9999,
+        "VEL_UNIT": "",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C_335",
+        "source_global_id": "{0E60E0E4-CFAC-4F98-8E01-D686987C3A21}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 385048.3193212489,
+        "effective_panel_refs": [
+          {
+            "FIRM_PAN": "12095C0235F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 302272.6848541265
+          },
+          {
+            "FIRM_PAN": "12095C0245F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 82775.63446718424
+          }
+        ]
+      },
+      {
+        "OBJECTID": 27998407,
+        "GlobalID": "{7F6E7836-6B1B-466F-A059-40ED3EFF0E3A}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FLD_AR_ID": "12095C_2262",
+        "STUDY_TYP": "NP",
+        "FLD_ZONE": "A",
+        "ZONE_SUBTY": null,
+        "SFHA_TF": "T",
+        "STATIC_BFE": -9999,
+        "V_DATUM": "",
+        "DEPTH": -9999,
+        "LEN_UNIT": "",
+        "VELOCITY": -9999,
+        "VEL_UNIT": "",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C_2262",
+        "source_global_id": "{7F6E7836-6B1B-466F-A059-40ED3EFF0E3A}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 315141.54806461284,
+        "effective_panel_refs": [
+          {
+            "FIRM_PAN": "12095C0235F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 315141.54806459695
+          }
+        ]
+      },
+      {
+        "OBJECTID": 27999572,
+        "GlobalID": "{61CE9783-5EAF-4A1C-A455-45F03F92A99E}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FLD_AR_ID": "12095C_3391",
+        "STUDY_TYP": "NP",
+        "FLD_ZONE": "AE",
+        "ZONE_SUBTY": null,
+        "SFHA_TF": "T",
+        "STATIC_BFE": 80.6,
+        "V_DATUM": "NAVD88",
+        "DEPTH": -9999,
+        "LEN_UNIT": "Feet",
+        "VELOCITY": -9999,
+        "VEL_UNIT": "",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C_3391",
+        "source_global_id": "{61CE9783-5EAF-4A1C-A455-45F03F92A99E}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 118262.4504231531,
+        "effective_panel_refs": [
+          {
+            "FIRM_PAN": "12095C0245F",
+            "effective_date_utc": "2009-09-25",
+            "intersection_m2": 118262.45042318791
+          }
+        ]
+      }
+    ],
+    "effective_panels": [
+      {
+        "OBJECTID": 832822,
+        "GlobalID": "{825628A2-F465-48B8-BAC6-B7FD8D9CEB4A}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FIRM_ID": "12095C_34",
+        "ST_FIPS": "12",
+        "PCOMM": "095C",
+        "PANEL": "0235",
+        "SUFFIX": "F",
+        "FIRM_PAN": "12095C0235F",
+        "PANEL_TYP": "Countywide, Panel Printed",
+        "PRE_DATE": 253392451200000,
+        "EFF_DATE": 1253836800000,
+        "SCALE": "12000",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C0235F",
+        "source_global_id": "{825628A2-F465-48B8-BAC6-B7FD8D9CEB4A}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 6799904.33320707,
+        "effective_date_utc": "2009-09-25",
+        "preliminary_date_utc": null,
+        "preliminary_date_note": "Original numeric date preserved; unrepresentative/sentinel dates normalize to null, not a preliminary product."
+      },
+      {
+        "OBJECTID": 832861,
+        "GlobalID": "{5E693656-4FD0-47C0-99DA-04FB9677C295}",
+        "DFIRM_ID": "12095C",
+        "VERSION_ID": "1.1.1.0",
+        "FIRM_ID": "12095C_35",
+        "ST_FIPS": "12",
+        "PCOMM": "095C",
+        "PANEL": "0245",
+        "SUFFIX": "F",
+        "FIRM_PAN": "12095C0245F",
+        "PANEL_TYP": "Countywide, Panel Printed",
+        "PRE_DATE": 253392451200000,
+        "EFF_DATE": 1253836800000,
+        "SCALE": "12000",
+        "SOURCE_CIT": "12095C_STUDY1",
+        "source_id": "12095C0245F",
+        "source_global_id": "{5E693656-4FD0-47C0-99DA-04FB9677C295}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 1587762.830344603,
+        "effective_date_utc": "2009-09-25",
+        "preliminary_date_utc": null,
+        "preliminary_date_note": "Original numeric date preserved; unrepresentative/sentinel dates normalize to null, not a preliminary product."
+      }
+    ],
+    "effective_revisions": [],
+    "availability": [
+      {
+        "OBJECTID": 305,
+        "STUDY_ID": "12095C",
+        "GlobalID": "{A0584FEC-D407-4987-9E9D-290D6295FEBD}",
+        "source_id": "12095C",
+        "source_global_id": "{A0584FEC-D407-4987-9E9D-290D6295FEBD}",
+        "product_status": "effective_NFHL",
+        "clipped_area_m2": 8387667.163551684
+      }
+    ]
+  },
+  "coverage": {
+    "main_street": {
+      "scope_area_m2": 390203.5054023607,
+      "query_clip_area_m2": 390203.5049801745,
+      "availability_m2": 390203.50498016353,
+      "zones_mapped_m2": 390203.50498016353,
+      "panel_metadata_m2": 390203.50498016353,
+      "unmapped_in_query_m2": 1.0916522771774683e-08,
+      "mapped_hazard_area_sfha_m2": 1126.8451574513144
+    },
+    "neighborhood": {
+      "scope_area_m2": 8374757.587226948,
+      "query_clip_area_m2": 8374757.544816067,
+      "availability_m2": 8374757.544815336,
+      "zones_mapped_m2": 8374757.544815371,
+      "panel_metadata_m2": 8374757.544815336,
+      "unmapped_in_query_m2": 7.196631797767373e-07,
+      "mapped_hazard_area_sfha_m2": 1281315.5489816428
+    },
+    "pilot_review_context": {
+      "scope_area_m2": 21543.847121200582,
+      "query_clip_area_m2": 21543.847121200582,
+      "availability_m2": 21543.847121200582,
+      "zones_mapped_m2": 21543.847121200582,
+      "panel_metadata_m2": 21543.847121200582,
+      "unmapped_in_query_m2": 0.0,
+      "mapped_hazard_area_sfha_m2": 0.0
+    }
+  },
+  "spatial_validation": {
+    "parcel_features_checked": 3916,
+    "join_records": 3847,
+    "join_area_failures": 0,
+    "zone_overlap_m2": 9.313225746154785e-09,
+    "geometry_valid": true,
+    "panel_join_method": "positive-area intersection inEPSG32617; all intersecting panel dates retained, no nearest-date assumption"
+  },
+  "unresolved": [
+    {
+      "reason": "Source polygon made valid for analysis; raw cached bytes retained",
+      "layer": "hazard_zones",
+      "OBJECTID": 28000988,
+      "source_geometry_issue": "Ring Self-intersection[-81.3292714208339 28.5505645973614]",
+      "source_geographic_area": 0.0495075664467133,
+      "repaired_geographic_area": 0.04950756644671297
+    },
+    {
+      "reason": "Acquisition/survey date of original hazard studies is not supplied by these feature layers; effective panel date is not survey or retrieval date."
+    },
+    {
+      "reason": "LOMA/property-specific determinations and FIS supporting profiles are not joined; parcel intersections are informational only."
+    },
+    {
+      "reason": "Publisher-specific dataset reuse license absent from service metadata; retain FEMA attribution and service provenance, do not imply certification."
+    },
+    {
+      "reason": "Scene lift .035m is flat cartographic placement, not terrain-draped shoreline or measured water surface; lake/shore intersections remain mapped hazard polygons."
+    },
+    {
+      "reason": "Parcel joins cover current extracted parcels only; full official boundary hazard query does not invent parcels outside extraction."
+    }
+  ],
+  "limits": [
+    "Mapped effective hazard zones, not live flooding, water depth, engineering simulation or parcel insurance determination.",
+    "Existing effective regulatory map product; historic/preliminary/under-construction/proposed products are not merged.",
+    "No private BOOMS data accessed."
+  ],
+  "scene_prim": "/World/Information/FemaEffectiveFloodHazards",
+  "scene_lift_m": 0.035,
+  "default_on": false,
+  "local_packet_sha256": "7992bc77844f5a9a2d4b297cf40cb4dc2ac56593bf9f82e6c80c2facf3a85a56",
+  "artifacts": {
+    "scene/fema_effective_hazards.usda": "7b845f63e39a1a8b00f578f1b13a32d5830d4cc494ec54f8fdf2a322627454c5",
+    "data/flood/coverage.html": "4b9afa823565579e0f04987b4f48a2055058992a5592e93eb876de5a9effce60",
+    "scene/fema_hazard_review.usda": "1185bae529aaa83b088747395f3927860cd26fdfc0f596b3daf71349f0fbe2ec"
+  },
+  "source_retrieval_receipts": [
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer?f=json",
+      "retrieved_utc": "2026-10-28T23:34:57.018048+00:00",
+      "sha256": "6dd9ecc405d28e32e49f9501cfa8f89c419a684e4317bedd2c4103844838e6ee",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28?f=json",
+      "retrieved_utc": "2026-10-28T23:35:04.559864+00:00",
+      "sha256": "fd8cb4aff308e79e66de14c24eff2b1331906e5324d212c7492e44e17a1867fb",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28/query?f=json&geometry=-81.4046556182154%2C28.5529171498791%2C-81.3750768508643%2C28.5900242176227&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnIdsOnly=true&where=1%3D1",
+      "retrieved_utc": "2026-10-28T23:35:19.921600+00:00",
+      "sha256": "e281002616346ecf6bda71a2160bb196f73695f95d585334e84e9b4d77251be4",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/28/query?f=geojson&objectIds=27996613%2C27996819%2C27996915%2C27997090%2C27998407%2C27999180%2C27999343%2C27999572%2C28000185%2C28000985%2C28000988&outFields=OBJECTID%2CGlobalID%2CDFIRM_ID%2CVERSION_ID%2CFLD_AR_ID%2CSTUDY_TYP%2CFLD_ZONE%2CZONE_SUBTY%2CSFHA_TF%2CSTATIC_BFE%2CV_DATUM%2CDEPTH%2CLEN_UNIT%2CVELOCITY%2CVEL_UNIT%2CSOURCE_CIT&outSR=4326&returnGeometry=true",
+      "retrieved_utc": "2026-10-28T23:36:56.636521+00:00",
+      "sha256": "d1a0f06334a7306c491930b010d4f97ec3f3d158ce3c763080da4754745c8a5d",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/3?f=json",
+      "retrieved_utc": "2026-10-28T23:35:04.758558+00:00",
+      "sha256": "ecd15b0a56868842e4cb61d3f781da4bccf12dcc01cb5821898a7fac81d57536",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/3/query?f=json&geometry=-81.4046556182154%2C28.5529171498791%2C-81.3750768508643%2C28.5900242176227&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnIdsOnly=true&where=1%3D1",
+      "retrieved_utc": "2026-10-28T23:35:20.127319+00:00",
+      "sha256": "87d726872c7321ba4905c43df7d0fe76d0dc843f3c63c353a05b57d7e20d6079",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/3/query?f=geojson&objectIds=832822%2C832861&outFields=OBJECTID%2CGlobalID%2CDFIRM_ID%2CVERSION_ID%2CFIRM_ID%2CST_FIPS%2CPCOMM%2CPANEL%2CSUFFIX%2CFIRM_PAN%2CPANEL_TYP%2CPRE_DATE%2CEFF_DATE%2CSCALE%2CSOURCE_CIT&outSR=4326&returnGeometry=true",
+      "retrieved_utc": "2026-10-28T23:37:09.169979+00:00",
+      "sha256": "28511873146accecf28f2edfbc9a6ead7dbce9a3998a5f72a47f8921704a7be4",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/1?f=json",
+      "retrieved_utc": "2026-10-28T23:35:04.976716+00:00",
+      "sha256": "d1fc42c938af6f89efd597955a7e13e8de3d6767fc2cd98fc1a109cdbfd23a57",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/1/query?f=json&geometry=-81.4046556182154%2C28.5529171498791%2C-81.3750768508643%2C28.5900242176227&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnIdsOnly=true&where=1%3D1",
+      "retrieved_utc": "2026-10-28T23:35:20.358929+00:00",
+      "sha256": "518644b475cfb642936543f1c6dc24c08bf8b436f875ace82857395e4905a38d",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/0?f=json",
+      "retrieved_utc": "2026-10-28T23:35:05.159518+00:00",
+      "sha256": "b6a329c9342ce9aaf1a0c4d2971f983580e2e897d2df9831290bcfb02e357a13",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/0/query?f=json&geometry=-81.4046556182154%2C28.5529171498791%2C-81.3750768508643%2C28.5900242176227&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&returnIdsOnly=true&where=1%3D1",
+      "retrieved_utc": "2026-10-28T23:35:20.582592+00:00",
+      "sha256": "60f6575bfc5e4b54df3371ad2c8fd18ffe0d5ecc50e0db1aa7a220c0c958d647",
+      "retrieval_quality": "network_response"
+    },
+    {
+      "url": "https://hazards.fema.gov/arcgis/rest/services/public/NFHL/MapServer/0/query?f=geojson&objectIds=305&outFields=OBJECTID%2CSTUDY_ID%2CGlobalID&outSR=4326&returnGeometry=true",
+      "retrieved_utc": "2026-10-28T23:37:09.518464+00:00",
+      "sha256": "0b59b94f160718bb739b1bdf9017aee92a8429e1bef212f4da65457ae3718d63",
+      "retrieval_quality": "network_response"
+    }
+  ],
+  "normalized_packet_receipt": "data/flood/effective_nfhl.receipt.json",
+  "display_policy": "Only SFHA=T polygons filled in scene; X retained in inspector with no scene fill. Dedicated review layer/camera is not active."
+}

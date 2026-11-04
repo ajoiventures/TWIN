@@ -1,0 +1,37 @@
+{
+  "schema": "twin.independent-pedestrian-source-review/1",
+  "reviewed_utc": "2026-10-29T16:24:14.477274+00:00",
+  "reviewer": "AI independent technical/source reviewer; not pedestrian implementation author",
+  "decision": "PASS for bounded review-only source acquisition; no physical sidewalk/ramp/crossing promotion; tickets16/25 remain open",
+  "artifacts": {
+    "tools/pedestrian_source_evidence.py": "6d4dfca847576dc9707c7bdf1927c826bca4da83ad6a094d9c952d33d1e35e67",
+    "data/processed/pedestrian_source_evidence/packet.json": "bfcb1d81bd43b626c5e2ce59fc2db3195ca933a3ebe89ed41b6dce4b2e18e2ad",
+    "data/processed/pedestrian_source_evidence/candidate_crossings.geojson": "59c7166baeed1a55a6dce58dac062d10440ccf6b0c9ebd2204106a3ffd701d11"
+  },
+  "verified": {
+    "original_sources": "Independently verified all17 original cached request receipt hashes/URLs and item-to-service association; helper/boundary dependencies and exported geometry digest current. No downloads performed in review.",
+    "exact_geometry": "Replayed every original source feature against official neighborhood polygon: source ID uniqueness, attributes, clipped geometry equality, first-five prefixes and MainStreet intersections match exported330 review-only features.",
+    "counts": {
+      "metroplan_crossings": {
+        "neighborhood": 67,
+        "main_street": 25
+      },
+      "orlando_task_force": {
+        "neighborhood": 263,
+        "main_street": 78
+      }
+    },
+    "synthetic_points": "All18 MetroPlan EDGEDUP=1 records explicitly labelled synthetic_edge_duplicate_not_physical_crossing. Original description states points are placed where a crosswalk does not exist. PAINTED=1 is not sufficient to accept them.",
+    "lifecycle": "All263 task-force rows retain proposed_draft status. Remaining MetroPlan references keep unresolved lifecycle; none are accepted existing physical geometry.",
+    "catalog_and_rejections": "City catalog nextStart=-1 confirms pagination ended for this exact bounded query. Both rejected consultant item extents independently do not intersect CollegePark; no feature downloads requested for them.",
+    "privacy_and_dates": "Safe attribute allowlist; no owner/contact fields in candidate export. Item/layer edits and original retrieval separated from null acquisition/effective/positional accuracy. Width units and grades unknown.",
+    "source_preservation": "Read-only cached-source/geometry inspection; only this curated review and ignored diagnostic evidence written. No active/source/editor/GPU changes."
+  },
+  "findings": [],
+  "limits": [
+    "Hosting-owner metadata is not independent agency endorsement or redistribution permission. Original missing terms remain unknown.",
+    "This helper is an acquisition/replay writer without output-edit preservation or activation/API validator; do not treat its packet as a live accepted adapter. This limitation is explicitly documented.",
+    "MetroPlan and task-force features cannot be summed as unique physical crossings. No sidewalk, curb-ramp, curb-edge, paint-footprint, grade or ADA-compliance acceptance.",
+    "Full City ADA inventory, lifecycle/width/grade domains, engineering/as-built sheets and field-verification inputs remain unacquired. No outreach performed."
+  ]
+}

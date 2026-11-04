@@ -1,0 +1,55 @@
+{
+  "schema": "twin.church-wing-integrated-render-review/1",
+  "reviewed_utc": "2026-11-02T18:49:30.351001+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_single_active_root_historical_form_view_only",
+  "capture": {
+    "manifest": "data/renders/20261102T184257Z/manifest.json",
+    "manifest_sha256": "cfffd629d02425110a606db3eaab3edc2c323f2fb3eb97f7784fc529e9d0ff7f",
+    "image": "data/renders/20261102T184257Z/ChurchSoutheastWingContinuousRoof.png",
+    "image_sha256": "9bd4e5696afd13db931bf046e8da6e1e91b6b8c01a9ea8942b423576e9404fce",
+    "captured_utc": "2026-11-02T18:45:33.845864+00:00",
+    "actual_image_viewed": true,
+    "png_resolution": [
+      1920,
+      1080
+    ],
+    "camera": "/World/Cameras/ChurchSoutheastWingContinuousRoof",
+    "scene": "scene/church_wing_active_review_20261102.usda",
+    "scene_sha256": "7185886306e803d3c4c7d0a41734df69fddebf1e3e1ffc997b33946ad5f7e27f",
+    "source_snapshot": "20261028T160543372334Z",
+    "source_stage_saved": false
+  },
+  "binding": {
+    "all35_captured_layer_hashes_match_current": true,
+    "active_root_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+    "wing_layer_sha256": "2fdb4e7fb8f3e6170486a3f82ee06bfd8194323455d0a175bed1ad054fbd9303",
+    "wrapper_only_sublayer": "college_park_connected.usda",
+    "wrapper_only_camera_override": true,
+    "camera_all_attribute_values_equal_reviewed_B": true,
+    "actual_composed_wing_and_mask_values_equal_reviewed_B": true,
+    "preservation_review": "docs/evidence/church-wing-adoption-review.json"
+  },
+  "actual_findings": {
+    "pass": [
+      "Continuous two-plane roof and brick enclosure remain coherent through active-root-only composition.",
+      "RejectedC triangular pits, dark cutout notches and tall transition fins remain absent.",
+      "No new global road/wall/background distortion observed in this frame."
+    ],
+    "remaining": [
+      "Blank facade with no verified openings or trim.",
+      "Roof finish and overhang/gutters lack architectural detail.",
+      "Retained white source fragments and prototype neighboring geometry remain conspicuous.",
+      "Estimated roof-edge closure and dated alignment limits remain; this view does not certify side/rear/site conditions."
+    ]
+  },
+  "limits": [
+    "One bounded actual integrated render; no professional/world-class finished-building claim.",
+    "No new native-editor viewport, street/courtyard survey, current-condition, physical identity or public derivative acceptance.",
+    "No FPS/runtime/LOD or broad-ticket completion claim."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-wing-integrated-render-review.json",
+    "new_gpu_render_or_source_editor_api_mutation_by_reviewer": false
+  }
+}

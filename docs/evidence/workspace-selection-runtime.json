@@ -1,0 +1,94 @@
+{
+  "status": "implementation_runtime_checks_complete_not_independent_review",
+  "owned_kit_pid": 51400,
+  "source_file_count_checked": 25,
+  "changed_source_files": [],
+  "map_to_kit": {
+    "address": "1600 EDGEWATER DR",
+    "feature_id": "ocpa:282075",
+    "selected_paths": [
+      "/World/Buildings/Building_0665",
+      "/World/Buildings/Building_2990"
+    ],
+    "delivery": "selected-in-editor",
+    "camera_unchanged": true,
+    "method": "Actual browser search/result click and actual running Kit selection state"
+  },
+  "kit_to_map": {
+    "epoch": "b954373b-823c-4f97-a3b0-664fdc19197a",
+    "snapshot": "20261028T160543372334Z",
+    "revision": 3,
+    "sender": "kit",
+    "selection": {
+      "status": "matched",
+      "feature_id": "ocpa:249942",
+      "paths": [
+        "/World/Buildings/Building_2876"
+      ],
+      "entity_ids": [
+        "ocpa:building-group:c6f7e754183a50b2ee6d72b8"
+      ],
+      "reason": "1 accepted 3D building counterpart(s)."
+    },
+    "updated_utc": "2026-10-28T23:13:14.193915+00:00",
+    "delivery": {
+      "status": "selected-in-editor"
+    }
+  },
+  "unknown_editor_selection": {
+    "epoch": "b954373b-823c-4f97-a3b0-664fdc19197a",
+    "snapshot": "20261028T160543372334Z",
+    "revision": 4,
+    "sender": "kit",
+    "selection": {
+      "status": "unmatched",
+      "feature_id": null,
+      "paths": [],
+      "entity_ids": [],
+      "reason": "Selected 3D entity has no unique current registry identity."
+    },
+    "updated_utc": "2026-10-28T23:13:46.881307+00:00",
+    "delivery": {
+      "status": "selected-in-editor"
+    }
+  },
+  "unaccepted_map_selection": {
+    "epoch": "b954373b-823c-4f97-a3b0-664fdc19197a",
+    "snapshot": "20261028T160543372334Z",
+    "revision": 6,
+    "sender": "map",
+    "selection": {
+      "status": "unmatched",
+      "feature_id": "ocpa:99613",
+      "paths": [],
+      "entity_ids": [],
+      "reason": "No accepted 3D building counterpart for this exact parcel feature. Parcel context is not a storefront."
+    },
+    "updated_utc": "2026-10-28T23:16:26.579613+00:00",
+    "delivery": {
+      "status": "unmatched-editor",
+      "reason": "No accepted 3D building counterpart for this exact parcel feature. Parcel context is not a storefront."
+    }
+  },
+  "final_editor_state": {
+    "selected_paths": [],
+    "camera": "/World/Cameras/MainStreetOverview",
+    "edit_target": "C:/Projects/TWIN/scene/manual_edits.usda",
+    "dirty_layers": [
+      "anon:000004177AE1E700:twin_workspace-session.usda",
+      "anon:000004177AE1E480:twin_workspace.usda"
+    ],
+    "time": 1793229435.6053226
+  },
+  "filter_and_save": "Evidence filter apply, reset and manual-only save executed in the owned Kit via bounded runtime harness; no runtime exception, source hashes unchanged. Native filter/toggle clicks not completed because of foreground user-input/minimized-window signals.",
+  "fixes": [
+    "Persistent inspector panel is separate from transient map/filter/save notices.",
+    "New project opens through an anonymous transient workspace root so Kit render-product camera writes cannot dirty the saved assembly.",
+    "Viewport camera relationship is mirrored in session; manual edit target retained."
+  ],
+  "limits": [
+    "No independent review or full ticket closure.",
+    "Final inspector layout and confidence checkbox interactions still require visual batch review in an uncontended window.",
+    "Kit-to-map selection was triggered through runtime harness selection API, not a viewport pixel picking test."
+  ]
+}

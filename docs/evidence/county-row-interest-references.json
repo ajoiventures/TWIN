@@ -1,0 +1,532 @@
+{
+  "retrieved_utc": "2026-11-04T03:40:19.659921+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "source_endpoint": "https://vgispublic.ocpafl.org/server/rest/services/Webmap/ZONE/MapServer/6",
+  "metadata_sha256": "df5b075f388268a12c96f01377b04f1148cf059d03bcaeb1e9e9a1189f4c739c",
+  "geometry_response_sha256": "b2bc24f7fcbc562ccbd5a4e463997b710ad80515d36f1ffc07f25480bbb45062",
+  "boundary_sha256": "4f4ae09cdbbba27eb1dae5b797588ac1a1a510c124621c5536f8b1d9cbd233c4",
+  "source_envelope_count": 37,
+  "field_dictionary": {
+    "OBJECTID": {
+      "alias": "OBJECTID",
+      "type": "esriFieldTypeOID"
+    },
+    "BOOKTYPE": {
+      "alias": "BOOKTYPE",
+      "type": "esriFieldTypeString"
+    },
+    "BOOKNUMBER": {
+      "alias": "BOOKNUMBER",
+      "type": "esriFieldTypeString"
+    },
+    "BOOKPAGE": {
+      "alias": "BOOKPAGE",
+      "type": "esriFieldTypeString"
+    },
+    "INTERESTTYPE": {
+      "alias": "InterestType",
+      "type": "esriFieldTypeString"
+    },
+    "ACQUISITIONDATE": {
+      "alias": "ACQUISITIONDATE",
+      "type": "esriFieldTypeDate"
+    },
+    "RESPONSIBLEAGENCY": {
+      "alias": "ResponsibleAgency",
+      "type": "esriFieldTypeString"
+    },
+    "INSTRUMENTNUMBER": {
+      "alias": "INSTRUMENTNUMBER",
+      "type": "esriFieldTypeString"
+    }
+  },
+  "first_five_safe_rows": [
+    {
+      "source_object_id": 690,
+      "original_fields": {
+        "OBJECTID": 690,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "RB",
+        "BOOKNUMBER": "1",
+        "BOOKPAGE": "86",
+        "INSTRUMENTNUMBER": "10686",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 4152.819,
+      "main_street_overlap_m2": 1042.616,
+      "intersects_main_street": true,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 3951,
+      "original_fields": {
+        "OBJECTID": 3951,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "162",
+        "BOOKPAGE": "101",
+        "INSTRUMENTNUMBER": "20594",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 566.764,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12064,
+      "original_fields": {
+        "OBJECTID": 12064,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "750",
+        "BOOKPAGE": "386",
+        "INSTRUMENTNUMBER": "10571",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 35.832,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12571,
+      "original_fields": {
+        "OBJECTID": 12571,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1562",
+        "BOOKPAGE": "64",
+        "INSTRUMENTNUMBER": "22992",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 41.7,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12573,
+      "original_fields": {
+        "OBJECTID": 12573,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "177",
+        "INSTRUMENTNUMBER": "23003",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 0.002,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    }
+  ],
+  "rows": [
+    {
+      "source_object_id": 690,
+      "original_fields": {
+        "OBJECTID": 690,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "RB",
+        "BOOKNUMBER": "1",
+        "BOOKPAGE": "86",
+        "INSTRUMENTNUMBER": "10686",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 4152.819,
+      "main_street_overlap_m2": 1042.616,
+      "intersects_main_street": true,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 3951,
+      "original_fields": {
+        "OBJECTID": 3951,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "162",
+        "BOOKPAGE": "101",
+        "INSTRUMENTNUMBER": "20594",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 566.764,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12064,
+      "original_fields": {
+        "OBJECTID": 12064,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "750",
+        "BOOKPAGE": "386",
+        "INSTRUMENTNUMBER": "10571",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 35.832,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12571,
+      "original_fields": {
+        "OBJECTID": 12571,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1562",
+        "BOOKPAGE": "64",
+        "INSTRUMENTNUMBER": "22992",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 41.7,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 12573,
+      "original_fields": {
+        "OBJECTID": 12573,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "177",
+        "INSTRUMENTNUMBER": "23003",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 0.002,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 13133,
+      "original_fields": {
+        "OBJECTID": 13133,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "151",
+        "BOOKPAGE": "229",
+        "INSTRUMENTNUMBER": "20595",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 486.349,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 23966,
+      "original_fields": {
+        "OBJECTID": 23966,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "151",
+        "BOOKPAGE": "228",
+        "INSTRUMENTNUMBER": "20592",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 127.097,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 24891,
+      "original_fields": {
+        "OBJECTID": 24891,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1562",
+        "BOOKPAGE": "67",
+        "INSTRUMENTNUMBER": "22712",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 46.326,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 24892,
+      "original_fields": {
+        "OBJECTID": 24892,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1563",
+        "BOOKPAGE": "666",
+        "INSTRUMENTNUMBER": "22714",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 55.676,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 24893,
+      "original_fields": {
+        "OBJECTID": 24893,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1563",
+        "BOOKPAGE": "665",
+        "INSTRUMENTNUMBER": "22715",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 0.0,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 25342,
+      "original_fields": {
+        "OBJECTID": 25342,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1594",
+        "BOOKPAGE": "783",
+        "INSTRUMENTNUMBER": "22993",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 27.756,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 25344,
+      "original_fields": {
+        "OBJECTID": 25344,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "171",
+        "INSTRUMENTNUMBER": "22996",
+        "ACQUISITIONDATE": -1289070000000,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 1748.665,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 32241,
+      "original_fields": {
+        "OBJECTID": 32241,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "793",
+        "BOOKPAGE": "310",
+        "INSTRUMENTNUMBER": "9111",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 671.553,
+      "main_street_overlap_m2": 129.137,
+      "intersects_main_street": true,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 33757,
+      "original_fields": {
+        "OBJECTID": 33757,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "167",
+        "BOOKPAGE": "350",
+        "INSTRUMENTNUMBER": "20599",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 149.614,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 34963,
+      "original_fields": {
+        "OBJECTID": 34963,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "1499",
+        "BOOKPAGE": "533",
+        "INSTRUMENTNUMBER": "23002",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 0.042,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 34964,
+      "original_fields": {
+        "OBJECTID": 34964,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "PB",
+        "BOOKNUMBER": "R",
+        "BOOKPAGE": "86",
+        "INSTRUMENTNUMBER": "23008",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 420.55,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 35665,
+      "original_fields": {
+        "OBJECTID": 35665,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "173",
+        "INSTRUMENTNUMBER": "21302",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 0.507,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 40515,
+      "original_fields": {
+        "OBJECTID": 40515,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "OR",
+        "BOOKNUMBER": "151",
+        "BOOKPAGE": "230",
+        "INSTRUMENTNUMBER": "20598",
+        "ACQUISITIONDATE": null,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 932.025,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 41311,
+      "original_fields": {
+        "OBJECTID": 41311,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "171",
+        "INSTRUMENTNUMBER": "24054",
+        "ACQUISITIONDATE": -1289070000000,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 1312.367,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    },
+    {
+      "source_object_id": 41312,
+      "original_fields": {
+        "OBJECTID": 41312,
+        "INTERESTTYPE": "Right of Way",
+        "BOOKTYPE": "DB",
+        "BOOKNUMBER": "396",
+        "BOOKPAGE": "112",
+        "INSTRUMENTNUMBER": "24055",
+        "ACQUISITIONDATE": -1290279600000,
+        "RESPONSIBLEAGENCY": "PW - Roads and Drainage"
+      },
+      "neighborhood_overlap_m2": 99.307,
+      "main_street_overlap_m2": 0.0,
+      "intersects_main_street": false,
+      "has_instrument_reference": true,
+      "has_book_page_reference": true,
+      "instrument_reviewed": false
+    }
+  ],
+  "counts": {
+    "neighborhood": 20,
+    "main_street": 2,
+    "instrument_reference": 20,
+    "book_page_reference": 20
+  },
+  "limits": [
+    "Instrument and book/page values are original GIS references. Underlying documents, titles and roadway boundaries remain unverified.",
+    "Area is calculated in EPSG:32617 for prioritization. No source geometry was activated."
+  ]
+}

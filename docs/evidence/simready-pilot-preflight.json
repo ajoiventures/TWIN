@@ -1,0 +1,24 @@
+{
+  "captured_utc": "2026-10-29T01:30:26.248885+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "camera": "/World/Cameras/AssetContractEvidence",
+  "proposal_layer": null,
+  "requested_resolution": [
+    1920,
+    1080
+  ],
+  "scene": "scene\\asset_contract_26e_review.usda",
+  "scene_sha256": "58af729845f557b7538073866e391ded88badb6ab9cfbf642c811ac940dc8cd7",
+  "layer_hashes": {
+    "data/diagnostics/asset_contract_20261029_26e/source_copy.usda": "00cff4cbfb8dbde31049e4627da8fecb517339689a2fbbf6df136b746017b8e9",
+    "data/diagnostics/asset_contract_20261029_26e/preflight.usda": "a4611a003fef93fec6413b077bde3899146579f7916820d7f9bf112ed3d9254d",
+    "data/diagnostics/asset_contract_20261029_26e/city_building/usd/city_building.usda": "8a4548abd8ef516bbf9c2c22770dc43eea4adacd1874c5268814f7c2ec72d80b",
+    "scene/asset_contract_26e_review.usda": "58af729845f557b7538073866e391ded88badb6ab9cfbf642c811ac940dc8cd7",
+    "data/diagnostics/asset_contract_20261029_26e/contract.usda": "e142405af095a6a99c24dbc334316fde8ba0bc8a377436d3385566c586782654"
+  },
+  "image": "data\\renders\\20261029T013015Z\\AssetContractEvidence.png",
+  "image_sha256": "849d1ddd4d5830fcc00312b06da2147931da8f59d39aa83fac30005394bab6e3",
+  "elapsed_seconds": 10.97,
+  "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+  "source_stage_saved": false
+}

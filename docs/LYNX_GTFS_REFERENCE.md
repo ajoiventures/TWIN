@@ -1,0 +1,62 @@
+# Official LYNX static schedule reference
+
+Existing ticket #15 delivery, October 28, 2026 local time. This supplements the existing static GIS packet without replacing its IDs, geometry or active snapshot. No real-time protobuf, vehicle position or arrival-prediction endpoint is fetched.
+
+## Actual access and feed
+
+The [official LYNX download page](https://www.golynx.com/maps-schedules/data-download.stml) links **HTTP** `http://gtfsrt.golynx.com/gtfsrt/`. The earlier HTTPS timeout did not establish that this official HTTP resource was unavailable. The public directory returned 200 and linked `google_transit.zip`; the original **2,358,835-byte** archive, index/page bytes and checksum/retrieval receipts are cached locally. No credentials, forms or outreach were needed. The official page's as-is terms remain linked and preserved; public access is not a survey warranty or a broader asset/imagery license.
+
+The feed publishes validity **2026-10-02 through 2026-12-12**, with agency timezone America/New_York. The provider directory lists October 2, 2026 at 16:06 for the ZIP, but supplies no timezone; that is not an acquisition date. There are 3,687 stops, 62 routes, 7,674 trips, 110,627 shape points, 359,274 stop-time rows, eight calendars and 15 date exceptions. The loader checks original IDs, foreign keys, finite/in-range stop and shape coordinates, semantic numeric uniqueness of shape/stop sequences, calendar codes and times. Sequence strings such as `01` and `1` cannot bypass duplicate detection; their original source values remain unchanged. Source IDs retain padding and leading zeroes exactly. Provider times reach hour 26; these remain service-day times rather than being truncated to 24 hours or mislabeled UTC.
+
+## Actual College Park coverage
+
+The local aerial review offers a toggle for published LYNX stop points inside its January 2025 image frame. Stop 4170 projects to pixel (718.01, 854.09), with the older GIS point at (716.33, 850.96). Both are in the south-side roadside strip east of Edgewater. Building shadow prevents a reliable boarding-pad or sidewalk continuity interpretation from this image. The older GIS records a connection and a 3–5 ft sidewalk category. Preserve both as dated source attributes pending direct verification.
+
+All 15 GTFS points and their paired older GIS points fall on the same side of the nearest City centerline segment with the GIS-reported street name. The comparison uses EPSG:32617 metres, normalizes the publisher's `EDGWATER` spelling, and holds offsets within 1 m of the line for review. At Princeton, stop 4170 falls south of City centerline 6246 in both sources, at lateral offsets of 7.36 m and 6.80 m. This verifies a reference-side agreement. The boarding pad, actual curb location, sidewalk connection and accessibility still need field evidence. [Stop reference-side audit](evidence/lynx-stop-reference-side-audit.json)
+
+| Record | Observed study-area result | Limit |
+|---|---:|---|
+| Static stops | 15 | Published stop references, not surveyed boarding areas or verified accessibility |
+| Intersecting shape variants | Four | Scheduled paths clipped to the unchanged extraction rectangle; not carriageway edges |
+| Route short names with intersecting shapes | 106 and 125 | Provider labels are not interchangeable with GIS object IDs |
+| Trips serving stops or intersecting shapes | 374 | Includes multiple weekday/weekend services; not today's observed vehicle count |
+| Trips serving the 15 stops across all services | 205 | Only route 125 serves these stops in this feed; route 106 paths intersect the study extent |
+| October 28 scheduled trips serving those stops | 100 | Published weekday schedule, not proof the trips actually operated |
+
+The older GIS packet has route labels 89, 106 and 125. Route 89 has no intersecting shape in this current feed/query. Both vintages remain separate; absence here does not establish cancellation. All 15 GIS StopId values have a single GTFS candidate after **explicit whitespace-only trimming**, with maximum point separation about 0.799 m. Original padded GTFS IDs remain unchanged, candidates do not become accepted physical-pole identities, and original GIS OBJECTIDs are retained. No route/stop is silently merged or removed.
+
+## Reproduction, contract and temporal safeguards
+
+Run `python tools/lynx_gtfs_reference.py --offline --service-date 2026-10-28`. Normal mode acquires missing official page/index/ZIP pairs only; partial or modified caches require review instead of silent overwriting. ZIP loading is in-memory with flat-path and 64 MiB total expanded-size bounds. No raw ZIP or imagery is committed. Approved tables exclude agency contact and fare values.
+
+Ignored outputs under `data/processed/lynx_gtfs_reference/` are `packet.json`, `stops.geojson`, `shapes.geojson`, checksum receipt and timestamped previous publication bundles. The packet contains source fields/dictionaries, first five safe rows, normalized selected stops/routes/trips/stop-times/calendars/exceptions/feed metadata, source receipts, temporal/coverage quality and GIS discrepancy candidates. The first-five previews also include original shape-sequence rows restricted to the four study-intersecting shape IDs; the full shape-point table is not duplicated. The geojson products contain published static stop points and clipped shape paths only. No active layer is authored.
+
+`validate(root, service_date=None)` returns the verified report without network requests. It checks the comparison snapshot, required artifact receipt and every cached/page/index/ZIP/tool dependency, including the GIS request-cache/provenance chain used for comparison. It recomputes separate read-time feed status and scheduled counts for the supplied service date, or current America/New_York date. Expired and not-yet-effective feeds remain visibly labeled; they do not silently become current service. Original October 28 evaluation results remain identified as that date's schedule.
+
+Rebuild refuses manually modified/unreceipted generated outputs and backs up the prior good packet/GeoJSON/receipt. Failed acquisition, schema/FK/calendar validation or changed source bytes cannot replace the previous publication. Numeric rate limits and precise GTFS refresh cadence are not published; the [LYNX GIS overview](https://www.golynx.com/maps-schedules/gis-gtfs-lynx.stml) describes GIS updates with three annual bid changes, which is not a guaranteed exact GTFS refresh schedule. Stops/shapes are WGS84; comparison distances use EPSG:32617 metres. No vertical datum, current arrival, traffic load or ADA compliance is inferred.
+
+## Remaining #15 acceptance
+
+The previous GTFS access/calendar gap now has actual source data and validity evidence. Root can integrate the verified packet as paginated read-only schedule/reference tables, date-aware summaries and source/quality previews. Independent review and actual API/UI checks remain pending for this delivery. The separate FDOT RCI/traffic packet must still establish actual Edgewater coverage, source units and unmatched records. The combined City backbone, OSM supplemental namespace, FDOT and LYNX outputs need one independent ticket-level coverage/ID/date review before #15 closure. This supplement alone does not close the ticket or claim live operations.
+
+## App integration
+
+The date-aware schedule now breaks out stop-serving trips and pass-through trips by original GTFS route ID. On November 3, Route 125 serves the study stops with 100 scheduled trips, and Route 106 contributes 70 pass-through trips with no study stop. On Thanksgiving the corresponding counts are 35 and 33. Both rows reconcile to the existing aggregate totals. Dates outside feed validity return null for the route breakdown.
+
+On November 4 the public ZIP was downloaded again and matched the active archive SHA-256. The published feed remains valid through December 12. The date-aware API schedules 100 study-stop trips on November 3, 70 on Saturday November 7, 35 on Sunday November 8, and 35 on Thanksgiving November 26. The endpoint now returns JSON null trip counts outside the published validity window, including December 13. An isolated HTTP run verified the holiday, expired and not-yet-effective responses. These are schedule figures, and no live operation was verified.
+
+`GET /api/v1/transit_schedule?service_date=2026-10-28` returns validated schedule validity, calendar-derived counts, source fields, first five safe rows and limits. The optional date defaults to the agency's New York date. Invalid dates return an error; unavailable/stale dependencies reject the response. No agency call occurs during display.
+
+The existing `/transit` page now includes a service-date selector and expandable schedule evidence alongside the separate static GIS map. Actual API/browser checks verified October 28 (100 scheduled stop-serving trips; 170 including passing shape trips) and January 1, 2027 (expired; UI says availability unknown instead of implying zero service). Source-schema/sample rows were inspected. [Actual browser view](evidence/lynx-schedule-browser.png). Static route 89 remains visible as a separate older GIS reference and its absence from current intersecting GTFS shapes is flagged, not treated as proof of cancellation.
+
+The old `config/transit_sources.json` HTTPS timeout describes the earlier GIS adapter's probe, not current GTFS access. This additive validated packet and live page supersede that availability statement without rewriting the frozen GIS acquisition.
+
+Independent source/geometry/calendar review passed, including the final shape-point preview and coordinate/sequence guards. [Review record](evidence/lynx-gtfs-review.json) binds the final packet checksum. Broader #15 network, parking and mobility requirements remain open.
+
+### FDOT sidewalk inventory comparison
+
+Eleven of the 15 reviewed stops have nearby FDOT sidewalk-width records in the parallel-line screen. The comparison keys on the nearest City feature's unique `OBJECTID` because multiple features share a `CenterlineID`. With that correction, the three candidate records at Princeton stop 4170 report 7–8 ft widths and 0 or 7 ft setbacks. These roadway inventory events leave the boarding-side connection and actual clear width unresolved.
+
+All four excluded City features match stops on Maury Road, where the three relevant City centerline features lie 2.0–3.1 m outside the official neighborhood polygon. Two of those stops lie inside the polygon and two lie just outside it, within the GTFS acquisition rectangle. This is a scope boundary in the FDOT packet. The audit preserves that distinction and keeps boarding access unverified for all 15 stops. [Per-stop coverage and original side codes](evidence/lynx-fdot-sidewalk-reference-audit.json)
+
+An offline replay of the original FDOT rectangular queries recovered parallel sidewalk inventory candidates at all four Maury Road stops. The candidates share roadway `75705000` and overlap the milepost range of FDOT's `MAURY RD` name event. The source records report 5 ft widths at all four sites and an additional 6 ft record near stop 6192. The neighborhood packet retains its 11-stop count. Together, the packet and boundary supplement provide nearby inventory references for all 15 stops, with boarding side, actual clear width and continuity still unverified. [Maury Road boundary supplement](evidence/lynx-maury-fdot-boundary-supplement.json)

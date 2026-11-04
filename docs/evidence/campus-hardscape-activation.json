@@ -1,0 +1,25 @@
+{
+  "source_snapshot": "20261028T160543372334Z",
+  "layer": "scene/campus_hardscape.usda",
+  "layer_sha256": "76004ce8760a665bb56f83f78c4d76208e39a0660dd5db2f5ff49ac8024a6397",
+  "source_manifest_sha256": "020da0d1c5a9615f252238458f9b044e429b4d4bccfa440c8d3f2ca81bbe7b2f",
+  "root_before_sha256": "83d06de19458ec4fdfb7fa97df4de752418d79eb0ce0e7d038cfcb4ac9b9836b",
+  "root_after_sha256": "23a668244b25cbc8d32cc30fe1df3f0b0ba0715ff834b07a584d83c6a44433e9",
+  "only_one_root_sublayer_added": true,
+  "all_other_root_opinions_equal": true,
+  "all_mesh_attributes_equal_to_reviewed_candidate": true,
+  "protected_files_unchanged": {
+    "scene/manual_edits.usda": "7176205fc5fd5cc274967798e09d41c1a0d12c704e8ad712fd0d0ed683fd20dc",
+    "data/processed/active.json": "35b54f88166c9b77cbd62eeb012321c5428245667b83c3d961dc5cedbea2f167",
+    "data/processed/selection_bridge.json": "925ad037753aa76a8603eb111f90b618a4cd597e8dd6c05d02c6f200364c53ae",
+    "scene/landmark_buildings.usda": "00eaf72e19d26939061782245689f4d5558dd9aed27ec4ac4a207f606adaef3d",
+    "scene/office_frontage_detail.usda": "bf422e865aaefb06c814079c98067665e903c0d228b27ac3111df9e53a7abdde",
+    "scene/post_office_historical.usda": "fb5cc95dbcec9f749f7ad7be2c1f6f0eb721a30683066e61ef7e013f05d9dd5a"
+  },
+  "historical_paving_m2": 1873.4138745967866,
+  "separate_unclassified_pale_feature_m2": 22.038820305577246,
+  "current_geometry_verified": false,
+  "raw_imagery_published": false,
+  "editor_reloaded": false,
+  "acceptance_scope": "Local historical interpreted surfaces only; whole lots/access/capacity/survey/currentness unaccepted"
+}

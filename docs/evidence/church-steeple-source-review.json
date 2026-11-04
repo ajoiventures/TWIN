@@ -1,0 +1,110 @@
+{
+  "schema": "twin.church-steeple-source-review/1",
+  "scope": "Independent original-row, geometry and photo-qualified interpretation audit; no activation/currentness acceptance",
+  "evidence_sha256": "02834b41a278aea9799f56beb9c06ab98b03a625925e5ca2c9c831783f333a04",
+  "all_dependency_hashes_match": true,
+  "all_outputs_match": true,
+  "original_source_and_v2_v3_hashes_preserved": true,
+  "independent_original_row_checks": {
+    "high_indices_exact": true,
+    "cap_indices_exact": true,
+    "high_count": 21,
+    "cap_count": 88,
+    "high_class_counts": {
+      "1": 21
+    },
+    "cap_class_counts": {
+      "1": 88
+    },
+    "high_z_range_navd88_m": [
+      47.43999999999994,
+      55.16999999999996
+    ],
+    "max_vertical_gap_m": 1.4500000000000455,
+    "cap_p05_p50_p95_navd88_m": [
+      45.673499999999954,
+      45.76999999999998,
+      45.819999999999936
+    ],
+    "outside_roi_high_count": 922,
+    "outside_high_x_max_utm_m": 461876.95265365456,
+    "minimum_high_cluster_vs_other_high_x_separation_m": 20.893939362256788,
+    "nominal_axis_utm_m": [
+      461898.23391781806,
+      3160331.735575022
+    ],
+    "nominal_axis_local_m": [
+      -58.01027449592948,
+      -298.42045848537236
+    ],
+    "source_class_caveat": "All109selected returns are class1/unclassified. Steeple identity relies on coherent geometry and independent dated-photo corroboration, never class1 semantic meaning."
+  },
+  "independent_taper": {
+    "formula": "Fit radius=slope*(highest_observed_z-source_z) on lower/mid high returnsZ<54; all21then scored",
+    "nominal_radius_m": 0.7267403145762292,
+    "all21_radial_absolute_residual_p50_p95_max_m": [
+      0.09584605689957862,
+      0.22949711104800852,
+      0.2708665288417431
+    ],
+    "facet_count": 8,
+    "eight_base_vertices_radius_min_max_m": [
+      0.7267277939260921,
+      0.7267517533265875
+    ],
+    "octagonal_actual_facet_count_verified_from_source": false
+  },
+  "height_and_geometry": {
+    "ground_reference_navd88_m": 30.68999999999994,
+    "scene_offset_m": 0.1,
+    "expected_base_scene_z_m": 15.18000000000004,
+    "expected_apex_scene_z_m": 24.58000000000002,
+    "serialized_min_max_z_m": [
+      15.180000305175781,
+      24.579999923706055
+    ],
+    "observation_high_max_coordinate_error_m": 1.4267396181821823e-05,
+    "closed_shell": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 16,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "roof_ridge_to_nominal_spire_base_gap_m": 2.457613534640359,
+    "actual_tip_height": "unknown; highest source return55.17NAVD88 is an observed sample, not proof true physical tip"
+  },
+  "counter_label_qualification": {
+    "evidence_field": "louver_section.intermediate_z43to45_5_points",
+    "actual_builder_band": "44<=Z<45.5",
+    "independent_actual_44_to45_5_count": 1,
+    "literal_43_to45_5_count": 82,
+    "meaning": "Label lower bound is misleading; lower band also contains raised-roof returns and cannot identify tower-wall faces."
+  },
+  "photo_based_belfry_inference": {
+    "primary_reference": "https://ocpaimages.ocpafl.org/api/Image/GetPIDImage?pid=292214146005190",
+    "caption": "2021-11-08 12:04PM; image directly inspected in prior independent v3 review",
+    "qualified_estimated_candidate_supported": true,
+    "supported": "Dated photograph clearly shows a pale rectangular louvered enclosure between raised entrance gable and tapered steeple. Dense cap returns constrain a historical upper level and approximate position/extent; geometry can support an explicitly PHOTO-ESTIMATED connecting enclosure.",
+    "not_measured": [
+      "Exact enclosure wall line, section dimensions and back faces",
+      "Louver slot count, depth, spacing and construction",
+      "Bell presence, function or operating status",
+      "Actual steeple tip/facet count and2026condition"
+    ],
+    "required_labels": "Separate photo-estimated component/provenance; retain source cap observations and unknown wall/slot dimensions; do not label the inferred volume as measured cloud reconstruction."
+  },
+  "decision": "pass_bounded_historical_steeple_source_and_proxy_audit_photo_estimated_enclosure_permissible_for_separate_review_only",
+  "limits": [
+    "Small coherent vertical cluster and20m+campus separation support interpretation, but off-parcel street wires/poles are not assessed.",
+    "Apex based on observed height, radius extrapolation and8facets remain nominal choices; no additional height or true-tip accuracy inferred.",
+    "Spire study alone is detached from source roof by the unmodeled enclosure gap; not complete attached-steeple acceptance.",
+    "Historical2018-2019 scan plus2021photocaption does not establish current2026as-built condition.",
+    "No GPU/scene/source/helper edits, original-image publication or activation performed."
+  ]
+}

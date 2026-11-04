@@ -1,0 +1,67 @@
+{
+  "schema": "twin.church-assembly-visual-review/1",
+  "reviewed_utc": "2026-10-30T16:48:02.974378+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator with source candidates by VP/reconstruction agent",
+  "decision": "pass_bounded_attached_historical_assembly_geometry_hold_local_adoption_until_false_storefront_context_suppressed",
+  "capture": {
+    "camera": "/World/Cameras/ChurchAssembly",
+    "image": "data/renders/20261030T164129Z/ChurchAssembly.png",
+    "image_sha256": "ccdfc8e2307e07bbf1c0f513b5e50043d505a5e8a2436bcba81cb2bd49482d55",
+    "complete_png_1920x1080": true,
+    "capture_layer_hashes_match_current_files": true,
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f"
+    },
+    "source_stage_saved": false
+  },
+  "batch_manifest_sha256": "9235e9e870960d41356c33c4d97daa410548a28ad4650dbd94e92631062a593c",
+  "scene_wrapper_sha256": "31c61380b74c1a80b24c7891fbcfd4f3c57bf81cb4f7c4fc0c9bf8c9a3b131ef",
+  "assembly_manifest_sha256": "e46fd6ab5582cb24be84b2468b841a1a8f8184507b294cc28d9f95e6ab7cbe2d",
+  "legacy_mask_manifest_sha256": "bb9e6bff8aa603ded4a90f070b9209514e34140c5a03ea2cfb54887a8bb040be",
+  "source_references": [
+    "church-sanctuary-v3-review.json",
+    "church-frontage-appearance-review.json",
+    "church-steeple-source-review.json"
+  ],
+  "observations": [
+    "Raised central entrance gable, four pale frames, dark vertical glazing and masonry fields form a recognizable interpretation of the dated 2021 OCPA front motif.",
+    "Belfry and tapered spire visibly form an attached assembly; the previous isolated proxy gap is visually closed, without an obvious detached or floating tower in this view.",
+    "The roof mass and entrance render coherently without evident microterraces, tearing, open voids or material fallback in this view.",
+    "Large neutral roof/side masses and the broader campus context remain schematic; visible side windows, masonry, steps, ramps, railings and service/walking connections are incomplete.",
+    "The spire is a nominal historical proxy constrained by the highest observed return, while enclosure faces and louver count/depth remain photo estimates. This view does not verify the true tip, exact architectural dimensions or current condition."
+  ],
+  "blocking_local_context_findings": [
+    {
+      "finding": "Generic STUDIO and MARKET signs, awnings and furniture remain on the adjoining church campus wing, giving fabricated retail/tenant cues alongside the named church reconstruction.",
+      "source": "Actual combined image plus tools/detail_edgewater.py states these shop categories are generic illustrative signs, not verified tenants.",
+      "relevant_existing_groups": [
+        "/World/Storefronts/Building_2919",
+        "/World/Storefronts/Building_3065"
+      ],
+      "required_correction": "Suppress or locally mask the unrelated illustrative storefront detail for the church campus and inspect the resulting context. Preserve unrelated district storefronts and source/manual geometry."
+    }
+  ],
+  "remaining_visual_limits": [
+    "Thin exposed red trim edge and estimated facade proportions remain appearance approximations.",
+    "Existing broad road/sidewalk geometry, trees, vehicles, lighting and other generic assets do not meet conference-quality acceptance.",
+    "No matched eye-level reference comparison or fully reconstructed west/south wings in this review."
+  ],
+  "legacy_preservation_acceptance": "Separate root independent audit; this review does not self-certify its topology/area/supersession claims.",
+  "historical_assembly_geometry_visual_gate_passed": true,
+  "local_adoption_accepted": false,
+  "whole_church_or_project_acceptance": false,
+  "reviewer_actions": {
+    "launched_gpu": false,
+    "restarted_or_killed_process": false,
+    "changed_source_scene_or_user_session": false,
+    "published_original_imagery_pixels": false,
+    "written_files": [
+      "docs/evidence/campus-hardscape-c-review.json",
+      "docs/evidence/church-assembly-visual-review.json"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kit_version": "110.4.0+feature.386251.187cf21b.gl",
+  "physx_extension": "110.4.4",
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "route_length_m": 2,
+  "sample_interval_m": 0.02,
+  "sphere_radius_m": 0.08,
+  "routes": [
+    {
+      "samples": 101,
+      "maximum_adjacent_ray_height_difference_m": 0.0006198883056640625
+    },
+    {
+      "samples": 101,
+      "maximum_adjacent_ray_height_difference_m": 0.00022220611572265625
+    }
+  ],
+  "off_pavement_control": "miss",
+  "source_saved": false
+}

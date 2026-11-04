@@ -1,0 +1,45 @@
+{
+  "reviewer": "Root independent of GIS source analysis",
+  "decision": "pass_bounded_source_plane_replay_not_architectural_outline",
+  "source_review_v2_sha256": "1d1838fe6e70f9de3017114af7d593da54bb13d835ce1a7ed65cbee2b3429b37",
+  "major_fit_unique_points": 11605,
+  "planes": [
+    {
+      "region": "southeast_front_wing",
+      "plane": 1,
+      "class6_points": 2890,
+      "p95_m": 0.04538844386680229
+    },
+    {
+      "region": "southeast_front_wing",
+      "plane": 2,
+      "class6_points": 2406,
+      "p95_m": 0.027652792759493394
+    },
+    {
+      "region": "south_bar",
+      "plane": 1,
+      "class6_points": 4913,
+      "p95_m": 0.07928303337751713
+    },
+    {
+      "region": "west_return",
+      "plane": 1,
+      "class6_points": 1808,
+      "p95_m": 0.057670938642213274
+    },
+    {
+      "region": "west_return",
+      "plane": 2,
+      "class6_points": 1521,
+      "p95_m": 0.037359682465023525
+    }
+  ],
+  "source_classes_and_original_indices_verified": true,
+  "correction": "Initial 11711 included 106 additional minor south-bar plane points; corrected version distinguishes the five major fits. Original report and frozen crop remain preserved.",
+  "limits": [
+    "Exact source-plane fit replay does not prove walllines, facade dimensions, end/hip geometry or current conditions",
+    "Diagnostic masks are not footprints",
+    "No tax or story-count promotion"
+  ]
+}

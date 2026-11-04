@@ -1,0 +1,54 @@
+{
+  "schema": "twin.church-roof-material-source-review/1",
+  "reviewed_utc": "2026-11-02T16:48:05.232258+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "supports_gray_ribbed_roof_appearance_qualitatively_only; main_shell_extension_estimated",
+  "source": {
+    "path": "data/diagnostics/next_landmark_20261030/full_campus_references/drive_second_parcel_ocpa_front.jpg",
+    "sha256": "b67887612b6b58875f3a50a785168ca4a1ef45d230c04786c38470b7c3f08c70",
+    "actual_original_pixels_viewed": true,
+    "visible_caption": "1914 EDGEWATER DR, ORLANDO, FL 32804 11/8/2021 12:04 PM",
+    "timezone": "unknown",
+    "current_2026_condition": "unverified",
+    "source_pixels_embedded_traced_or_published_by_review": false
+  },
+  "observations": [
+    "Lower left wing has a visibly gray pitched roof with repeated narrow parallel ribs/seams.",
+    "A small right shoulder/eave roof strip on the church assembly also appears ribbed.",
+    "The tall central front gable and vegetation occlude much of the main sanctuary roof; a ground photo does not establish its full rear/upper surface finish.",
+    "Broad metal-like ribbed appearance is qualitatively plausible; exact seam construction, coating, pitch, height, panel length and material alloy cannot be measured from this photograph."
+  ],
+  "material_boundaries": {
+    "main_sanctuary_shell": "Application across the modeled main SanctuaryCandidateV3 roof subset is an estimated visual continuity extension, not an observed whole-roof reconstruction.",
+    "adjacent_wings": "Do not extend automatically to other wing/campus/legacy roofs. Visible lower wing evidence does not establish that every shell face is the same roof system.",
+    "belfry_and_spire": "Exclude cap, louver enclosure and spire from this proposal; their finish/geometry has separate evidence and limits.",
+    "walls": "Preserve existing wall material, st mapping, normals, positions, topology and transforms.",
+    "roof_orientation": "Rib direction should follow each sloping plane toward ridge/eave, with seams consistent at joins. Avoid a fixed world direction that creates horizontal contour stripes across the pitch.",
+    "roof_geometry": "Keep source roof envelope unchanged; normal-only relief must not be described as measured standing-seam geometry or silhouette detail."
+  },
+  "proposed_parameters": {
+    "tile_metres": 3,
+    "ribs_per_tile": 5,
+    "implied_spacing_metres": 0.6,
+    "normal_relief_metres": 0.014,
+    "measurement_status": "All are author-chosen visual estimates, not dimensions inferred from the photograph.",
+    "color_roughness": "Gray/metal-like impression supported qualitatively; precise albedo/roughness/metalness remains estimated under uncontrolled sunlight.",
+    "dedicated_uv": "Roof-only roof_st primvar and binding can separate appearance from wall UVs; implementation and actual render still require review."
+  },
+  "required_labels": [
+    "illustrative_photo_interpreted_historical_roof_appearance",
+    "whole_main_roof_finish_estimated_not_fully_visible",
+    "source_photo_2021_current_conditions_unverified",
+    "panel_spacing_and_relief_estimated"
+  ],
+  "next_gates": [
+    "Independent roof-subset/material/UV containment and unchanged geometry/wall audit after proposal generation.",
+    "Actual same-camera render inspect for seam direction, repeat scale, ridge/eave joins, excessive bump, moire and bright/dark bands.",
+    "Compare neutral baseline; normal-only effect should remain restrained at conference viewing resolution.",
+    "Any adoption requires separate canonical source and additive preservation checks; this source review authorizes no active-layer change."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-roof-material-source-review.json",
+    "gpu_editor_api_source_changes": false
+  }
+}

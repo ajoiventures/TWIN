@@ -1,0 +1,16 @@
+{
+  "stall": 1,
+  "preview_sha256": "5684f15ac7f2e3c5259333d4e60439e9da6742fd0bf333ddf5d7f3547fa9f448",
+  "stall_edge_clearance_m": 0.27296574451950295,
+  "vehicle_separation_m": {
+    "WestLotCar": 3.092682992735397,
+    "WestLotVan": 13.927878152248777
+  },
+  "tire_gaps_mm": {
+    "Node_312": 13.771,
+    "Node_313": 2.705,
+    "Node_314": 8.037,
+    "Node_315": 0.0
+  },
+  "limits": "Historical static fit. Current conditions, door swing, circulation, and rendered acceptance are unverified."
+}

@@ -1,0 +1,13 @@
+{
+  "kit_version": "110.4.0+feature.386251.187cf21b.gl",
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "physx_extension": "110.4.4",
+  "hit_count": 158,
+  "miss_controls": 1,
+  "max_z_residual_m": 1.9868214939933182e-07,
+  "collider_paths": [
+    "/World/RearParkingSamples/southwest_smith_rear_row",
+    "/World/Streets/Road_1479148116"
+  ],
+  "source_saved": false
+}

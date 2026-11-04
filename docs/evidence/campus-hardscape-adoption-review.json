@@ -1,0 +1,94 @@
+{
+  "schema": "twin.campus-hardscape-adoption-review/1",
+  "implementation_author": "Root integrator AI agent",
+  "independent_reviewer": "GIS Analyst AI agent",
+  "separation": "Review of root-authored adoption/validator/integration only. Reviewer originally authored paving preparation helper; source and actual C visual acceptance are separate root-authored reviews, not self-approved here.",
+  "adoption_evidence_sha256": "636881427143851c5031718394e581d672c84ed482d4bc1b25d2677fb51231fb",
+  "backup_root_hash_matches_before_receipt": true,
+  "current_root_hash_matches_after_receipt": true,
+  "root_opinions_preserved_except_one_added_sublayer": true,
+  "protected_file_mismatches": [],
+  "reviewed_C_to_active_geometry_comparisons": [
+    {
+      "prim": "/World/CampusHardscapeCandidate/methodist_rear_visible",
+      "changed_composed_attributes": [],
+      "world_transform_equal": true
+    },
+    {
+      "prim": "/World/CampusHardscapeCandidate/methodist_rear_visible_pale_features",
+      "changed_composed_attributes": [],
+      "world_transform_equal": true
+    },
+    {
+      "prim": "/World/CampusHardscapeCandidate/drive_west_visible",
+      "changed_composed_attributes": [],
+      "world_transform_equal": true
+    }
+  ],
+  "integration_static_review": {
+    "connect_scene_validates_before_first_generated_write": true,
+    "connect_scene_retains_validated_layer": true,
+    "workspace_refresh_allowlists_layer": true
+  },
+  "validator_status": "PASS; canonical source, local-only release and camera-compatible manual model guards independently checked",
+  "decision": "approve_bounded_local_historical_paving_adoption_preservation_and_guard_checks_pass",
+  "limits": [
+    "Local historical interpreted paving only; no current/survey/access/capacity/full-lot/public-derivative release acceptance.",
+    "No source self-approval, church adoption, whole-ticket closure, editor reload or GPU operation by reviewer."
+  ],
+  "validator_followup": {
+    "reviewed_utc": "2026-10-30T22:15:29.432565+00:00",
+    "helper_sha256": "e7def25adae2d04707a61e02878c04a2423f62c898053ea91cfe6e00026dc66d",
+    "test_sha256": "141ccbbea6c7d44c0903ec60471f1415ff8b39b96059eb412ecde95685f06de2",
+    "activation_receipt_sha256": "a017a544fe3d44f86a8b42a8e3a5c7c36ec9b9ad795a955b000b239f86f0f362",
+    "actual_validated_layer_result": "campus_hardscape.usda",
+    "actual_manual_model_fingerprint": "271e7207b05f172ece903c2bbc964ea81eb31849212d73df3bb494ff779215b3",
+    "canonical_source_recipe_guard": "Fixed C manifest and recipe keys/hashes; original producer entry maps to frozen local captured_helper.py SHA, not evolving working code; root/raw manual excluded in favor of explicit camera-compatible manual-model fingerprint.",
+    "manual_compatibility": "Fresh anonymous manual layer fingerprint removes known /World/Cameras and prunes empty specifier-only namespaces; visible/model attribute opinions remain guarded.",
+    "durable_portable_regressions": {
+      "file": "tests/test_accepted_scene_layers.py",
+      "command": "python -m unittest discover -s tests -p test_accepted_scene_layers.py -v",
+      "result": "5 tests PASS in0.387s after archived-producer fixture update",
+      "cases": [
+        "Valid synthetic accepted packet passes; changed active layer rejects.",
+        "Removing actual canonical source dependency rejects, even with review/helper metadata present.",
+        "Stale active snapshot rejects.",
+        "Camera-only manual save remains valid; non-camera model visibility edit rejects.",
+        "Public derivative release promotion rejects.",
+        "Candidate identity change rejects."
+      ],
+      "fixtures": "All temporary synthetic local files; no ignored live/source caches required."
+    },
+    "prior_guard_findings_resolved": true,
+    "scope": "Review of root-authored validator and adoption integration; not source or historical visual interpretation self-approval."
+  },
+  "church_status": "Church candidate remains unadopted; this review grants no church or whole-building approval.",
+  "fingerprints": {
+    "tools/accepted_scene_layers.py": "e7def25adae2d04707a61e02878c04a2423f62c898053ea91cfe6e00026dc66d",
+    "tools/connect_scene.py": "d359e55e41e5f934b59da2738c3c5fb683e21197e62cdcea5a5fbad0ee9bd65a",
+    "tools/open_workspace.py": "0ef2e0dba699f9d48d4638b2216acf0e751aabb4cd9d0bcb44dfbd41dff2676b",
+    "scene/campus_hardscape.usda": "76004ce8760a665bb56f83f78c4d76208e39a0660dd5db2f5ff49ac8024a6397",
+    "data/processed/campus_hardscape_activation.json": "a017a544fe3d44f86a8b42a8e3a5c7c36ec9b9ad795a955b000b239f86f0f362",
+    "tests/test_accepted_scene_layers.py": "141ccbbea6c7d44c0903ec60471f1415ff8b39b96059eb412ecde95685f06de2"
+  },
+  "archive_producer_followup": {
+    "reviewed_utc": "2026-10-30T22:19:46.777513+00:00",
+    "archived_producer_path": "data/diagnostics/campus_hardscape_20261030_c/captured_helper.py",
+    "archived_producer_sha256": "06298b1fa75b7fcfa64b156908db8d5bb1f764d352cbbe03f23e9d16b8c1f3d2",
+    "matches_canonical_original_producer_sha": true,
+    "archive_is_required_receipt_dependency": true,
+    "working_producer_not_frozen_dependency": true,
+    "working_producer_sha256_informational_only": "783d6585057c35ec477cb4cd0f61dead0ec857e1b48d284c7a6edc063eedffc9",
+    "public_recipe_input_review": "Working helper now reads local samples JSON; no hardcoded interpreted pixel polygon list remains in public producer. Original reviewed producer archived locally, not republished or regenerated.",
+    "actual_validator_result": "campus_hardscape.usda",
+    "test_result": "5 portable tests PASS in0.387s",
+    "added_cases": [
+      "Changing archived producer bytes rejects accepted layer.",
+      "Removing archive dependency rejects accepted layer.",
+      "Evolving working producer code remains compatible with frozen reviewed geometry."
+    ],
+    "retained_cases": "Changed layer/missing canonical source/stale snapshot/public-release promotion/candidate identity reject; camera-only save passes and non-camera model edit rejects.",
+    "decision": "pass_archive_bound_reproducibility_and_camera_compatible_adoption_guards",
+    "limits": "No new source/geometry/rights approval; local historical interpretation only. No active layer, source, editor or GPU changes by reviewer."
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "reviewed_utc": "2026-10-30T15:57:07.443696+00:00",
+  "candidate_v2_preserved_sha256": {
+    "site.usda": "0448bc7f915747b006a673f652ef88ae5f276f811103814499c26e63ca51f55f",
+    "review.usda": "ba6f267645517c36872958f865ac07d44576a8c16e8c61d390b20544b3c74a5e",
+    "manifest.json": "6c09fa05bff5be21d51cc6bcd7a4bb6fcafd3e53e2023a74405d98ec8f8e2511"
+  },
+  "decision": "REJECT v2endshape/fullbuildingacceptance; keep centralroofstudy only. Raisedroof-orientedendreturns confirmed, precisephysicalendreturn unresolved; no guessedhip_v3.",
+  "source_findings": {
+    "east_terminal_strip": "Class6 1mcell p90 upper returns at x461897\u2013461901,y3160322\u20133160339 exceedv2 gable prediction bymedian1.287m (p25/p75 1.215/1.342m). This is positive residual, not straightforward lowerhip support.",
+    "east_profile_navd88_m": {
+      "y3160325_27": {
+        "body_x461875_885": 40.29,
+        "east_x461899_901": 41.51
+      },
+      "y3160329_31": {
+        "body": 42.06,
+        "east": 42.85
+      },
+      "y3160331_33": {
+        "body": 42.73,
+        "east": 43.21
+      },
+      "y3160335_37": {
+        "body": 40.63,
+        "east": 41.92
+      }
+    },
+    "west_terminal": "x461842\u2013461852 overlaps additionalhigher/flatroof returns, matching attachedservice/annexcontext. Currentv2 ends atcommon slope-supportspanx461852; this is an evidence cut, not an observed freestandingwestgable facade.",
+    "sampling_limit": "P90 is upper classifiedreturn per1mcell, not a pickedroofsurface. Parapet/wall/porch/equipment/classification and roof displacement remain competing explanations; no measuredhip slope identified.",
+    "east_terminal_followup": "Raisedreturns are predominantlylocallyplanarroof-oriented, notverticalwallmixtures:910of938returns >0.6m abovev2passroofnormalfilter,0passverticalplanarfilter. Roof-orientedpoints eastlast5m have signedmedian+1.131m versuscentralmedian-0.005m. This materiallydisproves v2 as completeendroof; a higher/end-return surface or sourcephaseoverlap requires independentarchitecturalresolution.",
+    "interpretation_restriction": "Positivehigherroof-orientedreturns do not support a simplelowerhip cut. They also do not uniquely determine raisedendreturn footprint, breakline or junction. No v3 shapeinvented from selectedresiduals/PCA alone."
+  },
+  "aerial_inspection": {
+    "actual_files_viewed": [
+      "full_campus_references/church_on_drive_2025.jpg",
+      "full_campus_references/church_on_drive_2024.jpg"
+    ],
+    "acquisition_months": [
+      "2025-01",
+      "2024-01"
+    ],
+    "observation": "Both show mainlonggable joining westernflatserviceblock and lower southernwing aroundcourtyard. EasternEdgewaterend includes a distinctcentralprojecting/return/entryvolume. Overheadprojection doesnot uniquely establish hip-versusraisedgable/porch roofprofile, wallline or endheight.",
+    "not_current_survey": true
+  },
+  "primary_operator_pages": {
+    "pages": [
+      "https://churchonthedrive.org/",
+      "https://churchonthedrive.org/i-m-new",
+      "https://churchonthedrive.org/facility-request"
+    ],
+    "architectural_result": "Homehero is stylizedlogo. I-m-new actualdownloadedimages are people/coffee scene, no usefulroofend exterior. Facilityrequest page has no architecturalexterior references. No primarycurrentobliquecorroboration for hip/endprofile acquired.",
+    "photo_capture_dates": "unknown;page/retrievaltimestampdoesnot establishcapturedate",
+    "receipts_sha256": "64f3e5db1e3ad595d3b5f49cacbe4c29f972fa515aa5b786e73aa0901c0a5674"
+  },
+  "exact_next_evidence": [
+    "An oblique or front/sideexterior photograph of Edgewater-facingeast sanctuaryend with capturedate or explicitunknown, showing roofedge/parapet/porch junction.",
+    "Independentlocalplane/verticalreturn separation in the measuredterminalstrip, including whether raisedclass6upperreturns are roof or endwall/parapet.",
+    "Westernserviceblock/southernwing contiguouscomponentroofgraph and exactlegacysupersession before closing exteriorwalls or compositingreplacement."
+  ],
+  "scope_of_v2": "Two mainbroadroofslopes remain supported asinteriorroofconstraint; cleanclosedgeometryisnot wholebuildingor endshapeacceptance. Its simpleendwalls shouldnot bepromoted.",
+  "artifacts": {
+    "end_support_cells.json": "92a9b40185204e0e1e3c850611bfee7e56f5d7b5c36a70312e6ae76e069c254d",
+    "end_normals_screen.json": "77e58d06bddb70cb3b55be8c3b640a31bb18e2d9d8f2605c8e7f7d52872514d9"
+  },
+  "no_source_or_v2_mutations": true,
+  "v3_prepared": false,
+  "GPU_launched": false,
+  "activated": false,
+  "local_normal_followup": {
+    "method": "Originalclass1/6 XYZ nearest16covariance; roof|normalZ|>=.65 +small/midEigen<=.12, vertical|normalZ|<.35; diagnosticthresholdsnotroof/walllabels",
+    "regions": [
+      {
+        "region": "center",
+        "all_points": 7738,
+        "roof_oriented_locally_planar": 7691,
+        "vertical_planar": 0,
+        "all_signed_delta_p10_p50_p90_m": [
+          -0.02603577716102734,
+          -0.00512190608389318,
+          0.6291849797100229
+        ],
+        "roof_oriented_signed_delta_p10_p50_p90_m": [
+          -0.02607909160583688,
+          -0.0053169445881735555,
+          0.606778110764786
+        ],
+        "raised_over_0_6m": {
+          "all": 832,
+          "roof_oriented": 785,
+          "vertical_planar": 0,
+          "median_abs_normal_z": 0.9092132979617981
+        }
+      },
+      {
+        "region": "eastlast5m",
+        "all_points": 1539,
+        "roof_oriented_locally_planar": 1430,
+        "vertical_planar": 16,
+        "all_signed_delta_p10_p50_p90_m": [
+          -0.017329614504464526,
+          1.124120986501417,
+          1.2434664956112087
+        ],
+        "roof_oriented_signed_delta_p10_p50_p90_m": [
+          -0.006463854731941864,
+          1.1306755214905095,
+          1.2536607391974535
+        ],
+        "raised_over_0_6m": {
+          "all": 938,
+          "roof_oriented": 910,
+          "vertical_planar": 0,
+          "median_abs_normal_z": 0.9434572923940451
+        }
+      },
+      {
+        "region": "westjoin",
+        "all_points": 2879,
+        "roof_oriented_locally_planar": 2771,
+        "vertical_planar": 2,
+        "all_signed_delta_p10_p50_p90_m": [
+          -0.42217023325639924,
+          0.4468083348313172,
+          2.3609683493177767
+        ],
+        "roof_oriented_signed_delta_p10_p50_p90_m": [
+          -0.3524595649871145,
+          0.4287837141562676,
+          2.3279864595455564
+        ],
+        "raised_over_0_6m": {
+          "all": 1273,
+          "roof_oriented": 1217,
+          "vertical_planar": 1,
+          "median_abs_normal_z": 0.9996539685677609
+        }
+      }
+    ],
+    "limits": "Mixedsurfaces/boundaryandpointspacingcanbiasPCA; geometryclassificationremainsunresolved"
+  }
+}

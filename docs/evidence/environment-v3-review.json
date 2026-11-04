@@ -1,0 +1,101 @@
+{
+  "scope": "Independent CPU-only review of isolated environment candidate; no activation or visual acceptance",
+  "manifest_sha256": "7738aea24e604f41b441fe736ed49fd4792178c11dc93eb077223fac32c32d82",
+  "builder_sha256": "cbf900594c2ceaead441b9072e3fe08d5670ce9516b328519d0d88a52ae2a6e9",
+  "all_frozen_file_hashes_match": true,
+  "source_root_hash_matches": true,
+  "tree_arrays_exact": {
+    "positions": true,
+    "orientations": true,
+    "scales": true,
+    "protoIndices": true,
+    "invisibleIds": true
+  },
+  "car_world_transform_count": 87,
+  "car_world_transform_mismatches": [],
+  "composition_error_count": 0,
+  "assets": {
+    "oak_a": {
+      "vertices": 12350,
+      "faces": 3404,
+      "matches_receipt_counts": true,
+      "invalid_meshes": [],
+      "unresolved_asset_paths": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z"
+    },
+    "oak_b": {
+      "vertices": 12350,
+      "faces": 3404,
+      "matches_receipt_counts": true,
+      "invalid_meshes": [],
+      "unresolved_asset_paths": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z"
+    },
+    "palm": {
+      "vertices": 8025,
+      "faces": 5394,
+      "matches_receipt_counts": true,
+      "invalid_meshes": [],
+      "unresolved_asset_paths": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z"
+    },
+    "sedan": {
+      "vertices": 2376,
+      "faces": 1819,
+      "matches_receipt_counts": true,
+      "invalid_meshes": [],
+      "unresolved_asset_paths": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z"
+    }
+  },
+  "decision": "cpu_checks_pass_latest_v3c_combined_realism_acceptance_not_met",
+  "rights_review": "Builder and reused base generator create original procedural geometry and painted leaf texture locally; no download/network/third-party texture inputs observed. This does not certify rights for unrelated base-scene contents.",
+  "limits": [
+    "505 existing illustrative tree placements and 87 car transforms retained; no inventory, parking, ownership, species, clearance or traffic acceptance.",
+    "Finite values/index/count checks are not manifold, self-intersection or full asset quality validation.",
+    "Preservation of 114 protected files is a builder before/after assertion, not independently reconstructable from stored individual baseline hashes. Current root and frozen outputs hashes independently match.",
+    "No GPU/render or user editor interaction performed. Realism/performance acceptance awaits actual comparison images; tickets 9/10 remain open."
+  ],
+  "visual_review": {
+    "image": "data/renders/20261029T162344Z/CompareCamera.png",
+    "image_sha256": "7633746b439c8bd87da5ecf4de3e42f6391640e3a76d2f90365a0c4f3300a6b9",
+    "candidate_side": "right",
+    "independent_image_viewed": true,
+    "decision": "reject_combined_candidate_activation",
+    "oak": "Candidate has visibly fuller crown and fewer empty interiors than baseline. Leaf clusters still read as fine speckled/cutout masses and separated lobes, not demonstrated photorealistic vegetation. Bounded improvement acknowledged.",
+    "palm": "Fronds remain conspicuously thin, regular wire-like arcs with sparse leaflets; the color change does not resolve silhouette realism.",
+    "car": "Candidate has clearer separate side windows but rigid wedge-like body and abrupt planar transitions. Two conspicuous red rear-light blocks sit above or detached from the rear body surface; white front lamps protrude as oversized rectangular blocks. This is a visible regression despite valid indices and preserved placement.",
+    "limits": "Comparison-scale image supports these defects; no close-up material/performance or corridor integration acceptance inferred. Existing source assets and active scene remain unchanged."
+  },
+  "corrected_v3c_visual_review": {
+    "image": "data/renders/20261030T144245Z/CompareCamera.png",
+    "image_sha256": "ad8f92f9e40cf07d311fc865d09a5591f13f4818b7df16369e782034ce46aaa0",
+    "image_matches_receipt": true,
+    "camera": "/World/CompareCamera",
+    "scene": "scene\\environment_v3c_review.usda",
+    "render_stage_metadata": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "881eb4f58fa303a6452bc8b2076e009d306dab1accef59370259490bbd2cbc42"
+    },
+    "candidate_side": "right",
+    "decision": "keep_combined_candidate_inactive_realism_acceptance_not_met",
+    "observations": [
+      "Candidate oak is fuller and casts a more continuous crown shadow; fine speckled/card clusters and separate crown lobes remain evident. This is a bounded improvement, not photorealistic species validation.",
+      "Palm still has very thin regularly spaced frond/leaflet arcs and bare-looking sparse canopy; realism issue persists under corrected units.",
+      "Candidate sedan now has better integrated lights/body than the earlier v3b image: conspicuous oversized white lamp blocks and raised red blocks are no longer visible in their earlier form.",
+      "Sedan remains generic and strongly angular, with abrupt hood/cabin/roof transitions and limited believable body curvature/detail. Comparison does not justify whole car realism acceptance."
+    ],
+    "supersession": "Latest v3c image supersedes earlier v3b light-block defect observation for this candidate revision; earlier revision evidence retained. Corrected axis/units do not erase the remaining visible asset-style limitations.",
+    "limits": [
+      "No activation or source changes by reviewer.",
+      "Single overview comparison does not verify species, inventory locations, vehicle clearance, traffic, parking, close-up materials or performance.",
+      "Whole tickets9/10 remain open."
+    ]
+  }
+}

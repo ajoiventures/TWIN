@@ -1,0 +1,123 @@
+{
+  "schema": "twin.church-wing-continuous-review/1",
+  "reviewed_utc": "2026-11-02T17:54:49.126262+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_inactive_bounded_historical_form_and_remainder_review_only",
+  "candidate": {
+    "directory": "data/diagnostics/church_se_wing_continuous_20261102_b",
+    "site_sha256": "a229152f5add5aeec0879f6905261ce6acabe2f3e6ef5692f2c0dbf99af2ddd0",
+    "mask_sha256": "43a08b4e9adf07a73c3c8920b88479039de5b13cdd5e5f0d8785aa9fb00bfe00",
+    "manifest_sha256": "9dfb489daa704397fa960a54c8ece6d04fa1994d4b609bc91a1a8d0465d43427",
+    "captured_helper_sha256": "cc55d593178c4fa03fab8d19fb7ad7b6bcfe70743891e8e55bb1ecef451e84b9",
+    "helper_archive_matches_manifest": true,
+    "all_dependencies_and_outputs_match": true,
+    "active_source_unchanged": true
+  },
+  "source_identity_correction": {
+    "raw_features_source_PID4210_independently_counted": 18,
+    "raw_features_PID5190_independently_counted": 0,
+    "modeled_aliases": [
+      "Building_2892",
+      "Building_2919",
+      "Building_2928",
+      "Building_3065",
+      "Building_3074",
+      "Building_3076"
+    ],
+    "source_2892_building_number": "4",
+    "source_2892_object_ids": [
+      "1160052",
+      "1158142",
+      "1170575"
+    ],
+    "correction": "SE pitched complex corrects an existing underheight Building2892 source context; not absent raw geometry or a new physical entity.",
+    "source_context_only": "Original raw PID4210 and spatially assigned5190 ambiguity remain; no accepted physical/tax link or floor count created.",
+    "dated_reference_scope": "Historical2018/19 roof points, exterior2021 and dated2024/25 aerial interpretation. Cross-date visible edge shift around1m or more remains unresolved; 1m allowance is not surveyed positional accuracy."
+  },
+  "roof_and_envelope": {
+    "two_main_source_planes_preserved": true,
+    "roof_regions": 2,
+    "roof_triangles": 4,
+    "roof_union_projected_area_m2": 458.4643312660046,
+    "interpreted_outline_area_m2": 458.46437578237624,
+    "maximum_serialized_plane_error_m": 5.5753706078576215e-06,
+    "five_lower_cuts_removed": true,
+    "transition_quads": 0,
+    "five_lower_return_components_explicitly_unmodeled": true,
+    "continuity_scope": "Dated imagery and upper-plane return evidence support continuous upper coverage over rejected patch cuts, with estimated edge continuation where lower returns and alignment remain unresolved.",
+    "estimated_envelope_faces": 6,
+    "wallline": "Nominal roof-cover-edge zero-overhang closure to scene0.1m; actual wallline, overhang and foundation elevation unknown.",
+    "closed_solid": false,
+    "no_windows_doors_floor_count_invented": true
+  },
+  "independent_original_source_remainder_checks": {
+    "body_2892": {
+      "expected_outside_m2": 122.78750458632557,
+      "serialized_actual_m2": 122.78743576968554,
+      "symmetric_difference_m2": 8.319370939458427e-05,
+      "inside_mask_float_sliver_m2": 7.188534607828226e-06,
+      "source_and_remainder_z_m": [
+        0.10000000149011612,
+        4.400000095367432
+      ]
+    },
+    "body_2919": {
+      "expected_outside_m2": 1668.2636553837176,
+      "serialized_actual_m2": 1668.2636951305903,
+      "symmetric_difference_m2": 4.864392720145626e-05,
+      "inside_mask_float_sliver_m2": 4.419539997380779e-05,
+      "source_and_remainder_z_m": [
+        0.10000000149011612,
+        4.400000095367432
+      ]
+    },
+    "roof_2892_and_2919": "Same independent projected remainder checks as corresponding bodies; original constant roofZ4.420000076293945m preserved exactly.",
+    "original_identity_customdata_equal_except_added_displayMask": true,
+    "original_bound_material_paths_equal": true,
+    "independent_surface_and_uv_check": {
+      "output_face_vertices_checked": 570,
+      "not_on_original_source_face": 0,
+      "maximum_affine_original_face_uv_error": 5.086262973463818e-06,
+      "scope": "All four2892/2919body/roof remainder meshes; source planar-face membership and per-face UV interpolation independently replayed."
+    },
+    "other_building_roof_landmark_source_prims_compared": 6495,
+    "other_source_customdata_attribute_relationship_differences": [],
+    "gym_courtyard_and_other_groups": "No entire2919/gym hide; all original surfaces outside bounded mask preserved, with other semantic groups unchanged. Open western walkway/northern courtyard not filled by blanket campus mass.",
+    "generic2892_storefronts": "Overlapping illustrative parts clipped locally by inactive mask; residual outside paving/fragments remain and are not an architectural-detail acceptance."
+  },
+  "actual_visual_review": {
+    "manifest": "data/renders/20261102T174414Z/manifest.json",
+    "manifest_sha256": "0b2f5523607e3d1ad83d1574281706dc6381f5ba55db3029368a4b7732c1f695",
+    "image": "data/renders/20261102T174414Z/ChurchSoutheastWingContinuousRoof.png",
+    "image_sha256": "de4df939810bef4860bf02fd9f5082148eae56f207260af412c4c76c2b6bd41a",
+    "image_actually_viewed": true,
+    "complete_png_resolution": [
+      1920,
+      1080
+    ],
+    "all_captured_layer_hashes_match": true,
+    "camera": "/World/Cameras/ChurchSoutheastWingContinuousRoof",
+    "passed": [
+      "Prior triangular pits/notches and tall transition fins are absent.",
+      "Continuous opposed pitched planes and brick envelope form a coherent bounded mass in this view.",
+      "Misleading generic awnings/storefront fronts under corrected mass no longer dominate the wing."
+    ],
+    "remaining": [
+      "Large blank facades and smooth roof lack verified windows, entrances, trim, overhangs, gutters and finish detail.",
+      "Retained white outside fragments and nearby prototype masses remain visible.",
+      "Roof/body boundary and true street/courtyard relationship remain estimated within dated source and alignment limits."
+    ],
+    "scope": "Passes this historical form proposal view, not a finished realistic building or district."
+  },
+  "remaining_gates": [
+    "Inactive proposal only; no canonical activation or existing church semantic guard change approved here.",
+    "Any adoption needs independent selected-layer/root/manual preservation, source guard and one existing-context reconstruction integration; do not add a new physical-building count.",
+    "Lower-return actual functions, cross-date position shift, true wallline/overhang, foundation, facade details and2026 current conditions remain unresolved.",
+    "No professional/world-class visual quality, surveyed accuracy, raw tax identity, public release or whole-ticket acceptance."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-wing-continuous-review.json",
+    "gpu_editor_api_source_changes": false,
+    "test_suite_added": false
+  }
+}

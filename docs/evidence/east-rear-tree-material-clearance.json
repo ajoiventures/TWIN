@@ -1,0 +1,10 @@
+{
+  "material_paths": [
+    "/World/CanopyReview/EastRearIsland/Materials/Bark",
+    "/World/CanopyReview/EastRearIsland/Materials/LeafTone0",
+    "/World/CanopyReview/EastRearIsland/Materials/LeafTone1",
+    "/World/CanopyReview/EastRearIsland/Materials/LeafTone2"
+  ],
+  "tree_meshes": 40,
+  "projected_overlaps": []
+}

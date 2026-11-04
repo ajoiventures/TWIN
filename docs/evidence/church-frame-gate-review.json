@@ -1,0 +1,82 @@
+{
+  "schema": "twin.church-frame-gate-review/1",
+  "reviewed_utc": "2026-11-02T16:12:12.953757+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator",
+  "decision": "pass_single_frame_gated_church_view_capture_quality_only",
+  "new_capture": {
+    "manifest": "data/renders/20261102T155708Z/manifest.json",
+    "manifest_sha256": "d5fbe7d871994110b74b4efd3c4d5d218ee128b28dbbeb5e75a7f9f1aba962c3",
+    "image": "data/renders/20261102T155708Z/ChurchAssembly.png",
+    "image_sha256": "f5c85995a744d73e0fe221d1efb2f9de52d73728c596ab457e05a6e74229fb5f",
+    "captured_utc": "2026-11-02T15:59:53.509665+00:00",
+    "complete_png_1920x1080": true,
+    "scene": "scene\\campus_church_combined_review_c_20261030.usda",
+    "scene_sha256": "e73272ba61222016d8ebd8ae543f7851ecc21e4f6f66e50e9113d4888f807460",
+    "source_snapshot": "20261028T160543372334Z",
+    "camera": "/World/Cameras/ChurchAssembly",
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "77ed8404a7af21ce8f2684be566719365cc0a980af0854c8bfcba552da6366e9",
+      "pre_capture_rendered_frames": 60,
+      "post_capture_completion_app_updates": 60
+    },
+    "source_stage_saved": false
+  },
+  "controlled_comparison": {
+    "old_c_manifest": "data/renders/20261030T222416Z/manifest.json",
+    "old_c_image_sha256": "e3aa53196b3e6c0c9a126a21a0f434dc9234bc32cda8dfea972b4ad33111bf43",
+    "old_c_image_actually_viewed": true,
+    "old_b_manifest": "data/renders/20261030T164918Z/manifest.json",
+    "old_b_image_sha256": "f19be6b44cb773540180ce75d4faa055cb82f8e120b49e2d94d17a7e0c184e1b",
+    "old_b_image_actually_viewed": true,
+    "new_image_actually_viewed": true,
+    "all_43_old_c_and_new_layer_hash_entries_identical": true,
+    "added_removed_or_changed_scene_layers": [],
+    "all_43_layer_hashes_match_current_files": true,
+    "same_camera_path_and_camera_authoring_layer": true,
+    "same_source_snapshot_wrapper_units_orientation_and_resolution": true,
+    "old_c_tool_sha256": "e9b064db0abb25800c17f2b0c3a47a041833940f43f9b086e7f899d8df61e40f",
+    "new_exact_capture_helper_archive": "data/diagnostics/church_assembly_20261030_c/frame_gate_capture_helper.py",
+    "new_exact_capture_helper_sha256": "77ed8404a7af21ce8f2684be566719365cc0a980af0854c8bfcba552da6366e9",
+    "old_b_is_symptom_reference_not_geometry_control": "B uses a different wrapper/appearance version; the exact control is old C versus new C."
+  },
+  "actual_visual_observations": [
+    "The new image has clean road surfaces and background building walls; the prior broad black bands, reflective-looking wall patches and widespread wavy background deformation are not evident in this view.",
+    "Brick entrance fields, pale frames, belfry and tapered spire form a coherent attached historical/estimated assembly, without an obvious detached tower or open roof void in this view.",
+    "The previous fabricated STUDIO/MARKET campus signs and awnings are absent from the inspected church context.",
+    "Large side/roof masses, generic neighboring buildings, unverified benches/planters, incomplete side windows and missing steps/ramps/site transitions remain visibly simplified.",
+    "This is an improved sharp prototype view, not a world-class, current/as-built or full church-site visual sign-off."
+  ],
+  "frame_gate_interpretation": {
+    "implementation_difference": "The inspected helper diff changes a single pre-capture viewport-frame wait into a bounded wait for60 actual viewport frames and records it. The existing60 completion_frames wait occurs after capture scheduling and counts app updates.",
+    "supported_inference": "A clean image under exact same43 scene-layer bytes is consistent with capture readiness/timing affecting the prior artifact. The earlier defect is not established as a persistent geometry or unit error by these images.",
+    "not_proven": [
+      "A unique renderer/shader root cause",
+      "That60 rendered frames guarantee shader readiness or image convergence",
+      "Repeatability across cold launches, drivers, caches, resolutions, cameras or the active user editor",
+      "That all materials, UVs, geometry or PBR tangent frames are globally correct"
+    ],
+    "runtime_confounders": "Old C and new capture occurred on different dates/processes. Driver/GPU/cache/global runtime state is not proven identical; do not describe this as a uniquely causal timing experiment.",
+    "narrow_uv_observation": "Independent current composed C inspection found zero degenerate st face areas at1e-10 threshold on the sanctuary shell. This does not validate every tangent frame or establish the prior artifact cause."
+  },
+  "remaining_adoption_and_completion_limits": [
+    "This clean view clears the observed global capture-artifact blocker for this one frozen candidate view only.",
+    "Canonical packaging, source/provenance retention, exact legacy/source preservation and application controls remain integrator gates; this review performs no activation.",
+    "Historical2018-2019 geometry and November2021 photo interpretation do not establish current2026condition or surveyed wall/roof/steeple dimensions.",
+    "Photo-estimated belfry faces, louver details, facade proportions, material tone and furnishings remain estimates; highest observed spire point is not a verified physical tip.",
+    "Full campus wings, actual side openings, steps/ramps/railings, parking/sidewalk joins and ground accuracy remain unfinished.",
+    "One image does not satisfy multi-view, evening, conference performance or full ticket/project acceptance."
+  ],
+  "bounded_visual_blocking_findings_in_this_image": [],
+  "activation_accepted": false,
+  "whole_church_or_project_accepted": false,
+  "reviewer_operations": {
+    "gpu_launch_or_restart": false,
+    "editor_or_scene_change": false,
+    "source_or_material_change": false,
+    "written_file": "docs/evidence/church-frame-gate-review.json"
+  }
+}

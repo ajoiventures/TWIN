@@ -1,0 +1,18 @@
+{
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "kit_offline_probe": {
+    "exit_code": 55,
+    "missing_extension": "omni.physx",
+    "log_sha256": "a4166efcb887045e13f1a97f5b19ff0bc0cfcaf27c161015514c7c9b1ac66d40"
+  },
+  "cpu_geometry_contact": {
+    "positive_rays": 158,
+    "negative_control_rays": 1,
+    "max_height_residual_m": 2.220446049250313e-16,
+    "matching_collider_paths": true
+  },
+  "limits": [
+    "CPU vertical ray intersection against serialized triangle geometry. No PhysX cooking, rigid-body contact or navigation was executed.",
+    "The offline Kit extension solver could not resolve omni.physx. No extension was installed."
+  ]
+}

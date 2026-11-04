@@ -1,0 +1,51 @@
+{
+  "schema": "twin.church-wing-runtime-review/1",
+  "reviewed_utc": "2026-11-02T18:48:37.956608+00:00",
+  "reviewer": "Root integrator; separate independent consumer and visual reports linked",
+  "source_snapshot": "20261028T160543372334Z",
+  "actual_http": {
+    "base": "http://127.0.0.1:8768/api/v1/",
+    "reconstruction_parcel_filter_rows": 2,
+    "exact_feature_filter_rows": 1,
+    "existing_2892_candidates": 1,
+    "accepted_legacy_links": 0,
+    "registered_form_visibility": {
+      "church_on_drive_sanctuary": true,
+      "church_southeast_wing_existing_2892_correction": true
+    }
+  },
+  "actual_browser": {
+    "url": "http://127.0.0.1:8768/building-review",
+    "exact_feature_filter": "ocpa:293781",
+    "two_historical_forms_visible": true,
+    "screenshot_local_path": "data/diagnostics/church_wing_integration_20261102/building-review.png",
+    "screenshot_sha256": "d5f3e94defc4e01fe0ca04974b1db53d2c6fe0b730665fbedc6ce68aab931a22"
+  },
+  "scene_profile": {
+    "profile": "college-park-evidence-visualization/1.0",
+    "created_utc": "2026-11-02T18:45:51.174447+00:00",
+    "source_snapshot": "20261028T160543372334Z",
+    "building_entities": 3216,
+    "meshes_checked": 17879,
+    "instance_proxy_meshes_checked": 3480,
+    "layers": 38,
+    "external_assets": 23,
+    "errors": [],
+    "warnings": [
+      "Ground remains flat; terrain/ground anchoring is not survey-validated.",
+      "Collision, pedestrian clearances and sensor material response are not validated by this visualization profile.",
+      "Historical LiDAR and estimated heights do not prove current conditions."
+    ],
+    "passed_local_profile": true,
+    "nvidia_certified": false
+  },
+  "native_editor": {
+    "updated_this_batch": false,
+    "reason": "User activity changed window state, then editor was minimized; no fetch/apply/save/restart performed",
+    "disk_update_ready_for_review": true
+  },
+  "limits": [
+    "Bounded historical geometry correction only; estimated wall closure/currentness/architecture remain unaccepted",
+    "Actual browser and HTTP prove delivery of records, not surveyed identity or full ticket completion"
+  ]
+}

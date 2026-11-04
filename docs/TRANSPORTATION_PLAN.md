@@ -24,7 +24,7 @@ Build a transportation source register and normalized adapters for the Edgewater
 
 - [ ] Use official Orlando street-centerline IDs as the local network backbone and preserve OSM identifiers as supplemental references, not interchangeable IDs.
 - [ ] Inventory and verify FDOT RCI lane/surface-width/speed/sidewalk datasets and traffic-count sites. Audit actual Edgewater coverage; state datasets do not necessarily cover every local street.
-- [ ] Inspect the official LYNX GTFS download for stops, routes, shapes, service calendars and feed validity dates; use GIS stop/route layers where appropriate.
+- [x] Inspected and connected the official LYNX GTFS download: stops, routes, shapes, service calendars, exceptions and feed validity dates. [Actual coverage, validation and UI](LYNX_GTFS_REFERENCE.md). Existing GIS identities remain separate; this does not establish live service or surveyed stop facilities.
 - [ ] Record provider, endpoint/download URL, schema, source date, CRS, units, license, refresh cadence and authentication/rate limits for each selected source.
 - [ ] Keep AADT/historical counts distinct from live traffic, and static GTFS distinct from vehicle positions or arrival predictions. Do not simulate live conditions from historical data.
 - [ ] Normalize and cache by corridor/segment/stop IDs. Validate spatial/temporal joins, unmatched coverage, duplicate routes and expired service calendars; public scene clients read snapshots.
@@ -91,7 +91,7 @@ Deliverables: Reviewed visual pilot block, licensed/original asset manifest, cle
 
 The first live-source snapshot contains 3,783 parcel features (3,782 unique parcel IDs), 464 city street segments, 4 intersecting neighborhoods, 91 zoning features, 8 parks, 3,228 recent permit rows, and 3,587 business-license rows. Business rows include historical licenses and multiple categories; they are not a verified tenant list.
 
-2,857 of 3,090 prototype building groups match by parcel ID plus footprint geometry; 196 spatial-only matches and 37 ambiguous/unmatched groups require review. No private BOOMS values were imported. The snapshot is local and does not yet constitute a fully connected scene/API.
+2,857 of 3,090 prototype building groups match by parcel ID plus footprint geometry; 196 spatial-only matches and 37 ambiguous/unmatched groups require review. No private BOOMS values were imported. The local snapshot API/map and USD metadata are connected. This is partial implementation, not acceptance of geographic accuracy or pedestrian geometry. Public draft crosswalk access findings and unresolved status/units are recorded in [PEDESTRIAN_ACCESS_REPORT.md](PEDESTRIAN_ACCESS_REPORT.md).
 
 See [the master roadmap](https://github.com/ajoiventures/TWIN/issues/14).
 

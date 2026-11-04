@@ -1,0 +1,84 @@
+{
+  "schema": "twin.church-sanctuary-v3-review/1",
+  "scope": "Independent CPU/original-point/photo review of isolated historical sanctuary roof-envelope candidate; no activation",
+  "manifest_sha256": "48ea91a693fcf506a9e2c1285a635fd737a76500b828a65c2e443c0884afffbb",
+  "site_sha256": "f9776fb169fdc9a55da8eb224f000a75a983d65188321fe6c3f38e34fc05223c",
+  "all_dependencies_match": true,
+  "all_outputs_match": true,
+  "v2_preserved_hashes_match": true,
+  "source_plane_corroboration": [
+    {
+      "recorded_selected_returns": 417,
+      "original_class1_6_returns_in_recorded_bbox_within17cm_of_plane": 433,
+      "original_support_class_counts": {
+        "1": 15,
+        "6": 418
+      },
+      "supports_at_least_claimed_count": true,
+      "scope": "Independent original-point corroboration within recorded bbox; exact fitter membership not supplied, so selected-count/fit residual reproduction not claimed."
+    },
+    {
+      "recorded_selected_returns": 388,
+      "original_class1_6_returns_in_recorded_bbox_within17cm_of_plane": 396,
+      "original_support_class_counts": {
+        "1": 25,
+        "6": 371
+      },
+      "supports_at_least_claimed_count": true,
+      "scope": "Independent original-point corroboration within recorded bbox; exact fitter membership not supplied, so selected-count/fit residual reproduction not claimed."
+    }
+  ],
+  "serialized_geometry": {
+    "faces": 68,
+    "degenerate_faces": [],
+    "minimum_authored_vs_actual_normal_dot": 0.9999999724160005,
+    "upward_triangle_max_nearest_recorded_plane_error_m": 0.00016164465918677706,
+    "upward_projected_area_m2": 1260.500099182129,
+    "closed_shell": {
+      "weld_tolerance_m": 0.0001,
+      "edge_count": 102,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "inconsistent_edge_orientation": 0,
+      "collapsed_edges": 0,
+      "passed_closed_shell": true,
+      "limits": "Edge-incidence gate only; does not establish self-intersection freedom, geographic accuracy or architectural correctness."
+    },
+    "ridge_xyz_nearest_serialized_vertex_distance_m": 0.0005131322118990955,
+    "front_eave_corner_nearest_vertex_distances_m": [
+      0.00019511351837313577,
+      0.0001948215644353163
+    ],
+    "world_transform": "( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )",
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "origin_utm_m": [
+      461956.244192314,
+      3160630.1560335075
+    ]
+  },
+  "primary_photo_review": {
+    "file": "data/diagnostics/next_landmark_20261030/full_campus_references/drive_second_parcel_ocpa_front.jpg",
+    "image_sha256": "b67887612b6b58875f3a50a785168ca4a1ef45d230c04786c38470b7c3f08c70",
+    "url": "https://ocpaimages.ocpafl.org/api/Image/GetPIDImage?pid=292214146005190",
+    "visually_read_caption_date": "2021-11-08 12:04 PM",
+    "visually_read_address": "1914 EDGEWATER DR, ORLANDO, FL 32804",
+    "observations": [
+      "Actual photograph corroborates raised narrow central entrance gable with pale vertical frame/glazing divisions and lower roof returns on both sides.",
+      "Photo establishes existence of a physical steeple in2021, replacing prior logo-only ambiguity; v3 correctly does not invent its geometry/height.",
+      "Raised-return interpretation supersedes earlier tentative lower-hip inference; full wallline/end-depth dimensions are still unmeasured."
+    ],
+    "pixels_published_or_textured": false,
+    "current2026": "unknown"
+  },
+  "decision": "pass_bounded_historical_raised_central_return_candidate_cpu_source_photo_review_actual_render_and_legacy_reconciliation_pending",
+  "limitations": [
+    "Original class1/6 support is dense and source-compatible, but exact selected fit membership/selection recipe is not in raised_end_plane_fits summary; no exact independent refit claim.",
+    "Rectangle/half-meter end-domain and1m forward extension are source-envelope interpretations; do not promote to surveyed wall/overhang lines.",
+    "Frontage alignment is for separately labeled photo-proportioned appearance; it does not make photo dimensions measured.",
+    "Broad main ridge cap/vent, west service block, south campus wings/courtyard and precise joins remain unsupported/unmodeled.",
+    "Legacy2919/3065 overlap still requires exact partial replacement/mask before activation; do not hide entire campus.",
+    "Historical2018-2019 LiDAR plus2021caption photo and2024/2025qualitative aerial are not current2026 as-built proof.",
+    "No wholebuilding/wholecampus/steeple/facade or full-ticket acceptance; no GPU/editor/source changes by reviewer."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "twin.church-wing-activation-code-review/1",
+  "reviewed_utc": "2026-11-02T18:38:46.588620+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_wing_preapplication_core_guards_and_package_only",
+  "sources_sha256": {
+    "tools/activate_church_wing.py": "aac59a2ef86ba936663044fb66bc1f9479e36c0e7a800b4bb4e71f5d2ada8bbf",
+    "tools/activate_church_integration.py": "5f12667e4bfcfadba1bd5fca6c8e0fd2f4b6beef3db6d6c0a46942745a16d550"
+  },
+  "plan": {
+    "path": "data/diagnostics/church_wing_integration_20261102/activation_plan.json",
+    "sha256": "8647c3b681316fff731ecfc08cf8a0e38bea8b5d7a5ca796153072c5d94a341e",
+    "canonical_package_sha256": "2fdb4e7fb8f3e6170486a3f82ee06bfd8194323455d0a175bed1ad054fbd9303",
+    "actual_verify_full_require_layer_false_passes": true,
+    "wing_layer_receipt_absent": true,
+    "main_church_actual_validator_still_passes": true,
+    "critical_dependencies": 25,
+    "comparison_context_dependencies": 4,
+    "all_seven_protected_hashes_match": true
+  },
+  "identity": {
+    "actual_source_entity_matches_site": "ocpa:building-group:69f7107de66f455f9cb153eb",
+    "source_alias": "Building_2892",
+    "source_building_number": "4",
+    "source_object_ids": [
+      "1158142",
+      "1160052",
+      "1170575"
+    ],
+    "source_pid": "292214146004210",
+    "assigned_parcel_context": "292214146005190",
+    "adds_physical_entity": false,
+    "physical_building_count": null,
+    "no_new_floor_count_or_accepted_tax_link": true
+  },
+  "canonical_package_binding": {
+    "compared_attributes_and_connections": 999,
+    "compared_relationship_targets": 84,
+    "compared_world_transforms": 45,
+    "customdata_identity_equal": true,
+    "differences": [],
+    "scope": "Canonical package-over-active-root versus exact reviewed continuousB stage, for wing roof/enclosure and2892/2919 body/roof/storefront remainder descendants. Asset paths normalized.",
+    "prior_actual_visual_review": "docs/evidence/church-wing-continuous-review.json"
+  },
+  "guard_review": {
+    "main_legacy_change": "Explicit optional source paths; validates exact canonical main layer/receipt and nonrecursive wing identity before muting accepted corrections to inspect original sources. No arbitrary layer mute and no main/wing fingerprint recursion.",
+    "raw_six_group_fingerprint_actually_matches": "6089acbbd7b8d41bc6b708876b329c9668c1eb414ef1dd2211e0fcdb197c1131",
+    "source_guard_scope": "Six original raw body/roof groups plus2892storefront descendants, source customData/geometry/relationships/world transforms and bound materials.",
+    "production_recipe": "Historical diagnostic source evidence and measured points/outlines pinned; frozen producing helper and digest-named contributor archives retained. Broad root/manual bytes treated as comparison context; manual semantic fingerprint and source semantic fingerprints remain live guards.",
+    "publication": "Prevalidates plan, refuses existing destination, inserts one sublayer after manual in anonymous root copy, verifies nonsublayer opinions, backs up root/plan, stages three files, rechecks manual/raw sources and exact root bytes, publishes root last. Ordinary pre-root failures remove new artifacts; global atomicity/crash recovery not claimed.",
+    "no_editor_or_api_actions_in_module": true
+  },
+  "memory_only_negative_cases": {
+    "wrong_existing_entity": "rejected",
+    "adds_physical_entity_true": "rejected",
+    "stale_snapshot": "rejected",
+    "remove_dependency": "rejected",
+    "tamper_layer_digest": "rejected",
+    "change_manual_fingerprint": "rejected",
+    "change_raw_source_fingerprint": "rejected"
+  },
+  "remaining_gates": [
+    "Root dispatch/registry/consumer integration reviewed separately; this report does not claim those paths exercised.",
+    "Actual adoption requires separate root/manual/source preservation, one existing-context correction record and current active-root composition review.",
+    "Native editor refresh, actual adopted rendering and runtime performance remain unexercised.",
+    "All historical source, estimated boundary/closure, lower-return, current-condition, facade-detail and identity limitations remain; no broad-ticket completion."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-wing-activation-code-review.json",
+    "application_gpu_editor_api_or_source_mutations": false,
+    "new_test_suite": false
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "commit": "2ff6ceea3370d9976d7e3983e7ff9d56dda60378",
+  "git_archive_sha256": "4e3510390a7b4cc2573ab292fa9de748f3349b5aa47609f32b065c5f48259433",
+  "checkout": "C:\\Users\\ajoiv\\AppData\\Local\\Temp\\twin-head-checkout-mn1vdqu2\\checkout",
+  "sample": "C:\\Users\\ajoiv\\AppData\\Local\\Temp\\twin-head-checkout-mn1vdqu2\\portable sample",
+  "source": "git archive HEAD only; no working-tree source copied",
+  "dependency": "Existing external usd-core 26.11 in C:/Projects/TWIN/.dependencies via PYTHONPATH; no install",
+  "build_returncode": 0,
+  "tests": "test_clean_cli_arbitrary_cwd_and_portable_dependency_closure (test_sample_build.SampleBuildTests.test_clean_cli_arbitrary_cwd_and_portable_dependency_closure) ... ok\ntest_deterministic_outputs_and_existing_files_protected (test_sample_build.SampleBuildTests.test_deterministic_outputs_and_existing_files_protected) ... ok\ntest_generated_experience_uses_renderer_and_self_contained_edit_controls (test_sample_build.SampleBuildTests.test_generated_experience_uses_renderer_and_self_contained_edit_controls) ... ok\ntest_manual_scenario_separation (test_sample_build.SampleBuildTests.test_manual_scenario_separation) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.315s\n\nOK\n",
+  "sample_manifest": {
+    "format_version": 1,
+    "scene": "sample.usda",
+    "fictional": true,
+    "license": "CC0-1.0",
+    "counts": {
+      "buildings": 10,
+      "trees": 12,
+      "cars": 4
+    },
+    "camera": "/World/Cameras/Overview",
+    "render_resolution": [
+      1280,
+      720
+    ],
+    "camera_aperture_mm": [
+      36,
+      20.25
+    ],
+    "meters_per_unit": 1,
+    "up_axis": "Z",
+    "layers": [
+      "manual.usda",
+      "scenario.usda",
+      "base.usda"
+    ],
+    "external_assets": [],
+    "unresolved_assets": [],
+    "sha256": {
+      "sample.usda": "3d52aa12dd5a66a6b576f7d7e05857bfce6af85b22706497e00df553506b0a01",
+      "base.usda": "7a2a3f88a42105376cee1ea0809018efd6bf608ebaf2160cf8562c1511189df6",
+      "manual.usda": "994febd197aedd104fe5d73359942ca56778cedda4c97852cfe96b797c43c94a",
+      "scenario.usda": "c63a33327caf9f57ee17f4a1cfc6b3098f3986fb09408891add0ada2e6e4e725",
+      "sample.kit": "09208965bf9bdadf44f7d622fab4fc17d06dcb6555657ab5946992671b6f6a8f",
+      "open_sample.py": "60cc3cb9b41df1c6c9750efa3f900c03d07e8dd6f693397562bdd6c2a65440be"
+    }
+  },
+  "ui_acceptance": {
+    "source_commit": "2ff6ceea3370d9976d7e3983e7ff9d56dda60378",
+    "actions": [
+      "Clicked Edit scenario layer",
+      "Clicked Hide cars in selected edit layer",
+      "Clicked Save selected edits; observed Saved scenario.usda only",
+      "Clicked Edit manual layer",
+      "Clicked Show cars in selected edit layer",
+      "Clicked Save selected edits; observed Saved manual.usda only"
+    ],
+    "scenario_saved_visibility": "invisible",
+    "manual_saved_visibility": "inherited",
+    "reopened_usd_visibility": "inherited",
+    "base_sha256_unchanged": true,
+    "assembly_sha256_unchanged": true,
+    "manual_sha256": "3a27937d080a4d8e562d9658dce70948cf8c252677d0e74acdade7f8aabb5e6b",
+    "scenario_sha256": "3cd7c3cd7760b3b463cf38d57c24c3173ff889e69d0217e53c72e35a8f95539c",
+    "ui_screenshot": "ui_manual_saved.jpg",
+    "owned_ui_pid": 44516,
+    "protected_pid": 42464,
+    "path_issue": "Kit --exec requires inner quoting of a bootstrap path with spaces; relative bootstrap filename from sample cwd is safe.",
+    "actual_kit_reopen_verified": true,
+    "reopen_launch": "Relative sample.kit and open_sample.py, cwd at relocated sample folder containing a space; no launch error",
+    "owned_reopen_pid": 49316,
+    "remaining_patch": "Working-tree bootstrap now disables its application guide grid; source commit 2ff6cee used for CUA test still displayed the grid."
+  }
+}

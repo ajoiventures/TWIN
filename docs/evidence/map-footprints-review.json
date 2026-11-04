@@ -1,0 +1,113 @@
+{
+  "schema": "twin.independent-map-footprints-review/1",
+  "reviewed_utc": "2026-11-03T17:19:03.977639+00:00",
+  "reviewer": "independent footprint_review agent; not implementation author",
+  "decision": "qualified cached provider/source-geometry and visible in-boundary map presentation pass; whole ticket acceptance remains open",
+  "reviewed_file_hashes": {
+    "tools/build_map_footprints.py": "903f68f2a56c80ee4ef3d1843ecfab395590c7403263b44e120de5ae911df459",
+    "tests/test_map_footprints.py": "fe90bd6eb5da26f3158248c24ddaa168867e6982868d1dd7bf4967b080b4055f",
+    "tools/serve.py": "184957eced23799ff18edfe8c92a8508a05f04ca624dfa1e6c285913bc2d592c",
+    "web/index.html": "d7a5d4b7b36c10cad883dcaae74f6273ae438486fad6e14c32a8e9cb4ce882b0",
+    ".gitignore": "4429f97085c01e191ffa99e1b2737efe7b79ef2c211478b771885ded4aaa2c12",
+    "data/processed/map_building_footprints.json": "28d6c71374f2ef0e0404396ab076c1ecb9024e69e2374cd4ce5a1ce8b5a04024",
+    "data/processed/map_building_footprints.json.receipt": "342faef0553fe48c44ed5a8b0b66c91060e119428686b5cfa254fdfc5e1d63bb"
+  },
+  "source_snapshot": "20261028T160543372334Z",
+  "packet_sha256": "c7c3752182099f2d16e6cb93a50c30dc657c4c6d4284f6f4bc6df7bbdb5893de",
+  "checks": {
+    "transitive_lineage_validation": "read_packet directly calls existing validate_lineage, checks immutable packet identity and returned geometry/registry fingerprints in addition to six direct source hashes",
+    "raw_object_ids": 13999,
+    "raw_object_ids_present_exactly_once": true,
+    "valid_output_geometries": 3262,
+    "registry_source_groups": 3216,
+    "separate_unrepresented_review_groups": 46,
+    "unrepresented_raw_subareas": 73,
+    "inherited_accepted_parcel_links": 2976,
+    "new_parcel_links_accepted": false,
+    "documented_fields": 22,
+    "all_21_feature_properties_documented": true,
+    "producer_hash_matches_current_script": true,
+    "independently_projected_distributed_union_samples": 27,
+    "sample_max_symmetric_difference_m2": 0.0,
+    "duplicate_parcel_number_source_features_retained": 2,
+    "duplicate_feature_context_policy": "Existing candidate lists preserved verbatim; repeated PIN does not create extra spatial candidates or accepted links. Fixture independently verifies two candidate features with one PIN remain distinct.",
+    "focused_unittests": {
+      "passed": 3,
+      "seconds": 0.189,
+      "scope": [
+        "hole and source-membership retention; separate orphan and duplicate-feature contexts",
+        "conflicting source identities rejected",
+        "tampered packet, changed snapshot and transitive validator failures rejected"
+      ]
+    },
+    "javascript_parse": "node new Function of actual inline script passed",
+    "http": {
+      "url": "http://127.0.0.1:8769/api/v1/building_footprints",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "cache_control": "no-store",
+      "features": 3262,
+      "snapshot": "20261028T160543372334Z",
+      "fields": 22,
+      "all_properties_documented": true,
+      "observed_request_seconds": 0.7929528999957256,
+      "performance_claim": "One observed local request; not district benchmark"
+    },
+    "ui_static_review": "Default-on footprint toggle, source/review styles, exact parcel-feature contexts, source/unknown-date inspector, and unaccepted-context 3D-selection suppression are implemented in code. Actual user interaction not independently exercised. Independently viewed integrator screenshot and computed outside-clip cause; no UI actions performed by this reviewer. Second actual screenshot independently passes bounded visible in-boundary footprint/inspector presentation with3Dlinkoff.",
+    "encoding": "Initial mojibake finding corrected concurrently by integrator; final direct Unicode-codepoint checks show valid ellipses/middle dots and zero corresponding mojibake sequences.",
+    "actual_screenshot_review": {
+      "path": "data/diagnostics/map_footprints_20261103/browser.png",
+      "sha256": "4131e297333b40317ffbfea025917e1233ef307837191f24bd55f59443e536a0",
+      "directly_visible": [
+        "Property search query1615Edgewater and two matching results",
+        "Parcel inspector3607GRANTBLVD",
+        "Building_0000 source inspector with5objectIDs, stableentity, originalsourceparcel, accepted-existing-context qualifier and unknown-date/currentness text",
+        "Buildingfootprints togglechecked",
+        "Selected parcel outline on otherwise blank focusedmap"
+      ],
+      "not_proven_by_still_image": [
+        "Search/result/button event sequence",
+        "Toggleoff/on event sequence",
+        "3Dlink checkboxstate belowcrop",
+        "Visible footprint geometry/highlight",
+        "Pointer footprint selection"
+      ],
+      "independent_boundary_check": {
+        "frame": "actual8769/api/v1/map EPSG32617 and verifiedfootprintpacket",
+        "Building_0000_union_area_m2": 193.5714441298542,
+        "Building_0000_area_inside_official_map_clip_m2": 0.0,
+        "Building_0000_distance_to_official_map_clip_m": 136.0576041490307,
+        "linked_parcel_feature": "ocpa:109684",
+        "linked_parcel_area_inside_official_map_clip_m2": 0.0,
+        "linked_parcel_distance_to_official_map_clip_m": 131.6632412062785
+      },
+      "finding": "Outside-boundary footprint is clipped from paint and mouse hit testing, but all source paths remain tabindex0; keyboard can reach invisible outside-context paths. A visible in-boundary pointer check remains needed. The selectedProperty outline is intentionally outside the clip and does not prove a visible footprint."
+    },
+    "in_boundary_actual_screenshot_review": {
+      "path": "data/diagnostics/map_footprints_20261103/mainstreet.png",
+      "sha256": "1304cdd65c52f317e642d3952d659f8ee853f3b86e5bd50f4a447bc7778898ee",
+      "directly_visible": [
+        "Source footprint shapes overlay parcels/streets and CityMainStreet boundary",
+        "Selected parcel and emphasized source footprint nearintersection",
+        "Building_2945 inspector with stableentity, originalOBJECTID1169695, sourcePID292214146002260/BLDG_NUM2, registrymembership and accepted-existing-context qualifier",
+        "Viewlinkedparcel2204EDGEWATERDR button with exactfeatureocpa:332228",
+        "Unknown observation/effective dates and unverifiedcurrentconditions",
+        "All5layer toggleson, includingBuildingfootprints",
+        "Linkpropertyselectionwith3D unchecked and Mapinspectiononly message",
+        "Summary3216sourcegroups+46reviewgroups from13999cachedsubareas"
+      ],
+      "visual_decision": "Pass for bounded visible source-footprint overlay and readable inspector; imagery registration, surveyed placement and district visual realism are outside this result.",
+      "interaction_attribution": "Integrator root reports successful visible Building2945 pointer selection after2204Edgewater search; reviewer directly inspected resulting screenshot, not event execution.",
+      "remaining_issue": "Outside-boundary clipped paths still tabindex0; prior Building0000 keyboard selection remains a distinct accessibility limitation."
+    }
+  },
+  "side_effects": "Reviewer read sources and GET endpoint, ran focused tests/parse, wrote only this aggregate review evidence. No server/UI/selection/scene/source edits.",
+  "limitations": [
+    "Reviewer independently inspected two actual screenshots, not the event sequences. The second verifies visible in-boundary source-footprint presentation/selection state; root separately reports successful Building2945 mouse selection. Outside-clip keyboard focus remains unresolved.",
+    "27 projected union samples support those samples; complete raw membership census and validity check are separate whole-output checks.",
+    "Source geometry observation/effective dates unknown; footprint unions are not surveyed walls, current roof geometry or physical-building counts.",
+    "No licensed basemap registration, full-neighborhood 3D coverage, full-focus-corridor registration or whole-ticket closure proved.",
+    "The cached packet retains 2976 previously accepted links; zero NEW links does not mean zero inherited links.",
+    "No original source geometry or imagery is embedded in this evidence."
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "capture": "data/renders/20261104T000458Z",
+  "camera": "/World/Cameras/TerrainEdgewaterSouth",
+  "source_snapshot": "20261028T160543372334Z",
+  "image_sha256": "7222f6dd70eaa44583b6e34d4ac5f1a44aaa762c790646cb5d9d23b71d1fb565",
+  "scene_sha256": "1fb6aef127188d991b6b97d4e1be995f21207db17e4ce0d102418ff2429a65fd",
+  "manifest_sha256": "52d4abc5c3366b50446ce2e8776efc2d391ff1b27517fb194917070368f94d23",
+  "verified_capture_layer_count": 39,
+  "method": "Intersected pixel-center rays with fan-triangulated visible composed USD meshes using the capture manifest pose and projection. Sorted positive ray intersections by depth. Sampled upper faces separately at identical XY coordinates to estimate height differences in the composed model. RGB samples are descriptive and carry no calibrated light or material interpretation.",
+  "scope_limits": [
+    "Samples cover the named pixels and visible non-instance mesh traversal only. Fan triangulation and geometric intersections approximate renderer coverage.",
+    "A dark color alone cannot distinguish shadow from material. Ground intersections establish that terrain exists under the sampled strip. No surveyed elevations, physical curb, threshold or accessibility grade were inferred."
+  ],
+  "observations": [
+    {
+      "region": "Left transverse dark span",
+      "source": "/World/Storefronts/Building_2897/Front_0/EntryPaving",
+      "visible_first_hit": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+      "adjacent_surface": "/World/Streets/Shoulders_83288818",
+      "common_xy_entry_top_z_m": 2.13,
+      "common_xy_shoulder_z_m_range": [
+        1.852263,
+        1.852296
+      ],
+      "common_xy_step_m_approx": 0.278,
+      "decision": "Pixels x500 y853\u2013863 and x540 y854\u2013859 hit a vertical illustrative closure face. The modeled step remains visible. The sampled dark face is present geometry."
+    },
+    {
+      "region": "Vassar road-to-shoulder dark edge",
+      "road": "/World/Streets/Road_11183058",
+      "shoulder": "/World/Streets/Shoulders_11183058",
+      "common_xy_road_above_shoulder_m": 0.03,
+      "common_xy_shoulder_above_ground_m": 0.035,
+      "decision": "The darker pixels x1320 y836 and x1470 y841 first hit the shoulder upper face. Both surfaces overlap at those XY coordinates. The ray and common-XY tests support a modeled surface offset with dark edge appearance."
+    },
+    {
+      "region": "Right uncovered surface strips",
+      "decision": "Ground is the only recorded visible mesh at samples (1320,861), (1470,869), (1680,864), (1680,870) and (1680,901). The first sample of the neighboring road at (1680,880) hits Road_559971505. The sampled strips expose terrain between rendered surfaces. Whether these extents represent real paving is unresolved."
+    }
+  ],
+  "correction_boundary": "Keep physical thresholds, curbs, grades and paving limits held for measured or dated evidence. A visual-only candidate could isolate the illustrative skirt material or local overlap shading while preserving source geometry and render the same camera pair. A road surface extension or threshold lowering would change unsupported physical interpretation.",
+  "samples": [
+    {
+      "pixel": [
+        500,
+        850
+      ],
+      "rgb": [
+        91,
+        89,
+        84
+      ],
+      "hits": [
+        {
+          "path": "/World/Storefronts/Building_2897/Front_0/EntryPaving",
+          "xyz_m": [
+            -38.523674,
+            114.091523,
+            2.13
+          ],
+          "normal": [
+            -0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_83288818",
+          "xyz_m": [
+            -38.108519,
+            112.822573,
+            1.842498
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        500,
+        853
+      ],
+      "rgb": [
+        12,
+        13,
+        14
+      ],
+      "hits": [
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -38.553198,
+            114.182592,
+            2.098112
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_83288818",
+          "xyz_m": [
+            -38.189925,
+            113.072259,
+            1.844288
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        500,
+        856
+      ],
+      "rgb": [
+        12,
+        13,
+        14
+      ],
+      "hits": [
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -38.552928,
+            114.182593,
+            2.045587
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_83288818",
+          "xyz_m": [
+            -38.269854,
+            113.317415,
+            1.846046
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        500,
+        863
+      ],
+      "rgb": [
+        8,
+        9,
+        9
+      ],
+      "hits": [
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -38.552297,
+            114.182596,
+            1.923015
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_83288818",
+          "xyz_m": [
+            -38.450833,
+            113.872509,
+            1.850026
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        500,
+        867
+      ],
+      "rgb": [
+        92,
+        87,
+        74
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Road_1364513055",
+          "xyz_m": [
+            -38.593439,
+            114.309431,
+            1.883164
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        },
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -38.551936,
+            114.182597,
+            1.852966
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        540,
+        859
+      ],
+      "rgb": [
+        12,
+        13,
+        14
+      ],
+      "hits": [
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -39.253043,
+            114.179918,
+            1.99514
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_83288818",
+          "xyz_m": [
+            -39.096417,
+            113.657896,
+            1.873736
+          ],
+          "normal": [
+            0.02854,
+            -0.00347,
+            0.99959
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        540,
+        864
+      ],
+      "rgb": [
+        18,
+        20,
+        20
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Road_1364513055",
+          "xyz_m": [
+            -39.253266,
+            114.182032,
+            1.908114
+          ],
+          "normal": [
+            0.03685,
+            0.00485,
+            0.99931
+          ]
+        },
+        {
+          "path": "/World/TerrainContactClosures/Closure_1a3a27dbb8bed5d49f",
+          "xyz_m": [
+            -39.252632,
+            114.179919,
+            1.907616
+          ],
+          "normal": [
+            -0.00382,
+            0.99999,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1320,
+        832
+      ],
+      "rgb": [
+        149,
+        146,
+        135
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Road_11183058",
+          "xyz_m": [
+            -53.590747,
+            110.663041,
+            1.768742
+          ],
+          "normal": [
+            -0.04773,
+            -0.00108,
+            0.99886
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_11183058",
+          "xyz_m": [
+            -53.624347,
+            110.513479,
+            1.736974
+          ],
+          "normal": [
+            -0.04773,
+            -0.00108,
+            0.99886
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1320,
+        836
+      ],
+      "rgb": [
+        3,
+        3,
+        3
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Shoulders_11183058",
+          "xyz_m": [
+            -53.537128,
+            110.903107,
+            1.741564
+          ],
+          "normal": [
+            -0.04773,
+            -0.00108,
+            0.99886
+          ]
+        },
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -53.575812,
+            110.730924,
+            1.704529
+          ],
+          "normal": [
+            -0.04773,
+            -0.00108,
+            0.99886
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1320,
+        861
+      ],
+      "rgb": [
+        171,
+        186,
+        136
+      ],
+      "hits": [
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -53.04639,
+            113.095451,
+            1.761223
+          ],
+          "normal": [
+            -0.04771,
+            -0.02867,
+            0.99845
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1470,
+        839
+      ],
+      "rgb": [
+        168,
+        164,
+        152
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Road_11183058",
+          "xyz_m": [
+            -56.444,
+            110.898968,
+            1.692587
+          ],
+          "normal": [
+            0.00253,
+            0.01562,
+            0.99987
+          ]
+        },
+        {
+          "path": "/World/Streets/Shoulders_11183058",
+          "xyz_m": [
+            -56.485751,
+            110.770315,
+            1.664703
+          ],
+          "normal": [
+            0.00253,
+            0.01562,
+            0.99987
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1470,
+        841
+      ],
+      "rgb": [
+        31,
+        32,
+        32
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Shoulders_11183058",
+          "xyz_m": [
+            -56.431725,
+            110.937472,
+            1.661955
+          ],
+          "normal": [
+            0.00253,
+            0.01562,
+            0.99987
+          ]
+        },
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -56.480157,
+            110.788235,
+            1.629409
+          ],
+          "normal": [
+            0.00253,
+            0.01562,
+            0.99987
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1470,
+        869
+      ],
+      "rgb": [
+        175,
+        191,
+        142
+      ],
+      "hits": [
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -55.711804,
+            113.164604,
+            1.643611
+          ],
+          "normal": [
+            0.05417,
+            -0.02867,
+            0.99812
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1680,
+        864
+      ],
+      "rgb": [
+        27,
+        31,
+        21
+      ],
+      "hits": [
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -59.574049,
+            112.89418,
+            1.685267
+          ],
+          "normal": [
+            0.00253,
+            -0.0802,
+            0.99678
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1680,
+        870
+      ],
+      "rgb": [
+        166,
+        183,
+        134
+      ],
+      "hits": [
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -59.254632,
+            113.584569,
+            1.740006
+          ],
+          "normal": [
+            0.00253,
+            -0.0802,
+            0.99678
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1680,
+        880
+      ],
+      "rgb": [
+        148,
+        144,
+        135
+      ],
+      "hits": [
+        {
+          "path": "/World/Streets/Road_559971505",
+          "xyz_m": [
+            -58.580024,
+            115.041591,
+            1.918188
+          ],
+          "normal": [
+            0.05417,
+            -0.02867,
+            0.99812
+          ]
+        },
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -58.756872,
+            114.660431,
+            1.825308
+          ],
+          "normal": [
+            0.00253,
+            -0.0802,
+            0.99678
+          ]
+        }
+      ]
+    },
+    {
+      "pixel": [
+        1680,
+        901
+      ],
+      "rgb": [
+        176,
+        193,
+        143
+      ],
+      "hits": [
+        {
+          "path": "/World/Ground",
+          "xyz_m": [
+            -58.060347,
+            116.167412,
+            1.857316
+          ],
+          "normal": [
+            0.05417,
+            -0.02867,
+            0.99812
+          ]
+        }
+      ]
+    }
+  ]
+}

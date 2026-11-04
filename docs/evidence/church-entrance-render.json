@@ -1,0 +1,31 @@
+{
+  "captured_utc": "2026-10-30T16:13:10.445505+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "camera": "/World/Cameras/ChurchEntranceAppearance",
+  "proposal_layer": null,
+  "requested_resolution": [
+    1920,
+    1080
+  ],
+  "scene": "scene\\church_frontage_review_20261030.usda",
+  "scene_sha256": "7eb4e2918187b212e5eb336db9e9270720e1bba0b52b9cf763e0110b268fec00",
+  "layer_hashes": {
+    "data/diagnostics/church_frontage_20261030/appearance.usda": "dfa41bd89b51b0d5a9b999b0843936093935b6a6f539f8602a5a701dcf8d6636",
+    "scene/office_brick_material_proposal.usda": "5dc49a99d0249be292e635df43b8da67d1b8c4b0486b4322d2a7e48f6f038142",
+    "scene/church_frontage_review_20261030.usda": "7eb4e2918187b212e5eb336db9e9270720e1bba0b52b9cf763e0110b268fec00",
+    "data/diagnostics/next_landmark_20261030/church_on_drive/sanctuary_candidate_v3/review.usda": "89d9f9d126be8e48ea6ac5c663aef76fb1925a0b68f96113e694bbe293097a58",
+    "data/diagnostics/church_frontage_20261030/review.usda": "209ea17a441c4a6394ba02693d0cfeea6a33a87cf566349016ab1d9aaa9d9111",
+    "data/diagnostics/next_landmark_20261030/church_on_drive/sanctuary_candidate_v3/site.usda": "f9776fb169fdc9a55da8eb224f000a75a983d65188321fe6c3f38e34fc05223c"
+  },
+  "image": "data\\renders\\20261030T161021Z\\ChurchEntranceAppearance.png",
+  "image_sha256": "f2c6af5b11977f269e54df31ac326b10e99ebc0af7474ee63ad20ac810ca899e",
+  "elapsed_seconds": 168.86,
+  "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+  "source_stage_saved": false,
+  "render_stage": {
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "root_mode": "transient_precomposed",
+    "capture_tool_sha256": "881eb4f58fa303a6452bc8b2076e009d306dab1accef59370259490bbd2cbc42"
+  }
+}

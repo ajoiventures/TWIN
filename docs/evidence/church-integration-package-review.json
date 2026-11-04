@@ -1,0 +1,87 @@
+{
+  "schema": "twin.church-integration-package-review/1",
+  "reviewed_utc": "2026-11-02T16:21:31.249471+00:00",
+  "reviewer": "Independent visual QA agent",
+  "implementation_author": "Root integrator",
+  "decision": "pass_inactive_historical_sanctuary_packaging_only",
+  "package": {
+    "directory": "data/diagnostics/church_integration_20261102_b",
+    "site_sha256": "55388928a2750ed22e739ef9fad2c5137835a60335a3abe45ab08cc1c50e3fbc",
+    "manifest_sha256": "14e13bfce1f39555a9768c47d66bff4514be237cf44ab290a9089acce2ba8af4",
+    "frozen_producer_sha256": "b32b031c1156ad9632476558bd6423999f488ff42073185384379c96e30bbbcf",
+    "working_producer_matches_archive": true,
+    "source_snapshot": "20261028T160543372334Z",
+    "activated": false
+  },
+  "independent_checks": {
+    "all_66_dependency_hashes_match": true,
+    "six_protected_files_match_before_after_and_current": true,
+    "candidate_up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "sublayers": 0,
+    "cameras": 0,
+    "lights": 0,
+    "meshes_via_traverse_all": 77,
+    "prim_count_via_traverse_all": 119,
+    "selected_prim_whitelist_exact": true,
+    "compared_all_schema_attribute_values": 2064,
+    "compared_relationships": 167,
+    "compared_world_transforms": 84,
+    "render_value_differences": [],
+    "comparison_scope": "Four reconstruction/appearance roots, both 3065 remainder roots and untouched 2919 body/roof against composed clean C; AssetPath values normalized to resolved paths. Includes schema fallback attributes, hence count exceeds producer authored-attribute count 1980.",
+    "copied_external_material_attribute_comparisons": 11,
+    "copied_external_material_differences": [],
+    "external_material_roots": [
+      "/Asset/Materials/HistoricalSpireApproximation",
+      "/World/LandmarkMaterials/OfficeArchitectureChurchV3NeutralWall"
+    ],
+    "package_has_no_2919_body_or_roof_spec": true,
+    "two_storefront_suppression_specs_visibility_only": true,
+    "only_texture_assets": [
+      "assets/generated/office_brick/color.png",
+      "assets/generated/office_brick/normal.png",
+      "assets/generated/office_brick/roughness.png"
+    ],
+    "source_photograph_not_bound_as_texture": true
+  },
+  "identity_and_provenance": {
+    "four_representative_mesh_children_checked": true,
+    "inherited_publisher_url_snapshot_and_false_policy_flags_present": true,
+    "source_parcel_context_not_accepted_tax_identity": true,
+    "prior_legacy_identity_and_ambiguity_preserved_by_unchanged_source_composition": true,
+    "photo_observation_date": "2021-11-08",
+    "project_acquisition_interval": [
+      "2018-12-04",
+      "2019-04-12"
+    ],
+    "acquisition_interval_scope": "USGS project range, not known local flight; photograph date separate",
+    "vertical_datum_scope": "NAVD88/meters describe elevation source context; photo-derived appearance dimensions and spire tip are not surveyed measurements.",
+    "inspector_actual_children_show_source_and_separate_dates": true,
+    "appearance_roots_present_in_confidence_targets": true,
+    "frontage_and_belfry_category": "illustrative",
+    "sanctuary_category": "historical_lidar",
+    "spire_category": "unknown (conservative; original detailed proxy limitation preserved)",
+    "workspace_evidence_helper_not_in_frozen_package_dependencies": true
+  },
+  "visual_binding": {
+    "prior_independent_review": "docs/evidence/church-frame-gate-review.json",
+    "image": "data/renders/20261102T155708Z/ChurchAssembly.png",
+    "image_sha256": "f5c85995a744d73e0fe221d1efb2f9de52d73728c596ab457e05a6e74229fb5f",
+    "capture_manifest_sha256": "d5fbe7d871994110b74b4efd3c4d5d218ee128b28dbbeb5e75a7f9f1aba962c3",
+    "binding_basis": "Exact source hashes plus independently equal composed render attributes, relationships, world transforms and external materials bind the existing clean C view to this inactive package. Metadata additions do not alter render values.",
+    "decision": "Existing single-view clean-road/wall and coherent attached entrance/belfry/spire verdict applies narrowly. No new canonical-package render performed.",
+    "no_new_gpu_capture_required_for_verified_zero_render_delta": true
+  },
+  "remaining_gates": [
+    "Church-specific canonical validator and guarded additive activation remain separate; no activation approved or performed by this report.",
+    "Split critical canonical geometry/material/source dependencies from captured comparison context before production guarding; the 66-file closure includes unrelated historical full-scene assets.",
+    "Freeze contributing producer helpers in the canonical recipe instead of invalidating accepted geometry after unrelated working-helper edits.",
+    "Preserve camera-independent manual-model fingerprint, original 2919/3065 source identities and all existing root/manual/office/post/paving opinions during future application.",
+    "Current conditions, whole campus, surveyed wall lines, measured spire tip, windows/roof/site detail, public derivative release, and tickets 6/11 completion remain unaccepted."
+  ],
+  "review_side_effects": {
+    "only_written_file": "docs/evidence/church-integration-package-review.json",
+    "gpu_editor_api_or_active_source_mutations": false,
+    "new_test_suite": false
+  }
+}

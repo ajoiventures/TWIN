@@ -1,0 +1,83 @@
+{
+  "schema": "twin.church-activation-code-review/1",
+  "reviewed_utc": "2026-11-02T16:27:35.029500+00:00",
+  "reviewer": "Independent visual QA agent",
+  "decision": "pass_preapplication_code_and_plan_only",
+  "reviewed_source_sha256": {
+    "tools/activate_church_integration.py": "0f7832bf4134c939fc342b50beccfa0e8790994ab599f3ef99df51c40207eb1c",
+    "tools/accepted_scene_layers.py": "568c044fbfb2e8652e4919d59ec0b6ef4337594afab3ff685cf33144c3e0c772",
+    "tools/connect_scene.py": "b6c357c87bd53bd8901c2181acb0117dade1fb8d79934dac43a4c6ad6afed9d6",
+    "tools/open_workspace.py": "88864a9833d4667cd3764030147a39b36d5e36f9b171c693f210adfe30052608",
+    "tools/register_reconstructions.py": "62a88735ff45296301358def345589685922989b76bc061a2a0b6f56a823aa70"
+  },
+  "activation_plan": {
+    "path": "data/diagnostics/church_integration_20261102_b/activation_plan.json",
+    "sha256": "96d0a3c1ef5faf6dec8cc90e89d5a2bea766c49f456734aabb85b98793070a91",
+    "actually_validated_require_layer_false": true,
+    "accepted_layer_and_receipt_absent": true,
+    "critical_dependency_count": 43,
+    "captured_context_count": 36,
+    "frozen_contributor_helper_archives": 9
+  },
+  "findings_resolved": [
+    {
+      "finding": "Registry component schema expected dictionaries but initial canonical site used strings.",
+      "resolution": "Final canonical components contain id and prim_path matching registry consumer; independently inspected final plan."
+    },
+    {
+      "finding": "Latest frame-gate visual report absent from initial FIXED set.",
+      "resolution": "Final recipe explicitly pins latest frame-gate report alongside actual clean image/manifest, package review and four source/mask reviews."
+    }
+  ],
+  "recipe_review": {
+    "geometry_candidate_sha256": "55388928a2750ed22e739ef9fad2c5137835a60335a3abe45ab08cc1c50e3fbc",
+    "critical_vs_context_split": "Exact reviewed diagnostic geometry, point data, photograph, manifests, brick texture assets, source-building data, snapshot and independent reviews are required. Broad scene/tree/car capture context is not a live immutable prerequisite.",
+    "producer_version_guard": "Nine contributing Python helpers use digest-named archives; package producer already frozen independently. Working-helper edits do not substitute new producer bytes.",
+    "legacy_semantic_sha256": "0862fe207f519338f72a4353eaff956e928878339538c8961eb93b9512eaeae6",
+    "legacy_fingerprint_actually_matches": true,
+    "legacy_guard_scope": "Original 2919/3065 body, roof and storefront descendants, customData identity, default attributes, relationships, world transforms and directly bound material attributes/connections; accepted church layer muted when present.",
+    "manual_guard": "Camera-independent manual-model fingerprint checked at validation and again before publication; raw root preserved with exact prepublication race checks."
+  },
+  "independent_memory_only_negative_receipt_checks": {
+    "stale_snapshot": "rejected",
+    "promote_tax_identity": "rejected",
+    "wrong_parcel_set": "rejected",
+    "remove_required_dependency": "rejected",
+    "tamper_layer_sha256": "rejected",
+    "change_manual_model_fingerprint": "rejected",
+    "scope": "Six cases exercised against preceding plan with identical validation logic; final 43-dependency plan separately validated successfully. No files altered by mutation checks."
+  },
+  "application_code_review": {
+    "additive_root_change": "Only one church sublayer inserted after manual in anonymous root copy; other root opinions and existing sublayers retained.",
+    "publication": "Backups original root+plan; stage candidate/receipt/root; verify again; publish root last using atomic per-file replacement; ordinary pre-root failures remove newly staged artifacts. Multi-file operation is not globally atomic or crash recovery proven.",
+    "refresh": "church_historical.usda added to guarded refresh allowlist; native editor application not exercised.",
+    "rebuild": "Dedicated church validator called before connected-scene writes; optional layer kept when valid. Rebuild behavior not executed by this review.",
+    "registry": "Requires accepted layer composed and four components visible; appends exactly one reconstruction entity; no physical-building count or accepted raw tax link."
+  },
+  "identity": {
+    "entity_id": "church_on_drive_sanctuary",
+    "parcel_id": "292214146005190",
+    "parcel_ids": [
+      "292214146005190"
+    ],
+    "source_parcel_context": [
+      "292214146004210",
+      "292214146005190"
+    ],
+    "rendered_entity_count": 1,
+    "physical_building_count": null,
+    "raw_property_links_promoted": false,
+    "current_geometry_verified": false
+  },
+  "remaining_gates": [
+    "Actual adoption must receive separate root/manual/source byte and normalized single-sublayer-delta review.",
+    "Actual registry rebuild and accepted-layer validation after adoption remain unexercised.",
+    "No native editor refresh or new rendered view was run. Existing clean C visual binding remains single historical view only.",
+    "Whole-campus/current accuracy, source identity ambiguity, estimated facade/belfry dimensions, physical spire tip, public release and broad tickets remain open."
+  ],
+  "side_effects": {
+    "only_written_file": "docs/evidence/church-activation-code-review.json",
+    "no_application_gpu_editor_or_active_source_mutation": true,
+    "new_test_suite": false
+  }
+}

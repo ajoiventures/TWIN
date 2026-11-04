@@ -1,0 +1,13 @@
+{
+  "property_service": "https://vgispublic.ocpafl.org/server/rest/services/DynamicForJs/PARCEL/MapServer/4",
+  "footprint_service": "https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/28",
+  "address_service": "https://vgispublic.ocpafl.org/server/rest/services/DYNAMIC/Dynamic_Layers/MapServer/0",
+  "photo_template": "https://ocpaimages.ocpafl.org/api/Image/GetPIDImage?pid={parcel_id}",
+  "photo_endpoint_discovery": "Public OCPA propertycard application's main.b597ac6c4fe1b092.js parcelImageURL configuration, observed October28,2026",
+  "subjects": [
+    {"parcel_id":"292214147800250","expected_situs":"624 W PRINCETON ST","address_aliases":["624 W PRINCETON ST","626 W PRINCETON ST"],"observed_photo_caption_date":"2015-05-20","photo_visual_review":"Front caption says626WPrinceton; facade numbers624and626 visible. Single-story front mass visible; rearupperstory not visible.","two_storey_front_facade_observed":false},
+    {"parcel_id":"292214147800330","expected_situs":"520 W PRINCETON ST","address_aliases":["520 W PRINCETON ST","522 W PRINCETON ST"],"observed_photo_caption_date":"2024-02-12","photo_visual_review":"Caption520WPrinceton; two-storey facade and520/522doors visible.","two_storey_front_facade_observed":true}
+  ],
+  "confounder_parcels": ["292214147800150","292214147800440"],
+  "reuse_policy": "Local primary-reference review only; no publication, image redistribution or ML permission inferred. No owner/contact or financial attributes requested."
+}

@@ -1,0 +1,1486 @@
+{
+  "schema": "twin.pilot-aerial-review/1",
+  "source_snapshot": "20261028T160543372334Z",
+  "created_utc": "2026-10-29T00:32:09.316392+00:00",
+  "pilot_id": "edgewater-princeton-smith-south-v1",
+  "pilot_endpoints": [
+    {
+      "street": "W PRINCETON ST",
+      "coordinates": [
+        -81.3894438671397,
+        28.5711562880628
+      ]
+    },
+    {
+      "street": "W SMITH ST",
+      "choice": "southern intersection",
+      "source_intersection_count": 2,
+      "coordinates": [
+        -81.389439455784,
+        28.5719274524789
+      ]
+    }
+  ],
+  "pilot_reference_date": "2026-10-28",
+  "source_reference_manifest_snapshot": "20261028T145054204280Z",
+  "pilot_definition_comparison": "Geographic pilot context bbox verified unchanged; older imagery/queue snapshot aliases are not reused as current IDs",
+  "review_method": "AI analyst visual inspection of original cached January2022/January2024/January2025 images; qualitative source comparisons, not surveyed measurements",
+  "references": [
+    {
+      "source_id": "OCPA/Aerials2022",
+      "publisher": "Orange County Property Appraiser",
+      "source_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer",
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "effective_date": null,
+      "native_gsd_m": null,
+      "positional_accuracy_m": null,
+      "source_crs": "EPSG2236 NAD83 Florida East US survey feet",
+      "vertical_datum": "not applicable to2Dreference; no height inference",
+      "returned_extent": {
+        "xmin": 530941.8047705005,
+        "ymin": 1540367.784546962,
+        "xmax": 531391.2759690193,
+        "ymax": 1541041.9913447401,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "width": 768,
+      "height": 1152,
+      "export_sampling_m": [
+        0.17838423868061043,
+        0.17838423868061043
+      ],
+      "metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:43.994564+00:00",
+        "sha256": "c8e77270323aa43bfd92674ed35ead3e4d187065ba29380a0f609c2c1c7d797c",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer?f=json"
+      },
+      "item_metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:44.165289+00:00",
+        "sha256": "0dbf0cb40b1f2552734971d2229b041964dfb11a508d379fb17ac2944219d57e",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/info/iteminfo?f=json"
+      },
+      "service_item_id": "b0144499fe9d4a368de1c6f5dec74360",
+      "export_request_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=530968.4662545213%2C1540367.7845469625%2C531364.6144849986%2C1541041.9913447406&bboxSR=2236&imageSR=2236&size=768%2C1152&format=jpg&transparent=false",
+      "service_capabilities": "Map",
+      "export_tiles_allowed": false,
+      "download_access": "Bounded public export observed; dataset/native download license and redistribution not established",
+      "original_copyright_text": "Orange County Property Appraiser. This map is for reference only and is not a survey.",
+      "original_license_info": "",
+      "image_fetch": {
+        "url": "https://vgispublic.ocpafl.org/server/rest/directories/arcgisoutput/OCPA/Aerials2022_MapServer/_ags_map4c441748aa694a399396c64e11c60dfb.jpg",
+        "retrieved_utc": "2026-10-28T15:27:48.248799+00:00",
+        "sha256": "78ff5f1846b5d96312ab747b022eba152fb30fbaea77f1f5a6dd33de479c4e6e",
+        "bytes": 287157,
+        "content_type": "image/jpeg",
+        "width": 768,
+        "height": 1152,
+        "format": "JPEG",
+        "channel_stddev": [
+          63.375194600928694,
+          60.65033086986946,
+          56.90452500897481
+        ],
+        "coverage_evidence": "Nonuniform reference image returned; manual inspection still required, not an accuracy test"
+      },
+      "image_path": "data/imagery/OCPA_Aerials2022_edgewater-princeton-smith-south-v1.jpg",
+      "reuse": "local qualitative review only; empty source licenseInfo does not establish redistribution/AI/modeling permission",
+      "preview_accepted_for_modeling": false
+    },
+    {
+      "source_id": "OCPA/Aerials2024",
+      "publisher": "Orange County Property Appraiser",
+      "source_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer",
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "effective_date": null,
+      "native_gsd_m": null,
+      "positional_accuracy_m": null,
+      "source_crs": "EPSG2236 NAD83 Florida East US survey feet",
+      "vertical_datum": "not applicable to2Dreference; no height inference",
+      "returned_extent": {
+        "xmin": 530941.8047705005,
+        "ymin": 1540367.784546962,
+        "xmax": 531391.2759690193,
+        "ymax": 1541041.9913447401,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "width": 768,
+      "height": 1152,
+      "export_sampling_m": [
+        0.17838423868061043,
+        0.17838423868061043
+      ],
+      "metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:42.678931+00:00",
+        "sha256": "7f1c7a2d8e5042653f4a29d7865235d29a2b8ba1f6760b265b5020cc404b9c6e",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer?f=json"
+      },
+      "item_metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:42.864236+00:00",
+        "sha256": "4232e621dc90284c1e99f98802c41c8b90947f291a899c5d9812878c418608b5",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/info/iteminfo?f=json"
+      },
+      "service_item_id": "269604c2f20144ad941823dc1e647162",
+      "export_request_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=530968.4662545213%2C1540367.7845469625%2C531364.6144849986%2C1541041.9913447406&bboxSR=2236&imageSR=2236&size=768%2C1152&format=jpg&transparent=false",
+      "service_capabilities": "Map,Query,Data",
+      "export_tiles_allowed": false,
+      "download_access": "Bounded public export observed; dataset/native download license and redistribution not established",
+      "original_copyright_text": "",
+      "original_license_info": "",
+      "image_fetch": {
+        "url": "https://vgispublic.ocpafl.org/server/rest/directories/arcgisoutput/OCPA/Aerials2024_MapServer/_ags_mapb8441378b9da41e3a128c7bb1155e3ed.jpg",
+        "retrieved_utc": "2026-10-28T15:27:47.447273+00:00",
+        "sha256": "37f67f8df847e82f5ba8ec8fd566f385e5a23068fd72f551314672801d4916ac",
+        "bytes": 229610,
+        "content_type": "image/jpeg",
+        "width": 768,
+        "height": 1152,
+        "format": "JPEG",
+        "channel_stddev": [
+          49.8979470423989,
+          49.29815696833968,
+          46.78256859220765
+        ],
+        "coverage_evidence": "Nonuniform reference image returned; manual inspection still required, not an accuracy test"
+      },
+      "image_path": "data/imagery/OCPA_Aerials2024_edgewater-princeton-smith-south-v1.jpg",
+      "reuse": "local qualitative review only; empty source licenseInfo does not establish redistribution/AI/modeling permission",
+      "preview_accepted_for_modeling": false
+    },
+    {
+      "source_id": "OCPA/Aerials2025",
+      "publisher": "Orange County Property Appraiser",
+      "source_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer",
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "effective_date": null,
+      "native_gsd_m": null,
+      "positional_accuracy_m": null,
+      "source_crs": "EPSG2236 NAD83 Florida East US survey feet",
+      "vertical_datum": "not applicable to2Dreference; no height inference",
+      "returned_extent": {
+        "xmin": 530941.8047705005,
+        "ymin": 1540367.784546962,
+        "xmax": 531391.2759690193,
+        "ymax": 1541041.9913447401,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "width": 768,
+      "height": 1152,
+      "export_sampling_m": [
+        0.17838423868061043,
+        0.17838423868061043
+      ],
+      "metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:41.483371+00:00",
+        "sha256": "1d749a10c8ff40e4ae8831526a245493f679f10de61ff16364ec73281e488f69",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer?f=json"
+      },
+      "item_metadata_fetch": {
+        "retrieved_utc": "2026-10-28T15:25:41.688314+00:00",
+        "sha256": "de6f4338470b6bb4169e60f42a59d94afb7d6cb8121b8b29d67a34f9687445c5",
+        "url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/info/iteminfo?f=json"
+      },
+      "service_item_id": "410dfcee9ecb43ffa5df1681972da91e",
+      "export_request_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530968.4662545213%2C1540367.7845469625%2C531364.6144849986%2C1541041.9913447406&bboxSR=2236&imageSR=2236&size=768%2C1152&format=jpg&transparent=false",
+      "service_capabilities": "Map,Query,Data",
+      "export_tiles_allowed": false,
+      "download_access": "Bounded public export observed; dataset/native download license and redistribution not established",
+      "original_copyright_text": "",
+      "original_license_info": "",
+      "image_fetch": {
+        "url": "https://vgispublic.ocpafl.org/server/rest/directories/arcgisoutput/OCPA/Aerials2025_MapServer/_ags_map2b3ddd091f004ace990cecfd8711182f.jpg",
+        "retrieved_utc": "2026-10-28T15:27:46.813068+00:00",
+        "sha256": "ac1af3565014550ad784e2f31dda5848efd45f5e1259d7a25ce2f5ba03c7dfd3",
+        "bytes": 238426,
+        "content_type": "image/jpeg",
+        "width": 768,
+        "height": 1152,
+        "format": "JPEG",
+        "channel_stddev": [
+          64.24533502579355,
+          54.387042193848586,
+          41.1841257476859
+        ],
+        "coverage_evidence": "Nonuniform reference image returned; manual inspection still required, not an accuracy test"
+      },
+      "image_path": "data/imagery/OCPA_Aerials2025_edgewater-princeton-smith-south-v1.jpg",
+      "reuse": "local qualitative review only; empty source licenseInfo does not establish redistribution/AI/modeling permission",
+      "preview_accepted_for_modeling": false
+    }
+  ],
+  "coverage": {
+    "frozen_candidates": 21,
+    "reviewed_frozen_candidates": 21,
+    "supplemental_context_groups": 1,
+    "reviewed_candidates": 22,
+    "physical_source_groups_in_context": [
+      "Building_2874",
+      "Building_2878",
+      "Building_2898",
+      "Building_2903",
+      "Building_2915",
+      "Building_2920",
+      "Building_2927",
+      "Building_2936",
+      "Building_2939",
+      "Building_2945",
+      "Building_2955",
+      "Building_2974",
+      "Building_2978",
+      "Building_2979",
+      "Building_2985",
+      "Building_3047",
+      "Building_3068"
+    ],
+    "unreviewed_physical_context_groups": [],
+    "in_frame": 12,
+    "partial_frame": 6,
+    "outside_frame": 4,
+    "frontage_sides": 2,
+    "frontage_sectors": 8,
+    "continuous_fraction_each_side": 1.0,
+    "fraction_means": "review-sector coverage, not visibility or surveyed curb completeness"
+  },
+  "field_dictionary": {
+    "source_building_key": "Original source parcel string + original building number; current Building_N alias is snapshot-local",
+    "source_object_ids": "Original OCPA footprint subarea IDs, guard exact source membership",
+    "parcel_id": "Current assigned parcel string; not promoted by aerial review",
+    "frame_disposition": "in_frame / partial_frame / outside_frame determined from source footprint intersection",
+    "review_status": "Every frozen candidate assessed; outside-frame groups have no visual conclusion",
+    "change_disposition": "Qualitative surface/addition finding; no permit fact or measured height",
+    "reference_centroid_pixel": "Source-footprint centroid projected using actual returned export extent; not manually traced roof control",
+    "source_footprint_frame_fraction": "Geometry intersection fraction; does not quantify accuracy",
+    "frontage.geometry_role": "Centerline offset review-sector locator, never observed curb geometry",
+    "effective_date": "Unknown; acquisition month and retrieval dates are independent"
+  },
+  "A01_A08_status": {
+    "A-01": "returned frame/CRS/hash arithmetic and current source overlay checked; independent ground controls/residuals and task-specific modeling tolerance unresolved",
+    "A-02": "rear hardscape sample remains separately governed; no geometry promoted from this review",
+    "A-03": "source building IDs linked; roof/ground and spatial-only identity conflicts retained",
+    "A-04": "parking/driveway observations recorded; no hidden curb/stall/accessible-route inference",
+    "A-05": "canopy occlusion recorded; no trunk or tree-height inventory inferred",
+    "A-06": "facades/tenants require street references; overhead evidence not accepted for them",
+    "A-07": "dated review sheets and separate review layer delivered; matched model visual-production acceptance remains separate",
+    "A-08": "pilot review only; fullMainStreet replication remains source/coverage ledger work"
+  },
+  "unresolved": [
+    "Four linked source groups are wholly outside cached frames; no visual conclusion assigned. They are preserved source/identity/frame exceptions, not counted as confirmed missing buildings.",
+    "Partial-frame groups retain unreviewable edges; canopy, parked vehicles, shadows, roof lean and small additions remain unresolved.",
+    "Roof brightness changes are surface-change candidates; not confirmed additions, material specifications or construction dates.",
+    "No independent surveyed ground controls, native GSD or positional accuracy; imagery remains unaccepted for geometric modeling.",
+    "Current2026conditions, facade appearance, roof heights, curb grade/ADA and legal parking/access status are not established.",
+    "Source licenseInfo empty: local review only; no aerial pixels redistributed, publicly deployed, used as textures or ML training/evaluation."
+  ],
+  "building_reviews": [
+    {
+      "building_id": "Building_1653",
+      "source_parcel_id": "292214146002300",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "892364",
+        "892496",
+        "892363",
+        "892365",
+        "1172117",
+        "1169079",
+        "1173398",
+        "1186882"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Only the eastern roof portion is in the frame; broad white roof remains visible at all three dates. Western outline/additions cannot be checked.",
+      "parking_driveway_observation": "Western parking/driveway continuity extends beyond frame; visible asphalt is only partial.",
+      "occlusion_identity_observation": "Image edge and western canopy prevent full curb/roof review.",
+      "review_id": "pilot-building:292214146002300:1",
+      "review_number": 1,
+      "source_building_key": "292214146002300:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_1653",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002300",
+      "parcel_feature_id": "ocpa:249969",
+      "site_address": "711 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.6586675733899439,
+      "reference_centroid_pixel": [
+        9.573962372739365,
+        707.2561985549166
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_1966",
+      "source_parcel_id": "292214147800250",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "895645",
+        "895646",
+        "896211",
+        "896212",
+        "897471",
+        "897473",
+        "897474",
+        "897472"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "The source footprint is wholly east of all three exports. No roof/change conclusion is available.",
+      "parking_driveway_observation": "Outside frame; no parking or driveway conclusion.",
+      "occlusion_identity_observation": "Current assigned parcel is a spatial-review candidate, not accepted source identity.",
+      "review_id": "pilot-building:292214147800250:1",
+      "review_number": 2,
+      "source_building_key": "292214147800250:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_1966",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": false,
+      "source_link_promoted": false,
+      "current_match_method": "spatial_review",
+      "review_status": "reviewed_frame_exception_no_visual_conclusion",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.0,
+      "reference_centroid_pixel": [
+        1125.8133325156016,
+        947.2644105955754
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2874",
+      "source_parcel_id": "292214147407140",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1157378",
+        "1169142",
+        "1187012",
+        "1176072"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Long eastern roof complex remains across2022/2024/2025. Middle roof section is darker in2022 and lighter in2024/2025; this supports roof-surface appearance change, not an added footprint or measured height.",
+      "parking_driveway_observation": "East-side striped parking, aisles and north/south access are visible across dates. Parked vehicles differ; no capacity/legal-access assertion.",
+      "occlusion_identity_observation": "Trees/shadows obscure northern corner and parts of eastern parking edge; canopy crown is not trunk/curb geometry.",
+      "review_id": "pilot-building:292214147407140:1",
+      "review_number": 3,
+      "source_building_key": "292214147407140:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2874",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147407140",
+      "parcel_feature_id": "ocpa:332226",
+      "site_address": "2201 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        505.70772930992814,
+        583.9235578105561
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2878",
+      "source_parcel_id": "292214146002242",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1158163",
+        "1166738",
+        "1169498"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Compact west-side roof south of Smith remains in all three dates; no unambiguous new wing visible.",
+      "parking_driveway_observation": "Rear west asphalt and adjacent narrow building constrain interpretation; no new driveway promoted.",
+      "occlusion_identity_observation": "Road-side roof/sidewalk shadows obscure wall-versus-roof offset.",
+      "review_id": "pilot-building:292214146002242:1",
+      "review_number": 4,
+      "source_building_key": "292214146002242:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2878",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002242",
+      "parcel_feature_id": "ocpa:106715",
+      "site_address": "2220 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        263.31146816056605,
+        352.9985247024698
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2898",
+      "source_parcel_id": "292214146001280",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1161455",
+        "1172884",
+        "1164334",
+        "1166627"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Northwest Smith-corner roof remains; a lighter rectangular surface patch is visible in2025 compared with older weathered roof. No clear plan expansion established.",
+      "parking_driveway_observation": "West rear access and intersection crossings visible; parking occupancy changes are not layout changes.",
+      "occlusion_identity_observation": "Corner trees/roof displacement prevent surveyed curb/wall alignment.",
+      "review_id": "pilot-building:292214146001280:1",
+      "review_number": 5,
+      "source_building_key": "292214146001280:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2898",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146001280",
+      "parcel_feature_id": "ocpa:293742",
+      "site_address": "2300 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.9999999999999998,
+      "reference_centroid_pixel": [
+        247.56725350035757,
+        158.10477717042016
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2903",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1162357",
+        "1163396",
+        "1164358",
+        "1184916",
+        "1179819",
+        "1173197"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Only western portion of this source group enters the right edge of the frame. Complete roof outline and additions are unresolved.",
+      "parking_driveway_observation": "Parking/driveway review outside export remains unresolved.",
+      "occlusion_identity_observation": "Multiple source groups overlap this assigned parcel; do not assume each group is a separate observed building.",
+      "review_id": "pilot-building:292214147800150:1",
+      "review_number": 6,
+      "source_building_key": "292214147800150:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2903",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.46276022548915097,
+      "reference_centroid_pixel": [
+        771.3432765045737,
+        937.9558173083568
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2904",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "7",
+      "source_object_ids": [
+        "1162358",
+        "1162885",
+        "1165674",
+        "1179766"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source geometry lies outside the southeast image frame at all dates; no visual roof conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Linked context group is not evidence of a new missing building in the visible pilot.",
+      "review_id": "pilot-building:292214147800150:7",
+      "review_number": 7,
+      "source_building_key": "292214147800150:7",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2904",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_frame_exception_no_visual_conclusion",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.0,
+      "reference_centroid_pixel": [
+        1210.0805325214378,
+        1173.4632330369539
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2915",
+      "source_parcel_id": "292214146001262",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1164412",
+        "1182400"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Northern roof is cut by the top export edge; visible dark surface persists. No complete addition conclusion.",
+      "parking_driveway_observation": "Northern rear parking beyond frame is unresolved.",
+      "occlusion_identity_observation": "Image-edge truncation is not a natural building boundary.",
+      "review_id": "pilot-building:292214146001262:1",
+      "review_number": 8,
+      "source_building_key": "292214146001262:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2915",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146001262",
+      "parcel_feature_id": "ocpa:106655",
+      "site_address": "2306 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.9937703771039105,
+      "reference_centroid_pixel": [
+        243.57700876311858,
+        55.71606571378852
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2920",
+      "source_parcel_id": "292214146003230",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1165051",
+        "1183265"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Narrow western south-of-Princeton roof remains light in all dates; no clear footprint addition visible.",
+      "parking_driveway_observation": "Flanking parking and access are visible, with changing vehicles; stripe counts/access status unverified.",
+      "occlusion_identity_observation": "Nearby trees obscure western circulation edges.",
+      "review_id": "pilot-building:292214146003230:1",
+      "review_number": 9,
+      "source_building_key": "292214146003230:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2920",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146003230",
+      "parcel_feature_id": "ocpa:106852",
+      "site_address": "720 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        108.00852312779291,
+        983.8538000493534
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2927",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "4",
+      "source_object_ids": [
+        "1166887",
+        "1182497",
+        "1187328",
+        "1176015",
+        "1159822",
+        "1162246",
+        "1163532",
+        "1167578",
+        "1187382",
+        "1181753",
+        "1183142",
+        "1185063"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Eastern source group is only partly within export; visible edge is insufficient to verify the complete structure or source-group identity.",
+      "parking_driveway_observation": "Right-edge rear area incomplete.",
+      "occlusion_identity_observation": "Overlapping source groups on assigned parcel require identity reconciliation; no aerial promotion.",
+      "review_id": "pilot-building:292214147800150:4",
+      "review_number": 10,
+      "source_building_key": "292214147800150:4",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2927",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.267214957700618,
+      "reference_centroid_pixel": [
+        843.5661937273662,
+        1006.626709199353
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2936",
+      "source_parcel_id": "292214146003240",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1167723",
+        "1182012"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southwest Princeton roof is weathered/dark in2022 and substantially brighter in2024/2025. Broad perimeter appears persistent; roof maintenance/material change is a candidate, not confirmed construction.",
+      "parking_driveway_observation": "West/south striped asphalt and vehicle locations are visible; exact stalls/driveway widths not measured.",
+      "occlusion_identity_observation": "Tree/shadow on western frontage remains an occlusion.",
+      "review_id": "pilot-building:292214146003240:1",
+      "review_number": 11,
+      "source_building_key": "292214146003240:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2936",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146003240",
+      "parcel_feature_id": "ocpa:332235",
+      "site_address": "2124 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        255.13801488765205,
+        970.9869593814232
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2945",
+      "source_parcel_id": "292214146002260",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "1169695"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Small west/rear pitched-roof component remains; roof/trees overlap, so exact eave and any small addition stay unresolved.",
+      "parking_driveway_observation": "Rear parking contains marked bays and planted/roofed edges. No hidden curb or pedestrian path inferred.",
+      "occlusion_identity_observation": "Canopy and pitched-roof displacement obscure ground footprint.",
+      "review_id": "pilot-building:292214146002260:2",
+      "review_number": 12,
+      "source_building_key": "292214146002260:2",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2945",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002260",
+      "parcel_feature_id": "ocpa:332228",
+      "site_address": "2204 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        99.21186763423353,
+        573.4881698049437
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2955",
+      "source_parcel_id": "292214146002241",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1171952",
+        "1167193"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "West-side middle roof appears darker in2022 and bright in2024/2025; no definite lateral footprint increase visible.",
+      "parking_driveway_observation": "Rear parking asphalt and drive aisle remain visible; no measured parking count.",
+      "occlusion_identity_observation": "Continuous sidewalk/frontage under roof shadow cannot establish ground-wall position.",
+      "review_id": "pilot-building:292214146002241:1",
+      "review_number": 13,
+      "source_building_key": "292214146002241:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2955",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002241",
+      "parcel_feature_id": "ocpa:106716",
+      "site_address": "2212 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.9999999999999999,
+      "reference_centroid_pixel": [
+        255.7079203764102,
+        458.1845594649125
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2974",
+      "source_parcel_id": "292214146003260",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1179123",
+        "1169540",
+        "1180964"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southern west-side white roof remains across three dates; some south/west vegetation obscures roof edge.",
+      "parking_driveway_observation": "Parking at west edge remains visible but shadowed; full rear continuity not verified.",
+      "occlusion_identity_observation": "Low south-frame margin and tree cover constrain edge review.",
+      "review_id": "pilot-building:292214146003260:1",
+      "review_number": 14,
+      "source_building_key": "292214146003260:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2974",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146003260",
+      "parcel_feature_id": "ocpa:106914",
+      "site_address": "2110 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0000000000000002,
+      "reference_centroid_pixel": [
+        246.42462850557916,
+        1103.3807727972041
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2978",
+      "source_parcel_id": "292214146002260",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1179724",
+        "1164541"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Several connected west-side roof sections remain. Large surfaces brighten from2022 to2024/2025; no unambiguous new building extension established.",
+      "parking_driveway_observation": "Rear western lot shows bays and aisle continuity; occupied cars/shadows vary. No legal-access or stall-count assertion.",
+      "occlusion_identity_observation": "Tree wells/canopy near north/south corners obscure portions of curb and rear surfaces.",
+      "review_id": "pilot-building:292214146002260:1",
+      "review_number": 15,
+      "source_building_key": "292214146002260:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2978",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002260",
+      "parcel_feature_id": "ocpa:332228",
+      "site_address": "2204 EDGEWATER DR",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        255.33875971826507,
+        641.4903732107612
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2979",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "2",
+      "source_object_ids": [
+        "1179889",
+        "1174121",
+        "1177013",
+        "1165945",
+        "1168401",
+        "1182253"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Southeast pitched-roof source component is visible but partly beneath tree shadows. Broad roof remains; small changes unresolved.",
+      "parking_driveway_observation": "Adjacent open paved/green areas are visible; cannot infer a public route or driveway under canopy.",
+      "occlusion_identity_observation": "Assigned parcel/source identity and overlap with neighboring source group remain separate questions.",
+      "review_id": "pilot-building:292214147800150:2",
+      "review_number": 16,
+      "source_building_key": "292214147800150:2",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2979",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.9999999999999999,
+      "reference_centroid_pixel": [
+        514.529884251791,
+        979.4149776900815
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2985",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "3",
+      "source_object_ids": [
+        "1182846",
+        "1173575",
+        "1175606",
+        "1183205",
+        "1172465",
+        "1182573"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Southeast connected pitched-roof form reaches the lower export edge; broad form visible, full southern boundary unresolved.",
+      "parking_driveway_observation": "Courtyard/open areas and drive access partly occluded; no hidden connection inferred.",
+      "occlusion_identity_observation": "Canopy/shadow and lower-frame clipping limit ground-footprint interpretation.",
+      "review_id": "pilot-building:292214147800150:3",
+      "review_number": 17,
+      "source_building_key": "292214147800150:3",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2985",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.9472102362059951,
+      "reference_centroid_pixel": [
+        556.7818559234645,
+        1094.5062476456608
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_3042",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "5",
+      "source_object_ids": [
+        "1174118",
+        "1159177",
+        "1179967",
+        "1182623"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source footprint wholly east of export; no dated roof/addition conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Assigned parcel has multiple source groups; unresolved source location is not invented geometry.",
+      "review_id": "pilot-building:292214147800150:5",
+      "review_number": 18,
+      "source_building_key": "292214147800150:5",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_3042",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_frame_exception_no_visual_conclusion",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.0,
+      "reference_centroid_pixel": [
+        992.9885827551243,
+        951.0626364095602
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_3047",
+      "source_parcel_id": "292214146002243",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1175581"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Narrow west-side Smith building has light roof at all dates; no unambiguous addition visible.",
+      "parking_driveway_observation": "Rear striped lot and nearby aisle visible; no inferred exact curb geometry.",
+      "occlusion_identity_observation": "Roof lean/shadow and adjoining building separation require ground-reference evidence.",
+      "review_id": "pilot-building:292214146002243:1",
+      "review_number": 19,
+      "source_building_key": "292214146002243:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_3047",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146002243",
+      "parcel_feature_id": "ocpa:106717",
+      "site_address": "706 W SMITH ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0,
+      "reference_centroid_pixel": [
+        165.1652206840089,
+        373.8271859914832
+      ],
+      "change_disposition": "no_unambiguous_addition_established",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_3068",
+      "source_parcel_id": "292214146001290",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1158425",
+        "1171965",
+        "1178780"
+      ],
+      "frame_disposition": "in_frame",
+      "roof_observation": "Northwest rear rectangular roof is mottled/dark in2022 and bright in2024/2025. Broad footprint appears stable; resurfacing is a candidate, not a dated permit fact.",
+      "parking_driveway_observation": "Rear parking rows north/east visible, but beyond pilot endpoints is context only.",
+      "occlusion_identity_observation": "Western canopy and image boundary reduce confidence at rear edge.",
+      "review_id": "pilot-building:292214146001290:1",
+      "review_number": 20,
+      "source_building_key": "292214146001290:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_3068",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214146001290",
+      "parcel_feature_id": "ocpa:293737",
+      "site_address": "709 W SMITH ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 1.0000000000000002,
+      "reference_centroid_pixel": [
+        78.46479525429571,
+        129.6374549308028
+      ],
+      "change_disposition": "roof_surface_change_candidate_not_addition",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_3091",
+      "source_parcel_id": "292214147800150",
+      "source_building_number": "6",
+      "source_object_ids": [
+        "1173799",
+        "1175839",
+        "1179432",
+        "1181369"
+      ],
+      "frame_disposition": "outside_frame",
+      "roof_observation": "Source footprint wholly east of exports; no visual conclusion.",
+      "parking_driveway_observation": "Outside frame.",
+      "occlusion_identity_observation": "Keep this linked source group as an unresolved identity/frame exception.",
+      "review_id": "pilot-building:292214147800150:6",
+      "review_number": 21,
+      "source_building_key": "292214147800150:6",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_3091",
+      "review_census_membership": "frozen_parcel_linked_candidate",
+      "parcel_id": "292214147800150",
+      "parcel_feature_id": "ocpa:106849",
+      "site_address": "644 W PRINCETON ST",
+      "stored_link_accepted": true,
+      "source_link_promoted": false,
+      "current_match_method": "id_and_geometry",
+      "review_status": "reviewed_frame_exception_no_visual_conclusion",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.0,
+      "reference_centroid_pixel": [
+        1118.5847536739443,
+        927.4807025714604
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    },
+    {
+      "building_id": "Building_2939",
+      "source_parcel_id": "292214147406110",
+      "source_building_number": "1",
+      "source_object_ids": [
+        "1168624",
+        "1181917",
+        "1184630",
+        "1161794",
+        "1182436",
+        "1187964",
+        "1163955",
+        "1173129",
+        "1186049"
+      ],
+      "frame_disposition": "partial_frame",
+      "roof_observation": "Supplemental Wellesley context group omitted by parcel-linked pilot queue. Large roof/courtyard complex remains visible north/east of Smith in2022/2024/2025; north/east frame truncation and equipment/roof lean prevent complete outline/change conclusions. Courtyard is visible, not a ground-level hole inferred from a roof shadow.",
+      "parking_driveway_observation": "Northern/side access and planted court are partly visible; fullparking/driveway pattern extends outside frame. No ground-level access or stalls inferred from elevatedcourtyard.",
+      "occlusion_identity_observation": "Whole Wellesley condo building is not one condo unit. Existing historical roof correction must remain distinct from raw OCPA footprint and imagery; no overhead story/height inference.",
+      "review_id": "pilot-building:292214147406110:1",
+      "review_number": 22,
+      "source_building_key": "292214147406110:1",
+      "source_snapshot": "20261028T160543372334Z",
+      "current_building_alias": "Building_2939",
+      "review_census_membership": "supplemental_physical_context_group_omitted_by_parcel_queue",
+      "parcel_id": null,
+      "parcel_feature_id": null,
+      "site_address": null,
+      "stored_link_accepted": false,
+      "source_link_promoted": false,
+      "current_match_method": "ambiguous_or_unmatched",
+      "review_status": "reviewed_with_explicit_limits",
+      "geometry_role": "OCPA source footprint review locator; not aerial-traced ground wall",
+      "dated_reference_ids": [
+        "OCPA/Aerials2022",
+        "OCPA/Aerials2024",
+        "OCPA/Aerials2025"
+      ],
+      "source_footprint_frame_fraction": 0.16663036850589888,
+      "reference_centroid_pixel": [
+        663.4629294577883,
+        9.898442579229675
+      ],
+      "change_disposition": "unresolved_frame_or_occlusion",
+      "roof_height_facade_inference": false,
+      "curb_frontage": "Separate continuous frontage sectors; do not assign overhead roof to ground curb",
+      "current_conditions_verified": false
+    }
+  ],
+  "frontage_reviews": [
+    {
+      "review_id": "pilot-frontage:west_4",
+      "side": "west",
+      "sector": 4,
+      "start_fraction": 0.0,
+      "end_fraction": 0.25,
+      "reference_pixel_line": [
+        [
+          347.8381048358939,
+          815.544203422941
+        ],
+        [
+          348.83230687238097,
+          695.7721017104759
+        ]
+      ],
+      "review_locator_offset_usft": -20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "West Princeton approach/crosswalk and corner landscaping are visible. Crosswalk markings are historical observations; exact curb/ramp alignment beneath shadow remains unresolved.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:west_3",
+      "side": "west",
+      "sector": 3,
+      "start_fraction": 0.25,
+      "end_fraction": 0.5,
+      "reference_pixel_line": [
+        [
+          348.83230687238097,
+          695.7721017104759
+        ],
+        [
+          349.82650890906694,
+          575.9999999980108
+        ]
+      ],
+      "review_locator_offset_usft": -20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "West middle storefront frontage remains continuous; parked vehicles interrupt curb visibility. Tree wells/canopy do not establish trunk coordinates or clear route width.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:west_2",
+      "side": "west",
+      "sector": 2,
+      "start_fraction": 0.5,
+      "end_fraction": 0.75,
+      "reference_pixel_line": [
+        [
+          349.82650890906694,
+          575.9999999980108
+        ],
+        [
+          350.8207109457529,
+          456.2278982855458
+        ]
+      ],
+      "review_locator_offset_usft": -20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "West continuous frontage/sidewalk and parallel curbside vehicles are visible; building shadows obscure portions of curb. No confirmed new driveway or sidewalk-width change.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:west_1",
+      "side": "west",
+      "sector": 1,
+      "start_fraction": 0.75,
+      "end_fraction": 1.0,
+      "reference_pixel_line": [
+        [
+          350.8207109457529,
+          456.2278982855458
+        ],
+        [
+          351.81491298224,
+          336.4557965730807
+        ]
+      ],
+      "review_locator_offset_usft": -20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "Smith-south west corner crossing and bulb-out are visible across dates. Corner vegetation, parked vehicles and roof shadows obscure exact curb returns/grade; no ADA/ramp acceptance.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:east_4",
+      "side": "east",
+      "sector": 4,
+      "start_fraction": 0.0,
+      "end_fraction": 0.25,
+      "reference_pixel_line": [
+        [
+          416.18508702571665,
+          815.544203422941
+        ],
+        [
+          417.17928906220374,
+          695.7721017104759
+        ]
+      ],
+      "review_locator_offset_usft": 20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "Princeton northeast corner/crosswalk and planted edge visible. Tree shadow/vehicles obscure exact curb-return and ramp dimensions; no clear dated curb reconstruction established.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:east_3",
+      "side": "east",
+      "sector": 3,
+      "start_fraction": 0.25,
+      "end_fraction": 0.5,
+      "reference_pixel_line": [
+        [
+          417.17928906220374,
+          695.7721017104759
+        ],
+        [
+          418.17349109888966,
+          575.9999999980108
+        ]
+      ],
+      "review_locator_offset_usft": 20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "Eastern frontage remains broadly continuous; vehicles and roof shadow obscure curb segments. Rear parking is east of building, not inferred to connect through it.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:east_2",
+      "side": "east",
+      "sector": 2,
+      "start_fraction": 0.5,
+      "end_fraction": 0.75,
+      "reference_pixel_line": [
+        [
+          418.17349109888966,
+          575.9999999980108
+        ],
+        [
+          419.16769313557563,
+          456.2278982855458
+        ]
+      ],
+      "review_locator_offset_usft": 20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "Long eastern building frontage is visible along Edgewater; roof overhang/shadow prevents exact ground-wall/curb separation. No facade or doorway inferred.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    },
+    {
+      "review_id": "pilot-frontage:east_1",
+      "side": "east",
+      "sector": 1,
+      "start_fraction": 0.75,
+      "end_fraction": 1.0,
+      "reference_pixel_line": [
+        [
+          419.16769313557563,
+          456.2278982855458
+        ],
+        [
+          420.1618951720627,
+          336.4557965730807
+        ]
+      ],
+      "review_locator_offset_usft": 20,
+      "geometry_role": "centerline-offset review locator, not surveyed/observed curb or right-of-way",
+      "observation": "Smith staggered east junction and planted corner are visible. Canopy and shadow obscure parts of sidewalk/curb; cross-street alignment must not be collapsed into a single junction.",
+      "dates_reviewed": [
+        "2022-01",
+        "2024-01",
+        "2025-01"
+      ],
+      "review_status": "reviewed_visible_and_occluded_parts",
+      "occluded_segments": "unresolved; never completed by interpolation",
+      "curb_grade_width_or_ADA_verified": false
+    }
+  ],
+  "local_packet_sha256": "60c37aa134a2f5b9aa83e6645c5b520833789354d412401a55cb4f141decbca3",
+  "artifacts": {
+    "scene/pilot_aerial_review.usda": "9ec44bd73826db15f882947a8d45cd422e6ce4fedfb5f015597fac747030ff6e",
+    "data/imagery/pilot_complete/review.geojson": "09cb5fed9dd724f0262d593f76dcbbd7bb6686b11e0a63324ba0e173bcebb620",
+    "data/imagery/pilot_complete/references.html": "893942d7343765f3f809325afef9fe389a33d2a8b6f3760e0a8ba971d4b1fb8f",
+    "data/imagery/pilot_complete/coverage.html": "791d2ed35d38326f77c960b2aec8fab3d08aba5387caec870c7b8d9c0943adfa"
+  }
+}

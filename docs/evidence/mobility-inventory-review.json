@@ -1,0 +1,82 @@
+{
+  "schema": "twin.independent-mobility-inventory-review/1",
+  "reviewed_utc": "2026-10-29T03:47:13.742766+00:00",
+  "reviewer": "AI Delivery Director / independent source review; not the implementation author",
+  "decision": "PASS for bounded attributed source-reference packet; expanded ticket 15 remains open",
+  "artifacts": {
+    "tools/mobility_inventory.py": "1c4e8c01daa462ebfc31fb8ec8b5e2d829781eb1e7f1423bc39a2d3e09672f7d",
+    "data/processed/mobility_inventory/packet.json": "bb0307df9560cb787dd9e4650f1b54972c0f2b860cf8e5cde2dbb2ff4ffa7a4f",
+    "data/processed/mobility_inventory/coverage.html": "bef96e4a44a92d0b7ec9feac8c09e3b017441ce249e3101864400acdbdd095f9",
+    "data/processed/mobility_inventory/receipt.json": "f16fad6aeb788fece6dfefe336c4de90124907b3604914878c8c4be98696d0c5"
+  },
+  "source_snapshot": "20261028T160543372334Z",
+  "verified": {
+    "source_provenance": "Seven original source receipts match selected and final URLs and original bytes. Actual City page anchor hrefs resolve exactly to both selected PDF URLs; district operator remains distinguished from City.",
+    "report": "Original PDF has 93 physical pages; cover July 31 2026, metadata August 3 2026; neither is inventory observation date. Independently viewed locally rendered physical pages 6 and 90. Page 6 names downtown study districts without College Park; exact intersection remains unknown without study GIS.",
+    "appendix": "Physical page 90 has eight extracted words and zero annotations, an Appendix D inventory divider. Pages 91-93 are also short appendix dividers. Only two accessibility HTML attachments; no embedded GIS inventory.",
+    "counts": "Independently read Table 9 source text: bicycle 323, formal 51, informal 61; formal district cells sum 52, informal 60. Prose bicycle 325 and Table 11 City District formal 16 versus Table 9 17 retained as unresolved conflicts. Facility records are not spaces.",
+    "local_geometry": "All four valid contextual geometries independently reconstructed exactly: Albert and EV official-page reference coordinates; unique exact 2305 EDGEWATER DR City address; validated Edgewater City lines intersected with actual Main Street polygon. All within actual neighborhood; EV correctly outside Main Street. No parking-bay or entrance geometry inferred.",
+    "local_claims": "District page reports Albert 8 standard + 1 accessible, 3-hour 08-18 daily; Edgewater 2-hour Monday-Saturday 08-18; Wellesley second-floor public parking statement. City EV page static 2 chargers is not vehicle capacity or live availability. All legal/current access, ADA verification, usable capacity, demand and occupancy remain unknown.",
+    "recommendations": "70 original recommendation rows replay exactly, unique source OBJECTIDs; all proposed, unlocated and unaccepted as existing local facilities. Wellesley address PID retained only as unit/address reference, garage PID remains null.",
+    "previews_and_dictionary": "Three first-five previews exactly equal published table prefixes (4/5/5). Final table dictionaries cover all actual top-level fields (51/10/18 entries including nested definitions), all seven original recommendation fields, types and null semantics.",
+    "integrity": "Current validate passes all dependency/artifact/snapshot checks. Independent in-memory digest mutation of coverage and original report each refused without source/output writes."
+  },
+  "counts": {
+    "local_facility_references": 4,
+    "published_study_existing_facility_counts": 24,
+    "study_proposed_recommendations": 70
+  },
+  "resolved_findings": [
+    "Initial generic-only field dictionary was incomplete; implementation now supplies complete per-table and nested-original-field definitions. Final validator and dictionary coverage independently rechecked."
+  ],
+  "remaining": [
+    {
+      "artifact": "Original GIS/FieldMaps existing and proposed micromobility facility inventory, capacity attributes, geometry, inventory dates and study boundary",
+      "evidence": "Final report references GIS and AppendixD, but retrieved PDF has divider only and no GIS attachment",
+      "action": "Obtain an existing public download or authorized records copy; no outreach performed"
+    },
+    {
+      "artifact": "CollegePark space/blockface/garage/rack/corral inventory with stableIDs, signs, hours, loading/accessible/reserved categories and access agreements",
+      "known_subset": "Attributed local facility/rule references only"
+    },
+    {
+      "artifact": "Weekday/weekend/event occupancy and turnover observations with actual intervals/weather/context",
+      "status": "Not acquired; no decorative-car/charger/trip-data substitution"
+    }
+  ],
+  "review_limits": [
+    "Read-only source/code/geometry review plus only this evidence file write. No UI/GPU, API integration acceptance, agency outreach, active scene or source modifications.",
+    "No independent survey, legal parking/access certification, current signage verification, demand inference or district-wide inventory completeness.",
+    "Expanded ticket 15 must remain open for original GIS capacity/access/entrance inventory and dated demand/turnover observations."
+  ],
+  "final_card_rebuild_followup": {
+    "reviewed_utc": "2026-10-29T16:24:14.477274+00:00",
+    "reviewer": "AI independent technical reviewer; final card/helper change only",
+    "baseline_packet_sha256": "f5675d2bc126784113ff41383a942de71ea6b0edfa629e50330f6474c0f2fbfb",
+    "semantic_comparison": "Exact Python equality versus hash-selected original backup for tables, source_register, table_field_dictionaries, first_five_safe_rows, study_review, source_conflicts, unresolved and limits; all unchanged.",
+    "http_checks": {
+      "/mobility-inventory": {
+        "status": 200,
+        "bytes": 37530
+      },
+      "/api/v1/mobility_inventory_quality": {
+        "status": 200,
+        "bytes": 73888
+      },
+      "/api/v1/mobility_local_facility_references?limit=2&offset=1": {
+        "status": 200,
+        "bytes": 53169
+      },
+      "/api/v1/mobility_published_study_existing_facility_counts?limit=2&offset=1": {
+        "status": 200,
+        "bytes": 6141
+      },
+      "/api/v1/mobility_study_proposed_recommendations?limit=2&offset=1": {
+        "status": 200,
+        "bytes": 10043
+      }
+    },
+    "integration": "All3 HTTP table pages preserve exact pagination rows, first5, full field dictionaries and current packet digest matching quality. Coverage HTTP200; sourcePDF and traversal routes404. Static browser code has epoch/snapshot/packet guards and textContent for raw data; safe http/https links and collapsed raw details. Actual browser visual acceptance belongs to root, not this HTTP review.",
+    "decision": "PASS final semantic/hash rebinding and bounded HTTP/static integration; original source-review scope and remaining gaps unchanged."
+  }
+}

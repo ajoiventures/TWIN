@@ -1,0 +1,10 @@
+{
+  "primary_focus": "College Park Main Street",
+  "context": "College Park neighborhood",
+  "acquisition_bbox_wgs84": [-81.398, 28.5602, -81.379, 28.5858],
+  "extent_policy": "Retain existing neighborhood context and fully contain the official Main Street polygon with a small acquisition margin.",
+  "boundary_authority": "City of Orlando OrlandoMainStreetProgram/FeatureServer/0, College Park OBJECTID 3",
+  "local_origin_wgs84": [-81.389, 28.572],
+  "projected_crs": "EPSG:32617",
+  "units": "meters"
+}

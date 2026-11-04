@@ -1,0 +1,172 @@
+{
+  "schema": "twin.coordinated-terrain-independent-review/1",
+  "reviewed_utc": "2026-11-02T19:50:30.671583+00:00",
+  "reviewer": "Independent read-only geometry/source and actual-image QA",
+  "decision": "qualified_inactive_candidate_progress_only_activation_rejected",
+  "ready_for_activation": false,
+  "whole_ticket6_accepted": false,
+  "reviewed_artifact_sha256": {
+    "tools/compose_terrain_review.py": "92bfe90a84c68514e21438ff1ea45c7b70c8a2e4508407303d55ca9125fafde5",
+    "tools/prepare_terrain_buildings.py": "332ffa821a018e6cb73a16721d7bddb8d666a911221da1a8d9c9005e06ed6f36",
+    "tools/prepare_terrain_surfaces.py": "58ec16f1c6f1134e2392f2a0fa4ab21eb2337087dccefa942f62af9bf3dbb4c4",
+    "data/diagnostics/terrain_buildings_20261102_f/manifest.json": "6a58264566b5b1abcb89a52fc0090b99b14543555e9fddde4a7f6d79818802ba",
+    "data/diagnostics/terrain_buildings_20261102_f/contact_discrepancies.json": "03381786ca0551daedc242861f29b6bfe1dc28c82a5e1907d527301f98dd75d9",
+    "data/diagnostics/terrain_surfaces_20261102_c/manifest.json": "cb5ffd35ddf775e0a16cf47a798a6bb320fb50b9b1a00ad30cf8bb1bd958b964",
+    "data/diagnostics/terrain_combined_20261102_a/manifest.json": "cdafd1d96df682dd00e429232402ed476f86047395cf10f86fd8e93eb9565ff1",
+    "data/diagnostics/terrain_combined_20261102_a/review.usda": "c21561f715a64964d39c8488fde56c0d8380052da00df5d14c692bcd7eace7d0",
+    "data/renders/20261102T192957Z/manifest.json": "2dc88cfedc846594fbeed5f52e4e61cf8209b1a6736ff5443ecde8fbea9406b2",
+    "data/renders/20261102T193840Z/manifest.json": "9dcb0fd8f482c15a3501856cd78aea34a618eadc38a61c9532d238347983fa34"
+  },
+  "corrected_implementation_finding": {
+    "initial_blocker": "SurfaceA AddTranslateOp on bare override authored new-only oporder and could discard inherited placement/rotation/scale",
+    "resolution": "C preserves source order/reset/values and uses least-local world-Z translation converted through effective parent frame; independently composed verification passed",
+    "earlier_A_preserved_not_accepted": true
+  },
+  "independent_building_ground_checks": {
+    "all_recorded_dependencies_current": true,
+    "applied_meshes_full_array_checked": 11357,
+    "source_topology_normals_UV_values_indices_interpolation_customdata_relationship_targets_exact": true,
+    "world_linear_unchanged": true,
+    "maximum_world_XY_change_m": 0.0,
+    "maximum_per_face_Z_shift_nonrigidity_m": 4.991888999938965e-07,
+    "ground_NPZ_matches_actual_composed_ground_triangles": true,
+    "contact_rows_flagged_by_builder": 806,
+    "contact_paths_flagged_by_builder": 772,
+    "contact_flag_threshold_m": 0.3,
+    "threshold_is_not_survey_standard": true,
+    "ground_coarsening_centroid_p95_m": 0.164,
+    "ground_coarsening_centroid_max_m": 1.272
+  },
+  "independent_surface_asset_checks": {
+    "dependency_hashes_current": 87,
+    "rigid_family_world_linear_XY_Z_delta_and_original_op_values_checked": 111,
+    "tree_nonposition_attributes_relationships_XY_invisible_positions_exact": true,
+    "tree_positions_total": 505,
+    "tree_positions_moved": 403,
+    "tree_invisible_positions_unchanged": 102,
+    "new_surface_centroid_samples_against_composed_ground": 23184,
+    "maximum_height_minus_ground_minus_original_offset_residual_m": 9.515326742537411e-06,
+    "contact_scope": "Sampled surface geometry; not complete rendered contacts, wheel-grade fitting or sidewalk survey",
+    "held_manifest_rows": 215,
+    "outside_ground_surface_support_holds": 129,
+    "explicit_grade_separation_holds": 18,
+    "cars_on_held_roads": 8,
+    "rigid_contact_relief_holds": 1,
+    "rigid_asset_allowed_gap_limit_m": 0.2,
+    "allowed_gap_is_not_visual_acceptance": true
+  },
+  "combined_audit": {
+    "dependency_hashes_current": 103,
+    "USD_composition_errors": 0,
+    "source_visible_boundables_accounted": 21245,
+    "unaccounted": 0,
+    "original_identity_changes": 0,
+    "material_binding_changes": 0,
+    "applied_disposition_rows": 8197,
+    "held_disposition_rows": 453,
+    "count_semantics": "USD Boundables and disposition rows, not physical object/building census. Coverage includes explicitly held/delegated objects and does not mean all are anchored."
+  },
+  "actual_five_pairs": [
+    {
+      "camera": "/World/Cameras/DistrictOverview",
+      "baseline_image": "data\\renders\\20261102T192957Z\\DistrictOverview.png",
+      "baseline_sha256": "0afbb57748f17606ad5cce98873a1ac70f04855ac1bab90b6c9102ee29190e48",
+      "candidate_image": "data\\renders\\20261102T193840Z\\DistrictOverview.png",
+      "candidate_sha256": "edb79c406e6605db9f60db320155779e24c776d7601145c29ea579d1312b87a1",
+      "baseline_view_error": 2.2737367544323206e-13,
+      "candidate_view_error": 2.2737367544323206e-13,
+      "same_expected_world_camera": true,
+      "matching_frames_before_each_capture": 60
+    },
+    {
+      "camera": "/World/Cameras/PrincetonEvidence",
+      "baseline_image": "data\\renders\\20261102T192957Z\\PrincetonEvidence.png",
+      "baseline_sha256": "10b59b7a68de10b32162602b3ad62d2fc0935c31c69bf747a9af22718a39c4f6",
+      "candidate_image": "data\\renders\\20261102T193840Z\\PrincetonEvidence.png",
+      "candidate_sha256": "8ed90898094a013f115f94b956a1fdcb0ee98d57def7ea5cf7ff0c0ab14f8c14",
+      "baseline_view_error": 1.1368683772161603e-13,
+      "candidate_view_error": 1.1368683772161603e-13,
+      "same_expected_world_camera": true,
+      "matching_frames_before_each_capture": 60
+    },
+    {
+      "camera": "/World/Cameras/TerrainEdgewaterNorth",
+      "baseline_image": "data\\renders\\20261102T192957Z\\TerrainEdgewaterNorth.png",
+      "baseline_sha256": "9ebc16bbd7396de69519f2ccd2d3763cea74a099b11f4cb79914c5a33f8f4ad4",
+      "candidate_image": "data\\renders\\20261102T193840Z\\TerrainEdgewaterNorth.png",
+      "candidate_sha256": "86480a6b473b3b5c77a9aab7e57e87353d21023c56a02749c08b24e6a3f5712e",
+      "baseline_view_error": 4.263256414560601e-14,
+      "candidate_view_error": 4.263256414560601e-14,
+      "same_expected_world_camera": true,
+      "matching_frames_before_each_capture": 60
+    },
+    {
+      "camera": "/World/Cameras/TerrainEdgewaterSouth",
+      "baseline_image": "data\\renders\\20261102T192957Z\\TerrainEdgewaterSouth.png",
+      "baseline_sha256": "6b2ed2f7c1686efce30221a8a3d16f9c0c0718af69ccd92590b85eb37e97b135",
+      "candidate_image": "data\\renders\\20261102T193840Z\\TerrainEdgewaterSouth.png",
+      "candidate_sha256": "f2aac5ff771cfd5fadda70c5b079a6276bdcf02c04341d67722b87168074d9c6",
+      "baseline_view_error": 7.105427357601002e-15,
+      "candidate_view_error": 7.105427357601002e-15,
+      "same_expected_world_camera": true,
+      "matching_frames_before_each_capture": 60
+    },
+    {
+      "camera": "/World/Cameras/ChurchSoutheastWingContinuousRoof",
+      "baseline_image": "data\\renders\\20261102T192957Z\\ChurchSoutheastWingContinuousRoof.png",
+      "baseline_sha256": "5bdd39768be66b062eeac673b5194b8fcb68b93e1df7c7d8a35ecc0c29bbcf18",
+      "candidate_image": "data\\renders\\20261102T193840Z\\ChurchSoutheastWingContinuousRoof.png",
+      "candidate_sha256": "f428ee442da7ff91494802dcdd0895e4f0726bd9f5d40b0174d5e8daf4b22294",
+      "baseline_view_error": 2.842170943040401e-14,
+      "candidate_view_error": 2.842170943040401e-14,
+      "same_expected_world_camera": true,
+      "matching_frames_before_each_capture": 60
+    }
+  ],
+  "visual_findings": {
+    "DistrictOverview": "Model remains coherent; broad source block massing and spatial relationships retained. This view does not resolve individual contact defects or outer context seams.",
+    "PrincetonEvidence": "Historical roof/wall shape retained with changed vertical placement. Preexisting scan-corrugated geometry remains in both images; no architectural realism acceptance.",
+    "TerrainEdgewaterNorth": "Road, cars, trees and attached frontage remain recognizable/coherent after rebasing; base and frontage-to-ground transitions still require contact correction.",
+    "TerrainEdgewaterSouth": "Visible dark/open strips beneath frontage bases and abrupt pavement/grass junctions remain. No activation acceptance.",
+    "ChurchSoutheastWingContinuousRoof": "Roof/body remain coherent. New stepped/cracked-looking long campus hardscape edges and transitions expose unresolved separately anchored surfaces.",
+    "camera_control": "All five actual pairs viewed; same expected world camera per pair,60matching delivered frames each capture, complete1920x1080 PNGs/hashes and recorded source-layer hashes independently verified."
+  },
+  "concrete_correction_route": [
+    {
+      "priority": 1,
+      "action": "Separate explicitly estimated base closures below unchanged building bodies; bound them to actual final ground and report gaps/penetration. Preserve roofs, relative heights, identifiers and original-source geometry; do not disguise inferred foundation geometry as measurement."
+    },
+    {
+      "priority": 1,
+      "action": "Reconcile overlapping/adjacent hardscape and source road masks with deterministic surface ownership, shared edge heights and explicit material/display offsets. Check campus seam lines and frontage transitions in the same cameras."
+    },
+    {
+      "priority": 2,
+      "action": "Investigate129outside-final-Ground holds as render-support clipping versus missing data. Earlier independent analysis showed all5076road/building objects have source-grid support; extend support only within an explicitly agreed existing model scope, preserving unresolved outer-context limits."
+    },
+    {
+      "priority": 2,
+      "action": "Adaptively refine ground where coarse-triangle residuals are high, then rebuild dependent surfaces against that same final field; preserve original raster evidence and distinguish approximation from survey accuracy."
+    },
+    {
+      "priority": 2,
+      "action": "Keep bridge/deck grade holds and physical lake stage/shoreline holds explicit; do not grounddrape bridges or invent water elevations to force completion."
+    },
+    {
+      "priority": 2,
+      "action": "Recheck rigid vehicles/furniture/trunks against actual final support; gaps up to20cm are declared candidates, not acceptable tire or leg contact by default."
+    },
+    {
+      "priority": 3,
+      "action": "Cover outer Context seams and held cases with targeted evidence before any all-object activation. Water/cartographic default visibility and originalsource IDs must survive."
+    }
+  ],
+  "operation_limits": {
+    "reviewer_source_production_editor_changes": false,
+    "reviewer_gpu_launches": false,
+    "new_acquisition": false,
+    "activation": false,
+    "public_derivative_images_republished": false,
+    "public_evidence_scope": "Hashes and review conclusions only; local-only historical source/render references do not grant public derivative release."
+  }
+}

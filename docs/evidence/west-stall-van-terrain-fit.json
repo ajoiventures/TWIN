@@ -1,0 +1,12 @@
+{
+  "sha256": "ebe7e1bb05edb9594a72738f955fd9d6b049d9902d078087e79e7d02fa55deac",
+  "van_tire_gap_mm": {
+    "31": 3.496,
+    "32": 10.639,
+    "59": 2.366,
+    "60": 0.0
+  },
+  "min_stall_clearance_m": 0.2311678746685001,
+  "plan_separation_m": 8.31608275301691,
+  "scope": "Inactive historical terrain candidate. Static mesh contact and plan fit only."
+}

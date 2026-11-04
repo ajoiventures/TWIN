@@ -84,6 +84,20 @@ def build(root=ROOT):
             rows.append(f'<tr><td>{row["location"]}</td><td>{row["id"]}</td><td>{lat:.6f}, {lon:.6f}</td></tr>')
         checklist='<details><summary>Crossing endpoint field checklist</summary><p>Coordinates locate draft line ends. At each end, verify ramp location, clear width, running grade, cross slope, and current condition.</p><table><thead><tr><th>Location</th><th>Draft end</th><th>Reference latitude, longitude</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></details>'
         page=page.replace('</svg>','</svg>'+checklist,1)
+    paint_receipt=root/'data/diagnostics/smith_north_paint_20261104/audit.json'
+    if paint_receipt.exists():
+        receipt=read(paint_receipt)
+        if receipt['aerial_sha256']!=digest:raise ValueError('Smith north paint receipt refers to another image')
+        paint=[]
+        for mark in receipt['marks']:
+            points=mark['pixel_polygon']
+            if not all(0<=x<=width and 0<=y<=height for x,y in points):
+                raise ValueError('Smith north paint trace falls outside the verified frame')
+            coordinates=' '.join(f'{x:.3f},{y:.3f}' for x,y in points)
+            paint.append(f'<polygon points="{coordinates}" fill="#41f99e" fill-opacity=".45" stroke="#14613e" stroke-width=".65"/>')
+        page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showSmithPaint"> Show Smith north paint trace (green). January 2025 interpretation.</label><svg viewBox=',1)
+        page=page.replace('</svg>','<g id="smithPaintOverlay" style="display:none" clip-path="url(#frame)">'+''.join(paint)+'</g></svg>',1)
+        page=page.replace('</script>',";document.getElementById('showSmithPaint').addEventListener('change',e=>document.getElementById('smithPaintOverlay').style.display=e.target.checked?'':'none')</script>",1)
     for key,value in {'__ADJUST__':f'{report["width_adjustment_percent"]:.2f}','__W__':str(width),'__H__':str(height),'__LINES__':''.join(lines),'__MARKS__':''.join(marks)}.items():page=page.replace(key,value)
     (root/'data/imagery/aerial_alignment_review.html').write_text(page,encoding='utf-8')
     print(json.dumps(report,indent=2));return report

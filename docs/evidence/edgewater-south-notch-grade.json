@@ -1,0 +1,70 @@
+{
+  "source_sha256": "c7f3a154e25af39fe9f9b7528f1c76ee7c119dc3612f35dfe72f0936432dc21d",
+  "spacing_m": 0.05,
+  "sample_count": 1152,
+  "materials": {
+    "/World/Streets/Shoulders_11181335": "/World/DetailMaterials/Concrete",
+    "/World/Streets/Road_11181335": "/World/DetailMaterials/Asphalt",
+    "/World/Streets/Road_807089803": "/World/DetailMaterials/Asphalt",
+    "/World/Streets/Road_885333840": "/World/DetailMaterials/Asphalt"
+  },
+  "pair_checks": [
+    {
+      "first": "/World/Streets/Shoulders_11181335",
+      "second": "/World/Streets/Road_11181335",
+      "samples": 1152,
+      "min_first_minus_second_m": -0.030000100640825034,
+      "max_first_minus_second_m": -0.029999998680135476
+    },
+    {
+      "first": "/World/Streets/Shoulders_11181335",
+      "second": "/World/Streets/Road_807089803",
+      "samples": 554,
+      "min_first_minus_second_m": -0.030000119630564148,
+      "max_first_minus_second_m": -0.02999993211742258
+    },
+    {
+      "first": "/World/Streets/Shoulders_11181335",
+      "second": "/World/Streets/Road_885333840",
+      "samples": 369,
+      "min_first_minus_second_m": -0.030000132758895237,
+      "max_first_minus_second_m": -0.029999795742716606
+    },
+    {
+      "first": "/World/Streets/Road_11181335",
+      "second": "/World/Streets/Road_807089803",
+      "samples": 554,
+      "min_first_minus_second_m": -6.217945691666671e-08,
+      "max_first_minus_second_m": 9.504034026441843e-08
+    },
+    {
+      "first": "/World/Streets/Road_11181335",
+      "second": "/World/Streets/Road_885333840",
+      "samples": 369,
+      "min_first_minus_second_m": -8.372446991256055e-08,
+      "max_first_minus_second_m": 2.291665150977451e-07
+    }
+  ],
+  "highest_surfaces_within_0_01_mm": [
+    {
+      "paths": [
+        "/World/Streets/Road_11181335"
+      ],
+      "samples": 229
+    },
+    {
+      "paths": [
+        "/World/Streets/Road_11181335",
+        "/World/Streets/Road_807089803"
+      ],
+      "samples": 554
+    },
+    {
+      "paths": [
+        "/World/Streets/Road_11181335",
+        "/World/Streets/Road_885333840"
+      ],
+      "samples": 369
+    }
+  ]
+}

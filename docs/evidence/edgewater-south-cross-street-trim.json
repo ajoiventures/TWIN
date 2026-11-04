@@ -1,0 +1,29 @@
+{
+  "preview_sha256": "b70551539647957c1d4654b996ea5aaceeb78c045c03da32a355d01c4dbd9393",
+  "parent_sha256": "09eea40d55dc9a5cfec236c40e3b3417db36125306b0dac1bb06f50631f6b836",
+  "shared_sample_spacing_m": 0.05,
+  "combined_outline_error_m2": 6.808190308389516e-05,
+  "pair_audits": [
+    {
+      "owner": "/World/Streets/Road_11181335",
+      "trimmed": "/World/Streets/Road_807089803",
+      "sample_pairs": 5605,
+      "max_height_error_m": 3.6693730309789174e-07,
+      "before_m2": 14.006501352087584,
+      "after_m2": 2.553655852125515e-06
+    },
+    {
+      "owner": "/World/Streets/Road_11181335",
+      "trimmed": "/World/Streets/Road_885333840",
+      "sample_pairs": 5536,
+      "max_height_error_m": 2.323018726269055e-07,
+      "before_m2": 13.860724232191915,
+      "after_m2": 3.8803912722826586e-05
+    }
+  ],
+  "holds": [],
+  "west_parking_distance_to_combined_pavement_m": {
+    "south01_west_north_marked_bays": 0.0,
+    "south01_west_side_aisle": 0.0
+  }
+}

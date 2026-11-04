@@ -1,0 +1,59 @@
+{
+  "scene_sha256": "1b153b31d842e842ee8b52058c78076b4466d2d96540d2fd5a4baf26948257cf",
+  "image_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+  "crop_pixels": [
+    216,
+    1411,
+    637,
+    1841
+  ],
+  "comparison_sha256": "ce4a6dc212806f9483ba4428a207c89cbbc189bf0c224cd5b1543eb5a0c1845e",
+  "rows": [
+    {
+      "path": "/World/Streets/Shoulders_209187375",
+      "overlap_m2": 34.116599953629446,
+      "covered_by_aerial_m2": 29.46535204232223,
+      "covered_by_review_crop_m2": 29.46535204229438,
+      "components": [
+        {
+          "area_m2": 34.116599953629446,
+          "in_source_frame_m2": 29.46535204232223,
+          "in_review_crop_m2": 29.46535204229438,
+          "centroid_local_xy_m": [
+            -11.790422476683169,
+            -1299.764486598781
+          ],
+          "bounds_local_m": [
+            -18.18786315662833,
+            -1307.2327547246016,
+            -4.812321028053093,
+            -1291.5296013464601
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/World/Streets/Road_209187375",
+      "overlap_m2": 24.948267735872825,
+      "covered_by_aerial_m2": 21.805623259569415,
+      "covered_by_review_crop_m2": 21.805623259551652,
+      "components": [
+        {
+          "area_m2": 24.948267735872825,
+          "in_source_frame_m2": 21.805623259569415,
+          "in_review_crop_m2": 21.805623259551652,
+          "centroid_local_xy_m": [
+            -11.591287934241153,
+            -1299.6249248519237
+          ],
+          "bounds_local_m": [
+            -17.861774444580078,
+            -1307.232786641055,
+            -4.812296089030634,
+            -1291.52959616836
+          ]
+        }
+      ]
+    }
+  ]
+}

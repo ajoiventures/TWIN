@@ -1,0 +1,27 @@
+{
+  "preview_sha256": "7d8b9adc6d7a8b7055768ada496e84f7c62b2c6a3381c89addaf23d49cfd33f7",
+  "parent_sha256": "1b153b31d842e842ee8b52058c78076b4466d2d96540d2fd5a4baf26948257cf",
+  "mask_clearance_m": 0.02,
+  "matched_aerial_manifest_sha256": "b699605283ab7fd5e20268ff46f9efca33bb6a30e352f493e8e270e7425f1754",
+  "results": [
+    {
+      "path": "/World/Streets/Road_209187375",
+      "overlap_before_m2": 24.948267735872825,
+      "overlap_after_m2": 0.0,
+      "removed_m2": 25.348179696943838,
+      "remaining_components_m2": [
+        616.0194212876668
+      ]
+    },
+    {
+      "path": "/World/Streets/Shoulders_209187375",
+      "overlap_before_m2": 34.116599953629446,
+      "overlap_after_m2": 0.0,
+      "removed_m2": 34.87533458915952,
+      "remaining_components_m2": [
+        787.5052431999648,
+        26.074720099684782
+      ]
+    }
+  ]
+}

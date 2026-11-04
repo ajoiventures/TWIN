@@ -1,0 +1,69 @@
+{
+  "rows": [
+    {
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "extent": {
+        "xmin": 531180.3324071756,
+        "ymin": 1536515.7237605392,
+        "xmax": 531361.869542235,
+        "ymax": 1536697.2608955987,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=531184.151982628%2C1536515.7237605387%2C531358.0499667826%2C1536697.2608955982&bboxSR=2236&imageSR=2236&size=550%2C550&format=jpg",
+      "image_sha256": "8b5f0621d9dcee9e6ae65528191c412f74f1dca0bb0c33953254314bfa909a2b"
+    },
+    {
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "extent": {
+        "xmin": 531180.3324071756,
+        "ymin": 1536515.7237605387,
+        "xmax": 531361.869542235,
+        "ymax": 1536697.2608955982,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=531184.151982628%2C1536515.7237605387%2C531358.0499667826%2C1536697.2608955982&bboxSR=2236&imageSR=2236&size=550%2C550&format=jpg",
+      "image_sha256": "21b5526d82f1921bd261f364f540a310c2bdc1b4617d428c1379fa5ec821e8e0"
+    },
+    {
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "extent": {
+        "xmin": 531180.3324071756,
+        "ymin": 1536515.7237605387,
+        "xmax": 531361.869542235,
+        "ymax": 1536697.2608955982,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531184.151982628%2C1536515.7237605387%2C531358.0499667826%2C1536697.2608955982&bboxSR=2236&imageSR=2236&size=550%2C550&format=jpg",
+      "image_sha256": "94b1e298bf096d2e0f95295b225319d46685f7f02dd3555d7809dcf27974cb3f"
+    }
+  ],
+  "overlay_sha256": "d45884331b9ec06b231820682b2b013d8a9172accdea3750c90c27ccfb2ace6a",
+  "scene_sha256": "1b153b31d842e842ee8b52058c78076b4466d2d96540d2fd5a4baf26948257cf"
+}

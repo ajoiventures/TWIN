@@ -1,0 +1,126 @@
+{
+  "source_image_sha256": "0ad0218a5426f28247239cbacdc53fd9ff6ea1e51ab177232d88984fe5a7ec5a",
+  "cloud_sha256": "b832d7e7f94d0c03da29019dda407851f7c33d25620a8d863940de3443cbcdc9",
+  "sample_split": "alternating one metre XY cells",
+  "regions": [
+    {
+      "region": "interior_north_east",
+      "window_pixels": [
+        216,
+        123,
+        530,
+        297
+      ],
+      "training_inliers": 1682,
+      "holdout_points": 1730,
+      "plane_xy_and_center_navd88_m": [
+        -0.021941118074892844,
+        0.0016192811157687004,
+        34.14039181432734
+      ],
+      "global_p50_p90_absolute_holdout_m": [
+        0.020357684773202323,
+        0.04968757628166146
+      ],
+      "local_p50_p90_absolute_holdout_m": [
+        0.010421094100138362,
+        0.031115382443689315
+      ]
+    },
+    {
+      "region": "interior_south",
+      "window_pixels": [
+        129,
+        315,
+        406,
+        389
+      ],
+      "training_inliers": 289,
+      "holdout_points": 337,
+      "plane_xy_and_center_navd88_m": [
+        -0.017424594399088757,
+        0.012650803741676597,
+        34.3442586004441
+      ],
+      "global_p50_p90_absolute_holdout_m": [
+        0.035584023473525406,
+        0.12143926938431528
+      ],
+      "local_p50_p90_absolute_holdout_m": [
+        0.017733513226360742,
+        0.05255304066156884
+      ]
+    },
+    {
+      "region": "interior_west",
+      "window_pixels": [
+        124,
+        127,
+        200,
+        303
+      ],
+      "training_inliers": 265,
+      "holdout_points": 288,
+      "plane_xy_and_center_navd88_m": [
+        0.0020626872500352357,
+        0.023647648431449397,
+        34.55348984296799
+      ],
+      "global_p50_p90_absolute_holdout_m": [
+        0.0665327395758375,
+        0.7636264836993797
+      ],
+      "local_p50_p90_absolute_holdout_m": [
+        0.0431715007480733,
+        0.6233298367437252
+      ]
+    }
+  ],
+  "breaks": [
+    {
+      "edge_pixels": [
+        [
+          230,
+          305
+        ],
+        [
+          310,
+          305
+        ],
+        [
+          400,
+          305
+        ]
+      ],
+      "comparison": "south minus northeast",
+      "predicted_delta_m": [
+        0.11562632839675227,
+        0.13946988765187693,
+        0.1662938918219105
+      ]
+    },
+    {
+      "edge_pixels": [
+        [
+          210,
+          195
+        ],
+        [
+          210,
+          245
+        ],
+        [
+          210,
+          290
+        ]
+      ],
+      "comparison": "west minus northeast",
+      "predicted_delta_m": [
+        0.21305242371415867,
+        0.1403700468441626,
+        0.07495590765077553
+      ]
+    }
+  ],
+  "scope": "interior plane comparison; edge geometry and equipment exclusions need separate interpretation"
+}

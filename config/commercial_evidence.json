@@ -344,7 +344,10 @@
         "proposed_retail_area_sf": 989,
         "proposed_building_stories": 3
       },
-      "conflicts": ["The City's September 2024 project list gives 899 SF in its retail column and 989 SF in the narrative. Permit plans are needed to resolve the discrepancy."],
+      "conflicts": [
+        "The saved 3D building overlaps cleared ground in the January 2025 OCPA aerial. City records document demolition of the earlier office. Later construction status remains unverified.",
+        "The City's September 2024 project list gives 899 SF in its retail column and 989 SF in the narrative. Permit plans are needed to resolve the discrepancy."
+      ],
       "exclusions": ["existing building dimensions", "verified current availability", "verified entitlement validity"],
       "identity_evidence": {
         "kind": "reviewed_property_address_context",

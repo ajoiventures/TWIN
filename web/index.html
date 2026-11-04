@@ -51,6 +51,13 @@ function showCommercial(featureId){
   if(labels.length){
    const details=document.createElement('p');details.textContent=labels.join(' · ');box.append(details);
   }
+  if(claim.conflicts?.length){
+   const conflicts=document.createElement('ul');
+   for(const finding of claim.conflicts){
+    const item=document.createElement('li');item.textContent=finding;conflicts.append(item);
+   }
+   box.append(conflicts);
+  }
   for(const id of claim.source_ids){
    const src=evidence.sources.find(x=>x.id===id);
    if(!src)continue;

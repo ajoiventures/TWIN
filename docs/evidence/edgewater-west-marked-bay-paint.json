@@ -1,0 +1,73 @@
+{
+  "review_sha256": "c7f3a154e25af39fe9f9b7528f1c76ee7c119dc3612f35dfe72f0936432dc21d",
+  "parent_sha256": "f6b5c84ffd0bb0f8f1eed710df0a95e6d09c3ec48963f6b235b5a95de1a421cf",
+  "source_tile": "Edgewater tile 05, January 2025",
+  "image_sha256": "dfc359e42d19cc46979957ebdb8a011224a0bda3bfe8cac65ac5833353d68b76",
+  "paint_width_m_assumed": 0.1,
+  "paint_offset_m": 0.003,
+  "records": [
+    {
+      "pixels": [
+        [
+          163,
+          1416
+        ],
+        [
+          208,
+          1416
+        ]
+      ],
+      "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill/Paint_01",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.8909166480880231,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 3.2270490896157966e-07,
+      "pavement_sample_count": 56,
+      "min_paint_clearance_m": 0.002999745243010832,
+      "max_paint_clearance_m": 0.0030002677621792095
+    },
+    {
+      "pixels": [
+        [
+          163,
+          1432
+        ],
+        [
+          211,
+          1431
+        ]
+      ],
+      "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill/Paint_02",
+      "status": "authored",
+      "triangles": 20,
+      "saved_area_m2": 0.9502005313988775,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.5068942532669993e-07,
+      "pavement_sample_count": 80,
+      "min_paint_clearance_m": 0.0029998004555413793,
+      "max_paint_clearance_m": 0.003000153212494361
+    },
+    {
+      "pixels": [
+        [
+          180,
+          1449
+        ],
+        [
+          211,
+          1449
+        ]
+      ],
+      "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill/Paint_03",
+      "status": "authored",
+      "triangles": 11,
+      "saved_area_m2": 0.6118473308160901,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.4562103339832433e-07,
+      "pavement_sample_count": 44,
+      "min_paint_clearance_m": 0.002999812287319603,
+      "max_paint_clearance_m": 0.0030001692548431436
+    }
+  ]
+}

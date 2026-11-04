@@ -1,0 +1,400 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "fdot_packet_sha256": "f022e8cc8c13dae66550953e90ba31fea2867ed55857a17fa65c6750ce1ee5dc",
+  "stop_side_audit_sha256": "e5f38131e832c20f51e505342adff8a1bb304cf0da1776878a5399a7acc63e2d",
+  "method": "Snap GTFS point to its reviewed City centerline. Search the FDOT packet parallel-screen candidates for that exact City centerline within 12 m of the snapped point.",
+  "counts": {
+    "city_segment_outside_packet_coverage": 4,
+    "nearby_parallel_inventory_reference": 11
+  },
+  "rows": [
+    {
+      "stop_id": "2005",
+      "city_centerline_id": 5039,
+      "street": "MAURY RD",
+      "status": "city_segment_outside_packet_coverage",
+      "matches": [],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "2114",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 1.192,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 1.192,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4170",
+      "city_centerline_id": 6246,
+      "street": "W PRINCETON ST",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:90438",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93350",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93522",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:94790",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4172",
+      "city_centerline_id": 6246,
+      "street": "W PRINCETON ST",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:90438",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93350",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93522",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:94790",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4217",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4219",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4220",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 1.081,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 1.081,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4223",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4224",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4225",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "4676",
+      "city_centerline_id": 6246,
+      "street": "W PRINCETON ST",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:90438",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93350",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 1.614,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 0.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:93522",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:94790",
+          "roadway": "75250001",
+          "distance_to_city_tie_m": 2.095,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 7.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "5731",
+      "city_centerline_id": 2271,
+      "street": "EDGEWATER DR",
+      "status": "nearby_parallel_inventory_reference",
+      "matches": [
+        {
+          "id": "fdot:sidewalk_width_sep:91067",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "L",
+          "native_offset_direction": "3",
+          "width_ft": 5.0,
+          "separation_ft": 4.0
+        },
+        {
+          "id": "fdot:sidewalk_width_sep:91490",
+          "roadway": "75260000",
+          "distance_to_city_tie_m": 5.996,
+          "native_side": "R",
+          "native_offset_direction": "2",
+          "width_ft": 8.0,
+          "separation_ft": 2.0
+        }
+      ],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6169",
+      "city_centerline_id": 5039,
+      "street": "MAURY RD",
+      "status": "city_segment_outside_packet_coverage",
+      "matches": [],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6185",
+      "city_centerline_id": 5039,
+      "street": "MAURY RD",
+      "status": "city_segment_outside_packet_coverage",
+      "matches": [],
+      "boarding_access_verified": false
+    },
+    {
+      "stop_id": "6192",
+      "city_centerline_id": 5039,
+      "street": "MAURY RD",
+      "status": "city_segment_outside_packet_coverage",
+      "matches": [],
+      "boarding_access_verified": false
+    }
+  ],
+  "limits": [
+    "FDOT event geometry is a roadway reference. Native side codes do not resolve the boarding side.",
+    "Unmatched City segments lack a coverage record in this packet. Missing references do not establish physical absence.",
+    "No boarding pad, walk continuity, clear width at the boarding point or accessibility is verified."
+  ]
+}

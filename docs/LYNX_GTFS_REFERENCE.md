@@ -52,3 +52,7 @@ The existing `/transit` page now includes a service-date selector and expandable
 The old `config/transit_sources.json` HTTPS timeout describes the earlier GIS adapter's probe, not current GTFS access. This additive validated packet and live page supersede that availability statement without rewriting the frozen GIS acquisition.
 
 Independent source/geometry/calendar review passed, including the final shape-point preview and coordinate/sequence guards. [Review record](evidence/lynx-gtfs-review.json) binds the final packet checksum. Broader #15 network, parking and mobility requirements remain open.
+
+### FDOT sidewalk inventory comparison
+
+Eleven of the 15 reviewed stop locations have nearby FDOT sidewalk-width records in the parallel-line screen for their exact City centerline. The other four City centerline IDs have no coverage row in the FDOT packet. At Princeton stop 4170, four records report 5 ft widths and two different setbacks, 0 ft and 7 ft, on both native roadway sides. These are roadway inventory events. They leave the boarding-side connection and its actual clear width unresolved. The audit binds both source packets and keeps boarding access unverified for all 15 stops. [Per-stop coverage and original side codes](evidence/lynx-fdot-sidewalk-reference-audit.json)

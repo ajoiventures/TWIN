@@ -1,0 +1,13 @@
+{
+  "usd_sha256": "1cfc728f4d85a1ae2065c1e49c4b3805256f84d27ded552e93f08be4f8a83259",
+  "triangles": 126758,
+  "meshes": 435,
+  "resolved_color_textures": 12,
+  "dimensions_xyz_m": [
+    4.492966568097472,
+    2.1734999716281895,
+    1.72999360295944
+  ],
+  "van_replay_identical": true,
+  "limits": "Transmission/refraction omitted; physical and rendered material quality pending."
+}

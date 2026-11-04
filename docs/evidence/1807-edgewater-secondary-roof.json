@@ -1,0 +1,32 @@
+{
+  "preview_sha256": "10758a6fcb086b75f8cfe6f4ca06da49b87aeb746903d699e8d5c1d2647dff8f",
+  "parent_sha256": "a98f3c68f071cc3037f5672f1c22663788dfa7a7ec3d1b4ab59b734abaa4b6fc",
+  "image_sha256": "0ad0218a5426f28247239cbacdc53fd9ff6ea1e51ab177232d88984fe5a7ec5a",
+  "cloud_sha256": "b832d7e7f94d0c03da29019dda407851f7c33d25620a8d863940de3443cbcdc9",
+  "trace_pixels": [
+    [
+      438,
+      513
+    ],
+    [
+      564,
+      510
+    ],
+    [
+      564,
+      631
+    ],
+    [
+      443,
+      639
+    ]
+  ],
+  "old_outline_m2": 76.65930857384956,
+  "corrected_outline_m2": 66.47814196691341,
+  "old_new_intersection_m2": 3.184366816153351,
+  "classified_roof_points": 228,
+  "plane_inliers": 160,
+  "center_navd88_m": 32.68967790202013,
+  "p90_absolute_fit_residual_m": 0.10439621808853303,
+  "parking_projection_overlap_m2": 0.19712920460235978
+}

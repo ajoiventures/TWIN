@@ -1,0 +1,44 @@
+{
+  "preview_stage_sha256": "10758a6fcb086b75f8cfe6f4ca06da49b87aeb746903d699e8d5c1d2647dff8f",
+  "pin": "292214147800010",
+  "roof_area_m2": {
+    "main": 477.4964434953869,
+    "secondary": 66.47797139469913
+  },
+  "parcels": [
+    {
+      "properties": {
+        "id": "ocpa:107382",
+        "parcel_id": "292214147800010",
+        "site_address": "1807 EDGEWATER DR"
+      },
+      "overlap_m2": {
+        "main": 477.4964434953869,
+        "secondary": 66.47797139469913
+      }
+    }
+  ],
+  "all_cached_source_intersections_above_0_01_m2": [
+    {
+      "properties": {
+        "OBJECTID": 1167663,
+        "PID": "292214147800010",
+        "BLDG_NUM": "2",
+        "SUBTYPE": 1,
+        "SUB_DESC": null
+      },
+      "overlap_m2": {
+        "main": 0.0,
+        "secondary": 39.8017499660063
+      }
+    }
+  ],
+  "live_source_object_ids": [
+    1162422,
+    1163104,
+    1167663,
+    1173742
+  ],
+  "live_vs_cached_symmetric_difference_m2": 0.0,
+  "live_source_response_sha256": "466dac0adcc19871c790bf92fc91500bb3a9fef9445e1ee058455e5981004873"
+}

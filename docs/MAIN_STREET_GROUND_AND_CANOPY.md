@@ -1,5 +1,11 @@
 # Main Street rear parking, canopy and street-view correction
 
+## Dated canopy baseline for tree placement
+
+The City identifies Green Works Orlando's street-tree tracking program as the intended right-of-way inventory. The policy describes location, species, health and maintenance fields. A public inventory endpoint with those records is still unverified. The public Tree Inventory service found during discovery uses EPSG:2230 and its extent is in California, so it was rejected for Orlando. [City urban design policy](https://www.orlando.gov/files/sharedassets/public/documents/city-and-district-plans/comprehensive-plan/policy-documents/02-urbandesign_supp19.pdf) · [Rejected service](https://services3.arcgis.com/x68DaqVkReQwi0Vd/ArcGIS/rest/services/Tree_Inventory/FeatureServer)
+
+Use the University of Alabama in Huntsville's published Orlando metro canopy product as an independent historical coverage reference. It provides classified canopy rasters for 2013–2021, derived from NAIP. The version 2 repository metadata identifies CC BY 4.0 and lists the 2021 archive as 394,005,397 bytes with MD5 `e8bba02b4c8556311ecf3673e6e4e735`. The archive download is in progress. After checksum verification, inspect the raster class definitions and clip to Main Street, then compare canopy extent against the dated January 2025 OCPA reference. Use the raster for historical canopy presence and coverage. Keep individual trunks, tree wells, species, heights and current condition as separate verification fields. [Publisher archive](https://zenodo.org/records/15084614) · [Peer-reviewed data descriptor](https://www.nature.com/articles/s41597-025-05059-9)
+
 ## Princeton–Smith paving expansion and terrain check — November 4, 2026 UTC
 
 Extended the three existing January 2025 asphalt traces and added an east outer-row trace. The generated local layer now contributes **1,610.53 m²** across four surfaces and 235 triangles, up **528.39 m²** from the original 1,082.14 m². The build checked source image bytes, used the returned aerial frame and existing local origin, and excluded overlap with existing model buildings, streets and sidewalks. The traces prioritize visible pavement and omit ambiguous edges, planted islands and obscured connections. The generated layer is local. Rebuild it with `tools/build_rear_parking.py`.

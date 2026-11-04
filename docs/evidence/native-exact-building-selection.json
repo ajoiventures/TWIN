@@ -1,0 +1,48 @@
+{
+  "map_building": {
+    "delivery": {
+      "status": "selected-in-editor",
+      "reason": "One exact registered building counterpart."
+    },
+    "paths": [
+      "/World/Buildings/Building_2945"
+    ]
+  },
+  "map_parcel": {
+    "delivery": {
+      "status": "selected-in-editor",
+      "reason": "2 accepted 3D building counterpart(s)."
+    },
+    "paths": [
+      "/World/Buildings/Building_2945",
+      "/World/Buildings/Building_2978"
+    ]
+  },
+  "map_unmatched": {
+    "delivery": {
+      "status": "unmatched-editor",
+      "reason": "No accepted 3D building counterpart for this exact parcel feature. Parcel context is not a storefront."
+    },
+    "paths": []
+  },
+  "native_roof": {
+    "status": "matched",
+    "feature_id": "ocpa:332228",
+    "paths": [
+      "/World/Buildings/Building_2945"
+    ],
+    "entity_ids": [
+      "ocpa:building-group:334a4fcbfde329c81273f0f0"
+    ],
+    "selected_entity_id": "ocpa:building-group:334a4fcbfde329c81273f0f0",
+    "reason": "One exact registered building counterpart."
+  },
+  "status": "passed",
+  "scope": "Actual headless Kit workspace event handlers with the saved composed scene and an isolated bridge",
+  "snapshot": "20261028T160543372334Z",
+  "browser_verification": "Actual footprint inspector button with link disabled prompted to enable the link",
+  "native_input": "Kit selection API",
+  "manual_viewport_click_tested": false,
+  "combined_browser_native_gesture_tested": false,
+  "live_selection_sha256_after": "c6ca93322820d1201baa8b7709822a5b2e839b73002b0790c2864e11e148943e"
+}

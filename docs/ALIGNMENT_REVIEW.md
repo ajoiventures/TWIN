@@ -52,7 +52,11 @@ The [NAIP service metadata](https://imagery.geoplatform.gov/iipp/rest/services/N
 
 The selection bridge now retains the exact registered building ID when Kit publishes a building selection. The map highlights that footprint and styles the other parcel footprints as context. A parcel selection continues to request all accepted building counterparts. The editor verifies each expected USD path against its own registered entity ID and reports partial delivery when scene identity or snapshot evidence is missing.
 
-Seven selection bridge tests passed, including the same-parcel swapped-identity regression in a real USD stage. A browser session backed by a temporary copy of the current registry and parcels received a simulated Kit event for `Building_2945`. It highlighted that building while showing `Building_2978` as parcel context. Selecting 2204 Edgewater returned both registered scene paths, and selecting 1615 Edgewater displayed the unmatched state. The live native viewport round trip and direct map-footprint-to-building selection remain open.
+Seven selection bridge tests passed, including the same-parcel swapped-identity regression in a real USD stage. A browser session backed by a temporary copy of the current registry and parcels received a simulated Kit event for `Building_2945`. It highlighted that building while showing `Building_2978` as parcel context. Selecting 2204 Edgewater returned both registered scene paths, and selecting 1615 Edgewater displayed the unmatched state.
+
+The footprint inspector now offers **Select this building in 3D**. The isolated Kit probe used the full saved scene and the normal workspace event handlers. The building request selected only `Building_2945`, the parcel request selected both registered paths, and `ocpa:99613` reported unmatched. Programmatically selecting `Roof_2945` through Kit's selection API published the exact building identity. Browser inspection separately confirmed that the action prompts for the link to be enabled when the link checkbox is off. [Native event evidence](evidence/native-exact-building-selection.json)
+
+The event test used an isolated bridge and programmatic selection. Manual viewport picking and a single connected browser-to-native gesture replay remain pending. Existing Kit instances need to load the updated workspace code before using the exact-building action.
 
 ## Remaining ticket #5 gates
 

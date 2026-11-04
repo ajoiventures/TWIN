@@ -33,7 +33,6 @@ def validate_payload(payload):
     for key in ('feature_id','entity_id'):
         if key in payload and (not isinstance(payload[key],str) or len(payload[key])>256):raise SelectionError('Invalid '+key)
     if payload.get('feature_id') and payload.get('entity_id'):raise SelectionError('Choose one identity')
-    if payload['sender']=='map' and 'entity_id' in payload:raise SelectionError('Map selection requires feature identity')
     return payload
 
 def load_context(root=ROOT):
@@ -142,7 +141,8 @@ def counterpart_paths(stage,packet,context):
     if packet.get('snapshot')!=context['snapshot']:raise SelectionError('Editor selection snapshot is stale',409)
     selection=packet.get('selection',{})
     if not selection.get('feature_id'):return []
-    canonical=resolve_selection(context,selection['feature_id'])
+    canonical=resolve_selection(context,entity_id=selection['selected_entity_id']) if selection.get('selected_entity_id') else resolve_selection(context,selection['feature_id'])
+    if canonical['feature_id']!=selection['feature_id']:return []
     expected_entities={}
     for record in context['records']:
         if (record.get('source_snapshot')==context['snapshot'] and record.get('parcel_link_accepted') is True

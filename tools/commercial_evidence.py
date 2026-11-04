@@ -50,6 +50,9 @@ def grouped_claims(claims):
 def entity_links(claim,parcels,buildings):
     address=normalized_address(claim['address'],True)
     matches=[p for p in parcels if normalized_address(p.get('site_address'),True)==address]
+    use_codes=claim.get('candidate_property_use_codes')
+    if use_codes:
+        matches=[p for p in matches if str(p.get('property_use_code')) in use_codes]
     pinset={p['parcel_id'] for p in matches};candidate_buildings=[b for b in buildings if b.get('parcel_id') in pinset]
     identity=claim.get('identity_evidence',{});explicit=identity.get('parcel_id')
     accepted=[];context=[];physical=[]

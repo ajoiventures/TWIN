@@ -133,6 +133,7 @@
   "claims": [
     {
       "id": "wellesley-retail-sale",
+      "candidate_property_use_codes": ["1101"],
       "claim_group": "cbre-wellesley-retail-sale",
       "address": "2305 EDGEWATER DR",
       "city": "ORLANDO",
@@ -160,6 +161,7 @@
     },
     {
       "id": "wellesley-crossman-index",
+      "candidate_property_use_codes": ["1101"],
       "claim_group": "crossman-wellesley-retail-index",
       "address": "2305 EDGEWATER DR",
       "city": "ORLANDO",
@@ -184,6 +186,7 @@
     },
     {
       "id": "wellesley-suite-i-lease",
+      "candidate_property_use_codes": ["1101"],
       "claim_group": "crossman-wellesley-suite-i-lease",
       "address": "2305 EDGEWATER DR",
       "city": "ORLANDO",

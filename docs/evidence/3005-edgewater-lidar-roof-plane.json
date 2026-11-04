@@ -1,0 +1,33 @@
+{
+  "parent_sha256": "60cd2e65bd1f43742404ce9fdcf9fadf3fef5f25460a04ad88a7da0a2f43b099",
+  "stage_sha256": "edbcae26473831ab39fa6e7c5fc98afb80a6a391dbb00ff9660259fe138e37fb",
+  "cloud_sha256": "ff781cf58fba9d3dd751cd356ff4ae3dc77a568bb80fa9558c9d5a73b2e9e5a3",
+  "fit_inlier_count": 4480,
+  "source_count": 4821,
+  "fit_threshold_m": 0.2,
+  "center_navd88_m": 35.867619604173285,
+  "plane_xy_slope": [
+    -0.023788346099784276,
+    0.0004542492198185144
+  ],
+  "absolute_residual_p50_p90_m": [
+    0.007793606903629069,
+    0.022347612124401194
+  ],
+  "previous_top_scene_z_m": [
+    4.523051034668155,
+    4.523051034668155,
+    4.523051034668155,
+    4.523051034668155,
+    4.523051034668155
+  ],
+  "revised_roof_vertex_navd88_m": [
+    36.11299272300932,
+    36.09721437864146,
+    36.03174397553244,
+    35.62202926985685,
+    35.64362602438798
+  ],
+  "scene_z_origin_navd88_m": 30.0,
+  "scope": "one historical dominant plane; roof equipment, parapets, secondary planes and current conditions unverified"
+}

@@ -4,6 +4,7 @@ This declares a local validation profile, not NVIDIA SimReady certification.
 """
 from pathlib import Path
 import sys,json,hashlib,collections,datetime,math
+from urllib.parse import parse_qs,urlparse
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'))
 from pxr import Usd,UsdGeom,Sdf
@@ -14,6 +15,24 @@ PROFILE='college-park-evidence-visualization/1.0'
 REFERENCE_SCENARIO='existing_conditions_reference'
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+def footprint_receipts(root):
+    path=Path(root)/'data/footprint_manifest.json'
+    if not path.exists():return None,[]
+    payload=path.read_bytes()
+    return hashlib.sha256(payload).hexdigest(),json.loads(payload).get('requests',[])
+
+def date_provenance(root,row,receipt_manifest=None):
+    """Link retained source requests without substituting registry build time."""
+    digest,requests=footprint_receipts(root) if receipt_manifest is None else receipt_manifest
+    wanted=set(row.get('source_feature_ids',[]));covered=set();receipts=[]
+    for request in requests:
+        query=parse_qs(urlparse(request.get('url','')).query)
+        ids=set(query.get('objectIds',[''])[0].split(','))&wanted
+        if ids:
+            covered|=ids
+            receipts.append({'source_feature_ids':sorted(ids),'url':request['url'],'retrieved_utc':request.get('retrieved_utc'),'retrieval_quality':request.get('retrieval_quality','unknown'),'response_sha256':request.get('sha256')})
+    return {'receipt_ref':'data/footprint_manifest.json#requests' if digest else None,'receipt_sha256':digest,'requests':receipts,'source_ids_without_retained_request':sorted(wanted-covered),'unknown_reason':'Reused legacy rows may lack retained original retrieval receipts; build/read times are not substitutions.','acquisition_interval':row.get('acquisition_interval'),'valid_time':row.get('valid_time'),'evidence_refs':row.get('evidence_refs',[])}
 
 def building_identity(source_ids):
     values=sorted(set(str(x).strip() for x in source_ids if str(x).strip()))
@@ -55,6 +74,7 @@ def build(root=ROOT):
     by_height={h['building_id']:h for h in heights}
     if len(by_height)!=len(heights):raise ValueError('Duplicate height evidence')
     base=root/'scene/college_park.usda';base_hash=sha(base);stage=Usd.Stage.Open(str(base));records=[]
+    receipt_manifest=footprint_receipts(root)
     for b in buildings:
         prim=stage.GetPrimAtPath(b['usd_path'])
         if not prim:raise ValueError('Missing source prim '+b['usd_path'])
@@ -75,6 +95,8 @@ def build(root=ROOT):
             'evidence_refs':[f"snapshot:{active['snapshot']}:buildings:{b['id']}",f"height:{b['id']}"],
             'review_status':'needs_review' if not b['match_method']=='id_and_geometry' or h.get('review_notes') else 'source_linked_not_field_verified',
             'notes':h.get('review_notes','')})
+        dates=date_provenance(root,records[-1],receipt_manifest)
+        records[-1]['footprint_retrieval']={key:dates[key] for key in ('receipt_ref','receipt_sha256','requests','source_ids_without_retained_request')}
     errors=validate_records(records)
     if errors:raise ValueError(str(errors[:10]))
     scene=root/'scene';layer=Usd.Stage.CreateNew(str(scene/'semantic_assets.usda'))

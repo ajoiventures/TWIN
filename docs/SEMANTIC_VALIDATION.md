@@ -2,6 +2,8 @@
 
 ## Current API and USD reconciliation
 
+The asset API now includes retained original footprint retrieval receipts by exact source object ID, using the same matcher as the isolated inspection tool. Of 3,216 building groups, 120 have timestamps for every footprint ID, 18 have partial coverage, and 3,078 have no retained timestamp. Unknown source IDs remain explicit. Retrieval describes the original request and stays separate from acquisition and valid time. The local API response matched the rebuilt registry for both a record with retained receipt evidence and one without it.
+
 Building registry records now declare `existing_conditions_reference` as their scenario in the API and additive USD metadata. The scenario describes the baseline being represented. Observation quality and unknown current validity remain separate. After rebuilding the semantic layer, all 3,216 USD scenario tags matched the registry, and the live API returned the new field. Existing registry records without a scenario field remain readable.
 
 The connected-stage material audit checked 16,759 meshes with composed visibility enabled, including instance proxies, and 22 material-binding subsets. The audit resolved 503 unique surface materials and 20 asset-input paths. Nine landmark or office meshes use authored display colors. No other mesh lacked a surface source, and all audited asset inputs resolved. This checks authored bindings and references for #26. Per-camera appearance, point-instancer visibility masks and sensor material response remain separate checks. [Material audit and layer hashes](evidence/scene-visible-material-binding-audit.json)

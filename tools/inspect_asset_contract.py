@@ -6,23 +6,13 @@ report source hashes, material/reference/scale/origin checks. No physics claim.
 """
 from pathlib import Path
 import argparse,datetime,hashlib,json,math,sys
-from urllib.parse import urlparse,parse_qs
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'))
 from pxr import Usd,UsdGeom,UsdShade,UsdPhysics,UsdSemantics,UsdLux,Gf,Sdf,UsdUtils
+from semantic_registry import date_provenance
 
 PROFILE='college-park-source-inspection/1.0'
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-def date_provenance(root,row):
-    """Link exact footprint requests where retained; never reuse build time."""
-    path=Path(root)/'data/footprint_manifest.json';wanted=set(row.get('source_feature_ids',[]));receipts=[];covered=set()
-    if path.exists():
-        for request in json.loads(path.read_text()).get('requests',[]):
-            query=parse_qs(urlparse(request.get('url','')).query)
-            ids=set(query.get('objectIds',[''])[0].split(','))&wanted
-            if ids:
-                covered|=ids;receipts.append({'source_feature_ids':sorted(ids),'url':request['url'],'retrieved_utc':request.get('retrieved_utc'),'retrieval_quality':request.get('retrieval_quality','unknown'),'response_sha256':request.get('sha256')})
-    return {'receipt_ref':'data/footprint_manifest.json#requests' if path.exists() else None,'receipt_sha256':sha(path) if path.exists() else None,'requests':receipts,'source_ids_without_retained_request':sorted(wanted-covered),'unknown_reason':'Reused legacy rows may lack retained original retrieval receipts; build/read times are not substitutions.','acquisition_interval':row.get('acquisition_interval'),'valid_time':row.get('valid_time'),'evidence_refs':row.get('evidence_refs',[])}
 def preflight_stage(output,bounds,pilot_relative):
     """CPU-only camera/light setup, separate from the validator's exact asset."""
     path=Path(output)/'preflight.usda'

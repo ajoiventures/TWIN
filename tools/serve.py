@@ -339,10 +339,22 @@ class Handler(BaseHTTPRequestHandler):
      except ValueError:return self.send({'error':'Use a valid service date: YYYY-MM-DD'},400)
     try:report=validate(ROOT,service_date=requested_date)
     except (ValueError,OSError) as exc:raise SnapshotMismatch('LYNX schedule references unavailable or stale') from exc
+    summary=report['read_time_schedule_summary']
+    summary['routes']=None
     if report['read_time_validity']['status']!='within_published_feed_period':
-     summary=report['read_time_schedule_summary']
      summary['scheduled_selected_trip_count']=None
      summary['scheduled_trips_serving_study_stops']=None
+    else:
+     tables=report['tables']
+     active_services=set(summary['active_service_ids'])
+     stop_trip_ids={row['trip_id'] for row in tables['stop_times']}
+     routes={row['route_id']:{'route_id':row['route_id'],'route_short_name':row['route_short_name'],
+       'scheduled_trips_serving_study_stops':0,'scheduled_trips_passing_without_study_stop':0} for row in tables['routes']}
+     for trip in tables['trips']:
+      if trip['service_id'] in active_services:
+       field='scheduled_trips_serving_study_stops' if trip['trip_id'] in stop_trip_ids else 'scheduled_trips_passing_without_study_stop'
+       routes[trip['route_id']][field]+=1
+     summary['routes']=list(routes.values())
     return self.send({k:v for k,v in report.items() if k not in ('tables','dependencies')})
    if path=='/api/v1/transit':
     _,snapshot=active_folder()

@@ -30,6 +30,7 @@ async function loadSchedule(){
    'Published period: '+report.feed_validity.start+' to '+report.feed_validity.end,
    'Service date: '+validity.service_date+' (America/New_York)',
    ...(validity.status==='within_published_feed_period'?['Scheduled trips serving study stops: '+summary.scheduled_trips_serving_study_stops,'Scheduled trips including routes passing through: '+summary.scheduled_selected_trip_count]:['Trip availability for this date is unknown from this feed; do not interpret expired calendars as no service.']),
+   ...(summary.routes||[]).map(route=>'Route '+route.route_short_name+': '+route.scheduled_trips_serving_study_stops+' scheduled trips serving study stops · '+route.scheduled_trips_passing_without_study_stop+' passing without a study stop.'),
    'No live arrivals or actual operation verified.',
    'Older GIS route labels absent from current intersecting schedule shapes: '+(report.gis_reconciliation.gis_labels_not_in_current_intersecting_GTFS_shapes.join(', ')||'none')+' (not proof of cancellation).'].join('\n');
   byId('scheduleEvidence').textContent=JSON.stringify({source_fields:report.source_field_dictionary,first_five_rows:report.first_five_safe_rows,dates:report.source_dates,coverage:report.coverage,rights:report.rights,limits:report.limits},null,2);

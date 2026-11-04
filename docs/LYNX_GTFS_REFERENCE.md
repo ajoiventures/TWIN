@@ -37,6 +37,8 @@ The previous GTFS access/calendar gap now has actual source data and validity ev
 
 ## App integration
 
+The date-aware schedule now breaks out stop-serving trips and pass-through trips by original GTFS route ID. On November 3, Route 125 serves the study stops with 100 scheduled trips, and Route 106 contributes 70 pass-through trips with no study stop. On Thanksgiving the corresponding counts are 35 and 33. Both rows reconcile to the existing aggregate totals. Dates outside feed validity return null for the route breakdown.
+
 On November 4 the public ZIP was downloaded again and matched the active archive SHA-256. The published feed remains valid through December 12. The date-aware API schedules 100 study-stop trips on November 3, 70 on Saturday November 7, 35 on Sunday November 8, and 35 on Thanksgiving November 26. The endpoint now returns JSON null trip counts outside the published validity window, including December 13. An isolated HTTP run verified the holiday, expired and not-yet-effective responses. These are schedule figures, and no live operation was verified.
 
 `GET /api/v1/transit_schedule?service_date=2026-10-28` returns validated schedule validity, calendar-derived counts, source fields, first five safe rows and limits. The optional date defaults to the agency's New York date. Invalid dates return an error; unavailable/stale dependencies reject the response. No agency call occurs during display.

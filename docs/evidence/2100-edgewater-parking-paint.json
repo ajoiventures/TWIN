@@ -1,0 +1,190 @@
+{
+  "review_sha256": "a815865d7ce3087b7a02fd4a744578eb124b642f90814be1cd7ead3091d594aa",
+  "parent_sha256": "42d2d67d842411e732552bffb65284c0c9e21d276170395c2329858c8b73c0a1",
+  "source_tile": "2100 matched crop 2022",
+  "image_sha256": "a804dffe6eec0950b2ea5e0f1a15344b714836b894413f1723c91f67d8e6a763",
+  "paint_width_m_assumed": 0.1,
+  "paint_offset_m": 0.003,
+  "records": [
+    {
+      "pixels": [
+        [
+          208,
+          180
+        ],
+        [
+          208,
+          253
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_01",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.4817171978065744,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 2.537183667050691e-07
+    },
+    {
+      "pixels": [
+        [
+          247,
+          179
+        ],
+        [
+          248,
+          253
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_02",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.4883655140292831,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.2808361110616673e-07
+    },
+    {
+      "pixels": [
+        [
+          327,
+          177
+        ],
+        [
+          329,
+          254
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_03",
+      "status": "authored",
+      "triangles": 12,
+      "saved_area_m2": 0.508304477960337,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.7750834052643327e-07
+    },
+    {
+      "pixels": [
+        [
+          368,
+          179
+        ],
+        [
+          370,
+          254
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_04",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.4951334632351063,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.4156109634511083e-07
+    },
+    {
+      "pixels": [
+        [
+          447,
+          179
+        ],
+        [
+          448,
+          252
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_05",
+      "status": "authored",
+      "triangles": 10,
+      "saved_area_m2": 0.48177199019119143,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.3944626348072475e-07
+    },
+    {
+      "pixels": [
+        [
+          62,
+          372
+        ],
+        [
+          140,
+          371
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_06",
+      "status": "authored",
+      "triangles": 6,
+      "saved_area_m2": 0.20800833264365792,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.7009752667496159e-07
+    },
+    {
+      "pixels": [
+        [
+          62,
+          410
+        ],
+        [
+          140,
+          409
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_07",
+      "status": "authored",
+      "triangles": 2,
+      "saved_area_m2": 0.2902743912418373,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 6.119869350174056e-08
+    },
+    {
+      "pixels": [
+        [
+          62,
+          450
+        ],
+        [
+          139,
+          449
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_08",
+      "status": "authored",
+      "triangles": 6,
+      "saved_area_m2": 0.2836756878532469,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.320122907100263e-07
+    },
+    {
+      "pixels": [
+        [
+          62,
+          489
+        ],
+        [
+          140,
+          489
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_09",
+      "status": "authored",
+      "triangles": 2,
+      "saved_area_m2": 0.2902726901229471,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 4.1428101560381236e-08
+    },
+    {
+      "pixels": [
+        [
+          62,
+          530
+        ],
+        [
+          140,
+          528
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration/Paint_10",
+      "status": "authored",
+      "triangles": 4,
+      "saved_area_m2": 0.29035872884560376,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 8.507697729642771e-08
+    }
+  ]
+}

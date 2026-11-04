@@ -1,0 +1,37 @@
+{
+  "source": "https://zenodo.org/records/15084614",
+  "archive_md5": "e8bba02b4c8556311ecf3673e6e4e735",
+  "license": "CC BY 4.0",
+  "observation_year": 2021,
+  "crs": "EPSG:26917",
+  "spacing_m": 0.6,
+  "boundary_sha256": "4f4ae09cdbbba27eb1dae5b797588ac1a1a510c124621c5536f8b1d9cbd233c4",
+  "envi_header_sha256": "722f8a074ec67b8d8cc272d156e1b5e6455ae6da130c7d6a97d2b41901527bf4",
+  "window_shape": [
+    6850,
+    4824
+  ],
+  "study_areas": {
+    "main_street": {
+      "class_pixels": {
+        "no_data": 0,
+        "grass": 126587,
+        "non_vegetation": 778591,
+        "tree": 178676
+      },
+      "classified_canopy_percent": 16.485246167841794,
+      "tree_area_m2": 64323.36
+    },
+    "neighborhood": {
+      "class_pixels": {
+        "no_data": 0,
+        "grass": 3949815,
+        "non_vegetation": 11810200,
+        "tree": 7503375
+      },
+      "classified_canopy_percent": 32.25400511275442,
+      "tree_area_m2": 2701215.0
+    }
+  },
+  "limits": "Historical classified canopy by pixel centers. Trunks, species, tree counts and current condition are unverified."
+}

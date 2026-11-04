@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Edgewater parking terrain and pavement continuity — November 4, 2026 UTC
+
+The saved corridor inventory measured 7,137.73 m² of net added rear parking pavement before the later west marked-bay and north corner fills. The south cross-street trim removes 27.87 m² of duplicate asphalt and preserves both adjacent parking connections. The matched Omniverse frame shows continuous pavement through the trim. Full boundaries, current markings and the north material remain open under the parking and streetscape work. [Ground and parking review](MAIN_STREET_GROUND_AND_CANOPY.md) · [Matched render evidence](evidence/edgewater-south-cross-street-matched-render.json)
+
 ## LYNX published schedule integration — October 29, 2026 UTC
 
 Connected the actual official static GTFS feed, including service calendars and exceptions, 15 study stops and routes 106/125. The transit page now checks a selected date, labels expired/not-yet-effective periods and exposes source fields/sample records. Actual API/browser checks distinguish 100 scheduled local-stop trips on October 28 from unknown availability outside the feed period. Older GIS route 89 stays separate. [Contract and actual UI](LYNX_GTFS_REFERENCE.md). Live positions, FDOT/civil geometry and expanded transportation requirements remain open.

@@ -1,0 +1,21 @@
+[
+  {
+    "group": 1,
+    "pairs": [
+      [
+        "/World/RearParkingSamples/northeast_edgewater_front_bays",
+        "/World/Streets/Road_1473552009"
+      ]
+    ],
+    "tile": 8,
+    "source_sha256": "95c1a4699d44bdc983adcb66f9ba1c7aa503798c95757f376175e549c7ef8ee3",
+    "source_crop_pixels": [
+      443,
+      375,
+      723,
+      655
+    ],
+    "comparison": "data\\diagnostics\\edgewater_south_cross_street_trim_b\\parking_gap_wide_1.png",
+    "comparison_sha256": "c712decb486107a964f615eef912082a413d958f2fd34c18848b10ac99a58cd0"
+  }
+]

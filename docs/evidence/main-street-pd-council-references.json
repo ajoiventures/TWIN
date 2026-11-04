@@ -1,0 +1,235 @@
+{
+  "retrieved_utc": "2026-11-04T14:01:43.372725+00:00",
+  "source_endpoint": "https://services5.arcgis.com/mMuoPCaIYD4wEgDl/arcgis/rest/services/OrlandoLUZoning/FeatureServer/0",
+  "service_item_id": "416537461862479493b332d428f4fc55",
+  "metadata_sha256": "62d1caf91efd56e7537cf9b335af04b330538c99891434959706c0659a3bcdc7",
+  "query_response_sha256": "e8f4f618d0661e1833c4d0370b8f526e768163ffe9cb9cecab775a796bb37a63",
+  "planning_features_sha256": "4225f171a0b10aae16888b0b05c20e4eb702ee89b5c7ef4e80789711bbed1a1f",
+  "field_dictionary": {
+    "OBJECTID": {
+      "alias": "OBJECTID",
+      "type": "esriFieldTypeOID"
+    },
+    "Zoning": {
+      "alias": "Zoning",
+      "type": "esriFieldTypeString"
+    },
+    "FormatDate": {
+      "alias": "Format Date",
+      "type": "esriFieldTypeString"
+    },
+    "PD_NAME": {
+      "alias": "Named Development",
+      "type": "esriFieldTypeString"
+    },
+    "OverlayA": {
+      "alias": "OverlayA",
+      "type": "esriFieldTypeString"
+    },
+    "OverlayB": {
+      "alias": "OverlayB",
+      "type": "esriFieldTypeString"
+    },
+    "OverlayC": {
+      "alias": "OverlayC",
+      "type": "esriFieldTypeString"
+    },
+    "OverlayD": {
+      "alias": "OverlayD",
+      "type": "esriFieldTypeString"
+    },
+    "CouncilOrdA": {
+      "alias": "Council Ord A",
+      "type": "esriFieldTypeString"
+    },
+    "CouncilOrdB": {
+      "alias": "Council Ord B",
+      "type": "esriFieldTypeString"
+    },
+    "CouncilOrdC": {
+      "alias": "Council Ord C",
+      "type": "esriFieldTypeString"
+    },
+    "CouncilOrdD": {
+      "alias": "Council Ord D",
+      "type": "esriFieldTypeString"
+    },
+    "GlobalID": {
+      "alias": "GlobalID",
+      "type": "esriFieldTypeGlobalID"
+    }
+  },
+  "first_five_safe_rows": [
+    {
+      "OBJECTID": 13,
+      "GlobalID": "fdb4d9aa-a02f-4caa-b6af-82380e7eb501",
+      "Zoning": "PD/T",
+      "FormatDate": null,
+      "PD_NAME": "WILLIAMSBURG CONDO",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": null,
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": null,
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 307,
+      "GlobalID": "b746f3b7-5846-4b1d-b6eb-430da290d0d7",
+      "Zoning": "PD/T/W",
+      "FormatDate": "12/2001",
+      "PD_NAME": "GOLFVIEW VILLAS CONDO",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": "020211802",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1221,
+      "GlobalID": "db5ad6ca-531b-48b5-9ca7-ead0b56b4f19",
+      "Zoning": "PD/T/W/SP/AR",
+      "FormatDate": "12/98",
+      "PD_NAME": "RUGBY ST OFC PARK",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": "Edgewater Drive SP 62.309",
+      "OverlayD": "Apperance Review 62.300 to 62.310",
+      "CouncilOrdA": "31878",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1416,
+      "GlobalID": "3b768edc-09f5-42bd-9992-6dafe438e294",
+      "Zoning": "PD/T/W/SP/AR",
+      "FormatDate": "11/2014",
+      "PD_NAME": "PRINCETON AT COLLEGE PARK",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": "Edgewater Drive SP 62.309",
+      "OverlayD": "Apperance Review 62.300 to 62.310",
+      "CouncilOrdA": "1411031206",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1653,
+      "GlobalID": "9e717a7f-60ec-4b1d-bf9c-e99470857152",
+      "Zoning": "PD/T",
+      "FormatDate": "03/2000",
+      "PD_NAME": "LAKE ADAIR PLACE",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": null,
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": "33001",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    }
+  ],
+  "rows": [
+    {
+      "OBJECTID": 13,
+      "GlobalID": "fdb4d9aa-a02f-4caa-b6af-82380e7eb501",
+      "Zoning": "PD/T",
+      "FormatDate": null,
+      "PD_NAME": "WILLIAMSBURG CONDO",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": null,
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": null,
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 307,
+      "GlobalID": "b746f3b7-5846-4b1d-b6eb-430da290d0d7",
+      "Zoning": "PD/T/W",
+      "FormatDate": "12/2001",
+      "PD_NAME": "GOLFVIEW VILLAS CONDO",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": "020211802",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1221,
+      "GlobalID": "db5ad6ca-531b-48b5-9ca7-ead0b56b4f19",
+      "Zoning": "PD/T/W/SP/AR",
+      "FormatDate": "12/98",
+      "PD_NAME": "RUGBY ST OFC PARK",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": "Edgewater Drive SP 62.309",
+      "OverlayD": "Apperance Review 62.300 to 62.310",
+      "CouncilOrdA": "31878",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1416,
+      "GlobalID": "3b768edc-09f5-42bd-9992-6dafe438e294",
+      "Zoning": "PD/T/W/SP/AR",
+      "FormatDate": "11/2014",
+      "PD_NAME": "PRINCETON AT COLLEGE PARK",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": "Edgewater Drive SP 62.309",
+      "OverlayD": "Apperance Review 62.300 to 62.310",
+      "CouncilOrdA": "1411031206",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1653,
+      "GlobalID": "9e717a7f-60ec-4b1d-bf9c-e99470857152",
+      "Zoning": "PD/T",
+      "FormatDate": "03/2000",
+      "PD_NAME": "LAKE ADAIR PLACE",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": null,
+      "OverlayC": null,
+      "OverlayD": null,
+      "CouncilOrdA": "33001",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    },
+    {
+      "OBJECTID": 1765,
+      "GlobalID": "b9e0d213-a0c1-4353-8618-2b01a7001a6e",
+      "Zoning": "PD/T/SP/AR/W",
+      "FormatDate": "02/2003",
+      "PD_NAME": "WELLESLEY",
+      "OverlayA": "Traditional City 62.600 to 62.629",
+      "OverlayB": "Wekiva 58.499.8 to 58.499.12",
+      "OverlayC": "Edgewater Drive SP 62.309",
+      "OverlayD": "Apperance Review 62.300 to 62.310",
+      "CouncilOrdA": "030428705",
+      "CouncilOrdB": null,
+      "CouncilOrdC": null,
+      "CouncilOrdD": null
+    }
+  ],
+  "limits": [
+    "CouncilOrd and FormatDate are original GIS reference strings. They do not establish enacted text, effective dates or the current set of governing conditions.",
+    "No scene or planning packet geometry was modified."
+  ]
+}

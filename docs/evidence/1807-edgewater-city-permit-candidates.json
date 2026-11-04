@@ -1,0 +1,111 @@
+{
+  "query": "https://data.cityoforlando.net/resource/ryhf-m453.json?$where=parcel_number%20in%20%28%27292214147800010%27%2C%27292214147801730%27%29%20OR%20starts_with%28upper%28permit_address%29%2C%271807%20EDGEWATER%27%29%20OR%20starts_with%28upper%28permit_address%29%2C%27634%20DARTMOUTH%27%29&$select=permit_number%2Capplication_type%2Cparcel_number%2Cworktype%2Cpermit_address%2Cplan_review_type%2Cprocessed_date%2Cissue_permit_date%2Cfinal_date%2Ccoo_date%2Ccoc_date%2Cproject_name%2Capplication_status%2Csquare_footage&$order=processed_date%20DESC&$limit=500",
+  "retrieved_utc": "2026-11-04T15:25:37.5874436Z",
+  "count": 30,
+  "receipt_sha256": "28649571dad4f442bbb439bed017ca95b058be9fd8f60a3c5bf8f29eafddd205",
+  "permit_address_counts": [
+    {
+      "address": "1803 EDGEWATER DR",
+      "count": 5
+    },
+    {
+      "address": "1807 EDGEWATER DR",
+      "count": 5
+    },
+    {
+      "address": "1809 EDGEWATER DR",
+      "count": 5
+    },
+    {
+      "address": "1811 EDGEWATER DR",
+      "count": 2
+    },
+    {
+      "address": "634 DARTMOUTH ST",
+      "count": 3
+    },
+    {
+      "address": "640 DARTMOUTH ST",
+      "count": 10
+    }
+  ],
+  "candidates": [
+    {
+      "permit_number": "BLD2018-13726",
+      "application_type": "Building Permit",
+      "parcel_number": "292214147801730",
+      "worktype": "Roof",
+      "permit_address": "634 DARTMOUTH ST",
+      "processed_date": "2018-03-21T00:00:00",
+      "issue_permit_date": "2018-03-22T00:00:00",
+      "final_date": null,
+      "application_status": "Closed"
+    },
+    {
+      "permit_number": "ENG5363602",
+      "application_type": "Engineering",
+      "parcel_number": "292214147800010",
+      "worktype": null,
+      "permit_address": "640 DARTMOUTH ST",
+      "processed_date": "1996-10-02T00:00:00",
+      "issue_permit_date": "1997-01-03T00:00:00",
+      "final_date": null,
+      "application_status": "Closed"
+    },
+    {
+      "permit_number": "BLD5363601",
+      "application_type": "Building Permit",
+      "parcel_number": "292214147800010",
+      "worktype": "Alteration",
+      "permit_address": "640 DARTMOUTH ST",
+      "processed_date": "1996-10-02T00:00:00",
+      "issue_permit_date": "1996-11-11T00:00:00",
+      "final_date": null,
+      "application_status": "Closed"
+    },
+    {
+      "permit_number": "ENG5363601",
+      "application_type": "Engineering",
+      "parcel_number": "292214147800010",
+      "worktype": null,
+      "permit_address": "640 DARTMOUTH ST",
+      "processed_date": "1996-10-02T00:00:00",
+      "issue_permit_date": "1996-11-08T00:00:00",
+      "final_date": null,
+      "application_status": "Hold"
+    },
+    {
+      "permit_number": "ENG536364",
+      "application_type": "Engineering",
+      "parcel_number": "292214147800010",
+      "worktype": null,
+      "permit_address": "640 DARTMOUTH ST",
+      "processed_date": "1996-10-02T00:00:00",
+      "issue_permit_date": null,
+      "final_date": null,
+      "application_status": "Closed"
+    },
+    {
+      "permit_number": "ENG536363",
+      "application_type": "Engineering",
+      "parcel_number": "292214147800010",
+      "worktype": null,
+      "permit_address": "640 DARTMOUTH ST",
+      "processed_date": "1996-10-02T00:00:00",
+      "issue_permit_date": null,
+      "final_date": null,
+      "application_status": "Closed"
+    },
+    {
+      "permit_number": "BLD1614601",
+      "application_type": "Building Permit",
+      "parcel_number": "292214147800010",
+      "worktype": "Repair",
+      "permit_address": "1807 EDGEWATER DR",
+      "processed_date": "1993-01-04T00:00:00",
+      "issue_permit_date": "1993-01-04T00:00:00",
+      "final_date": null,
+      "application_status": "Closed"
+    }
+  ]
+}

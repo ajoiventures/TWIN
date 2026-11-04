@@ -1,0 +1,99 @@
+{
+  "stage_sha256": "7b8fc2db128552dd635bb81327f6941bb05c6b592c656887a4feae6f12508170",
+  "parent_sha256": "5bcb35aa1f8187806c0a92552c0d203642ddbd57d0e1bd9438d47a123cd93288",
+  "entity_id": "ocpa:building-group:3e3d261f99821cd661e6e638",
+  "roof_pixels": [
+    [
+      75,
+      222
+    ],
+    [
+      374,
+      222
+    ],
+    [
+      378,
+      733
+    ],
+    [
+      117,
+      733
+    ],
+    [
+      76,
+      696
+    ]
+  ],
+  "roof_projection_m2": 665.2974461009749,
+  "saved_outline_error_m2": 0.0005113765225326494,
+  "height_m_estimate": 4.3,
+  "source_images": [
+    {
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=531164.2804624313%2C1543074.430599431%2C531331.9098436951%2C1543244.0091595468&bboxSR=2236&imageSR=2236&size=774%2C783&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531164.2804624314,
+        "ymin": 1543074.430599431,
+        "xmax": 531331.9098436952,
+        "ymax": 1543244.0091595468,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "7a52cea66d043398a4c0ba314b5ad8f8d8043bf23fa07a8f21fa5e693a9e9c85",
+      "retrieved_utc": "2026-11-04T14:51:23.522826+00:00"
+    },
+    {
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=531164.2804624313%2C1543074.430599431%2C531331.9098436951%2C1543244.0091595468&bboxSR=2236&imageSR=2236&size=774%2C783&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531164.2804624314,
+        "ymin": 1543074.430599431,
+        "xmax": 531331.9098436952,
+        "ymax": 1543244.0091595468,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "8b74d95a0c8c20292295432b6783c0afcc19a3c51649dbb50e690b42c852bdda",
+      "retrieved_utc": "2026-11-04T14:51:23.618129+00:00"
+    },
+    {
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531164.2804624313%2C1543074.430599431%2C531331.9098436951%2C1543244.0091595468&bboxSR=2236&imageSR=2236&size=774%2C783&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531164.2804624314,
+        "ymin": 1543074.430599431,
+        "xmax": 531331.9098436952,
+        "ymax": 1543244.0091595468,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "106ff33d1f80318e72dd9fb7fec60c6b1e8dfb96a77d3f710ce7a8fdeca77591",
+      "retrieved_utc": "2026-11-04T14:51:23.523330+00:00"
+    }
+  ],
+  "status": "inactive historical envelope; open at ground; height and walls estimated"
+}

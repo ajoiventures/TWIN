@@ -1,0 +1,96 @@
+{
+  "retrieved_utc": "2026-11-04T03:37:14.173353+00:00",
+  "source_snapshot": "20261028T160543372334Z",
+  "bbox_wgs84": {
+    "county_pilot_bbox": [
+      -81.39005735010592,
+      28.57061471210497,
+      -81.38882596834101,
+      28.57246902833272
+    ],
+    "official_neighborhood_bbox": [
+      -81.4046556182154,
+      28.5529171498791,
+      -81.3750768508643,
+      28.5900242176227
+    ]
+  },
+  "rows": [
+    {
+      "endpoint": "https://vgispublic.ocpafl.org/server/rest/services/Webmap/ZONE/MapServer/6",
+      "name": "OC Interests",
+      "item_id": "522bdd64626840219f24732b8806870c",
+      "metadata_sha256": "df5b075f388268a12c96f01377b04f1148cf059d03bcaeb1e9e9a1189f4c739c",
+      "item_response_sha256": "65915fb331b297e9907690d5a715a75062b6dc04c3bae84bfdae5fc17e705d5c",
+      "item_owner": null,
+      "item_org": null,
+      "item_access": null,
+      "item_service_url": null,
+      "extent": {
+        "xmin": 410139.31850524404,
+        "ymin": 1459233.4749438255,
+        "xmax": 677399.846975246,
+        "ymax": 1621923.5202979895,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "query_results": {
+        "county_pilot_bbox": {
+          "count": 0,
+          "response_sha256": "618de7d9f46f3f697d827a1b6d84974760d5deda62e4e592adaa3c646602a94c"
+        },
+        "official_neighborhood_bbox": {
+          "count": 81,
+          "response_sha256": "d115031897a6df812df69c1ebde988cde0e3d0bc48d5814be7070f310df4d418",
+          "geometry_response_sha256": "0da63b38a76eb8298fd096d844ffbac0f2b8475c264c634256893e438f1ba22b",
+          "positive_area_neighborhood_intersections": 43,
+          "interests_by_source_type": {
+            "Right of Way": 20,
+            "Easement": 7,
+            "Perpetual Public Use": 11,
+            "Fee Simple": 5
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "https://services7.arcgis.com/f4diowh62ikfhgaw/ArcGIS/rest/services/ORANGE_COUNTY_UNOPENED_PUBLIC_ROAD/FeatureServer/0",
+      "name": "ORANGE COUNTY UN-OPENED PUBLIC ROAD",
+      "item_id": "19e5097d841d4e03851d0f01aaf31f28",
+      "metadata_sha256": "a4505e9e5179230a70bf5113b80c351665fb3b32c68a572be0e4c351d2bb89a9",
+      "item_response_sha256": "1435c0250827a298be4dfa816e52c9c438aa78ceb4cd2e20cb9cf7acb665c4d3",
+      "item_owner": "Jennifer_BAMBL",
+      "item_org": null,
+      "item_access": "public",
+      "item_service_url": "https://services7.arcgis.com/f4diowh62ikfhgaw/arcgis/rest/services/ORANGE_COUNTY_UNOPENED_PUBLIC_ROAD/FeatureServer",
+      "extent": {
+        "xmin": -81.07963978297401,
+        "ymin": 28.536344932260427,
+        "xmax": -81.07015100615874,
+        "ymax": 28.598581662665897,
+        "spatialReference": {
+          "wkid": 4269,
+          "latestWkid": 4269
+        }
+      },
+      "query_results": {
+        "county_pilot_bbox": {
+          "count": 0,
+          "response_sha256": "618de7d9f46f3f697d827a1b6d84974760d5deda62e4e592adaa3c646602a94c"
+        },
+        "official_neighborhood_bbox": {
+          "count": 0,
+          "response_sha256": "618de7d9f46f3f697d827a1b6d84974760d5deda62e4e592adaa3c646602a94c"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Query counts apply to these named services and envelopes.",
+    "OC Interests is a recorded-interest inventory and does not establish complete rights-of-way.",
+    "The similarly named unopened-public-road service is a separate item from the previously unavailable County layer.",
+    "No current curb or surveyed right-of-way geometry was accepted."
+  ]
+}

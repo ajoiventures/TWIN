@@ -40,7 +40,7 @@ def build(source: Path, output: Path, suv=False):
     stage.SetDefaultPrim(van.GetPrim())
     van.GetPrim().SetCustomData({'publisher': 'Innerscene', 'license': 'CC0', 'source': SUV_SOURCE if suv else SOURCE})
     if suv:
-        van.GetPrim().SetCustomDataByKey('glassConversion', 'Opaque PreviewSurface; transmission and refraction omitted')
+        van.GetPrim().SetCustomDataByKey('glassConversion', 'Opaque tinted windows; transmission and refraction omitted')
     axes = UsdGeom.Xform.Define(stage, root + '/Source')
     axes.AddRotateXOp().Set(90)
     materials = []
@@ -69,6 +69,8 @@ def build(source: Path, output: Path, suv=False):
             sampler.CreateIdAttr('UsdUVTexture')
             sampler.CreateInput('file', Sdf.ValueTypeNames.Asset).Set(Sdf.AssetPath('./suv_textures/' + filename))
             sampler.CreateInput('sourceColorSpace', Sdf.ValueTypeNames.Token).Set('sRGB')
+            if record.get('name') == 'glass.001':
+                sampler.CreateInput('scale', Sdf.ValueTypeNames.Float4).Set(Gf.Vec4f(.10, .16, .22, 1))
             sampler.CreateInput('st', Sdf.ValueTypeNames.Float2).ConnectToSource(reader.CreateOutput('result', Sdf.ValueTypeNames.Float2))
             color.ConnectToSource(sampler.CreateOutput('rgb', Sdf.ValueTypeNames.Float3))
         shader.CreateInput('metallic', Sdf.ValueTypeNames.Float).Set(pbr['metallicFactor'])
@@ -121,6 +123,6 @@ if __name__ == '__main__':
     parser.add_argument('--suv', action='store_true')
     args = parser.parse_args()
     if args.suv:
-        build(DIRECTORY / 'suv.glb', DIRECTORY / 'compact_suv.usda', suv=True)
+        build(DIRECTORY / 'suv.glb', DIRECTORY / 'compact_suv_tinted.usda', suv=True)
     else:
         build(DIRECTORY / 'van.glb', DIRECTORY / 'delivery_van.usda')

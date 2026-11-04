@@ -1,5 +1,13 @@
 # Main Street rear parking, canopy and street-view correction
 
+## Princeton–Smith paving expansion and terrain check — November 4, 2026 UTC
+
+Extended the three existing January 2025 asphalt traces and added an east outer-row trace. The generated local layer now contributes **1,610.53 m²** across four surfaces and 235 triangles, up **528.39 m²** from the original 1,082.14 m². The build checked source image bytes, used the returned aerial frame and existing local origin, and excluded overlap with existing model buildings, streets and sidewalks. The traces prioritize visible pavement and omit ambiguous edges, planted islands and obscured connections. The generated layer is local. Rebuild it with `tools/build_rear_parking.py`.
+
+Ran all four composed meshes through the existing terrain surface fitter against the frozen F ground field. The resulting 1,637 triangles preserved the input XY outlines, with zero computed symmetric-difference area. Fitted pavement elevations spanned 1.044–1.842 m in the local scene frame and maintained the 45 mm modeling offset within 0.000001 m of the DEM triangle interpolation. The fitted geometry was checked in memory. The terrain candidate still needs recomposition and visual review with this revised layer, including the road-to-lot joins. Current Omniverse sessions may still show the previously loaded paving.
+
+The pilot remains an aerial interpretation. Confirmed lot boundaries, circulation, striping, access, current grades and the rest of Main Street remain open. The City's impervious-area assessment explicitly includes parking, making it a source lead for coverage outside the pilot. No public Orlando polygon endpoint was verified. [City stormwater utility](https://www.orlando.gov/Our-Government/Departments-Offices/Public-Works/Streets-and-Stormwater-Division/Stormwater-Utility-Fee)
+
 October 28, 2026. Extends the full College Park Main Street scope, with the existing pilot as the first verification area. Parent tickets #8/#9/#10/#13/#14/#15/#16/#17/#18 and parking P-02/P-03/P-05.
 
 ## Direct visual evidence

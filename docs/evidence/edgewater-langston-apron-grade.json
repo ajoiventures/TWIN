@@ -1,0 +1,212 @@
+{
+  "grade": {
+    "parent_sha256": "4bf369cdb254e45bfd27fa91da6ec131f1003dc0a5fb254da0e1c2056e4ebb16",
+    "review_sha256": "bdae79fceda2109a422e334d9a21228f1c156f23b729afc25edca25c15ffdcef",
+    "path": "/World/RearParkingSamples/south02_west_middle_apron",
+    "unchanged_xy_and_topology": true,
+    "max_lowering_m": 0.030000001192092896,
+    "maximum_triangle_grade_percent": 3.5630934377322765
+  },
+  "joins": {
+    "stage_sha256": "bdae79fceda2109a422e334d9a21228f1c156f23b729afc25edca25c15ffdcef",
+    "sample_boundary_max_spacing_m": 0.12,
+    "max_horizontal_pair_distance_m": 0.001,
+    "interfaces": [
+      {
+        "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+        "adjacent_custom_data": {
+          "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+        },
+        "aisle": "/World/Streets/Shoulders_11202651",
+        "sample_pairs": 30,
+        "lot_minus_aisle_m": [
+          -1.3959236433436217E-08,
+          2.0477583984046532E-07
+        ],
+        "minimum_boundary_distance_m": 0.0
+      },
+      {
+        "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+        "adjacent_custom_data": {
+          "osmId": "11202651",
+          "roadName": "Langston Court",
+          "source": "OpenStreetMap",
+          "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+        },
+        "aisle": "/World/Streets/Road_11202651",
+        "sample_pairs": 0,
+        "lot_minus_aisle_m": null,
+        "minimum_boundary_distance_m": 2.000029772529623
+      },
+      {
+        "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+        "adjacent_custom_data": {
+          "completeLotBoundary": false,
+          "imageAcquisition": "2025-01",
+          "quality": "historical_aerial_visual_interpretation_not_surveyed",
+          "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+        },
+        "aisle": "/World/RearParkingSamples/south02_west_middle_side_bays",
+        "sample_pairs": 26,
+        "lot_minus_aisle_m": [
+          0.0,
+          3.1557555679739835E-08
+        ],
+        "minimum_boundary_distance_m": 0.0
+      }
+    ]
+  },
+  "profile": {
+    "stage_sha256": "bdae79fceda2109a422e334d9a21228f1c156f23b729afc25edca25c15ffdcef",
+    "screen_line_xy_m": [
+      [
+        -75.314681954975,
+        -743.8376303426456
+      ],
+      [
+        -75.27268981933594,
+        -745.8372192382812
+      ]
+    ],
+    "apron_to_road_distance_m": 2.0000297725295924,
+    "distance_on_shoulder_m": 2.000014869262809,
+    "profile_samples_xy_m": [
+      [
+        -75.31457697619865,
+        -743.8426292404698
+      ],
+      [
+        -75.27279479811229,
+        -745.8322203404571
+      ],
+      [
+        -75.27258484055959,
+        -745.8422181361054
+      ]
+    ],
+    "profile_surfaces": [
+      "shoulder_near_apron",
+      "shoulder_near_road",
+      "road_near_shoulder"
+    ],
+    "profile_heights_local_m": [
+      -0.4115011823311544,
+      -0.42789369492340357,
+      -0.39802875140139016
+    ],
+    "road_minus_shoulder_near_interface_m": 0.02986494352201341
+  },
+  "render": {
+    "captured_utc": "2026-11-04T14:21:35.261201-05:00",
+    "source_snapshot": "20261028T160543372334Z",
+    "camera": "/World/Cameras/ParkingApron2",
+    "proposal_layer": "north_parking_material_proposal_20261104.usda",
+    "requested_resolution": [
+      1920,
+      1080
+    ],
+    "scene": "scene\\edgewater_langston_apron_grade_render.usda",
+    "scene_sha256": "413c930fa14e6be5c88e86ecde7a17525c2a94ecee4d18eac973d83546a9cf30",
+    "layer_hashes": {
+      "scene/north_parking_material_proposal_20261104.usda": "6520f87b12dda42db1ce19d49414b39982c6935aad3520ed29449963722de0c2",
+      "scene/edgewater_langston_apron_grade_render.usda": "413c930fa14e6be5c88e86ecde7a17525c2a94ecee4d18eac973d83546a9cf30"
+    },
+    "image": "data\\renders\\20261104T191946Z\\ParkingApron2.png",
+    "image_sha256": "881591b908eb20b5a76cf3dd6eff195b5b765bf60fea27b3fa3edafc480aab7d",
+    "elapsed_seconds": 108.95,
+    "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+    "source_stage_saved": false,
+    "camera_frame_binding": {
+      "expected_world_transform": [
+        0.857492925712544,
+        -0.5144957554275263,
+        2.77555756156289E-17,
+        0.0,
+        0.4627570470561545,
+        0.7712617450935909,
+        0.4370483222197015,
+        0.0,
+        -0.22485950669875834,
+        -0.3747658444979306,
+        0.8994380267950335,
+        0.0,
+        -80.50751876831056,
+        -752.8641357421874,
+        23.53920987820074,
+        0.9999999999999998
+      ],
+      "expected_view": [
+        0.8574929257125444,
+        0.46275704705615484,
+        -0.2248595066987585,
+        0.0,
+        -0.5144957554275266,
+        0.7712617450935915,
+        -0.3747658444979308,
+        0.0,
+        0.0,
+        0.4370483222197018,
+        0.8994380267950339,
+        -0.0,
+        -318.31077444247245,
+        607.6229566182943,
+        -321.4227050645721,
+        1.0
+      ],
+      "captured_view": [
+        0.8574929257125443,
+        0.4627570470561547,
+        -0.22485950669875854,
+        0.0,
+        -0.5144957554275266,
+        0.7712617450935911,
+        -0.3747658444979309,
+        0.0,
+        0.0,
+        0.4370483222197014,
+        0.8994380267950336,
+        -0.0,
+        -318.31077444247234,
+        607.622956618294,
+        -321.42270506457214,
+        1.0
+      ],
+      "captured_projection": [
+        2.481508138885564,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.411570024685448,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.000200040010983025,
+        -1.0,
+        0.0,
+        0.0,
+        0.1000200054915125,
+        0.0
+      ],
+      "maximum_view_matrix_error": 3.410605131648481E-13,
+      "numerical_tolerance": 0.001,
+      "capture_frame_number": 88,
+      "viewport_handle": 2,
+      "pre_switch_frame_number": null,
+      "matching_viewport_frames_before_capture": 60,
+      "render_product_path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "render_product_camera_targets": [
+        "/World/Cameras/ParkingApron2"
+      ]
+    },
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "48e4e7a9bcfdc3ceecf0b964f0561dbe6f3ffe4d5e849998ebb670a85714e3a9",
+      "pre_capture_rendered_frames": 60,
+      "post_capture_completion_app_updates": 60
+    }
+  }
+}

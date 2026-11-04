@@ -1,5 +1,11 @@
 # Main Street rear parking, canopy and street-view correction
 
+## Southwest Smith rear parking and LiDAR fit
+
+The January 2025 OCPA aerial shows a paved rear parking row southwest of Smith Street and Edgewater Drive. Traced its visible interior and rebuilt the local USD parking layer. Clipping to the supported ground and clearing modeled obstacles retained 155.11 m² of this trace, bringing the five interpreted paving areas to about 1,821 m². The local aerial-alignment view shows the new trace against the source image and City streets.
+
+Ran all five meshes from the freshly composed USD through the existing LiDAR terrain fitter in memory. The new row produced 124 terrain-following triangles with zero computed outline change. Its elevations span 1.012–1.290 m in the local scene frame, including the 45 mm modeling offset. The largest point residual across all five fits was below 0.001 mm against the ground interpolant. The saved parking layer can be reopened in Omniverse. The fitted grade still needs a refreshed combined preview and visual review at the Smith Street driveway. The dated trace leaves obscured edges and planting outside the fill. Full corridor coverage and current-condition verification remain open under #13 and #15.
+
 ## Dated canopy baseline for tree placement
 
 The east rear island preview's 40 mesh components all resolve to bark or one of three leaf materials. A world-space projection check found no overlap above 0.005 m² between any individual tree mesh and the tested visible street, sidewalk, building, landmark, parking or vehicle meshes in the canopy bounds. This is a mesh-placement check on the saved preview. Texture appearance, lighting, real tree position and actual pedestrian clearance remain open. [Mesh and material receipt](evidence/east-rear-tree-material-clearance.json)

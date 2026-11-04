@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2026-11-04T13:49:02.147425+00:00",
+  "snapshot": "20261028T160543372334Z",
+  "connected_usd_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "cpu_validation": {
+    "elapsed_seconds": 28.084,
+    "before": {
+      "working_set_bytes": 89513984,
+      "peak_working_set_bytes": 89513984,
+      "commit_bytes": 839102464,
+      "peak_commit_bytes": 839102464
+    },
+    "after": {
+      "working_set_bytes": 247218176,
+      "peak_working_set_bytes": 282972160,
+      "commit_bytes": 1023434752,
+      "peak_commit_bytes": 1051828224
+    },
+    "meshes": 17886,
+    "materials": 503,
+    "errors": 0
+  },
+  "isolated_physx_cache": {
+    "package_logical_bytes": {
+      "omni.convexdecomposition-110.4.4+110.4.0.wx64.r.cp312.u7f4": 28419679,
+      "omni.physx-110.4.4+110.4.0.wx64.r.cp312.u7f4": 148397366,
+      "omni.physx.cooking-110.4.4+110.4.0.wx64.r.cp312.u7f4": 74091922,
+      "omni.physx.foundation-110.4.4+110.4.0.wx64.r.cp312.u7f4": 7560898,
+      "omni.physx.gpu-110.4.4+110.4.0.wx64.r.cp312.u7f4": 349207321,
+      "omni.usd.schema.physx-110.4.4+110.4.0.wx64.r.cp312.u7f4": 4817641,
+      "omni.usdphysics-110.4.4+110.4.0.wx64.r.cp312.u7f4": 44490205
+    },
+    "total_logical_bytes": 656985032
+  },
+  "limits": [
+    "One CPU validator invocation, separate from RTX rendering and PhysX simulation.",
+    "Logical file bytes for seven physics packages exclude registry index, duplicate links, renderer packages and installed Kit.",
+    "Per-process runtime RAM and VRAM for PhysX experiments remain unmeasured."
+  ]
+}

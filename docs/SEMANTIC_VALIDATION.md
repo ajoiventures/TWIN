@@ -2,6 +2,8 @@
 
 ## Current API and USD reconciliation
 
+The current connected-stage CPU validator finished in 28.084 s with a peak process working set of about 270 MiB and zero errors. The seven isolated PhysX packages occupy about 627 MiB in logical file size, excluding the renderer, Kit and registry cache. These are one local validation run and an installed-package footprint. PhysX runtime RAM and VRAM remain unmeasured. [Resource receipt](evidence/scene-validation-resource-audit.json)
+
 The asset API now includes retained original footprint retrieval receipts by exact source object ID, using the same matcher as the isolated inspection tool. Of 3,216 building groups, 120 have timestamps for every footprint ID, 18 have partial coverage, and 3,078 have no retained timestamp. Unknown source IDs remain explicit. Retrieval describes the original request and stays separate from acquisition and valid time. The local API response matched the rebuilt registry for both a record with retained receipt evidence and one without it.
 
 Building registry records now declare `existing_conditions_reference` as their scenario in the API and additive USD metadata. The scenario describes the baseline being represented. Observation quality and unknown current validity remain separate. After rebuilding the semantic layer, all 3,216 USD scenario tags matched the registry, and the live API returned the new field. Existing registry records without a scenario field remain readable.

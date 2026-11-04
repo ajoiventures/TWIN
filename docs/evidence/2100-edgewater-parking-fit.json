@@ -1,0 +1,64 @@
+{
+  "tile": 4,
+  "image_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+  "source_sha256": "088c8ec4a2101fcc056f4cfb7dc8dcfb5637be68d68d8a87ac9834c8aa2b87f7",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "a8e33b02991f615a94d404192571b2320d44a60b86d091f1a1b81764a6f73159",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration",
+      "pixels": [
+        [
+          177,
+          1318
+        ],
+        [
+          278,
+          1317
+        ],
+        [
+          280,
+          1348
+        ],
+        [
+          228,
+          1348
+        ],
+        [
+          199,
+          1365
+        ],
+        [
+          190,
+          1427
+        ],
+        [
+          172,
+          1458
+        ],
+        [
+          147,
+          1457
+        ],
+        [
+          147,
+          1394
+        ],
+        [
+          158,
+          1367
+        ]
+      ],
+      "trace_m2": 312.57485858881165,
+      "surface_m2": 107.90408287829739,
+      "triangles": 112,
+      "excluded_paths": [
+        "/World/Streets/Road_833430192",
+        "/World/RearParkingSamples/mid04_west_south_marked_row"
+      ],
+      "saved_m2": 107.90409595298115,
+      "overlap_m2": 4.777189543717607e-06,
+      "max_ground_offset_residual_m": 2.1216673079527126e-07
+    }
+  ]
+}

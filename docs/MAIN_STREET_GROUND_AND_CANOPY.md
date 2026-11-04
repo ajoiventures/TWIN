@@ -74,6 +74,8 @@ The City permit index returned 30 rows for the two parcel IDs and address prefix
 
 ### Princeton–Smith surroundings on tile 04
 
+At **2100 Edgewater Drive**, the [matched January 2022, 2024 and 2025 aerials](../data/imagery/edgewater_2100_cross_date/comparison.jpg) show parking across the two county subareas that form `Building_3004`. The model's original body matches that source union within 0.001 m². The [historical preview](../data/diagnostics/edgewater_2100_parking_preview/review.usda) hides that body and its roof, retains the source identity, and restores **107.90 m²** of observed paving. Both joins matched elevation within 0.001 mm across 548 sampled pairs. The nearby actual roof, markings and current conditions require separate review. [Visibility and aerial record](evidence/2100-edgewater-mask.json) · [Pavement fit](evidence/2100-edgewater-parking-fit.json) · [Join audit](evidence/2100-edgewater-parking-joins.json)
+
 The [combined Omniverse preview](../data/diagnostics/edgewater_tile04_parking_20261104/review.usda) adds **576.08 m²** across five visible paved interiors north and south of the original pilot lots. The saved terrain fit retains existing aisle geometry. At nine modeled lot-to-road interfaces, all 1,315 sampled elevation pairs matched within 0.001 mm. One other road is separated from the retained east rear-row patch by 1.97 m in plan. The west marked-row trace also encountered an existing building footprint. Both cases need aerial review before any further fill. Striping and rendered acceptance remain open. [Fit receipt](evidence/edgewater-tile04-parking-fit.json) · [Join audit](evidence/edgewater-tile04-parking-joins.json)
 
 ### Commercial blocks on tiles 05 and 06

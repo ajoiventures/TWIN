@@ -1,0 +1,27 @@
+{
+  "stage_sha256": "a8e33b02991f615a94d404192571b2320d44a60b86d091f1a1b81764a6f73159",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration",
+      "aisle": "/World/Streets/Road_833430192",
+      "sample_pairs": 384,
+      "lot_minus_aisle_m": [
+        -2.3950812610973315e-07,
+        2.861312036195329e-07
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration",
+      "aisle": "/World/RearParkingSamples/mid04_west_south_marked_row",
+      "sample_pairs": 164,
+      "lot_minus_aisle_m": [
+        -4.322398350353751e-07,
+        2.0884409490662392e-07
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

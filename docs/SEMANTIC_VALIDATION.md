@@ -2,6 +2,8 @@
 
 ## Current API and USD reconciliation
 
+A moving 8 cm radius test sphere launched at 2 m/s from the parking side of a reviewed transect made its first PhysX contact with the parking mesh at step 16 and with the aisle mesh at step 33. Both contacts occurred in one 60-step run against the pinned preview, with the sphere authored only in the session layer. The isolated app took about 657 seconds to reach its ready state in this invocation. The result verifies a moving-body handoff for the sampled path. It leaves actual vehicle handling, route clearance and the sidewalk approach unverified. [Moving-body receipt](evidence/smith-static-physx-moving.json)
+
 Two 2 m transects across the Smith parking-to-aisle join returned pavement support at all 202 PhysX sample stations. A downward ray and a downward sphere sweep with 8 cm radius both hit at each station. Each transect reached both collider meshes, and the off-pavement sweep missed. At 2 cm spacing the largest adjacent ray height difference was 0.62 mm. This is a sampled collision-surface check. Vehicle dynamics, pedestrian navigation and the curb approach remain open. [Join query receipt](evidence/smith-static-physx-join.json)
 
 The isolated PhysX dynamic probe dropped one 8 cm radius sphere from 0.5 m above each pavement mesh and a third sphere off pavement. Over 60 simulation steps, the runtime contact reports identified each intended sphere–pavement pair and no contact for the control. The spheres were authored only in the session layer. The source stage hash matched after simulation. This tests local vertical contact on two meshes. Rolling or driving across joins, navigation and field traversability remain unverified. [Dynamic contact receipt](evidence/smith-static-physx-dynamic-contact.json)

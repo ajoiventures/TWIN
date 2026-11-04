@@ -1,0 +1,13 @@
+{
+  "kit_version": "110.4.0+feature.386251.187cf21b.gl",
+  "physx_extension": "110.4.4",
+  "preview_sha256": "66fc5d583ef4beec3328ba7a9aff3e31bc8b8311847454241513470bb0690330",
+  "initial_speed_m_s": 2,
+  "sphere_radius_m": 0.08,
+  "time_step_seconds": 0.016666666666666666,
+  "first_contact_steps": {
+    "/World/RearParkingSamples/southwest_smith_rear_row": 16,
+    "/World/Streets/Road_1479148116": 33
+  },
+  "source_saved": false
+}

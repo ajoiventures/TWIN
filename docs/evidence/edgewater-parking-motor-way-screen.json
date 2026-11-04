@@ -1,0 +1,1491 @@
+{
+  "preview_sha256": "61f7fd617d1638142671fdd111e1869a99e9bf629c8a13c43ccd4240e73ce4c3",
+  "contact_tolerance_m": 0.001,
+  "road_meshes_screened": 160,
+  "parking_surface_count": 51,
+  "direct": 42,
+  "via_parking": 4,
+  "unconnected": 5,
+  "source_osm_sha256": "65d6f58fb9dd35b761d054f63246bac5f5baf52bb497ac86c55eced73f3eb8fc",
+  "excluded_way_count": 90,
+  "excluded_ways": {
+    "/World/Streets/Road_552939677": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971475": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971504": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971516": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_559971529": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971531": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971533": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971536": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971538": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_559971541": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971544": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971545": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971548": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_559971550": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933599218": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933599219": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933599221": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933599222": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933599223": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933599224": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933599225": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933600631": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933600632": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933600636": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933600637": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_933604305": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933604307": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933604310": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_933604312": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_934373421": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_934373422": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_934373423": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_934750396": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_934750401": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_934750402": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_934750403": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_934750404": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_934750405": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_934750406": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1038789919": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1038789920": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1038789921": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1038789924": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1038789925": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1355207719": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1355211057": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1355211058": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1355211059": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1355211061": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1355211063": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1355215073": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1364513034": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1364513038": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1364513053": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314535": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314536": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314537": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314538": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314541": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314542": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314543": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314544": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314547": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314569": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314571": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314573": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314574": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314575": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314576": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314577": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1387314579": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1387314583": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1416575062": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1416575063": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1416575064": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1416575065": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1416575066": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1416575067": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1416575068": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1451915584": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1451915608": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1451915618": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1451915619": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1451915621": {
+      "highway": "footway",
+      "footway": null
+    },
+    "/World/Streets/Road_1460447744": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1460447745": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1460447746": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1460447747": {
+      "highway": "footway",
+      "footway": "crossing"
+    },
+    "/World/Streets/Road_1473552009": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    },
+    "/World/Streets/Road_1473552012": {
+      "highway": "footway",
+      "footway": "sidewalk"
+    }
+  },
+  "vehicle_candidate_classes": {
+    "/World/Streets/Road_11176741": "residential",
+    "/World/Streets/Road_11181335": "residential",
+    "/World/Streets/Road_11183058": "residential",
+    "/World/Streets/Road_11185084": "secondary",
+    "/World/Streets/Road_11186191": "residential",
+    "/World/Streets/Road_11187047": "residential",
+    "/World/Streets/Road_11188838": "residential",
+    "/World/Streets/Road_11189248": "residential",
+    "/World/Streets/Road_11189836": "residential",
+    "/World/Streets/Road_11190062": "residential",
+    "/World/Streets/Road_11202651": "residential",
+    "/World/Streets/Road_28715509": "secondary",
+    "/World/Streets/Road_28715511": "residential",
+    "/World/Streets/Road_46980775": "secondary",
+    "/World/Streets/Road_72766370": "secondary",
+    "/World/Streets/Road_73540509": "tertiary",
+    "/World/Streets/Road_73974956": "secondary",
+    "/World/Streets/Road_80768670": "secondary",
+    "/World/Streets/Road_83288818": "secondary",
+    "/World/Streets/Road_148640542": "secondary",
+    "/World/Streets/Road_156300336": "residential",
+    "/World/Streets/Road_156300342": "secondary",
+    "/World/Streets/Road_157850546": "tertiary",
+    "/World/Streets/Road_157850563": "tertiary",
+    "/World/Streets/Road_205663622": "service",
+    "/World/Streets/Road_205663625": "service",
+    "/World/Streets/Road_205663642": "service",
+    "/World/Streets/Road_206957223": "secondary",
+    "/World/Streets/Road_206957252": "service",
+    "/World/Streets/Road_209187386": "secondary_link",
+    "/World/Streets/Road_209187388": "service",
+    "/World/Streets/Road_209187392": "secondary_link",
+    "/World/Streets/Road_210709343": "residential",
+    "/World/Streets/Road_210709347": "residential",
+    "/World/Streets/Road_210709358": "residential",
+    "/World/Streets/Road_210709362": "residential",
+    "/World/Streets/Road_210709394": "residential",
+    "/World/Streets/Road_210709405": "residential",
+    "/World/Streets/Road_210719008": "residential",
+    "/World/Streets/Road_210719009": "residential",
+    "/World/Streets/Road_213563480": "residential",
+    "/World/Streets/Road_213563532": "residential",
+    "/World/Streets/Road_213563534": "residential",
+    "/World/Streets/Road_214485743": "secondary",
+    "/World/Streets/Road_215795006": "secondary",
+    "/World/Streets/Road_366829737": "service",
+    "/World/Streets/Road_366842728": "service",
+    "/World/Streets/Road_559971517": "secondary",
+    "/World/Streets/Road_559971524": "secondary",
+    "/World/Streets/Road_610249487": "service",
+    "/World/Streets/Road_610249489": "service",
+    "/World/Streets/Road_610249490": "service",
+    "/World/Streets/Road_610249510": "service",
+    "/World/Streets/Road_610249512": "service",
+    "/World/Streets/Road_610249513": "service",
+    "/World/Streets/Road_610249518": "service",
+    "/World/Streets/Road_610249520": "service",
+    "/World/Streets/Road_610249523": "service",
+    "/World/Streets/Road_610249525": "service",
+    "/World/Streets/Road_612145650": "service",
+    "/World/Streets/Road_612145651": "service",
+    "/World/Streets/Road_612145652": "service",
+    "/World/Streets/Road_612145654": "service",
+    "/World/Streets/Road_612145655": "service",
+    "/World/Streets/Road_616477670": "service",
+    "/World/Streets/Road_616477672": "service",
+    "/World/Streets/Road_618387847": "service",
+    "/World/Streets/Road_618387850": "service",
+    "/World/Streets/Road_618387851": "service",
+    "/World/Streets/Road_618596950": "service",
+    "/World/Streets/Road_740287196": "service",
+    "/World/Streets/Road_740287197": "service",
+    "/World/Streets/Road_740941350": "service",
+    "/World/Streets/Road_740941351": "service",
+    "/World/Streets/Road_740941352": "service",
+    "/World/Streets/Road_747201710": "service",
+    "/World/Streets/Road_756936104": "service",
+    "/World/Streets/Road_756936105": "service",
+    "/World/Streets/Road_756936106": "service",
+    "/World/Streets/Road_756936107": "service",
+    "/World/Streets/Road_756936108": "service",
+    "/World/Streets/Road_756936109": "service",
+    "/World/Streets/Road_761398362": "service",
+    "/World/Streets/Road_761398363": "service",
+    "/World/Streets/Road_767774833": "service",
+    "/World/Streets/Road_767774834": "service",
+    "/World/Streets/Road_767774835": "service",
+    "/World/Streets/Road_770582306": "service",
+    "/World/Streets/Road_771856829": "service",
+    "/World/Streets/Road_771856831": "service",
+    "/World/Streets/Road_771856832": "service",
+    "/World/Streets/Road_805246853": "service",
+    "/World/Streets/Road_807089801": "service",
+    "/World/Streets/Road_807089802": "service",
+    "/World/Streets/Road_807089803": "service",
+    "/World/Streets/Road_807089804": "service",
+    "/World/Streets/Road_812392801": "service",
+    "/World/Streets/Road_812392802": "service",
+    "/World/Streets/Road_812509209": "service",
+    "/World/Streets/Road_812509211": "service",
+    "/World/Streets/Road_812509212": "service",
+    "/World/Streets/Road_812509215": "service",
+    "/World/Streets/Road_812573898": "service",
+    "/World/Streets/Road_812573899": "service",
+    "/World/Streets/Road_817066840": "service",
+    "/World/Streets/Road_818372890": "service",
+    "/World/Streets/Road_821738315": "service",
+    "/World/Streets/Road_830640681": "service",
+    "/World/Streets/Road_833430191": "service",
+    "/World/Streets/Road_833430192": "service",
+    "/World/Streets/Road_833430193": "service",
+    "/World/Streets/Road_834675585": "service",
+    "/World/Streets/Road_885140108": "service",
+    "/World/Streets/Road_885333840": "service",
+    "/World/Streets/Road_889980335": "service",
+    "/World/Streets/Road_915343997": "service",
+    "/World/Streets/Road_915345732": "service",
+    "/World/Streets/Road_915507527": "service",
+    "/World/Streets/Road_933599237": "service",
+    "/World/Streets/Road_933604313": "service",
+    "/World/Streets/Road_934372258": "service",
+    "/World/Streets/Road_934393007": "service",
+    "/World/Streets/Road_1038787869": "service",
+    "/World/Streets/Road_1038787906": "service",
+    "/World/Streets/Road_1038787907": "service",
+    "/World/Streets/Road_1038787908": "service",
+    "/World/Streets/Road_1038787909": "service",
+    "/World/Streets/Road_1038795175": "service",
+    "/World/Streets/Road_1060401050": "service",
+    "/World/Streets/Road_1071203656": "tertiary",
+    "/World/Streets/Road_1081059823": "service",
+    "/World/Streets/Road_1136636513": "service",
+    "/World/Streets/Road_1136636514": "service",
+    "/World/Streets/Road_1136636515": "service",
+    "/World/Streets/Road_1136636516": "service",
+    "/World/Streets/Road_1174916408": "service",
+    "/World/Streets/Road_1174916409": "service",
+    "/World/Streets/Road_1174916929": "service",
+    "/World/Streets/Road_1174916930": "service",
+    "/World/Streets/Road_1214322334": "service",
+    "/World/Streets/Road_1366183714": "tertiary",
+    "/World/Streets/Road_1366183715": "secondary",
+    "/World/Streets/Road_1366183716": "service",
+    "/World/Streets/Road_1369871813": "secondary",
+    "/World/Streets/Road_1393743650": "service",
+    "/World/Streets/Road_1408764303": "secondary",
+    "/World/Streets/Road_1416574113": "residential",
+    "/World/Streets/Road_1426362671": "service",
+    "/World/Streets/Road_1426362672": "service",
+    "/World/Streets/Road_1435043701": "secondary",
+    "/World/Streets/Road_1450779536": "tertiary",
+    "/World/Streets/Road_1450779537": "tertiary",
+    "/World/Streets/Road_1450779538": "residential",
+    "/World/Streets/Road_1450818977": "service",
+    "/World/Streets/Road_1455123705": "tertiary",
+    "/World/Streets/Road_1455123707": "residential",
+    "/World/Streets/Road_1479148116": "service",
+    "/World/Streets/Road_1491690680": "service",
+    "/World/Streets/Road_1497895412": "service",
+    "/World/Streets/Road_1570709539": "service"
+  },
+  "records": {
+    "/World/RearParkingSamples/west_north_interior": {
+      "area_m2": 657.0362209905234,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_812573898",
+          "distance_m": 0.0,
+          "overlap_m2": 3.0564969202579996e-05,
+          "boundary_within_1mm_m": 90.30691315012106
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_812573898",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_south_interior": {
+      "area_m2": 445.6770200897445,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_812573899",
+          "distance_m": 0.0,
+          "overlap_m2": 2.8514174693097273e-05,
+          "boundary_within_1mm_m": 69.49903969924235
+        },
+        {
+          "path": "/World/Streets/Road_812573898",
+          "distance_m": 0.0,
+          "overlap_m2": 3.588010893422266e-05,
+          "boundary_within_1mm_m": 63.604907361242866
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_812573899",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/east_rear_interior": {
+      "area_m2": 521.8295525871583,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_618387851",
+          "distance_m": 0.0,
+          "overlap_m2": 2.092757287664495e-09,
+          "boundary_within_1mm_m": 3.992148682204934
+        },
+        {
+          "path": "/World/Streets/Road_618387850",
+          "distance_m": 0.0,
+          "overlap_m2": 1.656679002763569e-07,
+          "boundary_within_1mm_m": 115.63368417194432
+        },
+        {
+          "path": "/World/Streets/Road_618387847",
+          "distance_m": 0.0,
+          "overlap_m2": 7.155557827468335e-09,
+          "boundary_within_1mm_m": 2.555107189532344
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_618387850",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/east_rear_outer_row": {
+      "area_m2": 84.3966901173535,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_756936109",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 25.39085259280547
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_756936109",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/southwest_smith_rear_row": {
+      "area_m2": 161.24184343387606,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_1479148116",
+          "distance_m": 0.0,
+          "overlap_m2": 1.5827980908536196e-05,
+          "boundary_within_1mm_m": 40.61688432890873
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_1479148116",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_north_marked_lot": {
+      "area_m2": 401.122927387245,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_812392801",
+          "distance_m": 0.0,
+          "overlap_m2": 4.304567014945526e-05,
+          "boundary_within_1mm_m": 65.7614908012016
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_812392801",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/east_commercial_lot_interior": {
+      "area_m2": 331.29890854557743,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249518",
+          "distance_m": 0.0,
+          "overlap_m2": 7.885771992119112e-06,
+          "boundary_within_1mm_m": 27.411188092935202
+        },
+        {
+          "path": "/World/Streets/Road_610249525",
+          "distance_m": 0.0,
+          "overlap_m2": 2.045927906948325e-06,
+          "boundary_within_1mm_m": 26.408634474842955
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249518",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_south_parking_bays": {
+      "area_m2": 218.77349203894846,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249513",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 16.447704922646263
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249513",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_south_building_side_row": {
+      "area_m2": 263.772218398517,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249510",
+          "distance_m": 0.0,
+          "overlap_m2": 2.86357228492266e-06,
+          "boundary_within_1mm_m": 47.66465578071034
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249510",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/northwest_edgewater_angled_bays": {
+      "area_m2": 108.04223871044815,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_740941351",
+          "distance_m": 0.0,
+          "overlap_m2": 9.877363368078484e-05,
+          "boundary_within_1mm_m": 45.698265329377065
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_740941351",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/northeast_edgewater_front_bays": {
+      "area_m2": 218.815036309883,
+      "road_contacts": [],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_214485743",
+      "nearest_road_m": 8.030538086884837,
+      "status": "unconnected"
+    },
+    "/World/RearParkingSamples/west_large_lot_north_aisle": {
+      "area_m2": 95.12306344695389,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249490",
+          "distance_m": 0.0,
+          "overlap_m2": 0.00018264708045988287,
+          "boundary_within_1mm_m": 87.1977410814275
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249490",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_large_lot_center_aisle": {
+      "area_m2": 84.43156020157039,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249489",
+          "distance_m": 0.0,
+          "overlap_m2": 1.0151416063308716e-06,
+          "boundary_within_1mm_m": 157.65833897693832
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249489",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/west_large_lot_south_aisle": {
+      "area_m2": 126.51394363306463,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249487",
+          "distance_m": 0.0,
+          "overlap_m2": 4.443853243487131e-05,
+          "boundary_within_1mm_m": 177.32130856799887
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249487",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid05_east_double_loaded_lot": {
+      "area_m2": 191.83145981356938,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_834675585",
+          "distance_m": 0.0,
+          "overlap_m2": 2.1273709992389888e-06,
+          "boundary_within_1mm_m": 61.50265708739446
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_834675585",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid05_east_long_rear_aisle": {
+      "area_m2": 258.239962738397,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_740287196",
+          "distance_m": 0.0,
+          "overlap_m2": 4.088289806074843e-07,
+          "boundary_within_1mm_m": 46.29123993343282
+        },
+        {
+          "path": "/World/Streets/Road_740287197",
+          "distance_m": 0.0,
+          "overlap_m2": 1.2017764292273736e-05,
+          "boundary_within_1mm_m": 6.653173099572191
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_740287196",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid05_west_storefront_side_bays": {
+      "area_m2": 29.555393112299498,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_612145651",
+          "distance_m": 0.0,
+          "overlap_m2": 4.395464778306881e-06,
+          "boundary_within_1mm_m": 1.2814872131755115
+        },
+        {
+          "path": "/World/Streets/Road_612145652",
+          "distance_m": 0.0,
+          "overlap_m2": 7.34223318517779e-06,
+          "boundary_within_1mm_m": 15.0402473243398
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 0.707746253327636
+        },
+        {
+          "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill",
+          "distance_m": 0.0,
+          "overlap_m2": 5.583444221975587e-06,
+          "boundary_within_1mm_m": 16.06124492181599
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_612145651",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid06_east_angled_commercial_lot": {
+      "area_m2": 59.25472238270595,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration",
+          "distance_m": 0.0,
+          "overlap_m2": 1.3308155757840723e-05,
+          "boundary_within_1mm_m": 49.4750242486883
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_885140108",
+      "nearest_road_m": 5.8154677748680115,
+      "status": "via_parking"
+    },
+    "/World/RearParkingSamples/mid06_west_marked_rear_bays": {
+      "area_m2": 192.78072365396653,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_934372258",
+          "distance_m": 0.0,
+          "overlap_m2": 1.4584643798013377e-05,
+          "boundary_within_1mm_m": 30.860485318754375
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_934372258",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid06_west_central_lot": {
+      "area_m2": 267.46417236397974,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_1570709539",
+          "distance_m": 0.0,
+          "overlap_m2": 1.6158446669578552e-07,
+          "boundary_within_1mm_m": 32.680973914916216
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_1570709539",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid05_west_storefront_bay_connection": {
+      "area_m2": 1.8404555037850514,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_612145652",
+          "distance_m": 0.0,
+          "overlap_m2": 2.7225707595386226e-06,
+          "boundary_within_1mm_m": 1.5665127491627295
+        },
+        {
+          "path": "/World/Streets/Road_612145650",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 1.6860968366214357
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/mid05_west_storefront_side_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 0.7077493818746663
+        },
+        {
+          "path": "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill",
+          "distance_m": 0.0,
+          "overlap_m2": 1.0954714584452297e-07,
+          "boundary_within_1mm_m": 3.373952527774328
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_612145652",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/edgewater_3005_east_parking_restoration": {
+      "area_m2": 377.7723667757491,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_885140108",
+          "distance_m": 0.0,
+          "overlap_m2": 1.0642759094528008e-05,
+          "boundary_within_1mm_m": 72.71616721782705
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/mid06_east_angled_commercial_lot",
+          "distance_m": 0.0,
+          "overlap_m2": 1.3308155757840723e-05,
+          "boundary_within_1mm_m": 70.18138724906947
+        },
+        {
+          "path": "/World/RearParkingSamples/edgewater_3005_west_stall_paving",
+          "distance_m": 0.0,
+          "overlap_m2": 2.0027796362898087e-05,
+          "boundary_within_1mm_m": 23.134084354990883
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_885140108",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/edgewater_3005_west_stall_paving": {
+      "area_m2": 29.863908091094345,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration",
+          "distance_m": 0.0,
+          "overlap_m2": 2.0027796362903996e-05,
+          "boundary_within_1mm_m": 23.135512972895853
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_885140108",
+      "nearest_road_m": 4.691348271182699,
+      "status": "via_parking"
+    },
+    "/World/RearParkingSamples/south03_east_north_marked_bays": {
+      "area_m2": 188.15081310719688,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_1136636513",
+          "distance_m": 0.0,
+          "overlap_m2": 2.9542426201756744e-05,
+          "boundary_within_1mm_m": 47.724958101733144
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_1136636513",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south03_east_middle_west_aisle": {
+      "area_m2": 231.02689269768507,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_933599237",
+          "distance_m": 0.0,
+          "overlap_m2": 1.768266533377482e-07,
+          "boundary_within_1mm_m": 55.409696989814904
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_933599237",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south03_east_middle_east_aisle": {
+      "area_m2": 181.43691175407002,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_933599237",
+          "distance_m": 0.0,
+          "overlap_m2": 1.396937478772615e-06,
+          "boundary_within_1mm_m": 42.56770709923309
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_933599237",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south03_east_storefront_rear_bays": {
+      "area_m2": 163.2103134939971,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_805246853",
+          "distance_m": 0.0,
+          "overlap_m2": 4.454928699109762e-05,
+          "boundary_within_1mm_m": 27.93207501904945
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/edgewater_1807_south_parking_restoration",
+          "distance_m": 0.0,
+          "overlap_m2": 1.79655289810996e-05,
+          "boundary_within_1mm_m": 32.29604018419529
+        },
+        {
+          "path": "/World/RearParkingSamples/edgewater_1807_wall_side_stalls",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 14.47921001659024
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_805246853",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south03_east_southern_angled_bays": {
+      "area_m2": 240.89348337035725,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_616477672",
+          "distance_m": 0.0,
+          "overlap_m2": 1.9508631916994673e-06,
+          "boundary_within_1mm_m": 50.902232455624954
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_616477672",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/edgewater_1807_south_parking_restoration": {
+      "area_m2": 35.405235702579375,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_805246853",
+          "distance_m": 0.0,
+          "overlap_m2": 3.72982157119073e-06,
+          "boundary_within_1mm_m": 8.84369490569915
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 1.7965528981061884e-05,
+          "boundary_within_1mm_m": 41.79059305939701
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_805246853",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south01_west_north_marked_bays": {
+      "area_m2": 142.2944515363779,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_885333840",
+          "distance_m": 0.0,
+          "overlap_m2": 1.4944901880347122e-05,
+          "boundary_within_1mm_m": 23.760350388922085
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_885333840",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south01_west_side_aisle": {
+      "area_m2": 158.4792013124097,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_807089803",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0002201387389889236,
+          "boundary_within_1mm_m": 92.32924302405601
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_807089803",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south01_east_long_lot": {
+      "area_m2": 670.67247374008,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south01_east_long_lot_apron",
+          "distance_m": 0.0,
+          "overlap_m2": 3.725438233453948e-05,
+          "boundary_within_1mm_m": 3.4198020948746373
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_210709394",
+      "nearest_road_m": 8.564642940967515,
+      "status": "unconnected"
+    },
+    "/World/RearParkingSamples/south01_east_upper_rear_bays": {
+      "area_m2": 177.71927699114264,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_915343997",
+          "distance_m": 0.0,
+          "overlap_m2": 3.389368884654302e-05,
+          "boundary_within_1mm_m": 42.46672739994635
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_915343997",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south01_east_lower_rear_bays": {
+      "area_m2": 117.01114182910533,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_889980335",
+          "distance_m": 0.0,
+          "overlap_m2": 3.5780085393595596e-05,
+          "boundary_within_1mm_m": 34.56523669808817
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_889980335",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south02_west_north_aisle": {
+      "area_m2": 232.01584957761224,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_767774834",
+          "distance_m": 0.0,
+          "overlap_m2": 7.5682902532505855e-06,
+          "boundary_within_1mm_m": 81.73852354710671
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_767774834",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south02_west_north_rear_bays": {
+      "area_m2": 197.87145854556002,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_767774835",
+          "distance_m": 0.0,
+          "overlap_m2": 5.5033356151237096e-05,
+          "boundary_within_1mm_m": 75.11764430512093
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_767774835",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south02_west_middle_side_bays": {
+      "area_m2": 289.2555938027799,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south02_west_middle_apron",
+          "distance_m": 0.0,
+          "overlap_m2": 1.52742073539101e-05,
+          "boundary_within_1mm_m": 2.851305480288253
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_11202651",
+      "nearest_road_m": 3.4202591894732084,
+      "status": "unconnected"
+    },
+    "/World/RearParkingSamples/south02_east_south_marked_bays": {
+      "area_m2": 108.61168214588542,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south02_east_south_apron",
+          "distance_m": 0.0,
+          "overlap_m2": 4.377216100692749e-08,
+          "boundary_within_1mm_m": 4.159725731956529
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_812509209",
+      "nearest_road_m": 1.633794713074063,
+      "status": "via_parking"
+    },
+    "/World/RearParkingSamples/mid04_west_north_rear_aisle": {
+      "area_m2": 109.88598104589619,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_756936104",
+          "distance_m": 0.0,
+          "overlap_m2": 7.462159842042775e-06,
+          "boundary_within_1mm_m": 5.592114977495642
+        },
+        {
+          "path": "/World/Streets/Road_756936105",
+          "distance_m": 0.0,
+          "overlap_m2": 5.416477002520223e-06,
+          "boundary_within_1mm_m": 49.283223745951034
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_756936104",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid04_west_north_side_row": {
+      "area_m2": 68.11828216722643,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_756936104",
+          "distance_m": 0.0,
+          "overlap_m2": 7.689232006669044e-08,
+          "boundary_within_1mm_m": 33.063987975916234
+        },
+        {
+          "path": "/World/Streets/Road_756936106",
+          "distance_m": 0.0,
+          "overlap_m2": 3.311638900848875e-07,
+          "boundary_within_1mm_m": 4.053884251415274
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_756936104",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid04_west_south_marked_row": {
+      "area_m2": 107.08534748794045,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_833430192",
+          "distance_m": 0.0,
+          "overlap_m2": 2.5111426942597457e-06,
+          "boundary_within_1mm_m": 10.95554191463355
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration",
+          "distance_m": 0.0,
+          "overlap_m2": 6.912421863201901e-10,
+          "boundary_within_1mm_m": 15.506295504641338
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_833430192",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid04_east_south_central_aisle": {
+      "area_m2": 179.89447069110065,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_761398362",
+          "distance_m": 0.0,
+          "overlap_m2": 6.221992388749865e-08,
+          "boundary_within_1mm_m": 9.035832302034756
+        },
+        {
+          "path": "/World/Streets/Road_761398363",
+          "distance_m": 0.0,
+          "overlap_m2": 1.5468851935736058e-06,
+          "boundary_within_1mm_m": 1.0583905697200617
+        },
+        {
+          "path": "/World/Streets/Road_1426362672",
+          "distance_m": 0.0,
+          "overlap_m2": 4.50901501686285e-06,
+          "boundary_within_1mm_m": 21.58384716404297
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_1426362672",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid04_east_south_rear_row": {
+      "area_m2": 111.09799147134618,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_761398362",
+          "distance_m": 0.0,
+          "overlap_m2": 2.922007149661624e-07,
+          "boundary_within_1mm_m": 15.801925995353741
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_761398362",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/edgewater_1807_wall_side_stalls": {
+      "area_m2": 3.334399342958932,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south03_east_storefront_rear_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 14.479451187055517
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_805246853",
+      "nearest_road_m": 4.100387103545012,
+      "status": "via_parking"
+    },
+    "/World/RearParkingSamples/edgewater_2100_west_parking_restoration": {
+      "area_m2": 107.90409595298115,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_833430192",
+          "distance_m": 0.0,
+          "overlap_m2": 4.776498301531287e-06,
+          "boundary_within_1mm_m": 43.854291832472654
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/mid04_west_south_marked_row",
+          "distance_m": 0.0,
+          "overlap_m2": 6.912421863201901e-10,
+          "boundary_within_1mm_m": 18.82166181407729
+        },
+        {
+          "path": "/World/RearParkingSamples/edgewater_2100_wall_side_aisle",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 8.95742331687516
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_833430192",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/edgewater_2100_wall_side_aisle": {
+      "area_m2": 16.90824867086485,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_833430192",
+          "distance_m": 0.0,
+          "overlap_m2": 5.425050501636601e-06,
+          "boundary_within_1mm_m": 17.33254566123116
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/edgewater_2100_west_parking_restoration",
+          "distance_m": 0.0,
+          "overlap_m2": 0.0,
+          "boundary_within_1mm_m": 11.5720232905506
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_833430192",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/mid05_west_marked_bay_edge_fill": {
+      "area_m2": 10.79306008934509,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_612145651",
+          "distance_m": 0.0,
+          "overlap_m2": 6.937989995071428e-07,
+          "boundary_within_1mm_m": 12.574953766150422
+        },
+        {
+          "path": "/World/Streets/Road_612145652",
+          "distance_m": 0.0,
+          "overlap_m2": 1.0743131269347375e-06,
+          "boundary_within_1mm_m": 8.044844589198703
+        },
+        {
+          "path": "/World/Streets/Road_612145650",
+          "distance_m": 0.0,
+          "overlap_m2": 4.971794365892444e-07,
+          "boundary_within_1mm_m": 3.609296352867307
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/mid05_west_storefront_side_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 5.583444221977972e-06,
+          "boundary_within_1mm_m": 16.767315797739627
+        },
+        {
+          "path": "/World/RearParkingSamples/mid05_west_storefront_bay_connection",
+          "distance_m": 0.0,
+          "overlap_m2": 1.0954714584452986e-07,
+          "boundary_within_1mm_m": 5.345428989026851
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_612145651",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/north_tile07_light_paving_corner": {
+      "area_m2": 2.136784334346885,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_610249523",
+          "distance_m": 0.0,
+          "overlap_m2": 6.340570623994455e-08,
+          "boundary_within_1mm_m": 0.5167860727384014
+        },
+        {
+          "path": "/World/Streets/Road_610249518",
+          "distance_m": 0.0,
+          "overlap_m2": 5.485876957236381e-08,
+          "boundary_within_1mm_m": 1.8433235996035156
+        },
+        {
+          "path": "/World/Streets/Road_610249525",
+          "distance_m": 0.0,
+          "overlap_m2": 6.99182467380887e-07,
+          "boundary_within_1mm_m": 3.7258204715677845
+        }
+      ],
+      "parking_contacts": [],
+      "nearest_road": "/World/Streets/Road_610249523",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    },
+    "/World/RearParkingSamples/south01_east_long_lot_apron": {
+      "area_m2": 9.72227309999289,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south01_east_long_lot",
+          "distance_m": 0.0,
+          "overlap_m2": 3.7254382334530266e-05,
+          "boundary_within_1mm_m": 3.4198683033828168
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_210709394",
+      "nearest_road_m": 5.483798240387004,
+      "status": "unconnected"
+    },
+    "/World/RearParkingSamples/south02_west_middle_apron": {
+      "area_m2": 5.254076313693076,
+      "road_contacts": [],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south02_west_middle_side_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 1.52742073539075e-05,
+          "boundary_within_1mm_m": 2.8513306179341438
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_11202651",
+      "nearest_road_m": 2.000029772529623,
+      "status": "unconnected"
+    },
+    "/World/RearParkingSamples/south02_east_south_apron": {
+      "area_m2": 7.158025878423359,
+      "road_contacts": [
+        {
+          "path": "/World/Streets/Road_812509209",
+          "distance_m": 0.0,
+          "overlap_m2": 1.717618581148744e-05,
+          "boundary_within_1mm_m": 4.159857015326599
+        }
+      ],
+      "parking_contacts": [
+        {
+          "path": "/World/RearParkingSamples/south02_east_south_marked_bays",
+          "distance_m": 0.0,
+          "overlap_m2": 4.377216100692749e-08,
+          "boundary_within_1mm_m": 4.1596858399003365
+        }
+      ],
+      "nearest_road": "/World/Streets/Road_812509209",
+      "nearest_road_m": 0.0,
+      "status": "direct"
+    }
+  }
+}

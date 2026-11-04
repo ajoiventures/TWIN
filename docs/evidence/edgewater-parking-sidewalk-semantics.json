@@ -1,0 +1,26 @@
+{
+  "parent_sha256": "61f7fd617d1638142671fdd111e1869a99e9bf629c8a13c43ccd4240e73ce4c3",
+  "review_sha256": "a5048ae0e5959c9a2a2d59caa69107e3ae22fe83eb7e40ba30a1d628261340f6",
+  "osm_sha256": "65d6f58fb9dd35b761d054f63246bac5f5baf52bb497ac86c55eced73f3eb8fc",
+  "sidewalks": [
+    {
+      "path": "/World/Streets/Road_1387314535",
+      "source_tags": {
+        "footway": "sidewalk",
+        "highway": "footway",
+        "surface": "concrete"
+      },
+      "previous_material": "/World/DetailMaterials/Asphalt",
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "path": "/World/Streets/Road_1473552009",
+      "source_tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      },
+      "previous_material": "/World/DetailMaterials/Asphalt",
+      "material": "/World/DetailMaterials/Concrete"
+    }
+  ]
+}

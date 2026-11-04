@@ -1,0 +1,1071 @@
+{
+  "preview_sha256": "61f7fd617d1638142671fdd111e1869a99e9bf629c8a13c43ccd4240e73ce4c3",
+  "isolated_scene_sha256": "caad86d011238a6a8ce60e2ff20f44a4f49f8f03084cd79ab2c172bd7f1f6065",
+  "terrain_profile_count": 66,
+  "nearby_transport_meshes": [
+    {
+      "path": "/World/Streets/Road_1473552009",
+      "distance_m": 1.027877901259546,
+      "material": "/World/DetailMaterials/Asphalt",
+      "name": "Unnamed"
+    }
+  ],
+  "profiles": [
+    {
+      "lot_xy_m": [
+        -340.53851318359375,
+        1408.25439453125
+      ],
+      "road_xy_m": [
+        -341.3150555491444,
+        1407.4632746513983
+      ],
+      "width_m": 1.1085525291079583,
+      "ground_z_min_m": -1.1547659861543547,
+      "ground_z_max_m": -1.062187652675654,
+      "ground_end_delta_m": -0.0925783334787007,
+      "maximum_local_ground_grade_percent": 8.351280705968499,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -340.39697265625,
+        1408.406005859375
+      ],
+      "road_xy_m": [
+        -341.318761785351,
+        1407.4669125949065
+      ],
+      "width_m": 1.3158994482478157,
+      "ground_z_min_m": -1.1546921774529806,
+      "ground_z_max_m": -1.0447977207217733,
+      "ground_end_delta_m": -0.10989445673120724,
+      "maximum_local_ground_grade_percent": 8.351280705955805,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -340.08831787109375,
+        1408.73671875
+      ],
+      "road_xy_m": [
+        -341.3268923461892,
+        1407.4748933385426
+      ],
+      "width_m": 1.7681261548196336,
+      "ground_z_min_m": -1.1545302595115778,
+      "ground_z_max_m": -1.02615657901538,
+      "ground_end_delta_m": -0.1283736804961979,
+      "maximum_local_ground_grade_percent": 8.35128070596406,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.7796630859375,
+        1409.067431640625
+      ],
+      "road_xy_m": [
+        -341.33502290702745,
+        1407.4828740821788
+      ],
+      "width_m": 2.2203528613916537,
+      "ground_z_min_m": -1.1543683415701775,
+      "ground_z_max_m": -1.007516857627584,
+      "ground_end_delta_m": -0.14685148394259362,
+      "maximum_local_ground_grade_percent": 8.351280705956992,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.47100830078125,
+        1409.39814453125
+      ],
+      "road_xy_m": [
+        -341.34315346786565,
+        1407.490854825815
+      ],
+      "width_m": 2.672579567963471,
+      "ground_z_min_m": -1.1542064236287743,
+      "ground_z_max_m": -0.9888771362397971,
+      "ground_end_delta_m": -0.16532928738897723,
+      "maximum_local_ground_grade_percent": 8.351280705954776,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.162353515625,
+        1409.728857421875
+      ],
+      "road_xy_m": [
+        -341.35128402870396,
+        1407.498835569451
+      ],
+      "width_m": 3.124806274535531,
+      "ground_z_min_m": -1.154044505687377,
+      "ground_z_max_m": -0.9702374148520013,
+      "ground_end_delta_m": -0.1838070908353756,
+      "maximum_local_ground_grade_percent": 8.351280705950849,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -338.85369873046875,
+        1410.0595703125
+      ],
+      "road_xy_m": [
+        -341.3594145895421,
+        1407.5068163130873
+      ],
+      "width_m": 3.5770329811073096,
+      "ground_z_min_m": -1.153882587745971,
+      "ground_z_max_m": -0.9515976934642143,
+      "ground_end_delta_m": -0.20228489428175678,
+      "maximum_local_ground_grade_percent": 8.351280705955771,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -338.573974609375,
+        1410.35927734375
+      ],
+      "road_xy_m": [
+        -341.3667792332672,
+        1407.5140452527276
+      ],
+      "width_m": 3.986866353292663,
+      "ground_z_min_m": -1.1537359228387372,
+      "ground_z_max_m": -0.9443682902781966,
+      "ground_end_delta_m": -0.20936763256054058,
+      "maximum_local_ground_grade_percent": 8.35128070595617,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -320.98199462890625,
+        1392.6749674479167
+      ],
+      "road_xy_m": [
+        -323.566591620277,
+        1390.0418515330773
+      ],
+      "width_m": 3.6896396882058045,
+      "ground_z_min_m": -1.1897384211233795,
+      "ground_z_max_m": -1.037240790934673,
+      "ground_end_delta_m": -0.15249763018870643,
+      "maximum_local_ground_grade_percent": 6.42921295591211,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -321.255859375,
+        1392.3463338216145
+      ],
+      "road_xy_m": [
+        -323.5417820116161,
+        1390.017499076909
+      ],
+      "width_m": 3.263267314937829,
+      "ground_z_min_m": -1.189834986591265,
+      "ground_z_max_m": -1.052105733848704,
+      "ground_end_delta_m": -0.13772925274256087,
+      "maximum_local_ground_grade_percent": 6.4292129559131075,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -321.52972412109375,
+        1392.0177001953125
+      ],
+      "road_xy_m": [
+        -323.5169724029553,
+        1389.9931466207408
+      ],
+      "width_m": 2.8368949416699327,
+      "ground_z_min_m": -1.1899315520591445,
+      "ground_z_max_m": -1.0669706767627285,
+      "ground_end_delta_m": -0.12296087529641597,
+      "maximum_local_ground_grade_percent": 6.429212955914225,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -321.90288798014325,
+        1392.3182983398438
+      ],
+      "road_xy_m": [
+        -323.8572971230697,
+        1390.3272003715613
+      ],
+      "width_m": 2.7900154510778536,
+      "ground_z_min_m": -1.1881078231996105,
+      "ground_z_max_m": -1.0648713773310745,
+      "ground_end_delta_m": -0.123236445868536,
+      "maximum_local_ground_grade_percent": 6.429212955913714,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -322.2760518391927,
+        1392.618896484375
+      ],
+      "road_xy_m": [
+        -324.1976218431842,
+        1390.6612541223815
+      ],
+      "width_m": 2.7431359604860166,
+      "ground_z_min_m": -1.1848658738265245,
+      "ground_z_max_m": -1.0627720778994194,
+      "ground_end_delta_m": -0.12209379592710512,
+      "maximum_local_ground_grade_percent": 6.429212955912295,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -322.6492156982422,
+        1392.9194946289062
+      ],
+      "road_xy_m": [
+        -324.53794656329865,
+        1390.995307873202
+      ],
+      "width_m": 2.696256469893937,
+      "ground_z_min_m": -1.1816239244534255,
+      "ground_z_max_m": -1.0606727784677652,
+      "ground_end_delta_m": -0.12095114598566026,
+      "maximum_local_ground_grade_percent": 6.034565544735426,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -323.0223795572917,
+        1393.2200927734375
+      ],
+      "road_xy_m": [
+        -324.87827128341314,
+        1391.3293616240223
+      ],
+      "width_m": 2.649376979301898,
+      "ground_z_min_m": -1.1783819750803288,
+      "ground_z_max_m": -1.0585734790361112,
+      "ground_end_delta_m": -0.11980849604421762,
+      "maximum_local_ground_grade_percent": 6.034565544732909,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -323.3955434163411,
+        1393.5206909179688
+      ],
+      "road_xy_m": [
+        -325.21859600352764,
+        1391.6634153748428
+      ],
+      "width_m": 2.6024974887098984,
+      "ground_z_min_m": -1.175140025707232,
+      "ground_z_max_m": -1.0564741796044563,
+      "ground_end_delta_m": -0.11866584610277564,
+      "maximum_local_ground_grade_percent": 6.034565544731744,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -323.7687072753906,
+        1393.8212890625
+      ],
+      "road_xy_m": [
+        -325.55892072364213,
+        1391.9974691256632
+      ],
+      "width_m": 2.5556179981178593,
+      "ground_z_min_m": -1.1725874791776845,
+      "ground_z_max_m": -1.0543748801728021,
+      "ground_end_delta_m": -0.11821259900488235,
+      "maximum_local_ground_grade_percent": 5.810562768238061,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -324.1448082557091,
+        1394.124267578125
+      ],
+      "road_xy_m": [
+        -325.9019312937245,
+        1392.3341592358277
+      ],
+      "width_m": 2.5083798053498483,
+      "ground_z_min_m": -1.17037675628139,
+      "ground_z_max_m": -1.0538253732279497,
+      "ground_end_delta_m": -0.11655138305344037,
+      "maximum_local_ground_grade_percent": 5.81056276823331,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -324.52090923602765,
+        1394.42724609375
+      ],
+      "road_xy_m": [
+        -326.2449418638069,
+        1392.6708493459923
+      ],
+      "width_m": 2.4611416125816747,
+      "ground_z_min_m": -1.168166033385087,
+      "ground_z_max_m": -1.0532758662830983,
+      "ground_end_delta_m": -0.11489016710198863,
+      "maximum_local_ground_grade_percent": 5.81056276823706,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -324.89701021634613,
+        1394.730224609375
+      ],
+      "road_xy_m": [
+        -326.5879524338893,
+        1393.0075394561568
+      ],
+      "width_m": 2.4139034198137033,
+      "ground_z_min_m": -1.1659553104887945,
+      "ground_z_max_m": -1.052726359338246,
+      "ground_end_delta_m": -0.11322895115054843,
+      "maximum_local_ground_grade_percent": 5.810562768240103,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -325.2731111966647,
+        1395.033203125
+      ],
+      "road_xy_m": [
+        -326.9309630039717,
+        1393.3442295663212
+      ],
+      "width_m": 2.3666652270456927,
+      "ground_z_min_m": -1.163744587592502,
+      "ground_z_max_m": -1.0521768523933948,
+      "ground_end_delta_m": -0.11156773519910734,
+      "maximum_local_ground_grade_percent": 5.8105627682354815,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -325.64921217698316,
+        1395.336181640625
+      ],
+      "road_xy_m": [
+        -327.27397357405414,
+        1393.680919676486
+      ],
+      "width_m": 2.319427034277559,
+      "ground_z_min_m": -1.1615338646961992,
+      "ground_z_max_m": -1.0516273454485423,
+      "ground_end_delta_m": -0.10990651924765693,
+      "maximum_local_ground_grade_percent": 5.8105627682394045,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -326.0253131573017,
+        1395.63916015625
+      ],
+      "road_xy_m": [
+        -327.61698414413655,
+        1394.0176097866504
+      ],
+      "width_m": 2.272188841509548,
+      "ground_z_min_m": -1.1593231417999068,
+      "ground_z_max_m": -1.051077838503691,
+      "ground_end_delta_m": -0.10824530329621584,
+      "maximum_local_ground_grade_percent": 5.810562768234187,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -326.4014141376202,
+        1395.942138671875
+      ],
+      "road_xy_m": [
+        -327.9599947142189,
+        1394.354299896815
+      ],
+      "width_m": 2.2249506487413746,
+      "ground_z_min_m": -1.1571124189036022,
+      "ground_z_max_m": -1.0505283315588385,
+      "ground_end_delta_m": -0.10658408734476366,
+      "maximum_local_ground_grade_percent": 5.810562768238155,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -326.7775151179387,
+        1396.2451171875
+      ],
+      "road_xy_m": [
+        -328.3030052843014,
+        1394.6909900069795
+      ],
+      "width_m": 2.1777124559734036,
+      "ground_z_min_m": -1.1549016960073117,
+      "ground_z_max_m": -1.0499788246139872,
+      "ground_end_delta_m": -0.10492287139332457,
+      "maximum_local_ground_grade_percent": 5.810562768232576,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -327.1536160982572,
+        1396.548095703125
+      ],
+      "road_xy_m": [
+        -328.64601585438373,
+        1395.0276801171442
+      ],
+      "width_m": 2.13047426320523,
+      "ground_z_min_m": -1.1526909731110069,
+      "ground_z_max_m": -1.0494293176691347,
+      "ground_end_delta_m": -0.10326165544187216,
+      "maximum_local_ground_grade_percent": 5.810562768236892,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -327.52971707857574,
+        1396.85107421875
+      ],
+      "road_xy_m": [
+        -328.98902642446615,
+        1395.3643702273087
+      ],
+      "width_m": 2.083236070437219,
+      "ground_z_min_m": -1.1504802502147145,
+      "ground_z_max_m": -1.0488798107242834,
+      "ground_end_delta_m": -0.10160043949043107,
+      "maximum_local_ground_grade_percent": 5.81056276824095,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -327.9058180588942,
+        1397.154052734375
+      ],
+      "road_xy_m": [
+        -329.33203699454856,
+        1395.7010603374733
+      ],
+      "width_m": 2.0359978776690855,
+      "ground_z_min_m": -1.1482695273184116,
+      "ground_z_max_m": -1.048330303779431,
+      "ground_end_delta_m": -0.09993922353898066,
+      "maximum_local_ground_grade_percent": 5.810562768235513,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -328.28191903921277,
+        1397.45703125
+      ],
+      "road_xy_m": [
+        -329.675047564631,
+        1396.0377504476378
+      ],
+      "width_m": 1.9887596849010742,
+      "ground_z_min_m": -1.1460588044221192,
+      "ground_z_max_m": -1.0477807968345796,
+      "ground_end_delta_m": -0.09827800758753957,
+      "maximum_local_ground_grade_percent": 5.810562768239732,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -328.65802001953125,
+        1397.760009765625
+      ],
+      "road_xy_m": [
+        -330.0180581347134,
+        1396.3744405578025
+      ],
+      "width_m": 1.941521492132941,
+      "ground_z_min_m": -1.1471626970908675,
+      "ground_z_max_m": -1.0472312898897271,
+      "ground_end_delta_m": -0.09993140720114035,
+      "maximum_local_ground_grade_percent": 7.30453117875012,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -328.8052673339844,
+        1397.8717041015625
+      ],
+      "road_xy_m": [
+        -330.1488884203853,
+        1396.5028601085035
+      ],
+      "width_m": 1.918085373792045,
+      "ground_z_min_m": -1.1491097236468195,
+      "ground_z_max_m": -1.0472229929276375,
+      "ground_end_delta_m": -0.10188673071918197,
+      "maximum_local_ground_grade_percent": 7.304531178751285,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -329.15772501627606,
+        1398.1390787760417
+      ],
+      "road_xy_m": [
+        -330.4620586619036,
+        1396.8102597408
+      ],
+      "width_m": 1.8620006142687229,
+      "ground_z_min_m": -1.153770347703667,
+      "ground_z_max_m": -1.048597674066734,
+      "ground_end_delta_m": -0.10517267363693295,
+      "maximum_local_ground_grade_percent": 7.3045311787533445,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -329.5101826985677,
+        1398.4064534505208
+      ],
+      "road_xy_m": [
+        -330.7752289034218,
+        1397.1176593730959
+      ],
+      "width_m": 1.8059158547455232,
+      "ground_z_min_m": -1.1584309717605281,
+      "ground_z_max_m": -1.0499723552058347,
+      "ground_end_delta_m": -0.10845861655469347,
+      "maximum_local_ground_grade_percent": 7.513903583173125,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -329.8626403808594,
+        1398.673828125
+      ],
+      "road_xy_m": [
+        -331.0883991449401,
+        1397.4250590053923
+      ],
+      "width_m": 1.7498310952222011,
+      "ground_z_min_m": -1.1630915958173758,
+      "ground_z_max_m": -1.0513470363449313,
+      "ground_end_delta_m": -0.11174455947244444,
+      "maximum_local_ground_grade_percent": 7.513903583190983,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -330.2318759494358,
+        1398.9539388020833
+      ],
+      "road_xy_m": [
+        -331.41648123190646,
+        1397.747095711075
+      ],
+      "width_m": 1.6910824703638416,
+      "ground_z_min_m": -1.1679741391258562,
+      "ground_z_max_m": -1.0576517136887968,
+      "ground_end_delta_m": -0.11032242543705939,
+      "maximum_local_ground_grade_percent": 7.5139035831862895,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -330.60111151801215,
+        1399.2340494791667
+      ],
+      "road_xy_m": [
+        -331.7445633188729,
+        1398.0691324167578
+      ],
+      "width_m": 1.6323338455056013,
+      "ground_z_min_m": -1.1722774633548654,
+      "ground_z_max_m": -1.063956391032655,
+      "ground_end_delta_m": -0.10832107232221033,
+      "maximum_local_ground_grade_percent": 7.513903583189959,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -330.97034708658856,
+        1399.51416015625
+      ],
+      "road_xy_m": [
+        -332.07264540583924,
+        1398.3911691224407
+      ],
+      "width_m": 1.5735852206470795,
+      "ground_z_min_m": -1.176215209033695,
+      "ground_z_max_m": -1.0702610683765208,
+      "ground_end_delta_m": -0.10595414065717423,
+      "maximum_local_ground_grade_percent": 7.513903583194683,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -331.3395826551649,
+        1399.7942708333333
+      ],
+      "road_xy_m": [
+        -332.4007274928056,
+        1398.7132058281236
+      ],
+      "width_m": 1.5148365957885972,
+      "ground_z_min_m": -1.1801529547125245,
+      "ground_z_max_m": -1.0765657457203845,
+      "ground_end_delta_m": -0.10358720899213991,
+      "maximum_local_ground_grade_percent": 7.513903583186092,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -331.70881822374133,
+        1400.0743815104167
+      ],
+      "road_xy_m": [
+        -332.728809579772,
+        1399.0352425338065
+      ],
+      "width_m": 1.4560879709303174,
+      "ground_z_min_m": -1.1840907003913608,
+      "ground_z_max_m": -1.0828704230642447,
+      "ground_end_delta_m": -0.10122027732711603,
+      "maximum_local_ground_grade_percent": 7.513903583190403,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -332.0780537923177,
+        1400.3544921875
+      ],
+      "road_xy_m": [
+        -333.05689166673835,
+        1399.3572792394891
+      ],
+      "width_m": 1.3973393460719974,
+      "ground_z_min_m": -1.1880284460702013,
+      "ground_z_max_m": -1.0891751004081083,
+      "ground_end_delta_m": -0.09885334566209303,
+      "maximum_local_ground_grade_percent": 7.513903583194972,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -332.4472893608941,
+        1400.6346028645833
+      ],
+      "road_xy_m": [
+        -333.3849737537047,
+        1399.679315945172
+      ],
+      "width_m": 1.3385907212134756,
+      "ground_z_min_m": -1.191966191749031,
+      "ground_z_max_m": -1.095479777751974,
+      "ground_end_delta_m": -0.09648641399705693,
+      "maximum_local_ground_grade_percent": 7.51390358318482,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -332.81652492947046,
+        1400.9147135416667
+      ],
+      "road_xy_m": [
+        -333.71305584067113,
+        1400.0013526508549
+      ],
+      "width_m": 1.2798420963552353,
+      "ground_z_min_m": -1.1959039374278673,
+      "ground_z_max_m": -1.1017844550958322,
+      "ground_end_delta_m": -0.09411948233203504,
+      "maximum_local_ground_grade_percent": 7.513903583189782,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -333.1857604980469,
+        1401.19482421875
+      ],
+      "road_xy_m": [
+        -334.04113792763746,
+        1400.3233893565377
+      ],
+      "width_m": 1.2210934714967134,
+      "ground_z_min_m": -1.1998416831066967,
+      "ground_z_max_m": -1.1080898969979025,
+      "ground_end_delta_m": -0.0917517861087942,
+      "maximum_local_ground_grade_percent": 7.513903583195862,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -333.48938751220703,
+        1401.4251708984375
+      ],
+      "road_xy_m": [
+        -334.31092800758984,
+        1400.5882081687353
+      ],
+      "width_m": 1.1727895789375193,
+      "ground_z_min_m": -1.2030797895554532,
+      "ground_z_max_m": -1.1149575113604813,
+      "ground_end_delta_m": -0.08812227819497198,
+      "maximum_local_ground_grade_percent": 7.513903583191614,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -333.7930145263672,
+        1401.655517578125
+      ],
+      "road_xy_m": [
+        -334.5807180875422,
+        1400.853026980933
+      ],
+      "width_m": 1.1244856863781632,
+      "ground_z_min_m": -1.2063178960041987,
+      "ground_z_max_m": -1.1218251257230603,
+      "ground_end_delta_m": -0.08449277028113844,
+      "maximum_local_ground_grade_percent": 7.513903583188086,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -334.09664154052734,
+        1401.8858642578125
+      ],
+      "road_xy_m": [
+        -334.8505081674946,
+        1401.1178457931308
+      ],
+      "width_m": 1.076181793818807,
+      "ground_z_min_m": -1.2095560024529441,
+      "ground_z_max_m": -1.128692740085639,
+      "ground_end_delta_m": -0.08086326236730512,
+      "maximum_local_ground_grade_percent": 7.513903583190016,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -334.4002685546875,
+        1402.1162109375
+      ],
+      "road_xy_m": [
+        -335.12029824744695,
+        1401.3826646053283
+      ],
+      "width_m": 1.027877901259613,
+      "ground_z_min_m": -1.2127941089017003,
+      "ground_z_max_m": -1.135560354448218,
+      "ground_end_delta_m": -0.07723375445348224,
+      "maximum_local_ground_grade_percent": 7.513903583200017,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -334.71152954101564,
+        1402.4274658203126
+      ],
+      "road_xy_m": [
+        -335.43442340088285,
+        1401.6910015539256
+      ],
+      "width_m": 1.0319666410783939,
+      "ground_z_min_m": -1.216564339019993,
+      "ground_z_max_m": -1.1390233605987592,
+      "ground_end_delta_m": -0.07754097842123375,
+      "maximum_local_ground_grade_percent": 7.513903583189623,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -335.0227905273438,
+        1402.738720703125
+      ],
+      "road_xy_m": [
+        -335.7485485543186,
+        1401.9993385025225
+      ],
+      "width_m": 1.0360553808972173,
+      "ground_z_min_m": -1.2203345691382974,
+      "ground_z_max_m": -1.1424863667493113,
+      "ground_end_delta_m": -0.07784820238898615,
+      "maximum_local_ground_grade_percent": 7.513903583194002,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -335.33405151367185,
+        1403.0499755859375
+      ],
+      "road_xy_m": [
+        -336.06267370775447,
+        1402.3076754511198
+      ],
+      "width_m": 1.0401441207160378,
+      "ground_z_min_m": -1.2230024756769167,
+      "ground_z_max_m": -1.1459493728998493,
+      "ground_end_delta_m": -0.07705310277706734,
+      "maximum_local_ground_grade_percent": 7.513903583198796,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -335.6453125,
+        1403.36123046875
+      ],
+      "road_xy_m": [
+        -336.37679886119025,
+        1402.6160123997167
+      ],
+      "width_m": 1.044232860534901,
+      "ground_z_min_m": -1.223509116342293,
+      "ground_z_max_m": -1.1494123790504012,
+      "ground_end_delta_m": -0.07409673729189192,
+      "maximum_local_ground_grade_percent": 7.513903583196015,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -335.9565734863281,
+        1403.6724853515625
+      ],
+      "road_xy_m": [
+        -336.69092401462615,
+        1402.924349348314
+      ],
+      "width_m": 1.0483216003536815,
+      "ground_z_min_m": -1.2240157570076526,
+      "ground_z_max_m": -1.1528753852009426,
+      "ground_end_delta_m": -0.07114037180671007,
+      "maximum_local_ground_grade_percent": 6.7861209558926605,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -336.2497863769531,
+        1403.9656982421875
+      ],
+      "road_xy_m": [
+        -336.98683787136576,
+        1403.2148105693807
+      ],
+      "width_m": 1.0521773627051358,
+      "ground_z_min_m": -1.224493025356366,
+      "ground_z_max_m": -1.1530909968527143,
+      "ground_end_delta_m": -0.07140202850365163,
+      "maximum_local_ground_grade_percent": 6.786120955894673,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -336.5796884390024,
+        1404.2955979567307
+      ],
+      "road_xy_m": [
+        -337.3197776927333,
+        1403.5416154987665
+      ],
+      "width_m": 1.0565139139669077,
+      "ground_z_min_m": -1.2250300114931996,
+      "ground_z_max_m": -1.1460984319160201,
+      "ground_end_delta_m": -0.07893157957717944,
+      "maximum_local_ground_grade_percent": 8.351280705972306,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -336.9095905010517,
+        1404.625497671274
+      ],
+      "road_xy_m": [
+        -337.6527175141009,
+        1403.8684204281526
+      ],
+      "width_m": 1.060850465228557,
+      "ground_z_min_m": -1.2255669976300276,
+      "ground_z_max_m": -1.1391058669793286,
+      "ground_end_delta_m": -0.08646113065069905,
+      "maximum_local_ground_grade_percent": 8.351280705971858,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -337.23949256310095,
+        1404.9553973858174
+      ],
+      "road_xy_m": [
+        -337.98565733546855,
+        1404.1952253575384
+      ],
+      "width_m": 1.0651870164905708,
+      "ground_z_min_m": -1.2210700598330686,
+      "ground_z_max_m": -1.1321133020426184,
+      "ground_end_delta_m": -0.0889567577904502,
+      "maximum_local_ground_grade_percent": 8.35128070596272,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -337.56939462515027,
+        1405.2852971003606
+      ],
+      "road_xy_m": [
+        -338.3185971568361,
+        1404.5220302869245
+      ],
+      "width_m": 1.0695235677521804,
+      "ground_z_min_m": -1.2144396524651904,
+      "ground_z_max_m": -1.1251207371059266,
+      "ground_end_delta_m": -0.08931891535926373,
+      "maximum_local_ground_grade_percent": 8.351280705962209,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -337.8992966871995,
+        1405.6151968149038
+      ],
+      "road_xy_m": [
+        -338.6515369782037,
+        1404.8488352163104
+      ],
+      "width_m": 1.0738601190139918,
+      "ground_z_min_m": -1.207809245097328,
+      "ground_z_max_m": -1.1181281721692322,
+      "ground_end_delta_m": -0.08968107292809568,
+      "maximum_local_ground_grade_percent": 8.351280705954345,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -338.2291987492488,
+        1405.945096529447
+      ],
+      "road_xy_m": [
+        -338.9844767995712,
+        1405.1756401456964
+      ],
+      "width_m": 1.0781966702756014,
+      "ground_z_min_m": -1.201178837729447,
+      "ground_z_max_m": -1.1111356072325378,
+      "ground_end_delta_m": -0.09004323049690921,
+      "maximum_local_ground_grade_percent": 8.35128070597776,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -338.5591008112981,
+        1406.2749962439905
+      ],
+      "road_xy_m": [
+        -339.31741662093896,
+        1405.5024450750825
+      ],
+      "width_m": 1.0825332215374928,
+      "ground_z_min_m": -1.194548430361577,
+      "ground_z_max_m": -1.1041430422958305,
+      "ground_end_delta_m": -0.0904053880657465,
+      "maximum_local_ground_grade_percent": 8.351280705974613,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -338.88900287334735,
+        1406.6048959585337
+      ],
+      "road_xy_m": [
+        -339.6503564423065,
+        1405.8292500044683
+      ],
+      "width_m": 1.0868697727992647,
+      "ground_z_min_m": -1.1879180229937116,
+      "ground_z_max_m": -1.0971504773591363,
+      "ground_end_delta_m": -0.09076754563457534,
+      "maximum_local_ground_grade_percent": 8.351280705967914,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.2189049353966,
+        1406.934795673077
+      ],
+      "road_xy_m": [
+        -339.98329626367405,
+        1406.1560549338544
+      ],
+      "width_m": 1.091206324060914,
+      "ground_z_min_m": -1.1812876156258334,
+      "ground_z_max_m": -1.0901579124224419,
+      "ground_end_delta_m": -0.09112970320339153,
+      "maximum_local_ground_grade_percent": 8.351280705962205,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.5488069974459,
+        1407.2646953876201
+      ],
+      "road_xy_m": [
+        -340.3162360850416,
+        1406.4828598632403
+      ],
+      "width_m": 1.0955428753226857,
+      "ground_z_min_m": -1.174657208257971,
+      "ground_z_max_m": -1.0831653474857503,
+      "ground_end_delta_m": -0.0914918607722206,
+      "maximum_local_ground_grade_percent": 8.351280705954798,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -339.8787090594952,
+        1407.5945951021636
+      ],
+      "road_xy_m": [
+        -340.64917590640925,
+        1406.8096647926263
+      ],
+      "width_m": 1.0998794265845373,
+      "ground_z_min_m": -1.1680268008900956,
+      "ground_z_max_m": -1.07617278254904,
+      "ground_end_delta_m": -0.09185401834105567,
+      "maximum_local_ground_grade_percent": 8.351280705952496,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -340.2086111215445,
+        1407.9244948167068
+      ],
+      "road_xy_m": [
+        -340.98211572777683,
+        1407.1364697220122
+      ],
+      "width_m": 1.104215977846309,
+      "ground_z_min_m": -1.1613963935222331,
+      "ground_z_max_m": -1.0691802176123484,
+      "ground_end_delta_m": -0.09221617590988473,
+      "maximum_local_ground_grade_percent": 8.351280705974544,
+      "isolate_max_ground_delta_m": 0.0
+    },
+    {
+      "lot_xy_m": [
+        -340.53851318359375,
+        1408.25439453125
+      ],
+      "road_xy_m": [
+        -341.3150555491444,
+        1407.4632746513983
+      ],
+      "width_m": 1.1085525291079583,
+      "ground_z_min_m": -1.1547659861543547,
+      "ground_z_max_m": -1.062187652675654,
+      "ground_end_delta_m": -0.0925783334787007,
+      "maximum_local_ground_grade_percent": 8.351280705968499,
+      "isolate_max_ground_delta_m": 0.0
+    }
+  ]
+}

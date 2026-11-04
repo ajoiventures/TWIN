@@ -342,3 +342,7 @@ Actual browser review verifies the new footprint field dictionary and first five
 ## City-published park facilities and hours — November 3, 2026
 
 Connected official directory references for all eleven existing park IDs. The additive product preserves three conflicting GIS/directory location contexts and separates Princeton Park/Pool from the adjacent Neighborhood Center. Independent review verified source receipts, exact original identities, all published schedules/features, explicit unknown dates/current access, and no geometry promotion. Actual review API and browser expose 18 fields and first-five rows with matching snapshot and packet hash. [Delivery and remaining L-01 requirements](PARK_FACILITY_REFERENCES.md). Only the owned preserving review API was restarted; no selection, park geometry or editor change. #4 remains open for dated site/access/placement and its wider land/planning scope.
+
+## Terrain contact render review — November 4, 2026 UTC
+
+Three matched Kit views confirm reduced storefront base openings, especially southbound. Raised edges, shorter openings and building interface seams remain visible. Camera-ray probes identify sampled upper church seams on original roof and building remainder paths, which separates them from the ground paving work. The candidate stays inactive. [Matched images, source paths and disposition](TERRAIN_COORDINATED_CANDIDATE.md)

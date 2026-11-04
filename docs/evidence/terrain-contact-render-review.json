@@ -1,0 +1,39 @@
+{
+  "reviewed_utc_date": "2026-11-04",
+  "reviewer_role": "Independent visual reviewer",
+  "source_snapshot": "20261028T160543372334Z",
+  "baseline_render_directory": "data/renders/20261102T193840Z",
+  "contact_render_directory": "data/renders/20261104T000458Z",
+  "image_dimensions_px": [1920, 1080],
+  "frames_matching_camera_before_capture_per_image": 60,
+  "maximum_capture_view_matrix_error": 4.263256414560601e-14,
+  "maximum_before_after_matrix_difference": 0.0,
+  "compared_matrix_fields": ["expected_world_transform", "expected_view", "captured_view", "captured_projection"],
+  "all_six_png_hashes_match_manifests": true,
+  "shared_layer_hash_changes": [],
+  "composition_delta": "Two review wrapper layers were replaced and contact candidate B was added. All shared layers have identical recorded hashes.",
+  "views": [
+    {
+      "camera": "TerrainEdgewaterNorth",
+      "baseline_png_sha256": "86480a6b473b3b5c77a9aab7e57e87353d21023c56a02749c08b24e6a3f5712e",
+      "contact_png_sha256": "8d823e1a84f26eb6f7e36717e01fe139a4324987291266d81488df7c61fe9045",
+      "observation": "Modest improvement under the left storefront run where some narrow dark gaps become solid dark faces. The stepped path edges and discontinuous transitions to the roadway remain visible."
+    },
+    {
+      "camera": "TerrainEdgewaterSouth",
+      "baseline_png_sha256": "f2aac5ff771cfd5fadda70c5b079a6276bdcf02c04341d67722b87168074d9c6",
+      "contact_png_sha256": "7222f6dd70eaa44583b6e34d4ac5f1a44aaa762c790646cb5d9d23b71d1fb565",
+      "observation": "The long left storefront undercut largely fills with a continuous gray face. A short transverse black opening remains where two slab portions meet. The dark band beneath the right beige mass narrows, while black-edged pavement and grass transitions in the right foreground persist."
+    },
+    {
+      "camera": "ChurchSoutheastWingContinuousRoof",
+      "baseline_png_sha256": "f428ee442da7ff91494802dcdd0895e4f0726bd9f5d40b0174d5e8daf4b22294",
+      "contact_png_sha256": "75e95c3716df8085a4e31dd3c3d7b3b5ed05a6d1c7de197d3a56f0d6dd79049e",
+      "observation": "The pale left connector extends to the grass with a more continuous base. A dark strip appears along part of the foreground brick base. The fine upper-left gray-surface seam and the long recessed black edge remain visible. The roof silhouette stays aligned between captures.",
+      "classification_limit": "The gray surfaces can read as paving in this view. The integrator's sampled camera-ray probes hit elevated roof and remainder geometry at several seam locations, so this image does not establish those seams are at ground level."
+    }
+  ],
+  "disposition": "Accept these renders as evidence of partial contact improvement. Hold activation pending pavement junction and residual closure work, plus the existing grade, extent, source membership, bridge and water holds.",
+  "activation_accepted": false,
+  "ticket_closed": false
+}

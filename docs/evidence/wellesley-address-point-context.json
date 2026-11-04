@@ -1,0 +1,33 @@
+{
+  "county": {
+    "point_wgs84": [
+      -81.3891894355903,
+      28.572151449949118
+    ],
+    "covering_parcel_features": 16,
+    "covering_features_at_wellesley_situs": 15,
+    "covering_features_at_other_situs": 1,
+    "covering_visible_usd_meshes": [
+      "/World/Buildings/Building_2939",
+      "/World/Roofs/Roof_2939"
+    ]
+  },
+  "city": {
+    "point_wgs84": [
+      -81.3892576228584,
+      28.5723276760753
+    ],
+    "covering_parcel_features": 16,
+    "covering_features_at_wellesley_situs": 15,
+    "covering_features_at_other_situs": 1,
+    "covering_visible_usd_meshes": [
+      "/World/Buildings/Building_2939",
+      "/World/Roofs/Roof_2939"
+    ]
+  },
+  "same_exact_covering_feature_ids": false,
+  "shared_covering_feature_count": 10,
+  "snapshot": "20261028T160543372334Z",
+  "scene_root_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "limits": "Point-in-polygon and projected mesh intersections. Shared sites do not prove unit, tenant or entrance identity."
+}

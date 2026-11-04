@@ -1,5 +1,20 @@
 # Pedestrian source acquisition follow-up
 
+## Princeton–Edgewater crossing reconciliation
+
+The January 2025 OCPA image shows paint on all four legs. Using the actual returned aerial frame and transforming the cached candidate sources to EPSG:32617, the MetroPlan reference points pair with the following draft lines. All four points have `EDGEDUP=0`. The May 2026 and task-force line coordinates are identical for these IDs. Treat them as duplicate line evidence.
+
+| Leg | MetroPlan point | Draft line | Point-to-line distance | Draft line length |
+|---|---:|---:|---:|---:|
+| North | 6999 | 3869 | 0.064 m | 16.649 m |
+| East | 7000 | 3871 | 0.403 m | 13.607 m |
+| South | 7001 | 3872 | 0.749 m | 16.956 m |
+| West | 7002 | 3873 | 0.149 m | 13.951 m |
+
+This establishes four dated marked-crossing observations for the intersection. The point-to-line distance measures agreement between GIS references, and the line length describes the draft geometry. Paint limits, ramp endpoints, grades, usable widths, and current facility status require separate evidence. The May 2026 `Width` field remains unit-unknown. Keep the four draft lines as references and use the dated paint observations to prioritize end-by-end curb and ramp checks. [MetroPlan points](https://www.arcgis.com/home/item.html?id=7689d18e7f8f49d9b0ffb08e57a14e42) · [City draft lines](https://www.arcgis.com/home/item.html?id=3a0cc13f4606423ba2e4da700a019920) · [OCPA aerial metadata](https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/info/iteminfo?f=json)
+
+The public Orlando Sidewalks service directory contains layer 0 Bike Lanes and layer 1 Sidewalks. Layer 1 is based on FDOT roadway inventory and its rendered class indicates sidewalk on one or both sides. It does not provide independently positioned walk edges or ramp locations. [Service directory](https://services.arcgis.com/04HiymDgLlsbhaV4/ArcGIS/rest/services/Orlando_Sidewalks_AGOL/FeatureServer)
+
 This bounded #16/#25 delivery preserves new public crossing evidence for review; it does not close either ticket or change a scene. Original ticket bodies were fetched on October 29, 2026. The full College Park neighborhood polygon, rather than the smaller extraction rectangle, defines the spatial query and exact feature intersection.
 
 ## Actual acquisitions

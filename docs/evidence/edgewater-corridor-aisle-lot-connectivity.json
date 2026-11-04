@@ -1,0 +1,14 @@
+{
+  "preview_sha256": "ee67cdd7284fb40f15c18116972962efda30a46d2be8a5d6446fe9e6e75a8bea",
+  "aisles_in_trim_group": 11,
+  "previously_joined_lots": 7,
+  "lot_to_combined_aisle_distance_m": {
+    "/World/RearParkingSamples/south01_west_north_marked_bays": 0.0,
+    "/World/RearParkingSamples/south01_west_side_aisle": 0.0,
+    "/World/RearParkingSamples/south01_east_upper_rear_bays": 0.0,
+    "/World/RearParkingSamples/south01_east_lower_rear_bays": 0.0,
+    "/World/RearParkingSamples/mid05_east_long_rear_aisle": 0.0,
+    "/World/RearParkingSamples/mid05_west_storefront_side_bays": 0.0,
+    "/World/RearParkingSamples/east_commercial_lot_interior": 0.0
+  }
+}

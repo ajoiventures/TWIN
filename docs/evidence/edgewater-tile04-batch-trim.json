@@ -1,0 +1,36 @@
+{
+  "preview_sha256": "6d6e49ebcff27b2d72c6e7f111cb2202df2e9eb1ecfd39bd157106f25729771c",
+  "parent_sha256": "f3bb0755e4241e1af31d88e71b8cd0252cc2bfb6244f54a5ebd110c72a9f53b7",
+  "joins": [
+    {
+      "owner": "/World/Streets/Road_761398362",
+      "trimmed": "/World/Streets/Road_761398363",
+      "height_pairs": 802,
+      "max_shared_height_error_m": 7.709756444373994e-08,
+      "before_overlap_m2": 7.993166604732071,
+      "after_overlap_m2": 3.5213477850848927e-07,
+      "combined_outline_error_m2": 1.0848089471217776e-05,
+      "retained_uv_policy": "Affine interpolation of each original face UVs; no replacement texture coordinates for retained surfaces"
+    },
+    {
+      "owner": "/World/Streets/Road_756936104",
+      "trimmed": "/World/Streets/Road_756936105",
+      "height_pairs": 799,
+      "max_shared_height_error_m": 1.0042363718376635e-07,
+      "before_overlap_m2": 7.999578074566167,
+      "after_overlap_m2": 5.837989201065963e-07,
+      "combined_outline_error_m2": 2.999672862915298e-06,
+      "retained_uv_policy": "Affine interpolation of each original face UVs; no replacement texture coordinates for retained surfaces"
+    },
+    {
+      "owner": "/World/Streets/Road_756936104",
+      "trimmed": "/World/Streets/Road_756936106",
+      "height_pairs": 808,
+      "max_shared_height_error_m": 6.219004422547414e-08,
+      "before_overlap_m2": 8.004490606041365,
+      "after_overlap_m2": 1.6779973648984106e-07,
+      "combined_outline_error_m2": 2.998465438868526e-06,
+      "retained_uv_policy": "Affine interpolation of each original face UVs; no replacement texture coordinates for retained surfaces"
+    }
+  ]
+}

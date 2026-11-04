@@ -1,0 +1,17 @@
+{
+  "preview_sha256": "1fb9578f4091c25d8e90486137c158d91d75040a551dc2700ca57a67bf52cd04",
+  "aerial_sha256": "3466b6277b540a16a9c74d6b082417cdca595c3107b4be1a8d490b12aa2fe8a8",
+  "lot": "/World/RearParkingSamples/mid04_east_south_rear_row",
+  "measured_aisle": "/World/Streets/Road_1426362672",
+  "intervening_aisle": "/World/Streets/Road_761398362",
+  "shortest_segment_m": 1.9668113905300517,
+  "segment_covered_m": 1.9668113905300517,
+  "intervening_aisle_overlap_with_measured_aisle_m2": 8.001695309645005,
+  "intervening_aisle_lot_distance_m": 0.0,
+  "disposition": "existing paving connects the lot; inspect overlapping aisle ownership before additional fill",
+  "overlap_height_pairs": 817,
+  "measured_aisle_minus_intervening_aisle_m": [
+    -3.107464919827052e-07,
+    3.568531903308525e-08
+  ]
+}

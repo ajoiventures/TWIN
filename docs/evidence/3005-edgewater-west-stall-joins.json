@@ -1,0 +1,24 @@
+{
+  "stage_sha256": "eee035e37cba8d2780da8ac6eb90066bed53db0ba706750f886028c8b0c48898",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/edgewater_3005_west_stall_paving",
+      "aisle": "/World/Streets/Road_885140108",
+      "sample_pairs": 0,
+      "lot_minus_aisle_m": null,
+      "minimum_boundary_distance_m": 4.691348271182699
+    },
+    {
+      "lot": "/World/RearParkingSamples/edgewater_3005_west_stall_paving",
+      "aisle": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration",
+      "sample_pairs": 202,
+      "lot_minus_aisle_m": [
+        -2.5909563539094904e-07,
+        8.940696716308594e-08
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

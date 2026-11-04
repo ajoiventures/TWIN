@@ -1,0 +1,81 @@
+{
+  "stage_sha256": "4bf369cdb254e45bfd27fa91da6ec131f1003dc0a5fb254da0e1c2056e4ebb16",
+  "sample_boundary_max_spacing_m": 0.12,
+  "max_horizontal_pair_distance_m": 0.001,
+  "interfaces": [
+    {
+      "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+      "adjacent_custom_data": {
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/Streets/Shoulders_11202651",
+      "sample_pairs": 30,
+      "lot_minus_aisle_m": [
+        0.029999987232853798,
+        0.030000205967932736
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+      "adjacent_custom_data": {
+        "osmId": "11202651",
+        "roadName": "Langston Court",
+        "source": "OpenStreetMap",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/Streets/Road_11202651",
+      "sample_pairs": 0,
+      "lot_minus_aisle_m": null,
+      "minimum_boundary_distance_m": 2.000029772529623
+    },
+    {
+      "lot": "/World/RearParkingSamples/south02_west_middle_apron",
+      "adjacent_custom_data": {
+        "completeLotBoundary": false,
+        "imageAcquisition": "2025-01",
+        "quality": "historical_aerial_visual_interpretation_not_surveyed",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/RearParkingSamples/south02_west_middle_side_bays",
+      "sample_pairs": 26,
+      "lot_minus_aisle_m": [
+        0.0,
+        3.1557556567918255e-08
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/south02_east_south_apron",
+      "adjacent_custom_data": {
+        "osmId": "812509209",
+        "roadName": "Unnamed",
+        "source": "OpenStreetMap",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/Streets/Road_812509209",
+      "sample_pairs": 38,
+      "lot_minus_aisle_m": [
+        -1.4901161016211972e-07,
+        2.55214407829385e-07
+      ],
+      "minimum_boundary_distance_m": 0.0
+    },
+    {
+      "lot": "/World/RearParkingSamples/south02_east_south_apron",
+      "adjacent_custom_data": {
+        "completeLotBoundary": false,
+        "imageAcquisition": "2025-01",
+        "quality": "historical_aerial_visual_interpretation_not_surveyed",
+        "userDocBrief": "Base schema for all geometric primitives that \ndirectly define renderable shapes."
+      },
+      "aisle": "/World/RearParkingSamples/south02_east_south_marked_bays",
+      "sample_pairs": 42,
+      "lot_minus_aisle_m": [
+        -9.616802643108713e-08,
+        2.833661039147728e-08
+      ],
+      "minimum_boundary_distance_m": 0.0
+    }
+  ]
+}

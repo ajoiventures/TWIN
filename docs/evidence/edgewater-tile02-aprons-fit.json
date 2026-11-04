@@ -1,0 +1,76 @@
+{
+  "tile": 2,
+  "image_sha256": "a04544e07a6c2d65b234ee8a71799b36738fb0c4c1a5aea654b1c77d842b8e8f",
+  "source_sha256": "8454bd6f4c0c1b7fe999a6ff8cea0f139fa09e456d841a2ced14b2b2126d5564",
+  "ground_sha256": "c88936bdcc444296ddb678af5aa7f9baaf76d669608fe2df6956d3f38a87b806",
+  "review_sha256": "4bf369cdb254e45bfd27fa91da6ec131f1003dc0a5fb254da0e1c2056e4ebb16",
+  "records": [
+    {
+      "path": "/World/RearParkingSamples/south02_west_middle_apron",
+      "pixels": [
+        [
+          144,
+          759
+        ],
+        [
+          158,
+          759
+        ],
+        [
+          160,
+          789
+        ],
+        [
+          140,
+          789
+        ]
+      ],
+      "trace_m2": 19.987860061367517,
+      "surface_m2": 5.254077990995227,
+      "triangles": 4,
+      "excluded_paths": [
+        "/World/Streets/Shoulders_11202651",
+        "/World/Streets/Road_11202651",
+        "/World/RearParkingSamples/south02_west_middle_side_bays"
+      ],
+      "saved_m2": 5.254076313693076,
+      "overlap_m2": 2.396875059537326e-05,
+      "max_ground_offset_residual_m": 1.5080238391362855e-08,
+      "aisle_distance_m": 0.0,
+      "existing_parking_distance_m": 0.0
+    },
+    {
+      "path": "/World/RearParkingSamples/south02_east_south_apron",
+      "pixels": [
+        [
+          425,
+          1426
+        ],
+        [
+          446,
+          1426
+        ],
+        [
+          446,
+          1443
+        ],
+        [
+          425,
+          1443
+        ]
+      ],
+      "trace_m2": 13.991502039627017,
+      "surface_m2": 7.158043503712014,
+      "triangles": 24,
+      "excluded_paths": [
+        "/World/Streets/Road_812509209",
+        "/World/RearParkingSamples/south02_east_south_marked_bays"
+      ],
+      "saved_m2": 7.158025878423359,
+      "overlap_m2": 1.7219957972494366e-05,
+      "max_ground_offset_residual_m": 1.0201101524609513e-07,
+      "aisle_distance_m": 0.0,
+      "existing_parking_distance_m": 0.0
+    }
+  ]
+}

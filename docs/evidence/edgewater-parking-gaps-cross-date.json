@@ -1,0 +1,220 @@
+{
+  "rows": [
+    {
+      "group": 1,
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=530169.7670667074%2C1545431.7391987585%2C530250.3489348759%2C1545512.3210669272&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 530169.7670667073,
+        "ymin": 1545431.7391987583,
+        "xmax": 530250.3489348759,
+        "ymax": 1545512.321066927,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "f6d88fbf22936a745bc3e2dc55287b7f7ec31378c75059481faf3d0195992b05",
+      "retrieved_utc": "2026-11-04T18:56:40.702491+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g1_2022.jpg"
+    },
+    {
+      "group": 1,
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=530169.7670667074%2C1545431.7391987585%2C530250.3489348759%2C1545512.3210669272&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 530169.7670667073,
+        "ymin": 1545431.7391987583,
+        "xmax": 530250.3489348759,
+        "ymax": 1545512.321066927,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "0d08465c79c06eb4d8529366032f19c05a0388b2c9c34a1638177809d1098e9f",
+      "retrieved_utc": "2026-11-04T18:56:40.932664+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g1_2024.jpg"
+    },
+    {
+      "group": 1,
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=530169.7670667074%2C1545431.7391987585%2C530250.3489348759%2C1545512.3210669272&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 530169.7670667073,
+        "ymin": 1545431.7391987583,
+        "xmax": 530250.3489348759,
+        "ymax": 1545512.321066927,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "7a38128c08adcc47ca8429916c7bd4103e8d366c9409a23cc988f3b867f39541",
+      "retrieved_utc": "2026-11-04T18:56:41.127241+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g1_2025.jpg"
+    },
+    {
+      "group": 3,
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=531030.7638281318%2C1538389.1386702715%2C531111.3298873439%2C1538469.7047294837&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531030.7638281318,
+        "ymin": 1538389.138670271,
+        "xmax": 531111.329887344,
+        "ymax": 1538469.7047294832,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "ada4210f06f1f68005722f66e9a3f7cc71f30f09beb2f500fb86cc27057d133a",
+      "retrieved_utc": "2026-11-04T18:56:41.591741+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g3_2022.jpg"
+    },
+    {
+      "group": 3,
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=531030.7638281318%2C1538389.1386702715%2C531111.3298873439%2C1538469.7047294837&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531030.7638281318,
+        "ymin": 1538389.138670271,
+        "xmax": 531111.329887344,
+        "ymax": 1538469.7047294832,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "32bb908187145474be5df1a0ccb0e2fe3d8345d7ac073476ccfe977d8740c138",
+      "retrieved_utc": "2026-11-04T18:56:42.664708+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g3_2024.jpg"
+    },
+    {
+      "group": 3,
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531030.7638281318%2C1538389.1386702715%2C531111.3298873439%2C1538469.7047294837&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531030.7638281318,
+        "ymin": 1538389.138670271,
+        "xmax": 531111.329887344,
+        "ymax": 1538469.7047294832,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "24b25378ddcebc7d32869ff62f62dad0a5078181f6716ffd544a93c811d35827",
+      "retrieved_utc": "2026-11-04T18:56:42.854314+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g3_2025.jpg"
+    },
+    {
+      "group": 4,
+      "year": 2022,
+      "acquisition": {
+        "month": "2022-01",
+        "precision": "month",
+        "evidence": "Aerial photography acquired in January 2022",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2022/MapServer/export?f=json&bbox=531198.3932093957%2C1537959.0198702845%2C531278.9592686078%2C1538039.5859294964&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531198.3932093958,
+        "ymin": 1537959.019870285,
+        "xmax": 531278.9592686079,
+        "ymax": 1538039.5859294971,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "3dfc0e29beef9e961fc26f0dbbec31bad90204e48633ca1993ff8e7a70e11e43",
+      "retrieved_utc": "2026-11-04T18:56:43.057902+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g4_2022.jpg"
+    },
+    {
+      "group": 4,
+      "year": 2024,
+      "acquisition": {
+        "month": "2024-01",
+        "precision": "month",
+        "evidence": "2024 Aerial imagery flown Jan by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2024/MapServer/export?f=json&bbox=531198.3932093957%2C1537959.0198702845%2C531278.9592686078%2C1538039.5859294964&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531198.3932093958,
+        "ymin": 1537959.019870285,
+        "xmax": 531278.9592686079,
+        "ymax": 1538039.5859294971,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "3ace61b5bf279ce3748bdf3733682226d8d625cf5af2fe5230fff89dcecfbb20",
+      "retrieved_utc": "2026-11-04T18:56:43.257425+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g4_2024.jpg"
+    },
+    {
+      "group": 4,
+      "year": 2025,
+      "acquisition": {
+        "month": "2025-01",
+        "precision": "month",
+        "evidence": "Orthophotos flown January 2025 by Sanborn",
+        "exact_capture_date": null
+      },
+      "export_url": "https://vgispublic.ocpafl.org/server/rest/services/OCPA/Aerials2025/MapServer/export?f=json&bbox=531198.3932093957%2C1537959.0198702845%2C531278.9592686078%2C1538039.5859294964&bboxSR=2236&imageSR=2236&size=496%2C496&format=jpg&transparent=false",
+      "extent": {
+        "xmin": 531198.3932093958,
+        "ymin": 1537959.019870285,
+        "xmax": 531278.9592686079,
+        "ymax": 1538039.5859294971,
+        "spatialReference": {
+          "wkid": 102658,
+          "latestWkid": 2236
+        }
+      },
+      "sha256": "737e14bf52cc48320201b153d79c0611b4ca8e8e50422a330533d941d3dce438",
+      "retrieved_utc": "2026-11-04T18:56:43.672949+00:00",
+      "path": "data\\imagery\\edgewater_parking_gaps_cross_date\\g4_2025.jpg"
+    }
+  ]
+}

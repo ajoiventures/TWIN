@@ -2,6 +2,8 @@
 
 ## Public right-of-way source screen
 
+The follow-up reconciled the 20 `Right of Way` polygons against the official Main Street boundary in EPSG:32617. Two overlap Main Street. Source object 690 references book type `RB`, book 1, page 86, and overlaps 1,042.616 m². Source object 32241 references `DB`, book 793, page 310, and overlaps 129.137 m². All 20 records carry source instrument and book/page values. The GIS references identify documents for review. The documents themselves and the legal extent of any interest remain unverified. [Field dictionary, first five rows and complete reference list](evidence/county-row-interest-references.json)
+
 The OCPA-hosted OC Interests layer returned zero candidates in the frozen pilot envelope and 81 in the official neighborhood envelope. Exact polygon intersection retained 43 features, including 20 with the source type `Right of Way`, 11 `Perpetual Public Use`, seven `Easement` and five `Fee Simple`. These are leads for instrument and stewardship research. A separate publicly queryable unopened-road item returned zero in both envelopes and its published extent is east of College Park. The previously unavailable County item remains a separate source with unknown coverage. No complete right-of-way, curb or surveyed boundary was established. [Query receipt](evidence/county-row-service-screen.json) · [OCPA service metadata](https://vgispublic.ocpafl.org/server/rest/services/Webmap/ZONE/MapServer/6)
 
 Ticket #22 bounded delivery, October 28, 2026 local time. The frozen Princeton–southern Smith Edgewater pilot and its 60 m review context are unchanged. The context covers 21,543.85 m²; it is not a surveyed right-of-way. No active snapshot, scene, parcel identity or private BOOMS data is changed.

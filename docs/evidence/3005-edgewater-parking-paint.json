@@ -1,0 +1,172 @@
+{
+  "review_sha256": "a9eb6ad773003dde4b9854bd81aa41da0f8d3ad5f95bef7aa8ea141712eaa8dc",
+  "parent_sha256": "79386673f11887d2356987eeadbcd578bdd1c4a68360fd97b4b71c715c061986",
+  "source_tile": "3005 matched crop 2025",
+  "image_sha256": "106ff33d1f80318e72dd9fb7fec60c6b1e8dfb96a77d3f710ce7a8fdeca77591",
+  "paint_width_m_assumed": 0.1,
+  "paint_offset_m": 0.003,
+  "records": [
+    {
+      "pixels": [
+        [
+          607,
+          233
+        ],
+        [
+          689,
+          187
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_01",
+      "status": "authored",
+      "triangles": 38,
+      "saved_area_m2": 0.38882161910987634,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 4.0606306234407946e-07
+    },
+    {
+      "pixels": [
+        [
+          608,
+          281
+        ],
+        [
+          692,
+          236
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_02",
+      "status": "authored",
+      "triangles": 18,
+      "saved_area_m2": 0.37723733663187886,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 2.2637146625519716e-07
+    },
+    {
+      "pixels": [
+        [
+          608,
+          328
+        ],
+        [
+          695,
+          282
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_03",
+      "status": "authored",
+      "triangles": 32,
+      "saved_area_m2": 0.37625646831111226,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 2.171677906974076e-07
+    },
+    {
+      "pixels": [
+        [
+          607,
+          376
+        ],
+        [
+          696,
+          329
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_04",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.38339127270410245,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.6805374471445117e-07
+    },
+    {
+      "pixels": [
+        [
+          607,
+          423
+        ],
+        [
+          699,
+          377
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_05",
+      "status": "authored",
+      "triangles": 20,
+      "saved_area_m2": 0.3789659282665525,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 7.981595932533142e-08
+    },
+    {
+      "pixels": [
+        [
+          607,
+          471
+        ],
+        [
+          695,
+          426
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_06",
+      "status": "authored",
+      "triangles": 18,
+      "saved_area_m2": 0.3807953117429861,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 1.1876637745229096e-07
+    },
+    {
+      "pixels": [
+        [
+          440,
+          346
+        ],
+        [
+          486,
+          372
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_07",
+      "status": "authored",
+      "triangles": 14,
+      "saved_area_m2": 0.34871411017957143,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 7.814435783902104e-07
+    },
+    {
+      "pixels": [
+        [
+          441,
+          405
+        ],
+        [
+          486,
+          430
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_08",
+      "status": "authored",
+      "triangles": 18,
+      "saved_area_m2": 0.3397497961705085,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 6.779073163671462e-08
+    },
+    {
+      "pixels": [
+        [
+          441,
+          460
+        ],
+        [
+          485,
+          483
+        ]
+      ],
+      "path": "/World/RearParkingSamples/edgewater_3005_east_parking_restoration/Paint_09",
+      "status": "authored",
+      "triangles": 36,
+      "saved_area_m2": 0.32757780770771205,
+      "off_pavement_m2": 0.0,
+      "max_saved_offset_residual_m": 9.000779244410645e-08
+    }
+  ]
+}

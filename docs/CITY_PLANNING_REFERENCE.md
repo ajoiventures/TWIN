@@ -16,6 +16,21 @@ There are 5,721 distinct parcel-ID strings, 716 feature records intersecting mul
 
 ## Coverage and outstanding source work
 
+### Main Street planned development review
+
+The validated zoning geometry contains six PD polygons with positive area inside the official Main Street boundary. Use the source polygon IDs to keep the document research separate from parcel-feature counts.
+
+| City zoning object | Published PD name | Exact source code |
+|---|---|---|
+| 13 | Williamsburg Condo | `PD/T` |
+| 307 | Golfview Villas Condo | `PD/T/W` |
+| 1221 | Rugby St Ofc Park | `PD/T/W/SP/AR` |
+| 1416 | Princeton at College Park | `PD/T/W/SP/AR` |
+| 1653 | Lake Adair Place | `PD/T` |
+| 1765 | Wellesley | `PD/T/SP/AR/W` |
+
+The City agenda attachment for Princeton identifies ordinance 2014-47 and case `ZON2014-00013`. Its draft describes the same PD and overlays as City object 1416 and ties effectiveness to ordinance 2014-42. The September 29 minutes record amendments at first reading and continuation of the second reading to October 20. The signed adopted text, effective date and later amendments still require verification. Keep these as candidate document links and retain `governing_conditions_verified=false`. [Amended ordinance attachment](https://orlando.novusagenda.com/AgendaPublic/AttachmentViewer.ashx?AttachmentID=59485&ItemID=37298) · [Council minutes](https://orlando.novusagenda.com/AgendaPublic/AttachmentViewer.ashx?AttachmentID=59155&ItemID=37186)
+
 Land-area calculations use EPSG:32617 square meters and the complete official neighborhood/Main Street boundaries. Unique polygon unions are reported separately from source-feature area sums. Overlapping parcel records contribute approximately 254,407 m² of excess feature-summed area; adding tax-row areas would overstate represented land.
 
 Valid zoning coverage is approximately 91.92% of the neighborhood and 96.69% of Main Street. FLU coverage is approximately 99.98% and 96.69%, respectively. Parcel polygon union coverage is a separate cadastral representation measure, not 3D extraction coverage. Road/water gaps and source boundaries require interpretation.

@@ -1,0 +1,28 @@
+{
+  "stage_sha256": "60cd2e65bd1f43742404ce9fdcf9fadf3fef5f25460a04ad88a7da0a2f43b099",
+  "parent_sha256": "8c532e8da7d665e7bbbdb43a930bd434800620b9e35ebff089e3503fb22cd30d",
+  "tilt_degrees": 0.47741301227333205,
+  "minimum_bay_margin_m": 0.3298320808030463,
+  "wheels": [
+    {
+      "name": "Node_312",
+      "original_min_gap_m": 0.02474797639623061,
+      "tilted_min_gap_m": 7.632783294297951e-16
+    },
+    {
+      "name": "Node_313",
+      "original_min_gap_m": 0.018952731758425725,
+      "tilted_min_gap_m": 0.00620897859273524
+    },
+    {
+      "name": "Node_314",
+      "original_min_gap_m": 0.020548929657036266,
+      "tilted_min_gap_m": 0.006710269182888778
+    },
+    {
+      "name": "Node_315",
+      "original_min_gap_m": 0.0023356511615901243,
+      "tilted_min_gap_m": 0.0005009674797906982
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "stage_sha256": "8c532e8da7d665e7bbbdb43a930bd434800620b9e35ebff089e3503fb22cd30d",
+  "vehicle_source_sha256": "67ed2f9630008deefef7bf6da733eddd02bdfc8e1fd0f1b965bf64de401c6c7d",
+  "image_sha256": "106ff33d1f80318e72dd9fb7fec60c6b1e8dfb96a77d3f710ce7a8fdeca77591",
+  "bay_pixels": [
+    [
+      607,
+      233
+    ],
+    [
+      689,
+      187
+    ],
+    [
+      692,
+      236
+    ],
+    [
+      608,
+      281
+    ]
+  ],
+  "bay_plan_m2": 17.9259315735045,
+  "hull_plan_m2": 8.76850061838502,
+  "minimum_edge_clearance_m": 0.3359641022086753,
+  "yaw_degrees": 28.731234740480414,
+  "translation_m": [
+    -1.1904604989288208,
+    707.5997267640327,
+    0.12892964049950886
+  ],
+  "estimated_four_corner_gaps_m": [
+    0.021981912965298292,
+    0.01618667992269744,
+    0.018297680358498353,
+    0.0
+  ],
+  "scope": "illustrative static fit; no observed occupancy, door clearance or surveyed grades"
+}

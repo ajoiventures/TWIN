@@ -84,6 +84,21 @@ def build(root=ROOT):
             rows.append(f'<tr><td>{row["location"]}</td><td>{row["id"]}</td><td>{lat:.6f}, {lon:.6f}</td></tr>')
         checklist='<details><summary>Crossing endpoint field checklist</summary><p>Coordinates locate draft line ends. At each end, verify ramp location, clear width, running grade, cross slope, and current condition.</p><table><thead><tr><th>Location</th><th>Draft end</th><th>Reference latitude, longitude</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></details>'
         page=page.replace('</svg>','</svg>'+checklist,1)
+    schedule_path=root/'data/processed/lynx_gtfs_reference/packet.json'
+    if schedule_path.exists():
+        from lynx_gtfs_reference import validate as validate_schedule
+        schedule=validate_schedule(root)
+        if schedule['source_snapshot']==active['snapshot']:
+            stops=[]
+            for stop in schedule['tables']['stops']:
+                x,y=pixel(*project.transform(float(stop['stop_lon']),float(stop['stop_lat'])),extent,width,height)
+                if 0<=x<=width and 0<=y<=height:
+                    label=html.escape(stop['stop_id'].strip())
+                    stops.append(f'<g><circle cx="{x:.2f}" cy="{y:.2f}" r="6" style="stroke:#fff;fill:#3155dd;stroke-width:2"/><text x="{x-11:.2f}" y="{y+22:.2f}" text-anchor="end">LYNX {label}</text></g>')
+            if stops:
+                page=page.replace('<svg viewBox=', '<label><input type="checkbox" id="showStops"> Show published LYNX stop references. Boarding areas remain unverified.</label><svg viewBox=',1)
+                page=page.replace('</svg>', '<g id="stopOverlay" style="display:none" clip-path="url(#frame)">'+''.join(stops)+'</g></svg>',1)
+                page=page.replace('</script>',";document.getElementById('showStops').addEventListener('change',e=>document.getElementById('stopOverlay').style.display=e.target.checked?'':'none')</script>",1)
     paint_receipt=root/'data/diagnostics/smith_north_paint_20261104/audit.json'
     if paint_receipt.exists():
         receipt=read(paint_receipt)

@@ -1,0 +1,11 @@
+{
+  "snapshot": "20261028T160543372334Z",
+  "scene_sha256": "9af2bd242c7704cf64c15dc21026bbe797a0e74ceb2f8f596254e2d0720743e8",
+  "accepted_buildings_checked": 2976,
+  "linked_parcel_features_checked": 2855,
+  "multi_building_parcels": 103,
+  "existing_numeric_roofs_checked": 2976,
+  "failure_count": 0,
+  "failures": [],
+  "limits": "Full accepted saved-stage registry replay. Native viewport picking and field positional tolerance are separate."
+}

@@ -71,6 +71,13 @@ def build(root=ROOT):
         x,y=pixel(*project.transform(*p['coordinates']),extent,width,height)
         controls.append({'name':p['street'],'source':'City centerline intersection; comparison feature, not independent survey control','pixel_x':x,'pixel_y':y})
         marks.append(f'<g><circle cx="{x}" cy="{y}" r="9"/><text x="{x+14}" y="{y-12}">{html.escape(p["street"])}</text></g>')
+    driveway_path=root/'docs/evidence/smith-driveway-aerial-reference.json'
+    if driveway_path.exists():
+        driveway=read(driveway_path)
+        if driveway['image_sha256']!=digest:raise ValueError('Smith driveway traces refer to another image')
+        for reference in driveway['references']:
+            points=' '.join(f'{float(x):.2f},{float(y):.2f}' for x,y in reference['pixels'])
+            marks.append(f'<polyline points="{points}" style="stroke:#ff826d;stroke-width:2;stroke-opacity:1"><title>{html.escape(reference["label"])} · January 2025 visual reference</title></polyline>')
     requested=manifest['preview_bbox_epsg2236'];requested_width=requested[2]-requested[0];actual_width=extent['xmax']-extent['xmin']
     report={'source_snapshot':active['snapshot'],'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'image_sha256':digest,'image_acquisition':ref['acquisition'],'reference_manifest_snapshot':manifest['source_snapshot'],'returned_extent':extent,'image_size':[width,height],'export_sampling_m':actual_width/width*1200/3937,'requested_width_usft':requested_width,'returned_width_usft':actual_width,'width_adjustment_percent':100*(actual_width/requested_width-1),'comparison_features':controls,'preview_accepted_for_modeling':False,'survey_control_residuals_m':None,'limits':['Frame arithmetic and source overlay only; independent ground-control residuals are not measured.','Sampling resolution does not establish native GSD or positional accuracy.','City centerlines do not establish curb, sidewalk, parking or roof edges.','Historical image reference and active GIS snapshot describe different observation dates.']}
     report['crossing_endpoint_review']=sorted(crossing_endpoints,key=lambda row:row['id'])

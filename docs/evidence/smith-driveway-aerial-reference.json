@@ -1,0 +1,14 @@
+{
+  "source": "OCPA/Aerials2025",
+  "acquisition": "2025-01",
+  "image_sha256": "ac1af3565014550ad784e2f31dda5848efd45f5e1259d7a25ce2f5ba03c7dfd3",
+  "references": [
+    {"label": "Visible dark-to-light pavement transition", "pixels": [[13, 875], [52, 875]], "approximate_length_m": 6.955},
+    {"label": "Visible dark roadside edge east of apron", "pixels": [[67, 859], [139, 858]], "approximate_length_m": 12.841}
+  ],
+  "comparisons": {
+    "modeled_aisle_width_at_transition_m": 4.101,
+    "modeled_south_road_edge_to_visible_dark_edge_at_pixel_70_m": 2.318
+  },
+  "interpretation": "The apparent concrete apron is wider than the modeled service aisle. The visual edges support local review of surface extents and material transitions. The curb opening, walking alignment, surface elevations and current condition remain unverified."
+}

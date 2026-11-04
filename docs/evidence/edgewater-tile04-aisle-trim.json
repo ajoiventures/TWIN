@@ -1,0 +1,14 @@
+{
+  "stage_sha256": "f3bb0755e4241e1af31d88e71b8cd0252cc2bfb6244f54a5ebd110c72a9f53b7",
+  "parent_sha256": "1fb9578f4091c25d8e90486137c158d91d75040a551dc2700ca57a67bf52cd04",
+  "trimmed": "/World/Streets/Road_1426362672",
+  "paving_owner": "/World/Streets/Road_761398362",
+  "before_overlap_m2": 8.001695309645003,
+  "after_overlap_m2": 2.968878813456019e-07,
+  "combined_outline_error_m2": 4.901994849716386e-06,
+  "lot_join_distance_m": 0.0,
+  "retained_uv_policy": "Affine interpolation of each original face UVs; no replacement texture coordinates for retained surfaces",
+  "discarded_degenerate_source_faces": 0,
+  "replayed_trimmed_vertices": 183,
+  "maximum_source_elevation_residual_m": 1.2140824701134534e-07
+}

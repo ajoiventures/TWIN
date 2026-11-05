@@ -1,0 +1,214 @@
+{
+  "stage_sha256": "1ef48e6a6a38d9875063aa36d9384cb6f6ffdf2a060a497b41c5165ae66b8f3a",
+  "osm_sha256": "d4b3c0adb52e272a33b4676f9ef6223b74c98e45dfb6aa3d922475ac3309202b",
+  "image_sha256": "09316eb4b54d841fbab19e8155919ab66aaa3bd716cc4d1fd35a03b762524d44",
+  "crop_pixels": [
+    208,
+    805,
+    426,
+    1173
+  ],
+  "overlay_sha256": "85bd96143fa7a2b56c11bbf1a1c193ca1519cf0df22c4b8d10928f4fa3014dcc",
+  "intersecting_meshes": [
+    {
+      "path": "/World/Streets/Shoulders_11189836",
+      "kind": "generic_shoulder",
+      "area_m2": 129.2301703594168
+    },
+    {
+      "path": "/World/Streets/Road_11189836",
+      "kind": "residential",
+      "area_m2": 83.56733465193184
+    },
+    {
+      "path": "/World/Streets/Shoulders_73540509",
+      "kind": "generic_shoulder",
+      "area_m2": 1019.9639553036491
+    },
+    {
+      "path": "/World/Streets/Road_73540509",
+      "kind": "tertiary",
+      "area_m2": 728.5457027960091
+    },
+    {
+      "path": "/World/Streets/Centerline_73540509",
+      "kind": "other",
+      "area_m2": 13.11377045384464
+    },
+    {
+      "path": "/World/Streets/Road_559971550",
+      "kind": "sidewalk",
+      "area_m2": 41.032261532284174
+    },
+    {
+      "path": "/World/Streets/Road_889980335",
+      "kind": "service",
+      "area_m2": 159.62165707045924
+    },
+    {
+      "path": "/World/Streets/Road_915343997",
+      "kind": "service",
+      "area_m2": 154.29079675591305
+    },
+    {
+      "path": "/World/Streets/Road_1387314535",
+      "kind": "sidewalk",
+      "area_m2": 37.15736072737672
+    },
+    {
+      "path": "/World/Streets/Road_1387314536",
+      "kind": "footway",
+      "area_m2": 7.369813298922963
+    },
+    {
+      "path": "/World/Streets/Road_1416575065",
+      "kind": "footway",
+      "area_m2": 8.91387848466504
+    },
+    {
+      "path": "/World/Streets/Road_1416575066",
+      "kind": "sidewalk",
+      "area_m2": 36.633283589500934
+    },
+    {
+      "path": "/World/Streets/Road_1416575067",
+      "kind": "footway",
+      "area_m2": 8.953852467704564
+    },
+    {
+      "path": "/World/Streets/Road_1416575068",
+      "kind": "sidewalk",
+      "area_m2": 122.24209376087953
+    }
+  ],
+  "crossing_station_review": [
+    {
+      "start_m": 160,
+      "end_m": 165,
+      "station_checks": [
+        {
+          "station_m": 160.5,
+          "crossing_hits": []
+        },
+        {
+          "station_m": 162.5,
+          "crossing_hits": [
+            {
+              "way": 1416575067,
+              "tags": {
+                "crossing": "unmarked",
+                "crossing:markings": "no",
+                "footway": "crossing",
+                "highway": "footway",
+                "surface": "concrete"
+              },
+              "distance_m": 10.889051595268164,
+              "mesh_area_m2": 8.953852467704564
+            }
+          ]
+        },
+        {
+          "station_m": 164.5,
+          "crossing_hits": [
+            {
+              "way": 1416575067,
+              "tags": {
+                "crossing": "unmarked",
+                "crossing:markings": "no",
+                "footway": "crossing",
+                "highway": "footway",
+                "surface": "concrete"
+              },
+              "distance_m": 10.909390553102611,
+              "mesh_area_m2": 8.953852467704564
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_m": 185,
+      "end_m": 190,
+      "station_checks": [
+        {
+          "station_m": 185.5,
+          "crossing_hits": []
+        },
+        {
+          "station_m": 187.5,
+          "crossing_hits": [
+            {
+              "way": 1387314536,
+              "tags": {
+                "crossing": "unmarked",
+                "crossing:markings": "no",
+                "footway": "crossing",
+                "highway": "footway",
+                "surface": "concrete"
+              },
+              "distance_m": 11.122421180273738,
+              "mesh_area_m2": 7.369813298922963
+            }
+          ]
+        },
+        {
+          "station_m": 189.5,
+          "crossing_hits": [
+            {
+              "way": 1387314536,
+              "tags": {
+                "crossing": "unmarked",
+                "crossing:markings": "no",
+                "footway": "crossing",
+                "highway": "footway",
+                "surface": "concrete"
+              },
+              "distance_m": 11.101888663796629,
+              "mesh_area_m2": 7.369813298922963
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "crossing_mesh_review": [
+    {
+      "path": "/World/Streets/Road_1416575067",
+      "area_m2": 8.953852467704564,
+      "overlaps_m2": {
+        "/World/Streets/Road_559971550": 0.0021340245092635957,
+        "/World/Streets/Road_889980335": 0.27358650605879437,
+        "/World/Streets/Road_915343997": 6.657677656784094
+      },
+      "nearby_sidewalks": [
+        {
+          "path": "/World/Streets/Road_559971550",
+          "distance_m": 0.0
+        },
+        {
+          "path": "/World/Streets/Road_1416575066",
+          "distance_m": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/World/Streets/Road_1387314536",
+      "area_m2": 7.369813298922963,
+      "overlaps_m2": {
+        "/World/Streets/Road_915343997": 6.362946400952448,
+        "/World/Streets/Road_1387314535": 0.032287990513465356,
+        "/World/Streets/Road_1416575066": 0.0019130623573125995
+      },
+      "nearby_sidewalks": [
+        {
+          "path": "/World/Streets/Road_1387314535",
+          "distance_m": 0.0
+        },
+        {
+          "path": "/World/Streets/Road_1416575066",
+          "distance_m": 0.0
+        }
+      ]
+    }
+  ]
+}

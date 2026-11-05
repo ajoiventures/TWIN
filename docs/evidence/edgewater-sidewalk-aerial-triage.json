@@ -1,0 +1,365 @@
+{
+  "source_month": "2025-01",
+  "aerial_registration_sha256": "8d662d6e20f4f5c4d0cad2053b3ebea5721563c68cabd523442d198541063c23",
+  "scope": "Visual triage of registered crops. Crossing context can include the opposite side or a nearby crossing and does not resolve the flagged sidewalk segment.",
+  "counts": {
+    "adjacent_sidewalk_reference": 2,
+    "shadow_or_coverage_hold": 2,
+    "marked_crossing_context": 29,
+    "driveway_or_unmarked_approach": 4,
+    "frontage_walk_visible": 2
+  },
+  "records": [
+    {
+      "id": "west_0000_0070",
+      "side": "west",
+      "start_m": 0,
+      "end_m": 70,
+      "tile": 1,
+      "disposition": "adjacent_sidewalk_reference",
+      "review_note": "Walk or approach is visible. See the separate nearby OSM reference and boundary review."
+    },
+    {
+      "id": "west_0205_0215",
+      "side": "west",
+      "start_m": 205,
+      "end_m": 215,
+      "tile": 1,
+      "disposition": "shadow_or_coverage_hold",
+      "review_note": "Shadow, tree canopy or crop limits prevent tracing the flagged west-side route confidently."
+    },
+    {
+      "id": "west_0505_0520",
+      "side": "west",
+      "start_m": 505,
+      "end_m": 520,
+      "tile": 2,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_0555_0570",
+      "side": "west",
+      "start_m": 555,
+      "end_m": 570,
+      "tile": 2,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_0605_0620",
+      "side": "west",
+      "start_m": 605,
+      "end_m": 620,
+      "tile": 2,
+      "disposition": "driveway_or_unmarked_approach",
+      "review_note": "Visible pavement opening at a driveway or side street. Verify sidewalk priority, surface and transitions."
+    },
+    {
+      "id": "west_0705_0725",
+      "side": "west",
+      "start_m": 705,
+      "end_m": 725,
+      "tile": 3,
+      "disposition": "shadow_or_coverage_hold",
+      "review_note": "Shadow, tree canopy or crop limits prevent tracing the flagged west-side route confidently."
+    },
+    {
+      "id": "west_0855_0875",
+      "side": "west",
+      "start_m": 855,
+      "end_m": 875,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_0950_0965",
+      "side": "west",
+      "start_m": 950,
+      "end_m": 965,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1030_1045",
+      "side": "west",
+      "start_m": 1030,
+      "end_m": 1045,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1110_1125",
+      "side": "west",
+      "start_m": 1110,
+      "end_m": 1125,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1210_1225",
+      "side": "west",
+      "start_m": 1210,
+      "end_m": 1225,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1315_1325",
+      "side": "west",
+      "start_m": 1315,
+      "end_m": 1325,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1410_1425",
+      "side": "west",
+      "start_m": 1410,
+      "end_m": 1425,
+      "tile": 5,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1525_1540",
+      "side": "west",
+      "start_m": 1525,
+      "end_m": 1540,
+      "tile": 5,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1615_1630",
+      "side": "west",
+      "start_m": 1615,
+      "end_m": 1630,
+      "tile": 5,
+      "disposition": "driveway_or_unmarked_approach",
+      "review_note": "Visible pavement opening at a driveway or side street. Verify sidewalk priority, surface and transitions."
+    },
+    {
+      "id": "west_1670_1685",
+      "side": "west",
+      "start_m": 1670,
+      "end_m": 1685,
+      "tile": 5,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_1760_1780",
+      "side": "west",
+      "start_m": 1760,
+      "end_m": 1780,
+      "tile": 6,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_2025_2035",
+      "side": "west",
+      "start_m": 2025,
+      "end_m": 2035,
+      "tile": 6,
+      "disposition": "driveway_or_unmarked_approach",
+      "review_note": "Visible pavement opening at a driveway or side street. Verify sidewalk priority, surface and transitions."
+    },
+    {
+      "id": "west_2170_2185",
+      "side": "west",
+      "start_m": 2170,
+      "end_m": 2185,
+      "tile": 7,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_2710_2730",
+      "side": "west",
+      "start_m": 2710,
+      "end_m": 2730,
+      "tile": 8,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_2740_2750",
+      "side": "west",
+      "start_m": 2740,
+      "end_m": 2750,
+      "tile": 8,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "west_2915_2916.57",
+      "side": "west",
+      "start_m": 2915,
+      "end_m": 2916.56556591232,
+      "tile": 8,
+      "disposition": "adjacent_sidewalk_reference",
+      "review_note": "Walk or approach is visible. See the separate nearby OSM reference and boundary review."
+    },
+    {
+      "id": "east_0160_0165",
+      "side": "east",
+      "start_m": 160,
+      "end_m": 165,
+      "tile": 1,
+      "disposition": "frontage_walk_visible",
+      "review_note": "Narrow light frontage strip is visible. Confirm both edges and driveway detail."
+    },
+    {
+      "id": "east_0185_0190",
+      "side": "east",
+      "start_m": 185,
+      "end_m": 190,
+      "tile": 1,
+      "disposition": "frontage_walk_visible",
+      "review_note": "Narrow light frontage strip is visible. Confirm both edges and driveway detail."
+    },
+    {
+      "id": "east_0260_0275",
+      "side": "east",
+      "start_m": 260,
+      "end_m": 275,
+      "tile": 1,
+      "disposition": "driveway_or_unmarked_approach",
+      "review_note": "Visible pavement opening at a driveway or side street. Verify sidewalk priority, surface and transitions."
+    },
+    {
+      "id": "east_0505_0520",
+      "side": "east",
+      "start_m": 505,
+      "end_m": 520,
+      "tile": 2,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_0860_0875",
+      "side": "east",
+      "start_m": 860,
+      "end_m": 875,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_0950_0965",
+      "side": "east",
+      "start_m": 950,
+      "end_m": 965,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1030_1045",
+      "side": "east",
+      "start_m": 1030,
+      "end_m": 1045,
+      "tile": 3,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1120_1135",
+      "side": "east",
+      "start_m": 1120,
+      "end_m": 1135,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1210_1225",
+      "side": "east",
+      "start_m": 1210,
+      "end_m": 1225,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1300_1315",
+      "side": "east",
+      "start_m": 1300,
+      "end_m": 1315,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1320_1325",
+      "side": "east",
+      "start_m": 1320,
+      "end_m": 1325,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1385_1400",
+      "side": "east",
+      "start_m": 1385,
+      "end_m": 1400,
+      "tile": 4,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1475_1495",
+      "side": "east",
+      "start_m": 1475,
+      "end_m": 1495,
+      "tile": 5,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1670_1685",
+      "side": "east",
+      "start_m": 1670,
+      "end_m": 1685,
+      "tile": 5,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1765_1775",
+      "side": "east",
+      "start_m": 1765,
+      "end_m": 1775,
+      "tile": 6,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1865_1880",
+      "side": "east",
+      "start_m": 1865,
+      "end_m": 1880,
+      "tile": 6,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    },
+    {
+      "id": "east_1970_1980",
+      "side": "east",
+      "start_m": 1970,
+      "end_m": 1980,
+      "tile": 6,
+      "disposition": "marked_crossing_context",
+      "review_note": "Marked crossing is visible in the intersection context. Verify the side-specific route and corner limits in the full-resolution crop."
+    }
+  ]
+}

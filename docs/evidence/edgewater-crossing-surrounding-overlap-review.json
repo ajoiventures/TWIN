@@ -1,0 +1,86 @@
+{
+  "preview_sha256": "7c5d806d42d1ddac95c987cfbf59933201adf005413f30e0f4d3f84c86d67bb6",
+  "overlaps": [
+    {
+      "pavement": "/World/Streets/Shoulders_11189849",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 9.900087064850387,
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "pavement": "/World/Streets/Road_11189849",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 6.300050612825849,
+      "material": "/World/DetailMaterials/Asphalt"
+    },
+    {
+      "pavement": "/World/Streets/Shoulders_47528845",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 4.053187043132339,
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "pavement": "/World/Streets/Shoulders_157704350",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 64.9495672174664,
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "pavement": "/World/Streets/Road_807089802",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 7.208259363911758,
+      "material": "/World/DetailMaterials/Asphalt"
+    },
+    {
+      "pavement": "/World/Streets/Shoulders_818435820",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 98.23092995839423,
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "pavement": "/World/Streets/Road_818435820",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 43.403318128012174,
+      "material": "/World/DetailMaterials/Asphalt"
+    },
+    {
+      "pavement": "/World/Streets/Road_889980335",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 14.125797353794745,
+      "material": "/World/DetailMaterials/Asphalt"
+    },
+    {
+      "pavement": "/World/Streets/Road_915343997",
+      "pedestrian": "/World/Streets/Road_1387314535",
+      "overlap_m2": 0.8116574276336846,
+      "material": "/World/DetailMaterials/Asphalt"
+    },
+    {
+      "pavement": "/World/Streets/Shoulders_1093670690",
+      "pedestrian": "/World/Streets/Road_559971550",
+      "overlap_m2": 5.058433709320503,
+      "material": "/World/DetailMaterials/Concrete"
+    },
+    {
+      "pavement": "/World/Streets/Road_1416575063",
+      "pedestrian": "/World/Streets/Road_1387314535",
+      "overlap_m2": 1.6914436389433853,
+      "material": "/World/DetailMaterials/Asphalt"
+    }
+  ],
+  "attempted_trim": {
+    "source_sha256": "7c5d806d42d1ddac95c987cfbf59933201adf005413f30e0f4d3f84c86d67bb6",
+    "paths": [
+      "/World/Streets/Road_915343997",
+      "/World/Streets/Road_889980335"
+    ],
+    "mask_sidewalks": [
+      "/World/Streets/Road_1387314535",
+      "/World/Streets/Road_559971550"
+    ],
+    "sampled_shared_points": 5968,
+    "maximum_sampled_height_difference_m": 1.2288618378430982e-06,
+    "status": "rejected_before_save",
+    "reason": "Retained face collapsed in float serialization"
+  }
+}

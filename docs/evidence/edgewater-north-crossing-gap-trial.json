@@ -1,0 +1,127 @@
+{
+  "geometry": {
+    "preview_sha256": "ffe886768168b595ac37b76413160d5403dade38e452247bfe745220a91394d0",
+    "parent_sha256": "684ebb355618b94ea50499d2f73e9d645fed55da3085fb2ce5e6b71f49345222",
+    "gap_area_m2": 0.0019467099336907268,
+    "saved_patch_m2": 0.0019467099336907268,
+    "outline_delta_m2": 0.0,
+    "overlap_with_original_concrete_m2": 0.0,
+    "triangles": 3,
+    "method": "fill_local_gap_between_touching_modeled_sidewalk_and_crossing_edges",
+    "path": "/World/Sidewalks/EastNorthJoinRepair"
+  },
+  "render": {
+    "captured_utc": "2026-11-06T21:34:53.452918-05:00",
+    "source_snapshot": "20261028T160543372334Z",
+    "camera": "/World/Cameras/ParkingApron2",
+    "proposal_layer": "north_parking_material_proposal_20261104.usda",
+    "requested_resolution": [
+      1920,
+      1080
+    ],
+    "scene": "scene\\edgewater_north_join_gap_render.usda",
+    "scene_sha256": "b6e31b3b7152f0e078b5e8cd8df7498ee8032b9e7c7072b950caefe669905aef",
+    "layer_hashes": {
+      "scene/north_parking_material_proposal_20261104.usda": "6520f87b12dda42db1ce19d49414b39982c6935aad3520ed29449963722de0c2",
+      "scene/edgewater_north_join_gap_render.usda": "b6e31b3b7152f0e078b5e8cd8df7498ee8032b9e7c7072b950caefe669905aef"
+    },
+    "image": "data\\renders\\20261107T023437Z\\ParkingApron2.png",
+    "image_sha256": "3b6a75cad2aa84786bfc8bcec5a661517ef1353c6b61c6be757185560d21533f",
+    "elapsed_seconds": 15.55,
+    "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+    "source_stage_saved": false,
+    "camera_frame_binding": {
+      "expected_world_transform": [
+        0.8479983040050878,
+        -0.5299989400031799,
+        0.0,
+        0.0,
+        0.4634234675401411,
+        0.7414775480642257,
+        0.4852316307185006,
+        0.0,
+        -0.2571722499368198,
+        -0.4114755998989117,
+        0.8743856497851873,
+        0.0,
+        -29.77545356750489,
+        -1130.7484130859373,
+        15.63395791945548,
+        0.9999999999999998
+      ],
+      "expected_view": [
+        0.8479983040050882,
+        0.46342346754014124,
+        -0.2571722499368199,
+        0.0,
+        -0.5299989400031802,
+        0.7414775480642259,
+        -0.41147559989891186,
+        0.0,
+        0.0,
+        0.4852316307185009,
+        0.8743856497851877,
+        -0.0,
+        -574.0459262195985,
+        844.6371138564673,
+        -486.60291045024064,
+        1.0000000000000002
+      ],
+      "captured_view": [
+        0.847998304005088,
+        0.46342346754014113,
+        -0.25717224993682,
+        0.0,
+        -0.5299989400031798,
+        0.7414775480642257,
+        -0.41147559989891164,
+        0.0,
+        -1.3877787807814454E-16,
+        0.48523163071850073,
+        0.8743856497851874,
+        0.0,
+        -574.0459262195981,
+        844.6371138564666,
+        -486.6029104502403,
+        1.0
+      ],
+      "captured_projection": [
+        2.481508138885564,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.411570024685448,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.000200040010983025,
+        -1.0,
+        0.0,
+        0.0,
+        0.1000200054915125,
+        0.0
+      ],
+      "maximum_view_matrix_error": 6.821210263296962E-13,
+      "numerical_tolerance": 0.001,
+      "capture_frame_number": 79,
+      "viewport_handle": 2,
+      "pre_switch_frame_number": null,
+      "matching_viewport_frames_before_capture": 60,
+      "render_product_path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "render_product_camera_targets": [
+        "/World/Cameras/ParkingApron2"
+      ]
+    },
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "48e4e7a9bcfdc3ceecf0b964f0561dbe6f3ffe4d5e849998ebb670a85714e3a9",
+      "pre_capture_rendered_frames": 60,
+      "post_capture_completion_app_updates": 60
+    }
+  },
+  "visual_disposition": "Dark wedge persists. Trial unaccepted."
+}

@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Edgewater pedestrian planning classifications — November 10, 2026
+
+Reconciled 39 corridor crossings with explicit planning classifications by ID and geometry. The matched rows distinguish 27 existing crossings considered for upgrades from 12 proposed new crossings. Eight contractor bus stop points match cached LYNX IDs and provide localized sidewalk review targets. The southbound Maury Road stop is flagged for a connection check. Actual City sidewalk and ramp feature classes and current engineering geometry remain open under #16, #17, #21 and #25. [Source review and per-feature ledger](PEDESTRIAN_SOURCE_EVIDENCE.md#edgewater-crossing-lifecycle-and-bus-stop-references--november-10-2026)
+
 ## Omniverse terrain and parking review — November 10, 2026
 
 Opened the latest combined stage in a dedicated Omniverse window and visually verified the Main Street overview. The new local entry layer explicitly sets Z-up and metres and uses the same 98 City Main Street boundary points as the connected scene. It brings together the historical USGS/FDEM terrain, dated aerial-based parking and the latest crossing correction. The opened stage contains 51 rear-parking pavement meshes covering 9,000.03 m² in plan, including 7,172.79 m² beyond the connected scene's parking footprint. [Coverage, launch and remaining acceptance](MAIN_STREET_GROUND_AND_CANOPY.md#open-the-terrain-and-parking-review)

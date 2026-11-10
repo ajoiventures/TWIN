@@ -1,0 +1,565 @@
+{
+  "checked_date": "2026-11-10",
+  "source_snapshot": "20261028T160543372334Z",
+  "scope_sha256": "5e217793251e7cebec34cd786344c660a82945a77b90721e295b69270056bc89",
+  "cached_gtfs_stops_sha256": "f354aef5d243030c16e0e89138dda914f61bfcece2b87d206fecf0875428363e",
+  "catalog_receipts_sha256": {
+    "candidates.json": "50aefedbc788d846a7fc62fb28fffcd791691bc73fe833f1e56df58adb3d65e6",
+    "followup.json": "6ebbb4f0d01422136d9c457340e753cefa3ee3227fcf790f615143d6b2aa2e38",
+    "local_features.json": "ba7be0ec74e4719dff91ad421ca005e35614738a062a901ae349d668deb6ad21",
+    "responses.json": "57d76af67b0491733c63930a248d360e3e0d462102d7bca9dd6eec69d051622b",
+    "source_join.json": "ad60bba66751db5c4db82e776caf250b90aa2f4b4c9d4d2f5c3a7b4e2f743f7b"
+  },
+  "results": {
+    "crossing_upgrades": {
+      "query_url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/Task_Force_Meeting__Prioritization_WFL1/FeatureServer/2/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CProject_ID%2CCrosswalk_Status%2CUpdateCriteria%2CCrosswalk_Type%2Clength_ft&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 45,
+      "exact_focus_corridor_count": 27,
+      "source_status_values": {
+        "Existing Crosswalk": 27
+      }
+    },
+    "new_crossings": {
+      "query_url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/Task_Force_Meeting__Prioritization_WFL1/FeatureServer/19/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CProject_ID%2CCrosswalk_Status%2CUpdateCriteria%2CCrosswalk_Type%2Clength_ft&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 44,
+      "exact_focus_corridor_count": 12,
+      "source_status_values": {
+        "Proposed Crosswalk": 12
+      }
+    },
+    "sidewalk_gaps": {
+      "query_url": "https://services.arcgis.com/04HiymDgLlsbhaV4/arcgis/rest/services/OC_Sidewalk_Prioritization_Bundles/FeatureServer/0/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CROAD_NAME%2CJURIS%2CCONSTRUCT%2CSIDEWALKS&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 4,
+      "exact_focus_corridor_count": 0
+    },
+    "sidewalk_bundles": {
+      "query_url": "https://services.arcgis.com/04HiymDgLlsbhaV4/arcgis/rest/services/OC_Sidewalk_Prioritization_Bundles/FeatureServer/1/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CROAD_NAME%2CFROM_ROAD%2CTO_ROAD%2CGAP_TYPE&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 2,
+      "exact_focus_corridor_count": 0
+    },
+    "sidewalk_plan": {
+      "query_url": "https://services.arcgis.com/04HiymDgLlsbhaV4/arcgis/rest/services/OC_Sidewalk_Prioritization_Bundles/FeatureServer/2/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CROAD_NAME%2CPROJECT_FROM%2CPROJECT_TO%2CPROJECT_DESCRIPTION%2CREFERENCE_PROJECT_SOURCE&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 1,
+      "exact_focus_corridor_count": 0
+    },
+    "bus_stop_context": {
+      "query_url": "https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/Orlando_Ped_Plan_Task_Force_Meeting__July__WFL1/FeatureServer/3/query?where=1%3D1&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=OBJECTID%2CDateLtChng%2CBSActive%2CStrName%2CNrXSt%2CBSName%2CRtDir%2CSdwlkPresn%2CSdwlkWdth%2CSdwlkCondi%2CSdwlkConn%2CCrbCtsNear&returnGeometry=true&outSR=4326&f=json",
+      "bbox_count": 15,
+      "exact_focus_corridor_count": 8
+    },
+    "existing_crosswalks": {
+      "feature_retrieval_status": "ArcGIS application error 400 for spatial or ID feature query",
+      "bbox_ids": [
+        1887,
+        630,
+        3081,
+        3245,
+        5555
+      ]
+    },
+    "lynx_ada_reverification": {
+      "bbox_count": 0,
+      "query_url": "https://services2.arcgis.com/rp0R3ANPwsAdELpS/arcgis/rest/services/ADAStops_Reverification_20260410/FeatureServer/0/query?outSR=4326&returnGeometry=true&f=json&geometry=-81.398%2C28.5602%2C-81.379%2C28.5858&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&where=1%3D1&outFields=OBJECTID%2CTrapeze_Stop_ID%2CBSName%2CBSActive%2CDiscrepancy_Category"
+    }
+  },
+  "corridor_bus_stop_reference_points": [
+    {
+      "source_object_id": 2813,
+      "trapeze_stop_id": "4217",
+      "intersection": "RUGBY ST",
+      "direction": "N",
+      "station_m": 1467.22,
+      "distance_to_spine_m": 7.24,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:51:39+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & RUGBY ST",
+        "offset_m": 0.61
+      }
+    },
+    {
+      "source_object_id": 2704,
+      "trapeze_stop_id": "4225",
+      "intersection": "RUGBY ST",
+      "direction": "S",
+      "station_m": 1502.75,
+      "distance_to_spine_m": 11.29,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:51:18+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & RUGBY ST",
+        "offset_m": 0.7
+      }
+    },
+    {
+      "source_object_id": 1335,
+      "trapeze_stop_id": "4224",
+      "intersection": "BRYN MAWR ST",
+      "direction": "S",
+      "station_m": 1634.44,
+      "distance_to_spine_m": 11.25,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:46:54+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & BRYN MAWR ST",
+        "offset_m": 0.69
+      }
+    },
+    {
+      "source_object_id": 3836,
+      "trapeze_stop_id": "5731",
+      "intersection": "W WINTER PARK ST",
+      "direction": "N",
+      "station_m": 1663.4,
+      "distance_to_spine_m": 8.1,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:54:54+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & W WINTER PARK ST",
+        "offset_m": 0.63
+      }
+    },
+    {
+      "source_object_id": 4050,
+      "trapeze_stop_id": "4223",
+      "intersection": "W KING ST",
+      "direction": "S",
+      "station_m": 1899.61,
+      "distance_to_spine_m": 10.3,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:55:35+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & W KING ST",
+        "offset_m": 0.62
+      }
+    },
+    {
+      "source_object_id": 526,
+      "trapeze_stop_id": "4219",
+      "intersection": "W HAZEL ST",
+      "direction": "N",
+      "station_m": 1961.31,
+      "distance_to_spine_m": 8.65,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:44:22+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGEWATER DR & W HAZEL ST",
+        "offset_m": 0.65
+      }
+    },
+    {
+      "source_object_id": 190,
+      "trapeze_stop_id": "4220",
+      "intersection": "MAURY RD",
+      "direction": "S",
+      "station_m": 2491.73,
+      "distance_to_spine_m": 12.88,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "NO",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:43:18+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGWATER DR & MAURY RD",
+        "offset_m": 0.67
+      }
+    },
+    {
+      "source_object_id": 2935,
+      "trapeze_stop_id": "2114",
+      "intersection": "W PAR ST",
+      "direction": "N",
+      "station_m": 2510.54,
+      "distance_to_spine_m": 9.62,
+      "reported_sidewalk_present": "YES",
+      "reported_width_category": "3-5FT",
+      "reported_sidewalk_connection": "YES",
+      "reported_curb_cuts_near": "YES",
+      "record_modified_utc": "2025-08-20T17:52:02+00:00",
+      "cached_gtfs_stop_match": {
+        "name": "EDGWATER DR & W PAR ST",
+        "offset_m": 0.8
+      }
+    }
+  ],
+  "accepted_for_scene_geometry": false,
+  "draft_crosswalk_reconciliation": {
+    "may_draft_sha256": "6bfbbe9ba692556a3983bc1e62b637e0c4324a4f17ad56d3aa998a9c2a3c385a",
+    "max_allowed_delta_m": 0.001,
+    "matched_status_counts": {
+      "Existing Crosswalk": 27,
+      "Proposed Crosswalk": 12
+    },
+    "rows": [
+      {
+        "may_draft_object_id": 391,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 123,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 512,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 188,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 514,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 190,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 631,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 271,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 1888,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 915,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 2427,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1140,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3079,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1297,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3246,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1432,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3716,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1804,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3731,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1811,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3732,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1812,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3735,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1815,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3842,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1901,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3844,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1903,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3847,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1906,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3855,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1914,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3862,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1921,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3863,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1922,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3869,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1928,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3870,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1929,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3871,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1930,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3872,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1931,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3873,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1932,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3877,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1936,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3878,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1937,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3879,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1938,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 3880,
+        "may_draft_pedplan_code": 1,
+        "prioritization_layer": 2,
+        "prioritization_project_id": 1939,
+        "prioritization_status": "Existing Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5985,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3822,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5987,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3824,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5988,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3825,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5989,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3826,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5990,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3827,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5991,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3828,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 5992,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 3829,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 6291,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 4128,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 6292,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 4129,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 6294,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 4131,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 6295,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 4132,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      },
+      {
+        "may_draft_object_id": 6296,
+        "may_draft_pedplan_code": 2,
+        "prioritization_layer": 19,
+        "prioritization_project_id": 4133,
+        "prioritization_status": "Proposed Crosswalk",
+        "geometry_hausdorff_delta_m": 0.0,
+        "verified_current_existing_condition": false
+      }
+    ]
+  }
+}

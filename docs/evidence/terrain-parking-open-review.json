@@ -1,0 +1,69 @@
+{
+  "review_stage": "scene/college_park_terrain_parking_review.usda",
+  "review_sha256": "4fb7d31105433999334a5985ad08dc6edc3d5c2c8526b261e2cd308f7d03c6bd",
+  "composition_errors": 0,
+  "used_layers": 101,
+  "up_axis": "Z",
+  "meters_per_unit": 1,
+  "ground": {
+    "triangle_count": 286902,
+    "min_navd88_m": 23.247141361236572,
+    "max_navd88_m": 33.75816297531128
+  },
+  "parking": {
+    "baseline_path_count": 5,
+    "review_path_count": 51,
+    "baseline_material_counts": {
+      "Asphalt": 5,
+      "WhitePaint": 5
+    },
+    "review_material_counts": {
+      "Asphalt": 48,
+      "WhitePaint": 43,
+      "NorthTile07LightPaving": 3
+    },
+    "baseline_union_m2": 1827.2364431829744,
+    "review_union_m2": 9000.02558691184,
+    "additional_footprint_m2": 7172.789316399763,
+    "baseline_paths_absent": []
+  },
+  "city_boundary": {
+    "prim_path": "/World/StudyBoundaries/MainStreet",
+    "source_objectid": 3,
+    "composed_vertex_count": 98,
+    "unchanged_world_coordinates": true
+  },
+  "verified_on": "2026-11-10",
+  "source_snapshot": "20261028T160543372334Z",
+  "terrain_source": {
+    "collection": "FL_Peninsular_FDEM_Orange_2018",
+    "acquisition_interval": [
+      "2018-12-04",
+      "2019-04-12"
+    ],
+    "native_pixel_size_us_survey_ft": 2.5,
+    "vertical_datum": "NAVD88",
+    "scene_z_origin_navd88_m": 30
+  },
+  "usgs_catalog_check": {
+    "endpoint": "https://tnmaccess.nationalmap.gov/api/v1/products",
+    "bbox_wgs84": [
+      -81.398,
+      28.5602,
+      -81.379,
+      28.5858
+    ],
+    "dem_1m_total": 3,
+    "lidar_point_cloud_total": 6,
+    "returned_project_names": [
+      "FL_Peninsular_2018_D18",
+      "FL_Peninsular_FDEM_2018_D19_DRRA"
+    ]
+  },
+  "native_review": {
+    "initial_camera": "/World/Cameras/MainStreetOverview",
+    "overview_visually_rendered": true,
+    "alternate_camera_changed_label_without_observed_image_change": true,
+    "production_promotion": false
+  }
+}

@@ -2,6 +2,10 @@
 
 The full ticket plan remains active. This checkpoint reports implemented and reviewed evidence, not completion of the whole digital twin.
 
+## Omniverse terrain and parking review — November 10, 2026
+
+Opened the latest combined stage in a dedicated Omniverse window and visually verified the Main Street overview. The new local entry layer explicitly sets Z-up and metres and uses the same 98 City Main Street boundary points as the connected scene. It brings together the historical USGS/FDEM terrain, dated aerial-based parking and the latest crossing correction. The opened stage contains 51 rear-parking pavement meshes covering 9,000.03 m² in plan, including 7,172.79 m² beyond the connected scene's parking footprint. [Coverage, launch and remaining acceptance](MAIN_STREET_GROUND_AND_CANOPY.md#open-the-terrain-and-parking-review)
+
 ## Edgewater parking terrain and pavement continuity — November 4, 2026 UTC
 
 The saved corridor inventory measured 7,137.73 m² of net added rear parking pavement before the later west marked-bay and north corner fills. The south cross-street trim removes 27.87 m² of duplicate asphalt and preserves both adjacent parking connections. The matched Omniverse frame shows continuous pavement through the trim. Full boundaries, current markings and the north material remain open under the parking and streetscape work. [Ground and parking review](MAIN_STREET_GROUND_AND_CANOPY.md) · [Matched render evidence](evidence/edgewater-south-cross-street-matched-render.json)

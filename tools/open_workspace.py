@@ -11,7 +11,7 @@ from pxr import Gf
 ROOT=Path(__file__).resolve().parents[1]
 REVIEW_ONLY=os.environ.get('TWIN_REVIEW_ONLY')=='1'
 sys.path.insert(0,str(ROOT/'tools'))
-from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_session_camera, create_workspace_stage, SceneRefresh, government_preview, normalize_boundary_switches
+from workspace_evidence import inspector_text, inherited_evidence, set_session_visibility, visible, save_manual_only, available_display_groups, should_open_project, is_project_stage, registry_index, SessionConfidenceFilter, CONFIDENCE_CATEGORIES, set_viewport_camera, create_workspace_stage, SceneRefresh, government_preview, normalize_boundary_switches
 from selection_bridge import read_state as bridge_state, publish as bridge_publish, load_context as bridge_context, selection_identity, counterpart_paths, acknowledge, SelectionError
 project_window=None
 startup_task=None
@@ -77,7 +77,7 @@ async def open_workspace():
     if viewport and opened_new:
         for candidate in ['MainStreetOverview','WellesleyEvidence','WellesleyReview','TreeLinedEdgewater','EdgewaterCorridor']:
             if ctx.get_stage().GetPrimAtPath('/World/Cameras/'+candidate):
-                set_session_camera(ctx.get_stage(),viewport,'/World/Cameras/'+candidate)
+                set_viewport_camera(ctx.get_stage(),viewport,'/World/Cameras/'+candidate)
                 break
         carb.settings.get_settings().set_bool(f'/persistent/app/viewport/{viewport.id}/guide/grid/visible',False)
     try:
@@ -125,7 +125,8 @@ async def open_workspace():
     def view(name):
         viewport=get_active_viewport()
         stage=ctx.get_stage()
-        if viewport and stage:set_session_camera(stage,viewport,'/World/Cameras/'+name)
+        if not set_viewport_camera(stage,viewport,'/World/Cameras/'+name):
+            status.text='Project camera is unavailable in this view. Use the viewport camera menu.'
     def toggle(path,shown):
         try:
             if not set_session_visibility(ctx.get_stage(),path,shown):status.text='Display group is unavailable: '+path

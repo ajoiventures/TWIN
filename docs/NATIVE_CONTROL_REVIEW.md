@@ -43,3 +43,9 @@ An isolated native session showed explicit errors for a missing required base la
 [Missing asset](evidence/native-startup-missing-asset.jpg), [missing dataset](evidence/native-startup-missing-dataset.jpg), [restored native scene](evidence/native-startup-restored.jpg). The existing source-outage check separately verifies that failed refresh preserves the active snapshot pointer. Complete-ticket acceptance is recorded in the independent review matrix when finalized; visual production quality remains outside this controls acceptance.
 
 Independent final review passed all five original acceptance criteria and three government controls: [ticket 12 acceptance matrix](evidence/native-ticket12-review.json). This accepts editor controls and recovery, not architectural realism, survey accuracy or the full project.
+
+## Camera switching regression — November 10, 2026
+
+The terrain review opened at Main Street Overview, but a second camera selection changed the viewport label while the delivered view stayed fixed. The startup helper had authored the render product's camera relationship on the session layer. That opinion was stronger than the viewport's subsequent camera choice. The shared helper now delegates camera selection to Kit on the transient workspace root and restores the caller's edit target. The local terrain review launcher uses the same helper.
+
+An isolated RTX fixture used the startup helper to select camera A, then the native viewport API to select B and A. The delivered view matched each requested pose at frames 1, 4 and 8. The composed render-product target followed each selection, no camera relationship was authored on the session layer, and the saved fixture hash remained unchanged. Twenty workspace tests passed. The already-open full terrain review still uses its original session setup. [Native frame verification](evidence/native-viewport-camera-binding-20261110.json)

@@ -82,6 +82,8 @@ A five-camera batch produced identical PNG bytes for two different camera poses.
 
 `tools/render_review.py` now requires 60 consecutive advancing delivered frames matching the requested view, checks the actual capture delegate's view again, records frame number/view/projection/handle, rejects nonfinite or mismatched matrices, and rejects identical PNGs from different poses. The controlled switch produces distinct actual views with numerical view-matrix errors below 0.000000000001. This binds camera pose, not shader convergence or scene quality; a camera named TreeLinedEdgewater actually framed a generic awning close-up. Review the pixels as well as their provenance. Original failed captures remain preserved locally.
 
+The November 10 native regression also exposed a USD layer-strength issue. An explicit camera relationship on the session layer pinned the rendered view while the menu showed a new requested camera. The workspace camera helper now delegates to Kit through the transient root. Check that the composed render-product relationship and delivered view both follow a second choice. [Isolated A–B–A fixture](evidence/native-viewport-camera-binding-20261110.json)
+
 ## L-012: Reuse the producer's semantic validator for derived consumers
 
 Date: November 3, 2026. Status: adopted for the footprint and parcel-disposition consumers. Owner: GIS Data Engineer. Independent reviewers: footprint_review and parcel_review.

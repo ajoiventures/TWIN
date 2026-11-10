@@ -111,26 +111,16 @@ def create_workspace_stage(source_path):
     return stage
 
 
-def set_session_camera(stage,viewport,camera_path):
-    """Mirror the viewport binding in session; transient project root absorbs Kit writes."""
-    from pxr import Sdf,Usd,UsdGeom
-    if not stage or not viewport:return False
-    camera=stage.GetPrimAtPath(camera_path)
-    if not camera or not camera.IsA(UsdGeom.Camera):return False
-    product_path=viewport.render_product_path
-    if product_path:
-        product=stage.GetPrimAtPath(product_path);session=stage.GetSessionLayer()
-        if product:
-            Sdf.CreatePrimInLayer(session,product.GetPath())
-            for name in ('camera','resolution'):
-                prop=product.GetProperty(name)
-                if prop and not session.GetPropertyAtPath(prop.GetPath()):
-                    stack=prop.GetPropertyStack()
-                    if stack:Sdf.CopySpec(stack[0].layer,prop.GetPath(),session,prop.GetPath())
-    with Usd.EditContext(stage,stage.GetSessionLayer()):
-        if product_path and stage.GetPrimAtPath(product_path):
-            stage.GetPrimAtPath(product_path).CreateRelationship('camera').SetTargets([camera_path])
-        viewport.camera_path=camera_path
+def set_viewport_camera(stage, viewport, camera_path):
+    """Let Kit own the binding on the transient root so its camera menu can switch it."""
+    from pxr import Usd, UsdGeom
+
+    if not stage or not viewport or not stage.GetRootLayer().anonymous:
+        return False
+    if not stage.GetPrimAtPath(camera_path).IsA(UsdGeom.Camera):
+        return False
+    with Usd.EditContext(stage, stage.GetRootLayer()):
+        viewport.camera_path = camera_path
     return True
 
 def should_open_project(stage):

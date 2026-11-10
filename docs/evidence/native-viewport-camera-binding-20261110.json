@@ -1,0 +1,32 @@
+{
+  "observations": [
+    {
+      "camera": "/World/A",
+      "shortcut": true,
+      "frame": 1,
+      "view_error": 0.0
+    },
+    {
+      "camera": "/World/B",
+      "shortcut": false,
+      "frame": 4,
+      "view_error": 0.0
+    },
+    {
+      "camera": "/World/A",
+      "shortcut": false,
+      "frame": 8,
+      "view_error": 0.0
+    }
+  ],
+  "fixture_unchanged": true,
+  "saved_fixture_sha256": "19fd97c5322189da8f999bf8b905610e63ebefe6a8c84c1b97daf8803d7a71e0",
+  "observed_date": "2026-11-10",
+  "runtime": "Kit 110.4.0 with RTX",
+  "scope": "Isolated fixture with two cameras, native rendered viewport API and transient project root",
+  "tested_helper_sha256": "77c124452c15fe28df296c961c34e19e86a91e574c4f6e43150fb19f53044c04",
+  "local_probe_sha256": "26958a5f9c886a3657c5c2abcc72c5968f1014726aafacc4f58263cd928295f4",
+  "render_product_targets_followed_requested_cameras": true,
+  "session_camera_relationship_authored": false,
+  "full_terrain_window_reopened": false
+}

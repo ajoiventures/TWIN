@@ -5,7 +5,7 @@ for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'):os.envir
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.dependencies'));sys.path.insert(0,str(ROOT/'tools'))
 from pxr import Sdf,Usd,UsdGeom,UsdLux
-from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_session_camera,SceneRefresh,government_preview
+from workspace_evidence import inherited_evidence,inspector_text,set_session_visibility,save_manual_only,available_display_groups,should_open_project,is_project_stage,registry_index,evidence_category,SessionConfidenceFilter,CONFIDENCE_CATEGORIES,create_workspace_stage,set_viewport_camera,SceneRefresh,government_preview
 from workspace_evidence import normalize_boundary_switches,preflight_workspace_stage,create_review_stage
 import json
 
@@ -217,14 +217,25 @@ class WorkspaceEvidenceTests(unittest.TestCase):
             stage=create_workspace_stage(path)
             self.assertTrue(is_project_stage(stage,[path]));self.assertFalse(should_open_project(stage))
             class Viewport:
-                render_product_path='/Render/Product'
                 @property
                 def camera_path(self):return None
                 @camera_path.setter
                 def camera_path(self,path):
                     with Usd.EditContext(stage,stage.GetRootLayer()):stage.GetPrimAtPath('/Render/Product').GetRelationship('camera').SetTargets([path])
-            set_session_camera(stage,Viewport(),'/World/B')
-            self.assertEqual(stage.GetPrimAtPath('/Render/Product').GetRelationship('camera').GetTargets(),[Sdf.Path('/World/B')])
+            viewport = Viewport()
+            session = stage.GetSessionLayer()
+            stage.SetEditTarget(session)
+            session_before = session.ExportToString()
+            self.assertTrue(set_viewport_camera(stage, viewport, '/World/B'))
+            camera = stage.GetPrimAtPath('/Render/Product').GetRelationship('camera')
+            self.assertEqual(camera.GetTargets(), [Sdf.Path('/World/B')])
+            # Kit's camera menu writes its next choice on the same transient root.
+            viewport.camera_path = '/World/A'
+            self.assertEqual(camera.GetTargets(), [Sdf.Path('/World/A')])
+            self.assertEqual(session.ExportToString(), session_before)
+            self.assertEqual(stage.GetEditTarget().GetLayer(), session)
+            self.assertFalse(set_viewport_camera(stage, viewport, '/World/VisibleGeometry'))
+            self.assertFalse(set_viewport_camera(source, viewport, '/World/B'))
             self.assertEqual(source.GetRootLayer().ExportToString(),before);self.assertFalse(source.GetRootLayer().dirty)
 
     def test_staged_refresh_undo_preserves_manual_scenario_and_saved_sources(self):

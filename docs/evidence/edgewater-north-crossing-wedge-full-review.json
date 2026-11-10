@@ -1,0 +1,160 @@
+{
+  "patch": {
+    "preview_sha256": "2dc8444f9bb7cab73e8d7a70c5d40d1893588138fe9eaafbdec52130a3ec0a1d",
+    "parent_sha256": "684ebb355618b94ea50499d2f73e9d645fed55da3085fb2ce5e6b71f49345222",
+    "gap_area_m2": 0.032277661565426136,
+    "saved_patch_m2": 0.03227765450719744,
+    "outline_delta_m2": 7.771444397226898E-07,
+    "overlap_with_original_concrete_m2": 3.8504312205290235E-07,
+    "triangles": 3,
+    "method": "fill_local_gap_between_touching_modeled_sidewalk_and_crossing_edges",
+    "path": "/World/Sidewalks/EastNorthWedge"
+  },
+  "trim": {
+    "preview_sha256": "b8fd237e0504028330e29211e0b27d90abe61adde8164c572133c6ccfa8cad17",
+    "parent_sha256": "2dc8444f9bb7cab73e8d7a70c5d40d1893588138fe9eaafbdec52130a3ec0a1d",
+    "source_audit_sha256": "e1c7ebbdb34fe9d5b3c1a63461cd24fdaf5cd90811cb50bd0eb15f72608b0999",
+    "discarded_collapsed_triangles": [
+      {
+        "source_face": 228,
+        "surface_area_m2": 3.105425404619482E-07
+      },
+      {
+        "source_face": 229,
+        "surface_area_m2": 2.3025655712529947E-10
+      }
+    ],
+    "sample_spacing_m": 0.01,
+    "grade_checks": [
+      {
+        "aisle": "/World/Streets/Road_915343997",
+        "crossing": "/World/Sidewalks/EastNorthWedge",
+        "samples": 321,
+        "max_delta_m": 6.731155361983099E-07,
+        "shared_m2": 0.0322406824428711
+      }
+    ],
+    "combined_outline_delta_m2": 3.271865938188779E-06,
+    "results": [
+      {
+        "path": "/World/Streets/Road_915343997",
+        "overlap_before_m2": 0.0322406824428711,
+        "overlap_after_m2": 0.0,
+        "removed_m2": 0.032243910303805266
+      }
+    ]
+  },
+  "render": {
+    "captured_utc": "2026-11-10T12:07:29.618414-05:00",
+    "source_snapshot": "20261028T160543372334Z",
+    "camera": "/World/Cameras/ParkingApron2",
+    "proposal_layer": "north_parking_material_proposal_20261104.usda",
+    "requested_resolution": [
+      1920,
+      1080
+    ],
+    "scene": "scene\\edgewater_north_wedge_full_render.usda",
+    "scene_sha256": "3c9645cb6c3bf277f26eaf60d6e99ec991b3aa8626c608bc9eaa1240d2749faf",
+    "layer_hashes": {
+      "scene/north_parking_material_proposal_20261104.usda": "6520f87b12dda42db1ce19d49414b39982c6935aad3520ed29449963722de0c2",
+      "scene/edgewater_north_wedge_full_render.usda": "3c9645cb6c3bf277f26eaf60d6e99ec991b3aa8626c608bc9eaa1240d2749faf"
+    },
+    "image": "data\\renders\\20261110T170721Z\\ParkingApron2.png",
+    "image_sha256": "21c85fa87b6670f28967f63a01da1761c87b06f7055cb85c684521c718725b8c",
+    "elapsed_seconds": 8.53,
+    "quality": "Actual Kit render for visual inspection; not visual sign-off or a performance benchmark",
+    "source_stage_saved": false,
+    "camera_frame_binding": {
+      "expected_world_transform": [
+        0.8479983040050878,
+        -0.5299989400031799,
+        0.0,
+        0.0,
+        0.4634234675401411,
+        0.7414775480642257,
+        0.4852316307185006,
+        0.0,
+        -0.2571722499368198,
+        -0.4114755998989117,
+        0.8743856497851873,
+        0.0,
+        -29.77545356750489,
+        -1130.7484130859373,
+        15.63395791945548,
+        0.9999999999999998
+      ],
+      "expected_view": [
+        0.8479983040050882,
+        0.46342346754014124,
+        -0.2571722499368199,
+        0.0,
+        -0.5299989400031802,
+        0.7414775480642259,
+        -0.41147559989891186,
+        0.0,
+        0.0,
+        0.4852316307185009,
+        0.8743856497851877,
+        -0.0,
+        -574.0459262195985,
+        844.6371138564673,
+        -486.60291045024064,
+        1.0000000000000002
+      ],
+      "captured_view": [
+        0.847998304005088,
+        0.46342346754014113,
+        -0.25717224993682,
+        0.0,
+        -0.5299989400031798,
+        0.7414775480642257,
+        -0.41147559989891164,
+        0.0,
+        -1.3877787807814454E-16,
+        0.48523163071850073,
+        0.8743856497851874,
+        0.0,
+        -574.0459262195981,
+        844.6371138564666,
+        -486.6029104502403,
+        1.0
+      ],
+      "captured_projection": [
+        2.481508138885564,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.411570024685448,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.000200040010983025,
+        -1.0,
+        0.0,
+        0.0,
+        0.1000200054915125,
+        0.0
+      ],
+      "maximum_view_matrix_error": 6.821210263296962E-13,
+      "numerical_tolerance": 0.001,
+      "capture_frame_number": 90,
+      "viewport_handle": 2,
+      "pre_switch_frame_number": null,
+      "matching_viewport_frames_before_capture": 60,
+      "render_product_path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "render_product_camera_targets": [
+        "/World/Cameras/ParkingApron2"
+      ]
+    },
+    "render_stage": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "root_mode": "transient_precomposed",
+      "capture_tool_sha256": "48e4e7a9bcfdc3ceecf0b964f0561dbe6f3ffe4d5e849998ebb670a85714e3a9",
+      "pre_capture_rendered_frames": 60,
+      "post_capture_completion_app_updates": 60
+    }
+  }
+}

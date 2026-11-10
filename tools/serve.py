@@ -251,6 +251,12 @@ class Handler(BaseHTTPRequestHandler):
     packet['geometry_crs']='EPSG:32617'
     packet['map_crs']='EPSG:32617'
     return self.send(packet)
+   if path=='/api/v1/edgewater_crossing_review':
+    from pedestrian_discovery import edgewater_crossing_review
+    try:packet=edgewater_crossing_review(ROOT)
+    except (ValueError,KeyError,TypeError,StopIteration) as exc:
+     raise SnapshotMismatch('Edgewater crossing review does not match the current source files') from exc
+    return self.send(packet)
    if path=='/api/v1/building_footprints':
     from build_map_footprints import read_packet
     from pyproj import Transformer

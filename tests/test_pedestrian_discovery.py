@@ -1,7 +1,11 @@
-import sys, tempfile, unittest
+import hashlib, json, sys, tempfile, unittest
 from pathlib import Path
+from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from pedestrian_discovery import PublicClient, inspect_source, normalize_sample, query_params, candidate_geometry, valid_candidate_geometry, metadata_definitions
+from pedestrian_discovery import (
+    PublicClient, inspect_source, normalize_sample, query_params, candidate_geometry,
+    valid_candidate_geometry, metadata_definitions, edgewater_crossing_review, CROSSING_REVIEW, MAY_DRAFT,
+)
 
 class PedestrianDiscoveryTests(unittest.TestCase):
     def test_internal_source_is_never_contacted(self):
@@ -56,5 +60,44 @@ class PedestrianDiscoveryTests(unittest.TestCase):
     def test_xml_preserves_definition_without_invented_units(self):
         definitions=metadata_definitions('<metadata><attr><attrlabl>Width</attrlabl><attrdef>Raw field</attrdef><attrmfrq>daily</attrmfrq></attr></metadata>')
         self.assertEqual(definitions['width']['definition'],'Raw field');self.assertNotIn('unit',definitions['width'])
+
+    def test_review_classifies_only_matched_rows_and_rejects_changed_draft(self):
+        from build_edgewater_focus_corridor import OUT
+
+        scope = {'source_snapshot': 'test', 'features': [{
+            'id': 'edgewater_focus_corridor', 'geometry': {'type': 'Polygon',
+            'coordinates': [[[-81.40, 28.56], [-81.38, 28.56], [-81.38, 28.58],
+                             [-81.40, 28.58], [-81.40, 28.56]]]}}]}
+        draft = {'source_id': 'crosswalk_may2026', 'accepted_for_modeling': False, 'features': [
+            {'id': str(object_id), 'geometry': {'type': 'LineString',
+             'coordinates': [[-81.39, 28.57], [-81.389, 28.57]]},
+             'properties': {'source_object_id': object_id, 'source_pedplan_code': 2}}
+            for object_id in (1, 2)
+        ]}
+        with tempfile.TemporaryDirectory() as directory, patch('build_edgewater_focus_corridor.validate', return_value=scope):
+            root = Path(directory)
+
+            def write(path, value):
+                path = root / path
+                path.parent.mkdir(parents=True, exist_ok=True)
+                content = json.dumps(value).encode()
+                path.write_bytes(content)
+                return hashlib.sha256(content).hexdigest()
+
+            write(CROSSING_REVIEW, {'source_snapshot': 'test', 'accepted_for_scene_geometry': False,
+                'checked_date': '2026-11-10', 'scope_sha256': write(OUT, scope),
+                'draft_crosswalk_reconciliation': {'may_draft_sha256': write(MAY_DRAFT, draft),
+                    'matched_status_counts': {'Existing Crosswalk': 0, 'Proposed Crosswalk': 1},
+                    'rows': [{'may_draft_object_id': 1, 'may_draft_pedplan_code': 2, 'prioritization_layer': 19,
+                              'prioritization_status': 'Proposed Crosswalk', 'prioritization_project_id': 8,
+                              'geometry_hausdorff_delta_m': 0, 'verified_current_existing_condition': False}]}})
+            packet = edgewater_crossing_review(root)
+            self.assertEqual([f['properties']['planning_classification'] for f in packet['features']],
+                             ['proposed_new', 'unresolved'])
+            self.assertFalse(packet['accepted_for_scene_geometry'])
+            draft['features'][0]['geometry']['coordinates'][0][0] = -81.395
+            write(MAY_DRAFT, draft)
+            with self.assertRaisesRegex(ValueError, 'exact reviewed scope and draft'):
+                edgewater_crossing_review(root)
 
 if __name__=='__main__':unittest.main()

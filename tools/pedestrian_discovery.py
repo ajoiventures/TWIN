@@ -9,6 +9,86 @@ SAFE_FIELDS = ('OBJECTID','UID','UID_updated','UID_Updated','UID_Updated022226',
  'Crosswalk_Type','Width','length','PedPlan','SidewalkReq','Orientation',
  'ROADNAME','ROADWAY','SIDEWALK','SURF_WIDTH','SPEED','AADT')
 STATUS_FIELDS = ('PAINTED','FADED','PedPlan','SidewalkReq','SIDEWALK')
+CROSSING_REVIEW = 'docs/evidence/edgewater-pedestrian-catalog-review.json'
+MAY_DRAFT = 'data/transport/crosswalk_candidates.geojson'
+PRIORITIZATION_SERVICE = ('https://services.arcgis.com/4qIOeADCgonipFEW/arcgis/rest/services/'
+                          'Task_Force_Meeting__Prioritization_WFL1/FeatureServer')
+
+
+def edgewater_crossing_review(root):
+    """Project the reviewed May draft without inferring a status for unmatched rows."""
+    from build_edgewater_focus_corridor import OUT, validate
+    from pyproj import Transformer
+    from shapely import transform
+    from shapely.geometry import mapping, shape
+
+    scope_bytes = (root / OUT).read_bytes()
+    draft_bytes = (root / MAY_DRAFT).read_bytes()
+    receipt = json.loads((root / CROSSING_REVIEW).read_bytes())
+    reconciliation = receipt['draft_crosswalk_reconciliation']
+    scope = validate(root)
+    if (scope != json.loads(scope_bytes) or scope['source_snapshot'] != receipt['source_snapshot']
+            or hashlib.sha256(scope_bytes).hexdigest() != receipt['scope_sha256']
+            or hashlib.sha256(draft_bytes).hexdigest() != reconciliation['may_draft_sha256']
+            or receipt['accepted_for_scene_geometry'] is not False):
+        raise ValueError('Crossing review requires the exact reviewed scope and draft')
+    draft = json.loads(draft_bytes)
+    if draft['source_id'] != 'crosswalk_may2026' or draft['accepted_for_modeling'] is not False:
+        raise ValueError('Unexpected crossing draft source')
+    rows = reconciliation['rows']
+    matches = {row['may_draft_object_id']: row for row in rows}
+    if len(matches) != len(rows):
+        raise ValueError('Duplicate crossing review identity')
+
+    categories = {
+        (2, 'Existing Crosswalk', 1): 'existing_under_upgrade_study',
+        (19, 'Proposed Crosswalk', 2): 'proposed_new',
+    }
+    corridor = shape(next(f['geometry'] for f in scope['features'] if f['id'] == 'edgewater_focus_corridor'))
+    projection = Transformer.from_crs(4326, 32617, always_xy=True).transform
+    features = []
+    seen = set()
+    counts = dict.fromkeys((*categories.values(), 'unresolved'), 0)
+    for feature in draft['features']:
+        geometry = shape(feature['geometry'])
+        if not geometry.intersects(corridor):
+            continue
+        props = feature['properties']
+        object_id = props['source_object_id']
+        if object_id in seen:
+            raise ValueError('Duplicate crossing draft identity')
+        seen.add(object_id)
+        code = props['source_pedplan_code']
+        review = None
+        category = 'unresolved'
+        if object_id in matches:
+            row = matches[object_id]
+            layer = row['prioritization_layer']
+            category = categories.get((layer, row['prioritization_status'], code))
+            if (category is None or code != row['may_draft_pedplan_code']
+                    or not 0 <= row['geometry_hausdorff_delta_m'] < 0.001
+                    or row['verified_current_existing_condition'] is not False):
+                raise ValueError('Inconsistent crossing review row')
+            review = {'layer_url': f'{PRIORITIZATION_SERVICE}/{layer}',
+                      'project_id': row['prioritization_project_id'],
+                      'source_status': row['prioritization_status']}
+        counts[category] += 1
+        features.append({
+            'type': 'Feature', 'id': feature['id'],
+            'geometry': mapping(transform(geometry, projection, interleaved=False)),
+            'properties': {'source_object_id': object_id, 'source_pedplan_code': code,
+                           'planning_classification': category, 'prioritization_reference': review},
+        })
+    if not matches.keys() <= seen:
+        raise ValueError('Reviewed crossings are missing from the focus corridor')
+    status_counts = reconciliation['matched_status_counts']
+    if (counts['existing_under_upgrade_study'] != status_counts['Existing Crosswalk']
+            or counts['proposed_new'] != status_counts['Proposed Crosswalk']):
+        raise ValueError('Crossing review counts do not match the receipt')
+    return {'type': 'FeatureCollection', 'features': features, 'source_snapshot': scope['source_snapshot'],
+            'map_crs': 'EPSG:32617', 'geometry_crs': 'EPSG:32617',
+            'evidence_checked_date': receipt['checked_date'], 'classification_counts': counts,
+            'accepted_for_scene_geometry': False}
 
 def write_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
